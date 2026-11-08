@@ -302,6 +302,12 @@ Example Filter Policy:
 - Automatic failover
 - Encryption (at-rest with KMS, in-transit with TLS)
 
+### Amazon SWF (Simple Workflow Service)
+- Older workflow service that coordinates tasks across distributed components and keeps workflow state
+- **Pull model**: you write *workers* that poll for tasks and *deciders* that choose the next step. Workers can run on EC2 or on premises
+- Supports long-running tasks and steps that need a human
+- AWS now recommends **Step Functions** for most new workflows. Step Functions pushes tasks to AWS services and needs far less code. On the exam, pick SWF only when the question names SWF-specific pieces such as deciders and workers. Otherwise pick Step Functions
+
 ---
 
 ## 6. Amazon Kinesis

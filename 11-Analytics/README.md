@@ -1282,6 +1282,13 @@ Dashboard shows only relevant region data per user
 
 ---
 
+### Video transcoding: Elastic Transcoder (discontinued) and MediaConvert
+- **Amazon Elastic Transcoder** converted media files in S3 to formats for phones, tablets and browsers. AWS discontinued it on 13 November 2025
+- **AWS Elemental MediaConvert** is the replacement: file-based video transcoding with modern codecs, at a lower per-minute price
+- Exam pattern: "convert uploaded videos in S3 to multiple formats" means MediaConvert, typically triggered by an S3 event through Lambda or EventBridge
+
+---
+
 ## 7. Data Lake Architecture on AWS
 
 ### What is a Data Lake?

@@ -297,6 +297,11 @@ Monitoring and management services help you track performance, detect issues, an
 - Performance counters
 - Windows registry editor
 
+### AWS OpsWorks (retired)
+- Ran managed Chef and Puppet for configuration management (OpsWorks Stacks, OpsWorks for Chef Automate, OpsWorks for Puppet Enterprise)
+- **End of life**: AWS has retired OpsWorks and removed it from the documentation. Older practice questions may still name it as the answer for "existing Chef or Puppet recipes"
+- Current replacement for configuration management: **Systems Manager** (State Manager, Run Command, Automation). State Manager can apply existing Chef recipes with the `AWS-ApplyChefRecipes` document
+
 ---
 
 ## 5. AWS Trusted Advisor

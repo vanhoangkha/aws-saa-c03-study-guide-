@@ -138,6 +138,8 @@ AWS storage services for SAA-C03 exam: S3, EBS, EFS, Storage Gateway, and Snow F
 - Subsequent = only changes
 - Can copy across regions
 - Can create AMI from snapshot
+- Automate creation, retention and deletion with **Amazon Data Lifecycle Manager**: policies target volumes or instances by tag, run on a schedule, keep snapshots or EBS-backed AMIs for a set count or age, and can copy them to other Regions or accounts. Default policies cover every volume or instance in a Region that has no recent backup.
+- For backups across many services (EBS, RDS, DynamoDB, EFS and others) use **AWS Backup** instead
 
 **Encryption:**
 - At-rest and in-transit encryption

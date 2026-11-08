@@ -42,6 +42,13 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 - **Spread**: Max 7/AZ, critical apps
 - **Partition**: Distributed apps (Hadoop, Kafka)
 
+### Hibernate
+- Saves the instance's RAM to the EBS root volume, then stops the instance. On start, RAM is reloaded and running processes resume. The instance keeps its ID, private IP and Elastic IP.
+- Use it to pre-warm instances that take a long time to boot or to fill memory caches.
+- Requirements: hibernation enabled at launch, an encrypted EBS root volume large enough to hold the RAM, and RAM under 150 GiB (Linux) or at most 16 GiB (Windows).
+- Billing: no instance charge while hibernated, only EBS storage (including the saved RAM) and any Elastic IP.
+- Stop clears RAM. Hibernate keeps it. Both keep EBS data. Neither keeps instance store data.
+
 ---
 
 ## 2. Auto Scaling
@@ -137,6 +144,11 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 - Simple VPS
 - Fixed monthly pricing
 - Pre-configured templates
+
+### Amazon WorkSpaces
+- Managed virtual desktops (Windows or Linux) streamed to users
+- Replaces on-premises VDI. Integrates with AWS Directory Service and existing Active Directory
+- Billed monthly or hourly per desktop
 
 ---
 
