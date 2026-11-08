@@ -19,13 +19,13 @@ AWS offers a range of database services for different use cases. This module cov
 - Automated provisioning, patching, backups, recovery
 - Multi-AZ for disaster recovery
 - Read Replicas for scalability
-- Supports: **PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, Aurora**
+- Supports: **PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, Db2, Aurora**
 
 ### RDS Features
 
 **Automated Backups**
-- Daily full backup during maintenance window
-- Transaction logs backed up every 5 minutes
+- Daily storage-volume snapshot during the **backup window** (not the maintenance window)
+- Transaction logs backed up every 5 minutes (latest restorable time is typically within 5 minutes)
 - Retention: **1 to 35 days** (default 7)
 - Point-in-Time Recovery (PITR)
 - Backups deleted when you delete RDS instance (can retain)
@@ -54,7 +54,7 @@ AWS offers a range of database services for different use cases. This module cov
 
 ### RDS Read Replicas (Scaling Reads)
 - **Asynchronous replication** (eventually consistent)
-- Up to **15 Read Replicas**
+- Up to **15 Read Replicas** (MySQL, MariaDB, PostgreSQL, SQL Server); Oracle up to 5; Db2 up to 3
   - Within AZ
   - Cross-AZ
   - Cross-Region
@@ -71,7 +71,7 @@ AWS offers a range of database services for different use cases. This module cov
   - Master encrypted → replicas encrypted
   - Can't encrypt existing unencrypted DB (snapshot → encrypt → restore)
 - **Encryption in transit**: SSL/TLS
-- **IAM Authentication**: For MySQL and PostgreSQL
+- **IAM Authentication**: For MariaDB, MySQL, and PostgreSQL (not Oracle, SQL Server, or Db2)
 - **Security Groups**: Control network access
 - **No SSH access** (except RDS Custom)
 
@@ -149,13 +149,13 @@ AWS offers a range of database services for different use cases. This module cov
 - **< 1 minute** to promote secondary region (disaster recovery)
 
 **Aurora Machine Learning**
-- Integration with **SageMaker** and **Comprehend**
+- Integration with **SageMaker AI**, **Comprehend**, and **Bedrock**
 - Predictions using SQL interface
 - Use cases: Fraud detection, sentiment analysis, product recommendations
 
 **Aurora Backtrack**
-- **Restore to any point in time** without backups
-- Available for MySQL-compatible Aurora
+- **Rewind the cluster in place** to a prior point in time without restoring from a backup (target window up to 72 hours)
+- Available for Aurora MySQL only; must be enabled when the cluster is created (or restored)
 
 ---
 
@@ -199,7 +199,7 @@ AWS offers a range of database services for different use cases. This module cov
 
 ### DynamoDB Read/Write Capacity Modes
 
-**Provisioned Mode (default)**
+**Provisioned Mode**
 - Specify RCU (Read Capacity Units) and WCU (Write Capacity Units)
 - Plan capacity beforehand
 - Pay for provisioned capacity
@@ -207,11 +207,12 @@ AWS offers a range of database services for different use cases. This module cov
 - **1 RCU** = 1 strongly consistent read/sec (or 2 eventually consistent) for item up to 4 KB
 - **1 WCU** = 1 write/sec for item up to 1 KB
 
-**On-Demand Mode**
+**On-Demand Mode (default and recommended)**
 - Automatically scales
 - No capacity planning
-- Pay per request (more expensive)
+- Pay per request (can cost more than well-utilized provisioned capacity for steady traffic)
 - Good for **unpredictable workloads**
+- Switch provisioned to on-demand up to 4 times per rolling 24 hours; on-demand to provisioned any time
 - **Higher cost per request** than well-utilized provisioned capacity
 
 ### DynamoDB Advanced Features
@@ -219,7 +220,7 @@ AWS offers a range of database services for different use cases. This module cov
 **DynamoDB Accelerator (DAX)**
 - **In-memory cache** for DynamoDB
 - **Microsecond latency**
-- No application code changes
+- API-compatible with DynamoDB: swap the DynamoDB client for the DAX client (minimal code changes)
 - 5-minute TTL (default)
 - Multi-AZ (at least 3 nodes recommended for production; 1-2 node clusters are not fault-tolerant)
 - Solves Hot Key problem
@@ -234,7 +235,8 @@ AWS offers a range of database services for different use cases. This module cov
   - Cross-region replication
 - Can be read by:
   - Lambda (Event Source Mapping)
-  - Kinesis Data Streams (newer)
+  - Kinesis Client Library (DynamoDB Streams Kinesis Adapter)
+- Alternative: **Kinesis Data Streams for DynamoDB** (separate CDC option, retention up to 1 year)
 
 **Global Tables**
 - **Multi-region, multi-active** replication
@@ -256,7 +258,7 @@ AWS offers a range of database services for different use cases. This module cov
 - Restore to new table
 
 *Point-In-Time Recovery (PITR)*:
-- Continuous backups for last 35 days
+- Continuous backups; recovery period configurable from 1 to 35 days (default 35)
 - Restore to any point in time
 - Must be enabled
 
@@ -271,12 +273,13 @@ AWS offers a range of database services for different use cases. This module cov
 *Global Secondary Index (GSI)*:
 - **Alternative Partition Key + optional Sort Key**
 - Can be created after table creation
-- Up to **20 GSIs** per table
+- Up to **20 GSIs** per table (default quota, adjustable)
 - Has own RCU/WCU
 
 ### DynamoDB Transactions
 - **ACID** transactions
 - Coordinated all-or-nothing operations
+- Up to 100 items or 4 MB per transaction
 - **Read Modes**: Eventual, Strong, Transactional
 - **Write Modes**: Standard, Transactional
 - Consumes 2x RCU/WCU
@@ -295,7 +298,7 @@ AWS offers a range of database services for different use cases. This module cov
 
 ### What is ElastiCache?
 - Managed **in-memory database**
-- **Redis** or **Memcached**
+- **Valkey**, **Redis OSS**, or **Memcached** (the Redis notes below also apply to Valkey)
 - High performance, low latency
 - Reduce load on databases for read-intensive workloads
 - Make application **stateless**
@@ -358,22 +361,22 @@ AWS offers a range of database services for different use cases. This module cov
 - **Columnar storage**
 - Massively Parallel Query Execution (MPP)
 - **Faster than Athena** for complex queries
-- Pay per node provisioned
+- Provisioned clusters: pay per node; Redshift Serverless: pay for capacity used
 - Integrated with BI tools (Tableau, PowerBI, QuickSight)
 
 ### Redshift Architecture
 - **Leader Node**: Query planning, result aggregation
 - **Compute Nodes**: Execute queries, send results to leader
 - **Node Types**:
-  - Dense Compute (dc2): High performance (previous generation)
-  - Dense Storage (ds2): Large datasets (previous generation)
-  - RA3: Managed storage, separate compute and storage
+  - RA3: Managed storage, separate compute and storage (recommended)
+  - Dense Compute (dc2): Previous generation; deprecated in 2025, migrate to RA3 or Serverless
+  - Dense Storage (ds2): Previous generation
 
 ### Redshift Spectrum
 - Query data in **S3 without loading**
 - Massively parallel processing
 - Use existing Redshift cluster
-- Support for structured and unstructured data
+- Supports structured and semi-structured data (for example CSV, Parquet, ORC, JSON)
 
 ### Redshift Features
 
@@ -404,7 +407,7 @@ AWS offers a range of database services for different use cases. This module cov
 - **MongoDB-compatible** document database
 - Fully managed
 - Storage auto-scales to 128 TiB (256 TiB on engine version 8.0 and later)
-- **3 AZ replication**
+- **6 copies across 3 AZs**; up to 15 read replicas
 - Millions of requests/second
 - Similar to Aurora for MongoDB
 
@@ -439,7 +442,7 @@ AWS offers a range of database services for different use cases. This module cov
 ## 9. Amazon QLDB (Quantum Ledger Database)
 
 ### What is QLDB?
-- **Status (November 2026)**: Amazon QLDB has been discontinued.
+- **Status (November 2026)**: Amazon QLDB reached end of support on 31 July 2025; AWS recommends Aurora PostgreSQL for ledger-style workloads. QLDB is not in the SAA-C03 v1.1 in-scope service list.
 - **Ledger database**
 - **Immutable** system of record
 - Cryptographically verifiable
@@ -452,11 +455,10 @@ AWS offers a range of database services for different use cases. This module cov
 ## 10. Amazon Timestream
 
 ### What is Timestream?
-- **Status**: Amazon Timestream for LiveAnalytics closed to new customers on 20 June 2025. AWS recommends Amazon Timestream for InfluxDB for new customers.
+- **Status**: Amazon Timestream for LiveAnalytics closed to new customers on 20 June 2025. AWS recommends Amazon Timestream for InfluxDB for new customers. Timestream is not in the SAA-C03 v1.1 in-scope service list.
 - **Time series database**
 - Serverless, auto-scaling
 - Store and analyze trillions of events/day
-- 1000x faster, 1/10th cost vs relational databases
 - Built-in analytics functions
 - Use cases: IoT, operational applications, real-time analytics
 
@@ -568,6 +570,32 @@ AWS offers a range of database services for different use cases. This module cov
 - [Amazon DynamoDB Documentation](https://docs.aws.amazon.com/dynamodb/)
 - [Amazon ElastiCache Documentation](https://docs.aws.amazon.com/elasticache/)
 - [Database Comparison Guide](https://aws.amazon.com/products/databases/)
+
+---
+
+## References
+
+Pages used to fact-check this module:
+
+- [Amazon RDS FAQs (backups, retention)](https://aws.amazon.com/rds/faqs/)
+- [RDS for SQL Server read replicas (up to 15)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.html)
+- [RDS read replica limits for Oracle and Db2 (CreateDBInstanceReadReplica)](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance-read-replica.html)
+- [RDS storage volumes (64 TiB primary, 256 TiB with additional volumes)](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.ModifyingExisting.html)
+- [RDS IAM database authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html)
+- [Aurora quotas and size limits](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html)
+- [Aurora global database configuration requirements](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.configuration.requirements.html)
+- [Aurora replication lag FAQ](https://docs.aws.amazon.com/rds/latest/auroraextendedcontent/aurora-faq-availability-and-durability.html)
+- [Aurora machine learning](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-ml.html)
+- [DynamoDB on-demand capacity mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html)
+- [DynamoDB capacity mode switching](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/CostOptimization_TableCapacityMode.html)
+- [DynamoDB quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ServiceQuotas.html)
+- [DynamoDB PITR recovery period (UpdateContinuousBackups)](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateContinuousBackups.html)
+- [DynamoDB Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html)
+- [Kinesis Data Streams for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html)
+- [ElastiCache engine comparison](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SelectEngine.html)
+- [Redshift Multi-AZ deployments](https://docs.aws.amazon.com/redshift/latest/mgmt/overview-multi-az.html)
+- [DocumentDB quotas](https://docs.aws.amazon.com/documentdb/latest/devguide/limits.html)
+- [Timestream for LiveAnalytics availability change](https://docs.aws.amazon.com/timestream/latest/developerguide/AmazonTimestreamForLiveAnalytics-availability-change.html)
 
 ---
 

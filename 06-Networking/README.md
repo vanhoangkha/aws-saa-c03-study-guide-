@@ -54,11 +54,12 @@ Networking is a critical component of AWS Solutions Architecture. This module co
 #### NAT Gateway
 - **Managed NAT service**
 - Allow private subnet instances to access internet
-- **Created in specific AZ**
-- Uses Elastic IP
+- **Zonal mode**: created in a specific AZ (one per AZ for HA)
+- **Regional mode** (since November 2025): one NAT gateway that expands automatically to AZs with workloads, no public subnet required
+- Public NAT gateway uses Elastic IP (private NAT gateways do not)
 - **Pay per hour + data processed**
 - **5 Gbps bandwidth** (scales automatically to 100 Gbps)
-- High availability within AZ (create in multiple AZs for redundancy)
+- Zonal NAT gateway is highly available within its AZ (create one per AZ, or use regional mode)
 
 **NAT Gateway vs NAT Instance**:
 | Feature | NAT Gateway | NAT Instance |
@@ -184,7 +185,7 @@ pl-xxxxx (S3 prefix)  vpce-xxxxx
 
 ### AWS PrivateLink
 - Securely expose service to thousands of VPCs
-- **Service VPC**: Network Load Balancer
+- **Service VPC**: Network Load Balancer (or Gateway Load Balancer for appliances)
 - **Customer VPC**: Interface Endpoint (ENI)
 - Does not require VPC peering, IGW, NAT, route tables
 - **Best way to expose service to other VPCs**
@@ -195,7 +196,7 @@ pl-xxxxx (S3 prefix)  vpce-xxxxx
 - **Regional resource** (can peer across regions)
 - Works with Direct Connect, VPN
 - Route tables for controlling traffic flow
-- Supports **IP multicast** (only AWS service)
+- Supports **IP multicast**
 
 ---
 
@@ -208,7 +209,8 @@ pl-xxxxx (S3 prefix)  vpce-xxxxx
 - **Quick to set up** (minutes)
 
 **Components**:
-- **Virtual Private Gateway (VGW)**: VPN concentrator on AWS side
+- **Virtual Private Gateway (VGW)** or **Transit Gateway**: VPN termination on AWS side
+- Up to 1.25 Gbps per tunnel (Large Bandwidth Tunnels up to 5 Gbps on Transit Gateway or Cloud WAN only)
 - **Customer Gateway (CGW)**: Physical device/software on customer side
 
 **Limitations**:
@@ -236,7 +238,6 @@ pl-xxxxx (S3 prefix)  vpce-xxxxx
 - **Managed OpenVPN** service
 - Connect individual users to AWS or on-premises
 - **Secure TLS connection**
-- Uses AWS PrivateLink
 
 ---
 
@@ -306,9 +307,13 @@ Record 3: 10% traffic (weight 10)
 #### 6. Geoproximity Routing
 - Route based on **geographic location** of users and resources
 - **Bias** to shift traffic (1 to 99 = expand, -1 to -99 = shrink)
-- Must use **Route 53 Traffic Flow**
+- Can be created as standard records; **Route 53 Traffic Flow** adds the visual map editor
 
-#### 7. Multi-Value Answer Routing
+#### 7. IP-Based Routing
+- Route based on the **client source IP (CIDR blocks you upload)**
+- Use case: route specific ISPs or networks to specific endpoints
+
+#### 8. Multi-Value Answer Routing
 - Return **multiple values/resources** (up to 8)
 - Health checks for each value
 - **Not a substitute for ELB** (client-side load balancing)
@@ -319,7 +324,8 @@ Record 3: 10% traffic (weight 10)
   - Endpoint monitoring (IP or domain)
   - Calculated health checks (combine results)
   - CloudWatch alarms (private resources)
-- Health checkers from **multiple locations worldwide** (default 15)
+- Health checkers from **multiple locations worldwide** (set of locations is configurable)
+- Failure threshold: default 3 consecutive checks (1-10)
 - Interval: 30 seconds (standard) or 10 seconds (fast)
 - Integration with CloudWatch alarms
 
@@ -392,13 +398,13 @@ Record 3: 10% traffic (weight 10)
 - **Signed URL**: Individual file access
 - **Signed Cookie**: Multiple files access
 - Attach policy (URL expiration, IP ranges, trusted signers)
-- Use trusted key groups (recommended) or root-account CloudFront key pairs (not recommended)
+- Signer: **trusted key groups** (recommended) or a root-account CloudFront key pair (legacy, not recommended)
 
 **CloudFront vs S3 Pre-Signed URL**:
 | CloudFront Signed URL | S3 Pre-Signed URL |
 |----------------------|-------------------|
 | Access to path (multiple files) | Access to individual file |
-| Account-wide key pairs | IAM principal signing |
+| Trusted key groups (public keys) | IAM principal signing |
 | Filter by IP, date, expiration | Limited lifetime |
 | Leverage caching | Direct S3 access |
 
@@ -426,7 +432,7 @@ Record 3: 10% traffic (weight 10)
 | **Triggers** | Viewer request/response | All 4 CloudFront events |
 | **Execution** | Edge location | Regional edge cache |
 | **Max duration** | < 1 ms | 30 seconds |
-| **Max memory** | 2 MB | 128 MB - 10 GB |
+| **Max memory** | 2 MB | Same as Lambda quotas (128 MB - 10 GB) |
 | **Use case** | Lightweight, high-scale | CPU-intensive, network access |
 | **Pricing** | $0.10 per million | $0.60 per million + duration |
 
@@ -554,6 +560,28 @@ Record 3: 10% traffic (weight 10)
 - [Route 53 Developer Guide](https://docs.aws.amazon.com/route53/)
 - [CloudFront Developer Guide](https://docs.aws.amazon.com/cloudfront/)
 - [VPC example: private subnets with NAT](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-example-private-subnets-nat.html)
+
+---
+
+## References
+
+Pages used to fact-check this module:
+
+- [Regional NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html)
+- [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html)
+- [VPC Flow Logs to Amazon Data Firehose](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-firehose.html)
+- [Create a service powered by AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html)
+- [AWS PrivateLink FAQs (endpoint bandwidth)](https://aws.amazon.com/privatelink/faqs/)
+- [Transit Gateway quotas](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-quotas.html)
+- [Site-to-Site VPN quotas](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-limits.html)
+- [Direct Connect FAQs (connection speeds)](https://aws.amazon.com/directconnect/faqs/)
+- [Route 53: choosing a routing policy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html)
+- [Route 53 geoproximity routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html)
+- [CloudFront signers: trusted key groups](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html)
+- [CloudFront and Lambda@Edge quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html)
+- [AWS points of presence](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/points-of-presence.html)
+- [Global Accelerator FAQs (failover)](https://aws.amazon.com/global-accelerator/faqs/)
+- [AWS WAF rate-based rule evaluation window](https://docs.aws.amazon.com/sdk-for-kotlin/api/latest/wafv2/aws.sdk.kotlin.services.wafv2.model/-rate-based-statement/evaluation-window-sec.html)
 
 ---
 
