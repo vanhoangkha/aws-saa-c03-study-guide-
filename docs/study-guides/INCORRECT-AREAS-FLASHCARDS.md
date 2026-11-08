@@ -563,6 +563,8 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 
 **Key Point**: ECMP requires Transit Gateway + BGP
 
+**Also**: Large Bandwidth Tunnels give up to 5 Gbps per tunnel (standard is 1.25 Gbps), only on Transit Gateway or Cloud WAN attachments
+
 ---
 
 ### Card 24: Private NAT Gateway Placement

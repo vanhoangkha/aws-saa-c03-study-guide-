@@ -977,13 +977,15 @@ AWS Reserves 5 IPs per Subnet:
 ├────────────────┼──────────────┼─────────────────┤
 │ Connection     │ Over internet│ Private fiber   │
 │ Setup Time     │ Minutes      │ Weeks to months │
-│ Bandwidth      │ Up to 1.25Gb │ 1-400 Gbps      │
+│ Bandwidth      │ 1.25/5 Gbps  │ 1-400 Gbps      │
 │ Cost           │ Low          │ High            │
 │ Encryption     │ Built-in     │ Need VPN/MACsec │
 │ Latency        │ Variable     │ Low, consistent │
 │ Use Case       │ Quick, backup│ Dedicated, heavy│
 └────────────────┴──────────────┴─────────────────┘
 ```
+
+VPN bandwidth is per tunnel: 1.25 Gbps standard, up to 5 Gbps with Large Bandwidth Tunnels (Transit Gateway or Cloud WAN attachments only).
 
 **Exam Tip**: VPN for quick/cheap, Direct Connect for consistent/high-bandwidth
 
@@ -2488,13 +2490,13 @@ Always Free:
   • DynamoDB: 25 GB storage, 25 WCU, 25 RCU
   • SNS: 1M publishes
   • CloudWatch: 10 custom metrics
+  • CloudFront: 1 TB data transfer out/month
 
 12 Months Free (accounts created before 15 July 2025;
 newer accounts get the credit-based Free Tier instead):
   • EC2: 750 hours/month t2.micro/t3.micro
   • S3: 5 GB standard storage
   • RDS: 750 hours/month db.t2.micro
-  • CloudFront: 50 GB data transfer out
 ```
 
 ### Data Transfer Cost Rules

@@ -671,7 +671,7 @@ GROUP BY
 
 **Reserved Instances:**
 - Long-running clusters
-- Up to 75% discount
+- Up to 72% discount (EC2 Reserved Instances)
 - 1 or 3-year commitment
 
 **Spot Instances:**
@@ -1053,7 +1053,6 @@ Crawler (S3) → Trigger → ETL Job 1 → Trigger → ETL Job 2 → Trigger →
 - Amazon Athena
 - Amazon S3
 - Amazon OpenSearch
-- AWS IoT Analytics
 
 **Third-Party Sources:**
 - Salesforce

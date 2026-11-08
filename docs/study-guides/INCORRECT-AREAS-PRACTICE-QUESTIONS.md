@@ -1118,6 +1118,8 @@ Total throughput: 5 Gbps (4 x 1.25)
 
 **Key Point**: ECMP requires **Transit Gateway** (VGW doesn't support it)
 
+**Update**: Site-to-Site VPN now also offers Large Bandwidth Tunnels (up to 5 Gbps per tunnel, 1.25 Gbps is the standard), only for VPN connections attached to Transit Gateway or Cloud WAN.
+
 **Exam Tip**: "Increase VPN throughput" + "cost-effective" = Multiple VPNs + Transit Gateway + ECMP
 
 ---

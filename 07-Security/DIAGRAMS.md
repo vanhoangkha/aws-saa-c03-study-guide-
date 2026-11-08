@@ -386,7 +386,7 @@ graph TB
     end
     
     subgraph Features_Group["Key Features"]
-        Features["Continuous scanning<br/>Risk scoring<br/>Remediation guidance<br/>Integration with CI/CD<br/>Pay per assessment"]
+        Features["Continuous scanning<br/>Risk scoring<br/>Remediation guidance<br/>Integration with CI/CD<br/>Pay per resource scanned"]
     end
     
     EC2 --> Inspector

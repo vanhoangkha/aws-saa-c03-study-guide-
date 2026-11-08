@@ -326,7 +326,7 @@ Example Filter Policy:
 #### Amazon Data Firehose (formerly Kinesis Data Firehose)
 - **Load streaming data** into destinations
 - **Near real-time**: buffer interval 0-900 seconds (zero buffering delivers within seconds)
-- **Destinations**: S3, Redshift, ElasticSearch, Splunk, HTTP
+- **Destinations**: S3, Redshift, OpenSearch, Splunk, HTTP
 - Automatic scaling, no shards
 - Can transform data with Lambda
 - **Use case**: ETL, data lakes
@@ -355,7 +355,7 @@ Example Filter Policy:
 - Managed **GraphQL** API service
 - Real-time data synchronization
 - Offline capabilities for mobile apps
-- **Data sources**: DynamoDB, Lambda, HTTP, RDS, ElasticSearch
+- **Data sources**: DynamoDB, Lambda, HTTP, RDS, OpenSearch
 
 ### AppSync Features
 - **GraphQL**: Single endpoint for flexible queries

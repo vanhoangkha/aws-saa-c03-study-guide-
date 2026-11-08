@@ -190,7 +190,7 @@ ALERTS:
 ├── Actual     → threshold already crossed
 └── Forecasted → predicted to cross (ML-based)
 
-NOTIFY: Email, SNS (automation), Chatbot (Slack/Chime)
+NOTIFY: Email, SNS (automation), Amazon Q Developer in chat applications, formerly AWS Chatbot (Slack/Teams)
 
 BUDGET ACTIONS:
 ├── Apply an IAM policy (e.g. deny new EC2 launches)

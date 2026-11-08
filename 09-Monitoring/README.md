@@ -310,12 +310,13 @@ Monitoring and management services help you track performance, detect issues, an
 ### What is Trusted Advisor?
 - **Best practice recommendations**
 - Real-time guidance
-- **Five categories**:
+- **Six categories**:
   1. **Cost Optimization**: Reduce costs
   2. **Performance**: Improve performance
   3. **Security**: Close security gaps
   4. **Fault Tolerance**: Increase availability
   5. **Service Limits**: Check service quotas
+  6. **Operational Excellence**: Operate at scale
 
 ### Support Plans
 

@@ -505,7 +505,7 @@ A company needs to query 5 years of CloudTrail logs to investigate security inci
 A. Download all logs from S3 and use local tools  
 B. Use Amazon Athena to query CloudTrail logs in S3  
 C. Use CloudTrail Lake to query logs with SQL  
-D. Import logs into Elasticsearch  
+D. Import logs into Amazon OpenSearch Service  
 
 <details>
 <summary>Show Answer</summary>
@@ -518,7 +518,7 @@ D. Import logs into Elasticsearch
 - Partitioning the table by account, Region and date keeps queries fast and cheap
 - CloudTrail Lake (option C) also queries events with SQL (up to 10 years of retention), but it has been closed to new customers since 31 May 2026. It remains valid only for accounts already using it, and older practice questions may still name it
 - Option A is inefficient and not scalable
-- Elasticsearch adds unnecessary complexity
+- OpenSearch adds unnecessary complexity
 
 **References:** Querying CloudTrail logs with Amazon Athena, CloudTrail Lake availability change
 </details>

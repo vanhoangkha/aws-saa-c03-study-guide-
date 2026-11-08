@@ -612,7 +612,7 @@ D. AWS Glue
 **Explanation:**
 - OpenSearch Service (formerly Elasticsearch) is designed for log analytics, search, and visualization
 - Provides near real-time indexing and querying
-- Integrates with Kibana for dashboards
+- Integrates with OpenSearch Dashboards (successor to Kibana) for dashboards
 - Athena is for ad-hoc SQL queries, not real-time search
 - Redshift is for data warehousing
 - Glue is for ETL, not search/visualization

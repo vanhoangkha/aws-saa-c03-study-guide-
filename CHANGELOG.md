@@ -21,6 +21,7 @@ First release of this repository, based on the MIT-licensed study guide by Chath
 - GitHub Pages builds from `master` and publishes under `/aws-saa-c03-study-guide-/`.
 
 ### Fixed
+- Second fact-check pass against current AWS documentation: EventBridge 1 MB events, 400 Gbps Direct Connect, 5 Gbps VPN tunnels, Database Savings Plans, six Trusted Advisor categories, Inspector pricing, CloudFront 1 TB free tier, trusted key groups, WAF rate-based windows, EBS quotas, OpenSearch naming, Amazon Q Developer in chat applications, and SQL Server read replicas (15).
 - Reviewed every module, practice test review, flashcard set and reinforcement question against current AWS documentation and corrected about 470 technical errors, including:
   - Exam facts: domain weights 30/26/24/20, scaled passing score 720.
   - Quotas: 15 RDS read replicas, NAT gateway 100 Gbps and 55,000 connections per destination, SQS 1 MiB messages, KMS request quotas and rotation periods.

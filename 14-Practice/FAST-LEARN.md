@@ -276,8 +276,8 @@ VPC:
 ├── Security groups/instance: 5
 
 EBS:
-├── Snapshots: Unlimited
-├── Volumes: 5,000/region
+├── Snapshots: 100,000/region (adjustable)
+├── Volumes: no count quota; storage quota per volume type (e.g. 50 TiB gp3 in most regions)
 
 ROUTE 53:
 ├── Hosted zones: 500
@@ -372,7 +372,7 @@ TRAP 6: Similar sounding services
  Security Group DENY rules (they don't exist)
  VPC Peering is transitive (it's not!)
  Forgetting Multi-AZ for RDS HA
- Using CLB (deprecated, use ALB/NLB)
+ Using CLB (previous generation, use ALB/NLB)
  Manual scaling when Auto Scaling works
  Not using roles for EC2 (embedding credentials)
 ```

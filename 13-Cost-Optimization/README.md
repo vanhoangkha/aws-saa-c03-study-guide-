@@ -125,7 +125,7 @@ Running 24/7 for 1 month: $0.0416 × 730 hours = $30.37/month
 **Characteristics:**
 - **1 or 3-year commitment**
 - **Up to 72% discount** vs On-Demand
-- Reserve capacity in an Availability Zone
+- Reserve capacity in an Availability Zone (zonal RIs only)
 - Three payment options
 
 **Payment Options:**
@@ -683,7 +683,7 @@ Savings: $150/month
 **5. Notifications:**
 - Email to recipients
 - SNS topic (for automation)
-- Chatbot (Slack, Chime)
+- Amazon Q Developer in chat applications, formerly AWS Chatbot (Slack, Microsoft Teams)
 
 ### Budget Alert Types
 

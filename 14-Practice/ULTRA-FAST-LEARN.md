@@ -65,7 +65,7 @@
 8. **Aurora**: Global database, serverless, endpoints
 9. **DynamoDB**: Keys, indexes, capacity modes, streams
 10. **Lambda**: Limits, concurrency, layers, triggers
-11. **CloudFront**: Origins, OAI, signed URLs, TTL
+11. **CloudFront**: Origins, OAC (replaces legacy OAI), signed URLs, TTL
 12. **Route 53**: Routing policies, health checks
 13. **SQS**: Standard vs FIFO, visibility timeout, DLQ
 14. **SNS**: Topics, fan-out pattern, filtering
@@ -96,7 +96,7 @@
 
 ### Scenario 5: Data Transfer
 **Question Pattern**: "Transfer 500 TB to AWS..."
-**Answer**: Snowball (not over internet)
+**Answer**: Snowball (not over internet); Snowball Edge is closed to new customers, who use DataSync or AWS Data Transfer Terminal
 
 ### Scenario 6: Caching
 **Question Pattern**: "Reduce database load, sub-millisecond latency..."

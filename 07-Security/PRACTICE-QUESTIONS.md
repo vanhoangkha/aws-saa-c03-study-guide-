@@ -1386,7 +1386,7 @@ D. AWS PrivateLink
 | Option | Encryption | Speed | Setup | Cost |
 |--------|-----------|-------|-------|------|
 | **Site-to-Site VPN** | Yes (IPsec) | Up to 1.25 Gbps per tunnel (5 Gbps with Large Bandwidth Tunnels on Transit Gateway/Cloud WAN) | Minutes | Low |
-| **Direct Connect** | No (but can add) | 1-100 Gbps | Weeks | High |
+| **Direct Connect** | No (but can add) | 1-400 Gbps | Weeks | High |
 | **DX + VPN** | Yes | 1-100 Gbps | Weeks | High |
 | **Internet** | HTTPS only | Variable | Immediate | Very low |
 

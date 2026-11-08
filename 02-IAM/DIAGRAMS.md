@@ -216,7 +216,7 @@ sequenceDiagram
     STS->>Role: Validate Trust Policy
     Role->>STS: Trust Policy Valid
     STS->>EC2: Temporary Security Credentials<br/>(Access Key + Secret + Token)
-    Note over EC2: Credentials valid for 1 hour
+    Note over EC2: Credentials are temporary and rotated automatically
     EC2->>S3: Access S3 using temporary credentials
     S3->>Role: Check Permissions Policy
     Role->>S3: Allow/Deny

@@ -160,6 +160,7 @@ METADATA (Instance info)
 1. **Compute**: Most flexible (EC2, Lambda, Fargate)
 2. **EC2**: Less flexible (specific instance family)
 3. **SageMaker**: ML workloads only
+4. **Database**: Aurora, RDS, DynamoDB and other database services (up to 35%, 1 year)
 
 ### Container Services Quick Pick
 | Service | Management | Use Case |

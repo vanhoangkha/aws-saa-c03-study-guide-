@@ -36,7 +36,7 @@ DOCUMENT? → DocumentDB (MongoDB compatible)
 |---------|-----|--------|----------|
 | **Type** | SQL | SQL | NoSQL |
 | **AZ** | Single/Multi | Multi (default) | Multi (default) |
-| **Read Replicas** | Up to 15 (Oracle, SQL Server: 5) | Up to 15 | N/A |
+| **Read Replicas** | Up to 15 (Oracle: 5) | Up to 15 | N/A |
 | **Scaling** | Vertical | Vertical + Horizontal | Horizontal (auto) |
 | **Performance** | Standard | 5x MySQL, 3x PostgreSQL | Milliseconds |
 | **Maintenance** | Some required | Minimal | None |
@@ -118,7 +118,7 @@ AURORA SERVERLESS
 
 ### Scenario 2: Read-Heavy Workload
 **Q**: Database experiencing heavy read traffic, writes are normal
-**ANSWER**: Add RDS Read Replicas (up to 15 for RDS MySQL/MariaDB/PostgreSQL and Aurora; 5 for Oracle/SQL Server)
+**ANSWER**: Add RDS Read Replicas (up to 15 for RDS MySQL/MariaDB/PostgreSQL/SQL Server and Aurora; 5 for Oracle)
 
 ### Scenario 3: Global Low-Latency Reads
 **Q**: Users worldwide need fast read access to data
@@ -197,7 +197,7 @@ STORAGE SCALING
 ## Rapid-Fire Facts
 
 ### RDS Important Limits
-- **Max Read Replicas**: 15 (RDS MySQL, MariaDB, PostgreSQL), 5 (RDS Oracle, SQL Server), 15 (Aurora)
+- **Max Read Replicas**: 15 (RDS MySQL, MariaDB, PostgreSQL, SQL Server), 5 (RDS Oracle), 15 (Aurora)
 - **Backup Retention**: 0-35 days (0 = disabled)
 - **Multi-AZ**: Automatic failover < 2 minutes
 - **Encryption**: Cannot encrypt existing DB (must create new)

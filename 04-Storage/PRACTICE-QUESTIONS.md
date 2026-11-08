@@ -130,7 +130,7 @@ D. Use S3 Standard storage class
 
 **Explanation:**
 - **CloudFront** is AWS's CDN (Content Delivery Network)
-- Caches content at 400+ edge locations globally
+- Caches content at 700+ edge locations globally
 - Reduces latency for users worldwide
 - Reduces load on origin S3 bucket
 

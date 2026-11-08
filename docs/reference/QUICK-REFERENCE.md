@@ -56,7 +56,7 @@
 | **Route 53** | DNS | Domain registration, health checks, routing policies |
 | **CloudFront** | CDN | 400+ edge locations, DDoS protection |
 | **API Gateway** | API Management | REST/WebSocket APIs, throttling |
-| **Direct Connect** | Dedicated Connection | 1-100 Gbps, private connectivity |
+| **Direct Connect** | Dedicated Connection | 1-400 Gbps, private connectivity |
 | **Transit Gateway** | Network Hub | Connect thousands of VPCs |
 | **Global Accelerator** | Performance | Static IPs, AWS backbone network |
 | **VPN** | Encrypted Connection | Site-to-Site, Client VPN |

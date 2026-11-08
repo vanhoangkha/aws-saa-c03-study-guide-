@@ -72,7 +72,7 @@ Consider these factors:
 - AZs are named: `us-east-1a`, `us-east-1b`, `us-east-1c`, etc.
 - Isolated from failures in other AZs
 - Enables high availability and fault tolerance
-- ~100 total AZs globally
+- 120+ total AZs globally
 
 **Multi-AZ Deployment Pattern:**
 ```
@@ -565,12 +565,12 @@ Is there an explicit Allow in SCP? → YES → Check IAM Policy
 - Disallow changes to CloudTrail configuration
 - Disallow deletion of log archive
 - Enable CloudTrail in all regions
+- Enable AWS Config in all regions
 
 **Strongly Recommended Guardrails**:
 - Detect whether MFA is enabled for the root user
 - Enable encryption for EBS volumes
 - Disallow public read/write on S3 buckets
-- Enable AWS Config in all regions
 
 **Elective Guardrails** (optional):
 - Restrict EC2 instance types

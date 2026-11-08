@@ -36,7 +36,7 @@
 - **6 copies** across 3 AZs (4/6 write quorum, 3/6 read quorum)
 - **Self-healing** (peer-to-peer replication)
 - **Auto-failover** <30 seconds
-- **15 read replicas** (RDS MySQL/MariaDB/PostgreSQL also 15; RDS Oracle/SQL Server 5)
+- **15 read replicas** (RDS MySQL/MariaDB/PostgreSQL/SQL Server also 15; RDS Oracle 5)
 
 ### Aurora Endpoints
 - **Writer Endpoint**: Points to master (read/write)

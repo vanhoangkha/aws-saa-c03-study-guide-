@@ -365,8 +365,8 @@ AWS offers a range of database services for different use cases. This module cov
 - **Leader Node**: Query planning, result aggregation
 - **Compute Nodes**: Execute queries, send results to leader
 - **Node Types**:
-  - Dense Compute (dc2): High performance
-  - Dense Storage (ds2): Large datasets
+  - Dense Compute (dc2): High performance (previous generation)
+  - Dense Storage (ds2): Large datasets (previous generation)
   - RA3: Managed storage, separate compute and storage
 
 ### Redshift Spectrum

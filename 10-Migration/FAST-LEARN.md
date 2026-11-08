@@ -62,7 +62,7 @@ TARGETS:
 ├── Redshift
 ├── DynamoDB
 ├── S3
-├── Elasticsearch
+├── OpenSearch Service
 └── Kinesis, DocumentDB
 
 EXAM TIP: Zero downtime migration

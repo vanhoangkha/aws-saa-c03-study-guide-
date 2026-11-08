@@ -374,7 +374,7 @@ D. Upload directly to EC2 for processing
 - S3 event triggers second Lambda for processing (asynchronous)
 - Decoupled, reliable processing
 - Lambda can run up to 15 minutes
-- Option A: API Gateway has 29-second timeout
+- Option A: API Gateway has a 29-second integration timeout by default (Regional and private REST APIs can request more, at the cost of throttle quota)
 - Option C: Inefficient polling
 - Option D: No auto-scaling, not serverless
 

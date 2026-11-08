@@ -652,7 +652,7 @@ D. Amazon EventBridge
 ---
 
 ### Question 6
-An application needs to load streaming data into S3, Redshift, and Elasticsearch with minimal code. Which service is MOST appropriate?
+An application needs to load streaming data into S3, Redshift, and OpenSearch with minimal code. Which service is MOST appropriate?
 
 A. Amazon Kinesis Data Streams with custom consumers  
 B. Amazon Kinesis Data Firehose  
@@ -669,7 +669,7 @@ D. Amazon SQS with Lambda consumers
 - No code required (vs Data Streams which needs custom consumers)
 - Automatic scaling
 - Built-in data transformation (Lambda)
-- Direct delivery to S3, Redshift, Elasticsearch, HTTP endpoints
+- Direct delivery to S3, Redshift, OpenSearch, HTTP endpoints
 
 **Kinesis Data Firehose Architecture**:
 ```
@@ -687,7 +687,7 @@ Kinesis Data Firehose
 Destinations
   ├─ Amazon S3
   ├─ Amazon Redshift (via S3)
-  ├─ Amazon Elasticsearch
+  ├─ Amazon OpenSearch Service
   ├─ Splunk
   └─ HTTP endpoints
 ```
@@ -791,7 +791,7 @@ def lambda_handler(event, context):
 - Analytics
 - Data via S3 COPY command
 
-**3. Amazon Elasticsearch**:
+**3. Amazon OpenSearch Service**:
 - Search and analytics
 - Log analysis
 - Real-time dashboards
@@ -844,7 +844,7 @@ Website → Firehose → S3 (Parquet) → Athena/QuickSight
 
 **2. Log Aggregation**:
 ```
-Applications → Firehose → Elasticsearch → Kibana
+Applications → Firehose → OpenSearch → OpenSearch Dashboards
 ```
 
 **3. Data Lake**:

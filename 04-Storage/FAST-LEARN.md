@@ -118,7 +118,7 @@ ALL OPERATIONS: Consistent since Dec 2020
 
 ### Scenario 4: Database Volume Performance
 **Q**: Database needs 50,000 IOPS
-**ANSWER**: io2 EBS volume (up to 256,000 IOPS)
+**ANSWER**: io2 EBS volume (up to 256,000 IOPS); gp3 (up to 80,000 IOPS) can also deliver 50,000 IOPS at lower cost
 
 ### Scenario 5: Fast Global Uploads to S3
 **Q**: Users worldwide uploading to S3, need speed
@@ -307,7 +307,7 @@ Delete incomplete multipart uploads after 7 days
 
 **Quick Answers**: 
 1) 50 TB
-2) io2 or io1 (Provisioned IOPS SSD)
+2) io2 or io1 (Provisioned IOPS SSD); gp3 also reaches 50,000 IOPS (max 80,000)
 3) No (Linux only)
 4) S3 Intelligent-Tiering
 5) No (except io1/io2 multi-attach in same AZ)

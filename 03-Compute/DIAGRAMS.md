@@ -590,7 +590,7 @@ sequenceDiagram
     Function->>Function: Run Init Code (outside handler)
     Function->>Function: Execute Handler
     Function->>Event: Return Response
-    Note over Container: Container kept warm for ~15 min
+    Note over Container: Environment may be reused, no guaranteed duration
     
     Note over Event,Function: Warm Start (Subsequent Invocation)
     Event->>Lambda Service: Invoke Function

@@ -27,7 +27,7 @@ APP WORKFLOW? → SWF (legacy, use Step Functions)
 | **Persistence** | Yes (4-14 days) | No (immediate delivery) | No |
 | **Consumers** | Poll for messages | Push to subscribers | Rules route events |
 | **Use Case** | Decouple apps | Notifications | Event-driven architecture |
-| **Max Size** | 1 MiB | 256 KiB default (up to 1 MiB) | 256 KB |
+| **Max Size** | 1 MiB | 256 KiB default (up to 1 MiB) | 1 MB |
 
 ### SQS Queue Types
 | Feature | Standard | FIFO |
@@ -275,7 +275,7 @@ Use SQS when:
 
 ### Amazon Data Firehose (formerly Kinesis Data Firehose)
 - **No shards**: Fully managed scaling
-- **Destinations**: S3, Redshift, Elasticsearch, Splunk
+- **Destinations**: S3, Redshift, OpenSearch, Splunk
 - **Transformations**: Lambda can transform data
 - **Buffering**: By size (1-128 MB) or time (0-900s; 0 = zero buffering)
 - **Use**: Load streaming data to storage
@@ -367,7 +367,7 @@ DATA SOURCES:
 ├── Lambda
 ├── HTTP endpoints
 ├── RDS (via Lambda)
-└── Elasticsearch
+└── OpenSearch
 ```
 
 ### Amazon MQ

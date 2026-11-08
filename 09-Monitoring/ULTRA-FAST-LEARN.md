@@ -98,7 +98,7 @@
 
 ## Trusted Advisor
 - **Best practice recommendations**
-- **5 categories**: Cost optimization, performance, security, fault tolerance, service limits
+- **6 categories**: Cost optimization, performance, security, fault tolerance, service limits, operational excellence
 - **Free**: 7 core checks (Basic support; Developer support is closed to new customers and discontinued 1 Jan 2027)
 - **Paid**: All checks (Business Support+, Enterprise Support, Unified Operations; Business support discontinued 1 Jan 2027)
 

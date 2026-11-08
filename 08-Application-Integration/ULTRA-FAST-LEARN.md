@@ -134,7 +134,7 @@ Application → SNS Topic → [SQS Queue 1, SQS Queue 2, Lambda]
 | Feature | Kinesis | SQS |
 |---------|---------|-----|
 | Use case | Real-time streaming | Message queue |
-| Retention | 1-365 days | 1-14 days |
+| Retention | 1-365 days | 1 min-14 days |
 | Consumers | Multiple (same data) | One per message |
 | Ordering | Per shard | FIFO queue |
 | Throughput | Shard-based | Unlimited |

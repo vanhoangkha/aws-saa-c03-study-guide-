@@ -34,7 +34,7 @@ DETECTION? → GuardDuty, Macie, Detective
 |---------|--------------|---------|------------|
 | **GuardDuty** | Threat detection | Malicious activity, anomalies | Events analyzed |
 | **Macie** | Data security | Sensitive data in S3 (PII) | GB scanned |
-| **Inspector** | Vulnerability assessment | EC2/ECR vulnerabilities | Assessments run |
+| **Inspector** | Vulnerability assessment | EC2/ECR vulnerabilities | Resources scanned |
 | **Detective** | Security investigation | Root cause analysis | GB ingested |
 | **Security Hub** | Central dashboard | Aggregates findings | Checks run |
 

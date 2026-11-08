@@ -747,7 +747,7 @@ D. NACLs don't support rate limiting, use WAF
 
 **WAF Rate-Based Rule**:
 - Block IPs exceeding request threshold
-- 5-minute time window
+- Evaluation window of 1, 2, 5 or 10 minutes (default 5)
 - Example: Block if > 2000 requests in 5 minutes
 
 **Best Practice for Traffic Spikes**:

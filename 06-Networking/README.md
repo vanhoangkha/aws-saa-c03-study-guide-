@@ -392,7 +392,7 @@ Record 3: 10% traffic (weight 10)
 - **Signed URL**: Individual file access
 - **Signed Cookie**: Multiple files access
 - Attach policy (URL expiration, IP ranges, trusted signers)
-- Use AWS Account (root) or CloudFront Key Pairs (not recommended)
+- Use trusted key groups (recommended) or root-account CloudFront key pairs (not recommended)
 
 **CloudFront vs S3 Pre-Signed URL**:
 | CloudFront Signed URL | S3 Pre-Signed URL |

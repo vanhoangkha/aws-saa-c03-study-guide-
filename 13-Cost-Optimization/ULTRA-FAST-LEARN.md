@@ -111,7 +111,7 @@
 ### DynamoDB
 - **On-Demand**: Unpredictable workloads
 - **Provisioned**: Cheaper for predictable (use auto-scaling)
-- **Reserved Capacity**: Up to 76% discount
+- **Reserved Capacity**: Up to 77% discount
 - **Delete old data**: TTL (free)
 
 ## Data Transfer Optimization

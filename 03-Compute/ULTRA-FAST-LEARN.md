@@ -48,7 +48,7 @@
 | CLB | 4 & 7 | Legacy | Deprecated |
 
 ### Load Balancer Features
-- **Cross-Zone**: Distribute evenly across all AZs (ALB: always on, NLB: off by default)
+- **Cross-Zone**: Distribute evenly across all AZs (ALB: on by default, can turn off per target group; NLB: off by default)
 - **Sticky Sessions**: Same instance for session (ALB: target group, NLB: source IP)
 - **Connection Draining**: Wait for in-flight requests (0-3600 sec, default 300)
 

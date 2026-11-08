@@ -448,7 +448,7 @@ graph TB
     Config --> Timeline
     Config --> S3Bucket
     
-    Examples["Rule Examples:<br/>• ec2-encrypted-volumes<br/>• s3-bucket-public-read-prohibited<br/>• iam-password-policy<br/>• rds-multi-az-support"]
+    Examples["Rule Examples:<br/>• encrypted-volumes<br/>• s3-bucket-public-read-prohibited<br/>• iam-password-policy<br/>• rds-multi-az-support"]
     
     classDef style1 fill:#FF9900
     class Config style1

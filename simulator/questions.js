@@ -109,14 +109,14 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• PaaS services (like Elastic Beanstalk) abstract infrastructure management\n• Users deploy code without managing servers or OS\n• IaaS (like EC2) requires managing virtual machines\n• SaaS is fully managed applications (like Amazon Chime)\n• FaaS (like Lambda) is event-driven, not for full applications typically\n• PaaS is the best fit for deploying applications without infrastructure management",
+  "explanation": "• PaaS services (like Elastic Beanstalk) abstract infrastructure management\n• Users deploy code without managing servers or OS\n• IaaS (like EC2) requires managing virtual machines\n• SaaS is fully managed applications (like Amazon WorkSpaces or Amazon Connect)\n• FaaS (like Lambda) is event-driven, not for full applications typically\n• PaaS is the best fit for deploying applications without infrastructure management",
   "module": "AWS Fundamentals",
   "multi": false,
   "why": [
    "PaaS services (like Elastic Beanstalk) abstract infrastructure management.",
    "Users deploy code without managing servers or OS.",
    "IaaS (like EC2) requires managing virtual machines.",
-   "SaaS is fully managed applications (like Amazon Chime)",
+   "SaaS is fully managed applications (like Amazon WorkSpaces or Amazon Connect)",
    "FaaS (like Lambda) is event-driven, not for full applications typically.",
    "PaaS is the best fit for deploying applications without infrastructure management."
   ],
@@ -474,16 +474,17 @@ window.QUESTIONS = [
    "D": "Operational Excellence"
   },
   "answer": [
-   "B"
+   "C"
   ],
-  "explanation": "• Performance Efficiency pillar includes capacity planning principles\n• \"Stop guessing capacity\" - use Auto Scaling and elastic services\n• Enables right-sizing and dynamic capacity adjustment\n• Cost Optimization focuses on eliminating waste\n• Reliability focuses on recovery and testing\n• Operational Excellence focuses on running/monitoring",
+  "explanation": "• \"Stop guessing capacity\" is a design principle of the Reliability pillar\n• Resource saturation is a common cause of failure; monitor demand and automate adding or removing resources (Auto Scaling)\n• The other Reliability principles: automatically recover from failure, test recovery procedures, scale horizontally, manage change through automation\n• Performance Efficiency focuses on selecting and using resources efficiently\n• Cost Optimization focuses on eliminating waste\n• Operational Excellence focuses on running/monitoring",
   "module": "AWS Fundamentals",
   "multi": false,
   "why": [
-   "\"Stop guessing capacity\" - use Auto Scaling and elastic services.",
-   "Enables right-sizing and dynamic capacity adjustment.",
+   "Resource saturation is a common cause of failure.",
+   "Monitor demand and automate adding or removing resources (Auto Scaling)",
+   "The other Reliability principles: automatically recover from failure, test recovery procedures, scale horizontally, manage change through automation.",
+   "Performance Efficiency focuses on selecting and using resources efficiently.",
    "Cost Optimization focuses on eliminating waste.",
-   "Reliability focuses on recovery and testing.",
    "Operational Excellence focuses on running/monitoring."
   ],
   "others": []
@@ -634,7 +635,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• SCPs define maximum permissions - they act as guardrails\n• SCPs do NOT grant permissions (A is wrong)\n• They only restrict what is possible\n• SCPs do NOT affect the management account (B is wrong)\n• SCPs can be applied to Organization root, OUs, or accounts (D is wrong)\n• Effective permissions = IAM policy AND SCP\nKey SCP Rules:\n• Don't grant permissions\n• Don't affect management account\n• Set maximum permission boundaries\n• Can be applied to OUs\n• Inherited down the hierarchy",
+  "explanation": "• SCPs define maximum permissions - they act as guardrails\n• SCPs do NOT grant permissions (A is wrong)\n• They only restrict what is possible\n• SCPs do NOT affect the management account (B is wrong)\n• SCPs can be applied to Organization root, OUs, or accounts (D is wrong)\n• Effective permissions = IAM policy AND SCP\nKey SCP Rules:\n• Don't grant permissions\n• Don't affect management account\n• Yes: Set maximum permission boundaries\n• Yes: Can be applied to OUs\n• Yes: Inherited down the hierarchy",
   "module": "AWS Fundamentals",
   "multi": false,
   "why": [
@@ -646,9 +647,9 @@ window.QUESTIONS = [
    "Key SCP Rules:.",
    "Don't grant permissions.",
    "Don't affect management account.",
-   "Set maximum permission boundaries.",
-   "Can be applied to OUs.",
-   "Inherited down the hierarchy."
+   "Yes: Set maximum permission boundaries.",
+   "Yes: Can be applied to OUs.",
+   "Yes: Inherited down the hierarchy."
   ],
   "others": []
  },
@@ -972,16 +973,37 @@ window.QUESTIONS = [
    "D": "Create two separate IAM groups and move users between them"
   },
   "answer": [
-   "A"
+   "C"
   ],
-  "explanation": "• IAM supports time-based conditions using `aws:CurrentTime`\n• Can specify date/time ranges for policy evaluation",
+  "explanation": "• IAM date condition operators (`DateGreaterThan`, `DateLessThan`) compare `aws:CurrentTime` against a fixed ISO 8601 timestamp\n• A policy can therefore allow access between two specific dates and times, but it cannot express a recurring daily window such as 9 AM - 5 PM every day\n• To grant write access only during business hours, schedule a Lambda function (for example with EventBridge Scheduler) to attach the write policy at 9 AM and detach it at 5 PM\n• The read-only policy stays attached permanently\n• Option A: A time-based condition alone only works for one fixed time range, not every day\n• Options B and D: Work, but require manual intervention every day",
   "module": "IAM",
   "multi": false,
   "why": [
-   "IAM supports time-based conditions using `aws:CurrentTime`.",
-   "Can specify date/time ranges for policy evaluation."
+   "IAM date condition operators (`DateGreaterThan`, `DateLessThan`) compare `aws:CurrentTime` against a fixed ISO 8601 timestamp.",
+   "To grant write access only during business hours, schedule a Lambda function (for example with EventBridge Scheduler) to attach the write policy at 9 AM and detach it at 5 PM.",
+   "The read-only policy stays attached permanently."
   ],
-  "others": []
+  "others": [
+   {
+    "l": [
+     "A"
+    ],
+    "t": "Policy can therefore allow access between two specific dates and times, but it cannot express a recurring daily window such as 9 AM - 5 PM every day."
+   },
+   {
+    "l": [
+     "A"
+    ],
+    "t": "A time-based condition alone only works for one fixed time range, not every day."
+   },
+   {
+    "l": [
+     "B",
+     "D"
+    ],
+    "t": "Work, but require manual intervention every day."
+   }
+  ]
  },
  {
   "id": "02-6",
@@ -1154,13 +1176,14 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Lambda execution role defines what the function can access\n• Role is assumed by Lambda service when function executes\n• Attach policies to role (e.g., AmazonDynamoDBFullAccess or custom policy)\n• Option A: Lambda functions cannot use IAM users\n• Option C: No such mechanism, must use IAM roles\n• Option D: DynamoDB doesn't have resource-based policies like S3\nLambda Execution Role Policy Example:",
+  "explanation": "• Lambda execution role defines what the function can access\n• Role is assumed by Lambda service when function executes\n• Attach policies to role (e.g., AmazonDynamoDBFullAccess or custom policy)\n• Option A: Lambda functions cannot use IAM users\n• Option C: No such mechanism, must use IAM roles\n• Option D: DynamoDB does support resource-based policies (tables, indexes, streams), mainly for cross-account access; for a Lambda function in the same account, the execution role is the standard approach\nLambda Execution Role Policy Example:",
   "module": "IAM",
   "multi": false,
   "why": [
    "Lambda execution role defines what the function can access.",
    "Role is assumed by Lambda service when function executes.",
    "Attach policies to role (e.g., AmazonDynamoDBFullAccess or custom policy)",
+   "For a Lambda function in the same account, the execution role is the standard approach.",
    "Lambda Execution Role Policy Example:."
   ],
   "others": [
@@ -1180,7 +1203,7 @@ window.QUESTIONS = [
     "l": [
      "D"
     ],
-    "t": "DynamoDB doesn't have resource-based policies like S3."
+    "t": "DynamoDB does support resource-based policies (tables, indexes, streams), mainly for cross-account access."
    }
   ]
  },
@@ -1262,7 +1285,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• An IAM user can be a member of up to 10 groups\n• This is an AWS service limit/quota\n• Groups simplify permission management\n• If more complex permissions needed, use multiple policies or roles\nIAM Limits (Key ones for exam):\n• Users per account: 5,000 (default)\n• Groups per account: 300\n• Groups per user: 10\n• Managed policies per user/group/role: 10\n• Inline policy size: 2,048 characters for users, 10,240 for roles",
+  "explanation": "• An IAM user can be a member of up to 10 groups\n• This is an AWS service limit/quota\n• Groups simplify permission management\n• If more complex permissions needed, use multiple policies or roles\nIAM Limits (Key ones for exam):\n• Users per account: 5,000 (default)\n• Groups per account: 300\n• Groups per user: 10\n• Managed policies per user: 10 (up to 20), per group: 10, per role: 20 (up to 25)\n• Inline policy size: 2,048 characters for users, 10,240 for roles",
   "module": "IAM",
   "multi": false,
   "why": [
@@ -1273,7 +1296,7 @@ window.QUESTIONS = [
    "Users per account: 5,000 (default)",
    "Groups per account: 300.",
    "Groups per user: 10.",
-   "Managed policies per user/group/role: 10.",
+   "Managed policies per user: 10 (up to 20), per group: 10, per role: 20 (up to 25)",
    "Inline policy size: 2,048 characters for users, 10,240 for roles."
   ],
   "others": []
@@ -1513,7 +1536,7 @@ window.QUESTIONS = [
    "A",
    "B"
   ],
-  "explanation": "• AWS best practices: Enable MFA on root account immediately\n• Root account should be protected with MFA\n• MFA required for sensitive operations\n• Some actions like changing account settings require root + MFA\nRoot Account Best Practices:\n1. Enable MFA on root account\n2. Don't use root for everyday tasks\n3. Delete root access keys (use IAM users instead)\n4. Create IAM users for administrative tasks\n5. Use root only for tasks requiring root\n6. Secure root credentials (password manager)\nTasks Requiring Root Account:\n• Change account settings\n• Close AWS account\n• Change AWS Support plan\n• Restore IAM user permissions\n• Register as seller in Reserved Instance Marketplace\n• Configure S3 bucket for MFA Delete\n• Sign up for GovCloud",
+  "explanation": "• AWS best practices: Enable MFA on root account immediately\n• Root account should be protected with MFA\n• MFA required for sensitive operations\n• Some actions like changing account settings require root + MFA\nRoot Account Best Practices:\n1. Enable MFA on root account\n2. Don't use root for everyday tasks\n3. Delete root access keys (use roles with temporary credentials instead)\n4. Use federation through IAM Identity Center for administrative tasks\n5. Use root only for tasks requiring root\n6. Secure root credentials (password manager)\nTasks Requiring Root Account:\n• Change account settings\n• Close AWS account\n• Change AWS Support plan\n• Restore IAM user permissions\n• Register as seller in Reserved Instance Marketplace\n• Configure S3 bucket for MFA Delete\n• Sign up for GovCloud",
   "module": "IAM",
   "multi": true,
   "why": [
@@ -1522,12 +1545,18 @@ window.QUESTIONS = [
    "MFA required for sensitive operations.",
    "Some actions like changing account settings require root + MFA.",
    "Root Account Best Practices:.",
-   "1. Enable MFA on root account.",
-   "2. Don't use root for everyday tasks.",
-   "3. Delete root access keys (use IAM users instead)",
-   "4. Create IAM users for administrative tasks.",
-   "5. Use root only for tasks requiring root.",
-   "6. Secure root credentials (password manager)",
+   "1.",
+   "Enable MFA on root account.",
+   "2.",
+   "Don't use root for everyday tasks.",
+   "3.",
+   "Delete root access keys (use roles with temporary credentials instead)",
+   "4.",
+   "Use federation through IAM Identity Center for administrative tasks.",
+   "5.",
+   "Use root only for tasks requiring root.",
+   "6.",
+   "Secure root credentials (password manager)",
    "Tasks Requiring Root Account:.",
    "Change account settings.",
    "Close AWS account.",
@@ -1872,7 +1901,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• On-Demand Capacity Reservations reserve capacity in specific AZ\n• No long-term commitment (can cancel anytime)\n• Charged at On-Demand rates whether used or not\n• Ensures capacity availability when needed\nCapacity Options Comparison:\n| Option | Commitment | Discount | Capacity Guarantee |\n|--------|------------|----------|-------------------|\n| On-Demand | None | None | No guarantee |\n| Reserved | 1-3 years | Up to 72% | Yes (regional or zonal) |\n| Savings Plans | 1-3 years | Up to 66% | No |\n| Capacity Reservations | None | None | Yes (zonal) |\n| Spot | None | Up to 90% | No (can be interrupted) |\nUse Case:\n• Disaster recovery (reserve capacity but don't always run)\n• Business-critical events (Black Friday)\n• Regulatory/compliance requirements\nCost Optimization: Combine Capacity Reservation with Savings Plan",
+  "explanation": "• On-Demand Capacity Reservations reserve capacity in specific AZ\n• No long-term commitment (can cancel anytime)\n• Charged at On-Demand rates whether used or not\n• Ensures capacity availability when needed\nCapacity Options Comparison:\n| Option | Commitment | Discount | Capacity Guarantee |\n|--------|------------|----------|-------------------|\n| On-Demand | None | None | No guarantee |\n| Reserved | 1-3 years | Up to 72% | Yes (regional or zonal) |\n| Savings Plans | 1-3 years | Up to 72% (EC2 Instance), 66% (Compute) | No |\n| Capacity Reservations | None | None | Yes (zonal) |\n| Spot | None | Up to 90% | No (can be interrupted) |\nUse Case:\n• Disaster recovery (reserve capacity but don't always run)\n• Business-critical events (Black Friday)\n• Regulatory/compliance requirements\nCost Optimization: Combine Capacity Reservation with Savings Plan",
   "module": "Compute",
   "multi": false,
   "why": [
@@ -1884,7 +1913,7 @@ window.QUESTIONS = [
    "|--------|------------|----------|-------------------|.",
    "| On-Demand | None | None | No guarantee |.",
    "| Reserved | 1-3 years | Up to 72% | Yes (regional or zonal) |.",
-   "| Savings Plans | 1-3 years | Up to 66% | No |.",
+   "| Savings Plans | 1-3 years | Up to 72% (EC2 Instance), 66% (Compute) | No |.",
    "| Capacity Reservations | None | None | Yes (zonal) |.",
    "| Spot | None | Up to 90% | No (can be interrupted) |.",
    "Use Case:.",
@@ -1907,7 +1936,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Lambda default timeout is 3 seconds\n• Can be increased up to 15 minutes (900 seconds)\n• Timeout configuration is separate from memory\nLambda Configuration:\n• Memory: 128 MB to 10,240 MB (10 GB)\n• Timeout: 1 second to 900 seconds (15 minutes)\n• CPU scales with memory (1,792 MB = 1 vCPU)\n• Ephemeral storage (/tmp): 512 MB to 10,240 MB\nPerformance Tuning:\n1. Increase timeout for long-running tasks\n2. Increase memory if CPU-bound (CPU scales with memory)\n3. Optimize code\n4. Use async patterns for very long tasks\nWhen Lambda is NOT suitable:\n• Tasks > 15 minutes\n• Need GPU\n• Stateful applications\n• Real-time latency requirements (cold starts)",
+  "explanation": "• Lambda default timeout is 3 seconds\n• Can be increased up to 15 minutes (900 seconds)\n• Timeout configuration is separate from memory\nLambda Configuration:\n• Memory: 128 MB to 10,240 MB (10 GB)\n• Timeout: 1 second to 900 seconds (15 minutes)\n• CPU scales with memory (1,769 MB = 1 vCPU)\n• Ephemeral storage (/tmp): 512 MB to 10,240 MB\nPerformance Tuning:\n1. Increase timeout for long-running tasks\n2. Increase memory if CPU-bound (CPU scales with memory)\n3. Optimize code\n4. Use async patterns for very long tasks\nWhen Lambda is NOT suitable:\n• Tasks > 15 minutes\n• Need GPU\n• Stateful applications\n• Real-time latency requirements (cold starts)",
   "module": "Compute",
   "multi": false,
   "why": [
@@ -1917,7 +1946,7 @@ window.QUESTIONS = [
    "Lambda Configuration:.",
    "Memory: 128 MB to 10,240 MB (10 GB)",
    "Timeout: 1 second to 900 seconds (15 minutes)",
-   "CPU scales with memory (1,792 MB = 1 vCPU)",
+   "CPU scales with memory (1,769 MB = 1 vCPU)",
    "Ephemeral storage (/tmp): 512 MB to 10,240 MB.",
    "Performance Tuning:.",
    "1.",
@@ -1984,7 +2013,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Auto Scaling maintains desired capacity\n• If instances are terminated (manually or automatically), ASG replaces them\n• Ensures desired count is maintained\nAuto Scaling Group Configuration:\n• Minimum: Minimum number of instances\n• Desired: Target number of instances\n• Maximum: Maximum number of instances\nScaling Activities:\n• Scale out: Launch instances (desired < current)\n• Scale in: Terminate instances (desired > current)\n• Replace unhealthy: Terminate and replace\n• Rebalance across AZs\nInstance Protection:\n• Can enable scale-in protection on specific instances\n• Prevents Auto Scaling from terminating protected instances\n• Manual termination still works",
+  "explanation": "• Auto Scaling maintains desired capacity\n• If instances are terminated (manually or automatically), ASG replaces them\n• Ensures desired count is maintained\nAuto Scaling Group Configuration:\n• Minimum: Minimum number of instances\n• Desired: Target number of instances\n• Maximum: Maximum number of instances\nScaling Activities:\n• Scale out: Launch instances (desired > current)\n• Scale in: Terminate instances (desired < current)\n• Replace unhealthy: Terminate and replace\n• Rebalance across AZs\nInstance Protection:\n• Can enable scale-in protection on specific instances\n• Prevents Auto Scaling from terminating protected instances\n• Manual termination still works",
   "module": "Compute",
   "multi": false,
   "why": [
@@ -1996,8 +2025,8 @@ window.QUESTIONS = [
    "Desired: Target number of instances.",
    "Maximum: Maximum number of instances.",
    "Scaling Activities:.",
-   "Scale out: Launch instances (desired < current)",
-   "Scale in: Terminate instances (desired > current)",
+   "Scale out: Launch instances (desired > current)",
+   "Scale in: Terminate instances (desired < current)",
    "Replace unhealthy: Terminate and replace.",
    "Rebalance across AZs.",
    "Instance Protection:.",
@@ -2133,7 +2162,7 @@ window.QUESTIONS = [
  },
  {
   "id": "03-17",
-  "q": "An Auto Scaling group needs to ensure that newly launched instances are ready to serve traffic before receiving requests. What should be configured?",
+  "q": "An Auto Scaling group uses ELB health checks. Newly launched instances are marked unhealthy and terminated before the application finishes starting. What should be configured?",
   "options": {
    "A": "EC2 Status Checks",
    "B": "ELB Health Checks",
@@ -2143,14 +2172,16 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• Health Check Grace Period gives instances time to boot and pass checks\n• Prevents premature termination during initialization\n• Default: 300 seconds (5 minutes)\n• Should be longer than application startup time\nAuto Scaling Health Checks:\n• EC2 health check: Instance running (default)\n• ELB health check: Instance passes load balancer health checks\n• Grace period applies to both types\nRecommended Configuration:\n1. Set grace period > application startup time\n2. Enable ELB health checks\n3. Configure ELB health check with appropriate interval/threshold",
+  "explanation": "• Health Check Grace Period gives instances time to boot before Auto Scaling acts on failed health checks\n• Prevents premature termination during initialization\n• Default: 300 seconds when the group is created in the console, 0 seconds when created with the CLI or an SDK\n• Should be longer than application startup time\n• The grace period does not hold back traffic: the load balancer only routes requests to targets that pass its own health checks\n• Alternative: a launch lifecycle hook keeps an instance out of service until initialization finishes (the grace period can then be 0)\nAuto Scaling Health Checks:\n• EC2 health check: Instance running (default)\n• ELB health check: Instance passes load balancer health checks\n• Grace period applies to both types\nRecommended Configuration:\n1. Set grace period > application startup time\n2. Enable ELB health checks\n3. Configure ELB health check with appropriate interval/threshold",
   "module": "Compute",
   "multi": false,
   "why": [
-   "Health Check Grace Period gives instances time to boot and pass checks.",
+   "Health Check Grace Period gives instances time to boot before Auto Scaling acts on failed health checks.",
    "Prevents premature termination during initialization.",
-   "Default: 300 seconds (5 minutes)",
+   "Default: 300 seconds when the group is created in the console, 0 seconds when created with the CLI or an SDK.",
    "Should be longer than application startup time.",
+   "The grace period does not hold back traffic: the load balancer only routes requests to targets that pass its own health checks.",
+   "Alternative: a launch lifecycle hook keeps an instance out of service until initialization finishes (the grace period can then be 0)",
    "Auto Scaling Health Checks:.",
    "EC2 health check: Instance running (default)",
    "ELB health check: Instance passes load balancer health checks.",
@@ -2398,7 +2429,7 @@ window.QUESTIONS = [
  },
  {
   "id": "03-26",
-  "q": "A company wants to run Amazon ECS and EKS workloads on its own infrastructure outside AWS, managed from the AWS Console. Which services should they use?",
+  "q": "A company wants to run Amazon ECS and EKS workloads on its own infrastructure outside AWS, using the same ECS and Kubernetes tooling it uses in AWS. Which services should they use?",
   "options": {
    "A": "Amazon ECS Anywhere and Amazon EKS Anywhere",
    "B": "AWS Outposts",
@@ -2408,12 +2439,13 @@ window.QUESTIONS = [
   "answer": [
    "A"
   ],
-  "explanation": "• ECS Anywhere and EKS Anywhere extend container orchestration to on-premises infrastructure\n• Managed from AWS Console\n• Outposts is for running AWS infrastructure on-premises\n• Fargate is for serverless containers in AWS\n• Dedicated Hosts are for compliance",
+  "explanation": "• ECS Anywhere and EKS Anywhere extend container orchestration to on-premises infrastructure\n• ECS Anywhere tasks are managed by the ECS control plane in AWS; EKS Anywhere clusters can be viewed (not managed) in the EKS console through EKS Connector\n• Outposts is for running AWS infrastructure on-premises\n• Fargate is for serverless containers in AWS\n• Dedicated Hosts are for compliance",
   "module": "Compute",
   "multi": false,
   "why": [
    "ECS Anywhere and EKS Anywhere extend container orchestration to on-premises infrastructure.",
-   "Managed from AWS Console.",
+   "ECS Anywhere tasks are managed by the ECS control plane in AWS.",
+   "EKS Anywhere clusters can be viewed (not managed) in the EKS console through EKS Connector.",
    "Outposts is for running AWS infrastructure on-premises.",
    "Fargate is for serverless containers in AWS.",
    "Dedicated Hosts are for compliance."
@@ -2454,12 +2486,14 @@ window.QUESTIONS = [
   "answer": [
    "A"
   ],
-  "explanation": "• Amazon QLDB (Quantum Ledger Database) is a fully managed ledger database\n• Provides immutable, cryptographically verifiable transaction log\n• Aurora, RDS, and DynamoDB are not ledger databases",
+  "explanation": "• Amazon QLDB (Quantum Ledger Database) is a fully managed ledger database\n• Provides immutable, cryptographically verifiable transaction log\n• Aurora, RDS, and DynamoDB are not ledger databases\nStatus (November 2026): Amazon QLDB has been discontinued, and AWS now points ledger workloads to Amazon Aurora PostgreSQL. Keep this question for recognising the service in older exam material.",
   "module": "Compute",
   "multi": false,
   "why": [
    "Provides immutable, cryptographically verifiable transaction log.",
-   "Aurora, RDS, and DynamoDB are not ledger databases."
+   "Aurora, RDS, and DynamoDB are not ledger databases.",
+   "Status (November 2026): Amazon QLDB has been discontinued, and AWS now points ledger workloads to Amazon Aurora PostgreSQL.",
+   "Keep this question for recognising the service in older exam material."
   ],
   "others": []
  },
@@ -2575,12 +2609,12 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• CloudFront is AWS's CDN (Content Delivery Network)\n• Caches content at 400+ edge locations globally\n• Reduces latency for users worldwide\n• Reduces load on origin S3 bucket\nCloudFront Benefits:\n• Low latency (content served from nearest edge)\n• High transfer speeds\n• DDoS protection (AWS Shield)\n• SSL/TLS support\n• Reduced S3 data transfer costs\nOther Options:\n• Transfer Acceleration: Speeds up uploads to S3, not downloads\n• Cross-Region Replication: Multi-region redundancy, not CDN\n• Storage class: Doesn't affect delivery performance",
+  "explanation": "• CloudFront is AWS's CDN (Content Delivery Network)\n• Caches content at 700+ edge locations globally\n• Reduces latency for users worldwide\n• Reduces load on origin S3 bucket\nCloudFront Benefits:\n• Low latency (content served from nearest edge)\n• High transfer speeds\n• DDoS protection (AWS Shield)\n• SSL/TLS support\n• Reduced S3 data transfer costs\nOther Options:\n• Transfer Acceleration: Speeds up uploads to S3, not downloads\n• Cross-Region Replication: Multi-region redundancy, not CDN\n• Storage class: Doesn't affect delivery performance",
   "module": "Storage",
   "multi": false,
   "why": [
    "CloudFront is AWS's CDN (Content Delivery Network)",
-   "Caches content at 400+ edge locations globally.",
+   "Caches content at 700+ edge locations globally.",
    "Reduces latency for users worldwide.",
    "Reduces load on origin S3 bucket.",
    "CloudFront Benefits:.",
@@ -2608,7 +2642,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• EBS Provisioned IOPS SSD (io2/io2 Block Express) for high-performance databases\n• Consistent IOPS performance\n• Up to 64,000 IOPS per volume (io2)\n• Up to 256,000 IOPS (io2 Block Express)\n• 99.999% durability\nEBS Volume Types:\n| Type | Use Case | IOPS | Throughput |\n|------|----------|------|------------|\n| gp3 | General purpose | 16,000 | 1,000 MB/s |\n| io2 | High-performance databases | 64,000 | 1,000 MB/s |\n| io2 Block Express | Largest databases | 256,000 | 4,000 MB/s |\n| st1 | Big data, data warehouses | 500 | 500 MB/s |\n| sc1 | Cold storage | 250 | 250 MB/s |\nWhen to Use:\n• io2: Databases needing high, consistent IOPS\n• gp3: Most workloads, cost-effective\n• st1: Throughput-intensive, sequential\n• Instance Store: Temporary, highest performance",
+  "explanation": "• EBS Provisioned IOPS SSD (io2/io2 Block Express) for high-performance databases\n• Consistent IOPS performance\n• Up to 256,000 IOPS per volume (io2)\n• Up to 256,000 IOPS (io2 Block Express)\n• 99.999% durability\nEBS Volume Types:\n| Type | Use Case | IOPS | Throughput |\n|------|----------|------|------------|\n| gp3 | General purpose | 80,000 | 2,000 MiB/s |\n| io2 | High-performance databases | 256,000 | 4,000 MiB/s |\n| io2 Block Express | Largest databases | 256,000 | 4,000 MB/s |\n| st1 | Big data, data warehouses | 500 | 500 MB/s |\n| sc1 | Cold storage | 250 | 250 MB/s |\nWhen to Use:\n• io2: Databases needing high, consistent IOPS\n• gp3: Most workloads, cost-effective\n• st1: Throughput-intensive, sequential\n• Instance Store: Temporary, highest performance",
   "module": "Storage",
   "multi": false,
   "why": [
@@ -2644,7 +2678,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• Amazon EFS (Elastic File System) provides:\n• Shared NFS file system\n• Multi-AZ access\n• Automatic scaling\n• Linux-compatible (NFS v4)\n• Concurrent access from 1000s of instances\nStorage Service Comparison:\n| Service | Protocol | Multi-Instance | Multi-AZ | Use Case |\n|---------|----------|----------------|----------|----------|\n| EBS | Block | No (single instance) | No | Databases, boot volumes |\n| EFS | NFS | Yes | Yes | Shared file storage |\n| FSx for Windows | SMB | Yes | Yes | Windows file shares |\n| S3 | HTTP/S | Yes | Yes | Object storage |\nEFS Performance Modes:\n• General Purpose: Low latency, most workloads\n• Max I/O: Higher latency, massive parallel access\nEFS Throughput Modes:\n• Bursting: Throughput scales with size\n• Provisioned: Set throughput independent of size",
+  "explanation": "• Amazon EFS (Elastic File System) provides:\n• Shared NFS file system\n• Multi-AZ access\n• Automatic scaling\n• Linux-compatible (NFS v4)\n• Concurrent access from 1000s of instances\nStorage Service Comparison:\n| Service | Protocol | Multi-Instance | Multi-AZ | Use Case |\n|---------|----------|----------------|----------|----------|\n| EBS | Block | No (single instance) | No | Databases, boot volumes |\n| EFS | NFS | Yes | Yes | Shared file storage |\n| FSx for Windows | SMB | Yes | Yes | Windows file shares |\n| S3 | HTTP/S | Yes | Yes | Object storage |\nEFS Performance Modes:\n• General Purpose: Low latency, most workloads\n• Max I/O: Higher latency, massive parallel access (previous generation; AWS recommends General Purpose for all file systems)\nEFS Throughput Modes:\n• Bursting: Throughput scales with size\n• Provisioned: Set throughput independent of size",
   "module": "Storage",
   "multi": false,
   "why": [
@@ -2662,7 +2696,8 @@ window.QUESTIONS = [
    "| S3 | HTTP/S | Yes | Yes | Object storage |.",
    "EFS Performance Modes:.",
    "General Purpose: Low latency, most workloads.",
-   "Max I/O: Higher latency, massive parallel access.",
+   "Max I/O: Higher latency, massive parallel access (previous generation.",
+   "AWS recommends General Purpose for all file systems)",
    "EFS Throughput Modes:.",
    "Bursting: Throughput scales with size.",
    "Provisioned: Set throughput independent of size."
@@ -2681,7 +2716,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• S3 Intelligent-Tiering automatically moves objects between tiers\n• Monitors access patterns\n• No retrieval fees (unlike IA classes)\n• Small monthly monitoring fee per object\nIntelligent-Tiering Access Tiers:\n1. Frequent Access: Default, accessed frequently\n2. Infrequent Access: 30 days no access\n3. Archive Instant Access: 90 days no access\n4. Archive Access (optional): 90-270 days no access\n5. Deep Archive Access (optional): 180-730 days no access\nIntelligent-Tiering vs Lifecycle:\n• Intelligent-Tiering: Automatic based on access, no retrieval fees\n• Lifecycle: Rule-based transitions, set schedule\nWhen to Use:\n• Intelligent-Tiering: Unknown or changing access patterns\n• Lifecycle: Known patterns (e.g., move to Glacier after 90 days)",
+  "explanation": "• S3 Intelligent-Tiering automatically moves objects between tiers\n• Monitors access patterns\n• No retrieval fees (unlike IA classes)\n• Small monthly monitoring fee per object\nIntelligent-Tiering Access Tiers:\n1. Frequent Access: Default, accessed frequently\n2. Infrequent Access: 30 days no access\n3. Archive Instant Access: 90 days no access\n4. Archive Access (optional): 90-730 days no access\n5. Deep Archive Access (optional): 180-730 days no access\nIntelligent-Tiering vs Lifecycle:\n• Intelligent-Tiering: Automatic based on access, no retrieval fees\n• Lifecycle: Rule-based transitions, set schedule\nWhen to Use:\n• Intelligent-Tiering: Unknown or changing access patterns\n• Lifecycle: Known patterns (e.g., move to Glacier after 90 days)",
   "module": "Storage",
   "multi": false,
   "why": [
@@ -2696,7 +2731,7 @@ window.QUESTIONS = [
    "3.",
    "Archive Instant Access: 90 days no access.",
    "4.",
-   "Archive Access (optional): 90-270 days no access.",
+   "Archive Access (optional): 90-730 days no access.",
    "5.",
    "Deep Archive Access (optional): 180-730 days no access.",
    "Intelligent-Tiering vs Lifecycle:.",
@@ -2999,7 +3034,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• S3 Object Lock provides WORM (Write Once Read Many)\n• Prevents deletion/overwrite for specified retention period\n• Compliance and governance modes\nObject Lock Modes:\n• Compliance: Can't be overwritten/deleted by anyone (even root)\n• Governance: Users with special permissions can override\n• Legal Hold: Indefinite protection, manually removed\nObject Lock vs Versioning:\n• Versioning: Protects but versions can be deleted\n• Object Lock: Enforces retention, truly immutable\nRequirements:\n• Versioning must be enabled\n• Set at bucket creation\n• Retention period or legal hold\nUse Cases:\n• Financial records\n• Healthcare data (HIPAA)\n• Legal documents\n• Regulatory compliance",
+  "explanation": "• S3 Object Lock provides WORM (Write Once Read Many)\n• Prevents deletion/overwrite for specified retention period\n• Compliance and governance modes\nObject Lock Modes:\n• Compliance: Can't be overwritten/deleted by anyone (even root)\n• Governance: Users with special permissions can override\n• Legal Hold: Indefinite protection, manually removed\nObject Lock vs Versioning:\n• Versioning: Protects but versions can be deleted\n• Object Lock: Enforces retention, truly immutable\nRequirements:\n• Versioning must be enabled\n• Can be enabled at bucket creation or on an existing bucket\n• Retention period or legal hold\nUse Cases:\n• Financial records\n• Healthcare data (HIPAA)\n• Legal documents\n• Regulatory compliance",
   "module": "Storage",
   "multi": false,
   "why": [
@@ -3014,7 +3049,7 @@ window.QUESTIONS = [
    "Object Lock: Enforces retention, truly immutable.",
    "Requirements:.",
    "Versioning must be enabled.",
-   "Set at bucket creation.",
+   "Can be enabled at bucket creation or on an existing bucket.",
    "Retention period or legal hold.",
    "Use Cases:.",
    "Financial records.",
@@ -3188,13 +3223,13 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Amazon Aurora provides:\n• MySQL/PostgreSQL compatibility\n• 5x performance of MySQL, 3x of PostgreSQL\n• Automatic scaling (storage up to 128 TB)\n• Multi-AZ by design (6 copies across 3 AZs)\n• Automatic failover (< 30 seconds)\n• Serverless option available\nAurora vs RDS:\n• Aurora: Better performance, auto-scaling storage, faster replication\n• RDS: Standard MySQL/PostgreSQL, simpler\nAurora Features:\n• Up to 15 read replicas\n• Continuous backup to S3\n• Point-in-time recovery\n• Backtrack (rewind database)",
+  "explanation": "• Amazon Aurora provides:\n• MySQL/PostgreSQL compatibility\n• 5x performance of MySQL, 3x of PostgreSQL\n• Automatic scaling (storage up to 256 TiB on current versions)\n• Multi-AZ by design (6 copies across 3 AZs)\n• Automatic failover (< 30 seconds)\n• Serverless option available\nAurora vs RDS:\n• Aurora: Better performance, auto-scaling storage, faster replication\n• RDS: Standard MySQL/PostgreSQL, simpler\nAurora Features:\n• Up to 15 read replicas\n• Continuous backup to S3\n• Point-in-time recovery\n• Backtrack (rewind database)",
   "module": "Database",
   "multi": false,
   "why": [
    "MySQL/PostgreSQL compatibility.",
    "5x performance of MySQL, 3x of PostgreSQL.",
-   "Automatic scaling (storage up to 128 TB)",
+   "Automatic scaling (storage up to 256 TiB on current versions)",
    "Multi-AZ by design (6 copies across 3 AZs)",
    "Automatic failover (< 30 seconds)",
    "Serverless option available.",
@@ -3211,7 +3246,7 @@ window.QUESTIONS = [
  },
  {
   "id": "05-2",
-  "q": "An application requires sub-millisecond latency for read/write operations with automatic scaling to handle millions of requests per second. Which database should be used?",
+  "q": "An application requires single-digit millisecond latency for read/write operations with automatic scaling to handle millions of requests per second. Which database should be used?",
   "options": {
    "A": "Amazon RDS",
    "B": "Amazon DynamoDB",
@@ -3330,19 +3365,19 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• Amazon DocumentDB is MongoDB-compatible document database\n• Fully managed\n• MongoDB 3.6 and 4.0 compatibility\n• Scales to millions of requests/second\n• Multi-AZ replication\n• Automatic backups\nDocumentDB Features:\n• Document data model (JSON)\n• MongoDB drivers and tools compatible\n• Storage auto-scales to 64 TB\n• Up to 15 read replicas\n• Continuous backup to S3\nMigration: Use AWS Database Migration Service (DMS)\nWhen to use:\n• Existing MongoDB workloads\n• Document-oriented data\n• Need managed service",
+  "explanation": "• Amazon DocumentDB is MongoDB-compatible document database\n• Fully managed\n• MongoDB API compatibility (current engine versions up to 8.0)\n• Scales to millions of requests/second\n• Multi-AZ replication\n• Automatic backups\nDocumentDB Features:\n• Document data model (JSON)\n• MongoDB drivers and tools compatible\n• Storage auto-scales to 128 TiB (256 TiB on engine version 8.0 and later)\n• Up to 15 read replicas\n• Continuous backup to S3\nMigration: Use AWS Database Migration Service (DMS)\nWhen to use:\n• Existing MongoDB workloads\n• Document-oriented data\n• Need managed service",
   "module": "Database",
   "multi": false,
   "why": [
    "Fully managed.",
-   "MongoDB 3.6 and 4.0 compatibility.",
+   "MongoDB API compatibility (current engine versions up to 8.0)",
    "Scales to millions of requests/second.",
    "Multi-AZ replication.",
    "Automatic backups.",
    "DocumentDB Features:.",
    "Document data model (JSON)",
    "MongoDB drivers and tools compatible.",
-   "Storage auto-scales to 64 TB.",
+   "Storage auto-scales to 128 TiB (256 TiB on engine version 8.0 and later)",
    "Up to 15 read replicas.",
    "Continuous backup to S3.",
    "Migration: Use AWS Database Migration Service (DMS)",
@@ -3399,7 +3434,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• RDS Multi-AZ provides high availability\n• Synchronous replication to standby\n• Automatic failover (1-2 minutes)\n• Same region, different AZ\n• No manual intervention\nMulti-AZ vs Read Replicas:\n| Feature | Multi-AZ | Read Replicas |\n|---------|----------|---------------|\n| Purpose | High availability | Read scaling |\n| Replication | Synchronous | Asynchronous |\n| Failover | Automatic | Manual promotion |\n| Access | Standby not accessible | Can read from replicas |\n| Region | Same | Same or cross-region |\nMulti-AZ Failover Triggers:\n• AZ failure\n• Instance failure\n• Storage failure\n• Software patching (planned)",
+  "explanation": "• RDS Multi-AZ provides high availability\n• Synchronous replication to standby\n• Automatic failover (1-2 minutes)\n• Same region, different AZ\n• No manual intervention\nMulti-AZ vs Read Replicas:\n| Feature | Multi-AZ | Read Replicas |\n|---------|----------|---------------|\n| Purpose | High availability | Read scaling |\n| Replication | Synchronous | Asynchronous |\n| Failover | Automatic | Manual promotion |\n| Access | DB instance: standby not readable; DB cluster: two readable standbys | Can read from replicas |\n| Region | Same | Same or cross-region |\nMulti-AZ Failover Triggers:\n• AZ failure\n• Instance failure\n• Storage failure\n• Software patching (planned)",
   "module": "Database",
   "multi": false,
   "why": [
@@ -3414,7 +3449,8 @@ window.QUESTIONS = [
    "| Purpose | High availability | Read scaling |.",
    "| Replication | Synchronous | Asynchronous |.",
    "| Failover | Automatic | Manual promotion |.",
-   "| Access | Standby not accessible | Can read from replicas |.",
+   "| Access | DB instance: standby not readable.",
+   "DB cluster: two readable standbys | Can read from replicas |.",
    "| Region | Same | Same or cross-region |.",
    "Multi-AZ Failover Triggers:.",
    "AZ failure.",
@@ -3540,7 +3576,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• DynamoDB Global Tables:\n• Multi-region, multi-active replication\n• Bi-directional replication\n• Local read/write in each region\n• Sub-second latency\n• Conflict resolution (last writer wins)\nGlobal Tables Requirements:\n• DynamoDB Streams enabled\n• Same table name across regions\n• Same primary key structure\nUse Cases:\n• Global applications\n• Disaster recovery\n• Multi-region high availability\n• Reduce latency for global users",
+  "explanation": "• DynamoDB Global Tables:\n• Multi-region, multi-active replication\n• Bi-directional replication\n• Local read/write in each region\n• Sub-second latency\n• Conflict resolution (last writer wins)\nGlobal Tables Requirements:\n• DynamoDB Streams (enabled automatically on multi-Region eventual consistency replicas)\n• Same table name across regions\n• Same primary key structure\nUse Cases:\n• Global applications\n• Disaster recovery\n• Multi-region high availability\n• Reduce latency for global users",
   "module": "Database",
   "multi": false,
   "why": [
@@ -3550,7 +3586,7 @@ window.QUESTIONS = [
    "Sub-second latency.",
    "Conflict resolution (last writer wins)",
    "Global Tables Requirements:.",
-   "DynamoDB Streams enabled.",
+   "DynamoDB Streams (enabled automatically on multi-Region eventual consistency replicas)",
    "Same table name across regions.",
    "Same primary key structure.",
    "Use Cases:.",
@@ -3611,7 +3647,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• Amazon Timestream is purpose-built for time-series data\n• IoT, DevOps, analytics\n• Automatic data lifecycle management\n• Built-in time-series analytics\n• 1000x faster, 1/10th cost vs relational\nTimestream Features:\n• Automatic tiering (memory → magnetic)\n• Built-in time-series functions\n• Serverless, auto-scaling\n• SQL queries\nUse Cases:\n• IoT sensor data\n• Application monitoring\n• DevOps metrics\n• Industrial telemetry\nTimestream vs Alternatives:\n• DynamoDB: General NoSQL, manual TTL\n• Redshift: Data warehouse, not optimized for time-series\n• Timestream: Purpose-built, best for time-series",
+  "explanation": "• Amazon Timestream is purpose-built for time-series data\n• IoT, DevOps, analytics\n• Automatic data lifecycle management\n• Built-in time-series analytics\n• 1000x faster, 1/10th cost vs relational\nTimestream Features:\n• Automatic tiering (memory → magnetic)\n• Built-in time-series functions\n• Serverless, auto-scaling\n• SQL queries\nUse Cases:\n• IoT sensor data\n• Application monitoring\n• DevOps metrics\n• Industrial telemetry\nTimestream vs Alternatives:\n• DynamoDB: General NoSQL, manual TTL\n• Redshift: Data warehouse, not optimized for time-series\n• Timestream: Purpose-built, best for time-series\nStatus: Amazon Timestream for LiveAnalytics closed to new customers on 20 June 2025. AWS recommends Amazon Timestream for InfluxDB for new customers.",
   "module": "Database",
   "multi": false,
   "why": [
@@ -3632,7 +3668,9 @@ window.QUESTIONS = [
    "Timestream vs Alternatives:.",
    "DynamoDB: General NoSQL, manual TTL.",
    "Redshift: Data warehouse, not optimized for time-series.",
-   "Timestream: Purpose-built, best for time-series."
+   "Timestream: Purpose-built, best for time-series.",
+   "Status: Amazon Timestream for LiveAnalytics closed to new customers on 20 June 2025.",
+   "AWS recommends Amazon Timestream for InfluxDB for new customers."
   ],
   "others": []
  },
@@ -3731,7 +3769,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• On-Demand Capacity:\n• Pay per request\n• No capacity planning\n• Scales automatically\n• Ideal for unpredictable/variable workloads\nCapacity Modes Comparison:\n| Mode | Best For | Pricing | Scaling |\n|------|----------|---------|---------|\n| On-Demand | Variable traffic | Per request | Automatic |\n| Provisioned | Predictable traffic | Per hour (RCU/WCU) | Manual or Auto Scaling |\nWhen to Use:\n• On-Demand: New tables, unpredictable, spiky traffic\n• Provisioned: Predictable, steady traffic, cost optimization\nCost: On-Demand can be more expensive for consistent workloads\nCan switch between modes once per 24 hours",
+  "explanation": "• On-Demand Capacity:\n• Pay per request\n• No capacity planning\n• Scales automatically\n• Ideal for unpredictable/variable workloads\nCapacity Modes Comparison:\n| Mode | Best For | Pricing | Scaling |\n|------|----------|---------|---------|\n| On-Demand | Variable traffic | Per request | Automatic |\n| Provisioned | Predictable traffic | Per hour (RCU/WCU) | Manual or Auto Scaling |\nWhen to Use:\n• On-Demand: New tables, unpredictable, spiky traffic\n• Provisioned: Predictable, steady traffic, cost optimization\nCost: On-Demand can be more expensive for consistent workloads\nCan switch from provisioned to on-demand up to 4 times in a rolling 24-hour window, and from on-demand to provisioned at any time",
   "module": "Database",
   "multi": false,
   "why": [
@@ -3748,7 +3786,7 @@ window.QUESTIONS = [
    "On-Demand: New tables, unpredictable, spiky traffic.",
    "Provisioned: Predictable, steady traffic, cost optimization.",
    "Cost: On-Demand can be more expensive for consistent workloads.",
-   "Can switch between modes once per 24 hours."
+   "Can switch from provisioned to on-demand up to 4 times in a rolling 24-hour window, and from on-demand to provisioned at any time."
   ],
   "others": []
  },
@@ -3920,12 +3958,14 @@ window.QUESTIONS = [
   "answer": [
    "A"
   ],
-  "explanation": "• Amazon QLDB (Quantum Ledger Database) is a fully managed ledger database\n• Provides immutable, cryptographically verifiable transaction log\n• Aurora, RDS, and DynamoDB are not ledger databases",
+  "explanation": "• Amazon QLDB (Quantum Ledger Database) is a fully managed ledger database\n• Provides immutable, cryptographically verifiable transaction log\n• Aurora, RDS, and DynamoDB are not ledger databases\nStatus (November 2026): Amazon QLDB has been discontinued. Know it as the classic exam answer for an immutable, cryptographically verifiable ledger, but it is no longer available for new workloads.",
   "module": "Database",
   "multi": false,
   "why": [
    "Provides immutable, cryptographically verifiable transaction log.",
-   "Aurora, RDS, and DynamoDB are not ledger databases."
+   "Aurora, RDS, and DynamoDB are not ledger databases.",
+   "Status (November 2026): Amazon QLDB has been discontinued.",
+   "Know it as the classic exam answer for an immutable, cryptographically verifiable ledger, but it is no longer available for new workloads."
   ],
   "others": []
  },
@@ -3969,7 +4009,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• NAT Gateway enables outbound internet access for private subnets\n• Instances remain private (no inbound from internet)\n• Placed in public subnet\n• Route private subnet traffic to NAT Gateway\nNAT Gateway vs NAT Instance:\n| Feature | NAT Gateway | NAT Instance |\n|---------|-------------|--------------|\n| Managed | AWS-managed | Customer-managed |\n| Availability | Highly available (AZ) | Single instance |\n| Bandwidth | Up to 45 Gbps | Instance type dependent |\n| Cost | Hourly + data transfer | Instance cost |\n| Maintenance | AWS handles | Customer handles |\nConfiguration:\n1. Create NAT Gateway in public subnet\n2. Update private subnet route table\n3. Route 0.0.0.0/0 to NAT Gateway",
+  "explanation": "• NAT Gateway enables outbound internet access for private subnets\n• Instances remain private (no inbound from internet)\n• Placed in public subnet\n• Route private subnet traffic to NAT Gateway\nNAT Gateway vs NAT Instance:\n| Feature | NAT Gateway | NAT Instance |\n|---------|-------------|--------------|\n| Managed | AWS-managed | Customer-managed |\n| Availability | Highly available (AZ) | Single instance |\n| Bandwidth | 5 Gbps, scales to 100 Gbps | Instance type dependent |\n| Cost | Hourly + data transfer | Instance cost |\n| Maintenance | AWS handles | Customer handles |\nConfiguration:\n1. Create NAT Gateway in public subnet\n2. Update private subnet route table\n3. Route 0.0.0.0/0 to NAT Gateway",
   "module": "Networking",
   "multi": false,
   "why": [
@@ -3981,7 +4021,7 @@ window.QUESTIONS = [
    "|---------|-------------|--------------|.",
    "| Managed | AWS-managed | Customer-managed |.",
    "| Availability | Highly available (AZ) | Single instance |.",
-   "| Bandwidth | Up to 45 Gbps | Instance type dependent |.",
+   "| Bandwidth | 5 Gbps, scales to 100 Gbps | Instance type dependent |.",
    "| Cost | Hourly + data transfer | Instance cost |.",
    "| Maintenance | AWS handles | Customer handles |.",
    "Configuration:.",
@@ -4069,7 +4109,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• AWS Direct Connect provides dedicated physical connection\n• Bypasses public internet\n• More consistent performance\n• Reduced bandwidth costs\nDirect Connect vs VPN:\n| Feature | Direct Connect | Site-to-Site VPN |\n|---------|----------------|------------------|\n| Connection | Dedicated fiber | Internet-based |\n| Bandwidth | 1 Gbps to 100 Gbps | Up to 1.25 Gbps |\n| Latency | Low, consistent | Variable |\n| Cost | Higher (port + data) | Lower |\n| Setup Time | Weeks/months | Minutes |\n| Encryption | Not by default | Yes (IPSec) |\nUse Cases:\n• Large data transfers\n• Consistent performance needed\n• Hybrid cloud architectures\n• Compliance requirements",
+  "explanation": "• AWS Direct Connect provides dedicated physical connection\n• Bypasses public internet\n• More consistent performance\n• Reduced bandwidth costs\nDirect Connect vs VPN:\n| Feature | Direct Connect | Site-to-Site VPN |\n|---------|----------------|------------------|\n| Connection | Dedicated fiber | Internet-based |\n| Bandwidth | 1 Gbps to 400 Gbps | 1.25 Gbps per tunnel (5 Gbps Large Bandwidth Tunnels on TGW) |\n| Latency | Low, consistent | Variable |\n| Cost | Higher (port + data) | Lower |\n| Setup Time | Weeks/months | Minutes |\n| Encryption | Not by default | Yes (IPSec) |\nUse Cases:\n• Large data transfers\n• Consistent performance needed\n• Hybrid cloud architectures\n• Compliance requirements",
   "module": "Networking",
   "multi": false,
   "why": [
@@ -4080,7 +4120,7 @@ window.QUESTIONS = [
    "| Feature | Direct Connect | Site-to-Site VPN |.",
    "|---------|----------------|------------------|.",
    "| Connection | Dedicated fiber | Internet-based |.",
-   "| Bandwidth | 1 Gbps to 100 Gbps | Up to 1.25 Gbps |.",
+   "| Bandwidth | 1 Gbps to 400 Gbps | 1.25 Gbps per tunnel (5 Gbps Large Bandwidth Tunnels on TGW) |.",
    "| Latency | Low, consistent | Variable |.",
    "| Cost | Higher (port + data) | Lower |.",
    "| Setup Time | Weeks/months | Minutes |.",
@@ -4595,7 +4635,7 @@ window.QUESTIONS = [
   "answer": [
    "D"
   ],
-  "explanation": "• NACLs provide basic allow/deny rules\n• No rate limiting capabilities\n• AWS WAF provides rate limiting\nRate Limiting Solutions:\n| Service | Level | Capability |\n|---------|-------|------------|\n| AWS WAF | Application (L7) | Rate-based rules |\n| API Gateway | API | Throttling |\n| Shield Advanced | Network | DDoS mitigation |\n| NACL | Network (L4) | No rate limiting |\nWAF Rate-Based Rule:\n• Block IPs exceeding request threshold\n• 5-minute time window\n• Example: Block if > 2000 requests in 5 minutes\nBest Practice for Traffic Spikes:\n1. Auto Scaling for capacity\n2. WAF for rate limiting\n3. CloudFront for caching\n4. ElastiCache for session/data",
+  "explanation": "• NACLs provide basic allow/deny rules\n• No rate limiting capabilities\n• AWS WAF provides rate limiting\nRate Limiting Solutions:\n| Service | Level | Capability |\n|---------|-------|------------|\n| AWS WAF | Application (L7) | Rate-based rules |\n| API Gateway | API | Throttling |\n| Shield Advanced | Network | DDoS mitigation |\n| NACL | Network (L4) | No rate limiting |\nWAF Rate-Based Rule:\n• Block IPs exceeding request threshold\n• Evaluation window of 1, 2, 5 or 10 minutes (default 5)\n• Example: Block if > 2000 requests in 5 minutes\nBest Practice for Traffic Spikes:\n1. Auto Scaling for capacity\n2. WAF for rate limiting\n3. CloudFront for caching\n4. ElastiCache for session/data",
   "module": "Networking",
   "multi": false,
   "why": [
@@ -4611,7 +4651,7 @@ window.QUESTIONS = [
    "| NACL | Network (L4) | No rate limiting |.",
    "WAF Rate-Based Rule:.",
    "Block IPs exceeding request threshold.",
-   "5-minute time window.",
+   "Evaluation window of 1, 2, 5 or 10 minutes (default 5)",
    "Example: Block if > 2000 requests in 5 minutes.",
    "Best Practice for Traffic Spikes:.",
    "1.",
@@ -4661,7 +4701,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• SSE-KMS with Customer Managed Keys (CMK) provides complete control\n• Create, manage, rotate encryption keys\n• CloudTrail audit trail for key usage\n• Fine-grained access control via key policies\n• Automatic or manual key rotation\nS3 Encryption Options Comparison:\n| Method | Key Management | Rotation | Audit Trail | Cost |\n|--------|----------------|----------|-------------|------|\n| SSE-S3 | AWS | AWS handles | No | Free |\n| SSE-KMS (AWS managed) | AWS | Annual (automatic) | Yes (CloudTrail) | KMS API charges |\n| SSE-KMS (CMK) | Customer | On-demand/annual | Yes (CloudTrail) | KMS API charges |\n| SSE-C | Customer provides | Customer manages | No | Free |\nCMK Benefits:\n• Custom rotation schedule (enable automatic yearly rotation)\n• Disable/enable keys\n• Define key policies and grants\n• Cross-account access\n• Complete audit trail",
+  "explanation": "• SSE-KMS with Customer Managed Keys (CMK) provides complete control\n• Create, manage, rotate encryption keys\n• CloudTrail audit trail for key usage\n• Fine-grained access control via key policies\n• Automatic or manual key rotation\nS3 Encryption Options Comparison:\n| Method | Key Management | Rotation | Audit Trail | Cost |\n|--------|----------------|----------|-------------|------|\n| SSE-S3 | AWS | AWS handles | No | Free |\n| SSE-KMS (AWS managed) | AWS | Annual (automatic) | Yes (CloudTrail) | KMS API charges |\n| SSE-KMS (CMK) | Customer | On-demand or automatic (90-2,560 days) | Yes (CloudTrail) | KMS API charges |\n| SSE-C | Customer provides | Customer manages | No | Free (disabled by default on new buckets since April 2026) |\nCMK Benefits:\n• Custom rotation schedule (automatic rotation every 90-2,560 days, default 365, or on-demand)\n• Disable/enable keys\n• Define key policies and grants\n• Cross-account access\n• Complete audit trail",
   "module": "Security",
   "multi": false,
   "why": [
@@ -4674,10 +4714,10 @@ window.QUESTIONS = [
    "|--------|----------------|----------|-------------|------|.",
    "| SSE-S3 | AWS | AWS handles | No | Free |.",
    "| SSE-KMS (AWS managed) | AWS | Annual (automatic) | Yes (CloudTrail) | KMS API charges |.",
-   "| SSE-KMS (CMK) | Customer | On-demand/annual | Yes (CloudTrail) | KMS API charges |.",
-   "| SSE-C | Customer provides | Customer manages | No | Free |.",
+   "| SSE-KMS (CMK) | Customer | On-demand or automatic (90-2,560 days) | Yes (CloudTrail) | KMS API charges |.",
+   "| SSE-C | Customer provides | Customer manages | No | Free (disabled by default on new buckets since April 2026) |.",
    "CMK Benefits:.",
-   "Custom rotation schedule (enable automatic yearly rotation)",
+   "Custom rotation schedule (automatic rotation every 90-2,560 days, default 365, or on-demand)",
    "Disable/enable keys.",
    "Define key policies and grants.",
    "Cross-account access.",
@@ -5098,11 +5138,11 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• AWS Shield Advanced provides enhanced DDoS protection with cost protection\n• 24/7 access to DDoS Response Team (DRT)\n• Advanced attack detection and mitigation\n• Cost protection against scaling charges during attacks\nShield Comparison:\n| Feature | Shield Standard | Shield Advanced |\n|---------|----------------|-----------------|\n| Cost | Free | $3,000/month |\n| Protection Level | Network/Transport (L3/L4) | Network + Application (L3/L4/L7) |\n| DDoS Response Team | No | 24/7 access |\n| Cost Protection | No | Yes (scaling charges) |\n| Advanced Detection | Basic | Enhanced, real-time |\n| Health-based Detection | No | Yes |\n| Application Layer | Via WAF | Included + WAF |\nShield Advanced Features:\n1. Cost Protection:\n• Protects against scaling charges during DDoS attacks\n• Covers: EC2, ELB, CloudFront, Route 53, Global Accelerator\n2. DDoS Response Team (DRT):\n• 24/7 expert support\n• Attack analysis and mitigation\n• Custom mitigation rules\n3. Advanced Metrics:\n• Real-time attack visibility\n• Historical attack data\n• Integration with CloudWatch\n4. Protection Scope:\n• CloudFront distributions\n• Route 53 hosted zones\n• Global Accelerator accelerators\n• Elastic Load Balancers\n• EC2 Elastic IP addresses\n5. Health-Based Detection:\n• Monitors application health\n• Proactive mitigation\n• Route 53 health checks integration\nWhen to Use Shield Advanced:\n• Business-critical applications\n• High-profile websites\n• Cannot tolerate downtime\n• Need cost protection\n• Want expert DRT support\nBest Practice Architecture:",
+  "explanation": "• AWS Shield Advanced provides enhanced DDoS protection with cost protection\n• 24/7 access to the Shield Response Team (SRT, formerly DDoS Response Team)\n• Advanced attack detection and mitigation\n• Cost protection against scaling charges during attacks\nShield Comparison:\n| Feature | Shield Standard | Shield Advanced |\n|---------|----------------|-----------------|\n| Cost | Free | $3,000/month |\n| Protection Level | Network/Transport (L3/L4) | Network + Application (L3/L4/L7) |\n| Shield Response Team | No | 24/7 access |\n| Cost Protection | No | Yes (scaling charges) |\n| Advanced Detection | Basic | Enhanced, real-time |\n| Health-based Detection | No | Yes |\n| Application Layer | Via WAF | Included + WAF |\nShield Advanced Features:\n1. Cost Protection:\n• Protects against scaling charges during DDoS attacks\n• Covers: EC2, ELB, CloudFront, Route 53, Global Accelerator\n2. Shield Response Team (SRT) (requires Business or Enterprise Support):\n• 24/7 expert support\n• Attack analysis and mitigation\n• Custom mitigation rules\n3. Advanced Metrics:\n• Real-time attack visibility\n• Historical attack data\n• Integration with CloudWatch\n4. Protection Scope:\n• CloudFront distributions\n• Route 53 hosted zones\n• Global Accelerator accelerators\n• Elastic Load Balancers\n• EC2 Elastic IP addresses\n5. Health-Based Detection:\n• Monitors application health\n• Proactive mitigation\n• Route 53 health checks integration\nWhen to Use Shield Advanced:\n• Business-critical applications\n• High-profile websites\n• Cannot tolerate downtime\n• Need cost protection\n• Want expert SRT support\nBest Practice Architecture:",
   "module": "Security",
   "multi": false,
   "why": [
-   "24/7 access to DDoS Response Team (DRT)",
+   "24/7 access to the Shield Response Team (SRT, formerly DDoS Response Team)",
    "Advanced attack detection and mitigation.",
    "Cost protection against scaling charges during attacks.",
    "Shield Comparison:.",
@@ -5110,7 +5150,7 @@ window.QUESTIONS = [
    "|---------|----------------|-----------------|.",
    "| Cost | Free | $3,000/month |.",
    "| Protection Level | Network/Transport (L3/L4) | Network + Application (L3/L4/L7) |.",
-   "| DDoS Response Team | No | 24/7 access |.",
+   "| Shield Response Team | No | 24/7 access |.",
    "| Cost Protection | No | Yes (scaling charges) |.",
    "| Advanced Detection | Basic | Enhanced, real-time |.",
    "| Health-based Detection | No | Yes |.",
@@ -5121,7 +5161,7 @@ window.QUESTIONS = [
    "Protects against scaling charges during DDoS attacks.",
    "Covers: EC2, ELB, CloudFront, Route 53, Global Accelerator.",
    "2.",
-   "DDoS Response Team (DRT):.",
+   "Shield Response Team (SRT) (requires Business or Enterprise Support):.",
    "24/7 expert support.",
    "Attack analysis and mitigation.",
    "Custom mitigation rules.",
@@ -5147,7 +5187,7 @@ window.QUESTIONS = [
    "High-profile websites.",
    "Cannot tolerate downtime.",
    "Need cost protection.",
-   "Want expert DRT support.",
+   "Want expert SRT support.",
    "Best Practice Architecture:."
   ],
   "others": []
@@ -5272,7 +5312,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• S3 Object Lock in Compliance Mode enforces WORM (Write Once Read Many)\n• Cannot be overridden by anyone, including root account\n• Retention period cannot be shortened\n• Object versions cannot be deleted during retention period\nObject Lock Modes:\n| Feature | Governance Mode | Compliance Mode |\n|---------|----------------|-----------------|\n| Override | Yes (with special permission) | No (even root cannot) |\n| Delete | Can be deleted with permission | Cannot be deleted |\n| Retention Change | Can shorten with permission | Cannot shorten |\n| Use Case | Internal governance | Regulatory compliance |\nObject Lock Components:\n1. Retention Modes:\n• Compliance: Immutable, regulatory compliance\n• Governance: Flexible, internal policies\n2. Retention Period:\n• Fixed period (days/years)\n• Protect-until date\n3. Legal Hold:\n• Indefinite protection\n• On/off toggle\n• Independent of retention period\n• Requires `s3:PutObjectLegalHold` permission\nConfiguration Requirements:\n1. Versioning must be enabled (object lock requires versioning)\n2. Object Lock enabled at bucket creation (cannot enable later)\n3. Default retention settings (optional, can be per-object)\nCompliance Mode Example:\nLegal Hold Example:\nCompliance Use Cases:\n• SEC Rule 17a-4 (financial services)\n• HIPAA (healthcare)\n• FINRA (financial industry)\n• Legal documents\n• Regulatory archives\nObject Lock vs Other Protection:\n• Versioning: Can delete versions\n• MFA Delete: Adds MFA but can still delete\n• Object Lock Governance: Can override with permissions\n• Object Lock Compliance: True immutability",
+  "explanation": "• S3 Object Lock in Compliance Mode enforces WORM (Write Once Read Many)\n• Cannot be overridden by anyone, including root account\n• Retention period cannot be shortened\n• Object versions cannot be deleted during retention period\nObject Lock Modes:\n| Feature | Governance Mode | Compliance Mode |\n|---------|----------------|-----------------|\n| Override | Yes (with special permission) | No (even root cannot) |\n| Delete | Can be deleted with permission | Cannot be deleted |\n| Retention Change | Can shorten with permission | Cannot shorten |\n| Use Case | Internal governance | Regulatory compliance |\nObject Lock Components:\n1. Retention Modes:\n• Compliance: Immutable, regulatory compliance\n• Governance: Flexible, internal policies\n2. Retention Period:\n• Fixed period (days/years)\n• Protect-until date\n3. Legal Hold:\n• Indefinite protection\n• On/off toggle\n• Independent of retention period\n• Requires `s3:PutObjectLegalHold` permission\nConfiguration Requirements:\n1. Versioning must be enabled (object lock requires versioning)\n2. Object Lock enabled on the bucket (at creation or later on an existing bucket; versioning is enabled automatically)\n3. Default retention settings (optional, can be per-object)\nCompliance Mode Example:\nLegal Hold Example:\nCompliance Use Cases:\n• SEC Rule 17a-4 (financial services)\n• HIPAA (healthcare)\n• FINRA (financial industry)\n• Legal documents\n• Regulatory archives\nObject Lock vs Other Protection:\n• Versioning: Can delete versions\n• MFA Delete: Adds MFA but can still delete\n• Object Lock Governance: Can override with permissions\n• Object Lock Compliance: True immutability",
   "module": "Security",
   "multi": false,
   "why": [
@@ -5305,7 +5345,8 @@ window.QUESTIONS = [
    "1.",
    "Versioning must be enabled (object lock requires versioning)",
    "2.",
-   "Object Lock enabled at bucket creation (cannot enable later)",
+   "Object Lock enabled on the bucket (at creation or later on an existing bucket.",
+   "Versioning is enabled automatically)",
    "3.",
    "Default retention settings (optional, can be per-object)",
    "Compliance Mode Example:.",
@@ -5571,7 +5612,7 @@ window.QUESTIONS = [
    "C",
    "E"
   ],
-  "explanation": "Immediate Response Steps:\n1. Deactivate/Delete Exposed Credentials (B):\n• FIRST: Deactivate keys immediately\n• SECOND: Review activity\n• THIRD: Delete keys after creating new ones\n2. Review CloudTrail Logs (C):\n• Check for unauthorized API calls\n• Identify scope of compromise\n• Document affected resources\n3. Create New Credentials Before Deleting (E):\n• Ensure application continuity\n• Update applications with new keys\n• Then delete compromised keys\nComplete Incident Response Checklist:\nImmediate (Minutes):\n• [ ] Deactivate exposed credentials\n• [ ] Alert security team\n• [ ] Check GuardDuty for findings\nShort-term (Hours):\n• [ ] Review CloudTrail logs (7-90 days)\n• [ ] Identify unauthorized actions\n• [ ] Assess damage (new resources, data access)\n• [ ] Create new credentials\n• [ ] Update applications\n• [ ] Delete old credentials\n• [ ] Revoke temporary credentials (if role assumed)\nMedium-term (Days):\n• [ ] Review IAM policies (reduce permissions)\n• [ ] Enable MFA (not immediate priority but important)\n• [ ] Implement AWS Secrets Manager\n• [ ] Set up CloudWatch alarms for unusual activity\n• [ ] Review security groups, NACLs\n• [ ] Check for backdoors (IAM users, roles)\nLong-term (Weeks):\n• [ ] Implement AWS SSO\n• [ ] Enforce MFA organization-wide\n• [ ] Use IAM roles instead of access keys\n• [ ] Implement secrets rotation\n• [ ] Security training\n• [ ] Code repository scanning (git-secrets)\n• [ ] Implement preventive controls\nCloudTrail Investigation Queries:\nGuardDuty Findings to Check:\n• UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration\n• Persistence:IAMUser/UserPermissions\n• PrivilegeEscalation:IAMUser/AdministrativePermissions\n• Impact:IAMUser/MaliciousIPCaller\nWhy Other Options are Wrong:\n• A (Password): Access keys and passwords are separate\n• D (MFA): Important but not immediate priority\n• F (PHD): Doesn't relate to credential exposure\nPrevention Strategies:\n1. Never commit credentials to version control\n2. Use IAM roles for applications\n3. Implement AWS Secrets Manager or Parameter Store\n4. Use git-secrets or git-hound to scan repositories\n5. Enable AWS GuardDuty for detection\n6. Rotate credentials regularly\n7. Use short-lived credentials (STS)\n8. Implement AWS SSO for users",
+  "explanation": "Immediate Response Steps:\n1. Deactivate/Delete Exposed Credentials (B):\n• FIRST: Deactivate keys immediately\n• SECOND: Review activity\n• THIRD: Delete keys after creating new ones\n2. Review CloudTrail Logs (C):\n• Check for unauthorized API calls\n• Identify scope of compromise\n• Document affected resources\n3. Create New Credentials Before Deleting (E):\n• Ensure application continuity\n• Update applications with new keys\n• Then delete compromised keys\nComplete Incident Response Checklist:\nImmediate (Minutes):\n• [ ] Deactivate exposed credentials\n• [ ] Alert security team\n• [ ] Check GuardDuty for findings\nShort-term (Hours):\n• [ ] Review CloudTrail logs (7-90 days)\n• [ ] Identify unauthorized actions\n• [ ] Assess damage (new resources, data access)\n• [ ] Create new credentials\n• [ ] Update applications\n• [ ] Delete old credentials\n• [ ] Revoke temporary credentials (if role assumed)\nMedium-term (Days):\n• [ ] Review IAM policies (reduce permissions)\n• [ ] Enable MFA (not immediate priority but important)\n• [ ] Implement AWS Secrets Manager\n• [ ] Set up CloudWatch alarms for unusual activity\n• [ ] Review security groups, NACLs\n• [ ] Check for backdoors (IAM users, roles)\nLong-term (Weeks):\n• [ ] Implement IAM Identity Center\n• [ ] Enforce MFA organization-wide\n• [ ] Use IAM roles instead of access keys\n• [ ] Implement secrets rotation\n• [ ] Security training\n• [ ] Code repository scanning (git-secrets)\n• [ ] Implement preventive controls\nCloudTrail Investigation Queries:\nGuardDuty Findings to Check:\n• UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration\n• Persistence:IAMUser/UserPermissions\n• PrivilegeEscalation:IAMUser/AdministrativePermissions\n• Impact:IAMUser/MaliciousIPCaller\nWhy Other Options are Wrong:\n• A (Password): Access keys and passwords are separate\n• D (MFA): Important but not immediate priority\n• F (PHD): Doesn't relate to credential exposure\nPrevention Strategies:\n1. Never commit credentials to version control\n2. Use IAM roles for applications\n3. Implement AWS Secrets Manager or Parameter Store\n4. Use git-secrets or git-hound to scan repositories\n5. Enable AWS GuardDuty for detection\n6. Rotate credentials regularly\n7. Use short-lived credentials (STS)\n8. Implement IAM Identity Center for users",
   "module": "Security",
   "multi": true,
   "why": [
@@ -5612,7 +5653,7 @@ window.QUESTIONS = [
    "[ ] Review security groups, NACLs.",
    "[ ] Check for backdoors (IAM users, roles)",
    "Long-term (Weeks):.",
-   "[ ] Implement AWS SSO.",
+   "[ ] Implement IAM Identity Center.",
    "[ ] Enforce MFA organization-wide.",
    "[ ] Use IAM roles instead of access keys.",
    "[ ] Implement secrets rotation.",
@@ -5645,7 +5686,7 @@ window.QUESTIONS = [
    "7.",
    "Use short-lived credentials (STS)",
    "8.",
-   "Implement AWS SSO for users."
+   "Implement IAM Identity Center for users."
   ],
   "others": []
  },
@@ -5661,7 +5702,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• AWS Site-to-Site VPN uses IPsec to encrypt data in transit\n• Encryption is built-in and automatic\n• No additional configuration needed for encryption\nConnectivity Options Comparison:\n| Option | Encryption | Speed | Setup | Cost |\n|--------|-----------|-------|-------|------|\n| Site-to-Site VPN | Yes (IPsec) | Up to 1.25 Gbps | Minutes | Low |\n| Direct Connect | No (but can add) | 1-100 Gbps | Weeks | High |\n| DX + VPN | Yes | 1-100 Gbps | Weeks | High |\n| Internet | HTTPS only | Variable | Immediate | Very low |\nSite-to-Site VPN Features:\n1. Encryption:\n• IPsec tunnel\n• AES-256-GCM or AES-128-GCM encryption\n• SHA-2 hashing\n• DH (Diffie-Hellman) groups\n2. Redundancy:\n• AWS provides 2 VPN tunnels per connection\n• Active/passive or active/active\n• Multi-AZ availability\n3. Dynamic Routing:\n• BGP support\n• Automatic failover\n• Route propagation\nVPN Configuration:\nDirect Connect Encryption:\nOption 1: DX + Public VIF + VPN:\n• VPN over Direct Connect\n• Encrypted but complex\nOption 2: DX + VPN (Separate):\n• Direct Connect for primary (unencrypted)\n• VPN for backup (encrypted)\nOption 3: MACsec (Direct Connect):\n• Layer 2 encryption\n• 10 Gbps and 100 Gbps connections only\n• Not available for all locations\nWhen to Choose:\nSite-to-Site VPN:\n• Need immediate encryption\n• Budget-conscious\n• Bandwidth < 1 Gbps adequate\n• Quick setup required\nDirect Connect:\n• Large data transfers\n• Consistent performance needed\n• Can add VPN for encryption\n• Long-term investment\nBest Practice - Hybrid:\n• Primary: Direct Connect (performance)\n• Backup: VPN (encrypted, failover)\n• Provides both performance and encryption",
+  "explanation": "• AWS Site-to-Site VPN uses IPsec to encrypt data in transit\n• Encryption is built-in and automatic\n• No additional configuration needed for encryption\nConnectivity Options Comparison:\n| Option | Encryption | Speed | Setup | Cost |\n|--------|-----------|-------|-------|------|\n| Site-to-Site VPN | Yes (IPsec) | Up to 1.25 Gbps per tunnel (5 Gbps with Large Bandwidth Tunnels on Transit Gateway/Cloud WAN) | Minutes | Low |\n| Direct Connect | No (but can add) | 1-400 Gbps | Weeks | High |\n| DX + VPN | Yes | 1-100 Gbps | Weeks | High |\n| Internet | HTTPS only | Variable | Immediate | Very low |\nSite-to-Site VPN Features:\n1. Encryption:\n• IPsec tunnel\n• AES-256-GCM or AES-128-GCM encryption\n• SHA-2 hashing\n• DH (Diffie-Hellman) groups\n2. Redundancy:\n• AWS provides 2 VPN tunnels per connection\n• Active/passive or active/active\n• Multi-AZ availability\n3. Dynamic Routing:\n• BGP support\n• Automatic failover\n• Route propagation\nVPN Configuration:\nDirect Connect Encryption:\nOption 1: DX + Public VIF + VPN:\n• VPN over Direct Connect\n• Encrypted but complex\nOption 2: DX + VPN (Separate):\n• Direct Connect for primary (unencrypted)\n• VPN for backup (encrypted)\nOption 3: MACsec (Direct Connect):\n• Layer 2 encryption\n• 10 Gbps, 100 Gbps and 400 Gbps dedicated connections only\n• Not available for all locations\nWhen to Choose:\nSite-to-Site VPN:\n• Need immediate encryption\n• Budget-conscious\n• Bandwidth < 1 Gbps adequate\n• Quick setup required\nDirect Connect:\n• Large data transfers\n• Consistent performance needed\n• Can add VPN for encryption\n• Long-term investment\nBest Practice - Hybrid:\n• Primary: Direct Connect (performance)\n• Backup: VPN (encrypted, failover)\n• Provides both performance and encryption",
   "module": "Security",
   "multi": false,
   "why": [
@@ -5670,8 +5711,8 @@ window.QUESTIONS = [
    "Connectivity Options Comparison:.",
    "| Option | Encryption | Speed | Setup | Cost |.",
    "|--------|-----------|-------|-------|------|.",
-   "| Site-to-Site VPN | Yes (IPsec) | Up to 1.25 Gbps | Minutes | Low |.",
-   "| Direct Connect | No (but can add) | 1-100 Gbps | Weeks | High |.",
+   "| Site-to-Site VPN | Yes (IPsec) | Up to 1.25 Gbps per tunnel (5 Gbps with Large Bandwidth Tunnels on Transit Gateway/Cloud WAN) | Minutes | Low |.",
+   "| Direct Connect | No (but can add) | 1-400 Gbps | Weeks | High |.",
    "| DX + VPN | Yes | 1-100 Gbps | Weeks | High |.",
    "| Internet | HTTPS only | Variable | Immediate | Very low |.",
    "Site-to-Site VPN Features:.",
@@ -5701,7 +5742,7 @@ window.QUESTIONS = [
    "VPN for backup (encrypted)",
    "Option 3: MACsec (Direct Connect):.",
    "Layer 2 encryption.",
-   "10 Gbps and 100 Gbps connections only.",
+   "10 Gbps, 100 Gbps and 400 Gbps dedicated connections only.",
    "Not available for all locations.",
    "When to Choose:.",
    "Site-to-Site VPN:.",
@@ -5733,7 +5774,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Service Control Policy (SCP) provides organization-wide preventive control\n• Can restrict actions based on VPC/subnet\n• Cannot be bypassed by member accounts\n• Enforced before IAM policies\nSCP Example - Restrict to Approved VPCs:\nSCP Example - Restrict to Approved Subnets:\nUseful EC2 Condition Keys:\n| Condition Key | Use Case |\n|---------------|----------|\n| `ec2:Vpc` | Restrict to specific VPCs |\n| `ec2:Subnet` | Restrict to specific subnets |\n| `ec2:InstanceType` | Limit instance types |\n| `ec2:Region` | Region restrictions |\n| `ec2:Tenancy` | Dedicated vs default |\n| `ec2:RootDeviceType` | EBS vs instance store |\nMulti-Layer Enforcement:\nLayer 1 - SCP (Preventive):\nLayer 2 - IAM Policy (Preventive):\nLayer 3 - Config (Detective):\nWhy SCP is Best:\n1. Organization-wide: Applies to all accounts\n2. Preventive: Blocks before creation\n3. Cannot override: Even admins cannot bypass\n4. Centralized: Managed from master account\n5. Inherited: Applied to OUs and child accounts\nComparison:\n• SCP: Preventive, organization-wide, cannot override\n• IAM: Preventive, account-level, admins can change\n• Config: Detective, alerts after creation\n• Security Groups: Network-level, not launch control",
+  "explanation": "• Service Control Policy (SCP) provides organization-wide preventive control\n• Can restrict actions based on VPC/subnet\n• Cannot be bypassed by member accounts\n• Enforced before IAM policies\nSCP Example - Restrict to Approved VPCs:\nSCP Example - Restrict to Approved Subnets:\nUseful EC2 Condition Keys:\n| Condition Key | Use Case |\n|---------------|----------|\n| `ec2:Vpc` | Restrict to specific VPCs |\n| `ec2:Subnet` | Restrict to specific subnets |\n| `ec2:InstanceType` | Limit instance types |\n| `ec2:Region` | Region restrictions |\n| `ec2:Tenancy` | Dedicated vs default |\n| `ec2:RootDeviceType` | EBS vs instance store |\nMulti-Layer Enforcement:\nLayer 1 - SCP (Preventive):\nLayer 2 - IAM Policy (Preventive):\nLayer 3 - Config (Detective):\nWhy SCP is Best:\n1. Organization-wide: Applies to all accounts\n2. Preventive: Blocks before creation\n3. Cannot override: Even admins cannot bypass\n4. Centralized: Managed from the management account\n5. Inherited: Applied to OUs and child accounts\nComparison:\n• SCP: Preventive, organization-wide, cannot override\n• IAM: Preventive, account-level, admins can change\n• Config: Detective, alerts after creation\n• Security Groups: Network-level, not launch control",
   "module": "Security",
   "multi": false,
   "why": [
@@ -5763,7 +5804,7 @@ window.QUESTIONS = [
    "3.",
    "Cannot override: Even admins cannot bypass.",
    "4.",
-   "Centralized: Managed from master account.",
+   "Centralized: Managed from the management account.",
    "5.",
    "Inherited: Applied to OUs and child accounts.",
    "Comparison:.",
@@ -5954,19 +5995,19 @@ window.QUESTIONS = [
   "options": {
    "A": "AWS Directory Service",
    "B": "AWS IAM",
-   "C": "AWS SSO",
+   "C": "AWS IAM Identity Center",
    "D": "Amazon Cognito"
   },
   "answer": [
    "A"
   ],
-  "explanation": "• AWS Directory Service provides managed Microsoft AD in AWS\n• Supports AD authentication for EC2, RDS, WorkSpaces, and more\n• IAM is for AWS-native identities\n• SSO is for SAML/OIDC-based SSO\n• Cognito is for app user authentication, not AD",
+  "explanation": "• AWS Directory Service provides managed Microsoft AD in AWS\n• Supports AD authentication for EC2, RDS, WorkSpaces, and more\n• IAM is for AWS-native identities\n• IAM Identity Center (formerly AWS SSO) is for single sign-on to AWS accounts and applications\n• Cognito is for app user authentication, not AD",
   "module": "Security",
   "multi": false,
   "why": [
    "Supports AD authentication for EC2, RDS, WorkSpaces, and more.",
    "IAM is for AWS-native identities.",
-   "SSO is for SAML/OIDC-based SSO.",
+   "IAM Identity Center (formerly AWS SSO) is for single sign-on to AWS accounts and applications.",
    "Cognito is for app user authentication, not AD."
   ],
   "others": []
@@ -6020,7 +6061,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Amazon SQS FIFO Queue provides exactly-once processing with strict ordering\n• Messages processed in the order received\n• Content-based deduplication prevents duplicates\n• Message groups enable parallel processing\nSQS Standard vs FIFO:\n| Feature | Standard | FIFO |\n|---------|----------|------|\n| Ordering | Best-effort | Guaranteed (FIFO) |\n| Delivery | At-least-once | Exactly-once |\n| Throughput | Unlimited | 300 msg/s (3000 batched) |\n| Deduplication | No | Yes (5 min window) |\n| Use Case | High throughput | Order critical |\nFIFO Queue Features:\n1. Message Ordering:\n2. Message Groups:\n• Multiple groups for parallel processing\n• Order maintained within each group\n• Different groups can process simultaneously\n3. Content-Based Deduplication:\n• SHA-256 hash of message body\n• Automatic duplicate detection (5 minutes)\n• Or use MessageDeduplicationId\n4. High Throughput Mode:\n• 3,000 messages per second with batching\n• 9,000 TPS per group (with batching)\nFIFO Queue Naming:\n• Must end with `.fifo` suffix\n• Example: `OrderQueue.fifo`\nUse Cases:\n• Financial transactions: No duplicate charges\n• Order processing: Correct sequence\n• Command execution: Sequential operations\n• Event sourcing: Order matters\nMessage Groups Example:\nBest Practices:\n1. Use message groups for parallelism\n2. Enable content-based deduplication\n3. Set appropriate visibility timeout\n4. Use batch operations (10 messages per batch)\n5. Monitor `ApproximateAgeOfOldestMessage`",
+  "explanation": "• Amazon SQS FIFO Queue provides exactly-once processing with strict ordering\n• Messages processed in the order received\n• Content-based deduplication prevents duplicates\n• Message groups enable parallel processing\nSQS Standard vs FIFO:\n| Feature | Standard | FIFO |\n|---------|----------|------|\n| Ordering | Best-effort | Guaranteed (FIFO) |\n| Delivery | At-least-once | Exactly-once |\n| Throughput | Unlimited | 300 msg/s (3000 batched) |\n| Deduplication | No | Yes (5 min window) |\n| Use Case | High throughput | Order critical |\nFIFO Queue Features:\n1. Message Ordering:\n2. Message Groups:\n• Multiple groups for parallel processing\n• Order maintained within each group\n• Different groups can process simultaneously\n3. Content-Based Deduplication:\n• SHA-256 hash of message body\n• Automatic duplicate detection (5 minutes)\n• Or use MessageDeduplicationId\n4. High Throughput Mode:\n• Default FIFO limit: 300 TPS per API action (3,000 messages per second with batching)\n• High throughput mode: up to 70,000 TPS per API action in selected Regions (up to 700,000 messages per second with batching)\nFIFO Queue Naming:\n• Must end with `.fifo` suffix\n• Example: `OrderQueue.fifo`\nUse Cases:\n• Financial transactions: No duplicate charges\n• Order processing: Correct sequence\n• Command execution: Sequential operations\n• Event sourcing: Order matters\nMessage Groups Example:\nBest Practices:\n1. Use message groups for parallelism\n2. Enable content-based deduplication\n3. Set appropriate visibility timeout\n4. Use batch operations (10 messages per batch)\n5. Monitor `ApproximateAgeOfOldestMessage`",
   "module": "Application Integration",
   "multi": false,
   "why": [
@@ -6050,8 +6091,8 @@ window.QUESTIONS = [
    "Or use MessageDeduplicationId.",
    "4.",
    "High Throughput Mode:.",
-   "3,000 messages per second with batching.",
-   "9,000 TPS per group (with batching)",
+   "Default FIFO limit: 300 TPS per API action (3,000 messages per second with batching)",
+   "High throughput mode: up to 70,000 TPS per API action in selected Regions (up to 700,000 messages per second with batching)",
    "FIFO Queue Naming:.",
    "Must end with `.fifo` suffix.",
    "Example: `OrderQueue.fifo`.",
@@ -6087,7 +6128,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• Amazon Kinesis Data Streams designed for real-time streaming data\n• Handles massive data ingestion from thousands of producers\n• Multiple consumers can read same data stream\n• Data retention (24 hours to 365 days)\n• Ordered records per shard\nKinesis Data Streams Architecture:\nKinesis Key Concepts:\n1. Shards:\n• Throughput unit\n• 1 MB/s write, 2 MB/s read per shard\n• 1,000 records/s write per shard\n• Ordered within shard\n2. Records:\n• Partition key (determines shard)\n• Sequence number (order within shard)\n• Data blob (up to 1 MB)\n3. Consumers:\n• Multiple consumers can read same stream\n• Enhanced fan-out (dedicated 2 MB/s per consumer)\n• Shared throughput mode (2 MB/s total)\nKinesis Features:\n| Feature | Description |\n|---------|-------------|\n| Retention | 24 hours default, up to 365 days |\n| Ordering | Per partition key/shard |\n| Replay | Can reprocess data |\n| Scaling | Add/remove shards |\n| Encryption | At rest (KMS), in transit (HTTPS) |\nCapacity Planning:\nKinesis Producer (Python):\nKinesis Consumer (Lambda):\nKinesis Family:\n| Service | Use Case |\n|---------|----------|\n| Data Streams | Custom real-time processing |\n| Data Firehose | Load to S3, Redshift, ES (easier) |\n| Data Analytics | SQL on streaming data |\n| Video Streams | Video ingestion and processing |\nKinesis vs SQS:\n| Feature | Kinesis | SQS |\n|---------|---------|-----|\n| Ordering | Per shard | FIFO queue only |\n| Multiple Consumers | Yes | No (fanout via SNS) |\n| Retention | Up to 365 days | Up to 14 days |\n| Replay | Yes | No |\n| Use Case | Streaming, analytics | Decoupling, buffering |\nWhen to Use Kinesis:\n• Real-time analytics\n• Log and event data collection\n• IoT data ingestion\n• Multiple consumers need same data\n• Need to replay data\n• Streaming ETL",
+  "explanation": "• Amazon Kinesis Data Streams designed for real-time streaming data\n• Handles massive data ingestion from thousands of producers\n• Multiple consumers can read same data stream\n• Data retention (24 hours to 365 days)\n• Ordered records per shard\nKinesis Data Streams Architecture:\nKinesis Key Concepts:\n1. Shards:\n• Throughput unit\n• 1 MB/s write, 2 MB/s read per shard\n• 1,000 records/s write per shard\n• Ordered within shard\n2. Records:\n• Partition key (determines shard)\n• Sequence number (order within shard)\n• Data blob (1 MiB by default, configurable up to 10 MiB per stream)\n3. Consumers:\n• Multiple consumers can read same stream\n• Enhanced fan-out (dedicated 2 MB/s per consumer)\n• Shared throughput mode (2 MB/s total)\nKinesis Features:\n| Feature | Description |\n|---------|-------------|\n| Retention | 24 hours default, up to 365 days |\n| Ordering | Per partition key/shard |\n| Replay | Can reprocess data |\n| Scaling | Add/remove shards |\n| Encryption | At rest (KMS), in transit (HTTPS) |\nCapacity Planning:\nKinesis Producer (Python):\nKinesis Consumer (Lambda):\nKinesis Family:\n| Service | Use Case |\n|---------|----------|\n| Data Streams | Custom real-time processing |\n| Data Firehose | Load to S3, Redshift, ES (easier) |\n| Data Analytics (SQL version discontinued; now Managed Service for Apache Flink) | Analytics on streaming data |\n| Video Streams | Video ingestion and processing |\nKinesis vs SQS:\n| Feature | Kinesis | SQS |\n|---------|---------|-----|\n| Ordering | Per shard | FIFO queue only |\n| Multiple Consumers | Yes | No (fanout via SNS) |\n| Retention | Up to 365 days | Up to 14 days |\n| Replay | Yes | No |\n| Use Case | Streaming, analytics | Decoupling, buffering |\nWhen to Use Kinesis:\n• Real-time analytics\n• Log and event data collection\n• IoT data ingestion\n• Multiple consumers need same data\n• Need to replay data\n• Streaming ETL",
   "module": "Application Integration",
   "multi": false,
   "why": [
@@ -6107,7 +6148,7 @@ window.QUESTIONS = [
    "Records:.",
    "Partition key (determines shard)",
    "Sequence number (order within shard)",
-   "Data blob (up to 1 MB)",
+   "Data blob (1 MiB by default, configurable up to 10 MiB per stream)",
    "3.",
    "Consumers:.",
    "Multiple consumers can read same stream.",
@@ -6129,7 +6170,8 @@ window.QUESTIONS = [
    "|---------|----------|.",
    "| Data Streams | Custom real-time processing |.",
    "| Data Firehose | Load to S3, Redshift, ES (easier) |.",
-   "| Data Analytics | SQL on streaming data |.",
+   "| Data Analytics (SQL version discontinued.",
+   "Now Managed Service for Apache Flink) | Analytics on streaming data |.",
    "| Video Streams | Video ingestion and processing |.",
    "Kinesis vs SQS:.",
    "| Feature | Kinesis | SQS |.",
@@ -6305,7 +6347,7 @@ window.QUESTIONS = [
  },
  {
   "id": "08-6",
-  "q": "An application needs to load streaming data into S3, Redshift, and Elasticsearch with minimal code. Which service is MOST appropriate?",
+  "q": "An application needs to load streaming data into S3, Redshift, and OpenSearch with minimal code. Which service is MOST appropriate?",
   "options": {
    "A": "Amazon Kinesis Data Streams with custom consumers",
    "B": "Amazon Kinesis Data Firehose",
@@ -6315,14 +6357,14 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Amazon Kinesis Data Firehose is fully managed service for loading streaming data\n• No code required (vs Data Streams which needs custom consumers)\n• Automatic scaling\n• Built-in data transformation (Lambda)\n• Direct delivery to S3, Redshift, Elasticsearch, HTTP endpoints\nKinesis Data Firehose Architecture:\nFirehose Features:\n1. Automatic Scaling:\n• No capacity planning\n• Scales to gigabytes per second\n• Pay for data volume\n2. Buffering:\n• Buffer by size (1-128 MB)\n• Buffer by time (60-900 seconds)\n• Delivers when either threshold met\n3. Data Transformation:\n• Lambda function processes each record\n• Format conversion (JSON to Parquet/ORC)\n• Compression (GZIP, ZIP, Snappy)\n4. Backup:\n• Backup source data to S3\n• Failed records to separate S3 prefix\nFirehose Delivery Configuration:\nData Transformation Example (Lambda):\nDelivery Destinations:\n1. Amazon S3:\n• Object storage\n• Data lake\n• Archive\n• Partitioning by time\n2. Amazon Redshift:\n• Data warehouse\n• Analytics\n• Data via S3 COPY command\n3. Amazon Elasticsearch:\n• Search and analytics\n• Log analysis\n• Real-time dashboards\n4. Splunk:\n• Security monitoring\n• Operational intelligence\n5. HTTP Endpoints:\n• Custom destinations\n• Third-party services\nFirehose vs Data Streams:\n| Feature | Data Firehose | Data Streams |\n|---------|---------------|--------------|\n| Management | Fully managed | Manage shards |\n| Destinations | Built-in (S3, Redshift, ES) | Custom code |\n| Scaling | Automatic | Manual shard management |\n| Retention | No retention | 24h to 365 days |\n| Consumers | One (delivery) | Multiple possible |\n| Use Case | Load to destinations | Custom processing |\nCost Comparison:\nWhen to Use Firehose:\n• Load data to S3, Redshift, ES, Splunk\n• Don't need multiple consumers\n• Want fully managed solution\n• Near real-time (60+ seconds latency)\n• Simple transformations\nWhen to Use Data Streams:\n• Need real-time processing (< 1 second)\n• Multiple consumers\n• Custom processing logic\n• Need to replay data\n• Order matters within shard\nReal-World Examples:\n1. Clickstream Analytics:\n2. Log Aggregation:\n3. Data Lake:\nBest Practices:\n1. Use buffering to optimize cost (batch writes)\n2. Enable S3 backup for source records\n3. Use compression (GZIP) to reduce storage costs\n4. Convert to columnar formats (Parquet/ORC) for analytics\n5. Partition S3 data by time for better query performance\n6. Monitor delivery to CloudWatch",
+  "explanation": "• Amazon Kinesis Data Firehose is fully managed service for loading streaming data\n• No code required (vs Data Streams which needs custom consumers)\n• Automatic scaling\n• Built-in data transformation (Lambda)\n• Direct delivery to S3, Redshift, OpenSearch, HTTP endpoints\nKinesis Data Firehose Architecture:\nFirehose Features:\n1. Automatic Scaling:\n• No capacity planning\n• Scales to gigabytes per second\n• Pay for data volume\n2. Buffering:\n• Buffer by size (1-128 MB)\n• Buffer by time (0-900 seconds; 0 = zero buffering)\n• Delivers when either threshold met\n3. Data Transformation:\n• Lambda function processes each record\n• Format conversion (JSON to Parquet/ORC)\n• Compression (GZIP, ZIP, Snappy)\n4. Backup:\n• Backup source data to S3\n• Failed records to separate S3 prefix\nFirehose Delivery Configuration:\nData Transformation Example (Lambda):\nDelivery Destinations:\n1. Amazon S3:\n• Object storage\n• Data lake\n• Archive\n• Partitioning by time\n2. Amazon Redshift:\n• Data warehouse\n• Analytics\n• Data via S3 COPY command\n3. Amazon OpenSearch Service:\n• Search and analytics\n• Log analysis\n• Real-time dashboards\n4. Splunk:\n• Security monitoring\n• Operational intelligence\n5. HTTP Endpoints:\n• Custom destinations\n• Third-party services\nFirehose vs Data Streams:\n| Feature | Data Firehose | Data Streams |\n|---------|---------------|--------------|\n| Management | Fully managed | Manage shards |\n| Destinations | Built-in (S3, Redshift, ES) | Custom code |\n| Scaling | Automatic | Manual shard management |\n| Retention | No retention | 24h to 365 days |\n| Consumers | One (delivery) | Multiple possible |\n| Use Case | Load to destinations | Custom processing |\nCost Comparison:\nWhen to Use Firehose:\n• Load data to S3, Redshift, ES, Splunk\n• Don't need multiple consumers\n• Want fully managed solution\n• Near real-time (seconds with zero buffering, up to 900 seconds with buffering)\n• Simple transformations\nWhen to Use Data Streams:\n• Need real-time processing (< 1 second)\n• Multiple consumers\n• Custom processing logic\n• Need to replay data\n• Order matters within shard\nReal-World Examples:\n1. Clickstream Analytics:\n2. Log Aggregation:\n3. Data Lake:\nBest Practices:\n1. Use buffering to optimize cost (batch writes)\n2. Enable S3 backup for source records\n3. Use compression (GZIP) to reduce storage costs\n4. Convert to columnar formats (Parquet/ORC) for analytics\n5. Partition S3 data by time for better query performance\n6. Monitor delivery to CloudWatch",
   "module": "Application Integration",
   "multi": false,
   "why": [
    "No code required (vs Data Streams which needs custom consumers)",
    "Automatic scaling.",
    "Built-in data transformation (Lambda)",
-   "Direct delivery to S3, Redshift, Elasticsearch, HTTP endpoints.",
+   "Direct delivery to S3, Redshift, OpenSearch, HTTP endpoints.",
    "Kinesis Data Firehose Architecture:.",
    "Firehose Features:.",
    "1.",
@@ -6333,7 +6375,8 @@ window.QUESTIONS = [
    "2.",
    "Buffering:.",
    "Buffer by size (1-128 MB)",
-   "Buffer by time (60-900 seconds)",
+   "Buffer by time (0-900 seconds.",
+   "0 = zero buffering)",
    "Delivers when either threshold met.",
    "3.",
    "Data Transformation:.",
@@ -6359,7 +6402,7 @@ window.QUESTIONS = [
    "Analytics.",
    "Data via S3 COPY command.",
    "3.",
-   "Amazon Elasticsearch:.",
+   "Amazon OpenSearch Service:.",
    "Search and analytics.",
    "Log analysis.",
    "Real-time dashboards.",
@@ -6385,7 +6428,7 @@ window.QUESTIONS = [
    "Load data to S3, Redshift, ES, Splunk.",
    "Don't need multiple consumers.",
    "Want fully managed solution.",
-   "Near real-time (60+ seconds latency)",
+   "Near real-time (seconds with zero buffering, up to 900 seconds with buffering)",
    "Simple transformations.",
    "When to Use Data Streams:.",
    "Need real-time processing (< 1 second)",
@@ -6801,9 +6844,9 @@ window.QUESTIONS = [
  },
  {
   "id": "08-45",
-  "q": "A marketing team wants to send targeted push notifications, emails, and SMS messages to users based on their behavior in a mobile app. Which AWS service should be used?",
+  "q": "A marketing team wants to send targeted emails and SMS messages to customer segments based on their behavior and profile data. Which AWS service should be used?",
   "options": {
-   "A": "Amazon Pinpoint",
+   "A": "Amazon Connect outbound campaigns",
    "B": "Amazon SNS",
    "C": "AWS Amplify",
    "D": "Amazon SQS"
@@ -6811,12 +6854,14 @@ window.QUESTIONS = [
   "answer": [
    "A"
   ],
-  "explanation": "• Amazon Pinpoint is a multi-channel marketing and analytics service\n• Supports push, email, SMS, and in-app messaging\n• Provides segmentation, analytics, and campaign management\n• SNS is for basic notifications, not targeted campaigns\n• Amplify is for app development, not marketing\n• SQS is for queuing, not messaging users",
+  "explanation": "• Amazon Connect outbound campaigns, with Amazon Connect Customer Profiles, runs targeted, multi-channel campaigns to customer segments\n• This is where AWS points former Amazon Pinpoint engagement users (segments, campaigns, journeys)\n• Status (November 2026): Amazon Pinpoint support ended 30 Oct 2026. Use Amazon Connect outbound campaigns, AWS End User Messaging (SMS/voice/push) and Amazon SES (email). Older practice questions may still name Pinpoint for this scenario\n• SNS is for basic notifications, not targeted campaigns\n• Amplify is for app development, not marketing\n• SQS is for queuing, not messaging users",
   "module": "Application Integration",
   "multi": false,
   "why": [
-   "Supports push, email, SMS, and in-app messaging.",
-   "Provides segmentation, analytics, and campaign management.",
+   "This is where AWS points former Amazon Pinpoint engagement users (segments, campaigns, journeys)",
+   "Status (November 2026): Amazon Pinpoint support ended 30 Oct 2026.",
+   "Use Amazon Connect outbound campaigns, AWS End User Messaging (SMS/voice/push) and Amazon SES (email).",
+   "Older practice questions may still name Pinpoint for this scenario.",
    "SNS is for basic notifications, not targeted campaigns.",
    "Amplify is for app development, not marketing.",
    "SQS is for queuing, not messaging users."
@@ -7352,23 +7397,28 @@ window.QUESTIONS = [
    "A": "Download all logs from S3 and use local tools",
    "B": "Use Amazon Athena to query CloudTrail logs in S3",
    "C": "Use CloudTrail Lake to query logs with SQL",
-   "D": "Import logs into Elasticsearch"
+   "D": "Import logs into Amazon OpenSearch Service"
   },
   "answer": [
-   "C"
+   "B"
   ],
-  "explanation": "• CloudTrail Lake is purpose-built for querying CloudTrail logs\n• Uses SQL to query events\n• Can retain events for up to 7 years\n• Aggregates logs from multiple accounts/regions\n• Athena could work but CloudTrail Lake is optimized for this use case\n• Option A is inefficient and not scalable\n• Elasticsearch adds unnecessary complexity",
+  "explanation": "• A trail already delivers the log files to S3, so Athena can query all 5 years in place with standard SQL\n• Serverless, pay per query, and no data needs to be moved or loaded\n• Partitioning the table by account, Region and date keeps queries fast and cheap\n• CloudTrail Lake (option C) also queries events with SQL (up to 10 years of retention), but it has been closed to new customers since 31 May 2026. It remains valid only for accounts already using it, and older practice questions may still name it\n• Option A is inefficient and not scalable\n• OpenSearch adds unnecessary complexity",
   "module": "Monitoring",
   "multi": false,
   "why": [
-   "CloudTrail Lake is purpose-built for querying CloudTrail logs.",
-   "Uses SQL to query events.",
-   "Can retain events for up to 7 years.",
-   "Aggregates logs from multiple accounts/regions.",
-   "Athena could work but CloudTrail Lake is optimized for this use case.",
-   "Elasticsearch adds unnecessary complexity."
+   "Serverless, pay per query, and no data needs to be moved or loaded.",
+   "Partitioning the table by account, Region and date keeps queries fast and cheap.",
+   "CloudTrail Lake (option C) also queries events with SQL (up to 10 years of retention), but it has been closed to new customers since 31 May 2026.",
+   "It remains valid only for accounts already using it, and older practice questions may still name it.",
+   "OpenSearch adds unnecessary complexity."
   ],
   "others": [
+   {
+    "l": [
+     "A"
+    ],
+    "t": "Trail already delivers the log files to S3, so Athena can query all 5 years in place with standard SQL."
+   },
    {
     "l": [
      "A"
@@ -7414,19 +7464,33 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• 50 TB over 100 Mbps would take approximately 46 days\n• Snowball is designed for large data transfers with limited bandwidth\n• Can transfer 50-80 TB per device in about a week\n• DataSync works over network but would be too slow\n• Direct Connect is for ongoing connectivity, not one-time migration\n• Transfer Family is for SFTP/FTPS access to S3\nCalculation: 50 TB = 400,000 Gb ÷ 100 Mbps = 4,000,000 seconds ≈ 46 days",
+  "explanation": "• 50 TB over 100 Mbps would take approximately 46 days\n• Snowball is designed for large data transfers with limited bandwidth\n• One Snowball Edge Storage Optimized device holds 210 TB; a job takes about a week\n• DataSync works over network but would be too slow\n• Direct Connect is for ongoing connectivity, not one-time migration\n• Transfer Family is for SFTP/FTPS access to S3\n• Status (November 2026): Snowball Edge is closed to new customers; a new customer would use DataSync over the network or AWS Data Transfer Terminal\nCalculation: 50 TB = 400,000 Gb ÷ 100 Mbps = 4,000,000 seconds ≈ 46 days",
   "module": "Migration",
   "multi": false,
   "why": [
    "50 TB over 100 Mbps would take approximately 46 days.",
    "Snowball is designed for large data transfers with limited bandwidth.",
-   "Can transfer 50-80 TB per device in about a week.",
+   "One Snowball Edge Storage Optimized device holds 210 TB.",
    "DataSync works over network but would be too slow.",
    "Direct Connect is for ongoing connectivity, not one-time migration.",
    "Transfer Family is for SFTP/FTPS access to S3.",
+   "Status (November 2026): Snowball Edge is closed to new customers.",
    "Calculation: 50 TB = 400,000 Gb ÷ 100 Mbps = 4,000,000 seconds ≈ 46 days."
   ],
-  "others": []
+  "others": [
+   {
+    "l": [
+     "A"
+    ],
+    "t": "Job takes about a week."
+   },
+   {
+    "l": [
+     "A"
+    ],
+    "t": "New customer would use DataSync over the network or AWS Data Transfer Terminal."
+   }
+  ]
  },
  {
   "id": "10-3",
@@ -7542,7 +7606,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Migration Hub provides centralized tracking of migrations\n• Aggregates progress from multiple migration tools\n• Supports multi-account and multi-region tracking\n• Integrates with DMS, Application Migration Service, etc.\n• CloudWatch monitors resources, not migrations\n• Systems Manager manages infrastructure\n• Config tracks configuration compliance",
+  "explanation": "• Migration Hub provides centralized tracking of migrations\n• Aggregates progress from multiple migration tools\n• Supports multi-account and multi-region tracking\n• Integrates with DMS, Application Migration Service, etc.\n• CloudWatch monitors resources, not migrations\n• Systems Manager manages infrastructure\n• Config tracks configuration compliance\n• Status (November 2026): Migration Hub has been closed to new customers since 7 Nov 2025; AWS Transform offers similar tracking",
   "module": "Migration",
   "multi": false,
   "why": [
@@ -7552,7 +7616,9 @@ window.QUESTIONS = [
    "Integrates with DMS, Application Migration Service, etc.",
    "CloudWatch monitors resources, not migrations.",
    "Systems Manager manages infrastructure.",
-   "Config tracks configuration compliance."
+   "Config tracks configuration compliance.",
+   "Status (November 2026): Migration Hub has been closed to new customers since 7 Nov 2025.",
+   "AWS Transform offers similar tracking."
   ],
   "others": []
  },
@@ -7685,7 +7751,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• 500 TB is very large, Snowball is designed for this\n• Even with 1 Gbps, transfer would take months\n• Can't use full bandwidth due to business requirements\n• Snowball is faster and more cost-effective for large migrations\n• DataSync with throttling would be too slow\n• Upgrading connection is expensive\n• Direct Connect requires time to provision",
+  "explanation": "• 500 TB is very large, Snowball is designed for this\n• Even with 1 Gbps, transfer would take months\n• Can't use full bandwidth due to business requirements\n• Snowball is faster and more cost-effective for large migrations\n• DataSync with throttling would be too slow\n• Upgrading connection is expensive\n• Direct Connect requires time to provision\n• Status (November 2026): Snowball Edge is closed to new customers; a new customer would use DataSync over the network or AWS Data Transfer Terminal",
   "module": "Migration",
   "multi": false,
   "why": [
@@ -7695,9 +7761,17 @@ window.QUESTIONS = [
    "Snowball is faster and more cost-effective for large migrations.",
    "DataSync with throttling would be too slow.",
    "Upgrading connection is expensive.",
-   "Direct Connect requires time to provision."
+   "Direct Connect requires time to provision.",
+   "Status (November 2026): Snowball Edge is closed to new customers."
   ],
-  "others": []
+  "others": [
+   {
+    "l": [
+     "A"
+    ],
+    "t": "New customer would use DataSync over the network or AWS Data Transfer Terminal."
+   }
+  ]
  },
  {
   "id": "10-13",
@@ -7786,12 +7860,12 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• Retire strategy identifies and turns off unused applications\n• Reduces cost and complexity\n• Part of the 6 R's migration framework\n• Rehost moves applications to cloud\n• Replatform optimizes during migration\n• Retain keeps applications on-premises",
+  "explanation": "• Retire strategy identifies and turns off unused applications\n• Reduces cost and complexity\n• Part of the 7 Rs migration framework\n• Rehost moves applications to cloud\n• Replatform optimizes during migration\n• Retain keeps applications on-premises",
   "module": "Migration",
   "multi": false,
   "why": [
    "Reduces cost and complexity.",
-   "Part of the 6 R's migration framework.",
+   "Part of the 7 Rs migration framework.",
    "Rehost moves applications to cloud.",
    "Replatform optimizes during migration.",
    "Retain keeps applications on-premises."
@@ -7835,7 +7909,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• Application Discovery Service discovers on-premises resources\n• Collects server specifications, performance data, dependencies\n• Migration Hub tracks migration progress\n• Together they provide complete migration solution\n• Application Discovery feeds data into Migration Hub\n• CloudEndure is now AWS Application Migration Service",
+  "explanation": "• Application Discovery Service discovers on-premises resources\n• Collects server specifications, performance data, dependencies\n• Migration Hub tracks migration progress\n• Together they provide complete migration solution\n• Application Discovery feeds data into Migration Hub\n• CloudEndure is now AWS Application Migration Service\n• Status (November 2026): Migration Hub and Application Discovery Service have been closed to new customers since 7 Nov 2025",
   "module": "Migration",
   "multi": false,
   "why": [
@@ -7844,7 +7918,8 @@ window.QUESTIONS = [
    "Migration Hub tracks migration progress.",
    "Together they provide complete migration solution.",
    "Application Discovery feeds data into Migration Hub.",
-   "CloudEndure is now AWS Application Migration Service."
+   "CloudEndure is now AWS Application Migration Service.",
+   "Status (November 2026): Migration Hub and Application Discovery Service have been closed to new customers since 7 Nov 2025."
   ],
   "others": []
  },
@@ -7986,14 +8061,14 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Kinesis Data Firehose is fully managed, no infrastructure\n• Automatically loads to S3\n• Built-in compression (GZIP, Snappy)\n• Buffer interval supports 60-900 seconds (5 minutes = 300 seconds)\n• Minimal operational overhead\n• Data Streams requires consumer application\n• SQS adds unnecessary complexity\n• Custom application requires maintenance",
+  "explanation": "• Kinesis Data Firehose is fully managed, no infrastructure\n• Automatically loads to S3\n• Built-in compression (GZIP, Snappy)\n• Buffer interval supports 0-900 seconds (5 minutes = 300 seconds)\n• Minimal operational overhead\n• Data Streams requires consumer application\n• SQS adds unnecessary complexity\n• Custom application requires maintenance",
   "module": "Analytics",
   "multi": false,
   "why": [
    "Kinesis Data Firehose is fully managed, no infrastructure.",
    "Automatically loads to S3.",
    "Built-in compression (GZIP, Snappy)",
-   "Buffer interval supports 60-900 seconds (5 minutes = 300 seconds)",
+   "Buffer interval supports 0-900 seconds (5 minutes = 300 seconds)",
    "Minimal operational overhead.",
    "Data Streams requires consumer application.",
    "SQS adds unnecessary complexity.",
@@ -8032,18 +8107,20 @@ window.QUESTIONS = [
   "q": "A company needs to process streaming data in real-time using SQL queries and send alerts when certain thresholds are exceeded. Which service should be used?",
   "options": {
    "A": "Amazon Athena",
-   "B": "Amazon Kinesis Data Analytics",
+   "B": "Amazon Managed Service for Apache Flink (formerly Kinesis Data Analytics)",
    "C": "Amazon Kinesis Data Firehose",
    "D": "AWS Glue"
   },
   "answer": [
    "B"
   ],
-  "explanation": "• Kinesis Data Analytics processes streaming data with SQL\n• Real-time analytics on streaming data\n• Can send results to Lambda for alerts\n• Athena queries static data in S3\n• Firehose loads data but doesn't analyze\n• Glue is for ETL jobs",
+  "explanation": "• Managed Service for Apache Flink processes streaming data with Flink SQL, Java or Python\n• Kinesis Data Analytics for SQL applications was discontinued (apps deleted from 27 Jan 2026); Managed Service for Apache Flink replaces it\n• Real-time analytics on streaming data\n• Can send results to Lambda for alerts\n• Athena queries static data in S3\n• Firehose loads data but doesn't analyze\n• Glue is for ETL jobs",
   "module": "Analytics",
   "multi": false,
   "why": [
-   "Kinesis Data Analytics processes streaming data with SQL.",
+   "Managed Service for Apache Flink processes streaming data with Flink SQL, Java or Python.",
+   "Kinesis Data Analytics for SQL applications was discontinued (apps deleted from 27 Jan 2026)",
+   "Managed Service for Apache Flink replaces it.",
    "Real-time analytics on streaming data.",
    "Can send results to Lambda for alerts.",
    "Athena queries static data in S3.",
@@ -8219,7 +8296,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• AWS Glue is fully managed ETL service\n• Glue Data Catalog stores metadata\n• Glue Crawlers discover schemas\n• Glue Jobs perform transformations\n• Supports scheduling\n• EMR requires more management\n• Data Pipeline is older service\n• Athena queries, doesn't transform",
+  "explanation": "• AWS Glue is fully managed ETL service\n• Glue Data Catalog stores metadata\n• Glue Crawlers discover schemas\n• Glue Jobs perform transformations\n• Supports scheduling\n• EMR requires more management\n• Data Pipeline is no longer available to new customers\n• Athena queries, doesn't transform",
   "module": "Analytics",
   "multi": false,
   "why": [
@@ -8228,7 +8305,7 @@ window.QUESTIONS = [
    "Glue Jobs perform transformations.",
    "Supports scheduling.",
    "EMR requires more management.",
-   "Data Pipeline is older service.",
+   "Data Pipeline is no longer available to new customers.",
    "Athena queries, doesn't transform."
   ],
   "others": []
@@ -8397,20 +8474,31 @@ window.QUESTIONS = [
    "D": "The user receives a warning but query proceeds"
   },
   "answer": [
-   "B"
+   "A"
   ],
-  "explanation": "• Workgroup data usage controls enforce limits\n• Queries exceeding the limit are rejected\n• Prevents cost overruns\n• User must optimize query or request limit increase\n• Query doesn't partially execute\n• Hard enforcement, not just a warning",
+  "explanation": "• A daily limit is a workgroup-wide data usage control\n• Workgroup-wide limits don't stop queries: when the aggregate is breached they trigger an action (SNS alarm, Lambda function, or disabling the workgroup)\n• The query runs and is billed for the 1.5 TB it scans\n• Only a per-query data usage control cancels a query, and it does so once the query passes the limit\n• Athena never limits a scan to a partial amount (C)\n• The alarm goes to the SNS topic you configure, not to the user as a warning (D)",
   "module": "Analytics",
   "multi": false,
   "why": [
-   "Workgroup data usage controls enforce limits.",
-   "Queries exceeding the limit are rejected.",
-   "Prevents cost overruns.",
-   "User must optimize query or request limit increase.",
-   "Query doesn't partially execute.",
-   "Hard enforcement, not just a warning."
+   "A daily limit is a workgroup-wide data usage control.",
+   "Workgroup-wide limits don't stop queries: when the aggregate is breached they trigger an action (SNS alarm, Lambda function, or disabling the workgroup)",
+   "The query runs and is billed for the 1.5 TB it scans.",
+   "Only a per-query data usage control cancels a query, and it does so once the query passes the limit."
   ],
-  "others": []
+  "others": [
+   {
+    "l": [
+     "C"
+    ],
+    "t": "Athena never limits a scan to a partial amount (C)"
+   },
+   {
+    "l": [
+     "D"
+    ],
+    "t": "The alarm goes to the SNS topic you configure, not to the user as a warning (D)"
+   }
+  ]
  },
  {
   "id": "11-21",
@@ -8473,13 +8561,13 @@ window.QUESTIONS = [
   "answer": [
    "A"
   ],
-  "explanation": "• OpenSearch Service (formerly Elasticsearch) is designed for log analytics, search, and visualization\n• Provides near real-time indexing and querying\n• Integrates with Kibana for dashboards\n• Athena is for ad-hoc SQL queries, not real-time search\n• Redshift is for data warehousing\n• Glue is for ETL, not search/visualization",
+  "explanation": "• OpenSearch Service (formerly Elasticsearch) is designed for log analytics, search, and visualization\n• Provides near real-time indexing and querying\n• Integrates with OpenSearch Dashboards (successor to Kibana) for dashboards\n• Athena is for ad-hoc SQL queries, not real-time search\n• Redshift is for data warehousing\n• Glue is for ETL, not search/visualization",
   "module": "Analytics",
   "multi": false,
   "why": [
    "OpenSearch Service (formerly Elasticsearch) is designed for log analytics, search, and visualization.",
    "Provides near real-time indexing and querying.",
-   "Integrates with Kibana for dashboards.",
+   "Integrates with OpenSearch Dashboards (successor to Kibana) for dashboards.",
    "Athena is for ad-hoc SQL queries, not real-time search.",
    "Redshift is for data warehousing.",
    "Glue is for ETL, not search/visualization."
@@ -8605,12 +8693,12 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• Pilot light maintains core services (like database replication)\n• RPO: Minutes (database replication lag)\n• RTO: Hours (time to scale up remaining services)\n• More cost-effective than warm standby\n• Meets the 1-hour RPO and 4-hour RTO requirements\n• Multi-site is expensive and over-engineered\n• Warm standby costs more than necessary\n• Backup and restore may not meet RPO/RTO",
+  "explanation": "• Pilot light maintains core services (like database replication)\n• RPO: Minutes (database replication lag)\n• RTO: Tens of minutes to hours (time to start and scale up remaining services)\n• More cost-effective than warm standby\n• Meets the 1-hour RPO and 4-hour RTO requirements\n• Multi-site is expensive and over-engineered\n• Warm standby costs more than necessary\n• Backup and restore may not meet RPO/RTO",
   "module": "Architecture Patterns",
   "multi": false,
   "why": [
    "RPO: Minutes (database replication lag)",
-   "RTO: Hours (time to scale up remaining services)",
+   "RTO: Tens of minutes to hours (time to start and scale up remaining services)",
    "More cost-effective than warm standby.",
    "Meets the 1-hour RPO and 4-hour RTO requirements.",
    "Multi-site is expensive and over-engineered.",
@@ -8759,11 +8847,11 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• CloudFront is a CDN with 400+ edge locations globally\n• Caches content close to users worldwide\n• S3 origin for static content\n• Lowest latency for global distribution\n• EC2 requires management and doesn't cache at edge\n• CRR helps availability but doesn't reduce latency\n• ALB doesn't provide edge caching",
+  "explanation": "• CloudFront is a CDN with 700+ edge locations globally\n• Caches content close to users worldwide\n• S3 origin for static content\n• Lowest latency for global distribution\n• EC2 requires management and doesn't cache at edge\n• CRR helps availability but doesn't reduce latency\n• ALB doesn't provide edge caching",
   "module": "Architecture Patterns",
   "multi": false,
   "why": [
-   "CloudFront is a CDN with 400+ edge locations globally.",
+   "CloudFront is a CDN with 700+ edge locations globally.",
    "Caches content close to users worldwide.",
    "S3 origin for static content.",
    "Lowest latency for global distribution.",
@@ -8886,7 +8974,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Upload triggers first Lambda to save to S3\n• S3 event triggers second Lambda for processing (asynchronous)\n• Decoupled, reliable processing\n• Lambda can run up to 15 minutes\n• Option A: API Gateway has 29-second timeout\n• Option C: Inefficient polling\n• Option D: No auto-scaling, not serverless",
+  "explanation": "• Upload triggers first Lambda to save to S3\n• S3 event triggers second Lambda for processing (asynchronous)\n• Decoupled, reliable processing\n• Lambda can run up to 15 minutes\n• Option A: API Gateway has a 29-second integration timeout by default (Regional and private REST APIs can request more, at the cost of throttle quota)\n• Option C: Inefficient polling\n• Option D: No auto-scaling, not serverless",
   "module": "Architecture Patterns",
   "multi": false,
   "why": [
@@ -8900,7 +8988,7 @@ window.QUESTIONS = [
     "l": [
      "A"
     ],
-    "t": "API Gateway has 29-second timeout."
+    "t": "API Gateway has a 29-second integration timeout by default (Regional and private REST APIs can request more, at the cost of throttle quota)"
    },
    {
     "l": [
@@ -8928,14 +9016,14 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Aurora supports ACID transactions (relational database)\n• Read Replicas scale read traffic (up to 15 replicas)\n• Better performance than standard RDS\n• DynamoDB doesn't support traditional ACID across multiple items\n• Redshift is for analytics, not transactional workloads\n• ElastiCache is for caching, not primary database",
+  "explanation": "• Aurora supports ACID transactions (relational database)\n• Read Replicas scale read traffic (up to 15 replicas)\n• Better performance than standard RDS\n• DynamoDB supports ACID transactions (up to 100 items across tables), but it is not a relational SQL database\n• Redshift is for analytics, not transactional workloads\n• ElastiCache is for caching, not primary database",
   "module": "Architecture Patterns",
   "multi": false,
   "why": [
    "Aurora supports ACID transactions (relational database)",
    "Read Replicas scale read traffic (up to 15 replicas)",
    "Better performance than standard RDS.",
-   "DynamoDB doesn't support traditional ACID across multiple items.",
+   "DynamoDB supports ACID transactions (up to 100 items across tables), but it is not a relational SQL database.",
    "Redshift is for analytics, not transactional workloads.",
    "ElastiCache is for caching, not primary database."
   ],
@@ -9075,12 +9163,12 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Instance Scheduler automatically starts/stops resources on schedule\n• Saves costs during nights and weekends (65% of week)\n• Works with EC2 and RDS\n• Reserved Instances require 1-3 year commitment, doesn't stop resources\n• Serverless may not support all workloads\n• Spot Instances can be interrupted during work hours\n• Scheduled stop/start is most cost-effective for dev environments",
+  "explanation": "• Instance Scheduler automatically starts/stops resources on schedule\n• Saves costs during nights and weekends (about 73% of the week)\n• Works with EC2 and RDS\n• Reserved Instances require 1-3 year commitment, doesn't stop resources\n• Serverless may not support all workloads\n• Spot Instances can be interrupted during work hours\n• Scheduled stop/start is most cost-effective for dev environments",
   "module": "Architecture Patterns",
   "multi": false,
   "why": [
    "Instance Scheduler automatically starts/stops resources on schedule.",
-   "Saves costs during nights and weekends (65% of week)",
+   "Saves costs during nights and weekends (about 73% of the week)",
    "Works with EC2 and RDS.",
    "Reserved Instances require 1-3 year commitment, doesn't stop resources.",
    "Serverless may not support all workloads.",
@@ -9305,11 +9393,11 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Cost Explorer provides cost forecasting up to 12 months\n• Based on historical usage patterns\n• Interactive graphs showing predictions\n• 80% confidence interval\n• Budgets sets alerts but doesn't forecast\n• Trusted Advisor provides recommendations\n• Cost and Usage Report is for detailed analysis",
+  "explanation": "• Cost Explorer provides cost forecasting up to 18 months\n• Based on historical usage patterns\n• Interactive graphs showing predictions\n• 80% confidence interval\n• Budgets sets alerts but doesn't forecast\n• Trusted Advisor provides recommendations\n• Cost and Usage Report is for detailed analysis",
   "module": "Cost Optimization",
   "multi": false,
   "why": [
-   "Cost Explorer provides cost forecasting up to 12 months.",
+   "Cost Explorer provides cost forecasting up to 18 months.",
    "Based on historical usage patterns.",
    "Interactive graphs showing predictions.",
    "80% confidence interval.",
@@ -9331,7 +9419,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Standard RIs provide higher discount than Convertible (up to 72%)\n• 3-year term provides higher discount than 1-year\n• All Upfront payment provides highest discount\n• Consistent usage makes 3-year commitment viable\n• Convertible RIs have lower discount (up to 54%)\n• Partial/No Upfront have lower discounts",
+  "explanation": "• Standard RIs provide higher discount than Convertible (up to 72%)\n• 3-year term provides higher discount than 1-year\n• All Upfront payment provides highest discount\n• Consistent usage makes 3-year commitment viable\n• Convertible RIs have lower discount (up to 66%)\n• Partial/No Upfront have lower discounts",
   "module": "Cost Optimization",
   "multi": false,
   "why": [
@@ -9339,7 +9427,7 @@ window.QUESTIONS = [
    "3-year term provides higher discount than 1-year.",
    "All Upfront payment provides highest discount.",
    "Consistent usage makes 3-year commitment viable.",
-   "Convertible RIs have lower discount (up to 54%)",
+   "Convertible RIs have lower discount (up to 66%)",
    "Partial/No Upfront have lower discounts."
   ],
   "others": []
@@ -9356,11 +9444,11 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Multi-AZ can be enabled/disabled (causes brief downtime)\n• For non-production databases, can disable outside business hours\n• Reduces costs by ~50% when disabled\n• Can be scripted/automated with Lambda\n• Aurora Serverless has different use case\n• Read replicas don't provide automatic failover\nNote: This is only suitable for non-production workloads",
+  "explanation": "• Multi-AZ can be enabled/disabled (converting to Multi-AZ causes no downtime, though latency can rise while the standby syncs)\n• For non-production databases, can disable outside business hours\n• Reduces costs by ~50% when disabled\n• Can be scripted/automated with Lambda\n• Aurora Serverless has different use case\n• Read replicas don't provide automatic failover\nNote: This is only suitable for non-production workloads",
   "module": "Cost Optimization",
   "multi": false,
   "why": [
-   "Multi-AZ can be enabled/disabled (causes brief downtime)",
+   "Multi-AZ can be enabled/disabled (converting to Multi-AZ causes no downtime, though latency can rise while the standby syncs)",
    "For non-production databases, can disable outside business hours.",
    "Reduces costs by ~50% when disabled.",
    "Can be scripted/automated with Lambda.",
@@ -9512,7 +9600,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Convertible RIs can change instance family, OS, and tenancy\n• Provides flexibility for changing requirements\n• Standard RIs cannot change instance family\n• Standard RIs can only change instance size within same family\n• Trade-off: Convertible RIs have lower discount (54% vs 72%)",
+  "explanation": "• Convertible RIs can change instance family, OS, and tenancy\n• Provides flexibility for changing requirements\n• Standard RIs cannot change instance family\n• Standard RIs can only change instance size within same family\n• Trade-off: Convertible RIs have lower discount (66% vs 72%)",
   "module": "Cost Optimization",
   "multi": false,
   "why": [
@@ -9520,7 +9608,7 @@ window.QUESTIONS = [
    "Provides flexibility for changing requirements.",
    "Standard RIs cannot change instance family.",
    "Standard RIs can only change instance size within same family.",
-   "Trade-off: Convertible RIs have lower discount (54% vs 72%)"
+   "Trade-off: Convertible RIs have lower discount (66% vs 72%)"
   ],
   "others": []
  },
@@ -9645,19 +9733,19 @@ window.QUESTIONS = [
   "q": "How do you achieve WORM (Write Once Read Many) in S3?",
   "options": {
    "A": "Enable versioning",
-   "B": "Enable Object Lock at bucket creation",
+   "B": "Enable S3 Object Lock on the bucket",
    "C": "Use S3 Glacier",
    "D": "Configure bucket policy"
   },
   "answer": [
    "B"
   ],
-  "explanation": "Object Lock enforces WORM with retention periods; must be enabled at bucket creation.",
+  "explanation": "Object Lock enforces WORM with retention periods and legal holds. It requires versioning and can be enabled on new or existing buckets.",
   "module": "Storage",
   "multi": false,
   "why": [
-   "Object Lock enforces WORM with retention periods.",
-   "Must be enabled at bucket creation."
+   "Object Lock enforces WORM with retention periods and legal holds.",
+   "It requires versioning and can be enabled on new or existing buckets."
   ],
   "others": []
  },
