@@ -69,7 +69,7 @@
 - **Network file system** (NFS v4.1)
 - **Multi-AZ**, can mount to multiple EC2
 - **Linux only** (not Windows)
-- **10x cost** of gp2 EBS
+- **Higher price per GB** than EBS, but you pay only for data stored
 - **Auto-scaling**, pay per use
 - **Performance modes**: General Purpose, Max I/O
 - **Throughput modes**: Bursting, Provisioned, Elastic
