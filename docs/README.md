@@ -1,0 +1,36 @@
+# Docs
+
+Supporting material that cuts across the 14 modules. Practice test reviews are in [exam-reviews/](../exam-reviews/README.md).
+
+## study-guides/
+
+| File | Contents |
+|------|----------|
+| [ULTRA-FAST-LEARNING-INDEX.md](study-guides/ULTRA-FAST-LEARNING-INDEX.md) | Index of the 15-minute module summaries, 3-4 h in total |
+| [FAST-LEARN-GUIDE.md](study-guides/FAST-LEARN-GUIDE.md) | Index of the 60-minute module notes, 11-14 h in total |
+| [STUDY-ROADMAP.md](study-guides/STUDY-ROADMAP.md) | Eight-week plan |
+| [QUICK-STUDY-NOTES.md](study-guides/QUICK-STUDY-NOTES.md) | Mnemonics and shortcuts |
+| [FLASHCARDS.md](study-guides/FLASHCARDS.md) | Question-and-answer cards |
+| [INCORRECT-AREAS-FLASHCARDS.md](study-guides/INCORRECT-AREAS-FLASHCARDS.md) | Cards for topics missed in practice tests |
+| [INCORRECT-AREAS-PRACTICE-QUESTIONS.md](study-guides/INCORRECT-AREAS-PRACTICE-QUESTIONS.md) | Questions for the same topics |
+| [PRACTICE-TEST-4-INCORRECT-STUDY-GUIDE.md](study-guides/PRACTICE-TEST-4-INCORRECT-STUDY-GUIDE.md) | Notes on the questions missed in practice test 4 |
+
+## reference/
+
+| File | Contents |
+|------|----------|
+| [QUICK-REFERENCE.md](reference/QUICK-REFERENCE.md) | Service lookup table |
+| [QUICK-START.md](reference/QUICK-START.md) | Short path through the fast-learn material |
+| [DIAGRAMS-INDEX.md](reference/DIAGRAMS-INDEX.md) | Every diagram, by module |
+| [VISUAL-GUIDE.md](reference/VISUAL-GUIDE.md) | Architecture diagrams for common scenarios |
+| [SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md](reference/SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md) | Scenario-to-architecture mappings |
+| [aws-certification-exam-guides.pdf](reference/aws-certification-exam-guides.pdf) | AWS exam guide |
+
+## exam-analysis/
+
+| File | Contents |
+|------|----------|
+| [EXAM-COVERAGE-ANALYSIS.md](exam-analysis/EXAM-COVERAGE-ANALYSIS.md) | Module content checked against the exam guide |
+| [QUICK-REFERENCE-NEW-TOPICS.md](exam-analysis/QUICK-REFERENCE-NEW-TOPICS.md) | Topics added after that check |
+
+The official exam guide is on the [AWS Certification site](https://aws.amazon.com/certification/certified-solutions-architect-associate/).

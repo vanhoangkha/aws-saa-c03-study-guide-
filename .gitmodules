@@ -1,0 +1,3 @@
+[submodule "external/aws-saa-c02-study-guide"]
+	path = external/aws-saa-c02-study-guide
+	url = https://github.com/rdurelli/AWS-SAA-C03-Study-Guide.git
