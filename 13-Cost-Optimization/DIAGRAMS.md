@@ -55,13 +55,13 @@ graph TB
         
         RI_Use["Use Cases:<br/>• Steady-state workloads<br/>• Databases<br/>• Base capacity<br/>• Long-term projects"]
         
-        RI_Price["Pricing:<br/>Linux t3.medium 3yr:<br/>$0.0116/hour<br/>$8.50/month<br/>72% savings"]
+        RI_Price["Pricing:<br/>Linux t3.medium 3yr All Upfront:<br/>$0.0156/hour effective<br/>$11.40/month<br/>62% savings"]
     end
     
     subgraph Savings_Plans_Group["Savings Plans"]
         SP["Savings Plans<br/>Up to 72% discount<br/>1 or 3 years<br/>More flexible"]
         
-        SP_Types["Types:<br/>• Compute SP 66% off any instance<br/>• EC2 Instance SP 72% off specific<br/>• SageMaker SP ML workloads"]
+        SP_Types["Types:<br/>• Compute SP 66% off any instance<br/>• EC2 Instance SP 72% off specific<br/>• SageMaker AI SP ML workloads<br/>• Database SP up to 35%"]
         
         SP_Use["Use Cases:<br/>• Consistent usage<br/>• Flexible instance types<br/>• Cross-service usage<br/>• Container workloads"]
     end
@@ -304,7 +304,7 @@ graph TB
         Aurora_Serverless["Aurora Serverless v2<br/>Auto-scaling<br/>Pay per second<br/>Can scale to 0 ACUs (auto-pause)"]
     end
     
-    Example["Example db.t3.medium:<br/>On-Demand: $61/month<br/>1yr RI Partial: $36/month 41% off<br/>3yr RI All: $23/month 62% off<br/><br/>db.t4g.medium Graviton:<br/>On-Demand: $49/month 20% cheaper"]
+    Example["Example db.t3.medium MySQL us-east-1:<br/>On-Demand: $50/month<br/>1yr RI Partial: $33/month 33% off<br/>3yr RI All: $23/month 53% off<br/><br/>db.t4g.medium Graviton:<br/>On-Demand: $47/month 4% cheaper"]
     
     classDef style1 fill:#569A31
     class RI style1

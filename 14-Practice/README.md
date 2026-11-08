@@ -89,3 +89,24 @@ The full version, with examples and common traps, is in [FAST-LEARN.md](FAST-LEA
 - Take a timed practice test and record your score in the [tracker](TEST-RESULTS-TRACKER.md)
 - Revisit the module for your lowest domain, then test again
 - Back to the [course overview](../README.md)
+
+---
+
+## References
+
+Pages this module was checked against (November 2026). The full reference list is in [docs/REFERENCES.md](../docs/REFERENCES.md).
+
+- [AWS Certified Solutions Architect - Associate exam page](https://aws.amazon.com/certification/certified-solutions-architect-associate/)
+- [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html)
+- [How to restrict Amazon S3 bucket access to a specific IAM role](https://aws.amazon.com/blogs/security/how-to-restrict-amazon-s3-bucket-access-to-a-specific-iam-role/)
+- [IAM JSON policy elements: NotPrincipal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notprincipal.html)
+- [AWSLambdaBasicExecutionRole managed policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaBasicExecutionRole.html)
+- [Multi-AZ DB instance deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.html) and [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html)
+- [Working with DB instance read replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
+- [Cross-zone load balancing for target groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/disable-cross-zone.html)
+- [Step Functions FAQs](https://aws.amazon.com/step-functions/faqs/)
+- [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html)
+- [Uploading objects to Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html)
+- [Introducing Amazon Managed Service for Apache Flink](https://aws.amazon.com/about-aws/whats-new/2023/08/amazon-managed-service-apache-flink/)
+- [Amazon Timestream for LiveAnalytics availability change](https://docs.aws.amazon.com/timestream/latest/developerguide/AmazonTimestreamForLiveAnalytics-availability-change.html)
+- [AWS Snowball Edge availability change](https://docs.aws.amazon.com/snowball/latest/developer-guide/snowball-edge-availability-change.html)

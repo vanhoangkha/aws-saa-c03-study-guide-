@@ -36,9 +36,9 @@
 - **EBS**: 30 GB
 
 **3. Trials**
-- **Inspector**: 90 days
+- **Inspector**: 15 days
 - **QuickSight**: 30 days
-- **Lightsail**: 1 month
+- **Lightsail**: 1 month (Lightsail is out of scope for SAA-C03)
 
 ## EC2 Cost Optimization
 
@@ -54,12 +54,13 @@
 ### Savings Plans
 - **Compute Savings Plans**: Most flexible (EC2, Fargate, Lambda) - up to 66%
 - **EC2 Instance Savings Plans**: Specific instance family/region - up to 72%
+- **Database Savings Plans**: Managed databases (RDS, Aurora, DynamoDB and more) - up to 35%, 1-year only
 - **1 or 3 years**: Greater discount for longer term
 - **Payment**: All upfront (max discount), partial upfront, no upfront
 
 ### Reserved Instances
 - **Standard**: Up to 72% discount, can't change
-- **Convertible**: Up to 66% discount, can change instance type
+- **Convertible**: Up to 66% discount, can be exchanged for a different family, OS or tenancy
 - **Scheduled** (retired): No longer sold; use Capacity Reservations plus Savings Plans
 - **Scope**: Regional or zonal
 - **Marketplace**: Sell unused reservations
@@ -81,11 +82,11 @@
 
 ### S3 Storage Classes (Cost: Cheap → Expensive)
 1. **S3 Glacier Deep Archive**: $1/TB/month
-2. **S3 Glacier Flexible**: $4/TB/month
+2. **S3 Glacier Flexible**: $3.6/TB/month
 3. **S3 Glacier Instant**: $4/TB/month
 4. **S3 One Zone-IA**: $10/TB/month
 5. **S3 Standard-IA**: $12.5/TB/month
-6. **S3 Intelligent-Tiering**: $12.5-23/TB/month
+6. **S3 Intelligent-Tiering**: $4-23/TB/month across its automatic tiers, plus $0.0025 per 1,000 objects monitoring
 7. **S3 Standard**: $23/TB/month
 
 **Optimization**:
@@ -119,13 +120,13 @@
 ### Minimize Costs
 - **Same region**: Free for most services
 - **Use CloudFront**: Cheaper than S3 direct
-- **VPC Endpoints**: Avoid NAT/IGW charges
+- **Gateway VPC Endpoints** (S3, DynamoDB): free, avoid NAT gateway processing charges
 - **Direct Connect**: Cheaper for large volumes
 - **S3 Transfer Acceleration**: Faster but costs more
 
 ### Data Transfer Pricing
 - **IN**: Free
-- **S3 → Internet**: $0.09/GB
+- **S3 → Internet**: $0.09/GB (first 10 TB, after 100 GB/month free)
 - **S3 → CloudFront**: $0.00/GB
 - **CloudFront → Internet**: $0.085/GB (cheaper!)
 
@@ -160,7 +161,7 @@
 ### AWS Compute Optimizer
 - **ML-based recommendations** for EC2, EBS, Lambda
 - **Right-sizing**: Identify over-provisioned resources
-- **Free** (requires opt-in)
+- **Free** (requires opt-in; enhanced infrastructure metrics are paid)
 - **Supports**: EC2, Auto Scaling, EBS, Lambda
 
 ### Trusted Advisor
@@ -249,7 +250,7 @@ Status (November 2026): Developer and Business Support closed to new subscriptio
 - **Compute Optimizer**: ML-based right-sizing
 - **Consolidated Billing**: Combined usage, volume discounts
 - **CloudFront**: Cheaper data transfer than S3 direct
-- **VPC Endpoints**: Avoid NAT/IGW charges
+- **Gateway VPC Endpoints**: Avoid NAT gateway charges for S3/DynamoDB
 - **Trusted Advisor**: Cost optimization checks (Business Support+ and above)
 - **Stop unused resources**: Biggest savings.
 - **Free tier**: up to $200 credits for accounts from 15 July 2025; 12-month model for older accounts

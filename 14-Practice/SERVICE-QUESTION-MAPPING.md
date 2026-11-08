@@ -20,7 +20,7 @@
 - Amazon EKS Anywhere: 03-Compute/PRACTICE-QUESTIONS.md
 - Amazon EKS Distro: 03-Compute/PRACTICE-QUESTIONS.md
 - Amazon Keyspaces (for Apache Cassandra): 05-Database/PRACTICE-QUESTIONS.md
-- Amazon QLDB (retired): 05-Database/PRACTICE-QUESTIONS.md
+- Amazon QLDB (end of support 31 Jul 2025): 05-Database/PRACTICE-QUESTIONS.md
 
 ## Front-End Web and Mobile
 - AWS Amplify: 08-Application-Integration/PRACTICE-QUESTIONS.md
@@ -30,7 +30,7 @@
 
 ## Machine Learning
 - Amazon Comprehend: 11-Analytics/PRACTICE-QUESTIONS.md
-- Amazon Forecast: 11-Analytics/PRACTICE-QUESTIONS.md
+- Amazon Forecast (closed to new customers since Jul 2024): 11-Analytics/PRACTICE-QUESTIONS.md
 - Amazon Fraud Detector (closed to new customers): 11-Analytics/PRACTICE-QUESTIONS.md
 - Amazon Kendra: 11-Analytics/PRACTICE-QUESTIONS.md
 - Amazon Lex: 11-Analytics/PRACTICE-QUESTIONS.md
@@ -55,9 +55,9 @@
 - AWS Directory Service: 07-Security/PRACTICE-QUESTIONS.md
 
 ## Media, Migration, and Transfer
-- Amazon Elastic Transcoder (retired 13 Nov 2025; use AWS Elemental MediaConvert): 11-Analytics/PRACTICE-QUESTIONS.md
+- Amazon Elastic Transcoder (retired 13 Nov 2025; removed from the SAA-C03 exam guide v1.1; MediaConvert is out of scope): 11-Analytics/PRACTICE-QUESTIONS.md
 - Amazon Kinesis Video Streams: 11-Analytics/PRACTICE-QUESTIONS.md
-- AWS Snow Family: 10-Migration/PRACTICE-QUESTIONS.md
+- AWS Snow Family (Snowball Edge closed to new customers on 7 Nov 2025): 10-Migration/PRACTICE-QUESTIONS.md
 - AWS Transfer Family: 10-Migration/PRACTICE-QUESTIONS.md
 
 # This mapping will be used to add new scenario-based questions for each service in the correct PRACTICE-QUESTIONS.md file.

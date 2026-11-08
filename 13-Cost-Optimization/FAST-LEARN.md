@@ -1,6 +1,6 @@
 # Fast Learning - Cost Optimization
 
-> **Time to Complete**: 40-50 minutes | **Exam Weight**: ~10-15%
+> **Time to Complete**: 40-50 minutes | **Exam Domain**: Domain 4, Design Cost-Optimized Architectures (20% of scored content)
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -64,7 +64,7 @@ BEST-PRACTICE CHECKS?        → Trusted Advisor
 | **CUR** | Most detailed billing data | Line items to S3, query with Athena |
 | **Cost Allocation Tags** | Attribute cost to project/team | Must be activated in Billing console |
 | **Pricing Calculator** | Estimate before deploying | Export CSV/PDF, share estimates |
-| **Compute Optimizer** | ML right-sizing | EC2, Auto Scaling, EBS, Lambda |
+| **Compute Optimizer** | ML right-sizing | EC2, Auto Scaling, EBS, Lambda, ECS on Fargate, RDS/Aurora |
 | **Trusted Advisor** | Best-practice checks | Full cost checks need Business Support+, Enterprise or Unified Operations |
 | **Consolidated Billing** | One bill for an Organization | Volume discounts, RI/SP sharing |
 
@@ -114,7 +114,9 @@ TYPES:
 ├── EC2 Instance Savings Plans → up to 72%
 │   └── Locked to one instance family in one region
 │       (flexible on size, OS, tenancy)
-└── SageMaker Savings Plans    → up to 64%
+├── SageMaker AI Savings Plans → up to 64%
+└── Database Savings Plans     → up to 35%, 1-year, no upfront
+    └── Aurora, RDS, DynamoDB, ElastiCache, DocumentDB, Neptune, and more
 
 PAYMENT: All / Partial / No Upfront
 
@@ -194,7 +196,7 @@ NOTIFY: Email, SNS (automation), Amazon Q Developer in chat applications, former
 
 BUDGET ACTIONS:
 ├── Apply an IAM policy (e.g. deny new EC2 launches)
-├── Apply an SCP (in Organizations)  [real AWS behaviour]
+├── Apply an SCP (in Organizations)
 └── Stop EC2 / RDS instances
 
 PRICING: Free without actions; first 2 action-enabled budgets free, then $0.10/day each
@@ -374,7 +376,7 @@ Want to MERGE bills of many accounts?→ Consolidated Billing
 - Free Tier: accounts from **15 July 2025** get up to **$200 credits** (free plan for 6 months); older accounts use **Always Free**, **12 Months**, **Trials**
 - Compute Optimizer is ML-based and requires **opt-in**
 - Trusted Advisor full cost checks need **Business Support+, Enterprise Support or Unified Operations**
-- Delete unattached EBS volumes and unused Elastic IPs (idle ones cost money)
+- Delete unattached EBS volumes and unused Elastic IPs (every public IPv4 address, in use or idle, costs $0.005/hour)
 
 ## 5-Minute Master Review
 
