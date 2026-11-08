@@ -506,7 +506,7 @@ mindmap
             OpsCenter
                 Operational issues
                 Centralized dashboard
-            Incident Manager
+            Incident Manager - closed to new customers
                 Incident response
         Application Management
             Parameter Store
@@ -517,7 +517,7 @@ mindmap
                 Feature flags
                 Configuration deployment
         Change Management
-            Change Manager
+            Change Manager - closed to new customers
                 ITSM integration
                 Change approval
             Maintenance Windows
@@ -626,6 +626,7 @@ graph TB
     
     Standard --> String
     Standard --> StringList
+    Standard --> SecureString
     Advanced --> SecureString
     
     PS --> Hierarchy
@@ -645,7 +646,7 @@ graph TB
     class SecureString style2
 ```
 
-## AWS Personal Health Dashboard
+## AWS Health Dashboard (formerly Personal Health Dashboard)
 
 ### Health Dashboard Architecture
 
@@ -656,8 +657,8 @@ graph TB
         Account["Account-specific Events<br/>Scheduled maintenance<br/>Resource changes"]
     end
     
-    subgraph Personal_Health_Dashboard_Group["Personal Health Dashboard"]
-        PHD["AWS Personal Health Dashboard<br/>Personalized service health"]
+    subgraph Personal_Health_Dashboard_Group["AWS Health Dashboard"]
+        PHD["AWS Health Dashboard<br/>Personalized service health"]
         
         Current["Current Issues<br/>Affecting your resources"]
         Scheduled["Scheduled Changes<br/>Upcoming maintenance"]

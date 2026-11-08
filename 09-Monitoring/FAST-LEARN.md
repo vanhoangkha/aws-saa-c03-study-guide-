@@ -371,9 +371,9 @@ TARGETS (20+ AWS services):
 RULES: Filter events → Route to targets
 ```
 
-### AWS Personal Health Dashboard
-- **Service Health Dashboard**: Global AWS service status
-- **Personal Health Dashboard**: Account-specific alerts
+### AWS Health Dashboard (merged Service Health and Personal Health Dashboards in 2022)
+- **Service health view** (formerly Service Health Dashboard): Global AWS service status
+- **Your account health view** (formerly Personal Health Dashboard): Account-specific alerts
   - Impacts YOUR resources
   - Proactive notifications
   - Detailed remediation guidance

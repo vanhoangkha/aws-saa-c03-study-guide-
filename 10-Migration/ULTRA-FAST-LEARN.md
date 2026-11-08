@@ -2,13 +2,13 @@
 - **Transfer Family**: SFTP/FTPS/FTP to S3/EFS
 - **DR**: Backup & Restore (cheapest) → Multi-Site (fastest)
 - **AWS Backup**: Centralized, cross-service backup
-- **Migration Hub**: Centralized tracking (not migration)
+- **Migration Hub**: Centralized tracking (not migration) (closed to new customers)
 - **MGN**: Replaces SMS, continuous replication
-- **Snowmobile**: 10+ PB data transfer
-- **Snow**: >10 TB data, limited bandwidth
+- **Snowmobile**: 10+ PB data transfer (no longer offered)
+- **Snow**: >10 TB data, limited bandwidth (closed to new customers)
 - **DMS**: Keep source operational, use SCT for heterogeneous
 - **DataSync**: Automated, scheduled, 10x faster
-- **6 R's**: Rehost (fastest), Refactor (most benefits)
+- **7 Rs**: Rehost (fastest), Refactor (most benefits)
 ## Quick Exam Tips
 
 - **RPO (Recovery Point Objective)**: Acceptable data loss
@@ -39,21 +39,23 @@
 - **Minimal downtime**, cutover window
 - **Continuous replication**
 - **Lift-and-shift** (rehost)
-- **Replaces SMS**
+- **Replaces SMS** (now listed as AWS Transform MGN)
 ## Application Migration Service (MGN)
 
 - Automate, schedule, track VM migrations
-- **Legacy** (use Application Migration Service instead)
+- **Discontinued** (use Application Migration Service instead)
 ## Server Migration Service (SMS)
 
+- **Status**: closed to new customers since 7 Nov 2025
 - **Integration**: Migration Hub
 - **Agent-based**: Detailed info (processes, connections)
 - **Agentless**: VMware vCenter
 - **Discover on-premises** servers
 ## Application Discovery Service
 
+- **Status**: closed to new customers since 7 Nov 2025 (AWS Transform offers similar tracking)
 - **Not a migration tool** (just tracking/planning)
-- **Integrates with**: MGN, DMS, Server Migration Service
+- **Integrates with**: MGN, DMS (Server Migration Service is discontinued)
 - **Track migrations** from single location
 ## Migration Hub
 
@@ -62,17 +64,20 @@
 - **>10 TB**: Consider Snow devices
 ### When to Use Snow?
 
+- **Status**: no longer offered
 - **Use case**: Datacenter migration, 10+ PB data
 - **Physical truck** to your datacenter
 - **100 PB** per truck
 ### Snowmobile
 
-- **Cluster**: 5-10 devices
+- **Status**: closed to new customers since 7 Nov 2025; support ends 31 Dec 2026
+- **Cluster**: 3-16 devices
 - **Use case**: Local processing + data transfer
-- **Compute Optimized**: 42 TB, 52 vCPUs, optional GPU
-- **Storage Optimized**: 80 TB, 24 vCPUs
+- **Compute Optimized**: 28 TB NVMe, 104 vCPUs
+- **Storage Optimized**: 210 TB, 104 vCPUs
 ### Snowball Edge
 
+- **Status**: discontinued 12 Nov 2024
 - **Use case**: Edge computing, small data transfer
 - **DataSync agent** pre-installed
 - **Small**, rugged, portable
@@ -121,6 +126,10 @@
 
 **Exam Tip**: Match scenario to strategy.
 
+   - Example: vSphere VMs → VMware Cloud on AWS
+   - Move VMware workloads at the hypervisor level, no application changes
+7. **Relocate**
+
    - Migrate later
    - Keep on-premises (for now)
 6. **Retain (Revisit)**
@@ -147,6 +156,6 @@
    - Move as-is to AWS (VMs → EC2)
 1. **Rehost (Lift-and-Shift)**
 
-## 6 R's Migration Strategies
+## 7 Rs Migration Strategies
 
 

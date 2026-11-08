@@ -52,7 +52,7 @@
 |------|------|------------|----------|
 | gp3 | 80K | 2,000 MiB/s | General, cost-effective |
 | gp2 | 16K | 250 MB/s | General, burst |
-| io2/io1 | 64K/256K | 4000 MB/s | High performance DB |
+| io2/io1 | 256K/64K | 4,000/1,000 MiB/s | High performance DB |
 | st1 | 500 | 500 MB/s | Big data, logs |
 | sc1 | 250 | 250 MB/s | Cold storage |
 
@@ -82,10 +82,10 @@
   - **Volume Gateway**: iSCSI, cached or stored
   - **Tape Gateway**: Virtual tapes to S3/Glacier
 
-## Snow Family
-- **Snowcone**: 8 TB, edge computing
+## Snow Family (closed to new customers)
+- **Snowcone** (retired): 8 TB, edge computing
 - **Snowball Edge**: 80 TB storage + compute
-- **Snowmobile**: 100 PB, truck
+- **Snowmobile** (retired): 100 PB, truck
 - **Use case**: TB/PB data transfer, limited bandwidth
 
 ## FSx

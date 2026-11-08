@@ -261,7 +261,7 @@
 116. Warehouse → Redshift
 117. Time-series → Timestream
 118. Cache → ElastiCache
-119. Ledger → QLDB
+119. Ledger → QLDB (discontinued; AWS points to Aurora PostgreSQL)
 120. Migration → DMS
 
 ---

@@ -187,13 +187,17 @@ D. Create two separate IAM groups and move users between them
 <details>
 <summary>Show Answer</summary>
 
-**Answer: A**
+**Answer: C**
 
 **Explanation:**
-- IAM supports time-based conditions using `aws:CurrentTime`
-- Can specify date/time ranges for policy evaluation
+- IAM date condition operators (`DateGreaterThan`, `DateLessThan`) compare `aws:CurrentTime` against a fixed ISO 8601 timestamp
+- A policy can therefore allow access between two specific dates and times, but it cannot express a recurring daily window such as 9 AM - 5 PM every day
+- To grant write access only during business hours, schedule a Lambda function (for example with EventBridge Scheduler) to attach the write policy at 9 AM and detach it at 5 PM
+- The read-only policy stays attached permanently
+- Option A: A time-based condition alone only works for one fixed time range, not every day
+- Options B and D: Work, but require manual intervention every day
 
-**Example Policy**:
+**Example: fixed time range (one day only)**:
 ```json
 {
   "Version": "2012-10-17",
@@ -220,9 +224,8 @@ D. Create two separate IAM groups and move users between them
 }
 ```
 
-- Read-only access always allowed
-- Write access only during specified hours
-- Other options require manual intervention or complex automation
+- This policy allows write access only on 1 January 2026 between 09:00 and 17:00 UTC
+- Read-only access is always allowed
 
 **References:** IAM Policy Conditions, Time-Based Access Control
 </details>
@@ -399,7 +402,7 @@ D. Use resource-based policy on DynamoDB
 - Attach policies to role (e.g., AmazonDynamoDBFullAccess or custom policy)
 - Option A: Lambda functions cannot use IAM users
 - Option C: No such mechanism, must use IAM roles
-- Option D: DynamoDB doesn't have resource-based policies like S3
+- Option D: DynamoDB does support resource-based policies (tables, indexes, streams), mainly for cross-account access; for a Lambda function in the same account, the execution role is the standard approach
 
 **Lambda Execution Role Policy Example**:
 ```json
@@ -556,7 +559,7 @@ D. Unlimited
 - Users per account: 5,000 (default)
 - Groups per account: 300
 - Groups per user: 10
-- Managed policies per user/group/role: 10
+- Managed policies per user: 10 (up to 20), per group: 10, per role: 20 (up to 25)
 - Inline policy size: 2,048 characters for users, 10,240 for roles
 
 **References:** IAM Quotas and Limits
@@ -852,8 +855,8 @@ E. Viewing billing information
 **Root Account Best Practices**:
 1. Enable MFA on root account
 2. Don't use root for everyday tasks
-3. Delete root access keys (use IAM users instead)
-4. Create IAM users for administrative tasks
+3. Delete root access keys (use roles with temporary credentials instead)
+4. Use federation through IAM Identity Center for administrative tasks
 5. Use root only for tasks requiring root
 6. Secure root credentials (password manager)
 

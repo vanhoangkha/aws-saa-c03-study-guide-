@@ -103,7 +103,7 @@ D. AWS IoT Core with custom application
 - Kinesis Data Firehose is fully managed, no infrastructure
 - Automatically loads to S3
 - Built-in compression (GZIP, Snappy)
-- Buffer interval supports 60-900 seconds (5 minutes = 300 seconds)
+- Buffer interval supports 0-900 seconds (5 minutes = 300 seconds)
 - Minimal operational overhead
 - Data Streams requires consumer application
 - SQS adds unnecessary complexity
@@ -145,7 +145,7 @@ D. Use Athena workgroups
 A company needs to process streaming data in real-time using SQL queries and send alerts when certain thresholds are exceeded. Which service should be used?
 
 A. Amazon Athena  
-B. Amazon Kinesis Data Analytics  
+B. Amazon Managed Service for Apache Flink (formerly Kinesis Data Analytics)  
 C. Amazon Kinesis Data Firehose  
 D. AWS Glue  
 
@@ -155,14 +155,15 @@ D. AWS Glue
 **Answer: B**
 
 **Explanation:**
-- Kinesis Data Analytics processes streaming data with SQL
+- Managed Service for Apache Flink processes streaming data with Flink SQL, Java or Python
+- Kinesis Data Analytics for SQL applications was discontinued (apps deleted from 27 Jan 2026); Managed Service for Apache Flink replaces it
 - Real-time analytics on streaming data
 - Can send results to Lambda for alerts
 - Athena queries static data in S3
 - Firehose loads data but doesn't analyze
 - Glue is for ETL jobs
 
-**References:** Kinesis Data Analytics, Stream Processing
+**References:** Amazon Managed Service for Apache Flink, Stream Processing
 </details>
 
 ---
@@ -349,7 +350,7 @@ D. Amazon Athena
 - Glue Jobs perform transformations
 - Supports scheduling
 - EMR requires more management
-- Data Pipeline is older service
+- Data Pipeline is no longer available to new customers
 - Athena queries, doesn't transform
 
 **References:** AWS Glue, ETL Pipeline
@@ -528,15 +529,15 @@ D. The user receives a warning but query proceeds
 <details>
 <summary>Show Answer</summary>
 
-**Answer: B**
+**Answer: A**
 
 **Explanation:**
-- Workgroup data usage controls enforce limits
-- Queries exceeding the limit are rejected
-- Prevents cost overruns
-- User must optimize query or request limit increase
-- Query doesn't partially execute
-- Hard enforcement, not just a warning
+- A daily limit is a workgroup-wide data usage control
+- Workgroup-wide limits don't stop queries: when the aggregate is breached they trigger an action (SNS alarm, Lambda function, or disabling the workgroup)
+- The query runs and is billed for the 1.5 TB it scans
+- Only a per-query data usage control cancels a query, and it does so once the query passes the limit
+- Athena never limits a scan to a partial amount (C)
+- The alarm goes to the SNS topic you configure, not to the user as a warning (D)
 
 **References:** Athena Workgroups, Cost Controls
 </details>
@@ -652,8 +653,8 @@ D. AWS Glue Streaming
 ### Key Concepts Tested:
 1. **Amazon Athena**: Serverless SQL queries on S3, performance optimization, partitioning
 2. **Kinesis Data Streams**: Real-time streaming, shard capacity, ordering, retention
-3. **Kinesis Data Firehose**: Managed data loading, transformations, destinations
-4. **Kinesis Data Analytics**: Real-time SQL analytics on streams
+3. **Amazon Data Firehose** (formerly Kinesis Data Firehose): Managed data loading, transformations, destinations
+4. **Managed Service for Apache Flink** (formerly Kinesis Data Analytics): Real-time stream analytics
 5. **Amazon EMR**: Managed big data processing, Spark/Hadoop
 6. **AWS Glue**: ETL, Data Catalog, Crawlers
 7. **Amazon QuickSight**: Business intelligence and visualization

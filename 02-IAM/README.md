@@ -71,7 +71,7 @@ By the end of this module, you will be able to:
 - **Identity Federation**: Integrate with corporate directories
 - **Free**: No additional cost
 
-**Exam Tip**: IAM is a global service - changes apply to all regions instantly.
+**Exam Tip**: IAM is a global service - changes apply to all regions, but IAM is eventually consistent, so changes can take a short time to propagate.
 
 ---
 
@@ -525,7 +525,7 @@ User → Corporate Login → SAML Assertion → AWS STS → Temporary Credential
 - Login with Google
 - Sign in with Apple
 
-**3. AWS SSO (IAM Identity Center):**
+**3. IAM Identity Center (formerly AWS SSO):**
 - Centralized access management
 - Integrated with AWS Organizations
 - Support for SAML 2.0 applications
@@ -691,7 +691,7 @@ D) Share the root account credentials
 </details>
 
 ### Question 5
-**Which IAM entity can be used to define permissions but cannot have permissions attached directly to it?**
+**Which IAM entity is a collection of users and cannot be used as a principal in a policy or assume a role?**
 
 A) IAM User  
 B) IAM Group  
@@ -703,7 +703,7 @@ D) IAM Policy
 
 **Answer: B**
 
-**Explanation**: IAM groups are used to organize users and assign permissions, but policies are attached to the group, not permissions directly. Also, groups cannot be nested.
+**Explanation**: An IAM group is a collection of IAM users. You attach policies to a group and its members inherit them, but a group is not a principal: it cannot be named in the Principal element of a resource-based or trust policy, cannot sign in, and cannot assume a role. Users and roles are principals; a policy is a document, not an entity. Groups also cannot be nested.
 </details>
 
 ### Question 6

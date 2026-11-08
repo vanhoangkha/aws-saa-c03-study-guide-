@@ -47,7 +47,7 @@ mindmap
             Timestream
             Managed Grafana
         Ledger
-            QLDB
+            QLDB, retired
                 Immutable
                 Cryptographic verification
 ```
@@ -73,7 +73,7 @@ graph TB
             Standby["Standby RDS Instance<br/>Synchronous Replication"]
             App2[Application Server 2]
             
-            App2 -.Not Accessible.-> Standby
+            App2 -.Not readable in DB instance mode.-> Standby
         end
     end
     
@@ -86,7 +86,7 @@ graph TB
     DNS -.Update.-> Standby
     Standby -.Promoted to.-> NewPrimary[New Primary]
     
-    Features["Features:<br/>High Availability<br/>Automatic failover<br/>No manual intervention<br/>Same DNS endpoint<br/>Standby not for reads<br/>~2x cost"]
+    Features["Features:<br/>High Availability<br/>Automatic failover<br/>No manual intervention<br/>Same DNS endpoint<br/>Standby not for reads (Multi-AZ DB instance)<br/>Multi-AZ DB cluster: two readable standbys<br/>~2x cost"]
     
     classDef style1 fill:#569A31
     class Primary style1
@@ -255,7 +255,7 @@ graph TB
     end
     
     subgraph Shared_Storage_Group["Shared Storage"]
-        SharedStorage["Shared Storage Layer<br/>Auto-expanding: 10GB -&gt; 128TB<br/>6 copies across 3 AZs<br/>Self-healing, Auto-replication"]
+        SharedStorage["Shared Storage Layer<br/>Auto-expanding: 10GB -&gt; 256 TiB<br/>6 copies across 3 AZs<br/>Self-healing, Auto-replication"]
     end
     
     Writer --> SharedStorage
@@ -441,12 +441,12 @@ graph TB
     end
     
     subgraph On_Demand_Capacity_Group["On-Demand Capacity"]
-        OnDemand --> PayPerRequest["Pay per Request<br/>$1.25 per million write units<br/>$0.25 per million read units<br/>No capacity planning<br/>Instant scaling"]
+        OnDemand --> PayPerRequest["Pay per Request<br/>$0.625 per million write units<br/>$0.125 per million read units<br/>(us-east-1)<br/>No capacity planning<br/>Instant scaling"]
         
         OnDemand --> UseCase["Use Cases:<br/>• New tables<br/>• Unpredictable workloads<br/>• Spiky traffic<br/>• Pay for what you use"]
     end
     
-    Provisioned --> Switch["Can switch between modes<br/>once per 24 hours"]
+    Provisioned --> Switch["Provisioned to on-demand: up to 4 times<br/>per rolling 24 hours<br/>On-demand to provisioned: any time"]
     OnDemand --> Switch
     
     classDef style1 fill:#FF9900
@@ -484,7 +484,7 @@ graph TB
     Table2 <-.Bi-directional<br/>Async Replication.-> Table3
     Table3 <-.Bi-directional<br/>Async Replication.-> Table1
     
-    Features["Features:<br/>Multi-region, multi-active<br/>Read/Write in any region<br/>Sub-second replication<br/>Last writer wins conflict resolution<br/>Disaster recovery<br/>Requirement: DynamoDB Streams enabled"]
+    Features["Features:<br/>Multi-region, multi-active<br/>Read/Write in any region<br/>Sub-second replication<br/>Last writer wins conflict resolution<br/>Disaster recovery<br/>Uses DynamoDB Streams for MREC replication"]
     
     classDef style1 fill:#569A31
     class Table1 style1
@@ -561,7 +561,7 @@ graph TB
     Node1 <-.Replication.-> Node2
     Node1 <-.Replication.-> Node3
     
-    Features["Features:<br/>Microsecond read latency<br/>No application changes needed<br/>Compatible with DynamoDB API<br/>Multi-AZ ([3 nodes minimum[<br/>Not suitable for strongly consistent reads<br/>Pay for cluster nodes"]
+    Features["Features:<br/>Microsecond read latency<br/>No application changes needed<br/>Compatible with DynamoDB API<br/>Multi-AZ, 3+ nodes recommended for production<br/>Not suitable for strongly consistent reads<br/>Pay for cluster nodes"]
     
     Comparison["DAX vs ElastiCache:<br/>• DAX: DynamoDB-specific, no code change<br/>• ElastiCache: General purpose, requires code changes"]
     
@@ -647,7 +647,7 @@ graph TB
     
     Features["Cluster Mode Disabled:<br/>Single shard<br/>Up to 5 replicas<br/>Multi-AZ failover<br/>All data in one shard"]
     
-    ClusterFeatures["Cluster Mode Enabled:<br/>Data partitioned<br/>Up to 500 nodes<br/>Up to 250 shards<br/>Better write scaling"]
+    ClusterFeatures["Cluster Mode Enabled:<br/>Data partitioned<br/>Up to 500 nodes<br/>Up to 500 shards<br/>Better write scaling"]
     
     classDef style1 fill:#C00
     class Primary style1
@@ -810,7 +810,7 @@ flowchart TD
     OLTP -->|Document| DocDB["DocumentDB<br/>MongoDB compatible"]
     OLTP -->|Graph| Neptune["Neptune<br/>Graph database"]
     OLTP -->|Time Series| Timestream[Timestream]
-    OLTP -->|Ledger| QLDB["QLDB<br/>Immutable ledger"]
+    OLTP -->|Ledger| QLDB["QLDB (retired)<br/>Immutable ledger"]
     
     RDSChoice -->|High performance<br/>AWS-specific| Aurora["Amazon Aurora<br/>5x MySQL, 3x PostgreSQL"]
     RDSChoice -->|Standard<br/>Engine compatibility| RDS["Amazon RDS<br/>MySQL, PostgreSQL,<br/>Oracle, SQL Server"]

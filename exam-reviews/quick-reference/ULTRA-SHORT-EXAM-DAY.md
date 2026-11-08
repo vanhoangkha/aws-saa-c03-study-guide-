@@ -108,10 +108,10 @@
     - TRAP: "Use Fargate for on-premises low latency"
     - Outposts = On-premises AWS, requires EC2 management
 
-20. **ECS Dynamic Port Mapping = ALB ONLY** (NOT NLB/CLB)
-    - hostPort: 0 = Dynamic allocation (ephemeral ports 32768-65535)
-    - TRAP: "Use NLB with dynamic ports"
-    - NLB/CLB = Static port mapping only
+20. **ECS Dynamic Port Mapping = ALB or NLB** (NOT CLB)
+    - hostPort: 0 = Dynamic allocation (ephemeral ports, 32768-61000 on ECS-optimized AMI)
+    - TRAP: "Use CLB with dynamic ports"
+    - CLB = Static port mapping only
 
 21. **Lambda Timeout = MAX 15 minutes** (900 seconds)
     - TRAP: "Use Lambda for 30-minute batch job"
@@ -133,7 +133,7 @@
     - Regional RI = Flexible AZ, NO capacity reservation
     - Zonal RI = Fixed AZ, capacity reservation included
     - Standard RI = Up to 72% off, cannot change instance type
-    - Convertible RI = Up to 54% off, can change family/OS
+    - Convertible RI = Up to 66% off, can change family/OS
     - No: TRAP: "Regional RI reserves capacity"
     - Yes: Reality: Only Zonal RI reserves capacity
 
@@ -202,7 +202,7 @@
 **6. S3 Performance Optimization**
 - LIST = Slow/expensive for millions of objects
 - Use: S3 Inventory (daily/weekly) + Athena queries
-- Multipart Upload: Required >100MB, recommended >5GB
+- Multipart Upload: Recommended >100MB, required >5GB
 - TRAP: Using DynamoDB index for S3 metadata "real-time queries"
 - Reality: S3 Inventory sufficient for most use cases
 
@@ -229,15 +229,15 @@
 
 ### EFS Edge Cases
 **10. EFS Performance Modes (Cannot change after creation!)**
-- General Purpose (default): Max 7,000 ops/sec per filesystem
-- Max I/O: >7,000 ops/sec, higher latency
+- General Purpose (default, recommended): 35K-55K read IOPS (Bursting/Provisioned), far more with Elastic
+- Max I/O: previous generation, higher latency, not with Elastic or One Zone
 - TRAP: "Start with General, upgrade to Max I/O later"
 - Reality: Must choose at creation, cannot change
 
 **11. EFS Throughput Modes**
 - Bursting: Scales with storage size (50 MB/s per TB)
 - Provisioned: Fixed throughput regardless of size
-- Elastic: Auto-scales up to 3 GB/s read, 1 GB/s write
+- Elastic: Auto-scales up to 20-60 GiB/s read, 1-5 GiB/s write
 - TRAP: "Need high throughput on small filesystem = Bursting"
 - Reality: Use Provisioned or Elastic
 
@@ -273,7 +273,7 @@
 
 ### RDS Critical Edge Cases
 **15. Multi-AZ vs Read Replica Confusion**
-- Multi-AZ Standby = NOT readable, synchronous, same region, auto-failover <60s
+- Multi-AZ Standby = NOT readable, synchronous, same region, auto-failover typically 60-120s
 - Read Replica = Readable, asynchronous, can be cross-region, manual promotion
 - TRAP: "Use Multi-AZ standby for read scaling"
 - Reality: Multi-AZ = HA/DR ONLY, Read Replica = Performance/scaling
@@ -306,7 +306,7 @@
 **20. Aurora Serverless v2 Scaling**
 - Instant scaling (fraction of second)
 - Scales in increments of 0.5 ACU
-- Min: 0.5 ACU, Max: 128 ACU
+- Min: 0 ACU (auto-pause) or 0.5, Max: 256 ACU (recent versions)
 - TRAP: "Serverless v1 = Same as v2"
 - Reality: v1 = Cold starts, v2 = Instant scaling
 
@@ -356,9 +356,9 @@
 
 **28. ElastiCache Cluster Mode (Redis)**
 - Cluster Mode Disabled = Single shard, up to 5 read replicas
-- Cluster Mode Enabled = Multiple shards (partitions), 90 nodes max
+- Cluster Mode Enabled = Multiple shards (partitions), 90 nodes default, up to 500
 - TRAP: "Cannot change cluster mode after creation"
-- Reality: Must create new cluster and migrate data
+- Reality: Disabled → Enabled possible in place via Compatible mode
 
 ---
 
@@ -424,11 +424,11 @@
 - Reality: awsvpc mode REQUIRED for task-level SGs
 
 **38. ECS Dynamic Port Mapping**
-- Requirements: ALB + (awsvpc OR bridge mode)
+- Requirements: ALB or NLB + (awsvpc OR bridge mode)
 - Task definition: hostPort: 0 (dynamic)
-- Ephemeral port range: 32768-65535
-- TRAP: "NLB supports dynamic port mapping"
-- Reality: ALB ONLY (NLB/CLB need static ports)
+- Ephemeral port range: 32768-61000 (ECS-optimized AMI)
+- TRAP: "CLB supports dynamic port mapping"
+- Reality: ALB or NLB (CLB needs static ports)
 
 **39. ECS on AWS Outposts**
 - Outposts = On-premises AWS hardware (<5ms latency requirement)
@@ -497,10 +497,10 @@
 - Reality: Different defaults and costs
 
 **49. ALB Path-Based Routing Evaluation Order**
-- More specific paths evaluated first
-- Example: /api/users before /api/* before /*
-- TRAP: "First rule matches always wins"
-- Reality: Specificity matters
+- Rules evaluated by priority number (lowest first)
+- Give /api/users a lower number than /api/* and /*
+- TRAP: "Most specific path wins automatically"
+- Reality: First matching rule by priority wins
 
 **50. NLB Target Health Checks**
 - TCP health checks = Connection-based (open port = healthy)
@@ -548,7 +548,7 @@
 
 ### Route 53 Edge Cases
 **57. Route 53 Health Check for AWS Resources**
-- ALB/CloudFront/API Gateway = Use "Evaluate Target Health" (FREE)
+- ALB/NLB/API Gateway = Use "Evaluate Target Health" (FREE; not for CloudFront aliases)
 - TRAP: "Create health check for ALB" ($0.50/month unnecessary)
 - Reality: "Evaluate Target Health" uses built-in checks
 
@@ -598,7 +598,7 @@
 - Key policy REQUIRED (unlike S3 bucket policy)
 - Default policy = Account root user has full access
 - TRAP: "IAM policy alone = KMS access"
-- Reality: Both key policy AND IAM policy needed
+- Reality: Key policy must allow it (directly, or by enabling IAM policies)
 
 **65. KMS Automatic Key Rotation**
 - AWS-managed keys = Auto-rotate yearly (cannot disable)
@@ -670,7 +670,7 @@
 - Standard = Unlimited throughput, at-least-once, best-effort order
 - FIFO = 3000 msg/s (300/s w/o batch), exactly-once, strict order
 - TRAP: "FIFO has same throughput as Standard"
-- Reality: FIFO limited to 3000 msg/s
+- Reality: 300/s (3,000 batched) by default; high-throughput mode raises it (Region-dependent)
 
 **75. SQS Visibility Timeout**
 - Default: 30 seconds
@@ -692,9 +692,9 @@
 ### Kinesis Edge Cases
 **78. Kinesis Data Streams vs Firehose**
 - Data Streams = Real-time (ms), retention 1-365 days, manual shards
-- Firehose = Near real-time (60s), no retention, auto-scaling
+- Firehose = Near real-time (buffer can be 0 s), no retention, auto-scaling
 - TRAP: "Firehose = Real-time like Data Streams"
-- Reality: Firehose has 60-second minimum buffer
+- Reality: Still near real-time, even with zero buffering
 
 **79. Kinesis Shard Capacity Calculations**
 - Per shard: 1 MB/s write OR 1000 records/s write (whichever hits first)
@@ -878,7 +878,7 @@
 
 **102. Read Replica Failover**
 - Read Replica = Manual promotion to primary
-- Multi-AZ = Automatic failover (<60s)
+- Multi-AZ = Automatic failover (typically 60-120s)
 - TRAP: "Read Replica = Automatic failover"
 - Reality: Manual promotion only
 
@@ -926,7 +926,7 @@
  Detailed Monitoring adds memory → Agent required
  S3 versioning disable → Suspend only
  Redshift auto-snapshot = manual → Auto = separate
- NLB supports dynamic ports → ALB only
+ CLB supports dynamic ports → ALB or NLB only
 
 ### Keyword Decoder
 - "Frequently accessed" → S3 Standard
@@ -961,7 +961,7 @@
 - **S3** → Storage classes, encryption (SSE-C = every request)
 - **Database** → Multi-AZ (not readable), DynamoDB GSI/LSI
 - **Compute** → ECS (awsvpc for task SG), Lambda (15min max)
-- **Network** → CloudFront (us-east-1), ALB (dynamic ports)
+- **Network** → CloudFront (us-east-1), ALB/NLB (dynamic ports)
 - **Cost** → Gateway endpoints (free), manual snapshots (cost trap)
 
 ### Flag & Review Strategy
@@ -982,7 +982,7 @@
 - **S3** = 50 TB max object, unlimited objects
 - **EBS** = io2 up to 256,000 IOPS, gp3 up to 80,000 IOPS
 - **RDS** = 15 read replicas max
-- **Aurora** = 15 replicas, 128TB max
+- **Aurora** = 15 replicas, 128 TiB max (256 TiB on newer versions)
 - **DynamoDB** = 400KB item size, GSI = 20 default
 
 ---

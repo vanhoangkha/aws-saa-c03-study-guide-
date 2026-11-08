@@ -11,6 +11,7 @@
 2. How can you automate content moderation for large volumes of text in S3? (A: Use Amazon Comprehend with Lambda triggers)
 
 ### Amazon Forecast
+- Status (November 2026): no longer available to new customers; existing customers can keep using it.
 - Managed service for time-series forecasting (sales, inventory, demand).
 - Uses machine learning to generate accurate forecasts.
 - Integrates with S3 for data input/output.
@@ -21,6 +22,7 @@
 2. What is a key benefit of Amazon Forecast for business users? (A: No ML expertise required)
 
 ### Amazon Fraud Detector
+- Status (November 2026): closed to new customers since 7 Nov 2025; existing customers can keep using it.
 - Detects online fraud using ML models (e.g., new account fraud, transaction fraud).
 - Integrates with S3, Lambda, and API Gateway.
 - Customizable rules and models for specific business needs.
@@ -31,6 +33,7 @@
 2. How can you customize fraud detection for your business? (A: Create custom rules/models in Amazon Fraud Detector)
 
 ### Amazon Kendra
+- Status (November 2026): closed to new customers since 30 Jul 2026. AWS suggests Amazon Bedrock Knowledge Bases instead.
 - Intelligent search service powered by ML for enterprise data.
 - Supports natural language queries and relevance ranking.
 - Integrates with S3, SharePoint, databases, and more.

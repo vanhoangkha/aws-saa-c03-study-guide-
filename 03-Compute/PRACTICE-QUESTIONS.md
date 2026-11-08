@@ -388,7 +388,7 @@ D. Spot Instances
 |--------|------------|----------|-------------------|
 | **On-Demand** | None | None | No guarantee |
 | **Reserved** | 1-3 years | Up to 72% | Yes (regional or zonal) |
-| **Savings Plans** | 1-3 years | Up to 66% | No |
+| **Savings Plans** | 1-3 years | Up to 72% (EC2 Instance), 66% (Compute) | No |
 | **Capacity Reservations** | None | None | Yes (zonal) |
 | **Spot** | None | Up to 90% | No (can be interrupted) |
 
@@ -425,7 +425,7 @@ D. Switch to EC2
 **Lambda Configuration**:
 - **Memory**: 128 MB to 10,240 MB (10 GB)
 - **Timeout**: 1 second to 900 seconds (15 minutes)
-- **CPU scales with memory** (1,792 MB = 1 vCPU)
+- **CPU scales with memory** (1,769 MB = 1 vCPU)
 - **Ephemeral storage (/tmp)**: 512 MB to 10,240 MB
 
 **Performance Tuning**:
@@ -510,8 +510,8 @@ D. Auto Scaling sends an alert
 - **Maximum**: Maximum number of instances
 
 **Scaling Activities**:
-- Scale out: Launch instances (desired < current)
-- Scale in: Terminate instances (desired > current)
+- Scale out: Launch instances (desired > current)
+- Scale in: Terminate instances (desired < current)
 - Replace unhealthy: Terminate and replace
 - Rebalance across AZs
 
@@ -667,7 +667,7 @@ D. AWS Elastic Beanstalk
 ---
 
 ### Question 17
-An Auto Scaling group needs to ensure that newly launched instances are ready to serve traffic before receiving requests. What should be configured?
+An Auto Scaling group uses ELB health checks. Newly launched instances are marked unhealthy and terminated before the application finishes starting. What should be configured?
 
 A. EC2 Status Checks  
 B. ELB Health Checks  
@@ -680,10 +680,12 @@ D. CloudWatch Alarms
 **Answer: C**
 
 **Explanation:**
-- **Health Check Grace Period** gives instances time to boot and pass checks
+- **Health Check Grace Period** gives instances time to boot before Auto Scaling acts on failed health checks
 - Prevents premature termination during initialization
-- Default: 300 seconds (5 minutes)
+- Default: 300 seconds when the group is created in the console, 0 seconds when created with the CLI or an SDK
 - Should be longer than application startup time
+- The grace period does not hold back traffic: the load balancer only routes requests to targets that pass its own health checks
+- Alternative: a launch lifecycle hook keeps an instance out of service until initialization finishes (the grace period can then be 0)
 
 **Auto Scaling Health Checks**:
 - **EC2 health check**: Instance running (default)
@@ -964,7 +966,7 @@ D. AWS Direct Connect
 ---
 
 ### Question 26
-A company wants to run Amazon ECS and EKS workloads on its own infrastructure outside AWS, managed from the AWS Console. Which services should they use?
+A company wants to run Amazon ECS and EKS workloads on its own infrastructure outside AWS, using the same ECS and Kubernetes tooling it uses in AWS. Which services should they use?
 
 A. Amazon ECS Anywhere and Amazon EKS Anywhere  
 B. AWS Outposts  
@@ -978,7 +980,7 @@ D. Amazon EC2 Dedicated Hosts
 
 **Explanation:**
 - ECS Anywhere and EKS Anywhere extend container orchestration to on-premises infrastructure
-- Managed from AWS Console
+- ECS Anywhere tasks are managed by the ECS control plane in AWS; EKS Anywhere clusters can be viewed (not managed) in the EKS console through EKS Connector
 - Outposts is for running AWS infrastructure on-premises
 - Fargate is for serverless containers in AWS
 - Dedicated Hosts are for compliance
@@ -1030,6 +1032,8 @@ D. Amazon DynamoDB
 - Provides immutable, cryptographically verifiable transaction log
 - Aurora, RDS, and DynamoDB are not ledger databases
 
+**Status (November 2026):** Amazon QLDB has been discontinued, and AWS now points ledger workloads to Amazon Aurora PostgreSQL. Keep this question for recognising the service in older exam material.
+
 **References:** Amazon QLDB, Ledger Database
 </details>
 
@@ -1055,14 +1059,14 @@ D. Amazon DynamoDB
 - ECS Anywhere
 - EKS Anywhere
 - Amazon Keyspaces
-- Amazon QLDB
+- Amazon QLDB (discontinued)
 
 **Exam Tips**:
 
 **EC2 Pricing**:
 - **Spot**: Cheapest (90% discount), can be interrupted
 - **Reserved**: 1-3 year commitment, up to 72% discount
-- **Savings Plans**: Flexible commitment, up to 66% discount
+- **Savings Plans**: Flexible commitment, up to 72% (EC2 Instance SP) or 66% (Compute SP) discount
 - **On-Demand**: No commitment, highest price
 - **Dedicated Hosts**: BYOL, compliance, most expensive
 

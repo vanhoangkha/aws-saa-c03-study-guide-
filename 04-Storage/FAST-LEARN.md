@@ -20,7 +20,7 @@ ARCHIVAL? → S3 Glacier (long-term backup)
 | Class | Retrieval | Availability | Min Duration | Use Case | Cost |
 |-------|-----------|--------------|--------------|----------|------|
 | **Standard** | Instant | 99.99% | None | Frequently accessed | $$$$ |
-| **Intelligent-Tiering** | Instant | 99.9% | 30 days | Unknown access | $$$ |
+| **Intelligent-Tiering** | Instant | 99.9% | None | Unknown access | $$$ |
 | **Standard-IA** | Instant | 99.9% | 30 days | Infrequent access | $$ |
 | **One Zone-IA** | Instant | 99.5% | 30 days | Non-critical, infrequent | $ |
 | **Glacier Instant** | Instant | 99.9% | 90 days | Archive, instant access | $ |
@@ -306,7 +306,7 @@ Delete incomplete multipart uploads after 7 days
 ---
 
 **Quick Answers**: 
-1) 5 TB
+1) 50 TB
 2) io2 or io1 (Provisioned IOPS SSD)
 3) No (Linux only)
 4) S3 Intelligent-Tiering

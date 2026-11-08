@@ -136,8 +136,8 @@ sqs.send_message(
 - Or use MessageDeduplicationId
 
 **4. High Throughput Mode**:
-- 3,000 messages per second with batching
-- 9,000 TPS per group (with batching)
+- Default FIFO limit: 300 TPS per API action (3,000 messages per second with batching)
+- High throughput mode: up to 70,000 TPS per API action in selected Regions (up to 700,000 messages per second with batching)
 
 **FIFO Queue Naming**:
 - Must end with `.fifo` suffix
@@ -197,7 +197,7 @@ IoT Devices (producers)
    ↓
 Kinesis Stream (shards)
    ├→ Lambda (real-time processing)
-   ├→ Kinesis Data Analytics (SQL queries)
+   ├→ Managed Service for Apache Flink (stream analytics)
    ├→ Kinesis Data Firehose (S3/Redshift)
    └→ Custom consumers (EC2, containers)
 ```
@@ -213,7 +213,7 @@ Kinesis Stream (shards)
 **2. Records**:
 - Partition key (determines shard)
 - Sequence number (order within shard)
-- Data blob (up to 1 MB)
+- Data blob (1 MiB by default, configurable up to 10 MiB per stream)
 
 **3. Consumers**:
 - Multiple consumers can read same stream
@@ -284,7 +284,7 @@ def lambda_handler(event, context):
 |---------|----------|
 | **Data Streams** | Custom real-time processing |
 | **Data Firehose** | Load to S3, Redshift, ES (easier) |
-| **Data Analytics** | SQL on streaming data |
+| **Data Analytics** (SQL version discontinued; now Managed Service for Apache Flink) | Analytics on streaming data |
 | **Video Streams** | Video ingestion and processing |
 
 **Kinesis vs SQS**:
@@ -701,7 +701,7 @@ Destinations
 
 **2. Buffering**:
 - Buffer by size (1-128 MB)
-- Buffer by time (60-900 seconds)
+- Buffer by time (0-900 seconds; 0 = zero buffering)
 - Delivers when either threshold met
 
 **3. Data Transformation**:
@@ -825,7 +825,7 @@ Data Streams: $0.015/shard/hour + $0.014/million PUT units
 - Load data to S3, Redshift, ES, Splunk
 - Don't need multiple consumers
 - Want fully managed solution
-- Near real-time (60+ seconds latency)
+- Near real-time (seconds with zero buffering, up to 900 seconds with buffering)
 - Simple transformations
 
 **When to Use Data Streams**:
@@ -1726,9 +1726,9 @@ D. Amazon API Gateway
 ---
 
 ### Question 45
-A marketing team wants to send targeted push notifications, emails, and SMS messages to users based on their behavior in a mobile app. Which AWS service should be used?
+A marketing team wants to send targeted emails and SMS messages to customer segments based on their behavior and profile data. Which AWS service should be used?
 
-A. Amazon Pinpoint  
+A. Amazon Connect outbound campaigns  
 B. Amazon SNS  
 C. AWS Amplify  
 D. Amazon SQS  
@@ -1739,14 +1739,14 @@ D. Amazon SQS
 **Answer: A**
 
 **Explanation:**
-- Amazon Pinpoint is a multi-channel marketing and analytics service
-- Supports push, email, SMS, and in-app messaging
-- Provides segmentation, analytics, and campaign management
+- Amazon Connect outbound campaigns, with Amazon Connect Customer Profiles, runs targeted, multi-channel campaigns to customer segments
+- This is where AWS points former Amazon Pinpoint engagement users (segments, campaigns, journeys)
+- Status (November 2026): Amazon Pinpoint support ended 30 Oct 2026. Use Amazon Connect outbound campaigns, AWS End User Messaging (SMS/voice/push) and Amazon SES (email). Older practice questions may still name Pinpoint for this scenario
 - SNS is for basic notifications, not targeted campaigns
 - Amplify is for app development, not marketing
 - SQS is for queuing, not messaging users
 
-**References:** Amazon Pinpoint, User Engagement
+**References:** Amazon Connect outbound campaigns, Amazon Pinpoint end of support
 </details>
 
 ---
@@ -1794,7 +1794,7 @@ D. AWS Glue Streaming
 - AWS AppSync (GraphQL APIs)
 - Amazon ECS Anywhere (Hybrid Container Deployment)
 - AWS Device Farm (Mobile Testing)
-- Amazon Pinpoint (User Engagement)
+- Amazon Connect outbound campaigns (User Engagement; replaces Amazon Pinpoint, retired)
 - Amazon MSK (Managed Kafka)
 
 **Exam Tips**:
@@ -1861,9 +1861,9 @@ D. AWS Glue Streaming
 - Test mobile apps on real devices
 - Cloud-based, wide range of devices
 
-**Pinpoint**:
-- Targeted push notifications, emails, SMS
-- User behavior analytics
+**Pinpoint** (retired):
+- Status (November 2026): support ended 30 Oct 2026. Use Amazon Connect outbound campaigns, AWS End User Messaging (SMS/voice/push) and Amazon SES (email).
+- Was used for targeted push notifications, emails, SMS and user behavior analytics
 
 **MSK**:
 - Managed Kafka service
@@ -1887,7 +1887,7 @@ SaaS data integration                  → AppFlow
 GraphQL API                           → AppSync
 Hybrid container deployment            → ECS Anywhere
 Mobile app testing                    → Device Farm
-Targeted user messaging                → Pinpoint
+Targeted user messaging                → Amazon Connect outbound campaigns (Pinpoint retired)
 Managed Kafka                          → MSK
 ```
 

@@ -20,18 +20,18 @@
 - Amazon EKS Anywhere: 03-Compute/PRACTICE-QUESTIONS.md
 - Amazon EKS Distro: 03-Compute/PRACTICE-QUESTIONS.md
 - Amazon Keyspaces (for Apache Cassandra): 05-Database/PRACTICE-QUESTIONS.md
-- Amazon QLDB: 05-Database/PRACTICE-QUESTIONS.md
+- Amazon QLDB (retired): 05-Database/PRACTICE-QUESTIONS.md
 
 ## Front-End Web and Mobile
 - AWS Amplify: 08-Application-Integration/PRACTICE-QUESTIONS.md
 - Amazon API Gateway: 08-Application-Integration/PRACTICE-QUESTIONS.md
 - AWS Device Farm: 08-Application-Integration/PRACTICE-QUESTIONS.md
-- Amazon Pinpoint: 08-Application-Integration/PRACTICE-QUESTIONS.md
+- Amazon Pinpoint (retired 30 Oct 2026; see Amazon Connect outbound campaigns): 08-Application-Integration/PRACTICE-QUESTIONS.md
 
 ## Machine Learning
 - Amazon Comprehend: 11-Analytics/PRACTICE-QUESTIONS.md
 - Amazon Forecast: 11-Analytics/PRACTICE-QUESTIONS.md
-- Amazon Fraud Detector: 11-Analytics/PRACTICE-QUESTIONS.md
+- Amazon Fraud Detector (closed to new customers): 11-Analytics/PRACTICE-QUESTIONS.md
 - Amazon Kendra: 11-Analytics/PRACTICE-QUESTIONS.md
 - Amazon Lex: 11-Analytics/PRACTICE-QUESTIONS.md
 - Amazon Polly: 11-Analytics/PRACTICE-QUESTIONS.md
@@ -44,7 +44,7 @@
 - AWS Health Dashboard: 09-Monitoring/PRACTICE-QUESTIONS.md
 - AWS License Manager: 09-Monitoring/PRACTICE-QUESTIONS.md
 - AWS Management Console: 09-Monitoring/PRACTICE-QUESTIONS.md
-- AWS Proton: 09-Monitoring/PRACTICE-QUESTIONS.md
+- AWS Proton (retired 7 Oct 2026): 09-Monitoring/PRACTICE-QUESTIONS.md
 - AWS Service Catalog: 09-Monitoring/PRACTICE-QUESTIONS.md
 - AWS Trusted Advisor: 09-Monitoring/PRACTICE-QUESTIONS.md
 - AWS Well-Architected Tool: 09-Monitoring/PRACTICE-QUESTIONS.md
@@ -55,7 +55,7 @@
 - AWS Directory Service: 07-Security/PRACTICE-QUESTIONS.md
 
 ## Media, Migration, and Transfer
-- Amazon Elastic Transcoder: 11-Analytics/PRACTICE-QUESTIONS.md
+- Amazon Elastic Transcoder (retired 13 Nov 2025; use AWS Elemental MediaConvert): 11-Analytics/PRACTICE-QUESTIONS.md
 - Amazon Kinesis Video Streams: 11-Analytics/PRACTICE-QUESTIONS.md
 - AWS Snow Family: 10-Migration/PRACTICE-QUESTIONS.md
 - AWS Transfer Family: 10-Migration/PRACTICE-QUESTIONS.md

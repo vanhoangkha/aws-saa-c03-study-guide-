@@ -20,7 +20,7 @@
 | Failover | Automatic | Manual promotion |
 | Same Region | Yes | Can be cross-region |
 | Endpoint | Single DNS | Separate DNS |
-| Standby Readable | No | Yes |
+| Standby Readable | No (DB instance); two readable standbys (DB cluster) | Yes |
 
 ### RDS Backups
 - **Automated**: Daily full + transaction logs every 5 min
@@ -32,11 +32,11 @@
 ### Aurora Features
 - **AWS proprietary** (MySQL/PostgreSQL compatible)
 - **5x MySQL, 3x PostgreSQL** performance
-- **Storage**: 10 GB → 128 TB (auto-grows in 10 GB increments)
+- **Storage**: 10 GB → 256 TiB on current versions, 128 TiB on older ones (auto-grows in 10 GB increments)
 - **6 copies** across 3 AZs (4/6 write quorum, 3/6 read quorum)
 - **Self-healing** (peer-to-peer replication)
 - **Auto-failover** <30 seconds
-- **15 read replicas** (MySQL has max 5)
+- **15 read replicas** (RDS MySQL/MariaDB/PostgreSQL also 15; RDS Oracle/SQL Server 5)
 
 ### Aurora Endpoints
 - **Writer Endpoint**: Points to master (read/write)
@@ -123,11 +123,13 @@
 - Knowledge graphs
 
 ## QLDB (Quantum Ledger Database)
+- **Status (November 2026)**: Amazon QLDB has been discontinued
 - **Immutable** ledger
 - Cryptographically verifiable
 - Financial transactions, supply chain
 
 ## Timestream
+- **Status**: Timestream for LiveAnalytics closed to new customers (20 June 2025); AWS recommends Timestream for InfluxDB
 - **Time-series** database
 - IoT, operational metrics
 

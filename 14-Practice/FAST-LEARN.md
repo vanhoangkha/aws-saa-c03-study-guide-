@@ -9,7 +9,7 @@
 FORMAT: Multiple choice & multiple response
 QUESTIONS: 65 questions
 DURATION: 130 minutes (2 hours 10 minutes)
-PASSING SCORE: 720/1000 (72%)
+PASSING SCORE: 720 (scaled score, 100-1000; not 72% of questions)
 COST: $150 USD
 VALIDITY: 3 years
 DELIVERY: Pearson VUE (testing center or online)
@@ -244,7 +244,7 @@ S3:
 
 RDS:
 ├── Aurora read replicas: Up to 15
-├── RDS read replicas: Up to 5
+├── RDS read replicas: Up to 15 (MySQL, MariaDB, PostgreSQL); 5 (Oracle)
 ├── Backup retention: 0-35 days
 
 LAMBDA:
@@ -401,7 +401,7 @@ TRAP 6: Similar sounding services
  You understand core concepts
  You can eliminate wrong answers
  You have time management strategies
- 72% to pass (not 100%)
+ A scaled score of 720 to pass (not 100%)
  Thousands have passed before you
  You can too!
 

@@ -44,7 +44,7 @@ Security is the foundation of AWS Solutions Architecture. This module covers enc
 
 **Customer Managed Keys**
 - **$1/month**
-- Rotation: Optional, automatic every year (recommended)
+- Rotation: Optional automatic rotation with a configurable period of 90-2,560 days (default 365), plus on-demand rotation
 - Can enable/disable
 - Full control over key policy
 
@@ -85,12 +85,14 @@ Default Key Policy:
 - Must have permission in key policy
 
 **Rotation**:
-- Automatic: Every year for customer managed keys
+- Automatic: Customer managed keys, configurable period of 90-2,560 days (default 365); AWS managed keys rotate every year
+- On-demand: `RotateKeyOnDemand` rotates immediately (default quota of 10 per key)
 - Manual: Create new key and update alias
 
 **Limits**:
-- **Requests per second**: 5,500 (shared across operations)
-- **10,000 or 30,000** in some regions
+- **Requests per second** (symmetric cryptographic operations, shared): 10,000 by default
+- **20,000** in some Regions and **100,000** in us-east-1, us-west-2 and eu-west-1
+- Asymmetric RSA and ECC keys have separate quotas (1,000 per second each)
 - Can request quota increase
 - Use data key caching to reduce API calls
 
@@ -180,7 +182,7 @@ Default Key Policy:
 | **Parameters** | 10,000 | 100,000+ |
 | **Max Size** | 4 KB | 8 KB |
 | **Policies** | No | Yes (expiration, notifications) |
-| **Throughput** | Lower | Higher |
+| **Throughput** | Standard by default; higher throughput is an optional paid account setting for both tiers | Same as Standard |
 
 ### Parameter Policies (Advanced)
 - **Expiration**: Delete parameter after date
@@ -196,7 +198,7 @@ Default Key Policy:
 - **Free** for public certificates
 - **Automatic renewal**
 - Integration with: ELB, CloudFront, API Gateway
-- Cannot use for EC2 (must use IAM or manually install)
+- Standard ACM certificates cannot be installed on EC2; for EC2 or on-premises servers, request an exportable public certificate (paid, available since June 2025) or install a certificate manually
 
 ### ACM Features
 - **Public Certificates**:
@@ -228,7 +230,7 @@ Default Key Policy:
 - **Rate-based rules**: DDoS protection (e.g., > 2,000 requests in 5 min)
 
 ### Managed Rules
-- **AWS Managed Rules**: Free
+- **AWS Managed Rules**: $1/month per rule group added to a web ACL (plus request charges); Bot Control and Fraud Control (ATP, ACFP) have additional fees
 - **AWS Marketplace Rules**: From third parties
 - Rule groups for:
   - OWASP Top 10
@@ -258,7 +260,7 @@ Default Key Policy:
 ### Shield Advanced
 - **$3,000/month per organization**
 - Enhanced DDoS protection
-- **24/7 DDoS Response Team (DRT)**
+- **24/7 Shield Response Team (SRT)** (formerly DDoS Response Team; requires Business or Enterprise Support)
 - **Cost protection**: Reimbursement for scaling charges during DDoS
 - Protects: EC2, ELB, CloudFront, Global Accelerator, Route 53
 - Advanced attack analytics and reporting
@@ -366,6 +368,7 @@ Default Key Policy:
   - Partner solutions
 - **Security standards**: CIS, PCI-DSS, AWS best practices
 - **Automated remediation** with EventBridge + Lambda
+- Status (November 2026): the posture-management part (security standards and controls) is now named **AWS Security Hub CSPM**; the multi-account lead account is called the **administrator account**
 
 ---
 
@@ -439,12 +442,13 @@ Default Key Policy:
 
 ### What is Trusted Advisor?
 - **Best practice recommendations**
-- Five categories:
+- Six categories:
   1. **Cost Optimization**
   2. **Performance**
   3. **Security**
   4. **Fault Tolerance**
   5. **Service Limits**
+  6. **Operational Excellence**
 
 ### Trusted Advisor Checks
 **Basic/Developer Support**:

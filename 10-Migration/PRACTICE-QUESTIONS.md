@@ -28,7 +28,7 @@ D. Replatform by migrating to containers on ECS
 - Option C (Repurchase) requires finding and adopting new software
 - Option D (Replatform) requires containerization effort
 
-**References:** 6 R's of Migration, AWS Application Migration Service
+**References:** 7 Rs of Migration, AWS Application Migration Service
 </details>
 
 ---
@@ -49,10 +49,11 @@ D. AWS Transfer Family
 **Explanation:**
 - 50 TB over 100 Mbps would take approximately 46 days
 - Snowball is designed for large data transfers with limited bandwidth
-- Can transfer 50-80 TB per device in about a week
+- One Snowball Edge Storage Optimized device holds 210 TB; a job takes about a week
 - DataSync works over network but would be too slow
 - Direct Connect is for ongoing connectivity, not one-time migration
 - Transfer Family is for SFTP/FTPS access to S3
+- Status (November 2026): Snowball Edge is closed to new customers; a new customer would use DataSync over the network or AWS Data Transfer Terminal
 
 **Calculation:** 50 TB = 400,000 Gb ÷ 100 Mbps = 4,000,000 seconds ≈ 46 days
 
@@ -189,6 +190,7 @@ D. AWS Config
 - CloudWatch monitors resources, not migrations
 - Systems Manager manages infrastructure
 - Config tracks configuration compliance
+- Status (November 2026): Migration Hub has been closed to new customers since 7 Nov 2025; AWS Transform offers similar tracking
 
 **References:** AWS Migration Hub, Migration Tracking
 </details>
@@ -322,6 +324,7 @@ D. Use AWS Direct Connect with 10 Gbps connection
 - DataSync with throttling would be too slow
 - Upgrading connection is expensive
 - Direct Connect requires time to provision
+- Status (November 2026): Snowball Edge is closed to new customers; a new customer would use DataSync over the network or AWS Data Transfer Terminal
 
 **References:** AWS Snowball, Large Data Migration
 </details>
@@ -422,12 +425,12 @@ D. Retain
 **Explanation:**
 - Retire strategy identifies and turns off unused applications
 - Reduces cost and complexity
-- Part of the 6 R's migration framework
+- Part of the 7 Rs migration framework
 - Rehost moves applications to cloud
 - Replatform optimizes during migration
 - Retain keeps applications on-premises
 
-**References:** 6 R's of Migration, Retire Strategy
+**References:** 7 Rs of Migration, Retire Strategy
 </details>
 
 ---
@@ -478,6 +481,7 @@ D. AWS CloudEndure
 - Together they provide complete migration solution
 - Application Discovery feeds data into Migration Hub
 - CloudEndure is now AWS Application Migration Service
+- Status (November 2026): Migration Hub and Application Discovery Service have been closed to new customers since 7 Nov 2025
 
 **References:** Migration Hub, Application Discovery Service
 </details>
@@ -531,7 +535,7 @@ D. Repurchase
 - Replatform makes minimal optimizations
 - Repurchase moves to SaaS
 
-**References:** 6 R's of Migration, Refactor Strategy
+**References:** 7 Rs of Migration, Refactor Strategy
 </details>
 
 ---
@@ -539,22 +543,22 @@ D. Repurchase
 ## Summary
 
 ### Key Concepts Tested:
-1. **6 R's of Migration**: Rehost, Replatform, Repurchase, Refactor, Retire, Retain
+1. **7 Rs of Migration**: Rehost, Relocate, Replatform, Repurchase, Refactor, Retire, Retain
 2. **AWS DataSync**: File transfer, scheduling, integrity verification
 3. **AWS DMS**: Database migration, CDC, homogeneous vs heterogeneous
 4. **AWS Schema Conversion Tool**: Converting database schemas
 5. **AWS Migration Hub**: Tracking migration progress
-6. **AWS Snowball**: Large data transfers with limited bandwidth
+6. **AWS Snowball**: Large data transfers with limited bandwidth (closed to new customers)
 7. **Migration Strategies**: When to use each approach
 
 ### Exam Tips:
 - Rehost (Lift and Shift) is fastest migration
 - Heterogeneous migrations require SCT + DMS
 - Homogeneous migrations use DMS only
-- Use Snowball when data > 10 TB or bandwidth limited
+- Use Snowball when data > 10 TB or bandwidth limited (closed to new customers)
 - DataSync for ongoing/scheduled transfers over network
 - DMS supports continuous replication with CDC
 - Full Load + CDC is most common DMS task type
-- Migration Hub tracks multi-account/multi-region migrations
+- Migration Hub tracks multi-account/multi-region migrations (closed to new customers)
 - DataSync supports NFS, SMB, HDFS, and S3
 

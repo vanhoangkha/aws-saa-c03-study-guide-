@@ -209,8 +209,8 @@ Total: 2,000 GB → Higher pricing tier applies to all
 ## Rapid-Fire Facts
 
 **Global vs Regional Services:**
-- **Global**: IAM, CloudFront, Route 53, WAF
-- **Regional**: EC2, RDS, VPC, Lambda, S3 (global namespace)
+- **Global**: IAM, CloudFront, Route 53
+- **Regional**: EC2, RDS, VPC, Lambda, S3 (global namespace), WAF (regional web ACLs; web ACLs for CloudFront are created in us-east-1)
 
 **Service Categories (CSDMANS):**
 - **C**ompute: EC2, Lambda

@@ -84,11 +84,11 @@ PRIVATE SUBNET
 | Option | Use Case | Bandwidth | Cost |
 |--------|----------|-----------|------|
 | **Internet Gateway** | Public internet access | Unlimited | Free |
-| **NAT Gateway** | Private → Internet (outbound) | 45 Gbps | $$$ |
+| **NAT Gateway** | Private → Internet (outbound) | 5 Gbps, scales to 100 Gbps | $$$ |
 | **VPC Peering** | Connect 2 VPCs | No bandwidth limit | $ |
-| **Transit Gateway** | Hub for multiple VPCs | 50 Gbps/attachment | $$ |
-| **VPN** | On-prem to AWS (encrypted) | Up to 1.25 Gbps | $ |
-| **Direct Connect** | Dedicated on-prem to AWS | 1-100 Gbps | $$$ |
+| **Transit Gateway** | Hub for multiple VPCs | 100 Gbps per VPC attachment per AZ | $$ |
+| **VPN** | On-prem to AWS (encrypted) | 1.25 Gbps per tunnel (5 Gbps Large Bandwidth Tunnels on TGW) | $ |
+| **Direct Connect** | Dedicated on-prem to AWS | 1-400 Gbps | $$$ |
 | **PrivateLink** | Private access to services | 10 Gbps | $$ |
 
 ### 4. Route 53 Routing Policies
@@ -167,7 +167,7 @@ No edge-to-edge routing
 ### CloudFront Key Concepts
 ```
 WHAT: Content Delivery Network (CDN)
-WHERE: 400+ edge locations globally
+WHERE: 700+ edge locations globally
 USE CASES:
 ├── Static content (S3)
 ├── Dynamic content (API, video)
@@ -182,7 +182,7 @@ ORIGINS:
 └── MediaPackage
 
 SECURITY:
-├── OAI (Origin Access Identity) - S3 only via CloudFront
+├── OAC (Origin Access Control) - S3 only via CloudFront (OAI is legacy)
 ├── Signed URLs/Cookies - Restrict access
 ├── Geo-restriction - Block countries
 └── WAF - Web application firewall
@@ -206,7 +206,7 @@ SECURITY:
 |---------|-------------|--------------|
 | **Managed** | AWS | You |
 | **Availability** | HA in AZ | Use script for failover |
-| **Bandwidth** | 45 Gbps | Instance type dependent |
+| **Bandwidth** | 5 Gbps, scales to 100 Gbps | Instance type dependent |
 | **Cost** | Higher | Lower |
 | **Security Group** | N/A | Yes (manage yourself) |
 | **Bastion** | No | Can use as bastion |
@@ -230,7 +230,7 @@ GATEWAY ENDPOINT
 **Memory Aid**: "Gateway for S3 & DynamoDB = Free, Interface for everything else = Fee"
 
 ### Direct Connect
-- **Speed**: 1 Gbps, 10 Gbps, 100 Gbps
+- **Speed**: 1 Gbps, 10 Gbps, 100 Gbps, 400 Gbps (dedicated); 50 Mbps to 25 Gbps (hosted)
 - **Setup Time**: Weeks to months
 - **Encryption**: Not encrypted (use VPN over DX)
 - **Use Case**: Consistent, high-throughput
@@ -312,8 +312,7 @@ GATEWAY ENDPOINT
 - Persists when instance stopped
 - Can remap to another instance
 - Max 5 per region (soft limit)
-- Charged if not attached to running instance
-- Free if attached to running instance
+- Charged whether attached or not: $0.005/hour per public IPv4 address (since February 2024)
 
 ## Next Steps
 - Time spent: ~75-90 min

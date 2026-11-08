@@ -90,7 +90,7 @@
 ### Direct Connect
 - **Dedicated private connection** (not internet)
 - Consistent network, reduced costs
-- 1 Gbps or 10 Gbps
+- Dedicated: 1, 10, 100 or 400 Gbps; hosted: 50 Mbps to 25 Gbps
 - Setup takes **weeks/months**
 
 ## Route 53
@@ -118,13 +118,13 @@
 
 ## CloudFront
 - **CDN** (Content Delivery Network)
-- **400+ edge locations**
+- **700+ edge locations**
 - Cache content closer to users
 - **Origins**: S3, ALB, EC2, custom HTTP
 - **TTL**: Default 24 hours
 - **Geo-restriction**: Whitelist/blacklist countries
 - **Signed URLs/Cookies**: Restrict access
-- **OAI (Origin Access Identity)**: S3 bucket access only via CloudFront
+- **OAC (Origin Access Control)**: S3 bucket access only via CloudFront (OAI is legacy)
 
 ## Quick Exam Tips
 - **VPC**: Regional, max 5 per region
@@ -138,6 +138,6 @@
 - **VPN**: Encrypted over internet
 - **Direct Connect**: Dedicated private link
 - **Route 53**: DNS, 7 routing policies
-- **CloudFront**: CDN, 400+ edge locations
+- **CloudFront**: CDN, 700+ edge locations
 - **Endpoint**: Private connection to AWS services
 

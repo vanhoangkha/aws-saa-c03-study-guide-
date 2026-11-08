@@ -7,8 +7,8 @@
 ### Migration Service Selector (SDASMAD)
 ```
 DATABASE? → DMS (Database Migration Service)
-SERVERS? → Application Discovery Service, SMS
-LARGE DATA? → Snowball, Snowmobile, DataSync
+SERVERS? → Application Discovery Service (closed to new customers), MGN
+LARGE DATA? → DataSync, Snowball (closed to new customers), Snowmobile (retired)
 STORAGE? → Storage Gateway, Transfer Family
 APPLICATIONS? → Application Migration Service (MGN)
 ```
@@ -18,12 +18,14 @@ APPLICATIONS? → Application Migration Service (MGN)
 ## Quick Reference Tables
 
 ### Snow Family (Physical Data Transfer)
+Status (November 2026): AWS no longer offers Snow Family devices to new customers. Snowcone was discontinued on 12 Nov 2024, Snowmobile is no longer offered, and Snowball Edge has been available only to existing customers since 7 Nov 2025 (support ends 31 Dec 2026). New projects use AWS DataSync, AWS Data Transfer Terminal or Outposts.
+
 | Device | Capacity | Use Case | Transfer Speed |
 |--------|----------|----------|----------------|
-| **Snowcone** | 8 TB | Edge computing, small transfers | Portable (fits in backpack) |
-| **Snowball Edge Storage** | 80 TB | Large migrations, edge storage | Petabyte scale |
-| **Snowball Edge Compute** | 42 TB + GPU | ML, processing at edge | Compute + storage |
-| **Snowmobile** | 100 PB | Exabyte-scale migrations | Truck (literal!) |
+| **Snowcone** (discontinued) | 8 TB | Edge computing, small transfers | Portable (fits in backpack) |
+| **Snowball Edge Storage** | 210 TB | Large migrations, edge storage | Petabyte scale |
+| **Snowball Edge Compute** | 28 TB NVMe, 104 vCPUs | ML, processing at edge | Compute + storage |
+| **Snowmobile** (retired) | 100 PB | Exabyte-scale migrations | Truck (literal!) |
 
 **Decision**: Internet < 1 week → Direct transfer, Otherwise → Snow device
 
@@ -69,21 +71,21 @@ EXAM TIP: Zero downtime migration
 
 ### 2. Snow Family Deep Dive
 ```
-SNOWCONE (Smallest)
+SNOWCONE (Smallest, discontinued Nov 2024)
 ├── 8 TB (HDD) or 14 TB (SSD)
 ├── 4 GB memory, 2 vCPUs
 ├── USB-C power (very portable)
 ├── DataSync agent pre-installed
 └── Use: IoT, drone data, remote locations
 
-SNOWBALL EDGE (Medium)
-├── Storage Optimized: 80 TB
-├── Compute Optimized: 42 TB + GPU
-├── Can cluster up to 15 nodes
+SNOWBALL EDGE (Medium, closed to new customers since 7 Nov 2025)
+├── Storage Optimized: 210 TB
+├── Compute Optimized: 28 TB NVMe, 104 vCPUs
+├── Can cluster 3-16 nodes
 ├── EC2/Lambda at edge
 └── Use: Datacenter migrations, edge processing
 
-SNOWMOBILE (Massive)
+SNOWMOBILE (Massive, no longer offered)
 ├── 100 PB capacity
 ├── Ruggedized shipping container
 ├── GPS tracked, video surveillance
@@ -151,7 +153,7 @@ VS STORAGE GATEWAY:
 
 ### Scenario 2: Transfer 80 TB, Slow Internet
 **Q**: Transfer 80 TB data, internet is 100 Mbps (would take months)
-**ANSWER**: AWS Snowball Edge (1 week including shipping)
+**ANSWER**: AWS Snowball Edge (1 week including shipping); new customers can't order Snow devices and use DataSync or AWS Data Transfer Terminal
 
 ### Scenario 3: Continuous File Sync to S3
 **Q**: On-prem file server needs to continuously sync to S3
@@ -175,7 +177,7 @@ VS STORAGE GATEWAY:
 
 ### Scenario 8: Exabyte-Scale Transfer
 **Q**: 10 EB (exabytes) of data to migrate
-**ANSWER**: AWS Snowmobile (100 PB each, need ~100)
+**ANSWER**: AWS Snowmobile (100 PB each, need ~100); Snowmobile is no longer offered
 
 ## Speed Learning Tips
 
@@ -218,7 +220,7 @@ Yes: Private connection
 No: Weeks to months setup
 No: Expensive
 
-SNOWBALL:
+SNOWBALL (closed to new customers):
 Yes: 10+ TB data
 Yes: Poor internet
 Yes: One-time migration
@@ -240,19 +242,19 @@ No: Higher cost
 
 ### Snow Family Comparison
 ```
-CHOOSE SNOWCONE IF:
+CHOOSE SNOWCONE IF (discontinued):
 ├── < 8-14 TB
 ├── Extreme portability needed
 ├── Edge computing (IoT)
 └── Harsh environments
 
-CHOOSE SNOWBALL IF:
+CHOOSE SNOWBALL IF (closed to new customers):
 ├── 10 TB - 10 PB
 ├── Need clustering
 ├── Edge compute (EC2/Lambda)
 └── Standard datacenter migration
 
-CHOOSE SNOWMOBILE IF:
+CHOOSE SNOWMOBILE IF (no longer offered):
 ├── > 10 PB
 ├── Entire datacenter
 └── Don't mind a truck showing up
@@ -261,6 +263,7 @@ CHOOSE SNOWMOBILE IF:
 ### Application Migration Service (MGN)
 ```
 FORMERLY: CloudEndure Migration
+NOW LISTED AS: AWS Transform MGN
 
 PROCESS:
 1. Install agent on source servers
@@ -274,10 +277,10 @@ FEATURES:
 ├── Minimal downtime (minutes)
 ├── Wide OS support
 ├── Automated conversion
-└── Free (pay only for AWS resources)
+└── Free for 2,160 hours (90 days) per server, then per hour; AWS resources extra
 
 VS SERVER MIGRATION SERVICE (SMS):
-└── MGN is newer, recommended (SMS deprecated)
+└── MGN is newer, recommended (SMS discontinued)
 ```
 
 ### Transfer Family Features
@@ -318,8 +321,8 @@ USE CASES:
    
 3. For data transfer, how much?
    < 10 TB + good internet → Direct upload/DataSync
-   10 TB - 10 PB + slow internet → Snowball
-   > 10 PB → Snowmobile
+   10 TB - 10 PB + slow internet → Snowball (closed to new customers)
+   > 10 PB → Snowmobile (no longer offered)
    
 4. Need ongoing sync?
    YES → Storage Gateway or DMS (CDC)
@@ -359,7 +362,7 @@ USE CASES:
  Forgetting SCT for heterogeneous migrations
  Choosing wrong Snow device for data size
  Not considering bandwidth for transfer time
- Using deprecated SMS (use MGN instead)
+ Using discontinued SMS (use MGN instead)
  Not enabling validation in DMS
  Underestimating replication instance size
 
@@ -383,11 +386,12 @@ USE CASES:
 PLANNING PHASE:
 ├── Discovery (Application Discovery Service)
 ├── TCO calculation (AWS Pricing Calculator)
-├── Migration strategy (6 R's)
+├── Migration strategy (7 Rs)
 └── Proof of concept
 
-6 R'S OF MIGRATION:
+7 RS OF MIGRATION:
 ├── Rehost (lift-and-shift) - MGN
+├── Relocate (hypervisor-level, e.g. VMware Cloud on AWS)
 ├── Replatform (lift-tinker-shift) - Some optimization
 ├── Repurchase (SaaS) - New product
 ├── Refactor (re-architect) - Cloud-native
@@ -396,6 +400,7 @@ PLANNING PHASE:
 ```
 
 ### Application Discovery Service
+Status (November 2026): AWS Application Discovery Service has been closed to new customers since 7 Nov 2025.
 ```
 TYPES:
 ├── Agentless (VMware vCenter)
@@ -425,7 +430,7 @@ INTEGRATES WITH:
 
 **Quick Answers**: 
 1) SCT (Schema Conversion Tool) + DMS
-2) 80 TB (Storage Optimized)
+2) 210 TB (Storage Optimized)
 3) AWS DataSync
 4) Yes (CDC - Change Data Capture)
 5) 100 PB

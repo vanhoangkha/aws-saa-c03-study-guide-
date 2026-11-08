@@ -134,7 +134,7 @@ Account A                    Account B
 ### IAM Best Practices (Top 10)
 1. Enable MFA for root account
 2. Never use root for daily tasks
-3. Create individual IAM users
+3. Use federation (IAM Identity Center) with temporary credentials for human users
 4. Use groups to assign permissions
 5. Grant least privilege
 6. Use roles for EC2/Lambda
@@ -148,7 +148,7 @@ Account A                    Account B
 - Max **300 groups** per account
 - User can be in max **10 groups**
 - Max **2 access keys** per user
-- Max **10 managed policies** per user/group/role
+- Managed policies: **10** per user (up to 20 on request), **10** per group, **20** per role (up to 25 on request)
 
 ### Policy Evaluation Logic
 ```

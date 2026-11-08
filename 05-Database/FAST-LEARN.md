@@ -12,8 +12,8 @@ CACHE? → ElastiCache (Redis/Memcached)
 DATA WAREHOUSE? → Redshift
 GRAPH? → Neptune
 IN-MEMORY? → ElastiCache
-TIME-SERIES? → Timestream
-LEDGER? → QLDB
+TIME-SERIES? → Timestream (LiveAnalytics closed to new customers)
+LEDGER? → QLDB (retired)
 DOCUMENT? → DocumentDB (MongoDB compatible)
 ```
 
@@ -27,16 +27,16 @@ DOCUMENT? → DocumentDB (MongoDB compatible)
 | **MySQL** | Open source | 64 TiB | Web apps, general |
 | **PostgreSQL** | Open source | 64 TiB | Advanced features |
 | **MariaDB** | Open source | 64 TiB | MySQL fork |
-| **Oracle** | Commercial | 64 TiB | Enterprise apps |
-| **SQL Server** | Commercial | 16 TiB | Microsoft ecosystem |
-| **Aurora** | AWS proprietary | 128 TiB | High performance |
+| **Oracle** | Commercial | 64 TiB (256 TiB with additional volumes) | Enterprise apps |
+| **SQL Server** | Commercial | 64 TiB (256 TiB with additional volumes) | Microsoft ecosystem |
+| **Aurora** | AWS proprietary | 256 TiB (128 TiB on older versions) | High performance |
 
 ### RDS vs Aurora vs DynamoDB
 | Feature | RDS | Aurora | DynamoDB |
 |---------|-----|--------|----------|
 | **Type** | SQL | SQL | NoSQL |
 | **AZ** | Single/Multi | Multi (default) | Multi (default) |
-| **Read Replicas** | Up to 5 | Up to 15 | N/A |
+| **Read Replicas** | Up to 15 (Oracle, SQL Server: 5) | Up to 15 | N/A |
 | **Scaling** | Vertical | Vertical + Horizontal | Horizontal (auto) |
 | **Performance** | Standard | 5x MySQL, 3x PostgreSQL | Milliseconds |
 | **Maintenance** | Some required | Minimal | None |
@@ -51,7 +51,7 @@ MULTI-AZ (High Availability)
 ├── Automatic failover (< 2 min)
 ├── Same region only
 ├── One DNS name (automatic)
-├── Standby NOT readable
+├── Multi-AZ DB instance: standby NOT readable; Multi-AZ DB cluster: two readable standbys
 └── Use: Disaster Recovery, HA
 
 READ REPLICAS (Read Scaling)
@@ -71,7 +71,7 @@ AURORA ADVANTAGES
 ├── 5x faster than MySQL
 ├── 3x faster than PostgreSQL
 ├── Up to 15 read replicas
-├── Auto-scaling storage (10GB → 128TB)
+├── Auto-scaling storage (10GB → 256 TiB on current versions)
 ├── 6 copies across 3 AZs
 ├── Self-healing storage
 ├── Automatic failover < 30 seconds
@@ -118,7 +118,7 @@ AURORA SERVERLESS
 
 ### Scenario 2: Read-Heavy Workload
 **Q**: Database experiencing heavy read traffic, writes are normal
-**ANSWER**: Add RDS Read Replicas (up to 5 or 15 for Aurora)
+**ANSWER**: Add RDS Read Replicas (up to 15 for RDS MySQL/MariaDB/PostgreSQL and Aurora; 5 for Oracle/SQL Server)
 
 ### Scenario 3: Global Low-Latency Reads
 **Q**: Users worldwide need fast read access to data
@@ -197,7 +197,7 @@ STORAGE SCALING
 ## Rapid-Fire Facts
 
 ### RDS Important Limits
-- **Max Read Replicas**: 5 (regular RDS), 15 (Aurora)
+- **Max Read Replicas**: 15 (RDS MySQL, MariaDB, PostgreSQL), 5 (RDS Oracle, SQL Server), 15 (Aurora)
 - **Backup Retention**: 0-35 days (0 = disabled)
 - **Multi-AZ**: Automatic failover < 2 minutes
 - **Encryption**: Cannot encrypt existing DB (must create new)
@@ -220,7 +220,7 @@ STORAGE SCALING
 - **Columnar Storage**: Fast for analytics
 - **Massively Parallel Processing (MPP)**
 - **Petabyte scale**
-- **Single-AZ** (not Multi-AZ)
+- **Single-AZ** by default; Multi-AZ deployments available for RA3 provisioned clusters
 - **Snapshots**: To S3, can copy to other regions
 
 ## 5-Minute Master Review
@@ -272,7 +272,7 @@ STORAGE SCALING
  Using Redshift for OLTP (it's for OLAP)
  Forgetting Aurora is MySQL/PostgreSQL compatible only
  Not using ElastiCache for repeated queries
- Thinking Multi-AZ standby is readable (it's not!)
+ Thinking a Multi-AZ DB instance standby is readable (it's not; only Multi-AZ DB cluster standbys serve reads)
  Using provisioned capacity for unpredictable DynamoDB traffic
 
 ## Exam Practice Speedrun
@@ -328,11 +328,11 @@ ENCRYPTION IN TRANSIT
 
 **Quick Answers**: 
 1) 15
-2) No (only in failover)
+2) Multi-AZ DB instance: no (only after failover); Multi-AZ DB cluster: yes, two readable standbys
 3) Eventually consistent & Strongly consistent
 4) Redis (Memcached does not)
 5) 35 days
-6) 128 TiB
+6) 256 TiB (128 TiB on older engine versions)
 7) DAX (microseconds vs milliseconds)
 8) OLAP (analytics, not transactions)
 

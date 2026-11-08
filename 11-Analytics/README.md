@@ -25,7 +25,7 @@ AWS provides a suite of analytics services for collecting, processing, analyzing
 ### Key Features
 - **Serverless**: No servers to provision or manage
 - **Pay-per-Query**: Charged based on data scanned ($5 per TB)
-- **Standard SQL**: ANSI SQL compliant (uses Presto)
+- **Standard SQL**: ANSI SQL compliant (engine version 3 is based on Trino)
 - **Fast**: Interactive query performance
 - **Versatile**: Query structured, semi-structured, and unstructured data
 
@@ -36,7 +36,7 @@ AWS provides a suite of analytics services for collecting, processing, analyzing
 │                     Amazon Athena                          │
 │                                                            │
 │  ┌──────────────┐         ┌─────────────────────────┐    │
-│  │   SQL Query  │────────►│   Query Engine (Presto)  │    │
+│  │   SQL Query  │────────►│   Query Engine (Trino)   │    │
 │  └──────────────┘         └─────────────────────────┘    │
 │                                    │                       │
 └────────────────────────────────────┼───────────────────────┘
@@ -203,7 +203,7 @@ WHERE year='2024' AND month='01';
 - Results stored in S3 bucket
 - Specify output location per workgroup
 - Can be encrypted (SSE-S3, SSE-KMS)
-- Automatically retained for 45 days (configurable)
+- Not deleted automatically; use an S3 lifecycle rule to expire them (query history is kept for 45 days)
 
 ### Integration with AWS Glue
 - **Glue Data Catalog**: Centralized metadata repository
@@ -249,8 +249,8 @@ WHERE year='2024' AND month='01';
 | Service | Purpose | Use Case |
 |---------|---------|----------|
 | **Kinesis Data Streams** | Real-time data streaming | Custom processing applications |
-| **Kinesis Data Firehose** | Load streaming data into AWS | Easy delivery to S3, Redshift, OpenSearch |
-| **Kinesis Data Analytics** | Real-time analytics with SQL | Real-time dashboards, metrics |
+| **Amazon Data Firehose** (formerly Kinesis Data Firehose) | Load streaming data into AWS | Easy delivery to S3, Redshift, OpenSearch |
+| **Managed Service for Apache Flink** (formerly Kinesis Data Analytics; SQL apps discontinued) | Real-time analytics with Apache Flink (Java, Python, SQL) | Real-time dashboards, metrics |
 | **Kinesis Video Streams** | Stream video data | Video analytics, ML |
 
 ---
@@ -284,7 +284,7 @@ WHERE year='2024' AND month='01';
 - Scale by adding/removing shards
 
 **Records:**
-- Data blob (up to 1 MB)
+- Data blob (up to 1 MiB by default; a stream's limit can be raised to 10 MiB)
 - Partition key (determines shard)
 - Sequence number (unique identifier)
 
@@ -302,8 +302,8 @@ WHERE year='2024' AND month='01';
 
 **Consumers (Data Processing):**
 - AWS Lambda
-- Kinesis Data Analytics
-- Kinesis Data Firehose
+- Managed Service for Apache Flink (formerly Kinesis Data Analytics)
+- Amazon Data Firehose
 - EC2 instances with KCL (Kinesis Client Library)
 - Custom applications
 
@@ -332,13 +332,13 @@ WHERE year='2024' AND month='01';
 
 ---
 
-### 2.2 Amazon Kinesis Data Firehose
+### 2.2 Amazon Data Firehose (formerly Kinesis Data Firehose)
 
 **What is it?**
 - **Fully managed service to load streaming data**
 - No code required
 - Automatic scaling
-- Near real-time delivery (60 seconds latency minimum)
+- Near real-time delivery (buffer interval 0-900 seconds; zero buffering delivers within a few seconds)
 
 **Architecture:**
 ```
@@ -366,7 +366,7 @@ WHERE year='2024' AND month='01';
 
 **Buffering:**
 - Buffer size: 1 MB - 128 MB
-- Buffer interval: 60 - 900 seconds
+- Buffer interval: 0 - 900 seconds (zero buffering isn't available for the S3 backup or dynamic partitioning)
 - Delivers when either threshold is met
 
 **Compression:**
@@ -415,7 +415,7 @@ def lambda_handler(event, context):
 | Feature | Data Streams | Firehose |
 |---------|-------------|----------|
 | **Complexity** | More control, custom code | Fully managed, no code |
-| **Latency** | Real-time (70-200 ms) | Near real-time (60s min) |
+| **Latency** | Real-time (70-200 ms) | Near real-time (seconds with zero buffering, up to 900 s) |
 | **Scaling** | Manual or on-demand | Automatic |
 | **Retention** | 24 hours - 365 days | No retention |
 | **Consumers** | Custom applications | Predefined destinations |
@@ -429,7 +429,9 @@ def lambda_handler(event, context):
 
 ---
 
-### 2.3 Amazon Kinesis Data Analytics
+### 2.3 Amazon Managed Service for Apache Flink (formerly Kinesis Data Analytics)
+
+Status (November 2026): Kinesis Data Analytics for SQL applications is discontinued (no new apps from 15 Oct 2025, apps deleted from 27 Jan 2026). Use Amazon Managed Service for Apache Flink, or Managed Service for Apache Flink Studio for SQL.
 
 **What is it?**
 - **Real-time analytics on streaming data**
@@ -451,7 +453,7 @@ def lambda_handler(event, context):
 
 **Two Engines:**
 
-**1. SQL Applications:**
+**1. SQL Applications (discontinued):**
 - Use standard SQL to query streaming data
 - Windowing functions (tumbling, sliding, session)
 - Aggregations, filtering, joins
@@ -676,7 +678,7 @@ GROUP BY
 - Up to 90% discount
 - Can be interrupted
 - **Best practice**: Use for Task nodes only
-- Spot Block: 1-6 hours without interruption
+- Spot Blocks (1-6 hours without interruption) are retired: closed to new customers in July 2021, ended 31 Dec 2022
 
 ### Auto Scaling
 - Add/remove instances based on metrics
@@ -935,6 +937,7 @@ job.commit()
 - Useful for incremental ETL
 
 ### Development Endpoints
+- Legacy: support only Glue 0.9 and 1.0; use Glue interactive sessions for Glue 2.0 and later
 - Test and debug ETL scripts
 - Interactive development
 - Connect with notebooks (Zeppelin, Jupyter)
@@ -989,7 +992,7 @@ Crawler (S3) → Trigger → ETL Job 1 → Trigger → ETL Job 2 → Trigger →
 - **Crawler**: $0.44 per DPU-hour
 - **ETL Job**: $0.44 per DPU-hour
 - **Data Catalog**: First million objects free, then $1 per 100,000 objects/month
-- **Development Endpoint**: $0.44 per DPU-hour
+- **Development Endpoint** (legacy): $0.44 per DPU-hour
 
 ### Exam Tips
  **Serverless ETL**: No infrastructure management
@@ -1007,10 +1010,10 @@ Crawler (S3) → Trigger → ETL Job 1 → Trigger → ETL Job 2 → Trigger →
 ## 5. Amazon QuickSight
 
 ### What is Amazon QuickSight?
-- **Serverless business intelligence (BI) service**
+- **Serverless business intelligence (BI) service**, now branded Amazon Quick Sight (part of Amazon Quick)
 - Create interactive dashboards and visualizations
 - Machine learning-powered insights
-- Pay-per-session pricing
+- Per-user pricing (Enterprise Readers $3/month); capacity-based session pricing is optional
 
 ### Key Features
 - **Fast**: SPICE in-memory engine
@@ -1084,8 +1087,8 @@ Crawler (S3) → Trigger → ETL Job 1 → Trigger → ETL Job 2 → Trigger →
 - **Durable**: Data replicated across AZs
 
 **SPICE Capacity:**
-- 10 GB per user (Enterprise)
-- 1 GB per user (Standard)
+- 10 GB per author (Enterprise)
+- 10 GB per user (Standard)
 - Purchase additional capacity
 
 ### User Types
@@ -1198,20 +1201,19 @@ Dashboard shows only relevant region data per user
 ### Pricing
 
 **Standard Edition:**
-- **Authors**: $12/month per user
-- **Readers**: $0.30 per session (max $5/month)
+- **Authors**: $9/month per user (annual) or $12 month-to-month, 10 GB SPICE included
+- No Reader role
 - **SPICE**: $0.25 per GB/month
 
 **Enterprise Edition:**
-- **Authors**: $18/month per user
-- **Readers**: $0.30 per session (max $5/month)
+- **Authors**: $24/month per user ($18 with an annual plan)
+- **Readers**: $3/month per user (fixed; replaced the old $0.30-per-session price, max $5)
 - **SPICE**: $0.38 per GB/month
 - Additional features: Encryption, AD integration, hourly refresh
 
-**Pay-per-Session:**
-- Readers pay only when accessing dashboards
-- Max $5 per reader per month
-- Cost-effective for infrequent users
+**Capacity pricing (optional):**
+- Buy reader sessions in bulk instead of per-user Reader fees
+- Suits large deployments and public embedding
 
 ### Use Cases
 1. **Business dashboards**: Sales, marketing, operations
@@ -1221,7 +1223,7 @@ Dashboard shows only relevant region data per user
 5. **Data exploration**: Interactive visualizations
 
 ### Exam Tips
- **Serverless BI**: No infrastructure, pay-per-session
+ **Serverless BI**: No infrastructure, per-user pricing (Enterprise Readers $3/month)
 
  **SPICE engine**: In-memory for fast performance
 
@@ -1257,7 +1259,7 @@ Dashboard shows only relevant region data per user
 - **Orchestrate data workflows**
 - Move data between AWS services
 - Schedule and monitor pipelines
-- **Note**: Being replaced by AWS Glue workflows
+- **Status**: no longer available to new customers; migrate to AWS Glue, AWS Step Functions or Amazon MWAA
 
 ### AWS Lake Formation
 - **Build and manage data lakes**
@@ -1358,14 +1360,14 @@ Dashboard shows only relevant region data per user
 - Shards for capacity (1 MB/sec write, 2 MB/sec read per shard)
 - Retention: 24 hours to 365 days
 
- **Kinesis Firehose**
+ **Amazon Data Firehose** (formerly Kinesis Data Firehose)
 - Fully managed, near real-time delivery
 - No code, automatic scaling
 - Destinations: S3, Redshift, OpenSearch, Splunk
-- 60-second minimum latency
+- Buffer interval 0-900 seconds (zero buffering for low latency)
 
- **Kinesis Data Analytics**
-- Real-time analytics with SQL or Flink
+ **Managed Service for Apache Flink** (formerly Kinesis Data Analytics; SQL apps discontinued)
+- Real-time analytics with Apache Flink (Java, Python, SQL)
 - Streaming data processing
 
  **EMR**
@@ -1383,7 +1385,7 @@ Dashboard shows only relevant region data per user
  **QuickSight**
 - Serverless BI and dashboards
 - SPICE in-memory engine
-- Pay-per-session pricing
+- Per-user pricing (Enterprise Readers $3/month); capacity-based session pricing is optional
 - ML insights (anomaly detection, forecasting)
 
 ### Common Scenarios
@@ -1397,7 +1399,7 @@ Dashboard shows only relevant region data per user
 - Transform with Lambda if needed
 
 **Scenario 3: Real-time analytics on streaming data**
-- **Solution**: Kinesis Data Streams → Kinesis Data Analytics → Output
+- **Solution**: Kinesis Data Streams → Managed Service for Apache Flink → Output
 
 **Scenario 4: Large-scale data transformation (Spark)**
 - **Solution**: AWS Glue (serverless) or EMR (managed cluster)

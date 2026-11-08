@@ -254,8 +254,8 @@ Difficulty:
 │  • Complex queries                         │
 │                                            │
 │  MULTIPART UPLOAD:                         │
-│  • Required: Files > 100 MB                │
-│  • Recommended: Files > 5 GB               │
+│  • Recommended: Files > 100 MB             │
+│  • Required: Files > 5 GB                  │
 │  • Benefits: Parallel uploads, resume      │
 │  • Max: 10,000 parts per upload            │
 │                                            │
@@ -568,14 +568,14 @@ Difficulty:
 │ • Stop/Start: IP CHANGES                  │
 │ • Reboot: IP PERSISTS                      │
 │  • Terminate: IP RELEASED                  │
-│  • FREE when instance running              │
+│  • $0.005/hr (all public IPv4 since 2024)  │
 │                                            │
 │  ELASTIC IP (Static):                      │
 │  • Assigned to account, not instance       │
 │ • Persists across stop/start               │
 │  • Charged when NOT attached               │
 │  • Charged when attached to stopped EC2    │
-│  • FREE when attached to running instance  │
+│  • $0.005/hr even when attached (2024+)    │
 │  • Limit: 5 per region (can request more)  │
 │                                            │
 │  PRIVATE IPv4:                             │
@@ -690,7 +690,7 @@ Difficulty:
 │   ROUTE 53 FAILOVER                        │
 ├────────────────────────────────────────────┤
 │                                            │
-│  For ALB/CloudFront/API Gateway:           │
+│  For ALB/NLB/API GW (not CloudFront):      │
 │   Use "Evaluate Target Health"             │
 │     • FREE                                 │
 │     • Uses built-in health checks          │
@@ -1252,7 +1252,7 @@ Difficulty:
 │  When to Use Each:                         │
 │  • Signed URL:                             │
 │    - Restrict access to single file        │
-│    - RTMP distribution                     │
+│    - RTMP (retired Dec 2020)               │
 │    - Generate unique download links        │
 │                                            │
 │  • Signed Cookies:                         │
@@ -1261,8 +1261,8 @@ Difficulty:
 │    - Subscriber access to content library  │
 │                                            │
 │  Creation Process:                         │
-│  1. Create CloudFront key pair             │
-│  2. Create trusted signer (account/key)    │
+│  1. Upload public key, create key group    │
+│  2. Add trusted key group to behavior      │
 │  3. Generate signed URL or set cookie      │
 │  4. Include expiration time                │
 │                                            │
@@ -1609,7 +1609,7 @@ Difficulty:
 ║  • In-memory cache (microseconds)            ║
 ║  • Drop-in replacement (same API)            ║
 ║  • 5-minute TTL (default)                    ║
-║  • Multi-AZ (3 nodes minimum)                ║
+║  • 1-11 nodes (3+ across AZs for prod)       ║
 ║  • Eventually consistent reads only          ║
 ║                                              ║
 ║   Memory: "DAX = DynamoDB Accelerator      ║
@@ -1779,7 +1779,7 @@ Difficulty:
 ║                                              ║
 ║  PERFORMANCE:                                ║
 ║  • CPU scales with memory                    ║
-║  • 1,792 MB = 1 full vCPU                    ║
+║  • 1,769 MB = 1 full vCPU                    ║
 ║  • More memory = More CPU power              ║
 ║                                              ║
 ║  PRICING:                                    ║
@@ -1847,12 +1847,12 @@ Difficulty:
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  Requirements:                               ║
-║   Application Load Balancer (ALB)            ║
+║   ALB or NLB                                 ║
 ║   Network mode: awsvpc or bridge             ║
 ║                                              ║
 ║  How it Works:                               ║
 ║  • Container uses ephemeral ports            ║
-║  • Port range: 32768-65535                   ║
+║  • Port range: 32768-61000                   ║
 ║  • ALB routes to correct port automatically  ║
 ║  • Multiple containers per instance          ║
 ║                                              ║
@@ -1863,16 +1863,16 @@ Difficulty:
 ║  • Flexible scaling                          ║
 ║                                              ║
 ║   NOT Supported:                             ║
-║  • Network Load Balancer (NLB)               ║
 ║  • Classic Load Balancer (CLB)               ║
-║  • Static port mapping only with NLB/CLB     ║
+║  • (NLB supports it, like ALB)               ║
+║  • Static port mapping only with CLB         ║
 ║                                              ║
 ║  Task Definition:                            ║
 ║  • containerPort: 80 (app listens)           ║
 ║  • hostPort: 0 (dynamic allocation)          ║
 ║                                              ║
 ║   Memory: "DPM = Dynamic Port Mapping =    ║
-║            ALB + awsvpc/bridge"              ║
+║            ALB/NLB + awsvpc/bridge"          ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
@@ -2468,7 +2468,7 @@ Difficulty:
 │                                            │
 │  Behavior:                                 │
 │  • Files moved to IA automatically         │
-│  • Accessed files moved back to Standard   │
+│  • Stay in IA unless On first access set   │
 │  • No application changes needed           │
 │  • Metered per file access                 │
 │                                            │
@@ -2523,7 +2523,7 @@ Difficulty:
 ║                                              ║
 ║  CONVERTIBLE RI:                             ║
 ║  • Change: Instance family, OS, tenancy      ║
-║  • Discount: Up to 54%                       ║
+║  • Discount: Up to 66%                       ║
 ║  • Flexibility: Highest                      ║
 ║  • Trade-off: Lower discount                 ║
 ║                                              ║
@@ -2535,7 +2535,7 @@ Difficulty:
 ║                                              ║
 ║   Memory: "RZ-SC = Regional (flexible),    ║
 ║            Zonal (capacity), Standard (72%), ║
-║            Convertible (54%)"                ║
+║            Convertible (66%)"                ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
@@ -2562,7 +2562,7 @@ Difficulty:
 │  • Guarantee expedited retrievals          │
 │  • $100/month per unit                     │
 │  • 3 expedited retrievals per 5 min        │
-│  • Each up to 250 MB/s                     │
+│  • Each up to 150 MB/s                     │
 │                                            │
 │  Use Case Selection:                       │
 │  • Urgent need? → Expedited                │
@@ -2609,8 +2609,8 @@ Difficulty:
 ║  • Consumers: Lambda, KCL, Analytics         ║
 ║  • Use: Real-time analytics, log processing  ║
 ║                                              ║
-║  KINESIS DATA FIREHOSE:                      ║
-║  • Near real-time (60 sec buffer min)        ║
+║  DATA FIREHOSE (ex-Kinesis Data Firehose):   ║
+║  • Near real-time (buffer can be 0 s)        ║
 ║  • No retention (pass-through)               ║
 ║  • Auto-scaling (no shards)                  ║
 ║  • Destinations: S3, Redshift, OpenSearch,   ║
@@ -2625,7 +2625,8 @@ Difficulty:
 ║  • Processing: Rekognition, SageMaker        ║
 ║  • Use: Video analytics, ML, streaming       ║
 ║                                              ║
-║  KINESIS DATA ANALYTICS:                     ║
+║  KINESIS DATA ANALYTICS (SQL retired 2026):  ║
+║  • Now: Managed Service for Apache Flink     ║
 ║  • Real-time analytics with SQL/Flink        ║
 ║  • Input: Data Streams or Firehose           ║
 ║  • Output: Streams, Firehose, Lambda         ║
@@ -2633,7 +2634,7 @@ Difficulty:
 ║                                              ║
 ║   Memory: "DSFA = Data Streams (real-      ║
 ║            time, shards), Firehose (load),   ║
-║            Analytics (SQL)"                  ║
+║            Analytics (now Flink)"            ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
@@ -3193,7 +3194,7 @@ Front: What's RDS Blue/Green deployment?
 Back: Create clone (green), test changes, switchover with ~1 min downtime. Keep blue for quick rollback.
 
 Front: Lambda maximum execution time and memory?
-Back: Max 15 minutes (900s) execution. Memory 128 MB to 10 GB. CPU scales with memory (1,792 MB = 1 vCPU).
+Back: Max 15 minutes (900s) execution. Memory 128 MB to 10 GB. CPU scales with memory (1,769 MB = 1 vCPU).
 
 Front: Lambda versions - what is $LATEST?
 Back: $LATEST = mutable, can change. Numbered versions = immutable snapshots. Aliases point to versions.
@@ -3202,7 +3203,7 @@ Front: What does Lambda alias traffic splitting enable?
 Back: Weighted routing between versions. Example: 90% v2 + 10% v3. Blue/Green deployments, canary testing.
 
 Front: ECS dynamic port mapping requirements?
-Back: Requires ALB + awsvpc or bridge network mode. Uses ephemeral ports 32768-65535. NOT supported by NLB/CLB.
+Back: Requires ALB or NLB + awsvpc or bridge network mode. Uses ephemeral ports (32768-61000 on ECS-optimized AMI). NOT supported by CLB.
 
 Front: How to scale Auto Scaling on memory usage?
 Back: Install CloudWatch agent, configure aggregation_dimensions for ASG, publish custom metrics, use target tracking.
@@ -3247,7 +3248,7 @@ Front: Regional RI vs Zonal RI?
 Back: Regional = Flexible AZ/size, no capacity reservation. Zonal = Fixed AZ, guaranteed capacity. Same discount.
 
 Front: Standard RI vs Convertible RI discount?
-Back: Standard = 72% discount, can't change instance type. Convertible = 54% discount, can change family/OS/tenancy.
+Back: Standard = 72% discount, can't change instance type. Convertible = 66% discount, can change family/OS/tenancy.
 
 Front: Glacier retrieval tiers and times?
 Back: Expedited (1-5 min), Standard (3-5 hours), Bulk (5-12 hours). Deep Archive: Standard (12h), Bulk (48h).
@@ -3255,8 +3256,8 @@ Back: Expedited (1-5 min), Standard (3-5 hours), Bulk (5-12 hours). Deep Archive
 Front: Kinesis Data Streams - capacity per shard?
 Back: Write: 1 MB/s OR 1,000 records/s. Read: 2 MB/s (standard, 5 consumers share) or 2 MB/s per consumer (enhanced fan-out).
 
-Front: Kinesis Data Firehose buffer time minimum?
-Back: 60 seconds minimum buffer. Near real-time (not real-time). Auto-scales, no shards to manage.
+Front: Amazon Data Firehose (ex-Kinesis Data Firehose) buffer time minimum?
+Back: Can be 0 seconds (zero buffering, since Dec 2023). Still near real-time, not real-time like Data Streams. Auto-scales, no shards to manage.
 
 Front: Kinesis Video Streams purpose?
 Back: Ingest video from cameras, phones, drones. Process with Rekognition, SageMaker for video analytics, ML.
@@ -3362,25 +3363,25 @@ Back: Dedicated 2 MB/s throughput per consumer. HTTP/2 push for lower latency. C
 
 ## Domain Coverage Checklist
 
-### Resilient Architectures (30% of exam)
+### Resilient Architectures (26% of exam)
 - [ ] Cards 3, 11-15 (NAT, Transit Gateway, VPN, CloudFront)
 - [ ] Cards 22-26 (DynamoDB, RDS Multi-AZ, Aurora Global)
 - [ ] Cards 41-42 (FSx, EFS)
 - [ ] Card 53 (HA Patterns)
 
-### High-Performing (28% of exam)
+### High-Performing (24% of exam)
 - [ ] Cards 4-7 (S3 Storage Classes, Lifecycle, CloudFront)
 - [ ] Cards 27-33 (Lambda, ECS, Auto Scaling, ALB)
 - [ ] Cards 45-46 (Kinesis)
 - [ ] Card 52 (Cost Optimization Decision Tree)
 
-### Secure Architectures (24% of exam)
+### Secure Architectures (30% of exam)
 - [ ] Cards 1, 8-10 (CloudFront ACM, VPC Endpoints, Security Groups)
 - [ ] Cards 17-21 (S3 Encryption, Object Lock, Versioning)
 - [ ] Cards 37-38 (Security Hub, Session Manager)
 - [ ] Card 48 (Route 53 Health Checks)
 
-### Cost-Optimized (18% of exam)
+### Cost-Optimized (20% of exam)
 - [ ] Card 2 (VPC Endpoints - free vs paid)
 - [ ] Cards 43-44 (RIs, Glacier)
 - [ ] Cards 50-51 (Migration services)
@@ -3438,7 +3439,7 @@ Back: Dedicated 2 MB/s throughput per consumer. HTTP/2 push for lower latency. C
 4. SSE-C = Key every request
 5. VPG ≠ ECMP (only TGW)
 6. Memory scaling = CloudWatch agent required
-7. Dynamic ports = ALB only
+7. Dynamic ports = ALB or NLB (not CLB)
 8. Versioning = Suspend only (never disable)
 9. KMS keys = Regional by default (multi-region keys need explicit creation)
 10. RDS default parameter groups = Cannot modify (create custom)

@@ -28,17 +28,17 @@
 
 1. **CloudFront + ACM cert** = us-east-1 ONLY
 2. **Memory metric** = Need CloudWatch agent (not default)
-3. **S3 IA/Glacier** = 30-day minimum charge
+3. **S3 minimum storage** = IA 30 days, Glacier IR/Flexible 90, Deep Archive 180
 4. **Multi-AZ** = HA (sync) | **Read Replica** = Scale (async)
 5. **IAM evaluation** = DENY always wins (SCP beats IAM)
-6. **ECS dynamic ports** = Requires ALB + awsvpc/bridge
+6. **ECS dynamic ports** = ALB or NLB + awsvpc/bridge (not CLB)
 7. **Instance store** = Lost on stop/terminate
 8. **VPC peering DNS** = Enable in BOTH VPCs
 9. **Glacier transitions** = Cannot go OUT without restore
 10. **Bucket default class** = Only NEW objects (not existing)
 11. **SCPs** = DON'T affect management account
 12. **File Gateway** = S3 objects (admins can access), Volume = blocks only
-13. **RDS IAM Auth** = Token 15 min, MySQL/PostgreSQL/Aurora only
+13. **RDS IAM Auth** = Token 15 min, MySQL/MariaDB/PostgreSQL/Aurora only
 14. **SQS FIFO** = 300 msg/s (3000 batched), ends in `.fifo`
 15. **Aurora Global** = <1s lag, <1 min failover (cross-region HA)
 
@@ -71,7 +71,7 @@
 - **Pub/Sub (1-to-many, push)**: SNS
 - **Ordered + Exactly-once**: SQS FIFO
 - **Real-time streaming**: Kinesis Data Streams
-- **Load to S3/Redshift**: Kinesis Firehose
+- **Load to S3/Redshift**: Amazon Data Firehose (ex-Kinesis Data Firehose)
 - **Event routing**: EventBridge
 - **Workflow orchestration**: Step Functions
 - **JMS/AMQP migration**: Amazon MQ
@@ -80,9 +80,10 @@
 - **Hybrid file storage**: Storage Gateway
 - **File migration**: DataSync (10x faster)
 - **DB migration**: DMS + SCT (if different engine)
-- **Physical transfer < 10TB**: Snowcone
-- **Physical transfer 10-80TB**: Snowball Edge
-- **Physical transfer > 10PB**: Snowmobile
+- **Physical transfer < 10TB**: Snowcone (retired)
+- **Physical transfer 10-80TB**: Snowball Edge (closed to new customers)
+- **Physical transfer > 10PB**: Snowmobile (retired)
+- **Snow Family status**: no devices for new customers; use DataSync or AWS Data Transfer Terminal
 - **SFTP to S3**: Transfer Family
 
 ### Multi-Account Management
@@ -101,7 +102,7 @@
 - **Flow Logs**: Capture all traffic (accepted + rejected), VPC/Subnet/ENI level
 - **DNS Settings**: enableDnsHostnames + enableDnsSupport (both needed for peering)
 - **Private Link**: Expose service privately via NLB + VPC endpoint
-- **NAT Gateway**: Managed NAT, HA per AZ, 45 Gbps
+- **NAT Gateway**: Managed NAT, HA per AZ, 5 Gbps, scales to 100 Gbps
 - **NAT Instance**: EC2-based, self-managed, cheaper but not HA
 - **Internet Gateway**: 1 per VPC, scales automatically
 - **Egress-Only IGW**: IPv6 outbound only
@@ -151,9 +152,10 @@
 - **DataSync**: Automated file transfer (NFS/SMB → S3/EFS/FSx), 10x faster
 - **DMS**: Database migration, minimal downtime, CDC
 - **SCT**: Schema Conversion Tool (different DB engines)
-- **Snowcone**: 8 TB, edge computing, portable
-- **Snowball Edge**: 80 TB, large migrations
-- **Snowmobile**: 100 PB, exabyte-scale (literal truck!)
+- **Snowcone** (retired): 8 TB, edge computing, portable
+- **Snowball Edge** (closed to new customers): 80 TB, large migrations
+- **Snowmobile** (retired): 100 PB, exabyte-scale (literal truck!)
+- **Snow Family status**: no devices for new customers; use DataSync or AWS Data Transfer Terminal
 - **Transfer Family**: SFTP/FTPS → S3/EFS
 
 ### Application Integration
@@ -185,7 +187,7 @@
 | CloudFront Functions | <1 millisecond |
 | Kinesis retention default | 1 day (max 365) |
 | API Gateway RPS | 10,000 steady, 5,000 burst |
-| VPC Peering limit | 125 per VPC |
+| VPC Peering limit | 50 per VPC default (max 125) |
 | Spread placement | 7 instances per AZ |
 | Partition placement | 7 partitions per AZ |
 | S3 multipart max parts | 10,000 |
@@ -194,9 +196,9 @@
 | gp3 base IOPS | 3,000 |
 | gp3 base throughput | 125 MB/s |
 | SQS FIFO throughput | 300 msg/s (3,000 batched) |
-| Snowcone capacity | 8 TB (HDD) / 14 TB (SSD) |
-| Snowball Edge | 80 TB storage optimized |
-| Snowmobile | 100 PB per truck |
+| Snowcone capacity (retired) | 8 TB (HDD) / 14 TB (SSD) |
+| Snowball Edge (closed to new customers) | 80 TB model discontinued 2024 |
+| Snowmobile (retired) | 100 PB per truck |
 | S3 Transfer Acceleration | 50-500% faster |
 | S3 performance | 3,500 PUT/s, 5,500 GET/s per prefix |
 
@@ -243,7 +245,7 @@
 |-------|----------|-------------|----------|
 | On-Demand | 0% | Full | Variable workloads |
 | Standard RI | 72% | None | Steady state |
-| Convertible RI | 54% | Change type | Some flexibility |
+| Convertible RI | 66% | Change type | Some flexibility |
 | Savings Plans | 66-72% | High | Flexible commitment |
 | Spot | 90% | Can interrupt | Fault-tolerant |
 
@@ -282,7 +284,7 @@
 
 ## CLOUDFRONT ADVANCED
 
-- **Origin Access Identity (OAI)**: Access private S3 without public bucket
+- **Origin Access Control (OAC)**: Access private S3 without public bucket (OAI is legacy)
 - **Origin Failover**: Primary + secondary origin, automatic failover
 - **Cache Behaviors**: Path-based routing (/api/*, /images/*), priority order
 - **Signed URLs**: Single file access, include expiration/IP
@@ -302,7 +304,7 @@
 | Layer | 7 (HTTP) | 4 (TCP) | 4 & 7 |
 | Static IP | No | Yes | No |
 | Path routing | Yes | No | No |
-| ECS dynamic ports | Yes | No | No |
+| ECS dynamic ports | Yes | Yes | No |
 | WebSockets | Yes | Yes | No |
 | Performance | Good | Extreme | Legacy |
 
@@ -332,7 +334,7 @@
 |------|------|------------|----------|
 | gp3 | 3K-80K | 125-2,000 MiB/s | General |
 | gp2 | 3 IOPS/GB | Up to 250 MB/s | Legacy |
-| io2 | Up to 64K | Up to 1000 MB/s | High perf |
+| io2 | Up to 256K | Up to 4,000 MB/s | High perf (all Block Express) |
 | io1 | Up to 64K | Up to 1000 MB/s | Older |
 | st1 | 500 | 500 MB/s | Throughput |
 | sc1 | 250 | 250 MB/s | Cold data |
@@ -385,7 +387,7 @@
 ### RDS Features
 - **Multi-AZ**: Sync replication, auto-failover (1-2 min), same region HA
 - **Read Replicas**: Async, read scaling, can be cross-region, up to 15
-- **IAM Auth**: Token-based (15 min), MySQL/PostgreSQL/Aurora only
+- **IAM Auth**: Token-based (15 min), MySQL/MariaDB/PostgreSQL/Aurora only
 - **Storage Auto Scaling**: Auto-increase when <10% free
 - **Blue/Green Deployments**: Test on clone, 1-min switchover
 - **Enhanced Monitoring**: OS-level metrics (1-60 second intervals)
@@ -394,7 +396,7 @@
 ### Aurora Features
 - **Aurora Global Database**: <1s replication lag, <1 min failover, 10 secondary regions (2025, was 5)
 - **Aurora Serverless**: Auto-scales ACUs, pay per second, intermittent workloads
-- **Aurora Multi-Master**: Multiple write nodes (all regions)
+- **Aurora Multi-Master**: Retired (Aurora MySQL 5.6 only, single Region)
 - **Backtrack**: Rewind to point in time (no restore needed)
 - **Parallel Query**: Faster analytical queries
 - **Cloning**: Fast DB clones (copy-on-write)
@@ -620,7 +622,7 @@
 
 **No: TRAP: VPC peering works across different CIDR**
 - Yes: TRUTH: CIDRs cannot overlap
-- Yes: Example: 10.0.0.0/16 can peer with 172.31.0.0/16, NOT with 10.1.0.0/16
+- Yes: Example: 10.0.0.0/16 can peer with 10.1.0.0/16, NOT with 10.0.0.0/8 (overlap)
 
 **No: TRAP: Route table automatically updated with peering**
 - Yes: TRUTH: Must manually add routes in BOTH VPCs
@@ -665,8 +667,8 @@
 - Yes: <128KB or frequent access: Standard is cheaper
 
 **No: TRAP: S3 lifecycle immediately transitions objects**
-- Yes: TRUTH: 30-day minimum before IA/Glacier transition
-- Yes: Can't go: Standard → Glacier Deep Archive directly (<90 days)
+- Yes: TRUTH: 30 days in Standard before Standard-IA/One Zone-IA; Glacier classes any time
+- Yes: Standard → Glacier Deep Archive directly is allowed; minimum storage durations still apply
 
 **No: TRAP: Restored Glacier object stays in Standard**
 - Yes: TRUTH: Copy stays for specified days, then deletes
@@ -684,7 +686,7 @@
 - Yes: TRUTH: Only protects version deletion + versioning suspension
 - Yes: Delete markers: Can be created without MFA
 
-**No: TRAP: S3 Select retrieves whole object then filters**
+**No: TRAP: S3 Select retrieves whole object then filters** (S3 Select closed to new customers; use Athena)
 - Yes: TRUTH: Filters at S3 level, retrieves only needed data (up to 400% faster)
 - Use for: CSV, JSON, Parquet queries
 
@@ -716,7 +718,7 @@
 
 **No: TRAP: RDS encryption can be enabled on existing database**
 - Yes: TRUTH: Must create snapshot, copy encrypted, restore from encrypted
-- Yes: Or: Create read replica with encryption, promote
+- Yes: Not possible: no encrypted read replica of an unencrypted DB
 
 **No: TRAP: RDS automated backups persist after deletion**
 - Yes: TRUTH: Deleted with instance (unless retain option set)
@@ -782,7 +784,7 @@
 
 **No: TRAP: Convertible RI can change to different family freely**
 - Yes: TRUTH: Can change, but must be equal or greater value
-- Yes: Exchange fee: None, but discount reduces to 54% (vs 72%)
+- Yes: Exchange fee: None, but discount up to 66% (vs 72%)
 
 ### Lambda Edge Cases
 
@@ -812,8 +814,8 @@
 
 ### ECS & Container Edge Cases
 
-**No: TRAP: ECS dynamic port mapping works with NLB**
-- Yes: TRUTH: ALB only. NLB requires static port mapping
+**No: TRAP: ECS dynamic port mapping works with CLB**
+- Yes: TRUTH: ALB and NLB support it. Only CLB requires static ports
 - Yes: Network mode: awsvpc or bridge (not host)
 
 **No: TRAP: Fargate cheaper than EC2 launch type**
@@ -869,11 +871,11 @@
 - Different targets: Use multiple target groups + rules
 
 **No: TRAP: NLB preserves source IP by default**
-- TRUTH: YES for targets by IP. NO for targets by instance ID (unless preserve enabled)
-- Yes: Instance targets: Enable preserve client IP attribute
+- TRUTH: YES by default for instance targets. IP targets: NO for TCP/TLS, YES for UDP
+- Yes: IP targets (TCP/TLS): Enable preserve client IP attribute
 
-**No: TRAP: Load balancer security group allows outbound by default**
-- Yes: TRUTH: Must explicitly allow outbound to targets
+**No: TRAP: Load balancer security group blocks outbound by default**
+- Yes: TRUTH: Default SG outbound rule allows all; add rules only if you removed it
 - Yes: Pattern: LB SG outbound → Target SG inbound from LB SG
 
 ### CloudFront & CDN Edge Cases
@@ -884,7 +886,7 @@
 
 **No: TRAP: CloudFront origin failover automatic**
 - Yes: TRUTH: Must configure origin group (primary + secondary)
-- Yes: Failover triggers: 5xx errors, timeouts (not 4xx)
+- Yes: Failover triggers: chosen status codes (500/502/503/504, 403/404), timeouts
 
 **No: TRAP: CloudFront signed URLs work indefinitely**
 - Yes: TRUTH: Must set expiration time
@@ -927,7 +929,7 @@
 ### IAM & Security Edge Cases
 
 **No: TRAP: IAM user can have unlimited policies**
-- Yes: TRUTH: Max 10 managed policies per user/group/role
+- Yes: TRUTH: Default 10 managed policies per user/group, 20 per role (adjustable)
 - Workaround: Use groups, consolidate policies
 
 **No: TRAP: IAM role session duration default 1 hour**
@@ -983,7 +985,7 @@
 - Scale: Add more shards or use on-demand mode
 
 **No: TRAP: Kinesis Firehose real-time**
-- Yes: TRUTH: Near real-time (60s min buffer)
+- Yes: TRUTH: Near real-time (buffer can be 0 s since 2023)
 - Real-time: Use Data Streams
 
 **No: TRAP: Kinesis Data Streams retains data indefinitely**
@@ -1005,8 +1007,8 @@
 - Yes: Standard: At-least-once delivery (duplicates possible)
 
 **No: TRAP: SQS FIFO unlimited throughput**
-- Yes: TRUTH: 300 msg/s (3,000 with batching)
-- Need more: Use multiple FIFO queues with message groups
+- Yes: TRUTH: 300 msg/s default (3,000 batched); high-throughput mode raises it well beyond (Region-dependent)
+- Need more: Enable high throughput for FIFO + many message group IDs
 
 **No: TRAP: Long polling always better than short polling**
 - Yes: TRUTH: Long polling reduces costs but delays message delivery
@@ -1071,7 +1073,7 @@
 | "Ordered processing" | SQS FIFO, Kinesis Data Streams (not SQS Standard) |
 | "Exactly-once processing" | SQS FIFO with deduplication, not Standard |
 | "SQL queries on S3" | Athena (not EMR unless specified) |
-| "Real-time analytics" | Kinesis Data Analytics, not Firehose (near real-time) |
+| "Real-time analytics" | Managed Service for Apache Flink (ex-Kinesis Data Analytics), not Firehose (near real-time) |
 | "Warm standby" | Scaled-down full environment, not backup only |
 | "RPO near zero" | Continuous replication, Multi-AZ, Aurora Global |
 | "Static IP address" | Elastic IP, NLB (not ALB), Global Accelerator |
@@ -1251,7 +1253,7 @@ Example: "Company needs to..."
  **Using EC2 for simple cron jobs** → Use EventBridge + Lambda  
  **Using EBS for shared file storage** → Use EFS instead  
  **Using NAT Gateway for VPC endpoint traffic** → Use VPC endpoints (cheaper)  
- **Using public S3 buckets** → Use pre-signed URLs or CloudFront OAI  
+ **Using public S3 buckets** → Use pre-signed URLs or CloudFront OAC  
  **Using IAM users for applications** → Use IAM roles  
  **Using hardcoded credentials** → Use Secrets Manager or Parameter Store  
  **Using single AZ for production** → Always Multi-AZ for HA  
@@ -1494,15 +1496,15 @@ CloudWatch (monitoring)
 5. **S3 versioning cannot be fully disabled** (only suspended once enabled)
 6. **Lambda maximum execution time is 15 minutes** (not unlimited)
 7. **Spot instances get only 2 minutes warning** (not hours)
-8. **ECS dynamic port mapping requires ALB** (not NLB or CLB)
+8. **ECS dynamic port mapping needs ALB or NLB** (not CLB)
 9. **DynamoDB LSI can only be created at table creation** (GSI can be added later)
-10. **Kinesis Firehose is near real-time (60s buffer)** (not true real-time)
+10. **Data Firehose is near real-time** (buffer can be 0 s; still not true real-time)
 11. **Memory is NOT a default CloudWatch metric** (need CloudWatch agent)
 12. **S3 Standard-IA has 30-day minimum storage duration** (charged for 30 days even if deleted)
 13. **Instance store data is lost on stop/terminate** (only EBS persists)
 14. **SSE-C requires customer to provide key with EVERY request** (AWS doesn't store it)
 15. **IAM explicit deny ALWAYS wins** (over any allow)
-16. **SQS FIFO has 300 msg/s limit** (3,000 with batching, not unlimited)
+16. **SQS FIFO default is 300 msg/s** (3,000 batched; high-throughput mode goes well beyond, Region-dependent)
 17. **NAT Gateway/Instance required for private subnet internet** (can't use IGW directly)
 18. **Cross-zone load balancing is charged for NLB** (free for ALB)
 19. **Glacier objects must be restored before access** (can't directly retrieve)
@@ -1528,7 +1530,7 @@ CloudWatch (monitoring)
 | **WAF vs Shield** | Application protection vs DDoS protection |
 | **GuardDuty vs Inspector** | Threat detection vs vulnerability scanning |
 | **Config vs CloudTrail** | Resource compliance vs API audit |
-| **Systems Manager vs OpsWorks** | AWS tool vs Chef/Puppet automation |
+| **Systems Manager vs OpsWorks (retired)** | AWS tool vs Chef/Puppet automation (OpsWorks EOL; use Systems Manager) |
 
 ### Numerical Values to Memorize
 
@@ -1567,7 +1569,7 @@ CloudWatch (monitoring)
 - Security groups per VPC: 2,500
 - Rules per security group: 60 inbound, 60 outbound
 - NACLs per VPC: 200
-- VPC peering connections: 125 per VPC
+- VPC peering connections: 50 per VPC default (max 125)
 
 **EC2:**
 - On-Demand vCPUs: 5-1,152 per region (varies by instance type)
@@ -1577,7 +1579,7 @@ CloudWatch (monitoring)
 **Kinesis:**
 - Data Streams shard capacity: 1 MB/s or 1,000 records/s write, 2 MB/s read
 - Data Streams retention: 1-365 days
-- Firehose buffer: 60 seconds minimum
+- Firehose buffer: can be 0 s (zero buffering, 2023)
 - Video Streams: Unlimited concurrent streams
 
 ---
@@ -1607,7 +1609,7 @@ CloudWatch (monitoring)
 - Positive self-talk: "I am prepared"
 - Visualize success
 - Stay hydrated
-- Empty bladder (3 hour exam!)
+- Empty bladder (130-minute exam!)
 
 ### During Exam Strategy
 
@@ -1724,17 +1726,17 @@ CloudWatch (monitoring)
  **Tape Gateway for file access** → For backup/archive only  
  **DataSync = database migration** → Files only (use DMS for DBs)  
  **Snowball for <10TB** → Use DataSync or direct upload  
- **SQS FIFO unlimited throughput** → 300 msg/s (3000 batched)  
+ **SQS FIFO unlimited throughput** → 300 msg/s default (3000 batched), more with high-throughput mode  
  **EventBridge = SNS** → EB for event routing, SNS for pub/sub  
  **Step Functions = Lambda** → Orchestration vs single function  
  **S3 versioning disableable** → Once on, only SUSPEND  
  **RDS encryption after creation** → Must snapshot, copy encrypted, restore  
  **Lambda runs forever** → Max 15 minutes  
  **Spot gives hours warning** → Only 2 minutes  
- **ECS dynamic ports with NLB** → ALB only  
+ **ECS dynamic ports with CLB** → ALB or NLB only  
  **Cross-zone LB always free** → ALB free, NLB charged  
  **DynamoDB LSI add later** → Only at table creation  
- **Kinesis Firehose real-time** → Near real-time (60s buffer)  
+ **Kinesis Firehose real-time** → Near real-time (even with 0 s buffer)  
  **Enhanced networking default** → Specific instance types only  
 
 ---
@@ -1853,7 +1855,7 @@ CloudWatch (monitoring)
 - [ ] Step Functions (workflows), Lambda (single function)
 - [ ] Aurora Global: <1s lag, <1min failover
 - [ ] RDS IAM Auth: 15 min token
-- [ ] ECS dynamic ports: ALB required
+- [ ] ECS dynamic ports: ALB or NLB (not CLB)
 - [ ] Auto Scaling cooldown: 5 minutes
 
 ---

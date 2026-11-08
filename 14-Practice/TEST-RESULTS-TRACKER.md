@@ -113,7 +113,7 @@ Mark the topics where you got questions wrong:
 - [ ] AWS Config
 
 #### Module 10: Migration
-- [ ] Migration strategies (6 Rs)
+- [ ] Migration strategies (7 Rs)
 - [ ] Application Migration Service
 - [ ] Database Migration Service (DMS)
 - [ ] DataSync

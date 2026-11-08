@@ -51,7 +51,7 @@ graph TB
     subgraph Reserved_Instances_Group["Reserved Instances"]
         RI["Reserved Instances<br/>Up to 72% discount<br/>1 or 3 years<br/>Predictable"]
         
-        RI_Types["Types:<br/>• Standard RI 72% off<br/>• Convertible RI 54% off<br/>• Scheduled RI specific times"]
+        RI_Types["Types:<br/>• Standard RI 72% off<br/>• Convertible RI 66% off<br/>• Scheduled RI (retired)"]
         
         RI_Use["Use Cases:<br/>• Steady-state workloads<br/>• Databases<br/>• Base capacity<br/>• Long-term projects"]
         
@@ -59,7 +59,7 @@ graph TB
     end
     
     subgraph Savings_Plans_Group["Savings Plans"]
-        SP["Savings Plans<br/>Up to 66% discount<br/>1 or 3 years<br/>More flexible"]
+        SP["Savings Plans<br/>Up to 72% discount<br/>1 or 3 years<br/>More flexible"]
         
         SP_Types["Types:<br/>• Compute SP 66% off any instance<br/>• EC2 Instance SP 72% off specific<br/>• SageMaker SP ML workloads"]
         
@@ -92,7 +92,7 @@ graph TB
     
     RI --> Standard["Standard RI<br/>Up to 72% discount<br/>Cannot change instance family<br/>Best for steady workloads"]
     
-    RI --> Convertible["Convertible RI<br/>Up to 54% discount<br/>Change instance family<br/>Change OS, tenancy<br/>Flexibility with savings"]
+    RI --> Convertible["Convertible RI<br/>Up to 66% discount<br/>Change instance family<br/>Change OS, tenancy<br/>Flexibility with savings"]
     
     RI --> Scheduled["Scheduled RI<br/>Deprecated<br/>Use Savings Plans instead"]
     
@@ -174,7 +174,7 @@ graph TB
     
     Decision -->|Frequent| Standard["S3 Standard<br/>$0.023/GB/month<br/>99.99% availability<br/>Millisecond access"]
     
-    Decision -->|Unknown| Intelligent["S3 Intelligent-Tiering<br/>$0.0025 monitoring<br/>Auto-moves between tiers<br/>No retrieval fees"]
+    Decision -->|Unknown| Intelligent["S3 Intelligent-Tiering<br/>$0.0025 per 1,000 objects monitoring<br/>Auto-moves between tiers<br/>No retrieval fees"]
     
     Decision -->|Infrequent| IA_Decision{Critical?}
     
@@ -186,7 +186,7 @@ graph TB
     
     Archive_Decision -->|Instant| GlacierInstant["S3 Glacier Instant<br/>$0.004/GB/month<br/>$0.03/GB retrieval<br/>Millisecond access<br/>90 day minimum"]
     
-    Archive_Decision -->|Minutes-Hours| GlacierFlexible["S3 Glacier Flexible<br/>$0.0036/GB/month<br/>$0.02/GB retrieval<br/>1-5 min or 3-5 hrs<br/>90 day minimum"]
+    Archive_Decision -->|Minutes-Hours| GlacierFlexible["S3 Glacier Flexible<br/>$0.0036/GB/month<br/>$0.01/GB standard retrieval, bulk free<br/>1-5 min or 3-5 hrs<br/>90 day minimum"]
     
     Archive_Decision -->|12-48 Hours| GlacierDeep["S3 Glacier Deep Archive<br/>$0.00099/GB/month<br/>$0.02/GB retrieval<br/>12-48 hours<br/>180 day minimum<br/>Lowest cost"]
     
@@ -241,7 +241,7 @@ graph TB
         
         GP2["gp2 General Purpose SSD<br/>$0.10/GB/month<br/>3 IOPS/GB baseline<br/>Max 250 MB/s<br/>Legacy option"]
         
-        ST1["st1 Throughput Optimized HDD<br/>$0.045/GB/month<br/>Max 500 MB/s<br/>55% cheaper than gp3<br/>Use: Big data, logs"]
+        ST1["st1 Throughput Optimized HDD<br/>$0.045/GB/month<br/>Max 500 MB/s<br/>44% cheaper than gp3<br/>Use: Big data, logs"]
         
         SC1["sc1 Cold HDD<br/>$0.015/GB/month<br/>Max 250 MB/s<br/>81% cheaper than gp3<br/>Use: Infrequent access"]
         
@@ -301,7 +301,7 @@ graph TB
     subgraph Alternative_Options_Group["Alternative Options"]
         DynamoDB["DynamoDB On-Demand<br/>For key-value workloads<br/>No idle costs<br/>Serverless"]
         
-        Aurora_Serverless["Aurora Serverless v2<br/>Auto-scaling<br/>Pay per second<br/>Scale to zero not supported"]
+        Aurora_Serverless["Aurora Serverless v2<br/>Auto-scaling<br/>Pay per second<br/>Can scale to 0 ACUs (auto-pause)"]
     end
     
     Example["Example db.t3.medium:<br/>On-Demand: $61/month<br/>1yr RI Partial: $36/month 41% off<br/>3yr RI All: $23/month 62% off<br/><br/>db.t4g.medium Graviton:<br/>On-Demand: $49/month 20% cheaper"]
@@ -327,7 +327,7 @@ graph TB
     end
     
     subgraph Data_Transfer_OUT_Group["Data Transfer OUT"]
-        First_GB["First 1 GB/month<br/>FREE<br/>All services"]
+        First_GB["First 100 GB/month<br/>FREE<br/>Aggregated across services and Regions"]
         
         To_Internet["To Internet<br/>$0.09/GB first 10 TB<br/>$0.085/GB next 40 TB<br/>$0.07/GB next 100 TB<br/>$0.05/GB over 150 TB"]
         

@@ -2,7 +2,7 @@
 
 ## AWS Global Infrastructure
 - **Regions**: Geographic areas, 30+ worldwide, data stays unless you move it
-- **AZs**: 2-6 per region, physically separated, connected by low-latency links
+- **AZs**: minimum 3 per region (typically 3-6), physically separated, connected by low-latency links
 - **Edge Locations**: 400+ for CloudFront/Route 53, content caching
 - **Choose Region by**: Compliance, latency, pricing, service availability
 
@@ -75,11 +75,12 @@
 - **Analytics**: Athena, Kinesis, EMR, Glue, QuickSight
 
 ## Quick Exam Tips
-- **Region** = multiple AZs (min 2)
+- **Region** = multiple AZs (min 3)
 - **AZ** = one or more data centers
 - **Edge Location** = CloudFront caching
-- **Free Tier**: 12 months for most services
-- **Support Plans**: Basic (free), Developer ($29), Business ($100), Enterprise ($15K)
+- **Free Tier**: New accounts (since 15 July 2025) get $100 credits (up to $200 with activities); free plan lasts up to 6 months; 30+ always-free services
+- **Support Plans**: Basic (free), Business Support+ ($29/month minimum), Enterprise Support ($5,000/month minimum), Unified Operations
+- Status (November 2026): Developer Support, Business Support and Enterprise On-Ramp end on 1 Jan 2027
 - **Billing**: Use Cost Explorer, Budgets, Cost Allocation Tags
 
 

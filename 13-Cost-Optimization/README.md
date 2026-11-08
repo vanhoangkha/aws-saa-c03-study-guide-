@@ -38,7 +38,12 @@ Cost optimization is a critical aspect of cloud architecture and a key pillar of
 
 ### AWS Free Tier
 
-**Three Types:**
+**Accounts created on or after 15 July 2025 (current model):**
+- Up to $200 in Free Tier credits for eligible services
+- At sign-up, choose a free plan (available for 6 months after account creation) or a paid plan
+- Upgrading to a paid plan keeps the remaining credits; all credits must be used within 12 months of account creation
+
+**Accounts created before 15 July 2025 (legacy model), three types:**
 
 **1. Always Free**
 - Services that are always free within limits
@@ -149,7 +154,7 @@ Running 24/7 for 1 month: $0.0416 × 730 hours = $30.37/month
 - Can sell in RI Marketplace
 
 **Convertible RIs:**
-- Lower discount (up to 54%)
+- Lower discount (up to 66%)
 - Can change instance family, OS, tenancy
 - More flexibility
 - Cannot sell in marketplace
@@ -178,12 +183,12 @@ Running 24/7 for 1 month: $0.0416 × 730 hours = $30.37/month
 
 **Pricing Example:**
 ```
-t3.medium On-Demand: $0.0416/hour = $304/year
+t3.medium On-Demand: $0.0416/hour = $364/year
 t3.medium RI (1-year, All Upfront): ~$182/year
-Savings: ~40%
+Savings: ~50%
 
 t3.medium RI (3-year, All Upfront): ~$109/year
-Savings: ~65%
+Savings: ~70%
 ```
 
 ---
@@ -397,7 +402,7 @@ Note: Spot prices fluctuate based on supply/demand
 | Storage Class | $/GB-month | Use Case |
 |--------------|------------|----------|
 | **S3 Standard** | $0.023 | Frequent access |
-| **S3 Intelligent-Tiering** | $0.023 + $0.0025 monitoring | Unknown access patterns |
+| **S3 Intelligent-Tiering** | $0.023 (Frequent tier) + $0.0025 per 1,000 objects monitoring | Unknown access patterns |
 | **S3 Standard-IA** | $0.0125 | Infrequent access |
 | **S3 One Zone-IA** | $0.01 | Infrequent, non-critical |
 | **S3 Glacier Instant** | $0.004 | Archive, instant retrieval |
@@ -453,7 +458,7 @@ Total: $0
 **Cost Optimization:**
 - Right-size memory allocation
 - Optimize function execution time
-- Use reserved concurrency wisely (it's charged even if not used)
+- Use provisioned concurrency wisely (it's charged even if not used); reserved concurrency has no extra charge
 
 ---
 
@@ -464,12 +469,13 @@ Total: $0
 **Free:**
 - Inbound data transfer (from internet to AWS)
 - Data transfer between services in same region
-- Data transfer from CloudFront to origin
+- Data transfer from AWS origins (S3, EC2, ELB) to CloudFront
 
 **Charged:**
 - Outbound to internet (tiered pricing)
 - Inter-region data transfer
 - Data transfer between AZs (small charge)
+- Data transfer from CloudFront to origin (for example uploads)
 
 **Pricing Tiers (Outbound to Internet):**
 ```
@@ -492,8 +498,8 @@ Over 150 TB: $0.05/GB
 ### What is Cost Explorer?
 - **Visualize and analyze AWS costs**
 - Interactive graphs and charts
-- Historical data (up to 12 months)
-- Forecast future costs (up to 12 months)
+- Historical data (up to 13 months; up to 38 months at monthly granularity with multi-year data enabled)
+- Forecast future costs (up to 18 months monthly, 3 months daily)
 - Free to use (API calls are charged)
 
 ### Key Features
@@ -509,7 +515,7 @@ Over 150 TB: $0.05/GB
 - Stacked comparisons
 
 **3. Forecasting:**
-- Predict next 3-12 months of costs
+- Predict up to 18 months of costs (monthly) or 3 months (daily)
 - Based on historical usage patterns
 - 80% confidence interval
 
@@ -626,7 +632,7 @@ Savings: $150/month
 - **Set custom cost and usage budgets**
 - Receive alerts when exceeded
 - Track against budget thresholds
-- Free tier: First 2 budgets free, $0.02/day per budget after
+- Pricing: budgets without actions are free; the first 2 action-enabled budgets are free, then $0.10/day each
 
 ### Budget Types
 
@@ -1205,11 +1211,11 @@ API Backend:
 
 **Cost Optimization Checks:**
 
-**Free Tier (Basic/Developer Support):**
-- Service limits
-- Some security checks
+**Basic Support:**
+- Service limit checks
+- Selected security and fault tolerance checks
 
-**Full Tier (Business/Enterprise Support):**
+**Full set (Business Support+, Enterprise Support or Unified Operations):**
 - Underutilized EC2 instances
 - Idle RDS instances
 - Unassociated Elastic IPs

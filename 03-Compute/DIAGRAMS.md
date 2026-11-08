@@ -96,7 +96,7 @@ graph TB
     subgraph Pricing_Models_Group["Pricing Models"]
         OnDemand["On-Demand<br/>No Discount<br/>Pay by hour/second<br/>Flexible"]
         Reserved["Reserved Instances<br/>Up to 72% Discount<br/>1 or 3 years<br/>Steady workloads"]
-        Savings["Savings Plans<br/>Up to 66% Discount<br/>1 or 3 years<br/>Flexible instance type"]
+        Savings["Savings Plans<br/>Up to 72% (EC2 Instance SP)<br/>Up to 66% (Compute SP)<br/>1 or 3 years<br/>Flexible instance type"]
         Spot["Spot Instances<br/>Up to 90% Discount<br/>Can be terminated<br/>Fault-tolerant"]
         Dedicated["Dedicated Hosts<br/>No Discount<br/>Physical server<br/>Compliance/Licensing"]
     end

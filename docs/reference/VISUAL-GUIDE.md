@@ -222,8 +222,8 @@ COST MODEL:
    └───┬──────────────┘                     └─────┬─────────┘
        │                                           │
    ┌───▼──────────────┐                     ┌─────▼─────────┐
-   │ Kinesis Data     │                     │  Glue Crawler │
-   │ Analytics (SQL)  │                     │  (Discover)   │
+   │ Managed Service  │                     │  Glue Crawler │
+   │ for Apache Flink │                     │  (Discover)   │
    └───┬──────────────┘                     └─────┬─────────┘
        │                                           │
    ┌───▼──────────────┐                     ┌─────▼─────────┐
@@ -783,7 +783,7 @@ OTHER USE CASES:
 │  Social network  │  Neptune (graph)            │
 │  Caching         │  ElastiCache (Redis)        │
 │  Time-series     │  Timestream                 │
-│  Ledger          │  QLDB (immutable)           │
+│  Ledger          │  QLDB (discontinued)        │
 │  Search          │  OpenSearch                 │
 │  Migration from  │  DocumentDB                 │
 │  MongoDB         │                             │

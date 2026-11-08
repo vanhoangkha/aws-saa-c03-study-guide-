@@ -14,7 +14,7 @@ graph TB
     end
     
     subgraph AWS_Athena_Group["AWS Athena"]
-        Athena["Amazon Athena<br/>Serverless SQL queries<br/>Presto-based"]
+        Athena["Amazon Athena<br/>Serverless SQL queries<br/>Trino-based"]
         
         GlueCatalog["AWS Glue Data Catalog<br/>Table definitions<br/>Schema metadata"]
         
@@ -194,14 +194,15 @@ mindmap
             Shards for scaling
             Retain: 1-365 days
             Producers & Consumers
-        Kinesis Data Firehose
+        Amazon Data Firehose
             Load streaming data
             Near real-time
             No management
             Transform with Lambda
             Destinations: S3, Redshift, OpenSearch
-        Kinesis Data Analytics
-            SQL on streaming data
+        Managed Service for Apache Flink
+            Formerly Kinesis Data Analytics
+            SQL apps discontinued
             Apache Flink
             Real-time analytics
             No servers to manage
@@ -239,7 +240,7 @@ graph LR
         Lambda["Lambda<br/>Event processing"]
         EC2["EC2/ECS<br/>Kinesis Client Library"]
         Firehose["Kinesis Firehose<br/>Load to S3/Redshift"]
-        Analytics["Kinesis Analytics<br/>SQL queries"]
+        Analytics["Managed Service for Apache Flink<br/>Stream processing"]
     end
     
     App --> Shard1
@@ -260,7 +261,7 @@ graph LR
     class Shard1 style2
 ```
 
-### Kinesis Data Firehose
+### Amazon Data Firehose (formerly Kinesis Data Firehose)
 
 ```mermaid
 graph TB
@@ -276,7 +277,7 @@ graph TB
         
         Transform["Optional Transformation<br/>Lambda function<br/>Convert, enrich, filter"]
         
-        Batch["Batching<br/>Buffer: 1 MB - 128 MB<br/>Interval: 60s - 900s"]
+        Batch["Batching<br/>Buffer: 1 MB - 128 MB<br/>Interval: 0s - 900s"]
         
         Firehose --> Transform
         Transform --> Batch
@@ -319,7 +320,9 @@ graph TB
     class S3 style2
 ```
 
-### Kinesis Data Analytics
+### Managed Service for Apache Flink (formerly Kinesis Data Analytics)
+
+Status (November 2026): Kinesis Data Analytics for SQL applications is discontinued (no new apps from 15 Oct 2025, apps deleted from 27 Jan 2026). Use Amazon Managed Service for Apache Flink, or Managed Service for Apache Flink Studio for SQL.
 
 ```mermaid
 graph TB
@@ -329,10 +332,10 @@ graph TB
         S3Reference["S3 Reference Data<br/>Enrich streaming data"]
     end
     
-    subgraph Kinesis_Data_Analytics_Group["Kinesis Data Analytics"]
-        Analytics[Kinesis Data Analytics]
+    subgraph Kinesis_Data_Analytics_Group["Managed Service for Apache Flink"]
+        Analytics[Managed Service for Apache Flink]
         
-        SQL["SQL Application<br/>Standard SQL queries<br/>Windowing, aggregations"]
+        SQL["SQL Application - discontinued<br/>Use Flink SQL instead<br/>Windowing, aggregations"]
         
         Flink["Apache Flink Application<br/>Java, Scala, Python<br/>Advanced processing"]
         
@@ -415,7 +418,7 @@ graph TB
     EMR[Amazon EMR] -.Use.-> Catalog
     Redshift2[Redshift Spectrum] -.Use.-> Catalog
     
-    Features["Features:<br/>Serverless<br/>Pay per second for ETL<br/>Python or Scala<br/>Built-in transformations<br/>Job bookmarks<br/>Development endpoints"]
+    Features["Features:<br/>Serverless<br/>Pay per second for ETL<br/>Python or Scala<br/>Built-in transformations<br/>Job bookmarks<br/>Interactive sessions"]
     
     classDef style1 fill:#FF9900
     class Catalog style1
@@ -516,7 +519,7 @@ graph TB
     Dashboards --> Embedded
     Dashboards --> Enterprise
     
-    Pricing["Pricing:<br/>Standard: $9/user/month<br/>Enterprise: $18/user/month<br/>SPICE: $0.25/GB/month<br/>Readers: $0.30/session $5 max"]
+    Pricing["Pricing:<br/>Standard author: $9/user/month annual<br/>Enterprise author: $24/user/month, $18 annual<br/>SPICE: $0.25/GB/month Standard<br/>Enterprise readers: $3/user/month"]
     
     classDef style1 fill:#FF9900
     class SPICE style1
@@ -605,7 +608,7 @@ graph LR
     
     subgraph Stream_Processing_Group["Stream Processing"]
         Lambda["Lambda<br/>Transform"]
-        Analytics["Kinesis Analytics<br/>Windowing, aggregation"]
+        Analytics["Managed Service for Apache Flink<br/>Windowing, aggregation"]
     end
     
     subgraph Storage_Analysis_Group["Storage & Analysis"]

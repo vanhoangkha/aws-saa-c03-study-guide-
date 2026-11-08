@@ -76,8 +76,9 @@ ARCHITECTURE:
 └── Compute Nodes (query execution, data storage)
 
 NODE TYPES:
-├── Dense Compute (dc2): Compute-intensive
-└── Dense Storage (ds2): Storage-heavy
+├── RA3 / RG: Managed storage, scale compute and storage separately (current)
+├── Dense Compute (dc2): deprecated, migrate to RA3 or Serverless
+└── Dense Storage (ds2): legacy, migrate to RA3
 
 KEY FEATURES:
 ├── Columnar storage (OLAP optimized)
@@ -277,8 +278,8 @@ PERFORMANCE:
 ### QuickSight Quick Facts
 ```
 WHAT: Business Intelligence (BI) service
-PRICING: Per user/session
-USERS: Standard ($9/user), Enterprise ($18/user)
+PRICING: Per user (Enterprise Readers $3/month)
+USERS: Standard Author ($9/user annual), Enterprise Author ($24/user, $18 annual)
 
 DATA SOURCES:
 ├── Athena, Redshift, RDS
@@ -332,7 +333,7 @@ NOT A REPLACEMENT FOR:
    ETL → Glue
    BIG DATA PROCESSING → EMR
    SEARCH → OpenSearch
-   STREAMING → Kinesis Analytics
+   STREAMING → Managed Service for Apache Flink (formerly Kinesis Data Analytics)
    
 3. Need serverless?
    YES → Athena, Glue, QuickSight
@@ -419,11 +420,12 @@ INTEGRATES WITH:
 └── SageMaker
 ```
 
-### Kinesis Data Analytics
+### Managed Service for Apache Flink (formerly Kinesis Data Analytics)
+Status (November 2026): Kinesis Data Analytics for SQL applications is discontinued (no new apps from 15 Oct 2025, apps deleted from 27 Jan 2026). Use Amazon Managed Service for Apache Flink, or Managed Service for Apache Flink Studio for SQL.
 ```
 WHAT: Real-time analytics on streaming data
-INPUT: Kinesis Data Streams, Kinesis Firehose
-QUERY: SQL or Apache Flink
+INPUT: Kinesis Data Streams, Amazon Data Firehose
+QUERY: Apache Flink (Java, Python, SQL)
 
 USE CASES:
 ├── Real-time dashboards

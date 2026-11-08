@@ -65,7 +65,7 @@ BEST-PRACTICE CHECKS?        → Trusted Advisor
 | **Cost Allocation Tags** | Attribute cost to project/team | Must be activated in Billing console |
 | **Pricing Calculator** | Estimate before deploying | Export CSV/PDF, share estimates |
 | **Compute Optimizer** | ML right-sizing | EC2, Auto Scaling, EBS, Lambda |
-| **Trusted Advisor** | Best-practice checks | Full cost checks need Business/Enterprise Support |
+| **Trusted Advisor** | Best-practice checks | Full cost checks need Business Support+, Enterprise or Unified Operations |
 | **Consolidated Billing** | One bill for an Organization | Volume discounts, RI/SP sharing |
 
 ### S3 Storage Classes (Cheapest to Most Expensive, per README)
@@ -77,7 +77,7 @@ BEST-PRACTICE CHECKS?        → Trusted Advisor
 | **One Zone-IA** | $0.01 | Infrequent, re-creatable data |
 | **Standard-IA** | $0.0125 | Infrequent, needs multi-AZ |
 | **Standard** | $0.023 | Frequent access |
-| **Intelligent-Tiering** | $0.023 tier + $0.0025 monitoring | Unknown / changing access |
+| **Intelligent-Tiering** | $0.023 tier + $0.0025 per 1,000 objects monitoring | Unknown / changing access |
 
 ## Exam Hot Topics
 
@@ -197,7 +197,7 @@ BUDGET ACTIONS:
 ├── Apply an SCP (in Organizations)  [real AWS behaviour]
 └── Stop EC2 / RDS instances
 
-PRICING: First 2 budgets free, then $0.02/day per budget
+PRICING: Free without actions; first 2 action-enabled budgets free, then $0.10/day each
 ```
 
 **Exam Tip**: Budgets = proactive alerts and automated response. Cost Explorer = analysis. Do not mix them up.
@@ -223,7 +223,7 @@ TYPES:
 RULES:
 ├── MUST be activated in the Billing console
 ├── Show up in Cost Explorer and CUR (allow up to ~24 hours)
-├── Not retroactive: only costs after activation are tagged
+├── Apply from activation onward; request a tag backfill to cover earlier months
 └── Enforce a consistent tag strategy (naming standard)
 
 USE FOR: showback / chargeback per project, team, environment
@@ -248,12 +248,13 @@ PRACTICE:
 FREE:
 ├── Data IN from the internet
 ├── Same-region transfer between many services (same AZ is safest)
-└── CloudFront to origin
+└── AWS origins to CloudFront (origin fetch)
 
 CHARGED:
 ├── Data OUT to the internet (tiered: first 10 TB $0.09/GB per README)
 ├── Inter-region transfer
-└── Cross-AZ transfer (small charge)
+├── Cross-AZ transfer (small charge)
+└── CloudFront to origin (uploads)
 
 REDUCE IT:
 ├── CloudFront (cheaper egress, fewer origin hits)
@@ -291,7 +292,9 @@ DYNAMODB:
 
 ### 12. Free Tier and Pricing Basics
 ```
-THREE FREE TIER TYPES:
+CURRENT (accounts from 15 July 2025): up to $200 credits; free plan for 6 months or paid plan
+
+LEGACY FREE TIER TYPES (accounts before 15 July 2025):
 ├── Always Free  → Lambda 1M requests/mo, DynamoDB 25 GB, SNS 1M publishes
 ├── 12 Months    → EC2 750 hrs/mo t2/t3.micro, S3 5 GB, RDS 750 hrs/mo
 └── Trials       → short-term (e.g. Inspector, QuickSight)
@@ -362,15 +365,15 @@ Want to MERGE bills of many accounts?→ Consolidated Billing
 - Regional RIs do **not** reserve capacity; Zonal RIs do
 - Scheduled RIs and Spot Blocks are **legacy / deprecated**
 - Capacity Reservations are billed whether used or not
-- Budgets: **first 2 free**, then **$0.02/day** each; 4 types: Cost, Usage, Savings Plans, Reservation
+- Budgets: **free** without actions; first 2 **action-enabled** budgets free, then **$0.10/day** each; 4 types: Cost, Usage, Savings Plans, Reservation
 - CUR is the **most detailed** billing data; delivered to **S3**
 - Tags must be **activated** in Billing; allow up to about **24 hours** to appear
 - Consolidated Billing is **free** and enables volume discounts and RI/SP sharing
 - Data **in** is free; data **out** to the internet is charged
 - Lambda: first **1M requests** free per month, then $0.20 per 1M
-- Free tier types: **Always Free**, **12 Months**, **Trials**
+- Free Tier: accounts from **15 July 2025** get up to **$200 credits** (free plan for 6 months); older accounts use **Always Free**, **12 Months**, **Trials**
 - Compute Optimizer is ML-based and requires **opt-in**
-- Trusted Advisor full cost checks need **Business or Enterprise** Support
+- Trusted Advisor full cost checks need **Business Support+, Enterprise Support or Unified Operations**
 - Delete unattached EBS volumes and unused Elastic IPs (idle ones cost money)
 
 ## 5-Minute Master Review
@@ -402,7 +405,7 @@ Want to MERGE bills of many accounts?→ Consolidated Billing
  Buying 3-year commitments for workloads that may disappear
  Using Spot for databases or non-restartable jobs
  Forgetting to activate cost allocation tags
- Expecting tags to apply to past spend
+ Expecting tags to cover past spend without requesting a backfill
  Confusing Budgets (alerts) with Cost Explorer (analysis)
  Choosing EC2 Instance Savings Plans when flexibility across regions is required
  Leaving unattached EBS volumes, old snapshots and idle Elastic IPs

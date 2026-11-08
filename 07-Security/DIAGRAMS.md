@@ -78,17 +78,21 @@ sequenceDiagram
 graph TB
     Request[API Request to use KMS Key]
     
-    Request --> KeyPolicy{"Key Policy<br/>Allows?"}
+    Request --> KeyPolicy{"Key Policy allows<br/>the principal directly?"}
     
-    KeyPolicy -->|No| Deny1["DENY"]
-    KeyPolicy -->|Yes| IAMPolicy{"IAM Policy<br/>Allows?"}
+    KeyPolicy -->|Yes| Allow["ALLOW"]
+    KeyPolicy -->|No| Delegate{"Key Policy delegates<br/>to the account (root)?"}
     
-    IAMPolicy -->|No| Deny2["DENY"]
-    IAMPolicy -->|Yes| Grant{"Grant<br/>Allows?"}
+    Delegate -->|Yes| IAMPolicy{"IAM Policy<br/>Allows?"}
+    Delegate -->|No| Grant{"Grant<br/>Allows?"}
     
-    Grant -->|Not Required| Allow["ALLOW"]
+    IAMPolicy -->|Yes| Allow
+    IAMPolicy -->|No| Grant
+    
     Grant -->|Yes| Allow
-    Grant -->|No| Deny3["DENY"]
+    Grant -->|No| Deny1["DENY"]
+    
+    Note1["An explicit Deny in any policy<br/>overrides every Allow"]
     
     DefaultPolicy["Default Key Policy:<br/>Gives root user full access<br/>Enables IAM policies"]
     
@@ -101,10 +105,6 @@ graph TB
     class Allow style1
     classDef style2 fill:#C00
     class Deny1 style2
-    classDef style3 fill:#C00
-    class Deny2 style3
-    classDef style4 fill:#C00
-    class Deny3 style4
     classDef style5 fill:#FF9900
     class KeyPolicy style5
 ```
@@ -259,7 +259,7 @@ graph TB
     
     Shield --> Standard["Shield Standard<br/>FREE<br/>Automatic<br/>Layer 3/4 protection<br/>All AWS customers"]
     
-    Shield --> Advanced["Shield Advanced<br/>$3,000/month<br/>Layer 3/4/7 protection<br/>24/7 DDoS Response Team<br/>Cost protection<br/>Real-time notifications"]
+    Shield --> Advanced["Shield Advanced<br/>$3,000/month<br/>Layer 3/4/7 protection<br/>24/7 Shield Response Team (SRT)<br/>Cost protection<br/>Real-time notifications"]
     
     subgraph Standard_Protection_Group["Standard Protection"]
         Standard --> S_Features["• SYN/UDP floods<br/>• Reflection attacks<br/>• Network layer DDoS<br/>• Automatic detection"]
@@ -268,7 +268,7 @@ graph TB
     subgraph Advanced_Protection_Group["Advanced Protection"]
         Advanced --> A_Features["• Enhanced detection<br/>• Advanced reporting<br/>• CloudFront, Route 53, ELB<br/>• Global Threat Dashboard<br/>• WAF included at no cost"]
         
-        Advanced --> DRT["AWS DDoS Response Team<br/>24/7 access<br/>Incident response"]
+        Advanced --> DRT["AWS Shield Response Team (SRT)<br/>24/7 access<br/>Incident response"]
     end
     
     Use["Use Shield Advanced when:<br/>• High-value applications<br/>• Potential large-scale DDoS<br/>• Need expert support<br/>• Want cost protection"]
@@ -509,14 +509,14 @@ stateDiagram-v2
     Email --> Issued: Click email link
     
     Issued --> InUse: Associate with resource
-    InUse --> AutoRenew: Auto-renewal (60 days before expiry(
+    InUse --> AutoRenew: Auto-renewal (45 days before expiry(
     AutoRenew --> InUse: Renewed
     
     InUse --> Revoked: Revoke Certificate
     Revoked --> [*]
     
     note right of Issued
-        Certificate valid for 13 months
+        Certificate valid for 198 days
         Free for AWS resources
     end note
     
@@ -557,7 +557,7 @@ graph TB
     
     Private --> Internal["Internal Applications<br/>Private APIs"]
     
-    Note["Note: Cannot export public certs<br/>Can export private certs<br/>Not supported on EC2 directly"]
+    Note["Note: Standard public certs cannot be exported<br/>Exportable public certs (paid) and private certs can<br/>Use an exportable cert for EC2"]
     
     classDef style1 fill:#FF9900
     class ACM style1
@@ -576,7 +576,7 @@ mindmap
             IAM
             Cognito
             Directory Service
-            SSO
+            IAM Identity Center
         Detection
             GuardDuty
             Inspector

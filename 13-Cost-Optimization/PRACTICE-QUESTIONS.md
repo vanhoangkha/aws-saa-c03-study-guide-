@@ -237,7 +237,7 @@ D. AWS Cost and Usage Report
 **Answer: B**
 
 **Explanation:**
-- Cost Explorer provides cost forecasting up to 12 months
+- Cost Explorer provides cost forecasting up to 18 months
 - Based on historical usage patterns
 - Interactive graphs showing predictions
 - 80% confidence interval
@@ -268,7 +268,7 @@ D. Convertible RI, 1-year, Partial Upfront
 - 3-year term provides higher discount than 1-year
 - All Upfront payment provides highest discount
 - Consistent usage makes 3-year commitment viable
-- Convertible RIs have lower discount (up to 54%)
+- Convertible RIs have lower discount (up to 66%)
 - Partial/No Upfront have lower discounts
 
 **References:** Reserved Instances, Discount Maximization
@@ -290,7 +290,7 @@ D. Use read replicas instead of Multi-AZ
 **Answer: B**
 
 **Explanation:**
-- Multi-AZ can be enabled/disabled (causes brief downtime)
+- Multi-AZ can be enabled/disabled (converting to Multi-AZ causes no downtime, though latency can rise while the standby syncs)
 - For non-production databases, can disable outside business hours
 - Reduces costs by ~50% when disabled
 - Can be scripted/automated with Lambda
@@ -459,7 +459,7 @@ D. Neither can be modified
 - Provides flexibility for changing requirements
 - Standard RIs cannot change instance family
 - Standard RIs can only change instance size within same family
-- Trade-off: Convertible RIs have lower discount (54% vs 72%)
+- Trade-off: Convertible RIs have lower discount (66% vs 72%)
 
 **References:** Reserved Instances, Convertible vs Standard
 </details>
@@ -569,7 +569,7 @@ D. Manual scaling with CloudWatch alarms
 - Cost tracking by department → Cost Allocation Tags
 - Identify underutilized resources → Cost Explorer Right-Sizing + Trusted Advisor
 - Budget alerts → AWS Budgets
-- Standard RI (72%) vs Convertible RI (54%) discount
+- Standard RI (72%) vs Convertible RI (66%) discount
 - CloudFront reduces data transfer costs
 - 3-year All Upfront provides maximum RI discount
 

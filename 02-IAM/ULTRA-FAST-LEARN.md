@@ -4,7 +4,7 @@
 - **Free service**, global (not regional)
 - **Authentication**: WHO (users, roles)
 - **Authorization**: WHAT (policies)
-- **No default access**: Explicit DENY by default
+- **No default access**: Implicit DENY by default
 
 ## IAM Entities
 
@@ -54,7 +54,7 @@
 ## Security Best Practices
 - Enable **MFA** on root account
 - **Never use root** for daily tasks
-- Create **individual IAM users** (not shared)
+- Use **federation** (IAM Identity Center) with temporary credentials for human users; never share credentials
 - Use **groups** to assign permissions
 - **Least privilege** principle
 - **Rotate credentials** regularly
@@ -71,7 +71,7 @@
 - **SAML 2.0**: Corporate login (AD, ADFS)
 - **Web Identity**: Google, Facebook, Amazon
 - **Cognito**: Mobile/web apps, social/enterprise identity
-- **SSO**: Centralized access to multiple accounts
+- **IAM Identity Center** (formerly AWS SSO): Centralized access to multiple accounts
 
 ## IAM Credentials Report
 - Lists all users and credential status
@@ -86,8 +86,8 @@
 ## Quick Exam Tips
 - **Root user**: Lock it, enable MFA, don't use
 - **Roles > Access Keys**: Always use roles for EC2
-- **Policy size limit**: 2 KB (inline), 6 KB (managed)
-- **Max policies per user/group/role**: 10 managed policies
+- **Policy size limit**: inline total per entity 2,048 characters (user), 5,120 (group), 10,240 (role); each managed policy 6,144 characters
+- **Managed policies attached**: 10 per user (up to 20), 10 per group, 20 per role (up to 25)
 - **Password policy**: Enforce complexity, rotation
 - **Access Keys**: Max 2 per user
 - **Cross-account**: Use roles, not resource-based policies (except S3, SNS, SQS)

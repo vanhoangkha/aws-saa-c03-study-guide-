@@ -27,7 +27,7 @@ APP WORKFLOW? → SWF (legacy, use Step Functions)
 | **Persistence** | Yes (4-14 days) | No (immediate delivery) | No |
 | **Consumers** | Poll for messages | Push to subscribers | Rules route events |
 | **Use Case** | Decouple apps | Notifications | Event-driven architecture |
-| **Max Size** | 256 KB | 256 KB | 256 KB |
+| **Max Size** | 1 MiB | 256 KiB default (up to 1 MiB) | 256 KB |
 
 ### SQS Queue Types
 | Feature | Standard | FIFO |
@@ -111,9 +111,9 @@ BENEFITS:
 | Service | Purpose | Use Case | Data Retention |
 |---------|---------|----------|----------------|
 | **Data Streams** | Real-time streaming | Process streaming data | 1-365 days |
-| **Data Firehose** | Load streams to storage | ETL to S3/Redshift | None (immediate) |
-| **Data Analytics** | SQL on streams | Real-time analytics | N/A |
-| **Video Streams** | Video streaming | Security cameras, video | 1-7 days |
+| **Data Firehose** (now Amazon Data Firehose) | Load streams to storage | ETL to S3/Redshift | None (immediate) |
+| **Data Analytics** (SQL version discontinued; now Managed Service for Apache Flink) | Analytics on streams | Real-time analytics | N/A |
+| **Video Streams** | Video streaming | Security cameras, video | Configurable, from none to as long as you need |
 
 **Memory Aid**: "DFAV" = Data streams (raw), Firehose (load), Analytics (analyze), Video
 
@@ -273,11 +273,11 @@ Use SQS when:
 - **Consumers**: Multiple can read same data
 - **Use**: Real-time analytics, log processing
 
-### Kinesis Firehose
+### Amazon Data Firehose (formerly Kinesis Data Firehose)
 - **No shards**: Fully managed scaling
 - **Destinations**: S3, Redshift, Elasticsearch, Splunk
 - **Transformations**: Lambda can transform data
-- **Buffering**: By size (1-128 MB) or time (60-900s)
+- **Buffering**: By size (1-128 MB) or time (0-900s; 0 = zero buffering)
 - **Use**: Load streaming data to storage
 
 ## 5-Minute Master Review
@@ -299,7 +299,7 @@ Use SQS when:
 3. For streaming, need processing?
    RAW STREAMING → Data Streams
    LOAD TO STORAGE → Firehose
-   ANALYTICS → Data Analytics
+   ANALYTICS → Managed Service for Apache Flink (formerly Kinesis Data Analytics)
    
 4. Multiple consumers for same message?
    YES → SNS (pub/sub)
@@ -394,7 +394,7 @@ WHEN NOT TO USE:
 ---
 
 **Quick Answers**: 
-1) 256 KB
+1) 1 MiB
 2) 14 days
 3) FIFO queue
 4) 6+ (HTTP, Email, SMS, SQS, Lambda, Kinesis, etc.)

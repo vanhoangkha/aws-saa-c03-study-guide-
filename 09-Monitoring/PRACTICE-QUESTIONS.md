@@ -510,18 +510,17 @@ D. Import logs into Elasticsearch
 <details>
 <summary>Show Answer</summary>
 
-**Answer: C**
+**Answer: B**
 
 **Explanation:**
-- CloudTrail Lake is purpose-built for querying CloudTrail logs
-- Uses SQL to query events
-- Can retain events for up to 7 years
-- Aggregates logs from multiple accounts/regions
-- Athena could work but CloudTrail Lake is optimized for this use case
+- A trail already delivers the log files to S3, so Athena can query all 5 years in place with standard SQL
+- Serverless, pay per query, and no data needs to be moved or loaded
+- Partitioning the table by account, Region and date keeps queries fast and cheap
+- CloudTrail Lake (option C) also queries events with SQL (up to 10 years of retention), but it has been closed to new customers since 31 May 2026. It remains valid only for accounts already using it, and older practice questions may still name it
 - Option A is inefficient and not scalable
 - Elasticsearch adds unnecessary complexity
 
-**References:** CloudTrail Lake, Log Query and Analysis
+**References:** Querying CloudTrail logs with Amazon Athena, CloudTrail Lake availability change
 </details>
 
 ---

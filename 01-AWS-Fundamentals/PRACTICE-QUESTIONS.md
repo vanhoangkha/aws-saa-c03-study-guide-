@@ -100,7 +100,7 @@ D. Function as a Service (FaaS)
 - PaaS services (like Elastic Beanstalk) abstract infrastructure management
 - Users deploy code without managing servers or OS
 - IaaS (like EC2) requires managing virtual machines
-- SaaS is fully managed applications (like Amazon Chime)
+- SaaS is fully managed applications (like Amazon WorkSpaces or Amazon Connect)
 - FaaS (like Lambda) is event-driven, not for full applications typically
 - PaaS is the best fit for deploying applications without infrastructure management
 
@@ -450,17 +450,17 @@ D. Operational Excellence
 <details>
 <summary>Show Answer</summary>
 
-**Answer: B**
+**Answer: C**
 
 **Explanation:**
-- Performance Efficiency pillar includes capacity planning principles
-- "Stop guessing capacity" - use Auto Scaling and elastic services
-- Enables right-sizing and dynamic capacity adjustment
+- "Stop guessing capacity" is a design principle of the Reliability pillar
+- Resource saturation is a common cause of failure; monitor demand and automate adding or removing resources (Auto Scaling)
+- The other Reliability principles: automatically recover from failure, test recovery procedures, scale horizontally, manage change through automation
+- Performance Efficiency focuses on selecting and using resources efficiently
 - Cost Optimization focuses on eliminating waste
-- Reliability focuses on recovery and testing
 - Operational Excellence focuses on running/monitoring
 
-**References:** AWS Well-Architected Framework - Performance Efficiency Pillar
+**References:** AWS Well-Architected Framework - Reliability Pillar
 </details>
 
 ---

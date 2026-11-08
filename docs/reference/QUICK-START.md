@@ -237,9 +237,9 @@ Use this to track your progress:
 [ ] Module 14: Practice & Exam Strategies (___/100%)
 
 Practice Exam Scores:
-[ ] Practice Exam 1: ___% (Need 72%+)
-[ ] Practice Exam 2: ___% (Need 72%+)
-[ ] Practice Exam 3: ___% (Need 72%+)
+[ ] Practice Exam 1: ___% (pass = 720/1000 scaled score)
+[ ] Practice Exam 2: ___% (pass = 720/1000 scaled score)
+[ ] Practice Exam 3: ___% (pass = 720/1000 scaled score)
 ```
 
 ---
@@ -270,7 +270,7 @@ Practice Exam Scores:
 
 
 Remember:
-- You only need 72% to pass (not 100%)
+- You need a scaled score of 720/1000 to pass (not 100%)
 - These materials cover everything you need
 - Thousands have passed using similar methods
 - You can do this in 11-14 hours

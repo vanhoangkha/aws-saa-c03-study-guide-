@@ -33,7 +33,7 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 |-------|----------|----------|
 | On-Demand | None | Short-term, unpredictable |
 | Reserved (1-3 yr) | Up to 72% | Steady state |
-| Savings Plans | Up to 66% | Flexible commitment |
+| Savings Plans | Up to 72% (EC2 Instance SP), up to 66% (Compute SP) | Flexible commitment |
 | Spot | Up to 90% | Fault-tolerant workloads |
 | Dedicated | None | Compliance, licensing |
 

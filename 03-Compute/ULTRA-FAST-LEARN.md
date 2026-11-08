@@ -17,7 +17,7 @@
 |-------|----------|----------|
 | On-Demand | 0% | Short, unpredictable |
 | Reserved (1-3 yr) | Up to 72% | Steady state |
-| Savings Plans | Up to 66% | Flexible commitment |
+| Savings Plans | Up to 72% (EC2 Instance SP), 66% (Compute SP) | Flexible commitment |
 | Spot | Up to 90% | Fault-tolerant, flexible |
 | Dedicated Host | 0% | Compliance, BYOL |
 | Dedicated Instance | 0% | Hardware isolation |
@@ -50,7 +50,7 @@
 ### Load Balancer Features
 - **Cross-Zone**: Distribute evenly across all AZs (ALB: always on, NLB: off by default)
 - **Sticky Sessions**: Same instance for session (ALB: target group, NLB: source IP)
-- **Connection Draining**: Wait for in-flight requests (1-3600 sec)
+- **Connection Draining**: Wait for in-flight requests (0-3600 sec, default 300)
 
 ## Lambda
 - **Max execution time**: 15 minutes

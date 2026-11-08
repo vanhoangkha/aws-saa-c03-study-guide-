@@ -282,7 +282,7 @@ graph TB
     subgraph Download_Optimization_Group["Download Optimization"]
         ByteRange["Byte-Range Fetches<br/>Parallel downloads<br/>Resilient to failures<br/>Partial file retrieval"]
         
-        S3Select["S3 Select<br/>SQL on S3 objects<br/>400% faster<br/>80% cheaper<br/>Filter server-side"]
+        S3Select["S3 Select (closed to new customers)<br/>SQL on S3 objects<br/>400% faster<br/>80% cheaper<br/>Filter server-side"]
     end
     
     subgraph Request_Optimization_Group["Request Optimization"]
@@ -356,7 +356,6 @@ stateDiagram-v2
     NewVolume --> Available
     
     Available --> Deleting: Delete Volume
-    InUse --> Deleting: Force Delete
     
     Deleting --> [*]
     
@@ -519,9 +518,9 @@ graph TB
 ```mermaid
 graph TB
     subgraph Performance_Modes_Group["Performance Modes"]
-        General["General Purpose<br/>Low latency<br/>Up to 7,000 files ops/sec<br/>Default choice<br/>Use: Web servers, CMS"]
+        General["General Purpose<br/>Lowest latency<br/>Up to 35K read / 7K write IOPS (Bursting)<br/>Up to 2.5M read / 500K write IOPS (Elastic)<br/>Default, recommended for all<br/>Use: Web servers, CMS"]
         
-        MaxIO["Max I/O<br/>Higher latency<br/>&gt; 7,000 files ops/sec<br/>Highly parallel<br/>Use: Big data, media processing"]
+        MaxIO["Max I/O (previous generation)<br/>Higher latency<br/>Not with Elastic or One Zone<br/>Highly parallel<br/>Use: Big data, media processing"]
     end
     
     subgraph Throughput_Modes_Group["Throughput Modes"]
@@ -529,7 +528,7 @@ graph TB
         
         Provisioned["Provisioned Throughput<br/>Set throughput independent of size<br/>Additional cost<br/>Use: High throughput to storage ratio"]
         
-        Elastic["Elastic Throughput<br/>Auto-scales<br/>Up to 3 GB/s reads, 1 GB/s writes<br/>Pay for what you use<br/>Recommended"]
+        Elastic["Elastic Throughput<br/>Auto-scales<br/>Up to 20-60 GiB/s reads, 1-5 GiB/s writes (by Region)<br/>Pay for what you use<br/>Default, recommended"]
     end
     
     WebApp[Web Application] --> General
@@ -556,7 +555,7 @@ graph TB
     
     Gateway --> S3File["S3 File Gateway<br/>NFS/SMB protocol<br/>Store as S3 objects<br/>Local cache<br/>Use: File shares, backups"]
     
-    Gateway --> FSx["FSx File Gateway<br/>SMB protocol<br/>Amazon FSx for Windows<br/>Local cache<br/>Use: Windows file shares"]
+    Gateway --> FSx["FSx File Gateway (closed to new customers)<br/>SMB protocol<br/>Amazon FSx for Windows<br/>Local cache<br/>Use: Windows file shares"]
     
     Gateway --> Volume["Volume Gateway<br/>iSCSI protocol<br/>Block storage"]
     
@@ -621,9 +620,9 @@ graph TB
 
 ```mermaid
 graph TB
-    SnowFamily["AWS Snow Family<br/>Physical Data Transfer & Edge Computing"]
+    SnowFamily["AWS Snow Family<br/>Physical Data Transfer & Edge Computing<br/>Closed to new customers"]
     
-    SnowFamily --> Snowcone["Snowcone<br/>Smallest device<br/>8-14 TB usable<br/>2 CPUs, 4 GB RAM<br/>Battery powered<br/>Use: Edge computing, IoT, remote locations"]
+    SnowFamily --> Snowcone["Snowcone (retired)<br/>Smallest device<br/>8-14 TB usable<br/>2 CPUs, 4 GB RAM<br/>Battery powered<br/>Use: Edge computing, IoT, remote locations"]
     
     SnowFamily --> Snowball[Snowball Edge]
     
@@ -631,7 +630,7 @@ graph TB
     
     Snowball --> SnowballCompute["Snowball Edge Compute Optimized<br/>42-28 TB usable<br/>52 vCPUs, 208 GB RAM<br/>Optional GPU<br/>Use: ML, video processing, analytics"]
     
-    SnowFamily --> Snowmobile["Snowmobile<br/>Shipping container<br/>100 PB capacity<br/>GPS tracking, security<br/>Use: Exabyte-scale migration"]
+    SnowFamily --> Snowmobile["Snowmobile (retired)<br/>Shipping container<br/>100 PB capacity<br/>GPS tracking, security<br/>Use: Exabyte-scale migration"]
     
     subgraph Use_Cases_Group["Use Cases"]
         Snowcone --> UC1["Remote locations<br/>Harsh environments<br/>Drones"]

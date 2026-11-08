@@ -50,11 +50,11 @@ How do you achieve WORM (Write Once Read Many) in S3?
 
 **Options:**
 A. Enable versioning
-B. Enable Object Lock at bucket creation (correct)
+B. Enable S3 Object Lock on the bucket (correct)
 C. Use S3 Glacier
 D. Configure bucket policy
 
-**Explanation:** Object Lock enforces WORM with retention periods; must be enabled at bucket creation.
+**Explanation:** Object Lock enforces WORM with retention periods and legal holds. It requires versioning and can be enabled on new or existing buckets.
 
 ---
 

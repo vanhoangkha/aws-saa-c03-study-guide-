@@ -62,7 +62,7 @@ D. VPC Peering
 |---------|-------------|--------------|
 | **Managed** | AWS-managed | Customer-managed |
 | **Availability** | Highly available (AZ) | Single instance |
-| **Bandwidth** | Up to 45 Gbps | Instance type dependent |
+| **Bandwidth** | 5 Gbps, scales to 100 Gbps | Instance type dependent |
 | **Cost** | Hourly + data transfer | Instance cost |
 | **Maintenance** | AWS handles | Customer handles |
 
@@ -171,7 +171,7 @@ D. VPC Peering
 | Feature | Direct Connect | Site-to-Site VPN |
 |---------|----------------|------------------|
 | **Connection** | Dedicated fiber | Internet-based |
-| **Bandwidth** | 1 Gbps to 100 Gbps | Up to 1.25 Gbps |
+| **Bandwidth** | 1 Gbps to 400 Gbps | 1.25 Gbps per tunnel (5 Gbps Large Bandwidth Tunnels on TGW) |
 | **Latency** | Low, consistent | Variable |
 | **Cost** | Higher (port + data) | Lower |
 | **Setup Time** | Weeks/months | Minutes |

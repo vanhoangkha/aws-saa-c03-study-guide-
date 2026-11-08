@@ -275,13 +275,13 @@ Primary Region: us-east-1        Standby Region: us-west-2
 
 **Backup and Restore** (Cheapest, Slowest)
 - **RPO**: Hours
-- **RTO**: Hours to days
+- **RTO**: Hours
 - Backup to S3, restore when needed
 - Use: Non-critical applications
 
 **Pilot Light** (Core services always running)
 - **RPO**: Minutes
-- **RTO**: Hours
+- **RTO**: Tens of minutes to hours
 - Minimal version running (e.g., database replication)
 - Scale up when disaster occurs
 

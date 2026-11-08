@@ -6,10 +6,10 @@
 - **Questions**: 65 (50 scored + 15 unscored)
 - **Duration**: 130 minutes (2 hours 10 minutes)
 - **Format**: Multiple choice + multiple response
-- **Passing Score**: 720/1000 (72%)
+- **Passing Score**: 720 (scaled score, 100-1000; not 72% of questions)
 - **Cost**: $150 USD
 - **Valid**: 3 years
-- **Language**: English, Japanese, Korean, Simplified Chinese
+- **Language**: English, French (France), Italian (retired after 31 Dec 2026), Japanese, Korean, Portuguese (Brazil), Spanish (Latin America), Spanish (Spain), Simplified Chinese, Traditional Chinese
 
 ### Question Types
 1. **Multiple Choice**: 1 correct answer out of 4
@@ -148,8 +148,9 @@
 - **P**: Geoproximity
 - **M**: Multi-value
 
-### Migration 6 R's: **RRRRRT**
+### Migration 7 R's
 - **R**ehost
+- **R**elocate (for example, VMware Cloud on AWS)
 - **R**eplatform
 - **R**epurchase
 - **R**efactor
@@ -160,7 +161,8 @@
 
 ### Storage Decision Tree
 - **Object storage**: S3
-- **Block storage**: EBS (single AZ) or EFS (multi-AZ)
+- **Block storage**: EBS (single AZ)
+- **Shared file storage (multi-AZ, NFS)**: EFS
 - **File storage (Windows)**: FSx for Windows
 - **File storage (Linux)**: EFS or FSx for Lustre
 - **Archive**: S3 Glacier
@@ -171,7 +173,7 @@
 - **Cache**: ElastiCache (Redis or Memcached)
 - **Data warehouse**: Redshift
 - **Graph**: Neptune
-- **Ledger**: QLDB
+- **Ledger**: QLDB (retired; its product page now redirects to Amazon Aurora)
 - **Time-series**: Timestream
 
 ### Compute Decision Tree

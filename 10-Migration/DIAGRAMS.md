@@ -86,6 +86,8 @@ flowchart TD
 
 ## AWS Migration Hub
 
+Status (November 2026): AWS Migration Hub has been closed to new customers since 7 Nov 2025. New projects use AWS Transform for similar tracking.
+
 ### Migration Hub Architecture
 
 ```mermaid
@@ -115,7 +117,7 @@ graph TB
     
     subgraph Migration_Tools_Group["Migration Tools"]
         DMS["AWS DMS<br/>Database migration"]
-        SMS["AWS SMS<br/>Server migration"]
+        SMS["AWS SMS<br/>Server migration<br/>Discontinued"]
         MGN["AWS MGN<br/>Application Migration"]
         DataSync["AWS DataSync<br/>Data transfer"]
     end
@@ -146,6 +148,8 @@ graph TB
 ```
 
 ## AWS Application Discovery Service
+
+Status (November 2026): AWS Application Discovery Service has been closed to new customers since 7 Nov 2025.
 
 ### Discovery Service Options
 
@@ -515,11 +519,13 @@ graph TB
 
 ## AWS Snow Family Migration
 
+Status (November 2026): AWS no longer offers Snow Family devices to new customers. Snowcone was discontinued on 12 Nov 2024, Snowmobile is no longer offered, and Snowball Edge has been available only to existing customers since 7 Nov 2025 (support ends 31 Dec 2026). New projects use AWS DataSync, AWS Data Transfer Terminal or Outposts.
+
 ### Snow Family Device Comparison
 
 ```mermaid
 graph TB
-    Decision["Choose Your Device:<br/>• &lt; 10 TB → Snowcone<br/>• 10-80 TB → Snowball<br/>• &gt; 10 PB → Snowmobile"]
+    Decision["Choose Your Device:<br/>• &lt; 10 TB → Snowcone - discontinued<br/>• 10-210 TB → Snowball<br/>• &gt; 10 PB → Snowmobile - retired"]
     
     subgraph Snowcone_Group["Snowcone"]
         Snowcone["AWS Snowcone<br/>Smallest device"]
@@ -535,9 +541,9 @@ graph TB
     subgraph Snowball_Group["Snowball Edge"]
         Snowball["AWS Snowball Edge"]
         
-        Storage["Storage Optimized<br/>80 TB usable<br/>40 vCPUs, 80 GB RAM<br/>50 lbs"]
+        Storage["Storage Optimized<br/>210 TB usable NVMe<br/>104 vCPUs, 416 GB RAM"]
         
-        Compute["Compute Optimized<br/>42-28 TB usable<br/>52 vCPUs, 208 GB RAM<br/>Optional GPU"]
+        Compute["Compute Optimized<br/>28 TB NVMe<br/>104 vCPUs, 416 GB RAM"]
         
         Snowball_Use["Use Cases:<br/>• Data center migration<br/>• Disaster recovery<br/>• Content distribution<br/>• Local processing"]
         
@@ -594,7 +600,7 @@ graph TB
     subgraph Processing_at_Edge_Group["Processing at Edge"]
         Analysis["Data Analysis<br/>ML inference<br/>Video processing<br/>Image recognition"]
         
-        Storage["Local Storage<br/>Buffer data<br/>80 TB capacity"]
+        Storage["Local Storage<br/>Buffer data<br/>28 TB NVMe capacity"]
         
         EC2 --> Analysis
         Analysis --> Storage

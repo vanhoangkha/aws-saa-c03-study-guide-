@@ -402,9 +402,9 @@ graph TB
     Edge2 -.Cache Miss.-> ALB
     Edge3 -.Cache Miss.-> Custom
     
-    OAI["Origin Access Identity<br/>Restrict S3 to CloudFront only"] -.Secures.-> S3
+    OAI["Origin Access Control OAC<br/>Restrict S3 to CloudFront only<br/>OAI is legacy"] -.Secures.-> S3
     
-    Features["Features:<br/>Global CDN with 400+ edge locations<br/>DDoS protection<br/>SSL/TLS support<br/>Geo-restriction<br/>Caching at edge<br/>Compress objects automatically"]
+    Features["Features:<br/>Global CDN with 700+ edge locations<br/>DDoS protection<br/>SSL/TLS support<br/>Geo-restriction<br/>Caching at edge<br/>Compress objects automatically"]
     
     classDef style1 fill:#146EB4
     class Edge1 style1
@@ -534,7 +534,7 @@ graph TB
     PublicVIF["Public VIF<br/>Access public AWS services<br/>S3, DynamoDB"] -.-> DXRouter
     PrivateVIF["Private VIF<br/>Access VPC resources"] -.-> VGW
     
-    Features["Features:<br/>Dedicated network connection<br/>Consistent network performance<br/>Reduced bandwidth costs<br/>1 Gbps or 10 Gbps<br/>Takes weeks/months to set up<br/>More expensive than VPN"]
+    Features["Features:<br/>Dedicated network connection<br/>Consistent network performance<br/>Reduced bandwidth costs<br/>Dedicated: 1, 10, 100, 400 Gbps<br/>Hosted: 50 Mbps to 25 Gbps<br/>Takes weeks/months to set up<br/>More expensive than VPN"]
     
     Backup["Backup VPN Connection<br/>over Internet"] -.Failover.-> VGW
     

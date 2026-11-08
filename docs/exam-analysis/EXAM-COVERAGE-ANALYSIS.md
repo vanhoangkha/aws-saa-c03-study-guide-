@@ -186,7 +186,7 @@ After thorough analysis of all 13 modules against the official AWS Certified Sol
 - Managed Apache Cassandra
 - Low exam weight
 
-### 18. **Amazon QLDB** (Module 05)
+### 18. **Amazon QLDB** (Module 05) - discontinued
 - Ledger database
 - Low exam weight
 

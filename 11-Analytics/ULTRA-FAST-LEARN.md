@@ -4,7 +4,7 @@
 - **Serverless** SQL queries on S3
 - **Pay per query**: $5 per TB scanned
 - **No infrastructure** to manage
-- **ANSI SQL** (uses Presto engine)
+- **ANSI SQL** (engine version 3 is based on Trino)
 - **Formats**: CSV, JSON, Parquet, ORC, Avro
 
 ### Athena Performance
@@ -27,19 +27,20 @@
 - **Shards**: Provision throughput
   - **Write**: 1 MB/s or 1,000 records/s per shard
   - **Read**: 2 MB/s per shard
-- **Consumers**: Lambda, KCL, Kinesis Data Analytics
+- **Consumers**: Lambda, KCL, Managed Service for Apache Flink
 - **Replay**: Re-process data
 
-### Kinesis Data Firehose
-- **Near real-time** (60 sec buffer minimum)
+### Amazon Data Firehose (formerly Kinesis Data Firehose)
+- **Near real-time** (buffer interval 0-900 sec; zero buffering available)
 - **Load to**: S3, Redshift, OpenSearch, Splunk, HTTP endpoints
 - **Auto-scaling** (no shards)
 - **Transformations**: Lambda
 - **Compression**: GZIP, Snappy, Zip
 - **Pay per GB** ingested
 
-### Kinesis Data Analytics
-- **Real-time SQL** queries on streaming data
+### Managed Service for Apache Flink (formerly Kinesis Data Analytics)
+- **Status**: Kinesis Data Analytics for SQL applications is discontinued (apps deleted from 27 Jan 2026)
+- **Real-time** stream processing with Apache Flink (Java, Python, SQL)
 - **Input**: Kinesis Streams or Firehose
 - **Output**: Kinesis Streams, Firehose, Lambda
 - **Use case**: Real-time dashboards, metrics, alerts
@@ -72,7 +73,7 @@
 - **Crawlers**: Discover data and populate catalog
 - **ETL Jobs**: Transform data
 - **Triggers**: Schedule or event-driven
-- **Development Endpoints**: Test ETL scripts
+- **Interactive sessions**: Test ETL scripts (development endpoints are legacy, Glue 0.9/1.0 only)
 
 ### Glue Use Cases
 - Prepare data for analytics
@@ -101,7 +102,7 @@
 ## QuickSight
 - **Serverless BI** (Business Intelligence)
 - **Visualizations**, dashboards, ad-hoc analysis
-- **Auto-scaling**, pay per session
+- **Auto-scaling**, pay per user (Enterprise Readers $3/month)
 - **Data sources**: Redshift, RDS, Aurora, Athena, S3, on-premises
 - **SPICE engine**: In-memory calculation (fast)
 - **ML Insights**: Anomaly detection, forecasting
@@ -114,7 +115,7 @@
 - **Integration**: Kinesis Firehose, Lambda, CloudWatch Logs
 
 ## AWS Data Pipeline
-- **Legacy** (use Glue or Step Functions)
+- **No longer available to new customers** (use Glue, Step Functions or MWAA)
 - Orchestrate data movement and transformation
 - **On-premises + AWS** data sources
 

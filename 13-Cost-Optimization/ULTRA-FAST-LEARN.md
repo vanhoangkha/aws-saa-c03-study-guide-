@@ -18,16 +18,18 @@
 
 ## AWS Free Tier
 
-### Three Types
+**Current model (accounts created on or after 15 July 2025)**: up to $200 in credits; free plan for 6 months or a paid plan; credits expire 12 months after account creation
+
+### Legacy model (accounts created before 15 July 2025): three types
 
 **1. Always Free**
 - **Lambda**: 1M requests/month
 - **DynamoDB**: 25 GB storage, 25 RCU/WCU
 - **SNS**: 1M publishes/month
 - **CloudWatch**: 10 metrics, 10 alarms
-- **Cognito**: 50K MAUs
+- **Cognito**: 10K MAUs (Lite/Essentials tiers)
 
-**2. 12 Months Free** (new accounts)
+**2. 12 Months Free** (accounts created before 15 July 2025)
 - **EC2**: 750 hrs/month t2.micro (Linux/Windows)
 - **S3**: 5 GB Standard storage
 - **RDS**: 750 hrs/month db.t2.micro
@@ -58,7 +60,7 @@
 ### Reserved Instances
 - **Standard**: Up to 72% discount, can't change
 - **Convertible**: Up to 66% discount, can change instance type
-- **Scheduled**: Predictable recurring schedule
+- **Scheduled** (retired): No longer sold; use Capacity Reservations plus Savings Plans
 - **Scope**: Regional or zonal
 - **Marketplace**: Sell unused reservations
 
@@ -132,7 +134,7 @@
 ### Cost Explorer
 - **Visualize spending** over time
 - **Filter**: By service, tag, account
-- **Forecast**: Next 12 months
+- **Forecast**: Next 18 months
 - **Reserved Instance recommendations**
 - **Savings Plans recommendations**
 
@@ -140,7 +142,7 @@
 - **Set custom budgets**: Cost, usage, RI/SP utilization
 - **Alerts**: SNS notifications when threshold exceeded
 - **Types**: Cost, usage, reservation, savings plans
-- **First 2 budgets free**, $0.02/day per additional
+- **Free** without actions; first 2 action-enabled budgets free, then $0.10/day each
 
 ### Cost and Usage Report (CUR)
 - **Most detailed** billing report
@@ -162,9 +164,9 @@
 - **Supports**: EC2, Auto Scaling, EBS, Lambda
 
 ### Trusted Advisor
-- **Cost optimization checks** (Business/Enterprise support)
+- **Cost optimization checks** (Business Support+, Enterprise Support or Unified Operations)
 - Idle RDS, unattached ELBs, underutilized EC2
-- **Core checks free** (Basic/Developer)
+- **Basic Support**: service limit checks plus selected security and fault tolerance checks
 
 ## Cost Optimization Strategies
 
@@ -229,9 +231,11 @@
 | Plan | Cost | Use Case |
 |------|------|----------|
 | Basic | Free | Everyone |
-| Developer | $29/month | Individual dev |
-| Business | $100/month | Production workloads |
-| Enterprise | $15K/month | Mission-critical |
+| Business Support+ | From $29/month | Dev and production workloads |
+| Enterprise | From $5K/month | Mission-critical |
+| Unified Operations | Contact AWS | Largest, most critical workloads |
+
+Status (November 2026): Developer and Business Support closed to new subscriptions on 2 December 2025 and end on 1 January 2027 (Business Support+ replaces both). Enterprise On-Ramp also ends on 1 January 2027.
 
 ## Quick Exam Tips
 - **Savings Plans**: Most flexible (up to 72%)
@@ -239,14 +243,14 @@
 - **Spot**: Up to 90%, can be terminated
 - **S3 Lifecycle**: Auto-transition to cheaper classes
 - **Cost Explorer**: Visualize, forecast, recommendations
-- **Budgets**: Set alerts, $0.02/day after first 2
+- **Budgets**: Set alerts (free); action-enabled budgets $0.10/day after the first 2
 - **CUR**: Most detailed billing data
 - **Tags**: Track costs by project/team
 - **Compute Optimizer**: ML-based right-sizing
 - **Consolidated Billing**: Combined usage, volume discounts
 - **CloudFront**: Cheaper data transfer than S3 direct
 - **VPC Endpoints**: Avoid NAT/IGW charges
-- **Trusted Advisor**: Cost optimization checks (Business+)
+- **Trusted Advisor**: Cost optimization checks (Business Support+ and above)
 - **Stop unused resources**: Biggest savings.
-- **Free tier**: 12 months for new accounts
+- **Free tier**: up to $200 credits for accounts from 15 July 2025; 12-month model for older accounts
 

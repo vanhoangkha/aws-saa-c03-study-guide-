@@ -114,8 +114,8 @@ SNS Topic → SQS Queue 1
 **Topic Types**
 - **Standard**: Best-effort ordering, at-least-once delivery
 - **FIFO**: Strict ordering, exactly-once delivery
-  - Same throughput as SQS FIFO (300-3,000 msg/sec)
-  - Can only have SQS FIFO queues as subscribers
+  - Default 300 messages/sec per topic; high throughput mode raises this to match standard topics
+  - Subscribers must be SQS queues (FIFO or standard); email, SMS and HTTP endpoints are not allowed
 
 **Message Filtering**
 - Filter messages based on attributes
@@ -131,7 +131,7 @@ Example Filter Policy:
 ```
 
 **Message Size**
-- **256 KB maximum**
+- **256 KiB by default**, configurable up to **1 MiB** (`MaximumMessageSize` topic attribute) for SQS, Lambda and Firehose subscriptions
 
 **Fanout Pattern**
 - Combine SNS + SQS
@@ -323,17 +323,18 @@ Example Filter Policy:
   - 2 MB/sec output per shard
 - **Use case**: Real-time analytics, log processing
 
-#### Kinesis Data Firehose
+#### Amazon Data Firehose (formerly Kinesis Data Firehose)
 - **Load streaming data** into destinations
-- **Near real-time** (60 seconds minimum)
+- **Near real-time**: buffer interval 0-900 seconds (zero buffering delivers within seconds)
 - **Destinations**: S3, Redshift, ElasticSearch, Splunk, HTTP
 - Automatic scaling, no shards
 - Can transform data with Lambda
 - **Use case**: ETL, data lakes
 
-#### Kinesis Data Analytics
+#### Kinesis Data Analytics (now Amazon Managed Service for Apache Flink)
+- Status (November 2026): Kinesis Data Analytics for SQL is discontinued (no new apps from 15 Oct 2025, apps deleted from 27 Jan 2026). Use Amazon Managed Service for Apache Flink.
 - **Real-time analytics** on streaming data
-- Use **SQL or Apache Flink**
+- Use **Apache Flink** (Java, Scala, Python, or SQL through Flink Studio)
 - Analyze data from Kinesis Data Streams or Firehose
 - **Use case**: Real-time dashboards, metrics
 

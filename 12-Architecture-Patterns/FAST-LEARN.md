@@ -201,10 +201,10 @@ ACTIVE-PASSIVE: standby site waits (Route 53 failover routing)
 ```
 COST / SPEED LADDER (cheap + slow → expensive + fast):
 
-BACKUP & RESTORE   → RPO hours,   RTO hours-days   | $
-PILOT LIGHT        → RPO minutes, RTO hours        | $$
-WARM STANDBY       → RPO seconds, RTO minutes      | $$$
-MULTI-SITE ACTIVE  → RPO ~zero,   RTO ~zero        | $$$$
+BACKUP & RESTORE   → RPO hours,   RTO hours         | $
+PILOT LIGHT        → RPO minutes, RTO 10s min-hours | $$
+WARM STANDBY       → RPO seconds, RTO minutes       | $$$
+MULTI-SITE ACTIVE  → RPO ~zero,   RTO ~zero         | $$$$
 
 WHAT RUNS IN THE DR REGION:
 ├── Backup & Restore: nothing; backups in S3 / Glacier

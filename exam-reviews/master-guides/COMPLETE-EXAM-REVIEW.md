@@ -88,7 +88,7 @@ Score Trend:
    - EC2 launch type vs Fargate
 
 3. **S3 Performance Optimization**
-   - Multipart upload (required >100MB, best >5GB)
+   - Multipart upload (recommended >100MB, required >5GB)
    - Parallel requests and prefix design
    - Transfer Acceleration for global uploads
    - Avoid LIST operations (use Inventory/indexes)
@@ -289,7 +289,7 @@ Score Trend:
 
 ### S3
  Strong consistency for all operations  
- Multipart: Required >100MB, best >5GB  
+ Multipart: Recommended >100MB, required >5GB  
  Transfer Acceleration for global uploads
 
 ### Auto Scaling

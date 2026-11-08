@@ -23,7 +23,7 @@ D. Amazon Redshift
 - **Amazon Aurora** provides:
   - MySQL/PostgreSQL compatibility
   - 5x performance of MySQL, 3x of PostgreSQL
-  - Automatic scaling (storage up to 128 TB)
+  - Automatic scaling (storage up to 256 TiB on current versions)
   - Multi-AZ by design (6 copies across 3 AZs)
   - Automatic failover (< 30 seconds)
   - Serverless option available
@@ -44,7 +44,7 @@ D. Amazon Redshift
 ---
 
 ### Question 2
-An application requires sub-millisecond latency for read/write operations with automatic scaling to handle millions of requests per second. Which database should be used?
+An application requires single-digit millisecond latency for read/write operations with automatic scaling to handle millions of requests per second. Which database should be used?
 
 A. Amazon RDS  
 B. Amazon DynamoDB  
@@ -182,7 +182,7 @@ D. Amazon Neptune
 **Explanation:**
 - **Amazon DocumentDB** is MongoDB-compatible document database
   - Fully managed
-  - MongoDB 3.6 and 4.0 compatibility
+  - MongoDB API compatibility (current engine versions up to 8.0)
   - Scales to millions of requests/second
   - Multi-AZ replication
   - Automatic backups
@@ -190,7 +190,7 @@ D. Amazon Neptune
 **DocumentDB Features**:
 - Document data model (JSON)
 - MongoDB drivers and tools compatible
-- Storage auto-scales to 64 TB
+- Storage auto-scales to 128 TiB (256 TiB on engine version 8.0 and later)
 - Up to 15 read replicas
 - Continuous backup to S3
 
@@ -271,7 +271,7 @@ D. RDS Cross-Region Replication
 | **Purpose** | High availability | Read scaling |
 | **Replication** | Synchronous | Asynchronous |
 | **Failover** | Automatic | Manual promotion |
-| **Access** | Standby not accessible | Can read from replicas |
+| **Access** | DB instance: standby not readable; DB cluster: two readable standbys | Can read from replicas |
 | **Region** | Same | Same or cross-region |
 
 **Multi-AZ Failover Triggers**:
@@ -429,7 +429,7 @@ D. AWS Database Migration Service
   - Conflict resolution (last writer wins)
 
 **Global Tables Requirements**:
-- DynamoDB Streams enabled
+- DynamoDB Streams (enabled automatically on multi-Region eventual consistency replicas)
 - Same table name across regions
 - Same primary key structure
 
@@ -520,6 +520,8 @@ D. Amazon Redshift
 - **DynamoDB**: General NoSQL, manual TTL
 - **Redshift**: Data warehouse, not optimized for time-series
 - **Timestream**: Purpose-built, best for time-series
+
+**Status**: Amazon Timestream for LiveAnalytics closed to new customers on 20 June 2025. AWS recommends Amazon Timestream for InfluxDB for new customers.
 
 **References:** Amazon Timestream, Time-Series Databases
 </details>
@@ -638,7 +640,7 @@ D. Auto Scaling
 
 **Cost**: On-Demand can be more expensive for consistent workloads
 
-**Can switch between modes** once per 24 hours
+**Can switch** from provisioned to on-demand up to 4 times in a rolling 24-hour window, and from on-demand to provisioned at any time
 
 **References:** DynamoDB Capacity Modes, On-Demand vs Provisioned
 </details>
@@ -840,6 +842,8 @@ D. Amazon DynamoDB
 - Provides immutable, cryptographically verifiable transaction log
 - Aurora, RDS, and DynamoDB are not ledger databases
 
+**Status (November 2026)**: Amazon QLDB has been discontinued. Know it as the classic exam answer for an immutable, cryptographically verifiable ledger, but it is no longer available for new workloads.
+
 **References:** Amazon QLDB, Ledger Database
 </details>
 
@@ -859,7 +863,7 @@ D. Amazon DynamoDB
 - Amazon Timestream (Time-Series)
 - AWS Database Migration Service (DMS)
 - Amazon Keyspaces (Cassandra-compatible)
-- Amazon QLDB (Ledger Database)
+- Amazon QLDB (Ledger Database, retired)
 
 **Exam Tips**:
 

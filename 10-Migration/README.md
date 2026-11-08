@@ -4,7 +4,7 @@
 AWS provides a set of services to migrate applications, databases, and data to the cloud. This module covers migration strategies, tools, and best practices for moving workloads to AWS.
 
 ## Learning Objectives
-- Understand the 6 R's of migration strategy
+- Understand the 7 Rs of migration strategy
 - Use AWS DataSync for data transfer
 - Migrate databases with AWS Database Migration Service (DMS)
 - Track migrations using AWS Migration Hub
@@ -12,9 +12,9 @@ AWS provides a set of services to migrate applications, databases, and data to t
 
 ---
 
-## 1. Migration Strategies (6 R's)
+## 1. Migration Strategies (7 Rs)
 
-### The 6 R's of Migration
+### The 7 Rs of Migration
 
 1. **Rehost (Lift and Shift)**
    - Move applications as-is to AWS
@@ -45,6 +45,10 @@ AWS provides a set of services to migrate applications, databases, and data to t
    - Keep applications in source environment
    - Applications not ready for migration
    - Plan to migrate later
+
+7. **Relocate (Hypervisor-level Lift and Shift)**
+   - Move VMware workloads at the hypervisor level, with no new hardware and no application changes
+   - Example: Move vSphere VMs to VMware Cloud on AWS
 
 ---
 
@@ -87,7 +91,7 @@ AWS provides a set of services to migrate applications, databases, and data to t
 - SMB shares (Server Message Block)
 - HDFS (Hadoop Distributed File System)
 - Self-managed object storage
-- AWS Snowcone
+- AWS Snowcone (discontinued)
 - Amazon S3
 - Amazon EFS
 - Amazon FSx for Windows File Server
@@ -404,6 +408,8 @@ Exclude: /temp/*, /cache/*
 
 ## 4. AWS Migration Hub
 
+Status (November 2026): AWS Migration Hub has been closed to new customers since 7 Nov 2025. New projects use AWS Transform for similar tracking.
+
 ### What is AWS Migration Hub?
 - **Single location to track migrations**
 - Centralized dashboard for migration progress
@@ -413,7 +419,7 @@ Exclude: /temp/*, /cache/*
 ### Key Features
 - **Track Application Migrations**: Monitor servers and databases
 - **Visualize Progress**: Unified view across tools
-- **Integration**: Works with CloudEndure, DMS, Server Migration Service
+- **Integration**: Works with MGN, DMS and partner tools (CloudEndure Migration and Server Migration Service are retired)
 - **Grouping**: Organize servers into applications
 
 ### Migration Hub Architecture
@@ -430,9 +436,9 @@ Exclude: /temp/*, /cache/*
            │                 │                    │
            ▼                 ▼                    ▼
     ┌────────────┐    ┌─────────────┐    ┌──────────────┐
-    │    DMS     │    │   Server    │    │  CloudEndure │
-    │            │    │  Migration  │    │   Migration  │
-    └────────────┘    │   Service   │    └──────────────┘
+    │    DMS     │    │     MGN     │    │   DataSync   │
+    │            │    │             │    │              │
+    └────────────┘    │             │    └──────────────┘
                       └─────────────┘
 ```
 
@@ -446,8 +452,8 @@ Exclude: /temp/*, /cache/*
 **2. Migration Tools Integration**
 - AWS Application Migration Service (MGN)
 - AWS Database Migration Service (DMS)
-- AWS Server Migration Service (SMS)
-- Partner tools (CloudEndure, ATADATA, etc.)
+- AWS Server Migration Service (SMS) (retired)
+- Partner tools (ATADATA, etc.); CloudEndure Migration (retired) became AWS MGN
 
 **3. Migration Tracking**
 - Server-level migration status
@@ -455,6 +461,8 @@ Exclude: /temp/*, /cache/*
 - Timeline and progress tracking
 
 ### AWS Application Discovery Service
+
+Status (November 2026): AWS Application Discovery Service has been closed to new customers since 7 Nov 2025.
 
 **Purpose:**
 - Plan migrations by gathering data about on-premises infrastructure
@@ -483,7 +491,7 @@ Exclude: /temp/*, /cache/*
 **Purpose:**
 - Automated migration strategy recommendations
 - Analyze application portfolio
-- Recommend optimal 6 R strategy
+- Recommend optimal 7 Rs strategy
 
 **Features:**
 - Assess applications for migration readiness
@@ -499,7 +507,7 @@ Exclude: /temp/*, /cache/*
 
 **Step 2: Connect Migration Tools**
 - Authorize tools to send data to Migration Hub
-- Configure DMS, MGN, or SMS
+- Configure DMS or MGN
 
 **Step 3: Group Applications**
 - Create application groups
@@ -539,9 +547,9 @@ Application: E-Commerce Website
 3. **Migration**: Execute using tools
 4. **Validation**: Verify successful migration
 
-### AWS Server Migration Service (SMS) - Legacy
+### AWS Server Migration Service (SMS) - Retired
 
-**Note:** Being replaced by AWS Application Migration Service (MGN)
+**Status:** Discontinued. Use AWS Application Migration Service (MGN) for new migrations.
 
 **Features:**
 - Automate VM migration to AWS
@@ -550,6 +558,8 @@ Application: E-Commerce Website
 - Minimal downtime
 
 ### AWS Application Migration Service (MGN)
+
+The AWS docs now list this service as AWS Transform MGN.
 
 **Purpose:**
 - Lift-and-shift migration (Rehost)
@@ -629,7 +639,7 @@ Application: E-Commerce Website
 
  **Application grouping**: Group servers and databases by application
 
- **Strategy Recommendations**: Automated recommendations for 6 R's migration strategy
+ **Strategy Recommendations**: Automated recommendations for 7 Rs migration strategy
 
 ---
 
@@ -648,19 +658,21 @@ Application: E-Commerce Website
 
 ### AWS Snow Family
 
-**AWS Snowcone**
+Status (November 2026): AWS no longer offers Snow Family devices to new customers. Snowcone was discontinued on 12 Nov 2024, Snowmobile is no longer offered, and Snowball Edge has been available only to existing customers since 7 Nov 2025 (support ends 31 Dec 2026). New projects use AWS DataSync, AWS Data Transfer Terminal or Outposts.
+
+**AWS Snowcone** (discontinued)
 - Small, portable edge computing and data transfer device
 - 8 TB usable storage
 - Use for edge computing and data transfer
 - Can run EC2 instances and Lambda functions
 
 **AWS Snowball Edge**
-- 80 TB or 210 TB of usable storage
+- Storage Optimized: 210 TB usable (the 80 TB model was discontinued in Nov 2024)
 - Compute capabilities (EC2, Lambda)
-- Storage Optimized or Compute Optimized options
+- Storage Optimized (210 TB) or Compute Optimized (104 vCPUs, 28 TB NVMe) options
 - For large data migrations and edge computing
 
-**AWS Snowmobile**
+**AWS Snowmobile** (no longer offered)
 - Exabyte-scale data transfer
 - 100 PB per Snowmobile
 - Physical truck for massive migrations
@@ -690,6 +702,7 @@ Application: E-Commerce Website
 - ROI analysis
 
 ### AWS Mainframe Modernization
+Status (November 2026): the AWS Mainframe Modernization Service has been closed to new customers since 7 Nov 2025.
 - Migrate and modernize mainframe applications
 - Automated refactoring or replatforming
 - Managed runtime environment
@@ -782,8 +795,8 @@ Application: E-Commerce Website
 
 ### Key Concepts to Remember
 
- **6 R's of Migration**
-   - Rehost, Replatform, Repurchase, Refactor, Retire, Retain
+ **7 Rs of Migration**
+   - Rehost, Relocate, Replatform, Repurchase, Refactor, Retire, Retain
    - Choose based on business needs and complexity
 
  **DataSync**
@@ -797,16 +810,16 @@ Application: E-Commerce Website
    - Use SCT for schema conversion (different engines)
    - CDC for continuous replication
 
- **Migration Hub**
+ **Migration Hub** (closed to new customers since 7 Nov 2025)
    - Centralized tracking dashboard
    - Integrates with DMS, MGN, and partner tools
    - Application grouping and progress tracking
    - Free service
 
  **Snow Family**
-   - Snowcone: 8 TB, edge computing
-   - Snowball: 80-210 TB, large migrations
-   - Snowmobile: 100 PB, datacenter migrations
+   - Snowcone: 8 TB, edge computing (discontinued)
+   - Snowball Edge: 210 TB, large migrations (closed to new customers)
+   - Snowmobile: 100 PB, datacenter migrations (no longer offered)
    - Use when bandwidth is limited
 
  **Application Migration Service (MGN)**
@@ -984,7 +997,7 @@ Backup Account (222222222222)
 **Setup Steps:**
 1. Enable AWS Organizations
 2. Enable cross-account backup in Backup settings
-3. Share backup vault using AWS RAM
+3. Add a vault access policy to the destination vault that allows backup:CopyIntoBackupVault from the source account
 4. Configure backup plan with copy action
 
 #### Backup Policies (AWS Organizations)
@@ -1036,9 +1049,9 @@ Backup Account (222222222222)
 ```
 Day 0-30: Warm Storage (frequent access)
     ↓
-Day 30-90: Cold Storage (compliance)
+Day 30-120: Cold Storage (minimum 90 days in cold storage)
     ↓
-Day 90+: Delete (retention expired)
+Day 120+: Delete (retention expired)
 ```
 
 **Cost Optimization:**
@@ -1230,7 +1243,7 @@ Disaster:
 Production Region (us-east-1)
   ├── Full-scale application (100% capacity)
   └── RDS Multi-AZ Primary
-      ↓ Synchronous replication
+      ↓ Asynchronous cross-Region replication
 DR Region (us-west-2)
   ├── Smaller application stack (30% capacity)
   ├── RDS Read Replica or Aurora Global Database
@@ -1340,7 +1353,7 @@ Disaster: Automatic failover, no intervention needed
 - Track with Migration Hub
 
 **Scenario 4: Limited Bandwidth, 50 TB Data**
-- Solution: AWS Snowball Edge
+- Solution: AWS Snowball Edge (existing Snow customers only; new customers use DataSync or AWS Data Transfer Terminal)
 - Follow up with DataSync for incremental changes
 
 **Scenario 5: Track Multiple Migration Tools**
@@ -1401,10 +1414,10 @@ Disaster: Automatic failover, no intervention needed
 |---------|---------|-------------|
 | **DataSync** | Automated data transfer | 10x faster, agent-based |
 | **DMS** | Database migration | Minimal downtime, CDC |
-| **Migration Hub** | Track migrations | Centralized dashboard |
+| **Migration Hub** (closed to new customers) | Track migrations | Centralized dashboard |
 | **SCT** | Schema conversion | Heterogeneous DB migrations |
 | **MGN** | Server migration | Lift-and-shift, continuous replication |
-| **Snow Family** | Physical data transfer | Limited bandwidth scenarios |
+| **Snow Family** (closed to new customers) | Physical data transfer | Limited bandwidth scenarios |
 | **Transfer Family** | Managed file transfer | SFTP/FTPS to S3/EFS |
 
 ---

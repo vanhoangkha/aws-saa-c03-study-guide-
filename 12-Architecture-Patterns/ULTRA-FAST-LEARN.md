@@ -128,22 +128,22 @@ AWS Service → EventBridge → [Lambda, Step Functions, SQS]
 
 ### 1. Backup & Restore (Cheapest, Slowest)
 - Backup to S3/Glacier
-- **RTO/RPO**: Hours to days
+- **RTO/RPO**: Hours
 - **Cost**: Low
 
 ### 2. Pilot Light (Core services always on)
 - Minimal setup always running
-- **RTO**: 10s of minutes
+- **RPO**: Minutes; **RTO**: Tens of minutes to hours
 - **Cost**: Low-Medium
 
 ### 3. Warm Standby (Scaled-down version)
 - Running but minimal capacity
-- **RTO**: Minutes
+- **RPO**: Seconds; **RTO**: Minutes
 - **Cost**: Medium
 
 ### 4. Multi-Site (Full active-active)
 - Full capacity in multiple regions
-- **RTO**: Real-time
+- **RPO/RTO**: Near zero
 - **Cost**: High
 
 ## Decoupling Patterns
@@ -224,7 +224,7 @@ CloudFront (WAF) → ALB (SG) → Private Subnet (NACL) → EC2 (SG) → Data (E
 
 ### Scenario 3: Big Data Pipeline
 - **Ingest**: Kinesis Data Streams
-- **Process**: Lambda or Kinesis Analytics
+- **Process**: Lambda or Amazon Managed Service for Apache Flink (Kinesis Data Analytics for SQL is retired)
 - **Store**: S3 (Data Lake)
 - **Query**: Athena
 - **Visualize**: QuickSight

@@ -50,7 +50,7 @@ AWS MANAGED KEYS
 
 CUSTOMER MANAGED KEYS (CMK)
 ├── $1/month per key
-├── Optional auto-rotation (yearly)
+├── Optional auto-rotation (90-2,560 days, default 365) + on-demand
 ├── Full control over key policies
 ├── Can be disabled/deleted
 └── Use: Custom requirements, compliance
@@ -185,9 +185,9 @@ WHY:
 ## Rapid-Fire Facts
 
 ### KMS Important Limits
-- **Max request rate**: 5,500/10,000/30,000 (depends on key type)
+- **Max request rate**: 10,000/20,000/100,000 per second for symmetric keys (depends on Region; RSA and ECC keys have separate 1,000 quotas)
 - **Max data size**: 4 KB (use envelope encryption for larger)
-- **Auto-rotation**: Every 365 days (CMK only)
+- **Auto-rotation**: Customer managed keys, configurable 90-2,560 days (default 365); AWS managed keys yearly
 - **Key deletion**: 7-30 day waiting period
 - **Regions**: Multi-region keys available
 
@@ -243,7 +243,7 @@ WHY:
 3. For S3, what level of control?
    SIMPLE → SSE-S3
    AUDIT TRAIL → SSE-KMS
-   YOUR KEYS → SSE-C
+   YOUR KEYS → SSE-C (disabled by default on new buckets since April 2026; enable with PutBucketEncryption)
    BEFORE UPLOAD → Client-side
 ```
 
@@ -254,12 +254,12 @@ ACM (AWS Certificate Manager)
 ├── Auto-renewal
 ├── Integration: ALB, CloudFront, API Gateway
 ├── Regional (except CloudFront = us-east-1)
-└── Cannot export private key
+└── Private key not exportable, except exportable public certs (paid, since June 2025) and private CA certs
 
 IMPORT CERTIFICATES
 ├── Third-party certificates
 ├── Manual renewal
-├── Can export
+├── Cannot be exported from ACM (you already hold the key)
 └── Use when: Existing certs, special requirements
 ```
 

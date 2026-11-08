@@ -161,8 +161,9 @@ Monitoring and management services help you track performance, detect issues, an
 - Uses digital signatures
 
 **CloudTrail Lake**
+- Status (November 2026): closed to new customers since 31 May 2026; existing customers can keep using it. For new setups, query trail logs in S3 with Athena or use CloudWatch.
 - **Query CloudTrail logs** with SQL
-- Retain events for up to **7 years**
+- Retain events for up to **10 years** (3,653 days) with one-year extendable retention pricing, or up to 7 years with seven-year retention pricing
 - Aggregate logs from multiple accounts/regions
 
 ### CloudTrail vs CloudWatch
@@ -318,7 +319,9 @@ Monitoring and management services help you track performance, detect issues, an
 
 ### Support Plans
 
-**Basic/Developer Support**
+Status (November 2026): Developer Support and Business Support closed to new subscriptions on 2 Dec 2025 and are discontinued on 1 Jan 2027. The current plans are Basic, Business Support+, Enterprise Support and Unified Operations.
+
+**Basic Support** (and Developer Support until it is discontinued)
 - **7 core checks** (free):
   - S3 bucket permissions
   - Security groups - specific ports unrestricted
@@ -328,19 +331,21 @@ Monitoring and management services help you track performance, detect issues, an
   - RDS public snapshots
   - Service limits (50 checks)
 
-**Business/Enterprise Support**
+**Business Support+ / Enterprise Support / Unified Operations** (and Business Support until it is discontinued)
 - **All checks** (115+ checks)
 - **CloudWatch integration**
 - **Programmatic access** via AWS Support API
 - **Weekly email notifications**
 
 ### Trusted Advisor Notifications
-- Set up CloudWatch Events for status changes
+- Set up Amazon EventBridge rules for status changes
 - Automate actions based on recommendations
 
 ---
 
-## 6. AWS Health (Personal Health Dashboard)
+## 6. AWS Health (AWS Health Dashboard)
+
+In 2022 AWS merged the Service Health Dashboard and the Personal Health Dashboard into one AWS Health Dashboard. Older questions may still use the old names.
 
 ### What is AWS Health?
 - **Personalized view** of AWS service health
@@ -350,11 +355,11 @@ Monitoring and management services help you track performance, detect issues, an
 
 ### AWS Health Features
 
-**Service Health Dashboard**
+**AWS Health Dashboard - service health** (formerly Service Health Dashboard)
 - Overall status of AWS services (public)
 - Historical information
 
-**Personal Health Dashboard**
+**AWS Health Dashboard - your account health** (formerly Personal Health Dashboard)
 - Personalized view for YOUR resources
 - Alerts for:
   - Scheduled maintenance

@@ -36,7 +36,7 @@ NEED LOAD BALANCE? → ALB/NLB/GWLB
 | **O**n-Demand | 0% | None | Short-term, unpredictable | No |
 | **S**pot | Up to 90% | None | Fault-tolerant | YES (2 min notice) |
 | **R**eserved | Up to 72% | 1-3 years | Steady state | No |
-| **S**avings Plans | Up to 66% | 1-3 years | Flexible | No |
+| **S**avings Plans | Up to 72% (EC2 Instance), 66% (Compute) | 1-3 years | Flexible | No |
 | **D**edicated | 0% | None/1-3 yr | Compliance, licensing | No |
 
 ## Exam Hot Topics
@@ -147,14 +147,14 @@ METADATA (Instance info)
 | Lambda targets | Yes | No | No |
 | Static IP | No | Yes | No |
 | PrivateLink | No | Yes | Yes |
-| Cross-zone LB | (always) | (optional) | Yes |
+| Cross-zone LB | On by default (can turn off per target group) | Off by default | Off by default |
 
 ## Rapid-Fire Facts
 
 ### Reserved Instance Types
 1. **Standard**: 72% discount, can't change instance family
 2. **Convertible**: 66% discount, can change instance family
-3. **Scheduled**: For predictable schedules
+3. **Scheduled** (retired): No longer sold. Use On-Demand Capacity Reservations plus Savings Plans instead
 
 ### Savings Plans Types
 1. **Compute**: Most flexible (EC2, Lambda, Fargate)

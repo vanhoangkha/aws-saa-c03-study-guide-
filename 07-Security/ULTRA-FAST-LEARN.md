@@ -15,7 +15,7 @@
 
 ### KMS Keys
 - **AWS Managed**: Free, auto-rotate yearly, `aws/service-name`
-- **Customer Managed**: $1/month, optional auto-rotate, full control
+- **Customer Managed**: $1/month, optional auto-rotate (90-2,560 days, default 365) or on-demand, full control
 - **AWS Owned**: Free, used by AWS services, no visibility
 
 ### KMS Operations
@@ -42,7 +42,7 @@
 | Auto-rotation | Yes | No |
 | RDS integration | Yes | No |
 | Cost | $0.40/secret | Free (standard) |
-| Max size | 65 KB | 4 KB (standard), 8 KB (advanced) |
+| Max size | 64 KB | 4 KB (standard), 8 KB (advanced) |
 | Use case | Secrets with rotation | Config, parameters |
 
 ## Parameter Store
@@ -64,7 +64,7 @@
 - **Free** for AWS services
 - **Auto-renewal**
 - Works with: ALB, NLB, CloudFront, API Gateway
-- **Cannot export** public certificates (private certificates can)
+- **Export**: Only exportable public certificates (paid option, since June 2025) and private CA certificates can be exported with their private key; standard public certificates cannot
 
 ## WAF (Web Application Firewall)
 - Protect against **web exploits** (Layer 7)
@@ -84,7 +84,7 @@
 ## Shield
 - **DDoS protection**
 - **Shield Standard**: Free, automatic, network/transport layer
-- **Shield Advanced**: $3K/month, enhanced protection, DDoS response team, cost protection
+- **Shield Advanced**: $3K/month, enhanced protection, Shield Response Team (SRT), cost protection
 
 ## GuardDuty
 - **Threat detection** using ML
@@ -95,7 +95,7 @@
 
 ## Inspector
 - **Automated security assessment**
-- **EC2**: Network + host assessments (agent required)
+- **EC2**: Package vulnerabilities + network reachability (SSM Agent, or agentless EBS snapshot scans in hybrid mode)
 - **ECR**: Container image scanning
 - **Lambda**: Code and dependencies
 - Findings with severity, remediation

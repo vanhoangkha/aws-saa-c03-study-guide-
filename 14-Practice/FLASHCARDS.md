@@ -28,7 +28,7 @@ A: Put the instance in Standby state, perform maintenance, then return to InServ
 A: Strong read-after-write consistency for all operations (PUTs, DELETEs, LIST).
 
 **Q: How do you enable WORM (Write Once Read Many) in S3?**
-A: Enable S3 Object Lock at bucket creation (requires versioning).
+A: Enable S3 Object Lock, on a new or an existing bucket (requires versioning).
 
 **Q: What's the difference between S3 signed URLs and signed cookies?**
 A: Signed URLs grant access to individual objects; Signed cookies grant access to multiple objects without changing URLs.

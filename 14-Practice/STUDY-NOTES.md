@@ -36,7 +36,7 @@
 ## Service-Specific Notes
 
 ### Amazon S3
-- **Object Lock**: WORM model, requires versioning, set at bucket creation
+- **Object Lock**: WORM model, requires versioning, can be enabled on new or existing buckets
 - **Lifecycle Policies**: Automate transitions and expiration
 - **Cross-Region Replication**: Requires versioning on source and destination
 - **Server-Side Encryption**: SSE-S3, SSE-KMS, SSE-C options

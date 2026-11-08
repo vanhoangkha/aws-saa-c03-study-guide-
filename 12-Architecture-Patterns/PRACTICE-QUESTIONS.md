@@ -77,7 +77,7 @@ D. Backup and restore
 **Explanation:**
 - Pilot light maintains core services (like database replication)
 - RPO: Minutes (database replication lag)
-- RTO: Hours (time to scale up remaining services)
+- RTO: Tens of minutes to hours (time to start and scale up remaining services)
 - More cost-effective than warm standby
 - Meets the 1-hour RPO and 4-hour RTO requirements
 - Multi-site is expensive and over-engineered
@@ -237,7 +237,7 @@ D. ALB in multiple regions
 **Answer: B**
 
 **Explanation:**
-- CloudFront is a CDN with 400+ edge locations globally
+- CloudFront is a CDN with 700+ edge locations globally
 - Caches content close to users worldwide
 - S3 origin for static content
 - Lowest latency for global distribution
@@ -400,7 +400,7 @@ D. ElastiCache
 - Aurora supports ACID transactions (relational database)
 - Read Replicas scale read traffic (up to 15 replicas)
 - Better performance than standard RDS
-- DynamoDB doesn't support traditional ACID across multiple items
+- DynamoDB supports ACID transactions (up to 100 items across tables), but it is not a relational SQL database
 - Redshift is for analytics, not transactional workloads
 - ElastiCache is for caching, not primary database
 
@@ -534,7 +534,7 @@ D. Use Spot Instances
 
 **Explanation:**
 - Instance Scheduler automatically starts/stops resources on schedule
-- Saves costs during nights and weekends (65% of week)
+- Saves costs during nights and weekends (about 73% of the week)
 - Works with EC2 and RDS
 - Reserved Instances require 1-3 year commitment, doesn't stop resources
 - Serverless may not support all workloads

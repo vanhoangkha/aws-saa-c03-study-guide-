@@ -32,11 +32,11 @@ D. SSE-C (Customer-Provided Keys)
 |--------|----------------|----------|-------------|------|
 | **SSE-S3** | AWS | AWS handles | No | Free |
 | **SSE-KMS (AWS managed)** | AWS | Annual (automatic) | Yes (CloudTrail) | KMS API charges |
-| **SSE-KMS (CMK)** | Customer | On-demand/annual | Yes (CloudTrail) | KMS API charges |
-| **SSE-C** | Customer provides | Customer manages | No | Free |
+| **SSE-KMS (CMK)** | Customer | On-demand or automatic (90-2,560 days) | Yes (CloudTrail) | KMS API charges |
+| **SSE-C** | Customer provides | Customer manages | No | Free (disabled by default on new buckets since April 2026) |
 
 **CMK Benefits**:
-- Custom rotation schedule (enable automatic yearly rotation)
+- Custom rotation schedule (automatic rotation every 90-2,560 days, default 365, or on-demand)
 - Disable/enable keys
 - Define key policies and grants
 - Cross-account access
@@ -325,7 +325,7 @@ D. Amazon Inspector
 
 **Security Hub Workflow**:
 ```
-Multiple Accounts → Security Hub Master Account
+Multiple Accounts → Security Hub administrator account
 ↓
 Findings from GuardDuty, Inspector, Macie, Config, IAM Access Analyzer
 ↓
@@ -588,7 +588,7 @@ D. Security Groups
 
 **Explanation:**
 - **AWS Shield Advanced** provides enhanced DDoS protection with cost protection
-- 24/7 access to DDoS Response Team (DRT)
+- 24/7 access to the Shield Response Team (SRT, formerly DDoS Response Team)
 - Advanced attack detection and mitigation
 - Cost protection against scaling charges during attacks
 
@@ -598,7 +598,7 @@ D. Security Groups
 |---------|----------------|-----------------|
 | **Cost** | Free | $3,000/month |
 | **Protection Level** | Network/Transport (L3/L4) | Network + Application (L3/L4/L7) |
-| **DDoS Response Team** | No | 24/7 access |
+| **Shield Response Team** | No | 24/7 access |
 | **Cost Protection** | No | Yes (scaling charges) |
 | **Advanced Detection** | Basic | Enhanced, real-time |
 | **Health-based Detection** | No | Yes |
@@ -610,7 +610,7 @@ D. Security Groups
 - Protects against scaling charges during DDoS attacks
 - Covers: EC2, ELB, CloudFront, Route 53, Global Accelerator
 
-**2. DDoS Response Team (DRT)**:
+**2. Shield Response Team (SRT)** (requires Business or Enterprise Support):
 - 24/7 expert support
 - Attack analysis and mitigation
 - Custom mitigation rules
@@ -637,7 +637,7 @@ D. Security Groups
 - High-profile websites
 - Cannot tolerate downtime
 - Need cost protection
-- Want expert DRT support
+- Want expert SRT support
 
 **Best Practice Architecture**:
 ```
@@ -879,7 +879,7 @@ D. MFA Delete
 
 **Configuration Requirements**:
 1. **Versioning must be enabled** (object lock requires versioning)
-2. **Object Lock enabled at bucket creation** (cannot enable later)
+2. **Object Lock enabled on the bucket** (at creation or later on an existing bucket; versioning is enabled automatically)
 3. **Default retention settings** (optional, can be per-object)
 
 **Compliance Mode Example**:
@@ -1314,7 +1314,7 @@ aws cloudtrail lookup-events \
 - [ ] Check for backdoors (IAM users, roles)
 
 **Long-term (Weeks)**:
-- [ ] Implement AWS SSO
+- [ ] Implement IAM Identity Center
 - [ ] Enforce MFA organization-wide
 - [ ] Use IAM roles instead of access keys
 - [ ] Implement secrets rotation
@@ -1356,7 +1356,7 @@ ORDER BY eventTime DESC
 5. Enable **AWS GuardDuty** for detection
 6. Rotate credentials regularly
 7. Use **short-lived credentials** (STS)
-8. Implement **AWS SSO** for users
+8. Implement **IAM Identity Center** for users
 
 **References:** Incident Response, Credential Exposure, CloudTrail Analysis, Security Best Practices
 </details>
@@ -1385,7 +1385,7 @@ D. AWS PrivateLink
 
 | Option | Encryption | Speed | Setup | Cost |
 |--------|-----------|-------|-------|------|
-| **Site-to-Site VPN** | Yes (IPsec) | Up to 1.25 Gbps | Minutes | Low |
+| **Site-to-Site VPN** | Yes (IPsec) | Up to 1.25 Gbps per tunnel (5 Gbps with Large Bandwidth Tunnels on Transit Gateway/Cloud WAN) | Minutes | Low |
 | **Direct Connect** | No (but can add) | 1-100 Gbps | Weeks | High |
 | **DX + VPN** | Yes | 1-100 Gbps | Weeks | High |
 | **Internet** | HTTPS only | Variable | Immediate | Very low |
@@ -1434,7 +1434,7 @@ D. AWS PrivateLink
 
 **Option 3: MACsec** (Direct Connect):
 - Layer 2 encryption
-- 10 Gbps and 100 Gbps connections only
+- 10 Gbps, 100 Gbps and 400 Gbps dedicated connections only
 - Not available for all locations
 
 **When to Choose**:
@@ -1546,7 +1546,7 @@ D. Security Group rules
   "Action": "ec2:RunInstances",
   "Resource": "*",
   "Condition": {
-    "StringNotEquals": {
+    "StringNotLike": {
       "ec2:Vpc": "arn:aws:ec2:*:*:vpc/vpc-approved*"
     }
   }
@@ -1585,7 +1585,7 @@ D. Security Group rules
 1. **Organization-wide**: Applies to all accounts
 2. **Preventive**: Blocks before creation
 3. **Cannot override**: Even admins cannot bypass
-4. **Centralized**: Managed from master account
+4. **Centralized**: Managed from the management account
 5. **Inherited**: Applied to OUs and child accounts
 
 **Comparison**:
@@ -1946,7 +1946,7 @@ A company needs to provide Microsoft Active Directory authentication for AWS app
 
 A. AWS Directory Service  
 B. AWS IAM  
-C. AWS SSO  
+C. AWS IAM Identity Center  
 D. Amazon Cognito  
 
 <details>
@@ -1958,7 +1958,7 @@ D. Amazon Cognito
 - AWS Directory Service provides managed Microsoft AD in AWS
 - Supports AD authentication for EC2, RDS, WorkSpaces, and more
 - IAM is for AWS-native identities
-- SSO is for SAML/OIDC-based SSO
+- IAM Identity Center (formerly AWS SSO) is for single sign-on to AWS accounts and applications
 - Cognito is for app user authentication, not AD
 
 **References:** AWS Directory Service, Managed Microsoft AD
@@ -2000,7 +2000,7 @@ D. Amazon Cognito
 **Encryption**:
 - **SSE-S3**: AWS manages, simple, free
 - **SSE-KMS (CMK)**: Full control, rotation, audit trail
-- **SSE-C**: Customer provides keys
+- **SSE-C**: Customer provides keys (disabled by default on new buckets since April 2026)
 - **Object Lock Compliance**: Immutable, regulatory
 
 **Secrets Management**:
@@ -2020,7 +2020,7 @@ D. Amazon Cognito
 
 **DDoS Protection**:
 - **Shield Standard**: Free, automatic, L3/L4
-- **Shield Advanced**: Paid, DRT, cost protection
+- **Shield Advanced**: Paid, Shield Response Team (SRT), cost protection
 - **WAF**: Application-level filtering
 
 **Compliance**:

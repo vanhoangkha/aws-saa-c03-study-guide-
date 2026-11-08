@@ -395,7 +395,7 @@ The AWS Well-Architected Framework helps you understand best practices for desig
 - Enable MFA immediately
 
 **Best Practices:**
-- Create IAM users for daily tasks
+- Use federation through IAM Identity Center (temporary credentials) for daily human access, not long-term IAM users
 - Enable MFA on root account
 - Use strong password
 - Don't share root credentials
@@ -565,9 +565,9 @@ Is there an explicit Allow in SCP? → YES → Check IAM Policy
 - Disallow changes to CloudTrail configuration
 - Disallow deletion of log archive
 - Enable CloudTrail in all regions
-- Enable MFA for root user
 
 **Strongly Recommended Guardrails**:
+- Detect whether MFA is enabled for the root user
 - Enable encryption for EBS volumes
 - Disallow public read/write on S3 buckets
 - Enable AWS Config in all regions
@@ -670,9 +670,10 @@ Total: 2,000 GB → Higher volume pricing tier applies
 - **AWS Cost Anomaly Detection**: ML-powered cost anomaly alerts
 
 **Free Tier:**
-- 12 months free for many services
-- Always free services (Lambda, DynamoDB limits)
-- Trials (short-term free trials)
+- New accounts (created on or after 15 July 2025): USD $100 in credits at sign-up, plus up to $100 more earned through activities
+- Free account plan lasts up to 6 months or until credits are used; upgrade to a paid plan for production
+- Always free services (30+ services with monthly free limits, e.g. Lambda, DynamoDB)
+- Accounts created before 15 July 2025 keep the older 12-month free tier offers
 
 ---
 

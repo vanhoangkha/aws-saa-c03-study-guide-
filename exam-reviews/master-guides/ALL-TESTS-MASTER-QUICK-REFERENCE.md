@@ -22,7 +22,7 @@
 
 ### ECS & Containers
 1. **ECS Task Definition:** Blueprint (JSON) - image, CPU, memory, ports, env vars, IAM roles
-2. **ECS Dynamic Port Mapping:** Requires ALB + awsvpc/bridge network mode
+2. **ECS Dynamic Port Mapping:** Requires ALB or NLB + awsvpc/bridge network mode
 3. **ECS on Outposts:** On-premises AWS, vs Local Zones (low latency to metros)
 
 ### S3 Storage & Performance
@@ -33,7 +33,7 @@
 8. **S3 Performance:** 3500 PUT/s, 5500 GET/s per prefix
 9. **S3 Server Access Logging:** Must enable manually, logs to target bucket
 10. **S3 Pre-Signed URLs:** Temporary access to private objects (configurable expiry)
-11. **S3 Lifecycle Transitions:** Min 30 days before IA/Glacier, cannot transition OUT of Glacier without restore
+11. **S3 Lifecycle Transitions:** 30 days in Standard before IA classes (Glacier any time), cannot transition OUT of Glacier without restore
 12. **S3 Cross-Region Replication:** Versioning required both sides, new objects only
 13. **S3 Requester Pays:** Requester pays transfer/requests, owner pays storage
 14. **S3 Block Public Access:** 4 settings (account + bucket level)
@@ -49,7 +49,7 @@
 ### RDS & Databases
 21. **RDS Multi-AZ:** Sync replication, auto failover (1-2 min), HA (same region)
 22. **RDS Read Replicas:** Async replication, read scaling, can be cross-region
-23. **RDS IAM Authentication:** Token-based (15 min), no passwords, MySQL/PostgreSQL/Aurora
+23. **RDS IAM Authentication:** Token-based (15 min), no passwords, MySQL/MariaDB/PostgreSQL/Aurora
 24. **RDS Storage Auto Scaling:** Auto-increase when <10% free space
 25. **RDS Blue/Green:** Test changes on clone, 1-min switchover downtime
 26. **Aurora Global Database:** <1s replication lag, <1 min failover, up to 10 secondary regions *(updated 2025, was 5)*
@@ -80,7 +80,7 @@
 ### CloudFront & Global
 44. **CloudFront + ACM:** Certificate MUST be in us-east-1 (N. Virginia) - NO EXCEPTIONS
 45. **CloudFront Origin Failover:** Origin groups with primary + secondary
-46. **CloudFront OAI:** Access private S3 without making bucket public
+46. **CloudFront OAC (OAI is legacy):** Access private S3 without making bucket public
 47. **CloudFront Cache Behaviors:** Path-based routing (/api/*, /images/*), priority order
 48. **CloudFront Signed URLs:** Single file access
 49. **CloudFront Signed Cookies:** Multiple files, don't change URLs
@@ -140,7 +140,7 @@
 
 ### EC2 Pricing
 87. **Standard RI:** 72% discount, can't change type, 1-3 years
-88. **Convertible RI:** 54% discount, can change instance type
+88. **Convertible RI:** 66% discount, can change instance type
 89. **Regional RI:** Flexible across AZs + sizes (within family)
 90. **Zonal RI:** Capacity reservation in specific AZ
 91. **Savings Plans:** $/hour commitment, more flexible than RI
@@ -250,7 +250,7 @@
 
 **Load Balancer Features:**
 - Path-based routing → **ALB**
-- ECS dynamic ports → **ALB**
+- ECS dynamic ports → **ALB or NLB**
 - Static IP → **NLB**
 - TCP/UDP → **NLB**
 
@@ -304,7 +304,7 @@
 - [ ] Global Accelerator: **Global (anycast IPs)**
 
 ### Must Know Service Limits
-- [ ] VPC peering: **125 per VPC**
+- [ ] VPC peering: **50 per VPC default (max 125)**
 - [ ] Spread placement: **7 instances per AZ**
 - [ ] Partition placement: **7 partitions per AZ**
 - [ ] S3 multipart: **10,000 parts max**

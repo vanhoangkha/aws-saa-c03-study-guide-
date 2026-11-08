@@ -224,7 +224,7 @@ D. Instance Store
 
 **EFS Performance Modes**:
 - **General Purpose**: Low latency, most workloads
-- **Max I/O**: Higher latency, massive parallel access
+- **Max I/O**: Higher latency, massive parallel access (previous generation; AWS recommends General Purpose for all file systems)
 
 **EFS Throughput Modes**:
 - **Bursting**: Throughput scales with size
@@ -258,7 +258,7 @@ D. AWS Lambda functions
 1. **Frequent Access**: Default, accessed frequently
 2. **Infrequent Access**: 30 days no access
 3. **Archive Instant Access**: 90 days no access
-4. **Archive Access** (optional): 90-270 days no access
+4. **Archive Access** (optional): 90-730 days no access
 5. **Deep Archive Access** (optional): 180-730 days no access
 
 **Intelligent-Tiering vs Lifecycle**:
@@ -627,7 +627,7 @@ D. S3 Lifecycle Policies
 
 **Requirements**:
 - Versioning must be enabled
-- Set at bucket creation
+- Can be enabled at bucket creation or on an existing bucket
 - Retention period or legal hold
 
 **Use Cases**:

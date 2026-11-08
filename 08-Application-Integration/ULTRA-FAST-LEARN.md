@@ -116,15 +116,16 @@ Application → SNS Topic → [SQS Queue 1, SQS Queue 2, Lambda]
 - **Retention**: 1-365 days
 - **Consumers**: Lambda, Kinesis Data Analytics, EC2
 
-### Kinesis Data Firehose
+### Amazon Data Firehose (formerly Kinesis Data Firehose)
 - **Load streaming data** to destinations
-- **Near real-time** (60 sec buffer)
+- **Near real-time** (buffer interval 0-900 sec)
 - **Destinations**: S3, Redshift, OpenSearch, Splunk, HTTP
 - **Auto-scaling**, no shards to manage
 - **Transformations**: Lambda
 
-### Kinesis Data Analytics
-- **SQL queries** on streaming data
+### Kinesis Data Analytics (now Managed Service for Apache Flink)
+- Status (November 2026): the SQL version is discontinued (apps deleted from 27 Jan 2026). Use Amazon Managed Service for Apache Flink.
+- **Apache Flink** applications (or SQL in Flink Studio) on streaming data
 - Real-time analytics
 - **Input**: Kinesis Data Streams, Firehose
 - **Output**: S3, Redshift, OpenSearch, Streams

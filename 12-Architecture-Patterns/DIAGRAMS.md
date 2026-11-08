@@ -142,7 +142,7 @@ graph TB
         
         ASG2["Auto Scaling Group<br/>EC2 Instances"]
         
-        RDS2["Aurora Global Database<br/>Secondary Region<br/>Read/Write"]
+        RDS2["Aurora Global Database<br/>Secondary Region<br/>Read-only"]
         
         S3_2["S3 Bucket<br/>eu-west-1"]
         
@@ -154,13 +154,13 @@ graph TB
     Route53 -->|US Traffic| ALB1
     Route53 -->|EU Traffic| ALB2
     
-    RDS1 <-.Async Replication<br/>< 1 second.-> RDS2
+    RDS1 -.Async Replication<br/>< 1 second.-> RDS2
     S3_1 <-.S3 Cross-Region<br/>Replication.-> S3_2
     
     DynamoDB["DynamoDB Global Tables<br/>Multi-region, multi-active"] --> ASG1
     DynamoDB --> ASG2
     
-    Benefits["Benefits:<br/>Low latency globally<br/>High availability<br/>Disaster recovery<br/>Read/write in any region<br/>Increased cost"]
+    Benefits["Benefits:<br/>Low latency globally<br/>High availability<br/>Disaster recovery<br/>Reads in any region; Aurora writes go to the primary Region<br/>DynamoDB Global Tables: writes in any region<br/>Increased cost"]
     
     classDef style1 fill:#8C4FFF
     class Route53 style1
@@ -177,13 +177,13 @@ graph TB
 ```mermaid
 graph TB
     subgraph Backup_Restore_Group["Backup & Restore"]
-        BR["Backup & Restore<br/>Lowest cost<br/>RTO: Hours-Days<br/>RPO: Hours"]
+        BR["Backup & Restore<br/>Lowest cost<br/>RTO: Hours<br/>RPO: Hours"]
         
         BR_Desc["• Data backed up to S3<br/>• Restore when needed<br/>• AMIs, DB snapshots<br/>• Manual or automated<br/>Use: Non-critical systems"]
     end
     
     subgraph Pilot_Light_Group["Pilot Light"]
-        PL["Pilot Light<br/>Low cost<br/>RTO: Minutes-Hours<br/>RPO: Minutes"]
+        PL["Pilot Light<br/>Low cost<br/>RTO: Tens of minutes to hours<br/>RPO: Minutes"]
         
         PL_Desc["• Core services always running<br/>• Database replication<br/>• Scale up when needed<br/>• Critical data ready<br/>Use: Core business systems"]
     end
@@ -195,7 +195,7 @@ graph TB
     end
     
     subgraph Multi_Site_Active_Active_Group["Multi-Site Active/Active"]
-        MS["Multi-Site<br/>Highest cost<br/>RTO: Real-time<br/>RPO: Near-zero"]
+        MS["Multi-Site<br/>Highest cost<br/>RTO: Near-zero<br/>RPO: Near-zero"]
         
         MS_Desc["• Full production in multiple regions<br/>• Active-active traffic<br/>• Instant failover<br/>• Route 53 routing<br/>Use: Mission-critical systems"]
     end
@@ -369,7 +369,7 @@ graph TB
         ALB --> Service2["Product Service<br/>ECS Task<br/>Container"]
         ALB --> Service3["Order Service<br/>ECS Task<br/>Container"]
         
-        Service1 --> ServiceMesh["AWS App Mesh<br/>Service mesh<br/>Traffic management"]
+        Service1 --> ServiceMesh["AWS App Mesh, retired 30 Sep 2026<br/>Use Amazon ECS Service Connect<br/>Traffic management"]
         Service2 --> ServiceMesh
         Service3 --> ServiceMesh
     end

@@ -93,6 +93,7 @@ AWS storage services for SAA-C03 exam: S3, EBS, EFS, Storage Gateway, and Snow F
 - Upload parts in parallel
 
 **S3 Select:**
+- Status (November 2026): closed to new customers; existing customers can keep using it. For SQL over S3 data, new designs use Amazon Athena
 - Retrieve subset of data using SQL
 - Filter at S3 (less data transfer)
 - Up to 400% faster, 80% cheaper
@@ -177,15 +178,15 @@ Limits follow the current AWS documentation: gp3 goes up to 80,000 IOPS, 2,000 M
 - Use: Web serving, CMS
 
 **2. Max I/O:**
+- Status: previous generation. AWS recommends General Purpose for all file systems; Max I/O is not supported with Elastic throughput or One Zone
 - Higher latency
-- Higher aggregate throughput
+- Designed for highly parallel workloads
 - Use: Big data, media processing
 
 ### EFS Throughput Modes
 
 **1. Bursting:**
 - Throughput scales with file system size
-- Default mode
 
 **2. Provisioned:**
 - Set throughput independent of size
@@ -194,6 +195,7 @@ Limits follow the current AWS documentation: gp3 goes up to 80,000 IOPS, 2,000 M
 **3. Elastic:**
 - Automatically scales throughput
 - Pay for what you use
+- Default and recommended mode
 
 ### EFS Storage Classes
 
@@ -234,6 +236,8 @@ Limits follow the current AWS documentation: gp3 goes up to 80,000 IOPS, 2,000 M
 
 ### Overview
 **Physical devices** for data migration and edge computing
+
+**Status (November 2026):** no Snow Family device is available to new customers (Snowcone and Snowmobile were retired earlier). Existing customers can keep using Snowball Edge. New projects use AWS DataSync for online transfer, AWS Data Transfer Terminal for physical transfer, or AWS Outposts for edge computing. The devices below stay here because exam questions may still mention them.
 
 ### Devices
 
@@ -338,7 +342,7 @@ Need storage?
 → **S3 Glacier Deep Archive**
 
 **Scenario**: *Transfer 50 TB data from on-premises to AWS, limited bandwidth*
-→ **AWS Snowball Edge**
+→ **AWS Snowball Edge** (closed to new customers)
 
 **Scenario**: *Windows file shares with Active Directory*
 → **FSx for Windows File Server**
@@ -372,10 +376,10 @@ Need storage?
 - Linux only (NFSv4.1)
 - Can mount to 1000s of instances
 
-**Snow Family:**
-- Snowcone: 8-14 TB
+**Snow Family** (closed to new customers):
+- Snowcone: 8-14 TB (retired)
 - Snowball: 42-80 TB
-- Snowmobile: 100 PB
+- Snowmobile: 100 PB (retired)
 - Use when transfer > 1 week over network
 
 ### Exam Keyword Mapping
@@ -443,7 +447,7 @@ D) Use AWS DataSync
 
 **Answer: C**
 
-At 10 Mbps, transferring 50 TB would take approximately 46 days. AWS Snowball Edge is designed for this scenario - physical device shipped to customer, data loaded locally, then shipped to AWS.
+At 10 Mbps, transferring 50 TB would take about 460 days (more than a year). AWS Snowball Edge was designed for this scenario - physical device shipped to customer, data loaded locally, then shipped to AWS. Status (November 2026): Snowball Edge is closed to new customers; a new project would use AWS Data Transfer Terminal, or a faster link with AWS DataSync.
 </details>
 
 ---

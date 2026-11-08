@@ -350,13 +350,15 @@ flowchart TD
     SCP -->|Yes| Boundary{"Permission Boundary<br/>Allows?"}
     
     Boundary -->|No| Deny
-    Boundary -->|Yes| Identity{"Identity Policy<br/>Allows?"}
+    Boundary -->|Yes| Account{"Principal and resource<br/>in same account?"}
     
-    Identity -->|No| Resource{"Resource Policy<br/>Allows?"}
-    Identity -->|Yes| Allow(["ALLOW"])
+    Account -->|Yes| Same{"Identity policy OR<br/>resource policy allows?"}
+    Account -->|No - cross-account| Cross{"Identity policy AND<br/>resource policy allow?"}
     
-    Resource -->|Yes| Allow
-    Resource -->|No| Deny
+    Same -->|Yes| Allow(["ALLOW"])
+    Same -->|No| Deny
+    Cross -->|Yes| Allow
+    Cross -->|No| Deny
     
     classDef style1 fill:#232F3E
     class Start style1
@@ -580,7 +582,7 @@ flowchart TD
     Root --> RootNoUse[Don't use Root for daily tasks]
     Root --> RootKeys[Delete Root Access Keys]
     
-    RootNoUse --> Users[Create Individual IAM Users]
+    RootNoUse --> Users["Federate Human Users<br/>IAM Identity Center"]
     Users --> Groups[Use Groups for Permissions]
     Groups --> LeastPriv[Apply Least Privilege]
     

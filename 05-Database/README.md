@@ -99,7 +99,7 @@ AWS offers a range of database services for different use cases. This module cov
 - **AWS proprietary** database (cloud-optimized)
 - Compatible with **PostgreSQL and MySQL**
 - **5x performance of MySQL**, **3x performance of PostgreSQL**
-- Storage auto-scales: **10 GB to 128 TB**
+- Storage auto-scales: **10 GB to 256 TiB** (current engine versions; 128 TiB on older versions)
 - Up to **15 Read Replicas** (faster replication than RDS)
 - **Automatic failover** in less than 30 seconds
 - 20% more expensive than RDS
@@ -136,6 +136,7 @@ AWS offers a range of database services for different use cases. This module cov
 - Example: Dev/test environments
 
 **Aurora Multi-Master**
+- **Status (November 2026)**: retired. Multi-master clusters were available only on Aurora MySQL version 1, which reached end of life on 28 February 2023.
 - **Continuous write availability**
 - Every node performs reads and writes
 - Immediate failover (high availability for writes)
@@ -220,7 +221,7 @@ AWS offers a range of database services for different use cases. This module cov
 - **Microsecond latency**
 - No application code changes
 - 5-minute TTL (default)
-- Multi-AZ (3 nodes minimum)
+- Multi-AZ (at least 3 nodes recommended for production; 1-2 node clusters are not fault-tolerant)
 - Solves Hot Key problem
 
 **DynamoDB Streams**
@@ -239,7 +240,7 @@ AWS offers a range of database services for different use cases. This module cov
 - **Multi-region, multi-active** replication
 - Active-active replication
 - Low latency for global users
-- **DynamoDB Streams must be enabled**
+- Replication uses DynamoDB Streams (enabled automatically on multi-Region eventual consistency replicas; multi-Region strong consistency tables don't use Streams)
 - Read and write in any region
 
 **DynamoDB Time To Live (TTL)**
@@ -402,7 +403,7 @@ AWS offers a range of database services for different use cases. This module cov
 ### What is DocumentDB?
 - **MongoDB-compatible** document database
 - Fully managed
-- Storage auto-scales to 64 TB
+- Storage auto-scales to 128 TiB (256 TiB on engine version 8.0 and later)
 - **3 AZ replication**
 - Millions of requests/second
 - Similar to Aurora for MongoDB
@@ -438,6 +439,7 @@ AWS offers a range of database services for different use cases. This module cov
 ## 9. Amazon QLDB (Quantum Ledger Database)
 
 ### What is QLDB?
+- **Status (November 2026)**: Amazon QLDB has been discontinued.
 - **Ledger database**
 - **Immutable** system of record
 - Cryptographically verifiable
@@ -450,6 +452,7 @@ AWS offers a range of database services for different use cases. This module cov
 ## 10. Amazon Timestream
 
 ### What is Timestream?
+- **Status**: Amazon Timestream for LiveAnalytics closed to new customers on 20 June 2025. AWS recommends Amazon Timestream for InfluxDB for new customers.
 - **Time series database**
 - Serverless, auto-scaling
 - Store and analyze trillions of events/day
@@ -471,7 +474,7 @@ AWS offers a range of database services for different use cases. This module cov
 | **DocumentDB** | NoSQL (Document) | MongoDB workloads |
 | **Neptune** | Graph | Social networks, fraud detection |
 | **Keyspaces** | NoSQL (Wide Column) | Cassandra workloads |
-| **QLDB** | Ledger | Immutable, verifiable history |
+| **QLDB** (retired) | Ledger | Immutable, verifiable history |
 | **Timestream** | Time Series | IoT, metrics, events |
 
 ---

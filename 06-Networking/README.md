@@ -57,14 +57,14 @@ Networking is a critical component of AWS Solutions Architecture. This module co
 - **Created in specific AZ**
 - Uses Elastic IP
 - **Pay per hour + data processed**
-- **5 Gbps bandwidth** (scales to 45 Gbps)
+- **5 Gbps bandwidth** (scales automatically to 100 Gbps)
 - High availability within AZ (create in multiple AZs for redundancy)
 
 **NAT Gateway vs NAT Instance**:
 | Feature | NAT Gateway | NAT Instance |
 |---------|-------------|--------------|
 | Managed | AWS managed | Self-managed |
-| Bandwidth | 5-45 Gbps | Depends on instance type |
+| Bandwidth | 5-100 Gbps | Depends on instance type |
 | HA | HA within AZ | Use script for failover |
 | Cost | Pay per hour + GB | Instance cost |
 | Security Groups | Cannot be associated | Can be used |
@@ -161,7 +161,7 @@ Rule #  Type        Protocol  Port    Destination     Allow/Deny
 ### VPC Endpoints
 - Access AWS services **without Internet Gateway**
 - Stay within AWS private network
-- **Powered by AWS PrivateLink**
+- Interface endpoints are **powered by AWS PrivateLink** (gateway endpoints are not)
 
 #### Interface Endpoints (powered by PrivateLink)
 - **ENI** with private IP in your subnet
@@ -222,11 +222,11 @@ pl-xxxxx (S3 prefix)  vpce-xxxxx
 - **Takes 1+ month to establish**
 
 **Connection Types**:
-- **Dedicated Connection**: 1 Gbps, 10 Gbps, 100 Gbps
-- **Hosted Connection**: 50 Mbps to 10 Gbps (via AWS Partner)
+- **Dedicated Connection**: 1 Gbps, 10 Gbps, 100 Gbps, 400 Gbps
+- **Hosted Connection**: 50 Mbps to 25 Gbps (via AWS Partner)
 
 **Direct Connect Gateway**:
-- Connect to **multiple VPCs** in different regions (same account)
+- Connect to **multiple VPCs** in different regions (virtual private gateways can belong to any AWS account)
 
 **Direct Connect + VPN**:
 - VPN over Direct Connect for IPsec-encrypted connection
@@ -340,7 +340,7 @@ Record 3: 10% traffic (weight 10)
 
 ### What is CloudFront?
 - **Content Delivery Network (CDN)**
-- **400+ Points of Presence** globally
+- **700+ Points of Presence** globally
 - DDoS protection, AWS Shield, AWS WAF integration
 - Cache content at edge locations
 - Reduce latency for users
@@ -425,7 +425,7 @@ Record 3: 10% traffic (weight 10)
 | **Runtime** | JavaScript | Node.js, Python |
 | **Triggers** | Viewer request/response | All 4 CloudFront events |
 | **Execution** | Edge location | Regional edge cache |
-| **Max duration** | < 1 ms | 5-10 seconds |
+| **Max duration** | < 1 ms | 30 seconds |
 | **Max memory** | 2 MB | 128 MB - 10 GB |
 | **Use case** | Lightweight, high-scale | CPU-intensive, network access |
 | **Pricing** | $0.10 per million | $0.60 per million + duration |

@@ -28,12 +28,12 @@
 | Service | Type | Use Case | Key Specs |
 |---------|------|----------|-----------|
 | **S3** | Object | Files, backups | 11 9's durability, unlimited |
-| **EBS** | Block | EC2 boot/data volumes | AZ-specific, up to 64,000 IOPS |
+| **EBS** | Block | EC2 boot/data volumes | AZ-specific, up to 256,000 IOPS (io2) |
 | **EFS** | File (NFS) | Shared Linux storage | Multi-AZ, petabyte-scale |
 | **FSx Windows** | File (SMB) | Windows workloads | Active Directory integration |
 | **FSx Lustre** | File | HPC, ML | High throughput, S3 integration |
 | **Storage Gateway** | Hybrid | On-prem to cloud | File, Volume, Tape gateways |
-| **Snow Family** | Physical | Offline data transfer | TB to EB scale |
+| **Snow Family** | Physical | Offline data transfer (closed to new customers) | TB to EB scale |
 
 ### Database
 
@@ -46,7 +46,7 @@
 | **Redshift** | Data Warehouse | OLAP, analytics | Columnar, petabyte-scale |
 | **DocumentDB** | NoSQL (Document) | MongoDB workloads | MongoDB-compatible |
 | **Neptune** | Graph | Social networks | Billions of relationships |
-| **QLDB** | Ledger | Immutable records | Cryptographically verifiable |
+| **QLDB** (discontinued) | Ledger | Immutable records | AWS points to Aurora PostgreSQL |
 
 ### Networking
 
@@ -116,10 +116,10 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 | **VPC CIDR** | /16 to /28 | 5 VPCs per region (soft) |
 | **Security Groups per Instance** | 5 | Can be increased |
 | **Rules per Security Group** | 60 inbound, 60 outbound | Soft limit |
-| **Read Replicas** | RDS: 5, Aurora: 15 | Per database |
+| **Read Replicas** | RDS: 15 (Oracle: 5), Aurora: 15 | Per database |
 | **EBS IOPS** | io2: 256,000, gp3: 80,000, io1: 64,000 | Per volume |
 | **DynamoDB Item Size** | 400 KB | Max item size |
-| **CloudFront** | 25 distributions | Soft limit |
+| **CloudFront** | 500 distributions | Soft limit |
 
 ---
 
@@ -140,7 +140,7 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 
 **Aurora vs RDS**
 - **Aurora**: 5x faster, auto-scaling storage, 15 Read Replicas
-- **RDS**: Standard MySQL/PostgreSQL, 5 Read Replicas
+- **RDS**: Standard MySQL/PostgreSQL, 15 Read Replicas (Oracle: 5)
 
 ### Load Balancers
 

@@ -99,8 +99,8 @@
 ## Trusted Advisor
 - **Best practice recommendations**
 - **5 categories**: Cost optimization, performance, security, fault tolerance, service limits
-- **Free**: 7 core checks (Basic/Developer support)
-- **Paid**: All checks (Business/Enterprise support)
+- **Free**: 7 core checks (Basic support; Developer support is closed to new customers and discontinued 1 Jan 2027)
+- **Paid**: All checks (Business Support+, Enterprise Support, Unified Operations; Business support discontinued 1 Jan 2027)
 
 ### Core Checks (Free)
 - S3 bucket permissions
@@ -163,12 +163,12 @@
 - Maintain desired state configuration
 - Apply configurations automatically
 
-## Personal Health Dashboard
+## AWS Health Dashboard - your account health (formerly Personal Health Dashboard)
 - **Alerts and guidance** for AWS events
 - **Proactive notifications** for scheduled activities
 - **Personalized** view (not general AWS status)
 
-## Service Health Dashboard
+## AWS Health Dashboard - service health (formerly Service Health Dashboard)
 - **Public AWS service status**
 - **General** (not account-specific)
 - Historical data
@@ -183,7 +183,7 @@
 - **SSM Session Manager**: SSH without SSH/bastion
 - **SSM Parameter Store**: Free config storage
 - **SSM Run Command**: Execute on multiple instances
-- **Personal Health Dashboard**: Account-specific alerts
+- **AWS Health Dashboard** (formerly Personal Health Dashboard): Account-specific alerts
 - **Detailed Monitoring**: 1-min intervals (extra cost)
 - **CloudWatch Logs retention**: 1 day to 10 years
 
