@@ -224,9 +224,7 @@ STRATEGIES:
  Watch for "MOST", "LEAST", "BEST" keywords
 
 MINDSET:
-├── Stay calm, you know this!
 ├── Skip hard questions, come back later
-├── Trust your preparation
 └── Every question is independent
 ```
 
@@ -317,24 +315,23 @@ ROUTE 53:
 
 ### Day Before Exam
 ```
-□ Confirm exam time & location/setup
-□ Test internet connection (if online)
-□ Prepare ID (government-issued)
-□ Review exam strategies (this page)
-□ Quick review of weak areas
-□ Get good sleep (important!)
-□ Light exercise (reduces stress)
-□ Avoid cramming (trust your prep)
+[ ] Confirm exam time & location/setup
+[ ] Test internet connection (if online)
+[ ] Prepare ID (government-issued)
+[ ] Review exam strategies (this page)
+[ ] Quick review of weak areas
+[ ] Get good sleep (important!)
+[ ] Light exercise (reduces stress)
+[ ] Avoid cramming (trust your prep)
 ```
 
 ### Exam Day
 ```
-□ Eat light meal
-□ Arrive 15 min early (or log in early)
-□ Bathroom break before starting
-□ Clear workspace (if online proctored)
-□ Deep breath, stay calm
-□ Remember: You've got this!
+[ ] Eat light meal
+[ ] Arrive 15 min early (or log in early)
+[ ] Bathroom break before starting
+[ ] Clear workspace (if online proctored)
+[ ] Deep breath, stay calm
 ```
 
 ## Common Traps to Avoid
@@ -395,7 +392,6 @@ TRAP 6: Similar sounding services
 9. CloudWatch vs CloudTrail? (Metrics vs API logs)
 10. SNS vs SQS? (Pub/sub vs Queue)
 
-If you answered all correctly: You're ready!
 ```
 
 ### Remember
@@ -409,8 +405,6 @@ If you answered all correctly: You're ready!
  Thousands have passed before you
  You can too!
 
-GOOD LUCK!
-You've got this!
 ```
 
 ## Time Spent on Fast-Learn Materials
@@ -440,10 +434,10 @@ COMPARE TO:
 
 ---
 
-**You're now equipped with fast-learning materials for ALL modules!**
+**You're now equipped with fast-learning materials for ALL modules.**
 **Go crush that exam! **
 
 ---
 
 For AWS Machine Learning service notes and exam questions, see:
-[AWS-ML-SERVICES-NOTES.md](AWS-ML-SERVICES-NOTES.md)
+[AWS-ML-SERVICES-NOTES.md](../11-Analytics/AWS-ML-SERVICES-NOTES.md)

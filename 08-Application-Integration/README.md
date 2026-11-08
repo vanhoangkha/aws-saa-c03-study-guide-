@@ -417,16 +417,16 @@ Example Filter Policy:
 
 ## Key Takeaways
 
- SQS for decoupling, SNS for pub/sub fanout
- SQS FIFO for exactly-once, ordered processing
- EventBridge for event-driven architectures (AWS + SaaS events)
- Step Functions for workflow orchestration
- Kinesis for real-time streaming data
- Use SNS + SQS fanout pattern for multiple consumers
- SQS visibility timeout prevents duplicate processing
- EventBridge has built-in integrations with 20+ AWS services
- Choose SQS/SNS for new apps, Amazon MQ for migrations
- Kinesis Data Streams for real-time, Firehose for near real-time
+ SQS for decoupling, SNS for pub/sub fanout  
+ SQS FIFO for exactly-once, ordered processing  
+ EventBridge for event-driven architectures (AWS + SaaS events)  
+ Step Functions for workflow orchestration  
+ Kinesis for real-time streaming data  
+ Use SNS + SQS fanout pattern for multiple consumers  
+ SQS visibility timeout prevents duplicate processing  
+ EventBridge has built-in integrations with 20+ AWS services  
+ Choose SQS/SNS for new apps, Amazon MQ for migrations  
+ Kinesis Data Streams for real-time, Firehose for near real-time  
 
 ---
 

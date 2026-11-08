@@ -79,7 +79,7 @@ The full version, with examples and common traps, is in [FAST-LEARN.md](FAST-LEA
 
 ## 5. Deeper Review Material
 
-- [Practice-test reviews](../exam-reviews/START-HERE.md): detailed write-ups of past practice attempts, with condensed versions and quick-reference sheets
+- [Practice-test reviews](../exam-reviews/README.md): detailed write-ups of past practice attempts, with condensed versions and quick-reference sheets
 - [Study progress tracker](../exam-reviews/STUDY-PROGRESS-TRACKER.md): longer-term tracking across attempts
 - [Study guides](../docs/study-guides/STUDY-ROADMAP.md): roadmap, flashcards and quick-study notes
 

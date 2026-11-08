@@ -1,7 +1,7 @@
 # Module 11: Analytics Services
 
 ## Overview
-AWS provides a comprehensive suite of analytics services for collecting, processing, analyzing, and visualizing data at any scale. This module covers key analytics services essential for the Solutions Architect certification.
+AWS provides a suite of analytics services for collecting, processing, analyzing, and visualizing data at any scale. This module covers key analytics services essential for the Solutions Architect certification.
 
 ## Learning Objectives
 - Query data in S3 using Amazon Athena

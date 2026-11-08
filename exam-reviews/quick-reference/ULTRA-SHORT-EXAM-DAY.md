@@ -92,7 +92,7 @@
 16. **S3 Glacier Restore ≠ Change storage class directly**
     - Must: Restore → Temp copy → Copy to target class → Delete original
     - TRAP: "Change bucket default class to migrate objects"
-    - Default class only affects NEW uploads!
+    - Default class only affects NEW uploads.
 
 17. **S3 LIST operations = Expensive at scale**
     - No: TRAP: Using LIST for metadata queries on millions of objects
@@ -954,7 +954,7 @@
 - [ ] Review this cheat sheet (15 mins)
 - [ ] Review critical cards 1-10
 - [ ] Light meal + hydrate
-- [ ] Relax, you've got this!
+- [ ] Relax, you've got this.
 
 ### During Exam - Quick Lookup
 - **VPC** → Gateway endpoints (S3/DDB), Transit Gateway (ECMP)
@@ -987,7 +987,6 @@
 
 ---
 
-**YOU'VE GOT THIS! **
 
 **Study Time:** 20 minutes  
 **Coverage:** All 7 Practice Tests + 107 Edge Cases  

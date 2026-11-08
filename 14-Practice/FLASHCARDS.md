@@ -126,5 +126,5 @@ A: Enable AZ rebalancing with target tracking scaling policy.
 
 ---
 
-*Review these flashcards daily for optimal retention!*
+*Review these flashcards daily for optimal retention.*
 

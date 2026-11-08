@@ -78,7 +78,7 @@ PRIVATE SUBNET
 └── Not directly accessible from internet
 ```
 
-**Key**: Route table determines public vs private!
+**Key**: Route table determines public vs private.
 
 ### 3. VPC Connectivity Options
 | Option | Use Case | Bandwidth | Cost |

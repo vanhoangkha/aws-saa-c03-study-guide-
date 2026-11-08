@@ -367,7 +367,7 @@ function render() {
   const q = S.qs[S.i], sel = S.ans[S.i] || [], rev = S.feedback && S.revealed[S.i], n = S.qs.length, ord = q.order;
   const answered = Object.keys(S.ans).length;
   mid.innerHTML = `<span class="ttl">${esc(S.title)}</span><div class="prog" title="${answered}/${n} answered"><i style="width:${100 * answered / n}%"></i></div><span class="small" style="color:#c8d0dc;white-space:nowrap">${answered}/${n}</span>
-    <span class="spacer"></span>${S.limit ? `<span class="small" id="elapsed" style="color:#c8d0dc;white-space:nowrap">elapsed ${fmt(S.elapsed || 0)}</span>` : ""}<span class="timer ${S.paused ? "low" : S.limit && S.left < 600 ? "low" : ""}" id="timer" title="${S.limit ? "Time left" : "Time elapsed"}">${S.limit ? fmt(S.left) + " left" : fmt(S.elapsed || 0)}</span><button class="ibtn" id="pause" title="Pause (P)">${S.paused ? "▶ Resume" : "Pause"}</button><button class="ibtn" id="quit">Save &amp; exit</button>`;
+    <span class="spacer"></span>${S.limit ? `<span class="small" id="elapsed" style="color:#c8d0dc;white-space:nowrap">elapsed ${fmt(S.elapsed || 0)}</span>` : ""}<span class="timer ${S.paused ? "low" : S.limit && S.left < 600 ? "low" : ""}" id="timer" title="${S.limit ? "Time left" : "Time elapsed"}">${S.limit ? fmt(S.left) + " left" : fmt(S.elapsed || 0)}</span><button class="ibtn" id="pause" title="Pause (P)">${S.paused ? "Resume" : "Pause"}</button><button class="ibtn" id="quit">Save &amp; exit</button>`;
   const pb = document.getElementById("pause"); if (pb) pb.onclick = togglePause;
   if (S.paused) {
     app.innerHTML = `<div class="card" style="max-width:560px;margin:8vh auto;text-align:center"><h2>Exam paused</h2>

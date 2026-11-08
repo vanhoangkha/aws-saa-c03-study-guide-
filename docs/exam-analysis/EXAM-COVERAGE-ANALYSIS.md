@@ -32,7 +32,7 @@ After thorough analysis of all 13 modules against the official AWS Certified Sol
 
 ### 1. **AWS Organizations** (Module 01 & 02)
 **Current Status**: Mentioned briefly  
-**Needs**: Comprehensive section with:
+**Needs**: A section with:
 - Organizational Units (OUs)
 - Service Control Policies (SCPs) - **CRITICAL FOR EXAM**
 - Consolidated billing
@@ -85,7 +85,7 @@ After thorough analysis of all 13 modules against the official AWS Certified Sol
 
 ### 5. **Disaster Recovery Strategies** (Module 12)
 **Current Status**: Partial coverage  
-**Needs**: Comprehensive section on:
+**Needs**: A section on:
 - **RTO (Recovery Time Objective)** and **RPO (Recovery Point Objective)**
 - Four DR strategies:
   1. **Backup & Restore** (cheapest, slowest)

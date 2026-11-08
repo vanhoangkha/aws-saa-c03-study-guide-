@@ -240,5 +240,5 @@ CloudFront (WAF) → ALB (SG) → Private Subnet (NACL) → EC2 (SG) → Data (E
 - **Microservices**: ECS/EKS or Lambda
 - **Cost**: Reserved/Savings Plans, right-size, monitor
 - **Performance**: Right resources, CDN, caching
-- **Read scenario carefully**: Match pattern to requirements!
+- **Read scenario carefully**: Match pattern to requirements.
 

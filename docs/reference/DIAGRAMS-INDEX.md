@@ -2,7 +2,7 @@
 
 ## Overview
 
-This directory contains comprehensive Mermaid diagram documentation for the AWS Certified Solutions Architect - Associate (SAA-C03) exam preparation. Each module includes visual representations of AWS services, architectures, and concepts to enhance understanding and retention.
+This directory contains Mermaid diagram documentation for the AWS Certified Solutions Architect - Associate (SAA-C03) exam preparation. Each module includes visual representations of AWS services, architectures, and concepts to enhance understanding and retention.
 
 ## Diagram Files by Module
 
@@ -244,7 +244,7 @@ This directory contains comprehensive Mermaid diagram documentation for the AWS 
 ## Total Diagrams
 
 - **Total Modules:** 13
-- **Total Diagrams:** 150+ comprehensive Mermaid diagrams
+- **Total Diagrams:** 150+ Mermaid diagrams
 - **Diagram Types:** 
   - Architecture diagrams
   - Flow charts
@@ -345,5 +345,4 @@ To improve these diagrams:
 
 **Exam Version:** AWS Certified Solutions Architect - Associate (SAA-C03)
 
-**Best of luck with your AWS certification journey! **
 

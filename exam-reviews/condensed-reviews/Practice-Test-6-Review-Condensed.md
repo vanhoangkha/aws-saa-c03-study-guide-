@@ -9,8 +9,8 @@
 |--------|-------|--------|
 | **Resilient Architectures** | 11/18 (61%) | CRITICAL |
 | **High-Performing Architectures** | 21/27 (78%) | REVIEW |
-| **Secure Architectures** | 13/13 (100%) | PERFECT |
-| **Cost-Optimized Architectures** | 7/7 (100%) | PERFECT |
+| **Secure Architectures** | 13/13 (100%) | No misses |
+| **Cost-Optimized Architectures** | 7/7 (100%) | No misses |
 
 **Time Used:** 97/130 minutes | **Questions Marked:** 21 (32%)
 
@@ -240,9 +240,9 @@ Question Stats:
 
 ## Achievement Unlocked
 
- **Passed on First Attempt!**
- **Perfect Security Domain**
- **Perfect Cost Optimization**
+ **Passed on First Attempt.**  
+ **Perfect Security Domain**  
+ **Perfect Cost Optimization**  
  **Above 75% Threshold**
 
 **Next Milestone:** 85%+ score with Resilient Architectures mastery
@@ -271,9 +271,8 @@ Question Stats:
 
 ---
 
-**Remember:** You're 5% above passing. Close the Resilient Architectures gap (61%→85%) and you'll be ready for the real exam!
+**Remember:** You're 5% above passing. Close the Resilient Architectures gap (61%→85%) and you'll be ready for the real exam.
 
 **Study Smart:** Focus 70% on weak areas, 30% on maintaining strengths.
 
-Good luck!
 

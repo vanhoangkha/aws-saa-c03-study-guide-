@@ -535,16 +535,16 @@ Record 3: 10% traffic (weight 10)
 
 ## Key Takeaways
 
- VPC is regional, subnets are AZ-specific
- Internet Gateway for public subnets, NAT Gateway for private subnets
- Security Groups are stateful (instance-level), NACLs are stateless (subnet-level)
- VPC Peering is non-transitive, must create for each connection
- Gateway Endpoints (free) for S3/DynamoDB, Interface Endpoints for other services
- Transit Gateway for hub-and-spoke connectivity
- Direct Connect for dedicated private connection (1+ month setup)
- Route 53 Alias records can point to AWS resources (zone apex supported)
- CloudFront for caching static content, Global Accelerator for TCP/UDP performance
- Use Route 53 health checks for automatic failover
+ VPC is regional, subnets are AZ-specific  
+ Internet Gateway for public subnets, NAT Gateway for private subnets  
+ Security Groups are stateful (instance-level), NACLs are stateless (subnet-level)  
+ VPC Peering is non-transitive, must create for each connection  
+ Gateway Endpoints (free) for S3/DynamoDB, Interface Endpoints for other services  
+ Transit Gateway for hub-and-spoke connectivity  
+ Direct Connect for dedicated private connection (1+ month setup)  
+ Route 53 Alias records can point to AWS resources (zone apex supported)  
+ CloudFront for caching static content, Global Accelerator for TCP/UDP performance  
+ Use Route 53 health checks for automatic failover  
 
 ---
 

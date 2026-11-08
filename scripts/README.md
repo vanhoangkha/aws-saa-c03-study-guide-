@@ -87,7 +87,7 @@ Legacy script for diagram fixes (superseded by `fix_mermaid.py`).
 ## Documentation
 
 For detailed information about validation rules, best practices, and troubleshooting, see:
-- [Mermaid Validation Guide](../docs/MERMAID-VALIDATION-GUIDE.md)
+- Mermaid Validation Guide
 
 ## CI/CD Integration
 
@@ -117,7 +117,7 @@ When adding new validation rules:
 
 1. Update `validate_mermaid.py` with detection logic
 2. Update `fix_mermaid.py` with auto-fix logic (if applicable)
-3. Add examples to the [Validation Guide](../docs/MERMAID-VALIDATION-GUIDE.md)
+3. Add examples to the Validation Guide
 4. Test with real diagrams before committing
 
 ## License

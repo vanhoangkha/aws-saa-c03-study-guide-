@@ -1,61 +1,36 @@
-# Documentation Overview
+# Docs
 
-This directory contains all documentation organized by purpose.
+Supporting material that cuts across the 14 modules. Practice test reviews are in [exam-reviews/](../exam-reviews/README.md).
 
-## Directory Structure
+## study-guides/
 
-### Study Guides (`study-guides/`)
-Focused learning materials for exam preparation:
-- **[FAST-LEARN-GUIDE.md](study-guides/FAST-LEARN-GUIDE.md)** - Complete fast-track guide (11-14 hrs)
-- **[ULTRA-FAST-LEARNING-INDEX.md](study-guides/ULTRA-FAST-LEARNING-INDEX.md)** - Express learning path (3-4 hrs)
-- **[QUICK-STUDY-NOTES.md](study-guides/QUICK-STUDY-NOTES.md)** - Condensed study notes
-- **[STUDY-ROADMAP.md](study-guides/STUDY-ROADMAP.md)** - 8-week structured plan
-- **[FLASHCARDS.md](study-guides/FLASHCARDS.md)** - Memorization aids
-- **[INCORRECT-AREAS-FLASHCARDS.md](study-guides/INCORRECT-AREAS-FLASHCARDS.md)** - Focus on weak areas
-- **[INCORRECT-AREAS-PRACTICE-QUESTIONS.md](study-guides/INCORRECT-AREAS-PRACTICE-QUESTIONS.md)** - Targeted practice
-- **[PRACTICE-TEST-4-INCORRECT-STUDY-GUIDE.md](study-guides/PRACTICE-TEST-4-INCORRECT-STUDY-GUIDE.md)** - PT4 review
+| File | Contents |
+|------|----------|
+| [ULTRA-FAST-LEARNING-INDEX.md](study-guides/ULTRA-FAST-LEARNING-INDEX.md) | Index of the 15-minute module summaries, 3-4 h in total |
+| [FAST-LEARN-GUIDE.md](study-guides/FAST-LEARN-GUIDE.md) | Index of the 60-minute module notes, 11-14 h in total |
+| [STUDY-ROADMAP.md](study-guides/STUDY-ROADMAP.md) | Eight-week plan |
+| [QUICK-STUDY-NOTES.md](study-guides/QUICK-STUDY-NOTES.md) | Mnemonics and shortcuts |
+| [FLASHCARDS.md](study-guides/FLASHCARDS.md) | Question-and-answer cards |
+| [INCORRECT-AREAS-FLASHCARDS.md](study-guides/INCORRECT-AREAS-FLASHCARDS.md) | Cards for topics missed in practice tests |
+| [INCORRECT-AREAS-PRACTICE-QUESTIONS.md](study-guides/INCORRECT-AREAS-PRACTICE-QUESTIONS.md) | Questions for the same topics |
+| [PRACTICE-TEST-4-INCORRECT-STUDY-GUIDE.md](study-guides/PRACTICE-TEST-4-INCORRECT-STUDY-GUIDE.md) | Notes on the questions missed in practice test 4 |
 
-### Reference Materials (`reference/`)
-Quick lookup guides and visual aids:
-- **[QUICK-REFERENCE.md](reference/QUICK-REFERENCE.md)** - Quick facts and cheat sheets
-- **[QUICK-START.md](reference/QUICK-START.md)** - Getting started guide
-- **[DIAGRAMS-INDEX.md](reference/DIAGRAMS-INDEX.md)** - 100+ visual diagrams
-- **[VISUAL-GUIDE.md](reference/VISUAL-GUIDE.md)** - Visual learning materials
-- **[SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md](reference/SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md)** - Architecture patterns
+## reference/
 
-> **Note:** For official AWS exam guides, please visit [AWS Certification](https://aws.amazon.com/certification/certified-solutions-architect-associate/).
+| File | Contents |
+|------|----------|
+| [QUICK-REFERENCE.md](reference/QUICK-REFERENCE.md) | Service lookup table |
+| [QUICK-START.md](reference/QUICK-START.md) | Short path through the fast-learn material |
+| [DIAGRAMS-INDEX.md](reference/DIAGRAMS-INDEX.md) | Every diagram, by module |
+| [VISUAL-GUIDE.md](reference/VISUAL-GUIDE.md) | Architecture diagrams for common scenarios |
+| [SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md](reference/SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md) | Scenario-to-architecture mappings |
+| [aws-certification-exam-guides.pdf](reference/aws-certification-exam-guides.pdf) | AWS exam guide |
 
-### Project Documentation (`project-docs/`)
-Repository and contribution information:
-- **[CHANGELOG.md](project-docs/CHANGELOG.md)** - Version history
-- **[CODE_OF_CONDUCT.md](project-docs/CODE_OF_CONDUCT.md)** - Community guidelines
-- **[CONTRIBUTING.md](project-docs/CONTRIBUTING.md)** - How to contribute
-- **[CONTRIBUTORS.md](project-docs/CONTRIBUTORS.md)** - Contributors list
-- **[SECURITY.md](project-docs/SECURITY.md)** - Security policies
-- **[PROJECT-CLEANUP-SUMMARY.md](project-docs/PROJECT-CLEANUP-SUMMARY.md)** - Cleanup notes
+## exam-analysis/
 
-## Quick Navigation
+| File | Contents |
+|------|----------|
+| [EXAM-COVERAGE-ANALYSIS.md](exam-analysis/EXAM-COVERAGE-ANALYSIS.md) | Module content checked against the exam guide |
+| [QUICK-REFERENCE-NEW-TOPICS.md](exam-analysis/QUICK-REFERENCE-NEW-TOPICS.md) | Topics added after that check |
 
-### For Quick Learning
-1. Start with [ULTRA-FAST-LEARNING-INDEX.md](study-guides/ULTRA-FAST-LEARNING-INDEX.md) (3-4 hrs)
-2. Or use [FAST-LEARN-GUIDE.md](study-guides/FAST-LEARN-GUIDE.md) (11-14 hrs)
-3. Reference [QUICK-REFERENCE.md](reference/QUICK-REFERENCE.md) for facts
-
-### For Visual Learners
-1. Browse [DIAGRAMS-INDEX.md](reference/DIAGRAMS-INDEX.md)
-2. Check [VISUAL-GUIDE.md](reference/VISUAL-GUIDE.md)
-
-### For Structured Study
-1. Follow [STUDY-ROADMAP.md](study-guides/STUDY-ROADMAP.md)
-2. Use [FLASHCARDS.md](study-guides/FLASHCARDS.md) for memorization
-3. Review weak areas with [INCORRECT-AREAS-PRACTICE-QUESTIONS.md](study-guides/INCORRECT-AREAS-PRACTICE-QUESTIONS.md)
-
-### For Contributors
-1. Read [CONTRIBUTING.md](project-docs/CONTRIBUTING.md)
-2. Review [CODE_OF_CONDUCT.md](project-docs/CODE_OF_CONDUCT.md)
-3. Check [CHANGELOG.md](project-docs/CHANGELOG.md)
-
-## Exam Reviews
-
-All practice test reviews are stored in the **[exam-reviews/](../exam-reviews/)** directory at the project root.
-
+The official exam guide is on the [AWS Certification site](https://aws.amazon.com/certification/certified-solutions-architect-associate/).

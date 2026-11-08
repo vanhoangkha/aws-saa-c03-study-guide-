@@ -833,5 +833,5 @@ D. Organizational Lock
 - Study referenced topics in main README
 - Practice scenario-based questions
 - Take module quiz to reinforce learning
-- **FOCUS**: Spend extra time on SCPs - heavily tested!
+- **FOCUS**: Spend extra time on SCPs - heavily tested.
 

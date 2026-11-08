@@ -42,7 +42,7 @@
 - **Correct:** 3
 - **Incorrect:** 0
 - **Review Marked:** 0
-- **Status:** PERFECT
+- **Status:** No misses
 
 ---
 
@@ -744,7 +744,7 @@ Of marked questions:
 ## Motivation
 
 **Progress from Attempt 1 to 2:** 
-- If this was your first attempt at 72%, you're close!
+- If this was your first attempt at 72%, you're close.
 - Only 2.69% away from passing
 - Strong in 2 domains, need focus on 2 others
 - With targeted study, you can pass in 2-3 weeks
@@ -766,5 +766,4 @@ Of marked questions:
 **Next Exam Date Target:** 3-4 weeks from now  
 **Realistic Pass Probability:** 85% with recommended study plan
 
-Good luck!
 

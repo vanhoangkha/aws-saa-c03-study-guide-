@@ -119,7 +119,7 @@
 - **Automated data transfer** (on-premises ↔ AWS)
 ## AWS DataSync
 
-**Exam Tip**: Match scenario to strategy!
+**Exam Tip**: Match scenario to strategy.
 
    - Migrate later
    - Keep on-premises (for now)

@@ -307,5 +307,5 @@ Last Backup → Disaster → Recovery Complete
 
 **Last Updated**: March 2, 2026
 **Exam Impact**: HIGH - These topics appear in 15-20% of questions
-**Study Priority**: CRITICAL - Focus here first!
+**Study Priority**: CRITICAL - Focus here first.
 

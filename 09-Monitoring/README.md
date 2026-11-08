@@ -377,21 +377,21 @@ Example: CloudWatch Alarm → EventBridge → Lambda → Fix issue
 ## Monitoring Best Practices
 
 ### Application Monitoring
- **CloudWatch Metrics**: Track performance
- **CloudWatch Logs**: Centralize logs
- **CloudWatch Alarms**: Alert on issues
- **X-Ray**: Distributed tracing (not covered in depth)
+ **CloudWatch Metrics**: Track performance  
+ **CloudWatch Logs**: Centralize logs  
+ **CloudWatch Alarms**: Alert on issues  
+ **X-Ray**: Distributed tracing (not covered in depth)  
 
 ### Security Monitoring
- **CloudTrail**: All API calls
- **Config**: Resource compliance
- **GuardDuty**: Threat detection
- **Security Hub**: Centralized findings
+ **CloudTrail**: All API calls  
+ **Config**: Resource compliance  
+ **GuardDuty**: Threat detection  
+ **Security Hub**: Centralized findings  
 
 ### Operational Monitoring
- **Systems Manager**: Patch and configure
- **Trusted Advisor**: Best practice checks
- **AWS Health**: Service health events
+ **Systems Manager**: Patch and configure  
+ **Trusted Advisor**: Best practice checks  
+ **AWS Health**: Service health events  
 
 ---
 
@@ -433,16 +433,16 @@ Example: CloudWatch Alarm → EventBridge → Lambda → Fix issue
 
 ## Key Takeaways
 
- CloudWatch monitors metrics and logs, CloudTrail logs API calls
- CloudWatch Agent required for EC2 memory/disk metrics
- Config tracks resource configuration and compliance
- Systems Manager for operational tasks (patching, automation, secure access)
- Session Manager eliminates need for bastion hosts and SSH keys
- Trusted Advisor provides best practice recommendations
- CloudTrail records WHO did WHAT, Config shows WHAT it looks like
- Use CloudWatch Logs Insights for log analysis
- EventBridge integrates monitoring with automation
- Always enable CloudTrail in all regions for security
+ CloudWatch monitors metrics and logs, CloudTrail logs API calls  
+ CloudWatch Agent required for EC2 memory/disk metrics  
+ Config tracks resource configuration and compliance  
+ Systems Manager for operational tasks (patching, automation, secure access)  
+ Session Manager eliminates need for bastion hosts and SSH keys  
+ Trusted Advisor provides best practice recommendations  
+ CloudTrail records WHO did WHAT, Config shows WHAT it looks like  
+ Use CloudWatch Logs Insights for log analysis  
+ EventBridge integrates monitoring with automation  
+ Always enable CloudTrail in all regions for security  
 
 ---
 

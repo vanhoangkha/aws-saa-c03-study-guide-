@@ -1,12 +1,10 @@
 # Practice Test 3 (SAA-C03) - Exam Review
 
 **Date:** March 1, 2026  
-**Score:** 52/65 (80.00%) - **PASS**
+**Score:** 52/65 (80.00%) - **PASS**  
 **Time Taken:** 97 minutes 17 seconds  
 **Status:** Solid pass, consistent improvement  
 **Passing Score:** 72% (need 47/65 correct)
-
----
 
 ---
 
@@ -36,7 +34,7 @@
 | **Design High-Performing Architectures** | 17 | 15 | 2 | 88.24% | Strong |
 | **Design Resilient Architectures** | 16 | 13 | 3 | 81.25% | Needs Review |
 | **Design Secure Architectures** | 23 | 18 | 5 | 78.26% | Needs Review |
-| **Design Secure Applications and Architectures** | 1 | 1 | 0 | 100% | Perfect |
+| **Design Secure Applications and Architectures** | 1 | 1 | 0 | 100% | No misses |
 | **Design Cost-Optimized Architectures** | 8 | 5 | 3 | 62.50% | Weak Area |
 
 ---
@@ -612,7 +610,7 @@ Year 1+:
 
 **Exam Keywords to Watch:**
 - "Frequently accessed" → S3 Standard
-- "Immediate access required" → S3 Standard
+- "Immediate access required" → S3 Standard  
 - "Infrequently accessed" → S3 Standard-IA
 - "Archival" → S3 Glacier
 - "Long-term backup" → S3 Glacier Deep Archive
@@ -642,7 +640,7 @@ Migrate mission-critical SQL Server to MySQL with minimal downtime and real-time
 - AWS MGN = Server/VM lift-and-shift, not for DB monitoring
 
 **Study Resources:**
-- [Module 10: Migration - DMS vs Migration Hub](../10-Migration/README.md)
+- [Module 10: Migration - DMS vs Migration Hub](../../10-Migration/README.md)
 - [AWS Docs: Migration Hub](https://docs.aws.amazon.com/migrationhub/latest/ug/whatishub.html)
 
 ---
@@ -670,7 +668,7 @@ Block PHP vulnerability patterns with minimal operational overhead.
 - Managed rule sets available for common vulnerabilities (PHP, SQL injection, etc.)
 
 **Study Resources:**
-- [Module 07: Security - WAF vs Shield](../07-Security/README.md)
+- [Module 07: Security - WAF vs Shield](../../07-Security/README.md)
 - [AWS Docs: WAF Managed Rules](https://docs.aws.amazon.com/waf/latest/developerguide/waf-managed-rule-groups.html)
 
 ---
@@ -698,7 +696,7 @@ Project_OU denies ec2:DeleteFlowLogs, but Dev_OU (child) allows it. Can users de
 - SCPs define maximum permissions, not grant them
 
 **Study Resources:**
-- [Module 02: IAM - Organizations and SCPs](../02-IAM/README.md)
+- [Module 02: IAM - Organizations and SCPs](../../02-IAM/README.md)
 - [AWS Docs: SCP Evaluation Logic](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_evaluation.html)
 
 ---
@@ -729,7 +727,7 @@ Monitor RDS CPU/memory and send email notifications when exceeding threshold.
 - SNS = notification service for alarms and events
 
 **Study Resources:**
-- [Module 09: Monitoring - CloudWatch Alarms](../09-Monitoring/README.md)
+- [Module 09: Monitoring - CloudWatch Alarms](../../09-Monitoring/README.md)
 - [AWS Docs: SNS with CloudWatch](https://docs.aws.amazon.com/sns/latest/dg/welcome-features.html)
 
 ---
@@ -757,7 +755,7 @@ HPC cluster requiring extremely low latency and high bandwidth for inter-node co
 - HPC keyword → think EFA
 
 **Study Resources:**
-- [Module 03: Compute - HPC and Networking](../03-Compute/README.md)
+- [Module 03: Compute - HPC and Networking](../../03-Compute/README.md)
 - [AWS Docs: Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html)
 
 ---
@@ -785,7 +783,7 @@ Photo-processing pipeline with SQS queue - which metric should drive ECS task au
 - Scale based on work pending, not resource consumption
 
 **Study Resources:**
-- [Module 08: Application Integration - SQS Scaling Patterns](../08-Application-Integration/README.md)
+- [Module 08: Application Integration - SQS Scaling Patterns](../../08-Application-Integration/README.md)
 - [AWS Docs: Auto Scaling with SQS](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html)
 
 ---
@@ -817,7 +815,7 @@ How do RDS automated backups work for point-in-time recovery?
 - No manual intervention needed for transaction logs
 
 **Study Resources:**
-- [Module 05: Database - RDS Backups](../05-Database/README.md)
+- [Module 05: Database - RDS Backups](../../05-Database/README.md)
 - [AWS Docs: RDS Automated Backups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html)
 
 ---
@@ -850,7 +848,7 @@ Move management account from Company A's organization to Company B's organizatio
 - Then accept invitation from target organization
 
 **Study Resources:**
-- [Module 02: IAM - AWS Organizations](../02-IAM/README.md)
+- [Module 02: IAM - AWS Organizations](../../02-IAM/README.md)
 - [AWS Docs: Removing Accounts from Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html)
 
 ---
@@ -878,7 +876,7 @@ Mobile app users authenticate via Google/Facebook, need temporary AWS credential
 - CloudTrail/GuardDuty = monitoring, not authentication
 
 **Study Resources:**
-- [Module 02: IAM - Cognito Identity Pools](../02-IAM/README.md)
+- [Module 02: IAM - Cognito Identity Pools](../../02-IAM/README.md)
 - [AWS Docs: Cognito IAM Roles](https://docs.aws.amazon.com/cognito/latest/developerguide/iam-roles.html)
 
 ---
@@ -906,8 +904,8 @@ Media streaming company - users in remote regions reporting slow load times for 
 - Static website + remote users = CloudFront
 
 **Study Resources:**
-- [Module 04: Storage - CloudFront vs Transfer Acceleration](../04-Storage/README.md)
-- [Module 13: Cost Optimization - Content Delivery](../13-Cost-Optimization/README.md)
+- [Module 04: Storage - CloudFront vs Transfer Acceleration](../../04-Storage/README.md)
+- [Module 13: Cost Optimization - Content Delivery](../../13-Cost-Optimization/README.md)
 
 ---
 
@@ -935,7 +933,7 @@ Start-up needs FAST and COST-EFFECTIVE connectivity from on-premises to VPC for 
 - Keywords matter: fast + cost-effective = VPN
 
 **Study Resources:**
-- [Module 06: Networking - VPN vs Direct Connect](../06-Networking/README.md)
+- [Module 06: Networking - VPN vs Direct Connect](../../06-Networking/README.md)
 - [AWS Docs: Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/site-site-architectures.html)
 
 ---
@@ -951,8 +949,8 @@ Start-up needs FAST and COST-EFFECTIVE connectivity from on-premises to VPC for 
 - Cost optimization patterns for storage
 
 **Recommended Actions:**
-1. Re-read [Module 13: Cost Optimization](../13-Cost-Optimization/README.md)
-2. Review [Module 04: Storage - S3 Storage Classes](../04-Storage/README.md)
+1. Re-read [Module 13: Cost Optimization](../../13-Cost-Optimization/README.md)
+2. Review [Module 04: Storage - S3 Storage Classes](../../04-Storage/README.md)
 3. Practice questions on S3 storage class migrations
 4. Create decision matrix: CloudFront vs Transfer Acceleration vs Direct Access
 
@@ -967,9 +965,9 @@ Start-up needs FAST and COST-EFFECTIVE connectivity from on-premises to VPC for 
 - AWS Organizations account management
 
 **Recommended Actions:**
-1. Review [Module 05: Database - RDS Backups](../05-Database/README.md)
-2. Study [Module 08: Application Integration - SQS Patterns](../08-Application-Integration/README.md)
-3. Deep dive: [Module 02: IAM - AWS Organizations](../02-IAM/README.md)
+1. Review [Module 05: Database - RDS Backups](../../05-Database/README.md)
+2. Study [Module 08: Application Integration - SQS Patterns](../../08-Application-Integration/README.md)
+3. Deep dive: [Module 02: IAM - AWS Organizations](../../02-IAM/README.md)
 
 #### Design Secure Architectures (78.26%)
 **Focus Topics:**
@@ -979,7 +977,7 @@ Start-up needs FAST and COST-EFFECTIVE connectivity from on-premises to VPC for 
 - VPN vs Direct Connect decision criteria
 
 **Recommended Actions:**
-1. Master [Module 07: Security - WAF, Shield, Cognito](../07-Security/README.md)
+1. Master [Module 07: Security - WAF, Shield, Cognito](../../07-Security/README.md)
 2. Practice SCP evaluation scenarios
 3. Create comparison chart: Site-to-Site VPN vs Direct Connect
 
@@ -992,7 +990,7 @@ Start-up needs FAST and COST-EFFECTIVE connectivity from on-premises to VPC for 
 - EFA vs ENA for HPC workloads
 
 **Quick Review:**
-- [Module 03: Compute - HPC Networking](../03-Compute/README.md)
+- [Module 03: Compute - HPC Networking](../../03-Compute/README.md)
 
 #### Design Secure Applications and Architectures (100%)
 **Perfect score - maintain with periodic review**
@@ -1095,8 +1093,8 @@ DDoS Protection (L3/L4) → AWS Shield
 
 3. **Before Exam:**
    - [ ] Review this document completely
-   - [ ] Quick refresh: [Ultra-Fast Learning Index](../ULTRA-FAST-LEARNING-INDEX.md)
-   - [ ] Day before: [Quick Study Notes](../QUICK-STUDY-NOTES.md)
+   - [ ] Quick refresh: [Ultra-Fast Learning Index](../../docs/study-guides/ULTRA-FAST-LEARNING-INDEX.md)
+   - [ ] Day before: [Quick Study Notes](../../docs/study-guides/QUICK-STUDY-NOTES.md)
 
 ---
 
@@ -1104,13 +1102,12 @@ DDoS Protection (L3/L4) → AWS Shield
 
 **Great job on passing with 80%!**
 
-You're well on your way to certification success. Your strong performance in high-performing architectures (88%) shows solid understanding. Focus on cost optimization (62%) and security patterns, and you'll be ready for the real exam.
 
+High-performing architectures (88%) is the strongest domain. Next, focus on cost optimization (62%) and security patterns.
 **Remember:**
 - 80% on practice = you're in good shape
 - Focus on the 13 incorrect questions patterns
 - Don't just memorize - understand WHY each answer is correct
-- You've got this!
 
 ---
 
@@ -1120,5 +1117,5 @@ You're well on your way to certification success. Your strong performance in hig
 
 ---
 
-[← Back to Practice Tests](../14-Practice/README.md) | [Study Roadmap →](../STUDY-ROADMAP.md)
+[← Back to Practice Tests](../../14-Practice/README.md) | [Study Roadmap →](../../docs/study-guides/STUDY-ROADMAP.md)
 

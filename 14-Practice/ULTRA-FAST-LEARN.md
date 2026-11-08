@@ -252,6 +252,4 @@
 - **Multi-AZ > Single AZ** for production
 - **Review flagged questions** at the end
 
-## Good Luck!
-**You've got this!** Trust your preparation and stay calm.
 

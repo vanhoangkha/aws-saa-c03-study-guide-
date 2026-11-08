@@ -1,7 +1,7 @@
 # Practice Test 1 (SAA-C03) - Exam Review
 
 **Date:** February 22, 2026  
-**Score:** 34/65 (52.31%) - **FAILED**
+**Score:** 34/65 (52.31%) - **FAILED**  
 **Time Taken:** 130 minutes  
 **Status:** Below passing threshold  
 **Passing Score:** 72% (need 47/65 correct)
@@ -4708,10 +4708,10 @@ If question mentions "custom," "brand-specific," "company logo," or "you have la
 ---
 
 **Study Resources:**
-- [Module 08: Application Integration - API Gateway](../08-Application-Integration/README.md#api-gateway)
-- [Module 03: Compute - Auto Scaling](../03-Compute/README.md#auto-scaling)
-- [Module 04: Storage - EBS Volume Types](../04-Storage/README.md#ebs-volume-types)
-- [Module 11: Analytics - Redshift](../11-Analytics/README.md#redshift)
+- [Module 08: Application Integration - API Gateway](../../08-Application-Integration/README.md)
+- [Module 03: Compute - Auto Scaling](../../03-Compute/README.md)
+- [Module 04: Storage - EBS Volume Types](../../04-Storage/README.md#ebs-volume-types)
+- [Module 11: Analytics - Redshift](../../11-Analytics/README.md)
 
 ---
 
@@ -5659,10 +5659,10 @@ If question asks about applying SCPs to control permissions, **NEVER** apply the
 (Due to length, continuing with remaining Priority 3 and Priority 4 explanations in the next section...)
 
 **Study Resources:**
-- [Module 07: Security - AWS WAF](../07-Security/README.md#aws-waf)
-- [Module 02: IAM - Organizations & SCPs](../02-IAM/README.md#organizations)
-- [Module 07: Security - KMS](../07-Security/README.md#kms)
-- [Module 06: Networking - VPC Endpoints](../06-Networking/README.md#vpc-endpoints)
+- [Module 07: Security - AWS WAF](../../07-Security/README.md)
+- [Module 02: IAM - Organizations & SCPs](../../02-IAM/README.md)
+- [Module 07: Security - KMS](../../07-Security/README.md)
+- [Module 06: Networking - VPC Endpoints](../../06-Networking/README.md#vpc-endpoints)
 
 ---
 
@@ -6738,17 +6738,17 @@ Outputs:
 - **Best Practice** = One NAT Gateway per AZ for high availability
 
 **EXAM TIP:**
-If question mentions "Internet access for private subnets," use **Public NAT Gateway in public subnet**. "Private NAT Gateway" is a red herring - it doesn't provide Internet access!
+If question mentions "Internet access for private subnets," use **Public NAT Gateway in public subnet**. "Private NAT Gateway" is a red herring - it doesn't provide Internet access.
 
 ---
 
 (Continuing with remaining Priority 4 explanations...)
 
 **Study Resources:**
-- [Module 02: IAM - AWS RAM](../02-IAM/README.md#resource-access-manager)
-- [Module 06: Networking - NAT Gateway](../06-Networking/README.md#nat-gateway)
-- [Module 13: Cost Optimization](../13-Cost-Optimization/README.md)
-- [Module 10: Migration](../10-Migration/README.md)
+- [Module 02: IAM - AWS RAM](../../02-IAM/README.md)
+- [Module 06: Networking - NAT Gateway](../../06-Networking/README.md#nat-gateway)
+- [Module 13: Cost Optimization](../../13-Cost-Optimization/README.md)
+- [Module 10: Migration](../../10-Migration/README.md)
 
 ---
 
@@ -7847,19 +7847,19 @@ You marked **7 questions** for review. Here they are:
 ### Week 1: Fix Critical Domain 1 - Resilient Architectures (42%)
 
 #### Days 1-2: ECS, Fargate & Container Services
-- [ ] Read [Module 03: Compute - ECS](../03-Compute/README.md#ecs-and-fargate)
+- [ ] Read [Module 03: Compute - ECS](../../03-Compute/README.md)
 - [ ] Complete ECS task definition labs
 - [ ] Practice questions on ECS vs EKS vs Fargate
 - [ ] Understand ECS Anywhere vs EKS Anywhere
 
 #### Days 3-4: Route 53 & DNS Failover
-- [ ] Read [Module 06: Networking - Route 53](../06-Networking/README.md#route-53)
+- [ ] Read [Module 06: Networking - Route 53](../../06-Networking/README.md)
 - [ ] Complete Route 53 failover labs
 - [ ] Practice Alias vs CNAME scenarios
 - [ ] Review health check configurations
 
 #### Days 5-6: VPC Networking & Hybrid Connectivity
-- [ ] Read [Module 06: Networking - Transit Gateway](../06-Networking/README.md)
+- [ ] Read [Module 06: Networking - Transit Gateway](../../06-Networking/README.md)
 - [ ] Complete VPN with ECMP labs
 - [ ] Review VPC endpoints (Gateway vs Interface)
 - [ ] Practice multi-region VPC peering
@@ -7875,25 +7875,25 @@ You marked **7 questions** for review. Here they are:
 ### Week 2: Fix Critical Domain 2 - High-Performing Architectures (47%)
 
 #### Days 8-9: API Gateway & Application Integration
-- [ ] Read [Module 08: Application Integration](../08-Application-Integration/README.md)
+- [ ] Read [Module 08: Application Integration](../../08-Application-Integration/README.md)
 - [ ] Complete mapping template labs
 - [ ] Practice API Gateway integration types
 - [ ] Review request/response transformations
 
 #### Days 10-11: Storage Performance & EBS
-- [ ] Read [Module 04: Storage - EBS](../04-Storage/README.md)
+- [ ] Read [Module 04: Storage - EBS](../../04-Storage/README.md)
 - [ ] Complete EBS volume type labs (gp3, io2, st1, sc1)
 - [ ] Practice Multi-Attach scenarios
 - [ ] Review EBS optimization
 
 #### Days 12-13: Database & Caching Performance
-- [ ] Read [Module 05: Database](../05-Database/README.md)
+- [ ] Read [Module 05: Database](../../05-Database/README.md)
 - [ ] Complete ElastiCache Redis labs
 - [ ] Review Redshift AQUA
 - [ ] Practice database performance tuning
 
 #### Day 14: Auto Scaling & Compute Optimization
-- [ ] Read [Module 03: Compute - Auto Scaling](../03-Compute/README.md)
+- [ ] Read [Module 03: Compute - Auto Scaling](../../03-Compute/README.md)
 - [ ] Complete termination policy labs
 - [ ] Practice EC2 hibernation scenarios
 - [ ] Review placement groups
@@ -7903,19 +7903,19 @@ You marked **7 questions** for review. Here they are:
 ### Week 3: Strengthen Security & Cost Optimization (60-63%)
 
 #### Days 15-16: AWS WAF, Shield & DDoS Protection
-- [ ] Read [Module 07: Security - WAF & Shield](../07-Security/README.md)
+- [ ] Read [Module 07: Security - WAF & Shield](../../07-Security/README.md)
 - [ ] Complete WAF rule labs
 - [ ] Practice rate-based rule scenarios
 - [ ] Review Shield Advanced features
 
 #### Days 17-18: KMS & Encryption Deep Dive
-- [ ] Read [Module 07: Security - KMS](../07-Security/README.md)
+- [ ] Read [Module 07: Security - KMS](../../07-Security/README.md)
 - [ ] Complete KMS asymmetric/symmetric labs
 - [ ] Practice CloudHSM vs KMS scenarios
 - [ ] Review envelope encryption
 
 #### Days 19-20: Organizations, SCPs & Cost Management
-- [ ] Read [Module 02: IAM - Organizations](../02-IAM/README.md)
+- [ ] Read [Module 02: IAM - Organizations](../../02-IAM/README.md)
 - [ ] Complete SCP labs
 - [ ] Practice AWS RAM scenarios
 - [ ] Review cost allocation tags
@@ -8144,7 +8144,7 @@ Exam Tip: Use Outputs with Export, then ImportValue in other stacks
 ### Immediate Actions (Today)
 1. Review this exam analysis completely
 2. [ ] Create flashcards for all 31 incorrect questions
-3. [ ] Read [Module 03: ECS & Fargate](../03-Compute/README.md#ecs-and-fargate)
+3. [ ] Read [Module 03: ECS & Fargate](../../03-Compute/README.md)
 4. [ ] Watch video on CloudFormation Outputs and cross-stack references
 
 ### This Week (Week 1 Plan)
@@ -8156,7 +8156,7 @@ Exam Tip: Use Outputs with Export, then ImportValue in other stacks
 ### Before Next Practice Test (Week 3)
 1. [ ] Complete full 3-week study plan
 2. [ ] Take all section quizzes again (aim for 80%+)
-3. [ ] Review [ULTRA-FAST-LEARN guides](../14-Practice/ULTRA-FAST-LEARN.md)
+3. [ ] Review [ULTRA-FAST-LEARN guides](../../14-Practice/ULTRA-FAST-LEARN.md)
 4. [ ] Create cheat sheet for exam day
 
 ---
@@ -8186,8 +8186,8 @@ Actual Exam:      80%+ (PASS)
 
 ## Important Reminders
 
-### Don't Get Discouraged!
-- 52% is actually a good starting point - you're learning!
+### Don't Get Discouraged.
+- 52% is actually a good starting point - you're learning.
 - You need +20% improvement, which is achievable in 3-4 weeks
 - Focus on the TWO critical domains - that's where you'll gain the most
 
@@ -8225,20 +8225,19 @@ Actual Exam:      80%+ (PASS)
 - [ ] Design Cost-Optimized: ≥ 70% (7+ correct out of ~10)
 
 **Stretch Goals:**
-- [ ] Overall Score: ≥ 72% (47+ correct) - PASSING!
+- [ ] Overall Score: ≥ 72% (47+ correct) - PASSING.
 - [ ] No domain below 65%
 - [ ] Less than 5 flagged questions
 - [ ] 80%+ accuracy on flagged questions
 
 ---
 
-**Remember:** The journey from 52% to 80% is totally achievable. Stay focused, follow the study plan, and practice consistently. You've got this!
+**Remember:** The journey from 52% to 80% is totally achievable. Stay focused, follow the study plan, and practice consistently. You've got this.
 
 **Target for Practice Test 2:** ≥65% (42+ correct answers)
 
-Good luck with your studies!
 
 ---
 
-[← Back to Exam Reviews](README.md) | [Study Plan →](../14-Practice/STUDY-NOTES.md)
+[← Back to Exam Reviews](../README.md) | [Study Plan →](../../14-Practice/STUDY-NOTES.md)
 

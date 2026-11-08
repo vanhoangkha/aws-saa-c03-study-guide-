@@ -56,7 +56,7 @@ People   Collections   Permissions   Services
 
 **Memory Aid**: **V**ery **E**ffective **S**tatements **P**rovide **A**ctions on **R**esources with **C**onditions
 
-### 2. Explicit Deny Wins!
+### 2. Explicit Deny Wins.
 ```
 Decision Flow:
 1. Default = DENY

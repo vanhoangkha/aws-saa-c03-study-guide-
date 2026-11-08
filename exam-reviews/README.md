@@ -1,271 +1,51 @@
-# Exam Reviews Folder
+# Exam Reviews
 
-**AWS Certified Solutions Architect Associate (SAA-C03) Practice Test Reviews**
+Write-ups of seven Whizlabs SAA-C03 practice tests: what was missed, why, and what to study next. Use them to find weak areas, then go back to the matching module.
 
----
+## Results
 
-## What's in This Folder?
+| Test | Score | Result | Full review | Condensed |
+|------|-------|--------|-------------|-----------|
+| 1 | 34/65 (52%) | Fail | [Review](complete-reviews/Practice-Test-1-Review.md) | [Condensed](condensed-reviews/Practice-Test-1-Review-Condensed.md) |
+| 2 | 49/65 (75%) | Borderline | [Review](complete-reviews/Practice-Test-2-Review.md) | [Condensed](condensed-reviews/Practice-Test-2-Review-Condensed.md) |
+| 3 | 52/65 (80%) | Pass | [Review](complete-reviews/Practice-Test-3-Review.md) | [Condensed](condensed-reviews/Practice-Test-3-Review-Condensed.md) |
+| 4 | 49/65 (75%) | Borderline | [Review](complete-reviews/Practice-Test-4-Review.md) | [Condensed](condensed-reviews/Practice-Test-4-Review-Condensed.md) |
+| 5 | 42/65 (65%) | Fail | [Review](complete-reviews/Practice-Test-5-Review.md) | [Condensed](condensed-reviews/Practice-Test-5-Review-Condensed.md) |
+| 6 | 52/65 (80%) | Pass | [Review](complete-reviews/Practice-Test-6-Review.md) | [Condensed](condensed-reviews/Practice-Test-6-Review-Condensed.md) |
+| 7 | 48/65 (74%) | Borderline | [Review](complete-reviews/Practice-Test-7-Review.md) | [Condensed](condensed-reviews/Practice-Test-7-Review-Condensed.md) |
 
-This folder contains comprehensive study materials from **7 practice tests**, organized with the following:
-- **NEW: 30 Reinforcement Practice Questions** targeting all incorrect areas
-- **NEW: Study Progress Tracker** to monitor your improvement
-- Detailed test reviews with explanations (7 tests)
-- Condensed fast-learning versions
-- Master reference guides combining all tests
-- Quick reference cards for exam day
-- Visual memory aids and navigation tools
+Test 5 was retaken: see the [second-attempt review](2-attempt/SAA_C03_PRACTICE_TEST_5_ATTEMPT_2_REVIEW.md) and its [study guide](2-attempt/SAA_C03_PRACTICE_TEST_5_QUICK_STUDY_GUIDE.md).
 
-**Total Content:** 30+ documents | **~25 hours of study material**
-
----
-
-## START HERE - New Reinforcement Materials
-
-### REINFORCEMENT-QUESTIONS-ALL-TESTS.md **PRIORITY**
-
-**30 practice questions** similar to ALL incorrect questions from Tests 1-7
-
-**Quick Stats:**
-- Covers 140 incorrect questions from 7 practice tests
-- Organized by test and topic
-- Detailed explanations with architecture diagrams
-- Answers hidden in collapsible sections
-
-**How to Use:**
-1. Answer all 30 questions WITHOUT peeking
-2. Check answers and review explanations
-3. Retry after 24 hours and 1 week
-4. Target: 90%+ score before exam
-
-### STUDY-PROGRESS-TRACKER.md **ESSENTIAL**
-
-**Track your study progress** through multiple attempts
-
-**Features:**
-- Checkboxes for each question
-- Score calculation (3 attempts)
-- Weak area identification
-- Performance trends by topic
-- Spaced repetition schedule
-- Exam readiness checklist
-
-**Print or keep open** while practicing!
-
----
-
-## Folder Structure
+## Layout
 
 ```
 exam-reviews/
-├── REINFORCEMENT-QUESTIONS-ALL-TESTS.md   30 practice questions
-├── STUDY-PROGRESS-TRACKER.md              Track your progress
-├── README.md                                  This file
-├── START-HERE.md                             Navigation guide
-│
-├── complete-reviews/      (7 files)  - Detailed test analysis
-│   ├── Practice-Test-1-Review.md (31 incorrect)
-│   ├── Practice-Test-2-Review.md (20 incorrect)
-│   ├── Practice-Test-3-Review.md (13 incorrect)
-│   ├── Practice-Test-4-Review.md (16 incorrect)
-│   ├── Practice-Test-5-Review.md (23 incorrect)
-│   ├── Practice-Test-6-Review.md (13 incorrect)
-│   └── Practice-Test-7-Review.md (19 incorrect)
-│
-├── condensed-reviews/     (7 files)  - Fast learning versions
-├── master-guides/         (2 files)  - Comprehensive overviews
-├── quick-reference/       (2 files)  - Last-minute exam prep
-└── navigation/            (10 files) - Topic-based navigation
+├── REINFORCEMENT-QUESTIONS-ALL-TESTS.md   65 new questions built from the missed ones
+├── STUDY-PROGRESS-TRACKER.md              Score sheet for the reinforcement questions
+├── complete-reviews/                      One detailed review per test
+├── condensed-reviews/                     Short versions of the same reviews
+├── master-guides/                         Results and concepts across all tests
+├── quick-reference/                       Exam-day cards and edge cases
+└── 2-attempt/                             Test 5, second attempt
 ```
 
----
+## Which file to read
 
-## Quick Start
+| Situation | Read | Time |
+|-----------|------|------|
+| Just finished a practice test | The full review for that test | 2-4 h |
+| Refreshing a test you already reviewed | The condensed review | 20-40 min |
+| Checking overall progress | [COMPLETE-EXAM-REVIEW.md](master-guides/COMPLETE-EXAM-REVIEW.md) | 45 min |
+| Revising concepts across tests | [ALL-TESTS-MASTER-QUICK-REFERENCE.md](master-guides/ALL-TESTS-MASTER-QUICK-REFERENCE.md) | 90 min |
+| Drilling weak areas | [REINFORCEMENT-QUESTIONS-ALL-TESTS.md](REINFORCEMENT-QUESTIONS-ALL-TESTS.md), scored in [STUDY-PROGRESS-TRACKER.md](STUDY-PROGRESS-TRACKER.md) | 2-3 h |
+| Day before the exam | [MEMORY-CARDS.md](quick-reference/MEMORY-CARDS.md) | 1 h |
+| Last 30 minutes | [ULTRA-QUICK-REFERENCE-CARD.md](quick-reference/ULTRA-QUICK-REFERENCE-CARD.md) or [ULTRA-SHORT-EXAM-DAY.md](quick-reference/ULTRA-SHORT-EXAM-DAY.md) | 15-30 min |
 
-### First Time Here?
-**→ Read: [navigation/00-CATEGORIZATION-INDEX.md](navigation/00-CATEGORIZATION-INDEX.md)**  
-This is your complete guide to understanding all documents and how to use them.
+## Using the reinforcement questions
 
-### Need Quick Lookup?
-**→ See: [navigation/CATEGORY-QUICK-REFERENCE.md](navigation/CATEGORY-QUICK-REFERENCE.md)**  
-Fast reference table showing all documents by category.
+1. Answer all 65 without opening the answers.
+2. Mark your score in the tracker and note the topics you missed.
+3. Read the explanation for every miss, then the matching module.
+4. Retake after a day and again after a week. Aim for 90% on the second pass.
 
-### Want to Understand Structure?
-**→ Check: [navigation/FOLDER-STRUCTURE.md](navigation/FOLDER-STRUCTURE.md)**  
-Visual guide to folder organization and file relationships.
-
----
-
-## Test Results Summary
-
-| Test | Score | Status | Key Weakness |
-|------|-------|--------|--------------|
-| Practice Test 1 | 34/65 (52%) | FAIL | Resilient, High-Performance |
-| Practice Test 2 | 49/65 (75%) | PASS | Security |
-| Practice Test 3 | 52/65 (80%) | PASS | Cost Optimization |
-| Practice Test 4 | 49/65 (75%) | PASS | Cost Optimization |
-| Practice Test 5 | 42/65 (65%) | FAIL | High-Performance |
-| **Average** | **69.5%** | **Not Ready** | Need 85%+ to be confident |
-
-**Status:** Need 2-3 more weeks of focused study before exam.
-
----
-
-## Folder Categories
-
-### navigation/ (10 files) - Start Here!
-Help you find and organize study materials.
-
-- **[00-CATEGORIZATION-INDEX.md](navigation/00-CATEGORIZATION-INDEX.md)** - Master categorization & guide (key)
-- **[CATEGORY-QUICK-REFERENCE.md](navigation/CATEGORY-QUICK-REFERENCE.md)** - Quick category lookup
-- **[DOCUMENT-SELECTION-MATRIX.md](navigation/DOCUMENT-SELECTION-MATRIX.md)** - Decision tool
-- **[FOLDER-STRUCTURE.md](navigation/FOLDER-STRUCTURE.md)** - Visual structure guide
-- **[VISUAL-SUMMARY.md](navigation/VISUAL-SUMMARY.md)** - One-page overview
-- **[POCKET-GUIDE.md](navigation/POCKET-GUIDE.md)** - Mobile reference
-- **[QUICK-ACCESS-INDEX.md](navigation/QUICK-ACCESS-INDEX.md)** - Topic navigation
-- **[QUICK-NAVIGATION.md](navigation/QUICK-NAVIGATION.md)** - Jump links
-- **[CONDENSED-REVIEWS-README.md](navigation/CONDENSED-REVIEWS-README.md)** - Explains condensed docs
-- **[00-CATEGORIZATION-COMPLETE.md](navigation/00-CATEGORIZATION-COMPLETE.md)** - Completion report
-
-### quick-reference/ (2 files) - Exam Day Essentials
-Perfect for the night before and day of exam.
-
-- **[ULTRA-QUICK-REFERENCE-CARD.md](quick-reference/ULTRA-QUICK-REFERENCE-CARD.md)** - Top 10 must-know rules | 15 min
-- **[MEMORY-CARDS.md](quick-reference/MEMORY-CARDS.md)** - Visual memory aids | 20 min
-
-### master-guides/ (2 files) - Comprehensive Overview
-Essential for understanding overall progress and key concepts.
-
-- **[COMPLETE-EXAM-REVIEW.md](master-guides/COMPLETE-EXAM-REVIEW.md)** - Performance analysis & study plan | 45 min
-- **[ALL-TESTS-MASTER-QUICK-REFERENCE.md](master-guides/ALL-TESTS-MASTER-QUICK-REFERENCE.md)** - Top 135+ concepts | 90 min
-
-### complete-reviews/ (5 files) - Detailed Test Analysis
-In-depth review of each practice test with full explanations.
-
-- **[Practice-Test-1-Review.md](complete-reviews/Practice-Test-1-Review.md)** - 52% | 4 hrs
-- **[Practice-Test-2-Review.md](complete-reviews/Practice-Test-2-Review.md)** - 75% | 2.5 hrs
-- **[Practice-Test-3-Review.md](complete-reviews/Practice-Test-3-Review.md)** - 80% | 2 hrs
-- **[Practice-Test-4-Review.md](complete-reviews/Practice-Test-4-Review.md)** - 75% | 3 hrs
-- **[Practice-Test-5-Review.md](complete-reviews/Practice-Test-5-Review.md)** - 65% | 2.5 hrs
-
-### condensed-reviews/ (5 files) - Fast Learning
-Streamlined versions with essential information only.
-
-- **[Practice-Test-1-Review-Condensed.md](condensed-reviews/Practice-Test-1-Review-Condensed.md)** - 52% | 40 min
-- **[Practice-Test-2-Review-Condensed.md](condensed-reviews/Practice-Test-2-Review-Condensed.md)** - 75% | 25 min
-- **[Practice-Test-3-Review-Condensed.md](condensed-reviews/Practice-Test-3-Review-Condensed.md)** - 80% | 20 min
-- **[Practice-Test-4-Review-Condensed.md](condensed-reviews/Practice-Test-4-Review-Condensed.md)** - 75% | 30 min
-- **[Practice-Test-5-Review-Condensed.md](condensed-reviews/Practice-Test-5-Review-Condensed.md)** - 65% | 25 min
-
----
-
-## Recommended Reading Path
-
-### If You Have 4+ Hours (Comprehensive Study)
-```
-1. master-guides/COMPLETE-EXAM-REVIEW.md (45 min)
-2. master-guides/ALL-TESTS-MASTER-QUICK-REFERENCE.md (90 min)
-3. Focus on weak domains with complete-reviews/
-4. Review condensed-reviews/ for reinforcement
-```
-
-### If You Have 1-2 Hours (Quick Review)
-```
-1. master-guides/ALL-TESTS-MASTER-QUICK-REFERENCE.md (90 min)
-2. condensed-reviews/ of failed tests (1 & 5)
-```
-
-### If You Have 30 Minutes (Last-Minute Cramming)
-```
-1. quick-reference/ULTRA-QUICK-REFERENCE-CARD.md (15 min)
-2. quick-reference/MEMORY-CARDS.md (15 min)
-```
-
-### After Taking a Practice Test
-```
-1. Read complete review from complete-reviews/ folder
-2. Note weak areas in master-guides/COMPLETE-EXAM-REVIEW.md
-3. Review condensed version 1 week later
-```
-
----
-
-## Key Features
-
- **No Actual Exam Questions** - All from legitimate practice tests, not real AWS exams
- **Organized by Category** - Easy to find what you need
- **Multiple Formats** - Detailed, condensed, and ultra-quick versions
- **Visual Aids** - Memory cards and diagrams
- **Progress Tracking** - Know where you stand and what to improve
- **Time Estimates** - Know how long each document takes to read
- **Study Paths** - Recommendations based on available time
-
----
-
-## Study Progress Tracker
-
-Use this to track your review progress:
-
-- [ ] Read navigation/00-CATEGORIZATION-INDEX.md (understand the system)
-- [ ] Read master-guides/COMPLETE-EXAM-REVIEW.md (know your status)
-- [ ] Read master-guides/ALL-TESTS-MASTER-QUICK-REFERENCE.md (learn key concepts)
-- [ ] Review all 5 files in complete-reviews/
-- [ ] Review all 5 files in condensed-reviews/
-- [ ] Study quick-reference/MEMORY-CARDS.md (visual learning)
-- [ ] Final review: quick-reference/ULTRA-QUICK-REFERENCE-CARD.md
-- [ ] Ready to schedule exam!
-
----
-
-## Related Resources
-
-**In This Repository:**
-- [Main Study Guide](../README.md)
-- [Practice Questions](../14-Practice/)
-- [Service Modules](../) (01-AWS-Fundamentals through 13-Cost-Optimization)
-
-**External:**
-- AWS Official Documentation
-- AWS Whitepapers
-- Practice exam providers
-
----
-
-## Important Notes
-
-- These reviews are **personal study notes** from **unofficial practice tests**
-- They do **NOT contain actual AWS exam questions**
-- All content is for **educational purposes** only
-- Complies with AWS certification policies
-- Created from **legitimate, paid practice test providers**
-
----
-
-## Last Updated
-
-**Date:** March 2, 2026  
-**Tests Completed:** 5 of 6  
-**Exam Ready:** Not yet (need 2-3 weeks)  
-**Next Milestone:** Complete Practice Test 6
-
----
-
-## Need Help?
-
-**Don't know where to start?**  
-→ Read [navigation/00-CATEGORIZATION-INDEX.md](navigation/00-CATEGORIZATION-INDEX.md)
-
-**Looking for specific topic?**  
-→ See [navigation/QUICK-ACCESS-INDEX.md](navigation/QUICK-ACCESS-INDEX.md)
-
-**Want quick category lookup?**  
-→ Check [navigation/CATEGORY-QUICK-REFERENCE.md](navigation/CATEGORY-QUICK-REFERENCE.md)
-
-**Confused about file structure?**  
-→ Review [navigation/FOLDER-STRUCTURE.md](navigation/FOLDER-STRUCTURE.md)
-
----
-
-**Start your study journey:**
-**→ [navigation/00-CATEGORIZATION-INDEX.md](navigation/00-CATEGORIZATION-INDEX.md)**
-
-
+The questions are original and written for practice. They are not real exam questions.

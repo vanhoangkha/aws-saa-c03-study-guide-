@@ -1006,7 +1006,7 @@ D. Use AWS Config rules to detect and delete newly created Internet Gateways
 - Centralized control
 - Cannot be overridden by member accounts
 
-**Why B is Wrong**: SCPs do NOT apply to the management account!
+**Why B is Wrong**: SCPs do NOT apply to the management account.
 
 **Exam Trap**: "Apply to all accounts" usually means member accounts only. Management account is exempt from SCPs.
 
@@ -1486,7 +1486,7 @@ D. Configure instances to use an Internet Gateway directly
 
 **Break-even point**: ~6,500 GB/month cross-AZ traffic
 
-**In this scenario (1,000 GB cross-AZ)**, a single NAT Gateway is actually cheaper!
+**In this scenario (1,000 GB cross-AZ)**, a single NAT Gateway is actually cheaper.
 
 **Let me revise the question context**:
 
@@ -1663,5 +1663,5 @@ On-Premises Servers --[Install Replication Agent]--> AWS Replication Server (Sta
 3. Complete hands-on labs for weak areas
 4. Retake Practice Test 1 after 2 weeks
 
-**Target**: Score 75%+ on Practice Test 1 retake!
+**Target**: Score 75%+ on Practice Test 1 retake.
 

@@ -342,7 +342,7 @@ Decision Flow:
 4. If no explicit ALLOW → DENY (implicit)
 ```
 
-**Key Rule**: **Explicit DENY always wins!**
+**Key Rule**: **Explicit DENY always wins.**
 
 ### 5.5 Policy Variables
 
@@ -746,7 +746,7 @@ D) Share the AWS account password
 
 ---
 
-**Module Progress**: IAM Mastered
+**Module Progress**: IAM Mastered  
 **Estimated Study Time**: 6-8 hours  
 **Difficulty**: 2/3 Intermediate
 

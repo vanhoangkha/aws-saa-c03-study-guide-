@@ -292,7 +292,7 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 ---
 
-## Pro Tips
+## Tip
 
 ### Maximum Retention
 - **Active recall**: Cover answers, test yourself
@@ -329,24 +329,23 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 - [ ] Module 14: Practice & Exam Prep
 
 ### Confidence Level
-Rate your confidence for each module (1-5 stars):
-- (key) = Expert
-- (key) = Comfortable
-- (key) = Need review
-- = Weak area
-- = Need to study
+Rate your confidence in each module from 1 to 5:
+- 5 = Expert
+- 4 = Comfortable
+- 3 = Need review
+- 2 = Weak area
+- 1 = Need to study
 
 ---
 
-## Ready to Ace the Exam!
+## Ready to Ace the Exam.
 
 Remember:
 - **Quality > Quantity**: Focus on understanding, not just reading
 - **Practice > Theory**: Do hands-on labs and practice exams
 - **Consistency > Cramming**: Regular study beats last-minute panic
-- **Confidence > Doubt**: Trust your preparation!
+- **Confidence > Doubt**: Trust your preparation.
 
-**Good luck! You've got this! **
 
 ---
 

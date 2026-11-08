@@ -1,6 +1,6 @@
 # Quick Start - Fast Learning Path
 
-## Get Exam-Ready in 11-14 Hours!
+## Get Exam-Ready in 11-14 Hours.
 
 Welcome! You've discovered the **FAST-LEARN** materials - a revolutionary approach to AWS certification that saves you **75% of study time**.
 
@@ -268,16 +268,14 @@ Practice Exam Scores:
 
 ---
 
-## You've Got This!
 
 Remember:
 - You only need 72% to pass (not 100%)
 - These materials cover everything you need
 - Thousands have passed using similar methods
 - You can do this in 11-14 hours
-- Start now, stay focused, succeed!
+- Start now, stay focused, succeed.
 
-**Let's get you certified!**
 
 ---
 

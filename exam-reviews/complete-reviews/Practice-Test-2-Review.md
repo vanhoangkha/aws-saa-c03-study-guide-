@@ -1,12 +1,10 @@
 # Practice Test 2 (SAA-C03) - Exam Review
 
 **Date:** March 2, 2026  
-**Score:** 49/65 (75.38%) - **BORDERLINE PASS**
+**Score:** 49/65 (75.38%) - **BORDERLINE PASS**  
 **Time Taken:** Not recorded  
 **Status:** Above passing threshold but needs improvement  
 **Passing Score:** 72% (need 47/65 correct)
-
----
 
 ---
 
@@ -40,7 +38,7 @@
 ### Performance Visualization
 ```
 Design Resilient:           ████████░░ 87% STRONG
-Design Cost-Optimized:      ████████░░ 86% STRONG
+Design Cost-Optimized:      ████████░░ 86% STRONG  
 Design High-Performing:     ███████░░░ 75%
 Design Secure:              █████░░░░░ 56% CRITICAL
 ```
@@ -443,9 +441,9 @@ Correct Cross-Account S3 Access:
 ```
 
 **Study Resources:**
-- [Module 02: IAM - SCPs](../02-IAM/README.md#service-control-policies)
-- [Module 04: Storage - S3 Policies](../04-Storage/README.md#bucket-policies)
-- [Module 07: Security - Cross-Account Access](../07-Security/README.md#cross-account)
+- [Module 02: IAM - SCPs](../../02-IAM/README.md)
+- [Module 04: Storage - S3 Policies](../../04-Storage/README.md)
+- [Module 07: Security - Cross-Account Access](../../07-Security/README.md)
 
 ##### 3. VPN & Encryption
 **Topics to review:**
@@ -455,7 +453,7 @@ Correct Cross-Account S3 Access:
 - Direct Connect + VPN for encryption
 
 **Study Resources:**
-- [Module 06: Networking - VPN](../06-Networking/README.md#vpn)
+- [Module 06: Networking - VPN](../../06-Networking/README.md)
 
 ##### 4. IAM Roles & Federation
 **Topics to review:**
@@ -465,8 +463,8 @@ Correct Cross-Account S3 Access:
 - Cross-account roles
 
 **Study Resources:**
-- [Module 02: IAM - Roles](../02-IAM/README.md#iam-roles)
-- [Module 07: Security - Federation](../07-Security/README.md#federation)
+- [Module 02: IAM - Roles](../../02-IAM/README.md)
+- [Module 07: Security - Federation](../../07-Security/README.md)
 
 ---
 
@@ -482,7 +480,7 @@ Correct Cross-Account S3 Access:
 - S3 Select & Glacier Select
 
 **Study Resources:**
-- [Module 04: Storage - S3 Performance](../04-Storage/README.md#s3-performance)
+- [Module 04: Storage - S3 Performance](../../04-Storage/README.md#s3-performance)
 
 ##### 2. Database Caching Strategies
 **Topics to review:**
@@ -492,7 +490,7 @@ Correct Cross-Account S3 Access:
 - Application-level caching
 
 **Study Resources:**
-- [Module 05: Database - Caching](../05-Database/README.md#caching)
+- [Module 05: Database - Caching](../../05-Database/README.md)
 
 ##### 3. Network Performance
 **Topics to review:**
@@ -502,7 +500,7 @@ Correct Cross-Account S3 Access:
 - VPC Flow Logs
 
 **Study Resources:**
-- [Module 06: Networking - Performance](../06-Networking/README.md#performance)
+- [Module 06: Networking - Performance](../../06-Networking/README.md)
 
 ---
 
@@ -536,8 +534,8 @@ Glacier Deep Archive      | 12-48 hours    | Lowest storage cost
 - **Millisecond access needed:** Instant Retrieval (but expensive)
 
 **Study Resources:**
-- [Module 04: Storage - Glacier](../04-Storage/README.md#glacier)
-- [Module 13: Cost Optimization - Storage](../13-Cost-Optimization/README.md#storage-costs)
+- [Module 04: Storage - Glacier](../../04-Storage/README.md)
+- [Module 13: Cost Optimization - Storage](../../13-Cost-Optimization/README.md)
 
 ---
 
@@ -1140,10 +1138,10 @@ When question mentions "steady," "predictable," and "3 years," always choose **R
 ---
 
 **Study Resources:**
-- [Module 04: Storage - Glacier](../04-Storage/README.md#glacier)
-- [Module 13: Cost Optimization - Storage](../13-Cost-Optimization/README.md#storage-costs)
-- [Module 03: Compute - Pricing](../03-Compute/README.md#ec2-pricing)
-- [Module 13: Cost Optimization - Compute](../13-Cost-Optimization/README.md)
+- [Module 04: Storage - Glacier](../../04-Storage/README.md)
+- [Module 13: Cost Optimization - Storage](../../13-Cost-Optimization/README.md)
+- [Module 03: Compute - Pricing](../../03-Compute/README.md)
+- [Module 13: Cost Optimization - Compute](../../13-Cost-Optimization/README.md)
 
 ---
 
@@ -1152,29 +1150,29 @@ When question mentions "steady," "predictable," and "3 years," always choose **R
 ### Week 1: Fix Security Knowledge Gap (56% → 80%+)
 
 #### Days 1-2: CloudFront, ACM, and HTTPS
-- [ ] Read [Module 06: Networking - CloudFront](../06-Networking/README.md#cloudfront)
-- [ ] Read [Module 07: Security - ACM](../07-Security/README.md#certificate-manager)
+- [ ] Read [Module 06: Networking - CloudFront](../../06-Networking/README.md)
+- [ ] Read [Module 07: Security - ACM](../../07-Security/README.md)
 - [ ] **Memorize:** CloudFront certificates MUST be in us-east-1
 - [ ] Complete CloudFront + ACM labs
 - [ ] Practice HTTPS/SSL questions
 
 #### Days 3-4: Cross-Account Access & IAM
-- [ ] Read [Module 02: IAM](../02-IAM/README.md)
+- [ ] Read [Module 02: IAM](../../02-IAM/README.md)
 - [ ] Focus on cross-account access patterns
 - [ ] Understand bucket policies vs IAM policies vs SCPs
 - [ ] Complete cross-account access labs
 - [ ] Practice IAM policy questions
 
 #### Days 5-6: VPN & Encryption
-- [ ] Read [Module 06: Networking - VPN](../06-Networking/README.md#vpn)
-- [ ] Read [Module 07: Security - Encryption](../07-Security/README.md#encryption)
+- [ ] Read [Module 06: Networking - VPN](../../06-Networking/README.md)
+- [ ] Read [Module 07: Security - Encryption](../../07-Security/README.md)
 - [ ] Complete Site-to-Site VPN labs
 - [ ] Review Direct Connect + VPN
 - [ ] Practice encryption questions
 
 #### Day 7: Security Domain Practice
-- [ ] Complete all [Module 07 Practice Questions](../07-Security/PRACTICE-QUESTIONS.md)
-- [ ] Complete [Module 02 Practice Questions](../02-IAM/PRACTICE-QUESTIONS.md)
+- [ ] Complete all [Module 07 Practice Questions](../../07-Security/PRACTICE-QUESTIONS.md)
+- [ ] Complete [Module 02 Practice Questions](../../02-IAM/PRACTICE-QUESTIONS.md)
 - [ ] Review incorrect answers
 - [ ] Create flashcards for security concepts
 
@@ -1183,26 +1181,26 @@ When question mentions "steady," "predictable," and "3 years," always choose **R
 ### Week 2: Improve High-Performing Knowledge (75% → 85%+)
 
 #### Days 8-9: S3 Performance
-- [ ] Read [Module 04: Storage - S3 Performance](../04-Storage/README.md#s3-performance)
+- [ ] Read [Module 04: Storage - S3 Performance](../../04-Storage/README.md#s3-performance)
 - [ ] Complete S3 Transfer Acceleration lab
 - [ ] Review multipart upload strategies
 - [ ] Practice S3 performance questions
 
 #### Days 10-11: Database & Caching
-- [ ] Read [Module 05: Database - Caching](../05-Database/README.md#caching)
+- [ ] Read [Module 05: Database - Caching](../../05-Database/README.md)
 - [ ] Complete ElastiCache labs (Redis & Memcached)
 - [ ] Review DAX for DynamoDB
 - [ ] Practice database performance questions
 
 #### Days 12-13: Network Performance
-- [ ] Read [Module 06: Networking - Performance](../06-Networking/README.md#performance)
+- [ ] Read [Module 06: Networking - Performance](../../06-Networking/README.md)
 - [ ] Review Enhanced Networking (ENA, EFA)
 - [ ] Study Placement Groups
 - [ ] Practice network performance questions
 
 #### Day 14: High-Performance Domain Practice
-- [ ] Complete all [Module 04 Practice Questions](../04-Storage/PRACTICE-QUESTIONS.md)
-- [ ] Complete all [Module 05 Practice Questions](../05-Database/PRACTICE-QUESTIONS.md)
+- [ ] Complete all [Module 04 Practice Questions](../../04-Storage/PRACTICE-QUESTIONS.md)
+- [ ] Complete all [Module 05 Practice Questions](../../05-Database/PRACTICE-QUESTIONS.md)
 - [ ] Review all flagged questions
 - [ ] Take Practice Test 3
 
@@ -1288,7 +1286,7 @@ SCP (Organizations):
 ### What Went Right?
 1. **Huge Improvement in High-Performing** (43% → 75%)
    - +32% improvement from Practice Test 1
-   - Study efforts are paying off!
+   - Study efforts are paying off.
 
 2. **Strong Resilient Architectures** (87%)
    - Only 2 incorrect questions
@@ -1322,7 +1320,7 @@ SCP (Organizations):
 1. Review this document completely
 2. [ ] **MEMORIZE:** CloudFront certificates = us-east-1 ONLY
 3. [ ] **UNDERSTAND:** SCP vs Bucket Policy for cross-account
-4. [ ] Read [Module 07: Security - CloudFront](../07-Security/README.md#cloudfront-security)
+4. [ ] Read [Module 07: Security - CloudFront](../../07-Security/README.md)
 
 ### This Week (Priority: Security)
 1. [ ] Follow Week 1 study plan (Security focus)
@@ -1333,7 +1331,7 @@ SCP (Organizations):
 ### Before Next Test
 1. [ ] Complete Week 1 & 2 study plans
 2. [ ] Retake all section quizzes
-3. [ ] Review [ULTRA-FAST-LEARN](../ULTRA-FAST-LEARNING-INDEX.md)
+3. [ ] Review [ULTRA-FAST-LEARN](../../docs/study-guides/ULTRA-FAST-LEARNING-INDEX.md)
 4. [ ] Take Practice Test 3
 5. [ ] Target: ≥80% (52+ correct)
 
@@ -1382,28 +1380,27 @@ Cost-Optimized           100%  →  86%  →  90%
 ## Related Resources
 
 ### Study Materials
-- [Module 02: IAM](../02-IAM/README.md) - Identity & Access Management
-- [Module 07: Security](../07-Security/README.md) - Security services
-- [Module 06: Networking](../06-Networking/README.md) - CloudFront, VPN
-- [Module 04: Storage](../04-Storage/README.md) - S3, Glacier
-- [Module 13: Cost Optimization](../13-Cost-Optimization/README.md) - Cost strategies
+- [Module 02: IAM](../../02-IAM/README.md) - Identity & Access Management
+- [Module 07: Security](../../07-Security/README.md) - Security services
+- [Module 06: Networking](../../06-Networking/README.md) - CloudFront, VPN
+- [Module 04: Storage](../../04-Storage/README.md) - S3, Glacier
+- [Module 13: Cost Optimization](../../13-Cost-Optimization/README.md) - Cost strategies
 
 ### Quick References
-- [Fast Learn Guide](../FAST-LEARN-GUIDE.md) - Quick review
-- [Ultra Fast Learning Index](../ULTRA-FAST-LEARNING-INDEX.md) - Last-minute review
-- [Security Quick Reference](../QUICK-REFERENCE.md#security) - Security concepts
+- [Fast Learn Guide](../../docs/study-guides/FAST-LEARN-GUIDE.md) - Quick review
+- [Ultra Fast Learning Index](../../docs/study-guides/ULTRA-FAST-LEARNING-INDEX.md) - Last-minute review
+- [Security Quick Reference](../../docs/reference/QUICK-REFERENCE.md#security) - Security concepts
 
 ---
 
-**Remember:** You passed this test (75.38%) but security knowledge dropped significantly. Focus on security domain to ensure consistent performance!
+**Remember:** You passed this test (75.38%) but security knowledge dropped significantly. Focus on security domain to ensure consistent performance.
 
 **Critical Focus:** CloudFront + ACM (us-east-1), Cross-account access patterns, VPN & encryption
 
 **Target for Practice Test 3:** ≥80% (52+ correct answers)
 
-Good luck! You're making progress!
 
 ---
 
-[← Previous: Practice Test 1 Review](Practice-Test-1-Review.md) | [Back to Exam Reviews](README.md) | [Next: Practice Test 3 Review →](Practice-Test-3-Review.md)
+[← Previous: Practice Test 1 Review](Practice-Test-1-Review.md) | [Back to Exam Reviews](../README.md) | [Next: Practice Test 3 Review →](Practice-Test-3-Review.md)
 

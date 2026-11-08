@@ -53,8 +53,3 @@ Related to #
 
 ## Additional Notes
 <!-- Any other information reviewers should know -->
-
----
-
-**Thank you for contributing to help others pass their AWS certification! **
-

@@ -1,519 +1,75 @@
-# Contributing to AWS Solutions Architect Study Guide
+# Contributing
 
-First off, thank you for considering contributing to this project!
+Corrections, new questions, diagrams and clearer explanations are all welcome. Everyone taking part is expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-This guide helps thousands of people prepare for their AWS certification. Your contribution, no matter how small, makes a difference.
+## Reporting a problem
 
-## Table of Contents
+Open an issue with the bug report template. Say which file and section is wrong, what it says now, what it should say, and link the AWS documentation that backs the correction.
 
-- [Code of Conduct](#code-of-conduct)
-- [How Can I Contribute?](#how-can-i-contribute)
-- [Contribution Guidelines](#contribution-guidelines)
-- [Style Guide](#style-guide)
-- [Commit Message Guidelines](#commit-message-guidelines)
-- [Review Process](#review-process)
+For new topics or larger changes, use the feature request template first so the scope can be agreed before you write it.
 
----
+## Making a change
 
-## Code of Conduct
-
-### Our Pledge
-
-We are committed to making participation in this project a harassment-free experience for everyone, regardless of:
-
-- Age, body size, disability, ethnicity
-- Gender identity and expression
-- Level of experience, education
-- Nationality, personal appearance, race, religion
-- Sexual identity and orientation
-
-### Our Standards
-
-**Examples of behavior that contributes to a positive environment:**
-
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards others
-
-**Examples of unacceptable behavior:**
-
-- Trolling, insulting/derogatory comments
-- Public or private harassment
-- Publishing others' private information
-- Other conduct which could reasonably be considered inappropriate
-
----
-
-## How Can I Contribute?
-
-### 1. Reporting Issues
-
-Found a bug, error, or outdated information? [Open an issue](../../issues/new)!
-
-**Before submitting:**
-- Check if the issue already exists
-- Use a clear and descriptive title
-- Provide specific examples
-- Include module/section references
-
-**Issue Template:**
-
-```markdown
-**Module/File**: [e.g., 03-Compute/README.md]
-**Section**: [e.g., EC2 Instance Types]
-**Issue Type**: [Bug/Error/Outdated/Improvement]
-
-**Description**:
-[Clear description of the issue]
-
-**Expected**:
-[What should be correct]
-
-**Current**:
-[What is currently wrong]
-
-**Additional Context**:
-[Screenshots, links, etc.]
-```
-
-### 2. Suggesting Enhancements
-
-Have ideas to make this guide better? We'd love to hear them!
-
-**Good enhancement suggestions:**
-- Additional practice questions
-- More visual diagrams
-- New mnemonics or memory aids
-- Hands-on lab scripts
-- Real-world examples
-- Clarifications on complex topics
-
-### 3. Adding Content
-
-Want to contribute content? Here's what we need:
-
-**High Priority:**
-- Practice questions with detailed explanations
-- Architecture diagrams (ASCII or image)
-- Hands-on lab scripts and walkthroughs
-- Real exam scenarios and solutions
-- Additional mnemonics and memory techniques
-
-**Medium Priority:**
-- Comparison tables
-- Service deep-dives
-- Quick tips and shortcuts
-- Common pitfalls and mistakes
-
-### 4. Improving Documentation
-
-- Fix typos and grammatical errors
-- Improve clarity and readability
-- Update outdated information
-- Add missing details
-- Enhance formatting
-
-### 5. Translating
-
-Interested in translating this guide to other languages? [Let us know](../../discussions)!
-
----
-
-## Contribution Guidelines
-
-### Getting Started
-
-1. **Fork the repository**
+1. Fork the repository and create a branch, for example `fix/s3-object-lock-retention`.
+2. Edit the files. Follow the content and style rules below.
+3. If you changed a `DIAGRAMS.md`, check the Mermaid syntax:
    ```bash
-   # Click the "Fork" button on GitHub
-   ```
-
-2. **Clone your fork**
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/AWS-Solution-Architect.git
-   cd AWS-Solution-Architect
-   ```
-
-3. **Understand the repository structure**
-   ```
-   AWS-Solution-Architect/
-   ├── 01-14/              # Study modules
-   │   ├── README.md       # Detailed content
-   │   ├── FAST-LEARN.md   # Condensed version
-   │   ├── PRACTICE-QUESTIONS.md
-   │   └── DIAGRAMS.md     # Visual diagrams
-   ├── scripts/            # Maintenance scripts
-   │   ├── validate_mermaid.py
-   │   └── fix_mermaid.py
-   ├── docs/               # Additional documentation
-   └── *.md                # Quick reference guides
-   ```
-
-4. **Create a branch**
-   ```bash
-   git checkout -b feature/your-feature-name
-   # or
-   git checkout -b fix/issue-you-are-fixing
-   ```
-
-5. **Make your changes**
-   - Follow the [Style Guide](#style-guide)
-   - Test your changes
-   - Ensure formatting is consistent
-
-6. **Validate diagrams (if you modified DIAGRAMS.md)**
-   ```bash
-   # Check for syntax issues
    python3 scripts/validate_mermaid.py
-   
-   # Auto-fix common issues
-   python3 scripts/fix_mermaid.py
-   
-   # Review changes
-   git diff
+   python3 scripts/fix_mermaid.py   # optional: fixes common issues
+   git diff                         # review what the fixer changed
    ```
-   
-   See [docs/MERMAID-VALIDATION-GUIDE.md](docs/MERMAID-VALIDATION-GUIDE.md) for details.
-
-7. **Commit your changes**
+4. If you changed a `PRACTICE-QUESTIONS.md`, rebuild the simulator's question bank and commit `simulator/questions.js` with it:
    ```bash
-   git add .
-   git commit -m "Add: Description of your changes"
+   python3 simulator/build_questions.py
    ```
+5. Commit, push and open a pull request against `main`. Fill in the template and link any related issue.
 
-8. **Push to your fork**
-   ```bash
-   git push origin feature/your-feature-name
-   ```
+Pull requests are reviewed for technical accuracy, relevance to SAA-C03, consistency with the existing material, and originality. Expect a first review within a week.
 
-9. **Create a Pull Request**
-   - Go to the original repository
-   - Click "New Pull Request"
-   - Select your fork and branch
-   - Fill in the PR template
-   - Submit!
+## Content rules
 
-### Pull Request Process
+- Write original material. Do not copy real exam questions, brain dumps, or text from paid courses and books. See [CONTENT-POLICY.md](CONTENT-POLICY.md).
+- Back technical claims with AWS documentation, and link it where a reader might want to check.
+- Stay within what SAA-C03 tests. Deep implementation detail belongs in the AWS docs, not here.
+- Practice questions need four options (or more for multiple response), the answer, and an explanation of why each wrong option is wrong. In `14-Practice/PRACTICE-QUESTIONS.md`, mark the right option by ending its line with `(correct)`; the simulator build reads that marker.
 
-1. **Ensure your PR:**
-   - Has a clear description
-   - References any related issues
-   - Follows the style guide
-   - Doesn't break existing content
-   - Adds value to the guide
+## Style
 
-2. **PR will be reviewed for:**
-   - Accuracy of technical content
-   - Relevance to SAA-C03 exam
-   - Consistency with existing style
-   - Proper formatting
-   - No plagiarism
+- Plain, direct English. State the fact; skip the build-up, the hype and the encouragement.
+- No emoji or pictographic icons, in prose, headings, tables or diagrams. Use words: Yes/No in tables, "Correct"/"Wrong" in answer lists.
+- Use the official service name on first mention ("Amazon S3"), the short name after ("S3"). Define acronyms on first use.
+- `code` formatting for CLI commands, API names and parameters.
+- Hyphens for bullet lists, two-space indents for sub-items. Fenced code blocks with a language tag.
+- Mermaid for architecture diagrams. Keep node labels short.
 
-3. **After submission:**
-   - Maintainers may request changes
-   - Be responsive to feedback
-   - Make requested updates
-   - Once approved, PR will be merged
-
----
-
-## Style Guide
-
-### Markdown Formatting
-
-**Headers:**
-```markdown
-# Module Title (H1)
-## Main Section (H2)
-### Subsection (H3)
-#### Detail Section (H4)
-```
-
-**Lists:**
-```markdown
-- Use hyphens for unordered lists
-- Be consistent
-  - Indent sub-items with 2 spaces
-
-1. Use numbers for ordered lists
-2. Sequential numbering
-3. Clear and concise
-```
-
-**Code Blocks:**
-```markdown
-Use triple backticks with language identifier:
-
-```bash
-aws s3 ls
-```
-
-```python
-import boto3
-s3 = boto3.client('s3')
-```
-```
-
-**Tables:**
-```markdown
-| Header 1 | Header 2 | Header 3 |
-|----------|----------|----------|
-| Data 1   | Data 2   | Data 3   |
-```
-
-**Emphasis:**
-```markdown
-- **Bold** for important terms
-- *Italic* for emphasis
-- `Code` for commands, service names
-- > Blockquote for important notes
-```
-
-### Content Guidelines
-
-**Service Names:**
-- Use official AWS names: "Amazon S3" (first mention), "S3" (subsequent)
-- Use code formatting for CLI commands: `aws s3 cp`
-
-**Acronyms:**
-- Define on first use: "Virtual Private Cloud (VPC)"
-- Use abbreviation after: "Configure the VPC..."
-
-**Examples:**
-- Use realistic scenarios
-- Include both correct and incorrect approaches
-- Explain why something is right/wrong
-
-**Exam Tips:**
-- Clearly marked with or
-- Concise and actionable
-- Based on actual exam patterns
-
-**Diagrams:**
-- Use ASCII art for simple diagrams
-- PNG/SVG for complex architecture
-- Include source files if applicable
-- Add alt text for accessibility
-
-### Module Structure
-
-Each module should follow this structure:
+A full module (`README.md`) follows this outline:
 
 ```markdown
-# Module XX: Topic Name
+# Module XX: Topic
 
 ## Overview
-[Brief description]
-
-## Learning Objectives
-- Objective 1
-- Objective 2
-
----
-
-## 1. Main Topic
-
-### What is [Service]?
-[Definition and purpose]
-
-### Key Features
-[Bullet points]
-
-### Architecture
-[Diagram if applicable]
-
-### Use Cases
-[Real-world scenarios]
-
-### Pricing
-[Cost considerations]
-
-### Exam Tips
- [Tip 1]
- [Tip 2]
-
----
-
-## X. Summary
-[Key takeaways]
-
-## Hands-On Practice
-[Lab suggestions]
-
----
-
-**Next Module:** [Link]
-**Previous Module:** [Link]
+## Key Services
+## 1. First service
+### What it is
+### Key features
+### Use cases
+### Exam tips
+## Summary
+## Hands-on practice
 ```
 
----
-
-## Commit Message Guidelines
-
-### Format
+## Commit messages
 
 ```
-Type: Brief description (50 chars or less)
+Type: short summary in the imperative (50 characters or less)
 
-More detailed explanation if necessary. Wrap at 72 characters.
-Explain the problem this commit solves and why you chose this solution.
+Why the change was needed and what it does, wrapped at 72 characters.
 
 Fixes #123
 ```
 
-### Types
-
-- **Add**: New content, features, or sections
-- **Fix**: Bug fixes, corrections
-- **Update**: Updating existing content
-- **Improve**: Enhancing clarity or quality
-- **Refactor**: Restructuring without changing functionality
-- **Docs**: Documentation-only changes
-- **Style**: Formatting, whitespace changes
-
-### Examples
-
-**Good:**
-```
-Add: Practice questions for VPC module
-
-Added 10 new practice questions covering:
-- Subnets and CIDR blocks
-- Route tables and internet gateways
-- Security groups vs NACLs
-
-Each question includes detailed explanation and exam tips.
-
-Fixes #42
-```
-
-**Bad:**
-```
-updated stuff
-```
-
----
-
-## Review Process
-
-### Timeline
-
-- **Initial Review**: Within 3-5 days
-- **Follow-up**: Within 2 days of requested changes
-- **Merge**: After approval from maintainers
-
-### Review Criteria
-
-**Technical Accuracy:**
-- Information is correct and current
-- Aligned with AWS best practices
-- References official AWS documentation
-
-**Exam Relevance:**
-- Directly relevant to SAA-C03 exam
-- Focuses on testable knowledge
-- Includes practical applications
-
-**Quality:**
-- Well-written and clear
-- Free of typos and errors
-- Properly formatted
-- Follows style guide
-
-**Value:**
-- Adds new information
-- Improves existing content
-- Helps learners understand better
-
----
-
-## Content Priorities
-
-### High Priority Contributions
-
-1. **Practice Questions**
-   - Scenario-based questions
-   - Multiple choice with explanations
-   - Domain-specific questions
-
-2. **Visual Aids**
-   - Architecture diagrams
-   - Decision trees
-   - Flow charts
-
-3. **Hands-On Labs**
-   - Step-by-step walkthroughs
-   - AWS CLI commands
-   - CloudFormation templates
-
-4. **Real Exam Insights**
-   - Common question patterns
-   - Tricky scenarios
-   - Exam-day tips
-
-### Medium Priority
-
-- Service comparisons
-- Additional examples
-- Mnemonic devices
-- Quick reference tables
-
-### Nice to Have
-
-- Video tutorials
-- Interactive quizzes
-- Cheat sheet PDFs
-- Community study groups
-
----
-
-## Recognition
-
-Contributors will be:
-
-- Listed in [CONTRIBUTORS.md](CONTRIBUTORS.md)
-- Credited in release notes
-- Acknowledged in the main README
-- Given public thanks for significant contributions
-
----
-
-## Getting Help
-
-Need help contributing?
-
-- [Start a Discussion](../../discussions)
-- [Read the Documentation](README.md)
-- [Report an Issue](../../issues)
-
----
+Types: `Add`, `Fix`, `Update`, `Refactor`, `Docs`, `Style`.
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the MIT License.
-
----
-
-## Thank You!
-
-Every contribution helps make this guide better for everyone. Whether you:
-
-- Fixed a typo
-- Added a practice question
-- Improved an explanation
-- Shared feedback
-
-**Thank you for being part of this community!**
-
----
-
-<div align="center">
-
-**[Start Contributing Now →](../../pulls)**
-
-Made with by contributors like you
-
-</div>
-
+By contributing you agree that your work is released under the [MIT License](LICENSE).

@@ -12,14 +12,14 @@
 ## Related Resources
 
 - [Main Study Guide](../README.md)
-- [Practice Questions Module](../14-Practice/README.md)
+- [Practice Questions Module](../../14-Practice/README.md)
 
 **Individual Test Reviews:**
-- [Practice Test 1 Review](Practice-Test-1-Review.md) - 34/65 (52.31%)
-- [Practice Test 2 Review](Practice-Test-2-Review.md) - 49/65 (75.38%)
-- [Practice Test 3 Review](Practice-Test-3-Review.md) - 52/65 (80.00%)
-- [Practice Test 4 Review](Practice-Test-4-Review.md) - 49/65 (75.38%)
-- [Practice Test 5 Review](Practice-Test-5-Review.md) - 42/65 (64.62%)
+- [Practice Test 1 Review](../complete-reviews/Practice-Test-1-Review.md) - 34/65 (52.31%)
+- [Practice Test 2 Review](../complete-reviews/Practice-Test-2-Review.md) - 49/65 (75.38%)
+- [Practice Test 3 Review](../complete-reviews/Practice-Test-3-Review.md) - 52/65 (80.00%)
+- [Practice Test 4 Review](../complete-reviews/Practice-Test-4-Review.md) - 49/65 (75.38%)
+- [Practice Test 5 Review](../complete-reviews/Practice-Test-5-Review.md) - 42/65 (64.62%)
 
 ---
 
@@ -278,39 +278,39 @@ Score Trend:
 ## Must-Know Service Comparisons
 
 ### CloudWatch
- Agent required for: Memory, disk, custom metrics
- Default metrics: CPU, network, disk I/O (NOT memory)
+ Agent required for: Memory, disk, custom metrics  
+ Default metrics: CPU, network, disk I/O (NOT memory)  
  `aggregation_dimensions` for ASG-level rollups
 
 ### ECS
- awsvpc: ENI per task, SG per task
- bridge: Docker bridge, port mapping
+ awsvpc: ENI per task, SG per task  
+ bridge: Docker bridge, port mapping  
  host: Shares host network namespace
 
 ### S3
- Strong consistency for all operations
- Multipart: Required >100MB, best >5GB
+ Strong consistency for all operations  
+ Multipart: Required >100MB, best >5GB  
  Transfer Acceleration for global uploads
 
 ### Auto Scaling
- Target tracking: Maintains target value (best for most)
- Step scaling: Multiple steps based on thresholds
+ Target tracking: Maintains target value (best for most)  
+ Step scaling: Multiple steps based on thresholds  
  Simple scaling: One adjustment, then cooldown
 
 ### FSx
- Lustre: HPC, Linux, S3 integration
- Windows: SMB, AD, Windows workloads
- NetApp ONTAP: Multi-protocol, enterprise
+ Lustre: HPC, Linux, S3 integration  
+ Windows: SMB, AD, Windows workloads  
+ NetApp ONTAP: Multi-protocol, enterprise  
  OpenZFS: ZFS snapshots, Linux/Mac
 
 ### Load Balancers
- ALB: Layer 7 (HTTP/HTTPS), host/path routing
- NLB: Layer 4 (TCP/UDP), static IP, high performance
+ ALB: Layer 7 (HTTP/HTTPS), host/path routing  
+ NLB: Layer 4 (TCP/UDP), static IP, high performance  
  Both support dynamic port mapping for ECS
 
 ### RDS
- Multi-AZ: Automatic failover (HA)
- Read Replica: Read scaling, manual promotion
+ Multi-AZ: Automatic failover (HA)  
+ Read Replica: Read scaling, manual promotion  
  Cross-Region Replica: DR, requires promotion
 
 ---
@@ -333,5 +333,4 @@ Score Trend:
 3. Evaluate if you need more time
 4. Only schedule exam after consistent 85%+ scores
 
-Good luck!
 

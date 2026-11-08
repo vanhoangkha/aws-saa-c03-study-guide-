@@ -49,7 +49,7 @@
 
 ### Question 7: EC2 Auto Scaling Predefined Metrics
 
-**QUESTION:**
+**QUESTION:**  
 Which metric is NOT available as a predefined option for EC2 Auto Scaling target tracking?
 
 **No: YOUR ANSWER:** Network Out  
@@ -74,7 +74,7 @@ Which metric is NOT available as a predefined option for EC2 Auto Scaling target
 
 ### Question 13: Redshift Snapshot Cost Optimization
 
-**QUESTION:**
+**QUESTION:**  
 How to reduce rising snapshot-related costs for Redshift without affecting availability?
 
 **No: YOUR ANSWER:** Increase automated snapshot retention to 35 days  
@@ -101,7 +101,7 @@ How to reduce rising snapshot-related costs for Redshift without affecting avail
 
 ### Question 17: S3 Glacier Flexible Retrieval
 
-**QUESTION:**
+**QUESTION:**  
 Management requires archived data retrievable within 3-5 hours. Which retrieval tier?
 
 **No: YOUR ANSWER:** Expedited  
@@ -128,7 +128,7 @@ Management requires archived data retrievable within 3-5 hours. Which retrieval 
 
 ### Question 18: VPC Security Group References
 
-**QUESTION:**
+**QUESTION:**  
 Backend instances must only accept traffic from frontend on custom port. How configure backend SG?
 
 **No: YOUR ANSWER:** Use the launch configuration as the source  
@@ -160,7 +160,7 @@ Backend Security Group Inbound Rule:
 
 ### Question 19: Cost Optimization - Savings Plans Mix
 
-**QUESTION:**
+**QUESTION:**  
 Best savings mix for: diverse web tier, stable app tier, RDS databases?
 
 **No: YOUR ANSWER:** EC2 Instance SP (web) + Compute SP (app and DB)  
@@ -187,7 +187,7 @@ Best savings mix for: diverse web tier, stable app tier, RDS databases?
 
 ### Question 34: Mixed Instance Policy for Auto Scaling
 
-**QUESTION:**
+**QUESTION:**  
 How to reduce cost for ASG (min 2, max 12) without risking performance?
 
 **No: YOUR ANSWER:** Use all t2.micro On-Demand instances  
@@ -217,7 +217,7 @@ Mixed (2 OD + 8 Spot @ 80%) = ~4x cost (balanced)
 
 ### Question 25: CloudTrail Log File Integrity
 
-**QUESTION:**
+**QUESTION:**  
 How to cryptographically verify CloudTrail logs haven't been tampered with?
 
 **No: YOUR ANSWER:** Use SSE-KMS encryption for the CloudTrail logs  
@@ -248,7 +248,7 @@ How to cryptographically verify CloudTrail logs haven't been tampered with?
 
 ### Question 28: Auto Scaling Lifecycle Hooks
 
-**QUESTION:**
+**QUESTION:**  
 How to run cleanup scripts before instances terminate during scale-in?
 
 **No: YOUR ANSWER:** Customize the termination policy to copy data before termination  
@@ -286,7 +286,7 @@ Instance terminates
 
 ### Question 36: CloudFormation Drift Detection
 
-**QUESTION:**
+**QUESTION:**  
 Why aren't some property changes detected as drift?
 
 **No: YOUR ANSWER:** Grant additional Read permissions to drift detection  
@@ -325,7 +325,7 @@ MyInstance:
 
 ### Question 48: ALB Access Logs for Client IPs
 
-**QUESTION:**
+**QUESTION:**  
 How to identify actual client IPs and request details for forensics?
 
 **No: YOUR ANSWER:** AWS CloudTrail data events for the ALB  
@@ -356,7 +356,7 @@ How to identify actual client IPs and request details for forensics?
 
 ### Question 56: EBS Snapshot Cross-Region Copy
 
-**QUESTION:**
+**QUESTION:**  
 How to maintain snapshot copy in another region for compliance?
 
 **No: YOUR ANSWER:** Enable S3 Cross-Region Replication on the snapshot storage bucket  
@@ -389,7 +389,7 @@ How to maintain snapshot copy in another region for compliance?
 
 ### Question 58: S3 Versioning Delete Marker Recovery
 
-**QUESTION:**
+**QUESTION:**  
 How to recover accidentally deleted object in versioned bucket?
 
 **No: YOUR ANSWER:** In a version-enabled bucket, a Delete request only hides the latest version  
@@ -423,7 +423,7 @@ Object.pdf (delete marker) ← Makes object appear gone
 
 ### Question 38: VPC NACLs with Transit Gateway
 
-**QUESTION:**
+**QUESTION:**  
 How are NACL rules evaluated for traffic between instances and TGW in different subnets?
 
 **No: YOUR ANSWER:** When instances and TGW are in different subnets, only inbound rules are evaluated  
@@ -460,7 +460,7 @@ TGW Subnet NACL:
 
 ### Question 45: Session Storage Services
 
-**QUESTION:**
+**QUESTION:**  
 Which services are most appropriate for scalable session storage?
 
 **No: YOUR ANSWER:** Elastic Load Balancing + Amazon ElastiCache  
@@ -503,7 +503,7 @@ Return session data
 A web application experiences memory pressure during peak times. The solutions architect wants to configure Auto Scaling to add instances when average memory utilization exceeds 75%. What is required?
 
 **A.** Configure a target tracking policy on the ASGAverageMemoryUtilization predefined metric  
-**B.** Install CloudWatch agent, publish custom memory metric, create target tracking policy on custom metric (correct)
+**B.** Install CloudWatch agent, publish custom memory metric, create target tracking policy on custom metric (correct)  
 **C.** Use step scaling with CPU utilization as a proxy for memory usage  
 **D.** Enable detailed monitoring on EC2 instances to expose memory metrics
 
@@ -536,7 +536,7 @@ A web application experiences memory pressure during peak times. The solutions a
 A company's Redshift cluster has automated snapshots with 7-day retention and several manual snapshots from past migrations. Snapshot storage costs have increased significantly. What is the FIRST action to reduce costs?
 
 **A.** Reduce automated snapshot retention to 1 day  
-**B.** Delete unnecessary manual snapshots (correct)
+**B.** Delete unnecessary manual snapshots (correct)  
 **C.** Enable snapshot compression  
 **D.** Move snapshots to S3 Glacier
 
@@ -576,7 +576,7 @@ Manual snapshots (50 old): $X/snapshot × 50 = $50X
 
 An application archives logs to S3 Glacier Flexible Retrieval. For compliance, logs must be retrievable within 4 hours. The team currently uses Expedited retrieval. How can they reduce costs?
 
-**A.** Switch to Standard retrieval (correct)
+**A.** Switch to Standard retrieval (correct)  
 **B.** Use Bulk retrieval with parallel requests  
 **C.** Keep Expedited but reduce request frequency  
 **D.** Move to S3 Glacier Instant Retrieval
@@ -620,7 +620,7 @@ Savings: ~66% on retrieval costs
 A three-tier application has web servers in public subnets and app servers in private subnets. App servers must only accept traffic from web servers on port 8080. Both tiers scale with Auto Scaling. What is the MOST maintainable solution?
 
 **A.** Configure app server SG to allow port 8080 from the public subnet CIDR  
-**B.** Configure app server SG to allow port 8080 from web server SG ID (correct)
+**B.** Configure app server SG to allow port 8080 from web server SG ID (correct)  
 **C.** Use Network ACLs to restrict port 8080 access  
 **D.** Assign Elastic IPs to web servers and whitelist them
 
@@ -666,7 +666,7 @@ What is the MOST cost-effective commitment strategy?
 
 **A.** Compute Savings Plans for all workloads  
 **B.** EC2 Instance Savings Plans for all workloads  
-**C.** Compute SP (web) + EC2 Instance SP (app) + RDS RI (DB) (correct)
+**C.** Compute SP (web) + EC2 Instance SP (app) + RDS RI (DB) (correct)  
 **D.** EC2 Instance SP (all EC2) + Compute SP (RDS)
 
 <details>
@@ -718,7 +718,7 @@ An e-commerce application uses Auto Scaling (min=2, max=15). The architect wants
 
 **A.** 100% Spot instances (lowest cost)  
 **B.** 100% On-Demand instances (highest reliability)  
-**C.** On-Demand base=2, above that 80% Spot / 20% On-Demand (correct)
+**C.** On-Demand base=2, above that 80% Spot / 20% On-Demand (correct)  
 **D.** On-Demand base=0, 50% Spot / 50% On-Demand
 
 <details>

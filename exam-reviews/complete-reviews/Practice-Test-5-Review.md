@@ -1,12 +1,10 @@
 # Practice Test 5 (SAA-C03) - Exam Review
 
 **Date:** March 2, 2026  
-**Score:** 42/65 (64.62%) - **FAILED**
+**Score:** 42/65 (64.62%) - **FAILED**  
 **Time Taken:** 130 minutes (2 hours 10 minutes)  
 **Status:** Significant regression from previous tests  
 **Passing Score:** 72% (need 47/65 correct)
-
----
 
 ---
 
@@ -40,7 +38,7 @@ Pattern: Inconsistent performance across tests
 
 | Domain | Total | Correct | Incorrect | Score | Status |
 |--------|-------|---------|-----------|-------|--------|
-| **Design Cost-Optimized Architectures** | 3 | 3 | 0 | 100.00% | Perfect |
+| **Design Cost-Optimized Architectures** | 3 | 3 | 0 | 100.00% | No misses |
 | **Design Secure Architectures** | 18 | 14 | 4 | 77.78% | Needs Review |
 | **Design Resilient Architectures** | 21 | 15 | 6 | 71.43% | Needs Review |
 | **Design High-Performing Architectures** | 23 | 10 | 13 | 43.48% | **CRITICAL** |
@@ -129,7 +127,7 @@ Pattern: Inconsistent performance across tests
 ---
 
 #### EXCELLENT: Design Cost-Optimized Architectures (100%)
-**Status:** PERFECT SCORE!
+**Status:** No misses SCORE.
 
 **Questions:** 3 correct out of 3 (0 incorrect)
 - **Review flagged:** 1 out of 3 (33% - good confidence)
@@ -140,7 +138,7 @@ Pattern: Inconsistent performance across tests
 - Lambda cost factors (memory + request count)
 - X-Ray with Insights for cost-effective monitoring
 
-**Maintain This:** Quick review before exam to keep fresh!
+**Maintain This:** Quick review before exam to keep fresh.
 
 ---
 
@@ -1022,7 +1020,7 @@ Need to run ECS containers?
 #### LOW PRIORITY (Quick review)
 
 8. **Module 13 - Cost Optimization**
-   - Already at 100% - maintain this!
+   - Already at 100% - maintain this.
    - Quick 30-minute review before exam
 
 ### Practice Question Focus Areas
@@ -1440,9 +1438,6 @@ A: Volume Gateway (Cached or Stored)
 
 ---
 
-**Good luck with your studies! Focus on understanding concepts deeply, not just memorizing answers. You can do this! **
+[← Back to Exam Reviews](../README.md) | [Study Roadmap](../../docs/study-guides/STUDY-ROADMAP.md) | [Quick Study Notes](../../docs/study-guides/QUICK-STUDY-NOTES.md)
 
----
-
-[← Back to Exam Reviews](README.md) | [Study Roadmap](../STUDY-ROADMAP.md) | [Quick Study Notes](../QUICK-STUDY-NOTES.md)
-
+Focus on understanding the concepts, not memorizing answers.

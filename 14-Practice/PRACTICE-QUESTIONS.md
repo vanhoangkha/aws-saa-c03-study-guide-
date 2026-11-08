@@ -230,5 +230,5 @@ D. S3 → Lambda → Step Functions → DynamoDB (correct)
 
 ---
 
-*Practice these scenarios until you can explain each answer confidently!*
+*Practice these scenarios until you can explain each answer confidently.*
 

@@ -1,7 +1,7 @@
 # Module 10: Migration & Transfer Services
 
 ## Overview
-AWS provides a comprehensive set of services to migrate applications, databases, and data to the cloud. This module covers migration strategies, tools, and best practices for moving workloads to AWS.
+AWS provides a set of services to migrate applications, databases, and data to the cloud. This module covers migration strategies, tools, and best practices for moving workloads to AWS.
 
 ## Learning Objectives
 - Understand the 6 R's of migration strategy

@@ -798,7 +798,7 @@ PERFORMANCE REQUIREMENTS:
 
 ---
 
-**Remember**: A picture is worth a thousand words. Use these visual aids to understand relationships between services and architectural patterns!
+**Remember**: A picture is worth a thousand words. Use these visual aids to understand relationships between services and architectural patterns.
 
-**Study Tip**: Draw these diagrams from memory. If you can draw it, you understand it!
+**Study Tip**: Draw these diagrams from memory. If you can draw it, you understand it.
 

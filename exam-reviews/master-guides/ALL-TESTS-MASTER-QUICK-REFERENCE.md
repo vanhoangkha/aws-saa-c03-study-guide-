@@ -363,5 +363,4 @@
 - Day 7: Cost optimization (RIs, Savings Plans, storage)
 - Repeat cycle
 
-**Good luck! You've got this! **
 

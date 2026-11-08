@@ -462,14 +462,14 @@ User Request
 
 ## Anti-Patterns to Avoid
 
- **Single Point of Failure**: Always deploy across multiple AZs
- **Manual Scaling**: Use Auto Scaling instead
- **Monolithic Architecture**: Break into microservices
- **Ignoring Security**: Implement defense in depth
- **Over-Provisioning**: Use Auto Scaling and right-sizing
- **No Monitoring**: Implement comprehensive monitoring
- **Tight Coupling**: Use queues and event-driven architecture
- **No Disaster Recovery**: Implement appropriate DR strategy
+ **Single Point of Failure**: Always deploy across multiple AZs  
+ **Manual Scaling**: Use Auto Scaling instead  
+ **Monolithic Architecture**: Break into microservices  
+ **Ignoring Security**: Implement defense in depth  
+ **Over-Provisioning**: Use Auto Scaling and right-sizing  
+ **No Monitoring**: Implement comprehensive monitoring  
+ **Tight Coupling**: Use queues and event-driven architecture  
+ **No Disaster Recovery**: Implement appropriate DR strategy  
 
 ---
 
@@ -502,16 +502,16 @@ User Request
 
 ## Key Takeaways
 
- Design for failure (assume everything fails)
- Implement elasticity (auto-scale)
- Decouple components (use queues, event-driven)
- Use managed services (reduce operational overhead)
- Optimize for cost (right-sizing, auto-scaling, spot instances)
- Secure at every layer (defense in depth)
- Monitor everything (CloudWatch, X-Ray)
- Automate recovery (self-healing architectures)
- Design for global scale (multi-region, CloudFront)
- Think cloud-native (leverage AWS services)
+ Design for failure (assume everything fails)  
+ Implement elasticity (auto-scale)  
+ Decouple components (use queues, event-driven)  
+ Use managed services (reduce operational overhead)  
+ Optimize for cost (right-sizing, auto-scaling, spot instances)  
+ Secure at every layer (defense in depth)  
+ Monitor everything (CloudWatch, X-Ray)  
+ Automate recovery (self-healing architectures)  
+ Design for global scale (multi-region, CloudFront)  
+ Think cloud-native (leverage AWS services)  
 
 ---
 

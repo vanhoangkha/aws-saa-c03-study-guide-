@@ -46,7 +46,7 @@
   - Non-AWS: Use CNAME/A record + explicit health check
 - **Cannot**: Use CNAME at root domain (apex)
 
-**Remember**: "Evaluate Target Health" works only for AWS resources!
+**Remember**: "Evaluate Target Health" works only for AWS resources.
 
 ---
 
@@ -133,7 +133,7 @@
 
 **Exam Trap**: Questions showing CNAME at root domain = WRONG
 
-**Remember**: For root domains (e.g., example.com) → Always use Alias!
+**Remember**: For root domains (e.g., example.com) → Always use Alias.
 
 ---
 
@@ -509,7 +509,7 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 - Don't grant permissions (only deny)
 - Applied at Organization/OU/Account level
 
-**Exam Trap**: SCPs do NOT affect the management account!
+**Exam Trap**: SCPs do NOT affect the management account.
 
 ---
 
@@ -769,7 +769,7 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 
 ---
 
-**Remember**: These 31 cards cover ONLY the questions you got wrong. Master these, and you'll significantly improve your score!
+**Remember**: These 31 cards cover ONLY the questions you got wrong. Master these, and you'll significantly improve your score.
 
 **Next Step**: Take section quizzes to reinforce these concepts in different scenarios.
 

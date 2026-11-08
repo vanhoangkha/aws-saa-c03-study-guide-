@@ -565,16 +565,16 @@ Default Key Policy:
 
 ## Key Takeaways
 
- KMS manages encryption keys (FIPS 140-3 Level 3), CloudHSM for single-tenant dedicated HSMs with full key control
- Secrets Manager for automatic rotation of database credentials
- Parameter Store for application configuration (cheaper than Secrets Manager)
- WAF protects against SQL injection, XSS, rate limiting
- Shield Standard (free) for layer 3/4, Shield Advanced ($3,000/month) for enhanced protection
- GuardDuty for threat detection, Inspector for vulnerabilities
- Macie for discovering sensitive data in S3
- Security Hub centralizes security findings across services
- Always encrypt sensitive data at rest and in transit
- Use CloudTrail for API logging, Config for resource configuration tracking
+ KMS manages encryption keys (FIPS 140-3 Level 3), CloudHSM for single-tenant dedicated HSMs with full key control  
+ Secrets Manager for automatic rotation of database credentials  
+ Parameter Store for application configuration (cheaper than Secrets Manager)  
+ WAF protects against SQL injection, XSS, rate limiting  
+ Shield Standard (free) for layer 3/4, Shield Advanced ($3,000/month) for enhanced protection  
+ GuardDuty for threat detection, Inspector for vulnerabilities  
+ Macie for discovering sensitive data in S3  
+ Security Hub centralizes security findings across services  
+ Always encrypt sensitive data at rest and in transit  
+ Use CloudTrail for API logging, Config for resource configuration tracking  
 
 ---
 

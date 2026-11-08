@@ -10,17 +10,17 @@
 
 ## WHAT'S INCLUDED
 
- **15 Must-Memorize Critical Rules**
- **150+ Edge Cases & Traps** (commonly missed scenarios)
- **Advanced Exam Scenarios** (pattern recognition for complex questions)
- **Service Combinations** (what pairs with what)
- **Anti-Patterns** (what NOT to do - eliminates wrong answers)
- **Performance/Security/Cost Optimization Patterns**
- **30-Second Question Analysis Method** (time management)
- **Top 20 Gotcha Facts** (most commonly failed questions)
- **Numerical Values to Memorize** (limits that appear on exam)
- **Service Confusion Clarification** (similar services explained)
- **Exam Day Strategies** (before/during/after tactics)
+ **15 Must-Memorize Critical Rules**  
+ **150+ Edge Cases & Traps** (commonly missed scenarios)  
+ **Advanced Exam Scenarios** (pattern recognition for complex questions)  
+ **Service Combinations** (what pairs with what)  
+ **Anti-Patterns** (what NOT to do - eliminates wrong answers)  
+ **Performance/Security/Cost Optimization Patterns**  
+ **30-Second Question Analysis Method** (time management)  
+ **Top 20 Gotcha Facts** (most commonly failed questions)  
+ **Numerical Values to Memorize** (limits that appear on exam)  
+ **Service Confusion Clarification** (similar services explained)  
+ **Exam Day Strategies** (before/during/after tactics)  
 
 ---
 
@@ -1245,21 +1245,21 @@ Example: "Company needs to..."
 
 ### Anti-Patterns (What NOT to Do)
 
- **Using RDS for caching** → Use ElastiCache instead
- **Using S3 for frequent random I/O** → Use EBS or EFS
- **Using Lambda for long-running tasks** → Use ECS, Batch, or EC2
- **Using EC2 for simple cron jobs** → Use EventBridge + Lambda
- **Using EBS for shared file storage** → Use EFS instead
- **Using NAT Gateway for VPC endpoint traffic** → Use VPC endpoints (cheaper)
- **Using public S3 buckets** → Use pre-signed URLs or CloudFront OAI
- **Using IAM users for applications** → Use IAM roles
- **Using hardcoded credentials** → Use Secrets Manager or Parameter Store
- **Using single AZ for production** → Always Multi-AZ for HA
- **Using SQS Standard for strict ordering** → Use SQS FIFO
- **Using default VPC for production** → Create custom VPC
- **Using root account for operations** → Use IAM users/roles
- **Using unencrypted data at rest** → Enable encryption
- **Using public subnets for databases** → Always private subnets
+ **Using RDS for caching** → Use ElastiCache instead  
+ **Using S3 for frequent random I/O** → Use EBS or EFS  
+ **Using Lambda for long-running tasks** → Use ECS, Batch, or EC2  
+ **Using EC2 for simple cron jobs** → Use EventBridge + Lambda  
+ **Using EBS for shared file storage** → Use EFS instead  
+ **Using NAT Gateway for VPC endpoint traffic** → Use VPC endpoints (cheaper)  
+ **Using public S3 buckets** → Use pre-signed URLs or CloudFront OAI  
+ **Using IAM users for applications** → Use IAM roles  
+ **Using hardcoded credentials** → Use Secrets Manager or Parameter Store  
+ **Using single AZ for production** → Always Multi-AZ for HA  
+ **Using SQS Standard for strict ordering** → Use SQS FIFO  
+ **Using default VPC for production** → Create custom VPC  
+ **Using root account for operations** → Use IAM users/roles  
+ **Using unencrypted data at rest** → Enable encryption  
+ **Using public subnets for databases** → Always private subnets  
 
 ---
 
@@ -1666,7 +1666,7 @@ CloudWatch (monitoring)
 - Simpler is usually better
 - Managed services preferred over self-managed
 - Security is never optional
-- You've prepared thoroughly - trust your preparation!
+- You've prepared thoroughly - trust your preparation.
 
 ---
 
@@ -1706,36 +1706,36 @@ CloudWatch (monitoring)
 
 ## COMMON TRAPS TO AVOID
 
- **Memory is default metric** → Need CloudWatch agent
- **CloudFront cert in any region** → Must be us-east-1
- **Bucket default affects existing** → Only new objects
- **Can transition from Glacier** → Must restore first
- **VPC peering auto DNS** → Must enable both sides
- **VPC peering is transitive** → NOT transitive (use TGW)
- **Read replica for HA** → Multi-AZ for HA
- **Multi-AZ standby readable** → NOT readable (only failover)
- **Instance store persists** → Lost on stop
- **SSE-C = AWS manages** → You manage keys
- **IAM allow > deny** → Deny ALWAYS wins
- **CloudWatch logs auto-expire** → Indefinite default
- **SCPs affect management account** → They DON'T
- **File Gateway = blocks** → Files as S3 objects
- **Volume Gateway = S3 console access** → Blocks only
- **Tape Gateway for file access** → For backup/archive only
- **DataSync = database migration** → Files only (use DMS for DBs)
- **Snowball for <10TB** → Use DataSync or direct upload
- **SQS FIFO unlimited throughput** → 300 msg/s (3000 batched)
- **EventBridge = SNS** → EB for event routing, SNS for pub/sub
- **Step Functions = Lambda** → Orchestration vs single function
- **S3 versioning disableable** → Once on, only SUSPEND
- **RDS encryption after creation** → Must snapshot, copy encrypted, restore
- **Lambda runs forever** → Max 15 minutes
- **Spot gives hours warning** → Only 2 minutes
- **ECS dynamic ports with NLB** → ALB only
- **Cross-zone LB always free** → ALB free, NLB charged
- **DynamoDB LSI add later** → Only at table creation
- **Kinesis Firehose real-time** → Near real-time (60s buffer)
- **Enhanced networking default** → Specific instance types only
+ **Memory is default metric** → Need CloudWatch agent  
+ **CloudFront cert in any region** → Must be us-east-1  
+ **Bucket default affects existing** → Only new objects  
+ **Can transition from Glacier** → Must restore first  
+ **VPC peering auto DNS** → Must enable both sides  
+ **VPC peering is transitive** → NOT transitive (use TGW)  
+ **Read replica for HA** → Multi-AZ for HA  
+ **Multi-AZ standby readable** → NOT readable (only failover)  
+ **Instance store persists** → Lost on stop  
+ **SSE-C = AWS manages** → You manage keys  
+ **IAM allow > deny** → Deny ALWAYS wins  
+ **CloudWatch logs auto-expire** → Indefinite default  
+ **SCPs affect management account** → They DON'T  
+ **File Gateway = blocks** → Files as S3 objects  
+ **Volume Gateway = S3 console access** → Blocks only  
+ **Tape Gateway for file access** → For backup/archive only  
+ **DataSync = database migration** → Files only (use DMS for DBs)  
+ **Snowball for <10TB** → Use DataSync or direct upload  
+ **SQS FIFO unlimited throughput** → 300 msg/s (3000 batched)  
+ **EventBridge = SNS** → EB for event routing, SNS for pub/sub  
+ **Step Functions = Lambda** → Orchestration vs single function  
+ **S3 versioning disableable** → Once on, only SUSPEND  
+ **RDS encryption after creation** → Must snapshot, copy encrypted, restore  
+ **Lambda runs forever** → Max 15 minutes  
+ **Spot gives hours warning** → Only 2 minutes  
+ **ECS dynamic ports with NLB** → ALB only  
+ **Cross-zone LB always free** → ALB free, NLB charged  
+ **DynamoDB LSI add later** → Only at table creation  
+ **Kinesis Firehose real-time** → Near real-time (60s buffer)  
+ **Enhanced networking default** → Specific instance types only  
 
 ---
 
@@ -1864,9 +1864,7 @@ CloudWatch (monitoring)
  You know the material
  Read questions carefully
  Eliminate wrong answers first
- Trust your preparation
 
-**You've got this! **
 
 ---
 

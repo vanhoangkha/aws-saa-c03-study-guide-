@@ -20,36 +20,36 @@ FAST-LEARN materials are **condensed, high-impact study guides** designed to hel
 ### Core Foundation (3-4 hours)
 | Module | Time | Exam Weight | Priority | Link                                                |
 |--------|------|-------------|----------|-----------------------------------------------------|
-| **01. AWS Fundamentals** | 30-45 min | ~10% | CRITICAL | [FAST-LEARN.md](/01-AWS-Fundamentals/FAST-LEARN.md) |
-| **02. IAM** | 45-60 min | ~15-20% | CRITICAL | [FAST-LEARN.md](/02-IAM/FAST-LEARN.md)               |
-| **03. Compute Services** | 60-90 min | ~20-25% | CRITICAL | [FAST-LEARN.md](/03-Compute/FAST-LEARN.md)           |
+| **01. AWS Fundamentals** | 30-45 min | ~10% | CRITICAL | [FAST-LEARN.md](../..//01-AWS-Fundamentals/FAST-LEARN.md) |
+| **02. IAM** | 45-60 min | ~15-20% | CRITICAL | [FAST-LEARN.md](../..//02-IAM/FAST-LEARN.md)               |
+| **03. Compute Services** | 60-90 min | ~20-25% | CRITICAL | [FAST-LEARN.md](../..//03-Compute/FAST-LEARN.md)           |
 
 ### Core Services (4-5 hours)
 | Module | Time | Exam Weight | Priority | Link |
 |--------|------|-------------|----------|------|
-| **04. Storage** | 60-75 min | ~15-20% | CRITICAL | [FAST-LEARN.md](/04-Storage/FAST-LEARN.md) |
-| **05. Database** | 60-75 min | ~15-20% | CRITICAL | [FAST-LEARN.md](/05-Database/FAST-LEARN.md) |
-| **06. Networking** | 75-90 min | ~20-25% | CRITICAL | [FAST-LEARN.md](/06-Networking/FAST-LEARN.md) |
+| **04. Storage** | 60-75 min | ~15-20% | CRITICAL | [FAST-LEARN.md](../..//04-Storage/FAST-LEARN.md) |
+| **05. Database** | 60-75 min | ~15-20% | CRITICAL | [FAST-LEARN.md](../..//05-Database/FAST-LEARN.md) |
+| **06. Networking** | 75-90 min | ~20-25% | CRITICAL | [FAST-LEARN.md](../..//06-Networking/FAST-LEARN.md) |
 
 ### Security & Integration (3-4 hours)
 | Module | Time | Exam Weight | Priority | Link |
 |--------|------|-------------|----------|------|
-| **07. Security** | 60-75 min | ~20-25% | CRITICAL | [FAST-LEARN.md](/07-Security/FAST-LEARN.md) |
-| **08. Application Integration** | 45-60 min | ~10-15% | HIGH | [FAST-LEARN.md](/08-Application-Integration/FAST-LEARN.md) |
-| **09. Monitoring** | 45-60 min | ~10-15% | HIGH | [FAST-LEARN.md](/09-Monitoring/FAST-LEARN.md) |
+| **07. Security** | 60-75 min | ~20-25% | CRITICAL | [FAST-LEARN.md](../..//07-Security/FAST-LEARN.md) |
+| **08. Application Integration** | 45-60 min | ~10-15% | HIGH | [FAST-LEARN.md](../..//08-Application-Integration/FAST-LEARN.md) |
+| **09. Monitoring** | 45-60 min | ~10-15% | HIGH | [FAST-LEARN.md](../..//09-Monitoring/FAST-LEARN.md) |
 
 ### Advanced Topics (3-4 hours)
 | Module | Time | Exam Weight | Priority | Link |
 |--------|------|-------------|----------|------|
-| **10. Migration** | 40-50 min | ~8-12% | MEDIUM | [FAST-LEARN.md](/10-Migration/FAST-LEARN.md) |
-| **11. Analytics** | 45-60 min | ~8-12% | MEDIUM | [FAST-LEARN.md](/11-Analytics/FAST-LEARN.md) |
-| **12. Architecture Patterns** | 60-75 min | ~25-30% | CRITICAL | [FAST-LEARN.md](/12-Architecture-Patterns/FAST-LEARN.md) |
-| **13. Cost Optimization** | 40-50 min | ~10-15% | HIGH | [FAST-LEARN.md](/13-Cost-Optimization/FAST-LEARN.md) |
+| **10. Migration** | 40-50 min | ~8-12% | MEDIUM | [FAST-LEARN.md](../..//10-Migration/FAST-LEARN.md) |
+| **11. Analytics** | 45-60 min | ~8-12% | MEDIUM | [FAST-LEARN.md](../..//11-Analytics/FAST-LEARN.md) |
+| **12. Architecture Patterns** | 60-75 min | ~25-30% | CRITICAL | [FAST-LEARN.md](../..//12-Architecture-Patterns/FAST-LEARN.md) |
+| **13. Cost Optimization** | 40-50 min | ~10-15% | HIGH | [FAST-LEARN.md](../..//13-Cost-Optimization/FAST-LEARN.md) |
 
 ### Exam Preparation (30-45 min)
 | Module | Time | Purpose | Priority | Link |
 |--------|------|---------|----------|------|
-| **14. Practice & Exam Strategies** | 30-45 min | Final prep | CRITICAL | [FAST-LEARN.md](/14-Practice/FAST-LEARN.md) |
+| **14. Practice & Exam Strategies** | 30-45 min | Final prep | CRITICAL | [FAST-LEARN.md](../..//14-Practice/FAST-LEARN.md) |
 
 ---
 
@@ -179,29 +179,29 @@ FAST-LEARN materials are **condensed, high-impact study guides** designed to hel
 
 ### Before You Start
 ```
-□ Bookmark this master guide
-□ Choose your study path (above)
-□ Set realistic daily goals
-□ Prepare note-taking method
-□ Clear distractions
+[ ] Bookmark this master guide
+[ ] Choose your study path (above)
+[ ] Set realistic daily goals
+[ ] Prepare note-taking method
+[ ] Clear distractions
 ```
 
 ### During Study
 ```
-□ Follow the module order (builds on previous)
-□ Don't skip "Common Mistakes" sections
-□ Practice questions after each module
-□ Take 5-minute breaks every hour
-□ Review previous day's material before new content
+[ ] Follow the module order (builds on previous)
+[ ] Don't skip "Common Mistakes" sections
+[ ] Practice questions after each module
+[ ] Take 5-minute breaks every hour
+[ ] Review previous day's material before new content
 ```
 
 ### After Each Module
 ```
-□ Complete practice questions
-□ Score yourself honestly
-□ Review wrong answers
-□ Re-read weak sections
-□ Add to personal notes/flashcards
+[ ] Complete practice questions
+[ ] Score yourself honestly
+[ ] Review wrong answers
+[ ] Re-read weak sections
+[ ] Add to personal notes/flashcards
 ```
 
 ---
@@ -211,32 +211,32 @@ FAST-LEARN materials are **condensed, high-impact study guides** designed to hel
 ### Module Completion Checklist
 ```
 Core Foundation:
-□ Module 01: AWS Fundamentals
-□ Module 02: IAM
-□ Module 03: Compute Services
+[ ] Module 01: AWS Fundamentals
+[ ] Module 02: IAM
+[ ] Module 03: Compute Services
 
 Core Services:
-□ Module 04: Storage
-□ Module 05: Database
-□ Module 06: Networking
+[ ] Module 04: Storage
+[ ] Module 05: Database
+[ ] Module 06: Networking
 
 Security & Integration:
-□ Module 07: Security
-□ Module 08: Application Integration
-□ Module 09: Monitoring
+[ ] Module 07: Security
+[ ] Module 08: Application Integration
+[ ] Module 09: Monitoring
 
 Advanced Topics:
-□ Module 10: Migration
-□ Module 11: Analytics
-□ Module 12: Architecture Patterns
-□ Module 13: Cost Optimization
+[ ] Module 10: Migration
+[ ] Module 11: Analytics
+[ ] Module 12: Architecture Patterns
+[ ] Module 13: Cost Optimization
 
 Exam Preparation:
-□ Module 14: Practice & Exam Strategies
-□ Full practice exam 1 (score: ___%)
-□ Full practice exam 2 (score: ___%)
-□ Review all weak areas
-□ Ready for exam
+[ ] Module 14: Practice & Exam Strategies
+[ ] Full practice exam 1 (score: ___%)
+[ ] Full practice exam 2 (score: ___%)
+[ ] Review all weak areas
+[ ] Ready for exam
 ```
 
 ---
@@ -247,8 +247,8 @@ Exam Preparation:
 1. **Practice Questions**: Each module has PRACTICE-QUESTIONS.md
 2. **Full README**: Detailed explanations in each module's README.md
 3. **Flashcards**: [FLASHCARDS.md](FLASHCARDS.md) for memorization
-4. **Visual Guide**: [VISUAL-GUIDE.md](VISUAL-GUIDE.md) for diagrams
-5. **Quick Reference**: [QUICK-REFERENCE.md](QUICK-REFERENCE.md) for lookups
+4. **Visual Guide**: [VISUAL-GUIDE.md](../reference/VISUAL-GUIDE.md) for diagrams
+5. **Quick Reference**: [QUICK-REFERENCE.md](../reference/QUICK-REFERENCE.md) for lookups
 6. **Study Roadmap**: [STUDY-ROADMAP.md](STUDY-ROADMAP.md) for planning
 
 ### Official AWS Resources
@@ -287,8 +287,8 @@ Exam Preparation:
 ## Support & Feedback
 
 ### Having Issues?
-- Check the main [README.md](README.md) for detailed content
-- Review [CONTRIBUTING.md](CONTRIBUTING.md) for how to contribute
+- Check the main [README.md](../README.md) for detailed content
+- Review [CONTRIBUTING.md](../../CONTRIBUTING.md) for how to contribute
 - See [STUDY-ROADMAP.md](STUDY-ROADMAP.md) for alternative study plans
 
 ### Want to Contribute?
@@ -309,7 +309,6 @@ Exam Preparation:
 4. TEST yourself frequently
 5. LEARN from mistakes immediately
 6. REPEAT weak areas
-7. EARN your certification!
 ```
 
 ### Remember
@@ -337,9 +336,8 @@ Time saved:                   40-70 hours!
 
 ---
 
-**Ready to start? Jump to [Module 01: AWS Fundamentals](/01-AWS-Fundamentals/FAST-LEARN.md)**
+**Ready to start? Jump to [Module 01: AWS Fundamentals](../..//01-AWS-Fundamentals/FAST-LEARN.md)**
 
-**You've got this! Let's get you certified!**
 
 ---
 

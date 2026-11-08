@@ -247,6 +247,6 @@
 - **CloudFront**: Cheaper data transfer than S3 direct
 - **VPC Endpoints**: Avoid NAT/IGW charges
 - **Trusted Advisor**: Cost optimization checks (Business+)
-- **Stop unused resources**: Biggest savings!
+- **Stop unused resources**: Biggest savings.
 - **Free tier**: 12 months for new accounts
 

@@ -1,12 +1,10 @@
 # Practice Test 4 (SAA-C03) - Exam Review
 
 **Date:** March 1, 2026  
-**Score:** 49/65 (75.38%) - **BORDERLINE PASS**
+**Score:** 49/65 (75.38%) - **BORDERLINE PASS**  
 **Time Taken:** 98 minutes 56 seconds  
 **Status:** Above passing threshold but needs improvement  
 **Passing Score:** 72% (need 47/65 correct)
-
----
 
 ---
 
@@ -40,7 +38,7 @@ Trend: Slight regression from Test 3
 | **Design Secure Architectures** | 13 | 11 | 2 | 84.62% | Strong |
 | **Design High-Performing Architectures** | 22 | 17 | 5 | 77.27% | Needs Review |
 | **Design Resilient Architectures** | 19 | 14 | 5 | 73.68% | Needs Review |
-| **Design Secure Applications** | 1 | 1 | 0 | 100.00% | Perfect |
+| **Design Secure Applications** | 1 | 1 | 0 | 100.00% | No misses |
 | **Design Cost-Optimized Architectures** | 10 | 6 | 4 | 60.00% | **CRITICAL** |
 
 ### Domain Analysis
@@ -80,7 +78,7 @@ C. Network Out (predefined metric)
 D. Memory Utilization (custom metric)
 
 **Topic:** Design Resilient Architectures  
-**Your Answer:** C. Network Out
+**Your Answer:** C. Network Out  
 **Correct Answer:** **D. Memory Utilization (custom metric - requires CloudWatch agent)**
 
 **DETAILED EXPLANATION:**
@@ -424,7 +422,7 @@ C. Enable cross-region snapshot copy for disaster recovery
 D. Upgrade to a larger Redshift cluster for better performance
 
 **Topic:** Design Cost-Optimized Architectures  
-**Your Answer:** A. Increase automated snapshot retention to 35 days
+**Your Answer:** A. Increase automated snapshot retention to 35 days  
 **Correct Answer:** **B. Delete unneeded manual snapshots**
 
 **DETAILED EXPLANATION:**
@@ -1093,7 +1091,7 @@ C. Compute SP for web; EC2 Instance SP for app and DB
 D. Compute SP for web; EC2 Instance SP for app; RDS RI for DB
 
 **Topic:** Design Cost-Optimized Architectures  
-**Your Answer:** C. EC2 Instance SP for web; Compute SP for app and DB
+**Your Answer:** C. EC2 Instance SP for web; Compute SP for app and DB  
 **Correct Answer:** **D. Compute SP for web; EC2 Instance SP for app; RDS RI for DB**
 
 **DETAILED EXPLANATION:**
@@ -1556,7 +1554,7 @@ C. Use Reserved Instances for all 50 instances
 D. Use mixed instances policy: On-Demand base = 10; above base use 20% On-Demand / 80% Spot
 
 **Topic:** Design Cost-Optimized Architectures  
-**Your Answer:** A. Use all t2.micro On-Demand instances
+**Your Answer:** A. Use all t2.micro On-Demand instances  
 **Correct Answer:** **D. Mixed instances policy: On-Demand base = 10; above base use 20% On-Demand / 80% Spot**
 
 **DETAILED EXPLANATION:**
@@ -2022,7 +2020,7 @@ def lambda_handler(event, context):
 - **Result** = 45-60% cost savings with high availability
 
 **EXAM TIP:**
-When question mentions "base capacity stable" + "burst can tolerate interruptions" → **Mixed Instances Policy** with On-Demand base + Spot for burst. Never 100% Spot for production workloads!
+When question mentions "base capacity stable" + "burst can tolerate interruptions" → **Mixed Instances Policy** with On-Demand base + Spot for burst. Never 100% Spot for production workloads.
 
 ---
 
@@ -2112,8 +2110,6 @@ When question mentions "base capacity stable" + "burst can tolerate interruption
 
 **Key Takeaway:**
 > **S3 versioning: delete = add marker. Restore = delete the marker.**
-
----
 
 ---
 
@@ -2254,7 +2250,7 @@ TERMINATION POLICIES:
 - Test 1: 100% (only 3 questions)
 - Test 2: 86%
 - Test 3: 63%
-- Test 4: 60% **Getting worse!**
+- Test 4: 60% **Getting worse.**
 
 **Action:** Dedicate focused study session to cost optimization concepts.
 
@@ -2311,5 +2307,5 @@ TERMINATION POLICIES:
 
 ---
 
-[← Back to Exam Reviews](README.md) | [Main Guide](../README.md)
+[← Back to Exam Reviews](../README.md) | [Main Guide](../README.md)
 

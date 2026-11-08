@@ -849,7 +849,7 @@ Before next attempt, ensure you can answer:
 - [ ] Does Secrets Manager support automatic rotation?
 - [ ] Which Storage Gateway type stores files as S3 objects?
 
-If you can't immediately answer these, review the relevant sections above!
+If you can't immediately answer these, review the relevant sections above.
 
 ---
 
@@ -857,5 +857,4 @@ If you can't immediately answer these, review the relevant sections above!
 **Recommended Practice:** 2 more practice tests focusing on these areas  
 **Target Score:** 80%+ on next attempt
 
-Good luck!
 

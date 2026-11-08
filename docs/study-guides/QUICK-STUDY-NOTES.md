@@ -471,7 +471,6 @@
 
 ---
 
-**Last Tip**: If stuck between two answers, choose the **AWS-managed service** over self-managed. AWS loves recommending their managed services!
+**Last Tip**: If stuck between two answers, choose the **AWS-managed service** over self-managed. AWS loves recommending their managed services.
 
-Good luck!
 

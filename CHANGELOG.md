@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Escapes HTML entities while preserving `<br/>` tags
   - Safe pattern matching to prevent corruption
 - Documentation:
-  - `docs/MERMAID-VALIDATION-GUIDE.md` - Comprehensive validation guide
+  - `docs/MERMAID-VALIDATION-GUIDE.md` - Validation guide
   - `scripts/README.md` - Script usage documentation
   - Repository structure section in main README
   - Validation workflow in CONTRIBUTING.md
@@ -36,7 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **10-Migration/DIAGRAMS.md** - Snow Family Device Comparison:
   - Fixed quoted subgraph syntax
   - Connected floating Decision node
-  - Added comprehensive color-coded styling
+  - Added color-coded styling
   - Improved internal subgraph connections
 - **08-Application-Integration/DIAGRAMS.md** - AWS AppSync Architecture:
   - Fixed quoted subgraph syntax
@@ -69,7 +69,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Module 01: AWS Fundamentals** - Complete guide covering Regions, AZs, Well-Architected Framework, and Shared Responsibility Model
-- **Module 02: IAM** - Comprehensive IAM guide with users, groups, roles, policies, MFA, and federation
+- **Module 02: IAM** - IAM guide with users, groups, roles, policies, MFA, and federation
 - **Module 03: Compute Services** - EC2, Lambda, Auto Scaling, Load Balancers, and container services
 - **Module 04: Storage Services** - S3, EBS, EFS, Storage Gateway, and Snow Family
 
@@ -135,7 +135,7 @@ This is the first public release of the AWS Solutions Architect Associate Study 
 
 #### Documentation
 - **README.md** - Complete project overview and navigation
-- **STUDY-ROADMAP.md** - 8-week comprehensive study plan
+- **STUDY-ROADMAP.md** - 8-week study plan
 - **QUICK-REFERENCE.md** - Service lookup tables and quick facts
 
 #### Project Files
@@ -147,7 +147,7 @@ This is the first public release of the AWS Solutions Architect Associate Study 
 ### Features
 
 #### Content
-- 850+ pages of comprehensive study material
+- 850+ pages of study material
 - 100% coverage of SAA-C03 exam domains
 - 50+ practice questions with detailed explanations
 - 40+ hands-on lab suggestions
@@ -172,7 +172,7 @@ This is the first public release of the AWS Solutions Architect Associate Study 
 ### Documentation Quality
 - Consistent formatting across all modules
 - Clear section hierarchies
-- Comprehensive table of contents
+- Table of contents
 - Cross-referenced modules
 - Exam-focused tips throughout
 

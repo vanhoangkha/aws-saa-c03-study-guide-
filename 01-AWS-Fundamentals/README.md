@@ -380,7 +380,7 @@ The AWS Well-Architected Framework helps you understand best practices for desig
 - **AWS**: Infrastructure, software, physical security
 - **Customer**: Data classification, bucket policies, encryption
 
-**Exam Tip**: If you can configure it, you're responsible for it!
+**Exam Tip**: If you can configure it, you're responsible for it.
 
 ---
 
@@ -542,7 +542,7 @@ Is there an explicit Allow in SCP? → YES → Check IAM Policy
                                          DENY
 ```
 
-**Exam Tip**: Remember: SCPs affect ALL users and roles in member accounts, but NOT the management account!
+**Exam Tip**: Remember: SCPs affect ALL users and roles in member accounts, but NOT the management account.
 
 #### AWS Control Tower
 
@@ -637,7 +637,7 @@ Account B (Application Account)
 4. Recipients accept the share (if outside Organization)
 5. Recipients can use resources (but not modify/delete)
 
-**Exam Tip**: RAM is commonly tested with VPC subnet sharing scenarios for centralized networking!
+**Exam Tip**: RAM is commonly tested with VPC subnet sharing scenarios for centralized networking.
 
 #### Consolidated Billing
 
@@ -873,11 +873,11 @@ D) Use Route 53 geoproximity routing
 ### Next Steps
 - Complete this module
 - **Next**: [Module 02: Identity and Access Management (IAM)](../02-IAM/README.md)
-- **Related**: [Quick Reference](../QUICK-REFERENCE.md) for service comparisons
+- **Related**: [Quick Reference](../docs/reference/QUICK-REFERENCE.md) for service comparisons
 
 ---
 
-**Module Progress**: Foundation Complete
+**Module Progress**: Foundation Complete  
 **Estimated Study Time**: 4-6 hours  
 **Difficulty**: 1/3 Beginner
 

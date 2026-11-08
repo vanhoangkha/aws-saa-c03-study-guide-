@@ -16,7 +16,7 @@
 
 **Time Used:** 100/130 minutes | **Questions Marked:** 16 (24.6%)
 
-**Status:** BORDERLINE PASS - Only 1.15% below real exam threshold!
+**Status:** BORDERLINE PASS - Only 1.15% below real exam threshold.
 
 ---
 
@@ -100,7 +100,7 @@ All correct! Topics mastered:
 - AWS Lake Formation for data lakes
 - Amazon Rekognition Custom Labels for wildlife
 
-**Keep doing what you're doing in this domain!**
+**Keep doing what you're doing in this domain.**
 
 ---
 
@@ -361,7 +361,7 @@ Unpredictable → On-Demand → 0%
 | **Cost** | 100% | 69.23% | -30.77%  |
 | **Review Marked** | 32.3% | 24.6% | More confident |
 
-**Key Insight:** You CAN achieve 100% (High-Performing proves it), but mastery isn't sticky (Security/Cost regression proves it). Need systematic review + labs!
+**Key Insight:** You CAN achieve 100% (High-Performing proves it), but mastery isn't sticky (Security/Cost regression proves it). Need systematic review + labs.
 
 ---
 
@@ -424,13 +424,13 @@ Unpredictable → On-Demand → 0%
 **Back:** Spot = 90% off, fault-tolerant, spiky workload. EC2 Instance SP = 72% off, same family, steady. Compute SP = 66% off, flexible families. Savings Plans require commitment (not for spikes).
 
 ### Front: S3 File Gateway vs Tape Gateway
-**Back:** S3 File Gateway = NFS/SMB protocols → S3 storage. Tape Gateway = iSCSI-VTL → S3 Glacier (tape backup replacement). Different protocols and use cases!
+**Back:** S3 File Gateway = NFS/SMB protocols → S3 storage. Tape Gateway = iSCSI-VTL → S3 Glacier (tape backup replacement). Different protocols and use cases.
 
 ### Front: CloudFront Signed Cookies vs URLs
-**Back:** Signed Cookies = multiple files, URL stays same (e.g., stock photo library). Signed URLs = single file access, URL changes per user. "S3 Signed Cookies" doesn't exist!
+**Back:** Signed Cookies = multiple files, URL stays same (e.g., stock photo library). Signed URLs = single file access, URL changes per user. "S3 Signed Cookies" doesn't exist.
 
 ### Front: Parameter Store vs Secrets Manager
-**Back:** Parameter Store = config data (AMI IDs, license keys, settings). Secrets Manager = credentials (DB passwords, API keys) with rotation. Parameter Store is often free!
+**Back:** Parameter Store = config data (AMI IDs, license keys, settings). Secrets Manager = credentials (DB passwords, API keys) with rotation. Parameter Store is often free.
 
 ---
 
@@ -507,7 +507,7 @@ Unpredictable → On-Demand → 0%
 
 ## Remember
 
-**You proved you can achieve 100%** in High-Performing Architectures!
+**You proved you can achieve 100%** in High-Performing Architectures.
 
 **But you also proved:**
 - Knowledge decays without review (Security: 100% → 65%)
@@ -558,9 +558,8 @@ Focus Distribution:
 
 ---
 
-**Final Message:** Stop taking practice tests! Fix the root causes first through labs and systematic review. Test 8 in 7 days, NOT tomorrow!
+**Final Message:** Stop taking practice tests! Fix the root causes first through labs and systematic review. Test 8 in 7 days, NOT tomorrow.
 
-**You can do this - but only with the right approach.**
 
 ---
 
@@ -569,5 +568,5 @@ Focus Distribution:
 2. Yes: Compare Test 6 vs Test 7 mistakes
 3. Yes: Create flashcards above
 4. Yes: Start Day 1 of 7-day plan tomorrow
-5. DO NOT take another practice test until completing the plan!
+5. DO NOT take another practice test until completing the plan.
 

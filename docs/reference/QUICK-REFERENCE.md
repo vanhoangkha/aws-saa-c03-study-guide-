@@ -3,8 +3,8 @@
 ## Quick Learning Resources
 
 **For Enhanced Learning, Also See:**
-- **[QUICK-STUDY-NOTES.md](./QUICK-STUDY-NOTES.md)** - Mnemonics, memory aids, exam tips
-- **[FLASHCARDS.md](./FLASHCARDS.md)** - Service comparisons, rapid review
+- **[QUICK-STUDY-NOTES.md](../study-guides/QUICK-STUDY-NOTES.md)** - Mnemonics, memory aids, exam tips
+- **FLASHCARDS.md** - Service comparisons, rapid review
 - **[VISUAL-GUIDE.md](./VISUAL-GUIDE.md)** - Architecture diagrams, visual patterns
 
 ---
@@ -161,20 +161,20 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 ## Security Best Practices
 
 ### Data Protection
- **At Rest**: KMS encryption for S3, EBS, RDS
- **In Transit**: HTTPS/TLS, VPN, Direct Connect
- **Backup**: Automated backups, Cross-Region Replication
+ **At Rest**: KMS encryption for S3, EBS, RDS  
+ **In Transit**: HTTPS/TLS, VPN, Direct Connect  
+ **Backup**: Automated backups, Cross-Region Replication  
 
 ### Access Control
- **IAM**: Least privilege, roles over users
- **MFA**: Root and privileged users
- **Network**: Private subnets, Security Groups, NACLs
+ **IAM**: Least privilege, roles over users  
+ **MFA**: Root and privileged users  
+ **Network**: Private subnets, Security Groups, NACLs  
 
 ### Monitoring
- **CloudTrail**: All API calls, all regions
- **Config**: Resource configuration tracking
- **GuardDuty**: Threat detection
- **CloudWatch**: Metrics, logs, alarms
+ **CloudTrail**: All API calls, all regions  
+ **Config**: Resource configuration tracking  
+ **GuardDuty**: Threat detection  
+ **CloudWatch**: Metrics, logs, alarms  
 
 ---
 
@@ -295,7 +295,7 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 
 ## Final Tips
 
-1. **Trust your preparation** - you've studied hard!
+1. **Trust your preparation** - you've studied hard.
 2. **Stay calm** - take deep breaths if stressed
 3. **Read carefully** - don't rush
 4. **Eliminate wrong answers** - narrows choices
@@ -304,11 +304,6 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 7. **Flag and return** - don't get stuck on one question
 8. **Think AWS-native** - prefer AWS managed services
 9. **Well-Architected** - think of the 6 pillars
-10. **You got this!**
-
----
-
-**Good luck with your AWS Solutions Architect Associate certification!**
 
 ---
 
