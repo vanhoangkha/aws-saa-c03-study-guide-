@@ -22,7 +22,7 @@ For new topics or larger changes, use the feature request template first so the 
    ```bash
    python3 simulator/build_questions.py
    ```
-5. Commit, push and open a pull request against `main`. Fill in the template and link any related issue.
+5. Commit, push and open a pull request against `master`. Fill in the template and link any related issue.
 
 Pull requests are reviewed for technical accuracy, relevance to SAA-C03, consistency with the existing material, and originality. Expect a first review within a week.
 

@@ -55,7 +55,7 @@ Each module also has its own `PRACTICE-QUESTIONS.md`, so you can drill one topic
 
 1. **Finish the modules** you are weakest in first ([Module 1-13](../README.md)).
 2. **Warm up** with [PRACTICE-QUESTIONS.md](PRACTICE-QUESTIONS.md) and the per-module question files.
-3. **Take a full timed practice test** (65 questions, 130 minutes, no notes). Use the [online exam simulator](https://chathurangavkd.github.io/AWS-Certified-Solutions-Architect-Associate-SAA-C03/simulator/) or any practice-test provider you prefer.
+3. **Take a full timed practice test** (65 questions, 130 minutes, no notes). Use the [online exam simulator](https://vanhoangkha.github.io/aws-saa-c03-study-guide-/simulator/) or any practice-test provider you prefer.
 4. **Review every question**, including the ones you got right by guessing. Write down *why* each wrong option is wrong.
 5. **Log the result** in the [tracker](TEST-RESULTS-TRACKER.md) and note which domain or service lost points.
 6. **Fix the weak areas** with the module's FAST-LEARN and [STUDY-NOTES.md](STUDY-NOTES.md), then repeat from step 3.
