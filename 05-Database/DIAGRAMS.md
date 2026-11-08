@@ -561,9 +561,9 @@ graph TB
     Node1 <-.Replication.-> Node2
     Node1 <-.Replication.-> Node3
     
-    Features["Features:<br/>Microsecond read latency<br/>No application changes needed<br/>Compatible with DynamoDB API<br/>Multi-AZ, 3+ nodes recommended for production<br/>Not suitable for strongly consistent reads<br/>Pay for cluster nodes"]
+    Features["Features:<br/>Microsecond read latency<br/>Minimal code changes (DAX client)<br/>Compatible with DynamoDB API<br/>Multi-AZ, 3+ nodes recommended for production<br/>Not suitable for strongly consistent reads<br/>Pay for cluster nodes"]
     
-    Comparison["DAX vs ElastiCache:<br/>• DAX: DynamoDB-specific, no code change<br/>• ElastiCache: General purpose, requires code changes"]
+    Comparison["DAX vs ElastiCache:<br/>• DAX: DynamoDB-specific, minimal code change<br/>• ElastiCache: General purpose, requires code changes"]
     
     classDef style1 fill:#FF9900
     class DAX style1

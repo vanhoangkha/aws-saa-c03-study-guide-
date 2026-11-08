@@ -1,6 +1,6 @@
 # Fast Learning - Database Services
 
-> **Time to Complete**: 60-75 minutes | **Exam Weight**: ~15-20%
+> **Time to Complete**: 60-75 minutes | **Exam Weight**: not published per service; the exam guide weights only the four domains (30/26/24/20%)
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -12,8 +12,8 @@ CACHE? → ElastiCache (Redis/Memcached)
 DATA WAREHOUSE? → Redshift
 GRAPH? → Neptune
 IN-MEMORY? → ElastiCache
-TIME-SERIES? → Timestream (LiveAnalytics closed to new customers)
-LEDGER? → QLDB (retired)
+TIME-SERIES? → Timestream (LiveAnalytics closed to new customers; not in SAA-C03 v1.1 in-scope list)
+LEDGER? → QLDB (end of support 31 July 2025; not in SAA-C03 v1.1 in-scope list)
 DOCUMENT? → DocumentDB (MongoDB compatible)
 ```
 
@@ -29,6 +29,7 @@ DOCUMENT? → DocumentDB (MongoDB compatible)
 | **MariaDB** | Open source | 64 TiB | MySQL fork |
 | **Oracle** | Commercial | 64 TiB (256 TiB with additional volumes) | Enterprise apps |
 | **SQL Server** | Commercial | 64 TiB (256 TiB with additional volumes) | Microsoft ecosystem |
+| **Db2** | Commercial | 64 TiB | IBM ecosystem |
 | **Aurora** | AWS proprietary | 256 TiB (128 TiB on older versions) | High performance |
 
 ### RDS vs Aurora vs DynamoDB
@@ -36,7 +37,7 @@ DOCUMENT? → DocumentDB (MongoDB compatible)
 |---------|-----|--------|----------|
 | **Type** | SQL | SQL | NoSQL |
 | **AZ** | Single/Multi | Multi (default) | Multi (default) |
-| **Read Replicas** | Up to 15 (Oracle: 5) | Up to 15 | N/A |
+| **Read Replicas** | Up to 15 (Oracle: 5; Db2: 3) | Up to 15 | N/A |
 | **Scaling** | Vertical | Vertical + Horizontal | Horizontal (auto) |
 | **Performance** | Standard | 5x MySQL, 3x PostgreSQL | Milliseconds |
 | **Maintenance** | Some required | Minimal | None |
@@ -96,7 +97,7 @@ AURORA SERVERLESS
 
 **Capacity Modes**:
 - **Provisioned**: Set RCU/WCU (cheaper if predictable)
-- **On-Demand**: Pay per request (unpredictable traffic)
+- **On-Demand**: Pay per request (unpredictable traffic); default and AWS-recommended mode
 
 ### 4. ElastiCache Quick Comparison
 | Feature | Redis | Memcached |
@@ -118,7 +119,7 @@ AURORA SERVERLESS
 
 ### Scenario 2: Read-Heavy Workload
 **Q**: Database experiencing heavy read traffic, writes are normal
-**ANSWER**: Add RDS Read Replicas (up to 15 for RDS MySQL/MariaDB/PostgreSQL/SQL Server and Aurora; 5 for Oracle)
+**ANSWER**: Add RDS Read Replicas (up to 15 for RDS MySQL/MariaDB/PostgreSQL/SQL Server and Aurora; 5 for Oracle; 3 for Db2)
 
 ### Scenario 3: Global Low-Latency Reads
 **Q**: Users worldwide need fast read access to data
@@ -149,7 +150,7 @@ AURORA SERVERLESS
 ### RDS Backup Types
 ```
 AUTOMATED BACKUPS
-├── Daily full backup during maintenance window
+├── Daily snapshot during the backup window
 ├── Transaction logs every 5 minutes
 ├── Point-in-time recovery (1-35 days retention)
 ├── Deleted when RDS instance deleted
@@ -197,7 +198,7 @@ STORAGE SCALING
 ## Rapid-Fire Facts
 
 ### RDS Important Limits
-- **Max Read Replicas**: 15 (RDS MySQL, MariaDB, PostgreSQL, SQL Server), 5 (RDS Oracle), 15 (Aurora)
+- **Max Read Replicas**: 15 (RDS MySQL, MariaDB, PostgreSQL, SQL Server), 5 (RDS Oracle), 3 (RDS Db2), 15 (Aurora)
 - **Backup Retention**: 0-35 days (0 = disabled)
 - **Multi-AZ**: Automatic failover < 2 minutes
 - **Encryption**: Cannot encrypt existing DB (must create new)
@@ -210,8 +211,8 @@ STORAGE SCALING
 - **Hot Partitions**: Avoid → Distribute access evenly
 
 ### Aurora Pricing Components
-1. **Storage**: $0.10/GB-month (automatically scales)
-2. **I/O Requests**: $0.20/million requests
+1. **Storage**: $0.10/GB-month (Aurora Standard, us-east-1; automatically scales)
+2. **I/O Requests**: $0.20/million requests (Aurora Standard; no I/O charges with Aurora I/O-Optimized)
 3. **Backups**: Free up to DB size
 4. **Data Transfer**: Standard AWS rates
 
@@ -315,7 +316,7 @@ ENCRYPTION IN TRANSIT
 - **Regions**: Up to 10 secondary regions *(updated from 5 in 2025)*
 - **Latency**: < 1 second cross-region replication
 - **Recovery**: < 1 minute RTO
-- **Read replicas**: 16 total across secondary regions
+- **Read replicas**: up to 16 in secondary clusters; each secondary Region reduces the primary's 15-replica maximum by one
 - **Use Case**: Global applications, DR
 
 ## Next Steps
