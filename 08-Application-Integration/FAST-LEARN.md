@@ -1,6 +1,6 @@
 # Fast Learning - Application Integration
 
-> **Time to Complete**: 45-60 minutes | **Exam Weight**: ~10-15%
+> **Time to Complete**: 45-60 minutes | **Exam relevance**: mainly Domain 2, Design Resilient Architectures (26% of scored content)
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -27,7 +27,7 @@ APP WORKFLOW? → SWF (legacy, use Step Functions)
 | **Persistence** | Yes (4-14 days) | No (immediate delivery) | No |
 | **Consumers** | Poll for messages | Push to subscribers | Rules route events |
 | **Use Case** | Decouple apps | Notifications | Event-driven architecture |
-| **Max Size** | 1 MiB | 256 KiB default (up to 1 MiB) | 1 MB |
+| **Max Size** | 1 MiB | 256 KiB default (up to 1 MiB) | 1 MB (most Regions; 256 KB in a few) |
 
 ### SQS Queue Types
 | Feature | Standard | FIFO |
@@ -73,8 +73,8 @@ SUBSCRIBERS:
 ├── SMS (text messages)
 ├── SQS queues
 ├── Lambda functions
-├── Mobile push (APNS, GCM, etc.)
-└── Kinesis Data Firehose
+├── Mobile push (APNs, FCM, etc.)
+└── Amazon Data Firehose
 
 FEATURES:
 ├── Message filtering (subscribers choose)
@@ -209,7 +209,7 @@ COMPONENTS:
 └── Schema Registry (structure)
 
 EVENT SOURCES:
-├── AWS services (100+)
+├── AWS services (90+)
 ├── Custom applications
 ├── SaaS partners (Zendesk, etc.)
 └── Scheduled (cron)
@@ -275,7 +275,7 @@ Use SQS when:
 
 ### Amazon Data Firehose (formerly Kinesis Data Firehose)
 - **No shards**: Fully managed scaling
-- **Destinations**: S3, Redshift, OpenSearch, Splunk
+- **Destinations**: S3, Redshift, Amazon OpenSearch Service, Splunk, HTTP endpoints
 - **Transformations**: Lambda can transform data
 - **Buffering**: By size (1-128 MB) or time (0-900s; 0 = zero buffering)
 - **Use**: Load streaming data to storage
@@ -366,8 +366,8 @@ DATA SOURCES:
 ├── DynamoDB
 ├── Lambda
 ├── HTTP endpoints
-├── RDS (via Lambda)
-└── OpenSearch
+├── RDS/Aurora (Data API)
+└── Amazon OpenSearch Service
 ```
 
 ### Amazon MQ
@@ -397,9 +397,9 @@ WHEN NOT TO USE:
 1) 1 MiB
 2) 14 days
 3) FIFO queue
-4) 6+ (HTTP, Email, SMS, SQS, Lambda, Kinesis, etc.)
+4) 6+ (HTTP/S, Email, SMS, SQS, Lambda, Mobile push, Amazon Data Firehose)
 5) SNS → multiple SQS queues
-6) Kinesis Data Firehose
+6) Amazon Data Firehose (formerly Kinesis Data Firehose)
 7) 12 hours
 8) Lambda, HTTP, AWS services, VPC Link
 

@@ -5,7 +5,7 @@
 ### KMS Basics
 - **Managed encryption** service
 - **Regional** service
-- **FIPS 140-3 Level 3** validated (upgraded from Level 2 in 2023)
+- **FIPS 140-3 Level 3** validated HSMs (Level 3 overall since May 2023)
 - Audit with CloudTrail
 - **$1/month** per customer managed key
 
@@ -53,11 +53,11 @@
 - **SecureString**: Encrypted with KMS
 
 ## CloudHSM
-- **FIPS 140-3 Level 3** (same level as KMS now — key difference is single-tenancy)
+- **FIPS 140-2 or 140-3 Level 3** depending on HSM type (KMS is also Level 3 now; the key difference is single-tenancy)
 - **Dedicated hardware** (not multi-tenant)
 - **You manage keys** (AWS manages hardware)
 - **Single-tenant**, deployed in VPC
-- **Use case**: Regulatory compliance requiring Level 3
+- **Use case**: Regulations or contracts that require a single-tenant HSM under your exclusive control
 
 ## Certificate Manager (ACM)
 - Provision, manage, deploy **SSL/TLS certificates**
@@ -118,7 +118,7 @@
 - **Who, what, when, where** (user, action, time, IP)
 - **90 days** in Event History (free)
 - **Long-term**: Send to S3 or CloudWatch Logs
-- **Management events**: Free (control plane)
+- **Management events**: First copy delivered to S3 is free (control plane)
 - **Data events**: Paid (data plane, e.g., S3 GetObject)
 - **Insights**: Detect unusual activity
 
