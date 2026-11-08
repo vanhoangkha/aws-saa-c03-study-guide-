@@ -102,7 +102,7 @@
 ## QuickSight
 - **Serverless BI** (Business Intelligence)
 - **Visualizations**, dashboards, ad-hoc analysis
-- **Auto-scaling**, pay per user (Enterprise Readers $3/month)
+- **Auto-scaling**, pay per user by role (Reader, Author) or per session; now named Amazon Quick Sight, part of Amazon Quick
 - **Data sources**: Redshift, RDS, Aurora, Athena, S3, on-premises
 - **SPICE engine**: In-memory calculation (fast)
 - **ML Insights**: Anomaly detection, forecasting
