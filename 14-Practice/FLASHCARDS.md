@@ -12,7 +12,7 @@
 ## Auto Scaling & Load Balancing
 
 **Q: What is the purpose of a cooldown period in Auto Scaling?**
-A: Prevents rapid scaling events by suppressing additional scale-out actions until the cooldown period ends, allowing metrics to stabilize.
+A: After a scaling activity, it pauses further activities started by simple scaling policies (scale-out and scale-in; default 300 seconds) so metrics can stabilize. Target tracking and step scaling use instance warmup instead.
 
 **Q: Which load balancers support dynamic port mapping for ECS?**
 A: Application Load Balancer (ALB) and Network Load Balancer (NLB).
@@ -59,8 +59,8 @@ A: Multi-AZ provides high availability with automatic failover (standby not read
 **Q: How does Aurora Serverless scale?**
 A: Automatically adjusts capacity using ACUs (Aurora Capacity Units) based on demand.
 
-**Q: Which RDS feature requires versioning?**
-A: Cross-Region Read Replicas promotion preserves version info.
+**Q: How can an RDS read replica help with disaster recovery?**
+A: Create a cross-Region read replica and promote it to a standalone DB instance if the primary fails.
 
 ---
 
@@ -122,7 +122,7 @@ A: S3 provides strong consistency; objects are immediately available after succe
 A: Amazon ElastiCache (Redis/Memcached for database query caching).
 
 **Q: How do you distribute traffic across AZs evenly?**
-A: Enable AZ rebalancing with target tracking scaling policy.
+A: Cross-zone load balancing (always on for ALB, off by default for NLB). EC2 Auto Scaling AZ rebalancing keeps instance counts balanced across AZs.
 
 ---
 

@@ -108,7 +108,7 @@
 
 ### Scenario 8: Real-Time Processing
 **Question Pattern**: "Process streaming data in real-time..."
-**Answer**: Kinesis Data Streams + Lambda/Analytics
+**Answer**: Kinesis Data Streams + Lambda or Amazon Managed Service for Apache Flink (formerly Kinesis Data Analytics)
 
 ### Scenario 9: Cross-Region Replication
 **Question Pattern**: "Replicate data to another region for DR..."
@@ -120,7 +120,7 @@
 
 ## Key Mnemonics & Memory Tricks
 
-### EC2 Instance Types: **CRAMFGPDI**
+### EC2 Instance Types: **CRAMTFGPDI**
 - **C**: Compute
 - **R**: RAM (memory)
 - **A**: ARM
@@ -173,8 +173,8 @@
 - **Cache**: ElastiCache (Redis or Memcached)
 - **Data warehouse**: Redshift
 - **Graph**: Neptune
-- **Ledger**: QLDB (retired; its product page now redirects to Amazon Aurora)
-- **Time-series**: Timestream
+- **Ledger**: QLDB (end of support 31 Jul 2025; AWS points customers to Aurora PostgreSQL)
+- **Time-series**: Timestream (Timestream for LiveAnalytics closed to new customers on 20 Jun 2025; Timestream for InfluxDB remains)
 
 ### Compute Decision Tree
 - **Traditional apps**: EC2
@@ -189,7 +189,7 @@
 - **RDS**: 1-35 days automated backup
 - **DynamoDB**: 400 KB max item
 - **SQS**: 1 MiB max message, 14 days max retention
-- **EC2**: Spot 90% discount, Reserved 72% discount
+- **EC2**: Spot up to 90% discount, Reserved up to 72% discount
 - **VPC**: 5 IPs reserved per subnet
 - **CloudTrail**: 90 days free in Event History
 - **EBS**: gp3 80K IOPS, io2 256K IOPS

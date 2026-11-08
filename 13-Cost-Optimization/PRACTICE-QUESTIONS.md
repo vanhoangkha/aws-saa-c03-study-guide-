@@ -132,8 +132,9 @@ D. Both B and C
 **Explanation:**
 - Cost Explorer provides right-sizing recommendations
 - Trusted Advisor also provides underutilized instance recommendations
-- Both analyze CloudWatch metrics (CPU, memory, network)
-- Both suggest smaller instance types and estimate savings
+- Cost Explorer right-sizing analyzes CloudWatch metrics (memory only if the CloudWatch agent publishes it)
+- Trusted Advisor's low-utilization check flags instances with 10% or less daily CPU and 5 MB or less network I/O on at least 4 of the last 14 days
+- AWS Compute Optimizer is the purpose-built right-sizing service (not listed)
 - Budgets sets spending limits but doesn't analyze utilization
 - Using both tools provides comprehensive insights
 
@@ -213,7 +214,7 @@ D. S3 Glacier for all objects
 - S3 Intelligent-Tiering automatically moves objects between access tiers
 - Optimizes costs without manual intervention
 - Monitoring fee: $0.0025/1000 objects
-- No retrieval fees for Frequent/Infrequent tiers
+- No retrieval fees in any Intelligent-Tiering access tier
 - S3 Standard wastes money on infrequently accessed data
 - Manual management is operationally intensive
 - Glacier has retrieval delays for frequent access
@@ -241,7 +242,7 @@ D. AWS Cost and Usage Report
 - Based on historical usage patterns
 - Interactive graphs showing predictions
 - 80% confidence interval
-- Budgets sets alerts but doesn't forecast
+- Budgets can alert on forecasted spend against a budget, but it does not produce a cost forecast you can explore
 - Trusted Advisor provides recommendations
 - Cost and Usage Report is for detailed analysis
 
@@ -347,7 +348,7 @@ D. Keep current configuration
 **Explanation:**
 - Lambda charges based on GB-seconds (memory × duration)
 - Allocating 3008 MB when only 512 MB is used wastes money
-- Reducing to 512 MB reduces costs ~6x
+- Reducing to 512 MB reduces cost per invocation ~6x if duration stays the same (CPU scales with memory, so test the new setting)
 - Right-sizing memory is critical for Lambda cost optimization
 - Increasing memory increases costs
 - EC2 adds operational overhead
@@ -433,7 +434,7 @@ D. AWS Trusted Advisor
 - Sends SNS notifications when thresholds are exceeded
 - Can set monthly, quarterly, or annual budgets
 - Cost Explorer analyzes costs but doesn't alert
-- CloudWatch monitors resources, not costs
+- CloudWatch billing alarms can watch total estimated charges, but Budgets is purpose-built for percentage thresholds, forecasted alerts and filters
 - Trusted Advisor provides recommendations
 
 **References:** AWS Budgets, Cost Alerts
@@ -455,10 +456,10 @@ D. Neither can be modified
 **Answer: B**
 
 **Explanation:**
-- Convertible RIs can change instance family, OS, and tenancy
+- Convertible RIs can be exchanged for a different instance family, OS, and tenancy
 - Provides flexibility for changing requirements
 - Standard RIs cannot change instance family
-- Standard RIs can only change instance size within same family
+- Standard RIs can be modified (for example AZ, scope, or size within the same family) but not exchanged
 - Trade-off: Convertible RIs have lower discount (66% vs 72%)
 
 **References:** Reserved Instances, Convertible vs Standard
@@ -481,7 +482,7 @@ D. Keep current configuration
 
 **Explanation:**
 - GP3 allows independent provisioning of IOPS
-- Reduce from 16,000 to 3,000 IOPS to reduce costs
+- Reduce from 16,000 to 3,000 IOPS to reduce costs (3,000 IOPS is the gp3 baseline included in the storage price)
 - Still provides required performance
 - GP2 IOPS scale with volume size (less flexible)
 - Magnetic storage has unpredictable performance
@@ -564,7 +565,7 @@ D. Manual scaling with CloudWatch alarms
 - Fault-tolerant batch processing → Spot Instances (up to 90% savings)
 - Unpredictable/mixed workloads → Compute Savings Plans (most flexible)
 - Dev/test environments → Instance Scheduler (stop outside hours)
-- Infrequent access after 30 days → S3 Glacier Deep Archive
+- Rarely accessed after 30 days, long retention, no fast retrieval needed → S3 Glacier Deep Archive
 - Unknown access patterns → S3 Intelligent-Tiering
 - Cost tracking by department → Cost Allocation Tags
 - Identify underutilized resources → Cost Explorer Right-Sizing + Trusted Advisor
