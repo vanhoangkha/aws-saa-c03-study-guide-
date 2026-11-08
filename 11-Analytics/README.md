@@ -1010,10 +1010,10 @@ Crawler (S3) → Trigger → ETL Job 1 → Trigger → ETL Job 2 → Trigger →
 ## 5. Amazon QuickSight
 
 ### What is Amazon QuickSight?
-- **Serverless business intelligence (BI) service**, now branded Amazon Quick Sight (part of Amazon Quick)
+- **Serverless business intelligence (BI) service**. Amazon QuickSight is now Amazon Quick Sight, the BI feature of Amazon Quick (announced as Amazon Quick Suite). Existing QuickSight APIs and integrations work unchanged, and the exam guide still uses the name QuickSight
 - Create interactive dashboards and visualizations
 - Machine learning-powered insights
-- Per-user pricing (Enterprise Readers $3/month); capacity-based session pricing is optional
+- Pay per user by role (Reader, Author), plus SPICE capacity; session capacity pricing is optional
 
 ### Key Features
 - **Fast**: SPICE in-memory engine
@@ -1086,9 +1086,8 @@ Crawler (S3) → Trigger → ETL Job 1 → Trigger → ETL Job 2 → Trigger →
 - **Durable**: Data replicated across AZs
 
 **SPICE Capacity:**
-- 10 GB per author (Enterprise)
-- 10 GB per user (Standard)
-- Purchase additional capacity
+- 10 GB included with each Author
+- Additional capacity billed per GB per month, added or removed at any time
 
 ### User Types
 
@@ -1191,28 +1190,30 @@ Dashboard shows only relevant region data per user
 - Scheduled email delivery
 - Export to PDF, Excel
 
-### QuickSight Q
-- **Natural language queries**
+### Natural language Q&A (formerly QuickSight Q)
+- **Natural language queries**, now provided by the Amazon Q features in Quick Sight
 - Ask questions in plain English
 - Powered by ML
 - "What were sales last quarter?"
 
 ### Pricing
 
-**Standard Edition:**
-- **Authors**: $9/month per user (annual) or $12 month-to-month, 10 GB SPICE included
-- No Reader role
-- **SPICE**: $0.25 per GB/month
+Prices and plan names changed with the move to Amazon Quick and may change again, so check the [pricing page](https://aws.amazon.com/quick/quicksight/pricing/) instead of memorizing figures. The exam tests the pricing model, not the amounts.
 
-**Enterprise Edition:**
-- **Authors**: $24/month per user ($18 with an annual plan)
-- **Readers**: $3/month per user (fixed; replaced the old $0.30-per-session price, max $5)
-- **SPICE**: $0.38 per GB/month
-- Additional features: Encryption, AD integration, hourly refresh
+**Per-user subscriptions by role:**
+- **Readers**: view and interact with dashboards (lowest cost)
+- **Authors**: connect data, build analyses and publish dashboards; 10 GB SPICE included
+- **Pro roles** (Author Pro, Reader Pro): add generative AI features such as natural language Q&A and data stories. An account with Pro users or Q&A enabled also pays a monthly infrastructure fee
 
-**Capacity pricing (optional):**
+**SPICE:**
+- Capacity beyond the included amount is billed per GB per month
+
+**Session capacity pricing (optional):**
 - Buy reader sessions in bulk instead of per-user Reader fees
-- Suits large deployments and public embedding
+- Suits large or unpredictable audiences and public embedding
+
+**Enterprise features:**
+- Row-level and column-level security, encryption at rest, private VPC connections, Active Directory or IAM Identity Center integration, embedding
 
 ### Use Cases
 1. **Business dashboards**: Sales, marketing, operations
@@ -1222,7 +1223,7 @@ Dashboard shows only relevant region data per user
 5. **Data exploration**: Interactive visualizations
 
 ### Exam Tips
- **Serverless BI**: No infrastructure, per-user pricing (Enterprise Readers $3/month)
+ **Serverless BI**: No infrastructure, pay per user or per session
 
  **SPICE engine**: In-memory for fast performance
 
@@ -1384,7 +1385,7 @@ Dashboard shows only relevant region data per user
  **QuickSight**
 - Serverless BI and dashboards
 - SPICE in-memory engine
-- Per-user pricing (Enterprise Readers $3/month); capacity-based session pricing is optional
+- Pay per user by role (Reader, Author), plus SPICE capacity; session capacity pricing is optional
 - ML insights (anomaly detection, forecasting)
 
 ### Common Scenarios
