@@ -89,6 +89,8 @@ The modules hold about 217 Mermaid diagrams and 276 practice questions with expl
 | [Architecture pattern sheet](docs/reference/SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md) | 30 min | Common scenario-to-architecture mappings |
 | [Study roadmap](docs/study-guides/STUDY-ROADMAP.md) | – | The eight-week plan in detail |
 
+External notes worth a read: [AWS SAA-C02 Study Guide](https://github.com/keenanromain/AWS-SAA-C02-Study-Guide) by Keenan Romain, also mirrored as [rdurelli/AWS-SAA-C03-Study-Guide](https://github.com/rdurelli/AWS-SAA-C03-Study-Guide). It's a single-page service summary written for the previous exam version (SAA-C02), so check anything that may have changed against the current AWS documentation.
+
 ## Practice test reviews
 
 [exam-reviews/](exam-reviews/README.md) analyses seven [Whizlabs](https://www.whizlabs.com/) practice tests taken in March 2026:
