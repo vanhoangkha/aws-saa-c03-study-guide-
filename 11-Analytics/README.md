@@ -1454,7 +1454,7 @@ Dashboard shows only relevant region data per user
 - [Amazon Kinesis](https://docs.aws.amazon.com/kinesis/)
 - [Amazon EMR](https://docs.aws.amazon.com/emr/)
 - [AWS Glue](https://docs.aws.amazon.com/glue/)
-- [Amazon QuickSight](https://docs.aws.amazon.com/quicksight/)
+- [Amazon QuickSight](https://docs.aws.amazon.com/quick/)
 
 ### Whitepapers
 - Big Data Analytics Options on AWS

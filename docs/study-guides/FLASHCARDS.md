@@ -775,7 +775,7 @@ Need a database?
 - [Database Services - Chapter Guide](../../05-Database/README.md)
 - [Amazon RDS Documentation](https://docs.aws.amazon.com/rds/)
 - [Amazon DynamoDB Documentation](https://docs.aws.amazon.com/dynamodb/)
-- [Amazon Aurora Documentation](https://docs.aws.amazon.com/aurora/)
+- [Amazon Aurora Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
 - [Amazon Redshift Documentation](https://docs.aws.amazon.com/redshift/)
 - [Amazon ElastiCache Documentation](https://docs.aws.amazon.com/elasticache/)
 
@@ -1613,7 +1613,7 @@ Data Sources:
 - [AWS Glue Documentation](https://docs.aws.amazon.com/glue/)
 - [Amazon EMR Documentation](https://docs.aws.amazon.com/emr/)
 - [Amazon Redshift Documentation](https://docs.aws.amazon.com/redshift/)
-- [Amazon QuickSight Documentation](https://docs.aws.amazon.com/quicksight/)
+- [Amazon QuickSight Documentation](https://docs.aws.amazon.com/quick/)
 
 ---
 
@@ -2339,7 +2339,7 @@ Need compute?
 - [Architecture Patterns - Chapter Guide](../../12-Architecture-Patterns/README.md)
 - [AWS Architecture Center](https://aws.amazon.com/architecture/)
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
-- [AWS Reference Architectures](https://aws.amazon.com/architecture/reference-architecture-diagrams/)
+- [AWS Reference Architectures](https://docs.aws.amazon.com/reference-architecture-diagrams/)
 - [AWS Solutions Library](https://aws.amazon.com/solutions/)
 
 ---

@@ -584,7 +584,7 @@ Default Key Policy:
 
 ## Additional Resources
 
-- [AWS Security Best Practices](https://aws.amazon.com/security/best-practices/)
+- [Well-Architected Security Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html)
 - [AWS KMS Documentation](https://docs.aws.amazon.com/kms/)
 - [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/)
 - [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/)

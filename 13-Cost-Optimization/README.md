@@ -1446,7 +1446,7 @@ Total: $608.50/month
 
 ### Tools
 - [AWS Pricing Calculator](https://calculator.aws/)
-- [AWS TCO Calculator (Legacy)](https://aws.amazon.com/tco-calculator/)
+- [AWS TCO Calculator (Legacy)](https://calculator.aws/)
 - [AWS Free Tier](https://aws.amazon.com/free/)
 
 ### Whitepapers

@@ -792,7 +792,7 @@ Resilient:        61%   (Critical weakness)
 ## Key Resources
 
 ### AWS Documentation (Priority Reading)
-- [VPC CIDR Block Sizing](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4)
+- [VPC CIDR Block Sizing](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-sizing.html)
 - [RDS Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html)
 - [DynamoDB Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html)
 - [ECS Container Instance](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/bootstrap_container_instance.html)

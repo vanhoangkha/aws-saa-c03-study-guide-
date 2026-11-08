@@ -92,6 +92,7 @@ The modules hold about 217 Mermaid diagrams and 276 practice questions with expl
 | [Quick reference](docs/reference/QUICK-REFERENCE.md) | 15 min | Service lookup table |
 | [Architecture pattern sheet](docs/reference/SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md) | 30 min | Common scenario-to-architecture mappings |
 | [Study roadmap](docs/study-guides/STUDY-ROADMAP.md) | – | The eight-week plan in detail |
+| [References](docs/REFERENCES.md) | – | Official AWS sources by module: exam guide, Well-Architected, decision guides, whitepapers, FAQs |
 
 External notes: the [AWS SAA-C02 Study Guide](https://github.com/keenanromain/AWS-SAA-C02-Study-Guide) by Keenan Romain, mirrored as [rdurelli/AWS-SAA-C03-Study-Guide](https://github.com/rdurelli/AWS-SAA-C03-Study-Guide). It is included as a git submodule in [external/aws-saa-c02-study-guide](external/aws-saa-c02-study-guide), which links to that repository rather than copying it. Its content belongs to its authors and carries no license. It was written for the previous exam version (SAA-C02), so check anything that may have changed against the current AWS documentation. To download it with this repository:
 
@@ -130,6 +131,7 @@ The [65 reinforcement questions](exam-reviews/REINFORCEMENT-QUESTIONS-ALL-TESTS.
     PRACTICE-QUESTIONS.md    questions with explanations
 exam-reviews/                practice test reviews and exam-day cards
 docs/
+    REFERENCES.md            official AWS sources by module
     study-guides/            ultra-fast and fast indexes, flashcards, roadmap
     reference/               quick reference, diagram index, visual guide
     exam-analysis/           topic coverage against the exam guide
@@ -161,7 +163,7 @@ Details are in the [study roadmap](docs/study-guides/STUDY-ROADMAP.md).
 - Take timed mock exams so the pacing is familiar. That's about two minutes per question.
 - In the exam, watch for qualifiers such as MOST, LEAST and BEST. Eliminate wrong answers first. Flag uncertain questions and come back to them before you submit.
 
-Official sources worth reading alongside these notes: the [Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/), the [Architecture Center](https://aws.amazon.com/architecture/), [Skill Builder](https://skillbuilder.aws/) and the [service FAQs](https://aws.amazon.com/faqs/).
+Official sources worth reading alongside these notes, from the exam guide to the service FAQs for each module, are collected in [docs/REFERENCES.md](docs/REFERENCES.md).
 
 ## Contributing
 

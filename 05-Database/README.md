@@ -564,7 +564,7 @@ AWS offers a range of database services for different use cases. This module cov
 ## Additional Resources
 
 - [Amazon RDS Documentation](https://docs.aws.amazon.com/rds/)
-- [Amazon Aurora Documentation](https://docs.aws.amazon.com/aurora/)
+- [Amazon Aurora Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
 - [Amazon DynamoDB Documentation](https://docs.aws.amazon.com/dynamodb/)
 - [Amazon ElastiCache Documentation](https://docs.aws.amazon.com/elasticache/)
 - [Database Comparison Guide](https://aws.amazon.com/products/databases/)

@@ -519,8 +519,8 @@ User Request
 
 - [AWS Architecture Center](https://aws.amazon.com/architecture/)
 - [AWS Well-Architected Tool](https://aws.amazon.com/well-architected-tool/)
-- [AWS Reference Architectures](https://aws.amazon.com/architecture/reference-architecture-diagrams/)
-- [AWS This Is My Architecture](https://aws.amazon.com/this-is-my-architecture/)
+- [AWS Reference Architectures](https://docs.aws.amazon.com/reference-architecture-diagrams/)
+- [AWS This Is My Architecture](https://aws.amazon.com/architecture/this-is-my-architecture/)
 
 ---
 

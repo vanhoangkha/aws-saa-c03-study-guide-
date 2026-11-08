@@ -893,11 +893,11 @@ Critical Gaps Identified:
    - **Why:** Simple AD vs AD Connector confusion
 
 3. **EC2 Pricing Models**
-   - https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-leveraging-ec2-spot-instances/
+   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html
    - **Why:** Savings Plans vs Spot confusion
 
 4. **Storage Gateway Types**
-   - https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html
+   - https://docs.aws.amazon.com/storagegateway/
    - **Why:** S3 File Gateway vs Tape Gateway mix-up
 
 5. **CloudFront Signed Cookies**
@@ -918,7 +918,7 @@ Critical Gaps Identified:
    - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.AdvSecurity.html
 
 10. **EBS Snapshot Management**
-    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-archive.html
+    - https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-archive.html
 
 ---
 

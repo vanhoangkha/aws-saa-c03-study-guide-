@@ -863,7 +863,7 @@ D) Use Route 53 geoproximity routing
 - [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
 - [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/)
-- [AWS Management Console](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)
+- [AWS Management Console](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/what-is.html)
 
 ### Hands-On Labs
 1. **Explore AWS Regions and AZs**: Navigate the console and identify available regions

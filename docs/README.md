@@ -2,6 +2,8 @@
 
 Supporting material that cuts across the 14 modules. Practice test reviews are in [exam-reviews/](../exam-reviews/README.md).
 
+[REFERENCES.md](REFERENCES.md) collects the official AWS sources for the exam (exam guide, Well-Architected, decision guides, whitepapers, service FAQs by module) and the community guides this repository builds on.
+
 ## study-guides/
 
 | File | Contents |
@@ -24,7 +26,6 @@ Supporting material that cuts across the 14 modules. Practice test reviews are i
 | [DIAGRAMS-INDEX.md](reference/DIAGRAMS-INDEX.md) | Every diagram, by module |
 | [VISUAL-GUIDE.md](reference/VISUAL-GUIDE.md) | Architecture diagrams for common scenarios |
 | [SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md](reference/SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md) | Scenario-to-architecture mappings |
-| [aws-certification-exam-guides.pdf](reference/aws-certification-exam-guides.pdf) | AWS exam guide |
 
 ## exam-analysis/
 
@@ -33,4 +34,4 @@ Supporting material that cuts across the 14 modules. Practice test reviews are i
 | [EXAM-COVERAGE-ANALYSIS.md](exam-analysis/EXAM-COVERAGE-ANALYSIS.md) | Module content checked against the exam guide |
 | [QUICK-REFERENCE-NEW-TOPICS.md](exam-analysis/QUICK-REFERENCE-NEW-TOPICS.md) | Topics added after that check |
 
-The official exam guide is on the [AWS Certification site](https://aws.amazon.com/certification/certified-solutions-architect-associate/).
+The official exam guide is in the [AWS documentation](https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html).

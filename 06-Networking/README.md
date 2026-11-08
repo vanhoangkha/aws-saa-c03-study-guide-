@@ -553,7 +553,7 @@ Record 3: 10% traffic (weight 10)
 - [Amazon VPC Documentation](https://docs.aws.amazon.com/vpc/)
 - [Route 53 Developer Guide](https://docs.aws.amazon.com/route53/)
 - [CloudFront Developer Guide](https://docs.aws.amazon.com/cloudfront/)
-- [VPC Scenarios](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenarios.html)
+- [VPC example: private subnets with NAT](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-example-private-subnets-nat.html)
 
 ---
 

@@ -211,7 +211,7 @@ Mixed (4 OD + 8 Spot @ 80%) = ~5x cost (balanced)
 
 **BEST PRACTICE:** Protect baseline with On-Demand, optimize burst with Spot
 
-**Reference:** [Mixed Instance Policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html)
+**Reference:** [Mixed Instance Policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html)
 
 ---
 
@@ -383,7 +383,7 @@ How to maintain snapshot copy in another region for compliance?
 
 **AUTOMATION:** Use AWS Backup or Lambda + EventBridge
 
-**Reference:** [Copy Snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html)
+**Reference:** [Copy Snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html)
 
 ---
 
@@ -492,7 +492,7 @@ Return session data
 - **DynamoDB**: Durable storage + TTL for expiration
 - **Together**: Speed + reliability
 
-**Reference:** [Session Management](https://aws.amazon.com/caching/session-management/)
+**Reference:** [Session Management](https://aws.amazon.com/caching/)
 
 ---
 
