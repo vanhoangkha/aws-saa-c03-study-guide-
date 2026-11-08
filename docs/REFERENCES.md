@@ -25,6 +25,7 @@ Every link was checked on 2026-11-08. To check them again, run `python3 scripts/
 |--------|------------|
 | [Exam page](https://aws.amazon.com/certification/certified-solutions-architect-associate/) | Format, price, languages, scheduling, and the four-step preparation plan |
 | [SAA-C03 exam guide](https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html) | Domains and weights, task statements, in-scope and out-of-scope services. Read this first and come back to it at the end |
+| [Exam scope in this guide](reference/EXAM-SCOPE.md) | The official in-scope and out-of-scope lists (exam guide version 1.1), mapped to the modules that cover each service |
 | [All AWS exam guides](https://docs.aws.amazon.com/aws-certification/latest/examguides/aws-certification-exam-guides.html) | Comparing SAA-C03 with Cloud Practitioner, SAP-C03 and the specialty exams |
 | [Certification policies](https://aws.amazon.com/certification/policies/) | ID requirements, online proctoring rules, retakes, accommodations |
 | [Certification FAQ](https://aws.amazon.com/certification/faqs/) | Scoring, results, discounts |
@@ -35,8 +36,10 @@ Every link was checked on 2026-11-08. To check them again, run `python3 scripts/
 
 | Source | Use it for |
 |--------|------------|
+| [Skill Builder exam prep for SAA-C03](https://skillbuilder.aws/exam-prep/solutions-architect-associate) | The AWS four-step exam-prep plan, with the official practice material in one place |
 | [AWS Skill Builder](https://skillbuilder.aws/) | The Official Practice Question Set (free), the Exam Prep course, the Official Practice Exam and Builder Labs. Search for "Solutions Architect – Associate" |
 | [AWS Training](https://aws.amazon.com/training/) | Classroom and digital courses, free exam-readiness webinars |
+| [AWS Ramp-Up Guides](https://aws.amazon.com/training/ramp-up-guides/) | AWS's own reading and course lists by role, including Architect |
 | [Immersive learning](https://aws.amazon.com/training/digital/immersive-learning/) | AWS Cloud Quest, AWS SimuLearn, AWS Jam and AWS Escape Room |
 
 ## AWS Well-Architected
@@ -114,6 +117,7 @@ Each guide compares the services in one category and explains when to choose whi
 | [AWS Multi-Region Fundamentals](https://docs.aws.amazon.com/prescriptive-guidance/latest/aws-multi-region-fundamentals/) | 12 |
 | [AWS Elastic Disaster Recovery](https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html) | 10, 12 |
 | [How AWS Pricing Works](https://docs.aws.amazon.com/whitepapers/latest/how-aws-pricing-works/) | 13 |
+| [An Overview of the AWS Cloud Adoption Framework](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/welcome.html) | 10 |
 | [All AWS whitepapers](https://aws.amazon.com/whitepapers/) | |
 
 ## Documentation and FAQs by module
@@ -177,7 +181,7 @@ The exam is updated when services change. Check these before your exam date.
 | [AWS Architecture Blog](https://aws.amazon.com/blogs/architecture/) | Design patterns and reference architectures in practice |
 | [AWS Security Blog](https://aws.amazon.com/blogs/security/) | Security service changes and best practices |
 | [AWS Events on YouTube](https://www.youtube.com/@AWSEventsChannel) | re:Invent and Summit sessions, for example the yearly architecture and networking deep dives |
-| [Exam guide revisions](https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html) | Changes to the in-scope service list |
+| [Exam guide revisions](https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/saa-03-revisions.html) | Changes to the in-scope service list (version 1.1, 29 October 2026, removed Amazon Elastic Transcoder) |
 
 ## Community study guides
 

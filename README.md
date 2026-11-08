@@ -28,8 +28,8 @@ Free study notes, diagrams and practice questions for the SAA-C03 exam, organise
 | | |
 |---|---|
 | Code | SAA-C03 |
-| Length | 130 minutes, 65 questions (multiple choice and multiple response) |
-| Passing score | 720 out of 1000 |
+| Length | 130 minutes, 65 questions (multiple choice and multiple response); 50 are scored and 15 are unscored, unmarked trial questions |
+| Passing score | 720 on a scaled score of 100-1,000. Scoring is compensatory: you need to pass the exam overall, not each domain |
 | Cost | 150 USD |
 | Validity | 3 years |
 | Delivery | Online proctored or at a test centre |
@@ -93,6 +93,7 @@ The modules hold about 217 Mermaid diagrams and 276 practice questions with expl
 | [Architecture pattern sheet](docs/reference/SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md) | 30 min | Common scenario-to-architecture mappings |
 | [Study roadmap](docs/study-guides/STUDY-ROADMAP.md) | – | The eight-week plan in detail |
 | [References](docs/REFERENCES.md) | – | Official AWS sources by module: exam guide, Well-Architected, decision guides, whitepapers, FAQs |
+| [Exam scope](docs/reference/EXAM-SCOPE.md) | 15 min | Official in-scope and out-of-scope services (exam guide v1.1), mapped to the modules |
 
 External notes: the [AWS SAA-C02 Study Guide](https://github.com/keenanromain/AWS-SAA-C02-Study-Guide) by Keenan Romain, mirrored as [rdurelli/AWS-SAA-C03-Study-Guide](https://github.com/rdurelli/AWS-SAA-C03-Study-Guide). It is included as a git submodule in [external/aws-saa-c02-study-guide](external/aws-saa-c02-study-guide), which links to that repository rather than copying it. Its content belongs to its authors and carries no license. It was written for the previous exam version (SAA-C02), so check anything that may have changed against the current AWS documentation. To download it with this repository:
 
