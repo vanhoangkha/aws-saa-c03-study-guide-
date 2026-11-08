@@ -787,6 +787,50 @@ D. AWS Direct Connect
 
 ---
 
+### Question 22
+A company serves a web application through Amazon CloudFront with an Application Load Balancer as the origin. A new security rule says the ALB must not be internet-facing. What should the solutions architect do?
+
+A. Keep an internet-facing ALB and allow only the CloudFront managed prefix list in its security group  
+B. Use an internal ALB in private subnets and configure it as a CloudFront VPC origin  
+C. Replace the ALB with a Network Load Balancer that has Elastic IP addresses  
+D. Move the application to an S3 static website endpoint  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Explanation:**
+- CloudFront VPC origins let CloudFront deliver content from ALBs, NLBs or EC2 instances in private subnets
+- The ALB stays internal, so it has no public endpoint at all
+- A prefix list restricts access but the ALB is still internet-facing; an NLB with Elastic IPs is public; a static website cannot run the application
+
+</details>
+
+---
+
+### Question 23
+A company has hundreds of microservices in many VPCs and accounts. Several VPCs use overlapping CIDR ranges. Services must call each other over HTTP with IAM-based authorization, and the networking team wants the least routing configuration to manage.
+
+A. Full mesh of VPC peering connections  
+B. AWS Transit Gateway with route tables per VPC  
+C. Amazon VPC Lattice service network with auth policies  
+D. Site-to-Site VPN connections between VPCs  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: C**
+
+**Explanation:**
+- VPC Lattice connects services across VPCs and accounts at the application layer, and works with overlapping CIDRs
+- Auth policies use IAM to control which services can call which
+- VPC peering and Transit Gateway routing do not work with overlapping CIDRs and need route management; VPNs between VPCs add even more overhead
+
+</details>
+
+---
+
 ## Summary
 
 **Total Questions**: 21  

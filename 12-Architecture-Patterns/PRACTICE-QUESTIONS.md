@@ -546,6 +546,49 @@ D. Use Spot Instances
 
 ---
 
+### Question 21
+An application runs behind an Application Load Balancer in three Availability Zones. Monitoring shows elevated errors in one AZ only. The team wants to move traffic away from that AZ quickly, without changing the application or DNS records.
+
+A. Start a zonal shift with Amazon Application Recovery Controller (ARC)  
+B. Create a Route 53 failover record to another Region  
+C. Double the Auto Scaling group size  
+D. Run an AWS Fault Injection Service experiment  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: A**
+
+**Explanation:**
+- ARC zonal shift temporarily moves traffic for supported resources such as ALBs and NLBs away from an impaired AZ, once zonal shift is enabled on the load balancer
+- It needs no application or DNS change and can be undone when the AZ recovers
+- A Regional failover is too broad for a single-AZ problem, scaling does not remove the bad AZ, and FIS injects faults rather than mitigating them
+
+</details>
+
+---
+
+### Question 22
+Before a major launch, a company wants to confirm that its application keeps working when EC2 instances are terminated and network latency increases, using controlled experiments with stop conditions.
+
+A. AWS Trusted Advisor  
+B. AWS Fault Injection Service  
+C. Amazon CloudWatch Synthetics  
+D. AWS Config conformance packs  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Explanation:**
+- AWS Fault Injection Service runs controlled chaos experiments such as stopping instances or adding latency, with CloudWatch alarms as stop conditions
+- Trusted Advisor and Config check configuration, and Synthetics tests endpoints from outside, but none of them inject faults
+
+</details>
+
+---
+
 ## Summary
 
 ### Key Concepts Tested:

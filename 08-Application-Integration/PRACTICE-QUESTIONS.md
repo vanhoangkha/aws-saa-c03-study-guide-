@@ -1777,6 +1777,50 @@ D. AWS Glue Streaming
 
 ---
 
+### Question 47
+Orders arrive in an Amazon SQS queue. Only orders with a total above 1,000 USD must be enriched with customer data from a Lambda function and then start a Step Functions workflow. The team wants to avoid writing and running polling code.
+
+A. Amazon EventBridge Pipes with the SQS queue as source, a filter, a Lambda enrichment step and Step Functions as target  
+B. An SNS topic subscribed to the queue  
+C. A Lambda function on a schedule that polls the queue and starts the workflow  
+D. Amazon Data Firehose delivering the queue to S3  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: A**
+
+**Explanation:**
+- EventBridge Pipes connects a source to a target with optional filtering and enrichment, without custom integration code
+- SQS is a supported source and Step Functions a supported target
+- SNS cannot subscribe to a queue, a polling Lambda is the code the team wants to avoid, and Firehose only delivers data to storage
+
+</details>
+
+---
+
+### Question 48
+A company must process 5 million images stored in S3, run the same Lambda function on each one with retries, and get a report of items that failed. The solution must run with high parallelism and minimal custom orchestration code.
+
+A. One Lambda function that loops over all objects  
+B. AWS Step Functions Distributed Map reading the S3 inventory or prefix  
+C. A cron job on an EC2 instance  
+D. An AWS Glue crawler  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Explanation:**
+- Distributed Map runs thousands of parallel child workflows over items such as S3 objects or CSV rows
+- It handles retries, tolerated failure thresholds and writes results, including failed items, to S3
+- A single Lambda function times out after 15 minutes, EC2 needs custom code and servers, and a crawler only catalogs data
+
+</details>
+
+---
+
 ## Summary
 
 **Total Questions**: 46  

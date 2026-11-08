@@ -1966,6 +1966,50 @@ D. Amazon Cognito
 
 ---
 
+### Question 26
+A company uses AWS Organizations. The security team must guarantee that S3 buckets in every member account can be accessed only by principals from the organization, even if a developer adds a bucket policy that grants access to an external account.
+
+A. Attach a service control policy (SCP) that denies s3:* for external principals  
+B. Attach a resource control policy (RCP) that denies S3 access unless aws:PrincipalOrgID matches the organization  
+C. Use IAM permissions boundaries on all roles  
+D. Enable Amazon Macie in all accounts  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Explanation:**
+- RCPs set the maximum permissions on resources such as S3 buckets, whoever makes the request, so they also restrict external principals
+- SCPs apply only to principals inside the organization, so they cannot stop an external account allowed by a bucket policy
+- Permissions boundaries limit your own IAM principals, and Macie finds sensitive data but does not block access
+
+</details>
+
+---
+
+### Question 27
+A security team wants to find IAM roles, access keys and permissions that have not been used recently across all accounts, so it can remove them, with the least effort.
+
+A. Query CloudTrail logs with Athena and compare them with IAM policies  
+B. Use IAM Access Analyzer unused access findings  
+C. Enable Amazon GuardDuty  
+D. Review AWS Trusted Advisor security checks  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Explanation:**
+- IAM Access Analyzer unused access analysis reports unused roles, access keys, passwords and permissions, and can cover the whole organization
+- Querying CloudTrail works but needs custom analysis
+- GuardDuty detects threats, and Trusted Advisor checks do not list unused permissions per role
+
+</details>
+
+---
+
 ## Summary
 
 **Total Questions**: 25  

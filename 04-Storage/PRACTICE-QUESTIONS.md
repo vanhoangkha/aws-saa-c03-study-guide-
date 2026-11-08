@@ -821,6 +821,50 @@ D. Manual migration
 
 ---
 
+### Question 21
+An ML training cluster in one Availability Zone reads millions of small objects many times per epoch. The team needs consistent single-digit millisecond access from S3, and the data can be regenerated from the source system if lost.
+
+A. S3 Standard-IA  
+B. S3 One Zone-IA  
+C. S3 Express One Zone in a directory bucket in the same AZ  
+D. S3 Glacier Instant Retrieval  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: C**
+
+**Explanation:**
+- S3 Express One Zone stores data in a single AZ in directory buckets and delivers single-digit millisecond latency for request-heavy workloads
+- Placing compute in the same AZ gives the lowest latency; the trade-off is losing data if that AZ is lost, which is acceptable here
+- Standard-IA, One Zone-IA and Glacier Instant Retrieval are designed for infrequently accessed data and charge retrieval fees
+
+</details>
+
+---
+
+### Question 22
+A data team stores Apache Iceberg tables in a general purpose S3 bucket and runs a scheduled EMR job to compact small files. They want the same Iceberg tables queried by Athena with less operational work.
+
+A. Move the data to S3 Tables (table buckets), which maintain Iceberg tables automatically  
+B. Run an AWS Glue crawler every hour  
+C. Load the data into an Amazon RDS for PostgreSQL database  
+D. Enable S3 Intelligent-Tiering on the bucket  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: A**
+
+**Explanation:**
+- S3 Tables store tabular data in table buckets with built-in Apache Iceberg support and run maintenance such as compaction and snapshot management automatically
+- The tables can be queried from Athena, Redshift, EMR and Spark
+- A crawler only updates the catalog, RDS is not a data lake table format, and Intelligent-Tiering changes cost, not table maintenance
+
+</details>
+
+---
+
 ## Summary
 
 **Total Questions**: 20  

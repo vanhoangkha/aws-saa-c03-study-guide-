@@ -7,6 +7,7 @@ Notable changes to this study guide. The format follows [Keep a Changelog](https
 First release of this repository, based on the MIT-licensed study guide by ChathurangaVKD (see [LICENSE](LICENSE)).
 
 ### Added
+- 14 practice questions on newer features (two each in modules 03, 04, 05, 06, 07, 08 and 12); the simulator bank now has 312 questions.
 - "Newer Features to Know" tables in modules 03, 04, 05, 06, 07, 08 and 12: Lambda SnapStart and function URLs, S3 Express One Zone and S3 Tables, Aurora I/O-Optimized, Limitless and DSQL, zero-ETL, VPC Lattice, Verified Access, IPAM, CloudFront VPC origins, resource control policies, EventBridge Pipes, Resilience Hub, Fault Injection Service and Application Recovery Controller.
 - `docs/reference/IN-SCOPE-SERVICES.md`, covering every service on the exam guide in-scope list with scenario cues, module links and availability status (Proton, Data Pipeline, Application Discovery Service, Snow Family).
 - ECR, ECS task roles, EKS pricing and hybrid container options to module 03, and Container Insights, Managed Service for Prometheus and Managed Grafana to module 09.

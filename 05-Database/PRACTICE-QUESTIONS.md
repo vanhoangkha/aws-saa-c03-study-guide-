@@ -849,6 +849,50 @@ D. Amazon DynamoDB
 
 ---
 
+### Question 23
+An Aurora PostgreSQL cluster runs an I/O-heavy workload. Billing shows that read and write I/O charges are about 40% of the total Aurora cost, and the amount changes a lot from month to month. How can the company lower and stabilize cost without application changes?
+
+A. Switch the cluster to Aurora I/O-Optimized  
+B. Add more Aurora Replicas  
+C. Migrate the database to DynamoDB on-demand  
+D. Convert the cluster to Aurora Serverless v2 with Aurora Standard storage  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: A**
+
+**Explanation:**
+- Aurora I/O-Optimized has no charges for read and write I/O; you pay for instances and storage only
+- AWS recommends it when I/O spending is 25% or more of total Aurora spending
+- The change is a configuration setting with no code changes; replicas and Serverless v2 still pay per I/O under Aurora Standard, and DynamoDB requires a rewrite
+
+</details>
+
+---
+
+### Question 24
+A company runs an order system on Aurora MySQL and wants dashboards in Amazon Redshift that reflect new orders within seconds. The team does not want to build or operate ETL pipelines.
+
+A. Use AWS DMS to write changes to S3 and run COPY into Redshift every hour  
+B. Create an Aurora zero-ETL integration with Amazon Redshift  
+C. Schedule an AWS Glue job every 15 minutes  
+D. Export snapshots to S3 and query them with Redshift Spectrum  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Explanation:**
+- Aurora zero-ETL integration with Redshift replicates data continuously, making it available in Redshift within seconds
+- There is no pipeline to build, schedule or monitor
+- The other options add latency (hourly, every 15 minutes, snapshot-based) and operational work
+
+</details>
+
+---
+
 ## Summary
 
 **Total Questions**: 22  

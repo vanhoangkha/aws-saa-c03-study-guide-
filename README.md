@@ -6,7 +6,7 @@
 
 Free study notes, diagrams and practice questions for the SAA-C03 exam, organised in 14 modules. Each module comes in three lengths, so you can pick the one that fits the time you have.
 
-- [Exam simulator](https://vanhoangkha.github.io/aws-saa-c03-study-guide-/simulator/): a timed 65-question, 130-minute exam or a single-topic drill, drawn from 298 questions. Scores and history stay in your browser. There is no sign-up and no tracking.
+- [Exam simulator](https://vanhoangkha.github.io/aws-saa-c03-study-guide-/simulator/): a timed 65-question, 130-minute exam or a single-topic drill, drawn from 312 questions. Scores and history stay in your browser. There is no sign-up and no tracking.
 - [Study site](https://vanhoangkha.github.io/aws-saa-c03-study-guide-/): the same modules with search, learning paths, the exam domain breakdown and a score tracker.
 - [Exam-day reference card](exam-reviews/quick-reference/ULTRA-QUICK-REFERENCE-CARD.md): rules, edge cases, service selection and limits for the last 30 minutes.
 

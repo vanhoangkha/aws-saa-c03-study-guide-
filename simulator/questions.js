@@ -2498,6 +2498,50 @@ window.QUESTIONS = [
   "others": []
  },
  {
+  "id": "03-29",
+  "q": "A Java-based Lambda function behind API Gateway receives traffic only a few times an hour, and users notice slow responses after idle periods. The team wants to reduce startup latency at the lowest cost without changing the runtime.",
+  "options": {
+   "A": "Configure provisioned concurrency for the function",
+   "B": "Enable Lambda SnapStart and invoke the function through a published version or alias",
+   "C": "Increase the function memory to the maximum",
+   "D": "Move the function to an EC2 instance"
+  },
+  "answer": [
+   "B"
+  ],
+  "explanation": "• Lambda SnapStart snapshots the initialized execution environment and restores it on invocation, cutting cold-start time for Java 11 and later, Python 3.12 and later, and .NET 8 and later\n• SnapStart works on published versions and aliases, not $LATEST\n• For Java functions SnapStart has no additional charge, while provisioned concurrency is billed for the environments it keeps ready even when idle\n• More memory speeds up initialization only somewhat, and EC2 adds servers to manage",
+  "module": "Compute",
+  "multi": false,
+  "why": [
+   "Lambda SnapStart snapshots the initialized execution environment and restores it on invocation, cutting cold-start time for Java 11 and later, Python 3.12 and later, and .NET 8 and later.",
+   "SnapStart works on published versions and aliases, not $LATEST.",
+   "For Java functions SnapStart has no additional charge, while provisioned concurrency is billed for the environments it keeps ready even when idle.",
+   "More memory speeds up initialization only somewhat, and EC2 adds servers to manage."
+  ],
+  "others": []
+ },
+ {
+  "id": "03-30",
+  "q": "A research team runs a tightly coupled MPI simulation across many EC2 instances. Nodes exchange data constantly, and inter-node latency limits performance. Which design gives the lowest latency between instances?",
+  "options": {
+   "A": "Spread placement group with Elastic Network Adapter (ENA)",
+   "B": "Cluster placement group with Elastic Fabric Adapter (EFA)",
+   "C": "Partition placement group spread across three Availability Zones",
+   "D": "Instances in several Regions connected by Transit Gateway"
+  },
+  "answer": [
+   "B"
+  ],
+  "explanation": "• A cluster placement group packs instances close together in one AZ for low latency and high bandwidth\n• EFA adds OS-bypass networking for HPC and ML frameworks such as MPI and NCCL\n• Spread and partition placement groups target fault isolation, not latency, and multi-Region designs add latency",
+  "module": "Compute",
+  "multi": false,
+  "why": [
+   "EFA adds OS-bypass networking for HPC and ML frameworks such as MPI and NCCL.",
+   "Spread and partition placement groups target fault isolation, not latency, and multi-Region designs add latency."
+  ],
+  "others": []
+ },
+ {
   "id": "04-1",
   "q": "A company needs to store frequently accessed data with the lowest latency and highest throughput. Cost is not the primary concern. Which S3 storage class should be used?",
   "options": {
@@ -3208,6 +3252,50 @@ window.QUESTIONS = [
    "Standard → Standard-IA (30 days min)",
    "Standard → Glacier (0 days min)",
    "Can't transition backwards (Glacier → Standard)"
+  ],
+  "others": []
+ },
+ {
+  "id": "04-21",
+  "q": "An ML training cluster in one Availability Zone reads millions of small objects many times per epoch. The team needs consistent single-digit millisecond access from S3, and the data can be regenerated from the source system if lost.",
+  "options": {
+   "A": "S3 Standard-IA",
+   "B": "S3 One Zone-IA",
+   "C": "S3 Express One Zone in a directory bucket in the same AZ",
+   "D": "S3 Glacier Instant Retrieval"
+  },
+  "answer": [
+   "C"
+  ],
+  "explanation": "• S3 Express One Zone stores data in a single AZ in directory buckets and delivers single-digit millisecond latency for request-heavy workloads\n• Placing compute in the same AZ gives the lowest latency; the trade-off is losing data if that AZ is lost, which is acceptable here\n• Standard-IA, One Zone-IA and Glacier Instant Retrieval are designed for infrequently accessed data and charge retrieval fees",
+  "module": "Storage",
+  "multi": false,
+  "why": [
+   "Placing compute in the same AZ gives the lowest latency.",
+   "The trade-off is losing data if that AZ is lost, which is acceptable here.",
+   "Standard-IA, One Zone-IA and Glacier Instant Retrieval are designed for infrequently accessed data and charge retrieval fees."
+  ],
+  "others": []
+ },
+ {
+  "id": "04-22",
+  "q": "A data team stores Apache Iceberg tables in a general purpose S3 bucket and runs a scheduled EMR job to compact small files. They want the same Iceberg tables queried by Athena with less operational work.",
+  "options": {
+   "A": "Move the data to S3 Tables (table buckets), which maintain Iceberg tables automatically",
+   "B": "Run an AWS Glue crawler every hour",
+   "C": "Load the data into an Amazon RDS for PostgreSQL database",
+   "D": "Enable S3 Intelligent-Tiering on the bucket"
+  },
+  "answer": [
+   "A"
+  ],
+  "explanation": "• S3 Tables store tabular data in table buckets with built-in Apache Iceberg support and run maintenance such as compaction and snapshot management automatically\n• The tables can be queried from Athena, Redshift, EMR and Spark\n• A crawler only updates the catalog, RDS is not a data lake table format, and Intelligent-Tiering changes cost, not table maintenance",
+  "module": "Storage",
+  "multi": false,
+  "why": [
+   "S3 Tables store tabular data in table buckets with built-in Apache Iceberg support and run maintenance such as compaction and snapshot management automatically.",
+   "The tables can be queried from Athena, Redshift, EMR and Spark.",
+   "A crawler only updates the catalog, RDS is not a data lake table format, and Intelligent-Tiering changes cost, not table maintenance."
   ],
   "others": []
  },
@@ -3970,6 +4058,52 @@ window.QUESTIONS = [
   "others": []
  },
  {
+  "id": "05-23",
+  "q": "An Aurora PostgreSQL cluster runs an I/O-heavy workload. Billing shows that read and write I/O charges are about 40% of the total Aurora cost, and the amount changes a lot from month to month. How can the company lower and stabilize cost without application changes?",
+  "options": {
+   "A": "Switch the cluster to Aurora I/O-Optimized",
+   "B": "Add more Aurora Replicas",
+   "C": "Migrate the database to DynamoDB on-demand",
+   "D": "Convert the cluster to Aurora Serverless v2 with Aurora Standard storage"
+  },
+  "answer": [
+   "A"
+  ],
+  "explanation": "• Aurora I/O-Optimized has no charges for read and write I/O; you pay for instances and storage only\n• AWS recommends it when I/O spending is 25% or more of total Aurora spending\n• The change is a configuration setting with no code changes; replicas and Serverless v2 still pay per I/O under Aurora Standard, and DynamoDB requires a rewrite",
+  "module": "Database",
+  "multi": false,
+  "why": [
+   "Aurora I/O-Optimized has no charges for read and write I/O.",
+   "You pay for instances and storage only.",
+   "AWS recommends it when I/O spending is 25% or more of total Aurora spending.",
+   "The change is a configuration setting with no code changes.",
+   "Replicas and Serverless v2 still pay per I/O under Aurora Standard, and DynamoDB requires a rewrite."
+  ],
+  "others": []
+ },
+ {
+  "id": "05-24",
+  "q": "A company runs an order system on Aurora MySQL and wants dashboards in Amazon Redshift that reflect new orders within seconds. The team does not want to build or operate ETL pipelines.",
+  "options": {
+   "A": "Use AWS DMS to write changes to S3 and run COPY into Redshift every hour",
+   "B": "Create an Aurora zero-ETL integration with Amazon Redshift",
+   "C": "Schedule an AWS Glue job every 15 minutes",
+   "D": "Export snapshots to S3 and query them with Redshift Spectrum"
+  },
+  "answer": [
+   "B"
+  ],
+  "explanation": "• Aurora zero-ETL integration with Redshift replicates data continuously, making it available in Redshift within seconds\n• There is no pipeline to build, schedule or monitor\n• The other options add latency (hourly, every 15 minutes, snapshot-based) and operational work",
+  "module": "Database",
+  "multi": false,
+  "why": [
+   "Aurora zero-ETL integration with Redshift replicates data continuously, making it available in Redshift within seconds.",
+   "There is no pipeline to build, schedule or monitor.",
+   "The other options add latency (hourly, every 15 minutes, snapshot-based) and operational work."
+  ],
+  "others": []
+ },
+ {
   "id": "06-1",
   "q": "A company wants to create an isolated network in AWS where they can launch resources. Which AWS service should they use?",
   "options": {
@@ -4686,6 +4820,64 @@ window.QUESTIONS = [
    "CloudFront is a CDN for static/dynamic content, not edge compute.",
    "Outposts is for on-premises data centers, not telecom edge.",
    "Direct Connect is for dedicated network connectivity."
+  ],
+  "others": []
+ },
+ {
+  "id": "06-22",
+  "q": "A company serves a web application through Amazon CloudFront with an Application Load Balancer as the origin. A new security rule says the ALB must not be internet-facing. What should the solutions architect do?",
+  "options": {
+   "A": "Keep an internet-facing ALB and allow only the CloudFront managed prefix list in its security group",
+   "B": "Use an internal ALB in private subnets and configure it as a CloudFront VPC origin",
+   "C": "Replace the ALB with a Network Load Balancer that has Elastic IP addresses",
+   "D": "Move the application to an S3 static website endpoint"
+  },
+  "answer": [
+   "B"
+  ],
+  "explanation": "• CloudFront VPC origins let CloudFront deliver content from ALBs, NLBs or EC2 instances in private subnets\n• The ALB stays internal, so it has no public endpoint at all\n• A prefix list restricts access but the ALB is still internet-facing; an NLB with Elastic IPs is public; a static website cannot run the application",
+  "module": "Networking",
+  "multi": false,
+  "why": [
+   "CloudFront VPC origins let CloudFront deliver content from ALBs, NLBs or EC2 instances in private subnets.",
+   "The ALB stays internal, so it has no public endpoint at all.",
+   "An NLB with Elastic IPs is public."
+  ],
+  "others": [
+   {
+    "l": [
+     "A"
+    ],
+    "t": "Prefix list restricts access but the ALB is still internet-facing."
+   },
+   {
+    "l": [
+     "A"
+    ],
+    "t": "Static website cannot run the application."
+   }
+  ]
+ },
+ {
+  "id": "06-23",
+  "q": "A company has hundreds of microservices in many VPCs and accounts. Several VPCs use overlapping CIDR ranges. Services must call each other over HTTP with IAM-based authorization, and the networking team wants the least routing configuration to manage.",
+  "options": {
+   "A": "Full mesh of VPC peering connections",
+   "B": "AWS Transit Gateway with route tables per VPC",
+   "C": "Amazon VPC Lattice service network with auth policies",
+   "D": "Site-to-Site VPN connections between VPCs"
+  },
+  "answer": [
+   "C"
+  ],
+  "explanation": "• VPC Lattice connects services across VPCs and accounts at the application layer, and works with overlapping CIDRs\n• Auth policies use IAM to control which services can call which\n• VPC peering and Transit Gateway routing do not work with overlapping CIDRs and need route management; VPNs between VPCs add even more overhead",
+  "module": "Networking",
+  "multi": false,
+  "why": [
+   "VPC Lattice connects services across VPCs and accounts at the application layer, and works with overlapping CIDRs.",
+   "Auth policies use IAM to control which services can call which.",
+   "VPC peering and Transit Gateway routing do not work with overlapping CIDRs and need route management.",
+   "VPNs between VPCs add even more overhead."
   ],
   "others": []
  },
@@ -6013,6 +6205,50 @@ window.QUESTIONS = [
   "others": []
  },
  {
+  "id": "07-26",
+  "q": "A company uses AWS Organizations. The security team must guarantee that S3 buckets in every member account can be accessed only by principals from the organization, even if a developer adds a bucket policy that grants access to an external account.",
+  "options": {
+   "A": "Attach a service control policy (SCP) that denies s3:* for external principals",
+   "B": "Attach a resource control policy (RCP) that denies S3 access unless aws:PrincipalOrgID matches the organization",
+   "C": "Use IAM permissions boundaries on all roles",
+   "D": "Enable Amazon Macie in all accounts"
+  },
+  "answer": [
+   "B"
+  ],
+  "explanation": "• RCPs set the maximum permissions on resources such as S3 buckets, whoever makes the request, so they also restrict external principals\n• SCPs apply only to principals inside the organization, so they cannot stop an external account allowed by a bucket policy\n• Permissions boundaries limit your own IAM principals, and Macie finds sensitive data but does not block access",
+  "module": "Security",
+  "multi": false,
+  "why": [
+   "RCPs set the maximum permissions on resources such as S3 buckets, whoever makes the request, so they also restrict external principals.",
+   "SCPs apply only to principals inside the organization, so they cannot stop an external account allowed by a bucket policy.",
+   "Permissions boundaries limit your own IAM principals, and Macie finds sensitive data but does not block access."
+  ],
+  "others": []
+ },
+ {
+  "id": "07-27",
+  "q": "A security team wants to find IAM roles, access keys and permissions that have not been used recently across all accounts, so it can remove them, with the least effort.",
+  "options": {
+   "A": "Query CloudTrail logs with Athena and compare them with IAM policies",
+   "B": "Use IAM Access Analyzer unused access findings",
+   "C": "Enable Amazon GuardDuty",
+   "D": "Review AWS Trusted Advisor security checks"
+  },
+  "answer": [
+   "B"
+  ],
+  "explanation": "• IAM Access Analyzer unused access analysis reports unused roles, access keys, passwords and permissions, and can cover the whole organization\n• Querying CloudTrail works but needs custom analysis\n• GuardDuty detects threats, and Trusted Advisor checks do not list unused permissions per role",
+  "module": "Security",
+  "multi": false,
+  "why": [
+   "IAM Access Analyzer unused access analysis reports unused roles, access keys, passwords and permissions, and can cover the whole organization.",
+   "Querying CloudTrail works but needs custom analysis.",
+   "GuardDuty detects threats, and Trusted Advisor checks do not list unused permissions per role."
+  ],
+  "others": []
+ },
+ {
   "id": "08-1",
   "q": "A microservices architecture needs asynchronous communication where multiple services must process the same message independently. Which AWS service is MOST appropriate?",
   "options": {
@@ -6891,6 +7127,56 @@ window.QUESTIONS = [
    "Glue Streaming is for ETL, not Kafka management."
   ],
   "others": []
+ },
+ {
+  "id": "08-47",
+  "q": "Orders arrive in an Amazon SQS queue. Only orders with a total above 1,000 USD must be enriched with customer data from a Lambda function and then start a Step Functions workflow. The team wants to avoid writing and running polling code.",
+  "options": {
+   "A": "Amazon EventBridge Pipes with the SQS queue as source, a filter, a Lambda enrichment step and Step Functions as target",
+   "B": "An SNS topic subscribed to the queue",
+   "C": "A Lambda function on a schedule that polls the queue and starts the workflow",
+   "D": "Amazon Data Firehose delivering the queue to S3"
+  },
+  "answer": [
+   "A"
+  ],
+  "explanation": "• EventBridge Pipes connects a source to a target with optional filtering and enrichment, without custom integration code\n• SQS is a supported source and Step Functions a supported target\n• SNS cannot subscribe to a queue, a polling Lambda is the code the team wants to avoid, and Firehose only delivers data to storage",
+  "module": "Application Integration",
+  "multi": false,
+  "why": [
+   "EventBridge Pipes connects a source to a target with optional filtering and enrichment, without custom integration code.",
+   "SQS is a supported source and Step Functions a supported target.",
+   "SNS cannot subscribe to a queue, a polling Lambda is the code the team wants to avoid, and Firehose only delivers data to storage."
+  ],
+  "others": []
+ },
+ {
+  "id": "08-48",
+  "q": "A company must process 5 million images stored in S3, run the same Lambda function on each one with retries, and get a report of items that failed. The solution must run with high parallelism and minimal custom orchestration code.",
+  "options": {
+   "A": "One Lambda function that loops over all objects",
+   "B": "AWS Step Functions Distributed Map reading the S3 inventory or prefix",
+   "C": "A cron job on an EC2 instance",
+   "D": "An AWS Glue crawler"
+  },
+  "answer": [
+   "B"
+  ],
+  "explanation": "• Distributed Map runs thousands of parallel child workflows over items such as S3 objects or CSV rows\n• It handles retries, tolerated failure thresholds and writes results, including failed items, to S3\n• A single Lambda function times out after 15 minutes, EC2 needs custom code and servers, and a crawler only catalogs data",
+  "module": "Application Integration",
+  "multi": false,
+  "why": [
+   "Distributed Map runs thousands of parallel child workflows over items such as S3 objects or CSV rows.",
+   "It handles retries, tolerated failure thresholds and writes results, including failed items, to S3."
+  ],
+  "others": [
+   {
+    "l": [
+     "A"
+    ],
+    "t": "Single Lambda function times out after 15 minutes, EC2 needs custom code and servers, and a crawler only catalogs data."
+   }
+  ]
  },
  {
   "id": "09-1",
@@ -9174,6 +9460,48 @@ window.QUESTIONS = [
    "Serverless may not support all workloads.",
    "Spot Instances can be interrupted during work hours.",
    "Scheduled stop/start is most cost-effective for dev environments."
+  ],
+  "others": []
+ },
+ {
+  "id": "12-21",
+  "q": "An application runs behind an Application Load Balancer in three Availability Zones. Monitoring shows elevated errors in one AZ only. The team wants to move traffic away from that AZ quickly, without changing the application or DNS records.",
+  "options": {
+   "A": "Start a zonal shift with Amazon Application Recovery Controller (ARC)",
+   "B": "Create a Route 53 failover record to another Region",
+   "C": "Double the Auto Scaling group size",
+   "D": "Run an AWS Fault Injection Service experiment"
+  },
+  "answer": [
+   "A"
+  ],
+  "explanation": "• ARC zonal shift temporarily moves traffic for supported resources such as ALBs and NLBs away from an impaired AZ, once zonal shift is enabled on the load balancer\n• It needs no application or DNS change and can be undone when the AZ recovers\n• A Regional failover is too broad for a single-AZ problem, scaling does not remove the bad AZ, and FIS injects faults rather than mitigating them",
+  "module": "Architecture Patterns",
+  "multi": false,
+  "why": [
+   "ARC zonal shift temporarily moves traffic for supported resources such as ALBs and NLBs away from an impaired AZ, once zonal shift is enabled on the load balancer.",
+   "It needs no application or DNS change and can be undone when the AZ recovers.",
+   "A Regional failover is too broad for a single-AZ problem, scaling does not remove the bad AZ, and FIS injects faults rather than mitigating them."
+  ],
+  "others": []
+ },
+ {
+  "id": "12-22",
+  "q": "Before a major launch, a company wants to confirm that its application keeps working when EC2 instances are terminated and network latency increases, using controlled experiments with stop conditions.",
+  "options": {
+   "A": "AWS Trusted Advisor",
+   "B": "AWS Fault Injection Service",
+   "C": "Amazon CloudWatch Synthetics",
+   "D": "AWS Config conformance packs"
+  },
+  "answer": [
+   "B"
+  ],
+  "explanation": "• AWS Fault Injection Service runs controlled chaos experiments such as stopping instances or adding latency, with CloudWatch alarms as stop conditions\n• Trusted Advisor and Config check configuration, and Synthetics tests endpoints from outside, but none of them inject faults",
+  "module": "Architecture Patterns",
+  "multi": false,
+  "why": [
+   "Trusted Advisor and Config check configuration, and Synthetics tests endpoints from outside, but none of them inject faults."
   ],
   "others": []
  },

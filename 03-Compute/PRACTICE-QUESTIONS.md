@@ -1039,6 +1039,51 @@ D. Amazon DynamoDB
 
 ---
 
+### Question 29
+A Java-based Lambda function behind API Gateway receives traffic only a few times an hour, and users notice slow responses after idle periods. The team wants to reduce startup latency at the lowest cost without changing the runtime.
+
+A. Configure provisioned concurrency for the function  
+B. Enable Lambda SnapStart and invoke the function through a published version or alias  
+C. Increase the function memory to the maximum  
+D. Move the function to an EC2 instance  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Explanation:**
+- Lambda SnapStart snapshots the initialized execution environment and restores it on invocation, cutting cold-start time for Java 11 and later, Python 3.12 and later, and .NET 8 and later
+- SnapStart works on published versions and aliases, not $LATEST
+- For Java functions SnapStart has no additional charge, while provisioned concurrency is billed for the environments it keeps ready even when idle
+- More memory speeds up initialization only somewhat, and EC2 adds servers to manage
+
+</details>
+
+---
+
+### Question 30
+A research team runs a tightly coupled MPI simulation across many EC2 instances. Nodes exchange data constantly, and inter-node latency limits performance. Which design gives the lowest latency between instances?
+
+A. Spread placement group with Elastic Network Adapter (ENA)  
+B. Cluster placement group with Elastic Fabric Adapter (EFA)  
+C. Partition placement group spread across three Availability Zones  
+D. Instances in several Regions connected by Transit Gateway  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Explanation:**
+- A cluster placement group packs instances close together in one AZ for low latency and high bandwidth
+- EFA adds OS-bypass networking for HPC and ML frameworks such as MPI and NCCL
+- Spread and partition placement groups target fault isolation, not latency, and multi-Region designs add latency
+
+</details>
+
+---
+
 ## Summary
 
 **Total Questions**: 28  
