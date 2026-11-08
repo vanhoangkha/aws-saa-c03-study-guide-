@@ -7,6 +7,7 @@ Notable changes to this study guide. The format follows [Keep a Changelog](https
 First release of this repository, based on the MIT-licensed study guide by ChathurangaVKD (see [LICENSE](LICENSE)).
 
 ### Added
+- Rewrote `docs/exam-analysis/EXAM-COVERAGE-ANALYSIS.md` as a map from every exam guide task statement to its topics and modules.
 - Newer features flashcard table and a list of retired services with their replacements in FLASHCARDS.md.
 - Quick-pick table and commonly confused pairs (Macie vs Comprehend, Textract vs Rekognition) in the ML services notes, with two new module 11 questions.
 - 14 practice questions on newer features (two each in modules 03, 04, 05, 06, 07, 08 and 12); the simulator bank now has 312 questions.

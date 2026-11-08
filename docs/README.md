@@ -32,7 +32,7 @@ Supporting material that cuts across the 14 modules. Practice test reviews are i
 
 | File | Contents |
 |------|----------|
-| [EXAM-COVERAGE-ANALYSIS.md](exam-analysis/EXAM-COVERAGE-ANALYSIS.md) | Module content checked against the exam guide |
-| [QUICK-REFERENCE-NEW-TOPICS.md](exam-analysis/QUICK-REFERENCE-NEW-TOPICS.md) | Topics added after that check |
+| [EXAM-COVERAGE-ANALYSIS.md](exam-analysis/EXAM-COVERAGE-ANALYSIS.md) | Every exam guide task statement mapped to its topics and modules |
+| [QUICK-REFERENCE-NEW-TOPICS.md](exam-analysis/QUICK-REFERENCE-NEW-TOPICS.md) | Quick reference for Organizations, SCPs and other topics added in March 2026 |
 
 The official exam guide is in the [AWS documentation](https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html).

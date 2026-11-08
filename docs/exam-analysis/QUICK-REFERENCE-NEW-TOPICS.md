@@ -1,6 +1,6 @@
 # Quick Reference - New Topics Added (March 2026)
 
-This document provides a quick reference for the critical topics that were added to complete SAA-C03 exam coverage.
+Quick reference for topics added to the guide in March 2026. For newer features released since then, see the "Newer Features to Know" sections in the modules.
 
 ---
 
