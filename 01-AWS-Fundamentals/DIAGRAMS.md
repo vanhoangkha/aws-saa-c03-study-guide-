@@ -128,10 +128,10 @@ flowchart TD
 mindmap
     root((AWS Well-Architected<br/>Framework))
         Operational Excellence
-            IaC
-            Monitoring
-            Learn from Failures
-            Frequent Small Changes
+            Organization
+            Prepare
+            Operate
+            Evolve
         Security
             IAM
             Detective Controls
@@ -144,10 +144,11 @@ mindmap
             Change Management
             Failure Management
         Performance Efficiency
-            Selection
-            Review
-            Monitoring
-            Tradeoffs
+            Architecture Selection
+            Compute and Hardware
+            Data Management
+            Networking and Content Delivery
+            Process and Culture
         Cost Optimization
             Practice Cloud Financial Management
             Expenditure Awareness
@@ -165,11 +166,11 @@ mindmap
 ```mermaid
 graph TB
     subgraph Operational_Excellence_Group["Operational Excellence"]
-        OE1[Infrastructure as Code]
-        OE2[Annotated Documentation]
+        OE1[Safely Automate Where Possible]
+        OE2[Implement Observability]
         OE3[Frequent Small Reversible Changes]
         OE4[Refine Operations Procedures]
-        OE5[Learn from Failures]
+        OE5[Learn from All Operational Events]
     end
     
     subgraph Security_Group["Security"]
@@ -385,7 +386,7 @@ mindmap
             Lambda
             ECS/EKS
             Elastic Beanstalk
-            Lightsail
+            Lightsail (out of scope for SAA-C03)
         Storage
             S3
             EBS
@@ -414,7 +415,7 @@ mindmap
             Athena
             EMR
             Kinesis
-            QuickSight
+            Amazon Quick (formerly QuickSight)
             Glue
         Integration
             SQS
@@ -482,7 +483,7 @@ flowchart TD
 
 ```mermaid
 graph TB
-    Root["Root Account<br/>Management Account"]
+    Root["Organization Root<br/>(managed from the Management Account)"]
     
     Root --> OU1["Organizational Unit:<br/>Production"]
     Root --> OU2["Organizational Unit:<br/>Development"]

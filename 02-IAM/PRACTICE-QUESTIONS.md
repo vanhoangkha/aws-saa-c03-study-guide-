@@ -251,7 +251,7 @@ D. PowerUserAccess
 - Allows users to manage only their own passwords
 - Option A: Too permissive, full IAM access
 - Option C: Read-only, can't change passwords
-- Option D: Almost full access except IAM
+- Option D: Full access except IAM, Organizations and account management
 
 **Alternative**: Create custom policy:
 ```json
@@ -556,11 +556,11 @@ D. Unlimited
 - If more complex permissions needed, use multiple policies or roles
 
 **IAM Limits (Key ones for exam)**:
-- Users per account: 5,000 (default)
-- Groups per account: 300
+- Users per account: 5,000 (not adjustable)
+- Groups per account: 300 (default, up to 500)
 - Groups per user: 10
 - Managed policies per user: 10 (up to 20), per group: 10, per role: 20 (up to 25)
-- Inline policy size: 2,048 characters for users, 10,240 for roles
+- Inline policy size: 2,048 characters for users, 5,120 for groups, 10,240 for roles
 
 **References:** IAM Quotas and Limits
 </details>
@@ -850,7 +850,7 @@ E. Viewing billing information
 - AWS best practices: Enable MFA on root account immediately
 - Root account should be protected with MFA
 - MFA required for sensitive operations
-- Some actions like changing account settings require root + MFA
+- AWS now enforces MFA for root user sign-in on all account types, so root-only tasks such as changing account settings are performed in an MFA-protected session
 
 **Root Account Best Practices**:
 1. Enable MFA on root account

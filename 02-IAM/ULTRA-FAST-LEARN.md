@@ -63,9 +63,10 @@
 
 ## MFA Options
 - **Virtual MFA**: Google Authenticator, Authy
-- **U2F Security Key**: YubiKey
-- **Hardware Key Fob**: Gemalto
-- **Hardware Key Fob for GovCloud**: SurePassID
+- **Passkey / FIDO2 security key** (formerly "U2F"): YubiKey, synced passkeys; phishing-resistant, AWS-recommended
+- **Hardware TOTP token**: Thales
+- **Hardware TOTP token for GovCloud**: Hypersecu
+- Up to 8 MFA devices per user; SMS MFA no longer supported
 
 ## Identity Federation
 - **SAML 2.0**: Corporate login (AD, ADFS)
@@ -79,8 +80,8 @@
 - Use for **compliance auditing**
 
 ## IAM Access Advisor
-- Shows service permissions granted and last accessed
-- **User-level** data
+- Shows service permissions granted and when they were last accessed
+- Available for IAM users, groups, roles and policies (and Organizations entities)
 - Use for **least privilege** implementation
 
 ## Quick Exam Tips
@@ -90,7 +91,7 @@
 - **Managed policies attached**: 10 per user (up to 20), 10 per group, 20 per role (up to 25)
 - **Password policy**: Enforce complexity, rotation
 - **Access Keys**: Max 2 per user
-- **Cross-account**: Use roles, not resource-based policies (except S3, SNS, SQS)
+- **Cross-account**: Use roles, or resource-based policies on services that support them (for example S3, SNS, SQS, KMS, Lambda)
 - **Permission boundary**: Max permissions user can have
 - **SCP > IAM Policy**: SCPs restrict even admin access
 
