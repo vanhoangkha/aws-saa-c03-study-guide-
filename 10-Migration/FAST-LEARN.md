@@ -1,6 +1,6 @@
 # Fast Learning - Migration & Transfer
 
-> **Time to Complete**: 40-50 minutes | **Exam Weight**: ~8-12%
+> **Time to Complete**: 40-50 minutes
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -45,7 +45,7 @@ Status (November 2026): AWS no longer offers Snow Family devices to new customer
 CAPABILITIES:
 ├── Homogeneous (Oracle → Oracle)
 ├── Heterogeneous (Oracle → PostgreSQL)
-│   └── Requires SCT (Schema Conversion Tool)
+│   └── Requires SCT (Schema Conversion Tool) or DMS Schema Conversion
 ├── One-time migration
 ├── Continuous replication (CDC - Change Data Capture)
 └── Migration + ongoing replication
@@ -65,7 +65,7 @@ TARGETS:
 ├── OpenSearch Service
 └── Kinesis, DocumentDB
 
-EXAM TIP: Zero downtime migration
+EXAM TIP: Minimal-downtime migration
 └── Source DB stays online during migration
 ```
 
@@ -94,7 +94,7 @@ SNOWMOBILE (Massive, no longer offered)
 ```
 
 **Transfer Time Calculation**: 
-- 100 TB over 100 Mbps = ~100 days
+- 100 TB over 100 Mbps = ~93 days (at full line rate)
 - Same with Snowball = ~1 week (including shipping)
 
 ### 3. AWS Storage Gateway Types
@@ -126,7 +126,7 @@ TAPE GATEWAY
 ### 4. AWS DataSync
 ```
 WHAT: Automated data transfer service
-PROTOCOLS: NFS, SMB
+PROTOCOLS: NFS, SMB, HDFS, S3 API (object storage), other clouds
 DESTINATIONS: S3, EFS, FSx
 
 FEATURES:
@@ -134,10 +134,10 @@ FEATURES:
 ├── Data validation/integrity checks
 ├── Bandwidth throttling
 ├── Schedule transfers
-├── Up to 10 Gbps
+├── A single task can fully use a 10 Gbps link
 └── Incremental transfers
 
-AGENT: Required on-premises
+AGENT: Required for on-premises storage
 USES: One-time migration or scheduled sync
 
 VS STORAGE GATEWAY:
@@ -215,7 +215,7 @@ When to use each:
 
 DIRECT CONNECT:
 Yes: Dedicated, consistent bandwidth
-Yes: 1-100 Gbps
+Yes: 1, 10, 100 or 400 Gbps dedicated (lower speeds via hosted connections)
 Yes: Private connection
 No: Weeks to months setup
 No: Expensive
@@ -230,7 +230,7 @@ DATASYNC:
 Yes: Scheduled transfers
 Yes: NFS/SMB sources
 Yes: Automated
-No: Limited to 10 Gbps
+No: Bound by available network bandwidth
 
 TRANSFER FAMILY:
 Yes: SFTP/FTP protocol needed
@@ -287,8 +287,10 @@ VS SERVER MIGRATION SERVICE (SMS):
 ```
 PROTOCOLS:
 ├── SFTP (SSH File Transfer Protocol)
-├── FTPS (FTP over SSL)
-└── FTP (File Transfer Protocol)
+├── FTPS (FTP over SSL/TLS)
+├── FTP (File Transfer Protocol)
+├── AS2 (Applicability Statement 2)
+└── Browser-based (Transfer Family web apps)
 
 AUTHENTICATION:
 ├── Service-managed users
@@ -317,7 +319,7 @@ USE CASES:
    
 2. For databases, same engine?
    YES → DMS only
-   NO → DMS + SCT
+   NO → DMS + SCT (or DMS Schema Conversion)
    
 3. For data transfer, how much?
    < 10 TB + good internet → Direct upload/DataSync
@@ -434,7 +436,7 @@ INTEGRATES WITH:
 3) AWS DataSync
 4) Yes (CDC - Change Data Capture)
 5) 100 PB
-6) SFTP, FTPS, FTP
+6) SFTP, FTPS, FTP, AS2 (plus browser-based web apps)
 7) File Gateway
 8) No (same engine = homogeneous)
 
