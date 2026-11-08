@@ -17,6 +17,7 @@ Every link was checked on 2026-11-08. To check them again, run `python3 scripts/
 - [Hands-on practice](#hands-on-practice)
 - [Staying current](#staying-current)
 - [Community study guides](#community-study-guides)
+- [Third-party courses and practice tests](#third-party-courses-and-practice-tests)
 
 ## Exam
 
@@ -100,11 +101,18 @@ Each guide compares the services in one category and explains when to choose whi
 | [RDS Multi-AZ deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) | 05 |
 | [Building a Scalable and Secure Multi-VPC Network Infrastructure](https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/welcome.html) | 06 |
 | [Amazon VPC Connectivity Options](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/introduction.html) | 06 |
+| [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html) | 06 |
 | [VPC security best practices](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-best-practices.html) | 06, 07 |
 | [How Elastic Load Balancing works](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html) | 03, 06 |
+| [AWS Best Practices for DDoS Resiliency](https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/) | 07 |
+| [AWS Security Reference Architecture](https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/) | 07 |
+| [Security in AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-security.html) | 03, 07 |
+| [ElastiCache caching strategies](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Strategies.html) | 05 |
 | [Implementing Microservices on AWS](https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/microservices-on-aws.html) | 08, 12 |
 | [AWS Migration Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-migration-whitepaper/welcome.html) | 10 |
 | [Disaster Recovery of Workloads on AWS](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html) | 12 |
+| [AWS Multi-Region Fundamentals](https://docs.aws.amazon.com/prescriptive-guidance/latest/aws-multi-region-fundamentals/) | 12 |
+| [AWS Elastic Disaster Recovery](https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html) | 10, 12 |
 | [How AWS Pricing Works](https://docs.aws.amazon.com/whitepapers/latest/how-aws-pricing-works/) | 13 |
 | [All AWS whitepapers](https://aws.amazon.com/whitepapers/) | |
 
@@ -165,6 +173,10 @@ The exam is updated when services change. Check these before your exam date.
 | Source | Use it for |
 |--------|------------|
 | [What's New with AWS](https://aws.amazon.com/new/) | Launches and changes to limits and features |
+| [AWS News Blog](https://aws.amazon.com/blogs/aws/) | Longer write-ups of major launches |
+| [AWS Architecture Blog](https://aws.amazon.com/blogs/architecture/) | Design patterns and reference architectures in practice |
+| [AWS Security Blog](https://aws.amazon.com/blogs/security/) | Security service changes and best practices |
+| [AWS Events on YouTube](https://www.youtube.com/@AWSEventsChannel) | re:Invent and Summit sessions, for example the yearly architecture and networking deep dives |
 | [Exam guide revisions](https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html) | Changes to the in-scope service list |
 
 ## Community study guides
@@ -176,3 +188,15 @@ Unofficial material. Use it alongside the sources above, not instead of them.
 | [ChathurangaVKD/AWS-Certified-Solutions-Architect-Associate-SAA-C03](https://github.com/ChathurangaVKD/AWS-Certified-Solutions-Architect-Associate-SAA-C03) | The MIT-licensed guide this repository is based on |
 | [rdurelli/AWS-SAA-C03-Study-Guide](https://github.com/rdurelli/AWS-SAA-C03-Study-Guide) | Long-form notes per service; included here as the [`external/`](../external/) submodule |
 | [keenanromain/AWS-SAA-C02-Study-Guide](https://github.com/keenanromain/AWS-SAA-C02-Study-Guide) | Notes for the previous exam version; most service content still applies |
+
+## Third-party courses and practice tests
+
+Widely used by SAA-C03 candidates. They are not affiliated with AWS or with this repository, some are paid, and they can lag behind AWS changes. Check anything that conflicts with the official sources above.
+
+| Source | Format | Cost |
+|--------|--------|------|
+| [freeCodeCamp SAA-C03 course (Andrew Brown)](https://www.youtube.com/watch?v=c3Cn4xYfxJY) | Full video course | Free |
+| [Tutorials Dojo AWS cheat sheets](https://tutorialsdojo.com/aws-cheat-sheets/) | Per-service summaries and comparisons | Free |
+| [Ultimate AWS Certified Solutions Architect Associate (Stephane Maarek)](https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c03/) | Video course with slides | Paid |
+| [Adrian Cantrill courses](https://learn.cantrill.io/) | In-depth video course with demos | Paid |
+| [ExamPro SAA-C03](https://www.exampro.co/saa-c03) | Video course and practice exams | Free and paid tiers |
