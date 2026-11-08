@@ -1,6 +1,6 @@
 # Fast Learning - Monitoring & Management
 
-> **Time to Complete**: 45-60 minutes | **Exam Weight**: ~10-15%
+> **Time to Complete**: 45-60 minutes
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -42,7 +42,7 @@ AUTOMATION? → Systems Manager, EventBridge
 METRICS (What to Monitor)
 ├── Default Metrics (free, 5-min intervals)
 │   └── EC2: CPU, Network, Disk (NOT memory/disk space)
-├── Custom Metrics (charged, any interval)
+├── Custom Metrics (charged, 1-min standard or 1-sec high resolution)
 │   └── Application-level, memory, disk space
 └── Detailed Monitoring (1-min intervals, extra cost)
 
@@ -111,7 +111,7 @@ VALIDATION:
 ### 4. AWS Config Rules
 ```
 TYPES:
-├── AWS Managed Rules (pre-built, 200+)
+├── AWS Managed Rules (pre-built, 800+)
 │   └── s3-bucket-public-read-prohibited
 │   └── required-tags
 │   └── encrypted-volumes
@@ -152,7 +152,7 @@ REMEDIATION:
 
 ### Scenario 6: Ensure All S3 Buckets Encrypted
 **Q**: Continuously verify S3 bucket encryption compliance
-**ANSWER**: AWS Config with s3-bucket-server-side-encryption-enabled rule
+**ANSWER**: AWS Config with s3-bucket-server-side-encryption-enabled rule (since 5 Jan 2023 every bucket gets SSE-S3 default encryption, so in practice use s3-default-encryption-kms to require SSE-KMS)
 
 ### Scenario 7: Automate Response to Security Event
 **Q**: Auto-revoke IAM key if exposed

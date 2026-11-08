@@ -79,7 +79,7 @@ D. AWS DataSync to transfer the database
 - This is a heterogeneous migration (different database engines)
 - SCT converts schemas, stored procedures, and functions
 - DMS migrates the actual data with minimal downtime
-- DMS alone doesn't convert schemas for heterogeneous migrations
+- DMS data migration alone doesn't convert schemas for heterogeneous migrations (DMS Schema Conversion, built on the SCT engine, is the managed alternative to the SCT desktop tool)
 - SCT alone doesn't migrate data
 - DataSync is for file systems, not databases
 
@@ -170,7 +170,7 @@ D. Repurchase a SaaS solution
 ---
 
 ### Question 7
-An organization wants to track the progress of migrating 200 applications across multiple AWS accounts and regions. Which service provides centralized visibility?
+An organization wants to track the progress of migrating 200 applications into multiple AWS Regions. Which service provides centralized visibility?
 
 A. AWS CloudWatch  
 B. AWS Migration Hub  
@@ -185,7 +185,7 @@ D. AWS Config
 **Explanation:**
 - Migration Hub provides centralized tracking of migrations
 - Aggregates progress from multiple migration tools
-- Supports multi-account and multi-region tracking
+- Tracks migrations into any AWS Region from a single home Region
 - Integrates with DMS, Application Migration Service, etc.
 - CloudWatch monitors resources, not migrations
 - Systems Manager manages infrastructure
@@ -462,7 +462,7 @@ D. SSL must be disabled on RDS
 ---
 
 ### Question 18
-A company is planning a large-scale migration to AWS and needs to assess their current environment, plan the migration, and track progress. Which AWS service provides this comprehensive approach?
+A company is planning a large-scale migration to AWS and needs to assess their current environment, plan the migration, and track progress. Which AWS service or services provide this comprehensive approach?
 
 A. AWS Migration Hub  
 B. AWS Application Discovery Service  
@@ -553,7 +553,7 @@ D. Repurchase
 
 ### Exam Tips:
 - Rehost (Lift and Shift) is fastest migration
-- Heterogeneous migrations require SCT + DMS
+- Heterogeneous migrations require SCT (or DMS Schema Conversion) + DMS
 - Homogeneous migrations use DMS only
 - Use Snowball when data > 10 TB or bandwidth limited (closed to new customers)
 - DataSync for ongoing/scheduled transfers over network

@@ -92,6 +92,7 @@ AWS provides a set of services to migrate applications, databases, and data to t
 - HDFS (Hadoop Distributed File System)
 - Self-managed object storage
 - AWS Snowcone (discontinued)
+- Other clouds (for example Azure Blob Storage, Azure Files, Google Cloud Storage)
 - Amazon S3
 - Amazon EFS
 - Amazon FSx for Windows File Server
@@ -99,7 +100,7 @@ AWS provides a set of services to migrate applications, databases, and data to t
 - Amazon FSx for OpenZFS
 - Amazon FSx for NetApp ONTAP
 
-**Destination Locations:**
+**Destination Locations:** (DataSync copies in either direction, so on-premises and other-cloud locations can also be destinations)
 - Amazon S3 (all storage classes)
 - Amazon EFS
 - Amazon FSx for Windows File Server
@@ -159,9 +160,9 @@ Exclude: /temp/*, /cache/*
 - Automated recurring transfers
 
 ### Pricing
-- **Per-GB transferred**: $0.0125 per GB
+- **Per-GB copied**: Basic mode $0.0125 per GB; Enhanced mode $0.015 per GB plus $0.55 per task execution (US East (Ohio) pricing examples)
 - No upfront fees or software licenses
-- No charge for data transferred within same AWS Region
+- Standard AWS data transfer charges apply on top (for example between Regions, or out to on-premises), plus S3 request and other service charges
 
 ### Exam Tips
  **DataSync vs Snow Family**
@@ -220,7 +221,7 @@ Exclude: /temp/*, /cache/*
 
 **2. Heterogeneous Migration**
 - Different database engines (Oracle → PostgreSQL)
-- Requires AWS Schema Conversion Tool (SCT)
+- Requires schema conversion: AWS Schema Conversion Tool (SCT, desktop tool) or DMS Schema Conversion (managed, in the DMS console, built on the SCT engine)
 - More complex, needs schema conversion
 
 ### Supported Databases
@@ -392,8 +393,8 @@ Exclude: /temp/*, /cache/*
 
 ### Pricing
 - **Replication Instance**: Hourly pricing based on instance type
-- **Storage**: $0.115 per GB-month for change logs
-- **Data Transfer**: Standard data transfer rates
+- **Storage**: per GB-month for storage beyond what is included with the replication instance
+- **Data Transfer**: All data transfer into DMS is free; standard rates apply otherwise
 
 ### Exam Tips
  **DMS for ongoing replication**: Continuous data replication with CDC
@@ -647,7 +648,7 @@ The AWS docs now list this service as AWS Transform MGN.
 
 ### AWS Transfer Family
 - **Managed file transfer service**
-- Supports SFTP, FTPS, FTP, AS2 protocols
+- Supports SFTP, FTPS, FTP, AS2 protocols, plus browser-based transfers (Transfer Family web apps)
 - Transfer files directly into S3 or EFS
 - No infrastructure management
 
@@ -690,6 +691,7 @@ Status (November 2026): AWS no longer offers Snow Family devices to new customer
 - Agentless or agent-based discovery
 
 ### AWS Migration Evaluator
+Note: Migration Evaluator is listed as out of scope for SAA-C03.
 - **Assess on-premises infrastructure**
 - Build business case for cloud migration
 - Analyze cost and performance
@@ -702,7 +704,7 @@ Status (November 2026): AWS no longer offers Snow Family devices to new customer
 - ROI analysis
 
 ### AWS Mainframe Modernization
-Status (November 2026): the AWS Mainframe Modernization Service has been closed to new customers since 7 Nov 2025.
+Status (November 2026): AWS Mainframe Modernization (both the managed runtime environment and the self-managed experience) is no longer open to new customers; AWS points new projects to AWS Transform and vendor offerings.
 - Migrate and modernize mainframe applications
 - Automated refactoring or replatforming
 - Managed runtime environment
@@ -1043,7 +1045,7 @@ Backup Account (222222222222)
 
 **Storage Tiers:**
 1. **Warm Storage**: Fast access, higher cost
-2. **Cold Storage**: Glacier, lower cost, slower access
+2. **Cold Storage**: Lower cost, minimum 90 days; only for some resource types (EFS, DynamoDB with advanced features, EBS via Snapshot Archive, CloudFormation, Timestream, VMware VMs, SAP HANA on EC2)
 
 **Lifecycle Transition:**
 ```
@@ -1275,7 +1277,7 @@ Production Region 1 (us-east-1)
   ├── Full application stack (50% traffic)
   ├── Aurora Global Database (Primary)
   └── DynamoDB Global Tables
-      ↕ Bidirectional replication
+      ↕ DynamoDB: multi-active replication; Aurora: one-way from primary (secondary is read-only, write forwarding optional)
 Production Region 2 (us-west-2)
   ├── Full application stack (50% traffic)
   ├── Aurora Global Database (Secondary)
@@ -1426,3 +1428,21 @@ Disaster: Automatic failover, no intervention needed
 
 **Previous Module:** [← 09-Monitoring](../09-Monitoring/README.md)
 
+
+## References
+
+Pages verified for this module (see [docs/REFERENCES.md](../docs/REFERENCES.md) for the full list):
+
+- [DataSync FAQs](https://aws.amazon.com/datasync/faqs/) and [DataSync pricing](https://aws.amazon.com/datasync/pricing/)
+- [DMS Schema Conversion](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_SchemaConversion.html) and [DMS pricing](https://aws.amazon.com/dms/pricing/)
+- [AWS Transform MGN (Application Migration Service) FAQs](https://aws.amazon.com/application-migration-service/faqs/)
+- [Migration Hub availability change](https://docs.aws.amazon.com/migrationhub/latest/ug/migrationhub-availability-change.html) and [home Region](https://docs.aws.amazon.com/migrationhub/latest/ug/home-region.html)
+- [Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html)
+- [Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html)
+- [Snowball Edge availability change](https://docs.aws.amazon.com/snowball/latest/developer-guide/snowball-edge-availability-change.html), [AWS Snowball end of support notice](https://aws.amazon.com/snowball/) and [Snowball Edge hardware](https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html)
+- [AWS Snow device updates (Snowcone discontinued 12 Nov 2024)](https://aws.amazon.com/blogs/storage/aws-snow-device-updates/)
+- [Services in full shutdown (Snowmobile)](https://docs.aws.amazon.com/general/latest/gr/full_shutdown_services.html)
+- [What is AWS Transfer Family?](https://docs.aws.amazon.com/transfer/latest/userguide/what-is-aws-transfer-family.html)
+- [Direct Connect dedicated connections (port speeds)](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html)
+- [AWS Backup plan options (frequency, cold storage)](https://docs.aws.amazon.com/aws-backup/latest/devguide/plan-options-and-configuration.html)
+- [Aurora Global Database overview](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html)

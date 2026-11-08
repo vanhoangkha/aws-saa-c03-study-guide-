@@ -247,7 +247,7 @@ A company needs to store CloudWatch Logs for 10 years to meet compliance require
 A. Keep logs in CloudWatch Logs with 10-year retention  
 B. Export logs to S3, then transition to S3 Glacier Deep Archive  
 C. Export logs to S3, then use S3 Intelligent-Tiering  
-D. Stream logs to Kinesis Data Firehose and store in Redshift  
+D. Stream logs to Amazon Data Firehose and store in Redshift  
 
 <details>
 <summary>Show Answer</summary>
@@ -293,7 +293,7 @@ D. CloudWatch Alarms
 ---
 
 ### Question 12
-A company wants to automatically remediate non-compliant resources. For example, when an S3 bucket is created without encryption, it should be automatically encrypted. Which solution accomplishes this?
+A company wants to automatically remediate non-compliant resources. For example, when an S3 bucket is found to allow public read access, the public access should be removed automatically. Which solution accomplishes this?
 
 A. AWS Config Rules with automatic remediation using SSM Automation Documents  
 B. CloudWatch Events with Lambda functions  
@@ -307,7 +307,7 @@ D. Systems Manager State Manager
 
 **Explanation:**
 - Config Rules evaluate compliance
-- Automatic remediation uses SSM Automation Documents
+- Automatic remediation uses SSM Automation Documents (for example, the `s3-bucket-public-read-prohibited` rule with the `AWS-DisableS3BucketPublicReadWrite` runbook)
 - Can trigger remediation when resources become non-compliant
 - CloudWatch Events could work but Config is purpose-built for compliance
 - CloudTrail only tracks changes, doesn't remediate
@@ -438,7 +438,7 @@ D. Export logs to S3 and use Lambda
 **Explanation:**
 - CloudWatch Logs Subscriptions enable real-time processing
 - Can send to Kinesis Data Streams for real-time analytics
-- Also supports Kinesis Data Firehose and Lambda
+- Also supports Amazon Data Firehose, Lambda, and OpenSearch Service
 - S3 export is not real-time (batch process)
 - Logs Insights is for ad-hoc queries, not streaming
 

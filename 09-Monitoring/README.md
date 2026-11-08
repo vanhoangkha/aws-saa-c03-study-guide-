@@ -53,6 +53,8 @@ Monitoring and management services help you track performance, detect issues, an
 - **Auto Scaling**: Scale EC2 instances
 - **EC2 Actions**: Stop, terminate, reboot, recover
 - **SNS**: Send notifications
+- **Lambda**: Invoke a function directly
+- **Systems Manager**: Create an OpsItem or incident
 
 **Composite Alarms**
 - Combine multiple alarms with AND/OR logic
@@ -76,7 +78,7 @@ Monitoring and management services help you track performance, detect issues, an
 - **Route 53**: DNS queries
 
 **Retention**
-- **Never expire** to **10 years**
+- **1 day** to **10 years**, or never expire
 - Default: Never expire
 - Can export to S3
 
@@ -94,8 +96,9 @@ Monitoring and management services help you track performance, detect issues, an
 - Real-time log processing
 - Destinations:
   - **Kinesis Data Streams**: Real-time processing
-  - **Kinesis Data Firehose**: S3, Redshift
+  - **Amazon Data Firehose** (formerly Kinesis Data Firehose): S3, Redshift, OpenSearch
   - **Lambda**: Custom processing
+  - **Amazon OpenSearch Service**: Search and analytics
 - Cross-account subscriptions supported
 
 ### CloudWatch Agent
@@ -206,7 +209,7 @@ Monitoring and management services help you track performance, detect issues, an
 
 ### Config Rules
 
-**AWS Managed Rules** (190+)
+**AWS Managed Rules** (800+)
 - Pre-built rules for common best practices
 - Examples:
   - `encrypted-volumes`: Check if EBS volumes are encrypted
@@ -278,8 +281,8 @@ Monitoring and management services help you track performance, detect issues, an
 - (Covered in Module 07: Security)
 - **Hierarchical storage**: `/app/db/password`
 - Integration with CloudFormation, Lambda, etc.
-- **Standard**: Free, 4 KB, 10,000 params
-- **Advanced**: $0.05/param, 8 KB, 100,000+ params
+- **Standard**: Free, 4 KB, 10,000 params (per account per Region)
+- **Advanced**: $0.05/param/month, 8 KB, 100,000 params (per account per Region), parameter policies
 
 #### Inventory
 - **Collect metadata** from managed instances
@@ -323,17 +326,17 @@ Monitoring and management services help you track performance, detect issues, an
 Status (November 2026): Developer Support and Business Support closed to new subscriptions on 2 Dec 2025 and are discontinued on 1 Jan 2027. The current plans are Basic, Business Support+, Enterprise Support and Unified Operations.
 
 **Basic Support** (and Developer Support until it is discontinued)
-- **7 core checks** (free):
+- **Core checks** (free): 6 security checks plus the service limit checks
   - S3 bucket permissions
   - Security groups - specific ports unrestricted
   - IAM use
   - MFA on root account
   - EBS public snapshots
   - RDS public snapshots
-  - Service limits (50 checks)
+  - Service limits (all checks in this category)
 
 **Business Support+ / Enterprise Support / Unified Operations** (and Business Support until it is discontinued)
-- **All checks** (115+ checks)
+- **Full set of checks** (all categories)
 - **CloudWatch integration**
 - **Programmatic access** via AWS Support API
 - **Weekly email notifications**
@@ -460,3 +463,25 @@ Example: CloudWatch Alarm → EventBridge → Lambda → Fix issue
 **Previous Module**: [Module 08: Application Integration](../08-Application-Integration/README.md)  
 **Next Module**: [Module 10: Migration & Transfer](../10-Migration/README.md)
 
+
+## References
+
+Pages verified for this module (see [docs/REFERENCES.md](../docs/REFERENCES.md) for the full list):
+
+- [CloudWatch metrics concepts (resolution, retention)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html)
+- [Invoke a Lambda function from a CloudWatch alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarms-and-actions-Lambda.html)
+- [CloudWatch dashboard refresh interval](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/change_dashboard_refresh_interval.html)
+- [CloudWatch Logs subscription filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html)
+- [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)
+- [CloudTrail event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html)
+- [CloudTrail Lake pricing options and retention](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html)
+- [List of AWS Config managed rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html)
+- [AWS-DisableS3BucketPublicReadWrite runbook](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-disables3bucketpublicreadwrite.html)
+- [Systems Manager pricing (Parameter Store tiers)](https://aws.amazon.com/systems-manager/pricing/)
+- [Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html)
+- [Incident Manager availability change](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-availability-change.html)
+- [X-Ray concepts (retention, sampling)](https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html)
+- [Trusted Advisor check categories](https://docs.aws.amazon.com/awssupport/latest/user/get-started-with-aws-trusted-advisor.html)
+- [AWS Support plans](https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html)
+- [AWS Premium Support FAQs (Trusted Advisor checks by plan)](https://aws.amazon.com/premiumsupport/faqs/)
+- [Amazon S3 default encryption FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html)
