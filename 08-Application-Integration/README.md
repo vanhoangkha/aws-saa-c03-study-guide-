@@ -392,9 +392,9 @@ Example Filter Policy:
 - A. 64 KB
 - B. 128 KB
 - C. 256 KB
-- D. 1 MB
+- D. 1 MiB
 
-**Answer**: C
+**Answer**: D (the limit was raised from 256 KB to 1 MiB; older practice material may still say 256 KB)
 
 **Q2.** Which service provides exactly-once message processing with strict ordering?
 - A. SQS Standard
