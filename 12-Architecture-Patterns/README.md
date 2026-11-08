@@ -414,6 +414,19 @@ User Request
 
 ---
 
+## Newer Features to Know
+
+Added after the original SAA-C03 release. Questions can use them, usually as the most managed or lowest-effort option.
+
+| Feature | What it does | Choose it when |
+|---------|--------------|----------------|
+| AWS Resilience Hub | Assesses an application against RTO and RPO targets and recommends improvements | Check whether a design meets resilience targets |
+| AWS Fault Injection Service | Runs controlled fault experiments such as stopping instances or adding latency | Test resilience with chaos engineering |
+| Amazon Application Recovery Controller (ARC) | Zonal shift moves traffic away from an impaired AZ; routing controls and readiness checks support multi-Region failover | Recover quickly from an AZ problem or control Regional failover |
+| AWS Elastic Disaster Recovery | Continuous block-level replication to a low-cost staging area, with fast recovery into EC2 | Pilot light style DR for servers with an RPO of seconds and an RTO of minutes |
+
+---
+
 ## Practice Scenarios
 
 ### Scenario 1: High-Traffic Web Application

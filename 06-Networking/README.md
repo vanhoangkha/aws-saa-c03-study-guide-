@@ -463,6 +463,23 @@ Record 3: 10% traffic (weight 10)
 
 ---
 
+## Newer Features to Know
+
+Added after the original SAA-C03 release. Questions can use them, usually as the most managed or lowest-effort option.
+
+| Feature | What it does | Choose it when |
+|---------|--------------|----------------|
+| Amazon VPC Lattice | Service-to-service networking across VPCs and accounts with built-in auth policies, without peering or Transit Gateway | Connect microservices across many VPCs and accounts at the application layer |
+| AWS Verified Access | Zero trust access to corporate applications without a VPN, based on identity and device posture | Replace VPN access to internal web apps |
+| VPC IP Address Manager (IPAM) | Plans, allocates and monitors IP addresses across accounts and Regions | Avoid overlapping CIDRs in a multi-account organization |
+| Reachability Analyzer | Tests whether a path exists between two resources and shows the blocking component | Troubleshoot connectivity without sending traffic |
+| Network Access Analyzer | Finds network access paths that break requirements you define | Verify that sensitive resources are not reachable from the internet |
+| CloudFront VPC origins | CloudFront reaches ALBs, NLBs or EC2 instances in private subnets | Serve content through CloudFront without exposing the origin publicly |
+| ALB mutual TLS | ALB authenticates clients with X.509 certificates | Certificate-based client authentication for APIs or devices |
+| VPC Block Public Access | Blocks internet traffic to and from VPCs for an account in a Region, with exclusions | Enforce that VPCs stay private |
+
+---
+
 ## Practice Questions
 
 1. **Which VPC component allows outbound internet access for private subnets?**

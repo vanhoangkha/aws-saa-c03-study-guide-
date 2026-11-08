@@ -461,6 +461,18 @@ Default Key Policy:
 
 ---
 
+## Newer Features to Know
+
+Added after the original SAA-C03 release. Questions can use them, usually as the most managed or lowest-effort option.
+
+| Feature | What it does | Choose it when |
+|---------|--------------|----------------|
+| Resource control policies (RCPs) | Organizations policies that set the maximum permissions on resources (S3, STS, KMS, SQS, Secrets Manager, ECR, OpenSearch Serverless), whoever makes the request | Build a data perimeter, for example only principals in your organization can access your buckets |
+| SCPs compared with RCPs | SCPs limit what your principals can do; RCPs limit what anyone can do to your resources. Neither grants permissions | A question involves outside principals accessing your resources |
+| IAM Access Analyzer unused access | Finds unused roles, access keys, passwords and permissions | Remove unused permissions toward least privilege |
+
+---
+
 ## Security Best Practices
 
 ### Data Protection

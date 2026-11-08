@@ -173,6 +173,22 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 
 ---
 
+## Newer Features to Know
+
+Added after the original SAA-C03 release. Questions can use them, usually as the most managed or lowest-effort option.
+
+| Feature | What it does | Choose it when |
+|---------|--------------|----------------|
+| Lambda SnapStart | Snapshots the initialized execution environment and resumes from it, cutting cold-start time. Java 11+, Python 3.12+, .NET 8+; published versions only; not combined with provisioned concurrency | Reduce cold starts without paying for provisioned concurrency |
+| Lambda provisioned concurrency | Keeps a set number of environments initialized | Predictable, consistently low latency for a known load |
+| Lambda function URLs | Dedicated HTTPS endpoint for one function, auth `AWS_IAM` or `NONE` | Simple webhook or single-function API without API Gateway features (no usage plans, API keys or request validation) |
+| Graviton instances | AWS Arm-based processors with better price performance than comparable x86 instances | Lower cost for Linux workloads that can run on Arm |
+| Nitro Enclaves | Isolated compute environment inside an EC2 instance, with no network access or persistent storage | Process highly sensitive data such as keys or PII inside an instance |
+| Elastic Fabric Adapter (EFA) | Network interface with OS bypass for low-latency, high-throughput communication | Tightly coupled HPC or ML training, together with a cluster placement group |
+| EKS Auto Mode | AWS manages node provisioning, scaling and upgrades for EKS | Kubernetes with the least node management |
+
+---
+
 ## Exam Tips
 
 ### Decision Tree

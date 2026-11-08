@@ -365,6 +365,19 @@ Example Filter Policy:
 
 ---
 
+## Newer Features to Know
+
+Added after the original SAA-C03 release. Questions can use them, usually as the most managed or lowest-effort option.
+
+| Feature | What it does | Choose it when |
+|---------|--------------|----------------|
+| EventBridge Pipes | Point-to-point integration: source, optional filter, enrichment, target | Connect SQS, Kinesis, DynamoDB Streams or MSK to a target without glue code |
+| EventBridge Scheduler | Serverless scheduler for one-time and recurring tasks at scale, with time zones | Replace cron on EC2 or scheduled rules |
+| Step Functions Distributed Map | Runs thousands of parallel child workflows over items such as S3 objects or CSV rows | Large-scale parallel processing of data in S3 |
+| Larger payloads | SNS up to 1 MiB when the topic is configured for it; EventBridge events up to 1 MB; SQS messages up to 1 MiB | Avoid claim-check patterns for payloads under 1 MB |
+
+---
+
 ## Integration Patterns Summary
 
 ### Synchronous

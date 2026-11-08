@@ -462,6 +462,21 @@ AWS offers a range of database services for different use cases. This module cov
 
 ---
 
+## Newer Features to Know
+
+Added after the original SAA-C03 release. Questions can use them, usually as the most managed or lowest-effort option.
+
+| Feature | What it does | Choose it when |
+|---------|--------------|----------------|
+| Aurora I/O-Optimized | Storage configuration with no charges for read and write I/O | I/O spending is 25% or more of total Aurora spend; Aurora Standard below that |
+| Aurora Limitless Database | Scales Aurora PostgreSQL writes horizontally with managed sharding | Write throughput or storage beyond a single writer instance |
+| Aurora DSQL | Serverless, PostgreSQL-compatible distributed SQL; multi-Region clusters accept reads and writes in each Region with strong consistency | Active-active multi-Region relational database with no failover to manage |
+| Zero-ETL integrations | Replicate data from Aurora, RDS for MySQL and DynamoDB into Redshift without building pipelines | Near real-time analytics on operational data with no ETL to maintain |
+| ElastiCache Serverless and Valkey | Cache that scales automatically; Valkey is an open-source, Redis OSS-compatible engine priced below Redis OSS | Caching without capacity planning |
+| RDS Blue/Green Deployments | Staging copy kept in sync with production, then switched over, typically in under a minute | Major version upgrades or schema changes with minimal downtime |
+
+---
+
 ## Database Comparison
 
 | Database | Type | Use Case |

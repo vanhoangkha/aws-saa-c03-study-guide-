@@ -295,6 +295,20 @@ Limits follow the current AWS documentation: gp3 goes up to 80,000 IOPS, 2,000 M
 
 ---
 
+## Newer Features to Know
+
+Added after the original SAA-C03 release. Questions can use them, usually as the most managed or lowest-effort option.
+
+| Feature | What it does | Choose it when |
+|---------|--------------|----------------|
+| S3 Express One Zone | Storage class in directory buckets in a single AZ, with single-digit millisecond latency | Latency-sensitive, request-heavy workloads with compute in the same AZ; data can be recreated if the AZ is lost |
+| S3 Tables | Table buckets with built-in Apache Iceberg support and automatic maintenance such as compaction | Tabular analytics data queried by Athena, Redshift, EMR or Spark |
+| Mountpoint for Amazon S3 | File client that mounts a bucket as a local file system on Linux | Read-heavy applications that expect file paths; not a full POSIX file system (use EFS or FSx for that) |
+| Block Public Access and ACLs disabled by default | New buckets block public access and use bucket owner enforced object ownership | Default secure configuration; grant access with policies, not ACLs |
+| S3 Object Lambda | Transforms objects on GET with a Lambda function. **Status:** available only to existing customers since 7 November 2025 | Legacy designs; new designs call Lambda through CloudFront, API Gateway or function URLs |
+
+---
+
 ## Storage Decision Matrix
 
 ```
