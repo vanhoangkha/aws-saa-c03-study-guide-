@@ -1,6 +1,6 @@
 # Fast Learning - Storage Services
 
-> **Time to Complete**: 60-75 minutes | **Exam Weight**: ~15-20%
+> **Time to Complete**: 60-75 minutes | **Exam Weight**: the exam guide weights domains (30/26/24/20), not services
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -25,7 +25,7 @@ ARCHIVAL? → S3 Glacier (long-term backup)
 | **One Zone-IA** | Instant | 99.5% | 30 days | Non-critical, infrequent | $ |
 | **Glacier Instant** | Instant | 99.9% | 90 days | Archive, instant access | $ |
 | **Glacier Flexible** | Min-Hours | 99.99% | 90 days | Archive, rare access | $ |
-| **Glacier Deep** | 12 hours | 99.99% | 180 days | Long-term archive | $ |
+| **Glacier Deep** | 12-48 hours | 99.99% | 180 days | Long-term archive | $ |
 
 **Memory Aid**: "SISO-GGG" = Standard, Intelligent, Standard-IA, One Zone-IA, Glacier x3
 
@@ -33,7 +33,7 @@ ARCHIVAL? → S3 Glacier (long-term backup)
 | Type | Name | IOPS | Throughput | Use Case | Boot? |
 |------|------|------|------------|----------|-------|
 | **gp3** | General SSD | 80,000 | 2,000 MiB/s | Most workloads | Yes |
-| **gp2** | General SSD | 16,000 | 250 MB/s | Legacy general | Yes |
+| **gp2** | General SSD | 16,000 | 250 MiB/s | Legacy general | Yes |
 | **io2** | Provisioned SSD | 256,000 | 4,000 MiB/s | Mission-critical DB | Yes |
 | **io1** | Provisioned SSD | 64,000 | 1,000 MB/s | Legacy high perf | Yes |
 | **st1** | Throughput HDD | 500 | 500 MB/s | Big data, logs | No |
@@ -59,7 +59,7 @@ ARCHIVAL? → S3 Glacier (long-term backup)
 SSE-S3 (AWS-managed keys)
 └── AWS manages everything
 └── AES-256 encryption
-└── Default option
+└── Default for every bucket (since Jan 2023)
 
 SSE-KMS (KMS-managed keys)
 └── More control, audit trail
@@ -70,6 +70,7 @@ SSE-C (Customer-provided keys)
 └── You manage keys
 └── AWS encrypts/decrypts
 └── Keys sent with each request
+└── Disabled by default on new buckets since April 2026
 
 Client-Side Encryption
 └── Encrypt before upload
@@ -174,15 +175,15 @@ SRR (Same-Region Replication)
 ## Rapid-Fire Facts
 
 ### S3 Limits
-- Max object size: **50 TB**
+- Max object size: **50 TB** (48.8 TiB)
 - Single PUT: **5 GB**
 - Multi-part upload: Required for > **5 GB**, recommended for > **100 MB**
 - Max parts: **10,000**
-- Part size: **5 MB to 5 GB**
+- Part size: **5 MiB to 5 GiB** (last part can be smaller)
 
 ### EBS Facts
 - Single AZ only (can snapshot → restore to different AZ)
-- Can detach/reattach (except boot volumes)
+- Can detach/reattach (root volume only while the instance is stopped)
 - Can resize on the fly
 - Snapshots stored in S3 (multi-AZ)
 - Can encrypt existing unencrypted volume via snapshot
@@ -201,7 +202,7 @@ SRR (Same-Region Replication)
 | **FSx for Windows** | Windows | SMB | Windows apps, AD |
 | **FSx for Lustre** | Linux | Lustre | HPC, ML, big data |
 | **FSx for NetApp ONTAP** | Any | NFS/SMB | Multi-protocol |
-| **FSx for OpenZFS** | Linux | NFS | Linux workloads |
+| **FSx for OpenZFS** | Linux, Windows, macOS | NFS | Linux workloads |
 
 ## 5-Minute Master Review
 
@@ -269,7 +270,7 @@ Delete incomplete multipart uploads after 7 days
 
 ### S3 Pre-signed URLs
 - **Purpose**: Temporary access to private objects
-- **Validity**: Configurable (seconds to days)
+- **Validity**: Configurable, up to 7 days (shorter if signed with temporary credentials)
 - **Use Case**: Download private files, upload to bucket
 - **Example**: Share file for 1 hour without making public
 
@@ -290,11 +291,11 @@ Delete incomplete multipart uploads after 7 days
 ```
 1. IAM Policies (user/role permissions)
 2. Bucket Policies (resource-based)
-3. ACLs (legacy, not recommended)
+3. ACLs (legacy; disabled by default on new buckets)
 4. Encryption (at rest)
 5. SSL/TLS (in transit)
 6. VPC Endpoints (private access)
-7. Block Public Access (account level)
+7. Block Public Access (account, bucket and access point level; on by default for new buckets)
 ```
 
 ## Next Steps

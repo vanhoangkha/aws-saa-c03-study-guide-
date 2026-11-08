@@ -95,10 +95,10 @@ mindmap
 graph TB
     subgraph Pricing_Models_Group["Pricing Models"]
         OnDemand["On-Demand<br/>No Discount<br/>Pay by hour/second<br/>Flexible"]
-        Reserved["Reserved Instances<br/>Up to 72% Discount<br/>1 or 3 years<br/>Steady workloads"]
+        Reserved["Reserved Instances<br/>Up to 72% (Standard), 66% (Convertible)<br/>1 or 3 years<br/>Steady workloads"]
         Savings["Savings Plans<br/>Up to 72% (EC2 Instance SP)<br/>Up to 66% (Compute SP)<br/>1 or 3 years<br/>Flexible instance type"]
         Spot["Spot Instances<br/>Up to 90% Discount<br/>Can be terminated<br/>Fault-tolerant"]
-        Dedicated["Dedicated Hosts<br/>No Discount<br/>Physical server<br/>Compliance/Licensing"]
+        Dedicated["Dedicated Hosts<br/>On-Demand or up to 70% off (Host Reservation)<br/>Physical server<br/>Compliance/Licensing"]
     end
     
     subgraph Use_Cases_Group["Use Cases"]
@@ -371,7 +371,7 @@ sequenceDiagram
         EC2_3->>ELB: 500 Error (Unhealthy)
     end
     
-    Note over ELB,EC2_3: After 2 consecutive failures
+    Note over ELB,EC2_3: After 2 consecutive failures (ALB default)
     
     ELB->>TG: Mark EC2_3 as Unhealthy
     
@@ -385,7 +385,7 @@ sequenceDiagram
         EC2_3->>ELB: 200 OK (Healthy)
     end
     
-    Note over ELB,EC2_3: After 3 consecutive successes
+    Note over ELB,EC2_3: After 5 consecutive successes (ALB default, NLB default is 3)
     
     ELB->>TG: Mark EC2_3 as Healthy
     
@@ -550,13 +550,13 @@ graph TB
         
         Timeout["Timeout<br/>15 minutes maximum<br/>Default: 3 seconds"]
         
-        Concurrent["Concurrent Executions<br/>1,000 default per region<br/>Can request increase"]
+        Concurrent["Concurrent Executions<br/>1,000 default per Region<br/>Can request increase"]
         
         EnvVars["Environment Variables<br/>4 KB total<br/>Can encrypt with KMS"]
         
-        Deployment["Deployment Package<br/>50 MB zipped<br/>250 MB unzipped<br/>/tmp storage: 512 MB - 10 GB"]
+        Deployment["Deployment Package<br/>50 MB zipped<br/>250 MB unzipped (incl. layers)<br/>/tmp storage: 512 MB - 10 GB"]
         
-        Layers["Lambda Layers<br/>5 layers per function<br/>50 MB per layer"]
+        Layers["Lambda Layers<br/>5 layers per function<br/>Count toward 250 MB unzipped"]
     end
     
     subgraph Performance_Tips_Group["Performance Tips"]
