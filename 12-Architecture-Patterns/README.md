@@ -211,7 +211,7 @@ This module covers common AWS architecture patterns and design principles essent
 ### Microservices Tools
 - **Compute**: Lambda, ECS, EKS
 - **API Management**: API Gateway, ALB
-- **Service Discovery**: AWS Cloud Map, ECS Service Discovery
+- **Service Discovery**: ECS service discovery and Service Connect, VPC Lattice (AWS Cloud Map itself is out of scope for SAA-C03)
 - **Communication**: SQS, SNS, EventBridge
 - **Orchestration**: Step Functions
 - **Monitoring**: CloudWatch, X-Ray
@@ -421,9 +421,11 @@ Added after the original SAA-C03 release. Questions can use them, usually as the
 | Feature | What it does | Choose it when |
 |---------|--------------|----------------|
 | AWS Resilience Hub | Assesses an application against RTO and RPO targets and recommends improvements | Check whether a design meets resilience targets |
-| AWS Fault Injection Service | Runs controlled fault experiments such as stopping instances or adding latency | Test resilience with chaos engineering |
+| AWS Fault Injection Service | Runs controlled fault experiments such as stopping instances or adding latency | Listed as **out of scope** in the exam guide; recognize it only to rule it out |
 | Amazon Application Recovery Controller (ARC) | Zonal shift moves traffic away from an impaired AZ; routing controls and readiness checks support multi-Region failover | Recover quickly from an AZ problem or control Regional failover |
 | AWS Elastic Disaster Recovery | Continuous block-level replication to a low-cost staging area, with fast recovery into EC2 | Pilot light style DR for servers with an RPO of seconds and an RTO of minutes |
+
+Resilience Hub, ARC and Elastic Disaster Recovery are not on the exam guide's in-scope list, which AWS calls non-exhaustive, so they can still appear as options. Fault Injection Service is explicitly out of scope.
 
 ---
 

@@ -1265,7 +1265,7 @@ Total: $608.50/month
 
 ### AWS Migration Hub (TCO Analysis)
 
-**Migration Evaluator** (formerly TSO Logic):
+**Migration Evaluator** (formerly TSO Logic; out of scope for SAA-C03):
 - Build business case for cloud migration
 - Assess on-premises infrastructure
 - Project AWS costs

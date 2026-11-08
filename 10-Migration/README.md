@@ -690,6 +690,7 @@ Status (November 2026): AWS no longer offers Snow Family devices to new customer
 - Agentless or agent-based discovery
 
 ### AWS Migration Evaluator
+- Out of scope for SAA-C03; listed here for context only
 - **Assess on-premises infrastructure**
 - Build business case for cloud migration
 - Analyze cost and performance

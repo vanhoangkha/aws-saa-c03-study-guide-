@@ -441,5 +441,5 @@ DAX latency:                microseconds
 6) Multi-AZ (Read Replicas are for read scaling)
 7) Backup and Restore
 8) 15 minutes
-9) AWS Cloud Map (or ECS Service Discovery)
+9) ECS service discovery or Service Connect, or VPC Lattice (AWS Cloud Map is out of scope for SAA-C03)
 10) Aurora Global Database

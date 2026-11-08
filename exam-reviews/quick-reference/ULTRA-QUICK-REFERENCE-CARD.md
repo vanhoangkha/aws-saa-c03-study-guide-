@@ -1080,7 +1080,7 @@
 | "Web Application Firewall" | AWS WAF, not just Security Groups |
 | "DDoS protection" | AWS Shield (Standard free, Advanced paid) |
 | "Hybrid file access" | Storage Gateway, not just Direct Connect |
-| "IoT device management" | AWS IoT Core, not Lambda directly |
+| "IoT device management" | AWS IoT services are out of scope for SAA-C03; expect them only as distractors |
 | "Workflow coordination" | Step Functions, not multiple Lambdas manually |
 | "API throttling" | API Gateway rate limiting, not just ALB |
 | "Temporary access" | IAM roles + STS, not IAM users |

@@ -22,6 +22,7 @@ Services marked **Status** have changed availability. The exam can still mention
 - [Security, Identity, and Compliance](#security-identity-and-compliance)
 - [Serverless](#serverless)
 - [Storage](#storage)
+- [Out-of-scope services](#out-of-scope-services)
 
 ## Analytics
 
@@ -223,3 +224,24 @@ The exam tests which managed AI service fits a task, not how to build models.
 | Amazon S3 | Object storage with eleven nines of durability and many storage classes | Static content, data lakes, backups | [04](../../04-Storage/README.md) |
 | Amazon S3 Glacier | Archive storage classes: Instant Retrieval, Flexible Retrieval, Deep Archive | Long-term archives at lowest cost | [04](../../04-Storage/README.md) |
 | AWS Storage Gateway | Hybrid access to cloud storage: S3 File Gateway, Volume Gateway, Tape Gateway (FSx File Gateway is closed to new customers) | On-premises apps use cloud storage through NFS, SMB or iSCSI | [04](../../04-Storage/README.md) |
+
+## Out-of-scope services
+
+The exam guide also lists [services that are out of scope](https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/saa-03-out-of-scope-services.html). They can still appear as wrong options, so an answer built on one of them is usually a distractor.
+
+| Category | Out of scope |
+|----------|--------------|
+| Application Integration | Amazon MWAA |
+| Compute | Amazon Lightsail |
+| Database | Amazon RDS on VMware |
+| Developer Tools | AWS CDK, CloudShell, CodeArtifact, CodeBuild, CodeCommit, CodeDeploy, Amazon Corretto, AWS Fault Injection Service, AWS Tools and SDKs |
+| Front-End Web and Mobile | Amazon Location Service |
+| Game Tech | Amazon GameLift |
+| Internet of Things | All services |
+| Machine Learning | Apache MXNet on AWS, Deep Learning AMIs, Deep Learning Containers, Amazon HealthLake, AWS Inferentia, Amazon Personalize, PyTorch on AWS, TensorFlow on AWS |
+| Management and Governance | AWS Console Mobile Application, AWS Distro for OpenTelemetry |
+| Media Services | AWS Elemental appliances and software, MediaConnect, MediaConvert, MediaLive, MediaPackage, MediaTailor, Amazon IVS |
+| Migration and Transfer | Migration Evaluator |
+| Networking and Content Delivery | AWS Cloud Map |
+| Quantum Technologies | Amazon Braket |
+| Satellite | AWS Ground Station |

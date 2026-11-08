@@ -2555,7 +2555,7 @@ Features released after the original SAA-C03 content. Cover the right column and
 | SQS to filter to enrich to target, no glue code | EventBridge Pipes |
 | Millions of S3 objects processed in parallel with retries | Step Functions Distributed Map |
 | Move traffic away from one impaired AZ | ARC zonal shift |
-| Controlled chaos experiments with stop conditions | AWS Fault Injection Service |
+| Controlled chaos experiments with stop conditions | AWS Fault Injection Service (out of scope for SAA-C03: a distractor only) |
 | Check a design against RTO and RPO targets | AWS Resilience Hub |
 | Container images with continuous vulnerability scanning | ECR enhanced scanning (Amazon Inspector) |
 | Managed Prometheus and Grafana | Amazon Managed Service for Prometheus, Amazon Managed Grafana |

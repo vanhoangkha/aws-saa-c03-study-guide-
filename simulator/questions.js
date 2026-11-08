@@ -9531,21 +9531,24 @@ window.QUESTIONS = [
  },
  {
   "id": "12-22",
-  "q": "Before a major launch, a company wants to confirm that its application keeps working when EC2 instances are terminated and network latency increases, using controlled experiments with stop conditions.",
+  "q": "A company runs a critical application on EC2 and Aurora in one Region. The business requires an RTO of 10 minutes and an RPO of 1 minute after a Regional outage, at the lowest cost that meets both targets.",
   "options": {
-   "A": "AWS Trusted Advisor",
-   "B": "AWS Fault Injection Service",
-   "C": "Amazon CloudWatch Synthetics",
-   "D": "AWS Config conformance packs"
+   "A": "Backup and restore with AWS Backup cross-Region copies",
+   "B": "Pilot light: Aurora Global Database in a second Region, application servers off until needed",
+   "C": "Warm standby: Aurora Global Database plus a scaled-down but running copy of the application in a second Region",
+   "D": "Multi-site active-active in two Regions at full capacity"
   },
   "answer": [
-   "B"
+   "C"
   ],
-  "explanation": "• AWS Fault Injection Service runs controlled chaos experiments such as stopping instances or adding latency, with CloudWatch alarms as stop conditions\n• Trusted Advisor and Config check configuration, and Synthetics tests endpoints from outside, but none of them inject faults",
+  "explanation": "• Warm standby keeps a smaller, fully working copy running, so recovery is mostly scaling out and switching traffic: RTO in minutes\n• Aurora Global Database replicates with typically under one second of lag, which meets the 1-minute RPO\n• Backup and restore takes hours, and pilot light needs servers started and configured, which usually takes tens of minutes\n• Multi-site meets the targets but costs the most, so it is not the lowest-cost option",
   "module": "Architecture Patterns",
   "multi": false,
   "why": [
-   "Trusted Advisor and Config check configuration, and Synthetics tests endpoints from outside, but none of them inject faults."
+   "Warm standby keeps a smaller, fully working copy running, so recovery is mostly scaling out and switching traffic: RTO in minutes.",
+   "Aurora Global Database replicates with typically under one second of lag, which meets the 1-minute RPO.",
+   "Backup and restore takes hours, and pilot light needs servers started and configured, which usually takes tens of minutes.",
+   "Multi-site meets the targets but costs the most, so it is not the lowest-cost option."
   ],
   "others": []
  },

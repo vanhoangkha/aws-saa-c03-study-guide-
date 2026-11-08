@@ -161,7 +161,7 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 - Automatic resource provisioning
 - Uses Spot instances for cost savings
 
-### Lightsail
+### Lightsail (out of scope for SAA-C03)
 - Simple VPS
 - Fixed monthly pricing
 - Pre-configured templates

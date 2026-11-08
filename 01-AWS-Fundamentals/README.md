@@ -201,6 +201,9 @@ Resources:
 
 ### 2.5 AWS CloudShell
 
+CloudShell is out of scope for SAA-C03; it may appear only as a distractor.
+
+
 **Browser-Based Shell:**
 - Pre-configured with AWS CLI and tools
 - No installation required

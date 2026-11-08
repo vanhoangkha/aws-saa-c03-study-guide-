@@ -1287,7 +1287,7 @@ Prices and plan names changed with the move to Amazon Quick and may change again
 ### Video transcoding: Elastic Transcoder (discontinued) and MediaConvert
 - **Amazon Elastic Transcoder** converted media files in S3 to formats for phones, tablets and browsers. AWS discontinued it on 13 November 2025
 - **AWS Elemental MediaConvert** is the replacement: file-based video transcoding with modern codecs, at a lower per-minute price
-- Exam pattern: "convert uploaded videos in S3 to multiple formats" means MediaConvert, typically triggered by an S3 event through Lambda or EventBridge
+- AWS Elemental services, including MediaConvert, are out of scope for SAA-C03, and Elastic Transcoder no longer exists. If a question still asks for video transcoding, look for MediaConvert triggered by an S3 event through Lambda or EventBridge, but do not study it in depth
 
 ---
 

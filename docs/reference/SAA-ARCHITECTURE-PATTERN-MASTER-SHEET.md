@@ -301,7 +301,7 @@
 141. Lift & shift → MGN
 142. DB migration → DMS
 143. Schema convert → SCT
-144. Blue/green → CodeDeploy
+144. Blue/green → two target groups behind an ALB or weighted Route 53 records (CodeDeploy is out of scope for SAA-C03)
 145. CI/CD → CodePipeline
 146. Infra as code → CloudFormation
 147. App deploy → Elastic Beanstalk
@@ -361,7 +361,7 @@
 186. Cache API → API Gateway cache
 187. Web app firewall → WAF
 188. Upload via browser → pre-signed URL
-189. IoT ingestion → IoT Core → Kinesis
+189. Device data ingestion → Kinesis Data Streams or Firehose (IoT services are out of scope for SAA-C03)
 190. Real-time analytics → Kinesis → Lambda
 191. Batch ETL → Glue
 192. Query S3 → Athena

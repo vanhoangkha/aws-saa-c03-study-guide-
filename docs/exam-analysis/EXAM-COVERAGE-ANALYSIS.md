@@ -37,7 +37,7 @@ For a per-service view, see [In-scope services](../reference/IN-SCOPE-SERVICES.m
 | Task | Topics | Where |
 |------|--------|-------|
 | 2.1 Design scalable and loosely coupled architectures | SQS, SNS, EventBridge, Step Functions, MQ; API Gateway; Lambda and containers (ECS, EKS, Fargate); caching with ElastiCache and CloudFront; stateless design; Auto Scaling; microservices and event-driven patterns | [08 Application Integration](../../08-Application-Integration/README.md), [03 Compute](../../03-Compute/README.md), [12 Architecture Patterns](../../12-Architecture-Patterns/README.md) |
-| 2.2 Design highly available and/or fault-tolerant architectures | Multi-AZ and multi-Region designs; ELB health checks; Route 53 routing and failover; RDS Multi-AZ, Aurora replicas and Global Database, DynamoDB global tables; backup and restore, pilot light, warm standby, multi-site; RTO and RPO; AWS Backup; Elastic Disaster Recovery; ARC zonal shift; Fault Injection Service | [12 Architecture Patterns](../../12-Architecture-Patterns/README.md), [05 Database](../../05-Database/README.md), [06 Networking](../../06-Networking/README.md) |
+| 2.2 Design highly available and/or fault-tolerant architectures | Multi-AZ and multi-Region designs; ELB health checks; Route 53 routing and failover; RDS Multi-AZ, Aurora replicas and Global Database, DynamoDB global tables; backup and restore, pilot light, warm standby, multi-site; RTO and RPO; AWS Backup; Elastic Disaster Recovery; ARC zonal shift | [12 Architecture Patterns](../../12-Architecture-Patterns/README.md), [05 Database](../../05-Database/README.md), [06 Networking](../../06-Networking/README.md) |
 
 ## Domain 3: Design High-Performing Architectures (24%)
 
