@@ -17,7 +17,7 @@ Security is the foundation of AWS Solutions Architecture. This module covers enc
 ### What is KMS?
 - **Managed service** for creating and controlling encryption keys
 - Integrated with most AWS services
-- **FIPS 140-3 Level 3** validated (upgraded from 140-2 Level 2 in May 2023; FIPS 140-3 since Feb 2025)
+- **FIPS 140-3 Level 3** validated HSMs (Level 3 overall since May 2023; before that, Level 2 overall)
 - Audit with CloudTrail
 - **Regional service**
 
@@ -86,7 +86,7 @@ Default Key Policy:
 
 **Rotation**:
 - Automatic: Customer managed keys, configurable period of 90-2,560 days (default 365); AWS managed keys rotate every year
-- On-demand: `RotateKeyOnDemand` rotates immediately (default quota of 10 per key)
+- On-demand: `RotateKeyOnDemand` rotates immediately (maximum 25 on-demand rotations per key, not adjustable)
 - Manual: Create new key and update alias
 
 **Limits**:
@@ -108,7 +108,7 @@ Default Key Policy:
 
 ### What is CloudHSM?
 - **Hardware Security Module** in AWS Cloud
-- **FIPS 140-3 Level 3** compliance
+- **FIPS 140-2 Level 3 or FIPS 140-3 Level 3** validated (depends on HSM type; FIPS-mode clusters)
 - **You manage the keys entirely**
 - Runs in your VPC
 - **Tamper resistant, single-tenant**
@@ -119,7 +119,7 @@ Default Key Policy:
 |---------|-----|----------|
 | **Tenancy** | Multi-tenant | Single-tenant |
 | **Key Control** | AWS manages | You manage |
-| **FIPS Certification** | FIPS 140-3 Level 3 (since 2023/2025) | FIPS 140-3 Level 3 |
+| **FIPS Certification** | FIPS 140-3 Level 3 | FIPS 140-2 or 140-3 Level 3 (by HSM type) |
 | **Key Differentiator** | Multi-tenant, AWS-managed | Single-tenant, customer-managed |
 | **Key Types** | Symmetric + Asymmetric | Symmetric + Asymmetric |
 | **Pricing** | Per API call + key | Per hour (cluster) |
@@ -161,7 +161,7 @@ Default Key Policy:
   - Redshift
   - DocumentDB
 - **Lambda function** performs rotation
-- Rotation schedules: 30, 60, 90 days or custom
+- Rotation schedule: `rate()` or `cron()` expression, from every 4 hours up to every 999 days
 
 ---
 
@@ -179,7 +179,7 @@ Default Key Policy:
 | Feature | Standard | Advanced |
 |---------|----------|----------|
 | **Price** | Free | $0.05/parameter/month |
-| **Parameters** | 10,000 | 100,000+ |
+| **Parameters** | 10,000 | 100,000 |
 | **Max Size** | 4 KB | 8 KB |
 | **Policies** | No | Yes (expiration, notifications) |
 | **Throughput** | Standard by default; higher throughput is an optional paid account setting for both tiers | Same as Standard |
@@ -588,6 +588,26 @@ Default Key Policy:
 - [AWS KMS Documentation](https://docs.aws.amazon.com/kms/)
 - [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/)
 - [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/)
+
+## References
+
+Pages this module was fact-checked against (November 2026):
+
+- [AWS KMS request quotas](https://docs.aws.amazon.com/kms/latest/developerguide/requests-per-second.html)
+- [AWS KMS resource quotas (on-demand rotation)](https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html)
+- [AWS KMS key stores (FIPS 140-3 Level 3 HSMs)](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html)
+- [What is AWS CloudHSM?](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html)
+- [Secrets Manager rotation schedules](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html)
+- [ACM public certificates (198-day validity, renewal 45 days before expiry)](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html)
+- [Shield Response Team (SRT) support](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-srt-support.html)
+- [GuardDuty retired finding types](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-retired.html)
+- [GuardDuty IAM finding types](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-iam.html)
+- [Amazon Inspector pricing](https://aws.amazon.com/inspector/pricing/)
+- [Default SSE-C setting for new S3 buckets FAQ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-s3-c-encryption-setting-faq.html)
+- [Site-to-Site VPN tunnel options (Large Bandwidth Tunnels)](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html)
+- [Direct Connect MAC Security](https://docs.aws.amazon.com/directconnect/latest/UserGuide/MACsec.html)
+
+For the full source list, see [docs/REFERENCES.md](../docs/REFERENCES.md).
 
 ---
 

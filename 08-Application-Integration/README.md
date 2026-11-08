@@ -30,7 +30,7 @@ Application integration services enable loose coupling and communication between
 - Use case: High throughput, order not critical
 
 #### FIFO Queue (First-In-First-Out)
-- **Limited throughput**: 300 msg/sec (3,000 with batching)
+- **Limited throughput**: 300 API calls/sec per action (3,000 msg/sec with batching of 10); high throughput mode raises this to up to 70,000 TPS per action in selected Regions
 - **Exactly-once processing**
 - **Strict ordering** preserved
 - **Name must end with .fifo**
@@ -70,7 +70,7 @@ Application integration services enable loose coupling and communication between
 ### SQS Security
 - **Encryption**:
   - In-flight: HTTPS
-  - At-rest: KMS
+  - At-rest: SSE-SQS (SQS-managed keys) or SSE-KMS
 - **IAM policies**: Control API access
 - **SQS Access Policies**:
   - Cross-account access
@@ -107,14 +107,14 @@ SNS Topic → SQS Queue 1
 - **Email**: Email notifications
 - **SMS**: Text messages
 - **Mobile Push**: iOS, Android, Amazon apps
-- **Kinesis Data Firehose**: Stream to S3, Redshift
+- **Amazon Data Firehose** (formerly Kinesis Data Firehose): Stream to S3, Redshift
 
 ### SNS Features
 
 **Topic Types**
 - **Standard**: Best-effort ordering, at-least-once delivery
 - **FIFO**: Strict ordering, exactly-once delivery
-  - Default 300 messages/sec per topic; high throughput mode raises this to match standard topics
+  - Default 3,000 messages/sec (or 20 MB/sec) per topic and 300 messages/sec per message group; high throughput mode (`FifoThroughputScope` = `MessageGroup`) raises the per-topic limit to the account's Regional publish quota (for example 30,000 messages/sec in us-east-1)
   - Subscribers must be SQS queues (FIFO or standard); email, SMS and HTTP endpoints are not allowed
 
 **Message Filtering**
@@ -326,7 +326,7 @@ Example Filter Policy:
 #### Amazon Data Firehose (formerly Kinesis Data Firehose)
 - **Load streaming data** into destinations
 - **Near real-time**: buffer interval 0-900 seconds (zero buffering delivers within seconds)
-- **Destinations**: S3, Redshift, OpenSearch, Splunk, HTTP
+- **Destinations**: S3, Redshift, Amazon OpenSearch Service, Splunk, HTTP endpoints, and others
 - Automatic scaling, no shards
 - Can transform data with Lambda
 - **Use case**: ETL, data lakes
@@ -355,7 +355,7 @@ Example Filter Policy:
 - Managed **GraphQL** API service
 - Real-time data synchronization
 - Offline capabilities for mobile apps
-- **Data sources**: DynamoDB, Lambda, HTTP, RDS, OpenSearch
+- **Data sources**: DynamoDB, Lambda, HTTP, RDS/Aurora (Data API), Amazon OpenSearch Service
 
 ### AppSync Features
 - **GraphQL**: Single endpoint for flexible queries
@@ -431,9 +431,29 @@ Example Filter Policy:
  Kinesis for real-time streaming data  
  Use SNS + SQS fanout pattern for multiple consumers  
  SQS visibility timeout prevents duplicate processing  
- EventBridge has built-in integrations with 20+ AWS services  
+ EventBridge receives events from 90+ AWS services and supports 20+ target types  
  Choose SQS/SNS for new apps, Amazon MQ for migrations  
  Kinesis Data Streams for real-time, Firehose for near real-time  
+
+---
+
+## References
+
+Pages this module was fact-checked against (November 2026):
+
+- [Amazon SNS endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html)
+- [Publishing large messages with Amazon SNS (1 MiB)](https://docs.aws.amazon.com/sns/latest/dg/large-message-payloads.html)
+- [High throughput FIFO topics in Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html)
+- [Amazon SNS message delivery for FIFO topics](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-delivery.html)
+- [EventBridge 1 MB event payload announcement](https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-eventbridge-increases-event-payload-size-256-kb-1-mb/)
+- [Amazon EventBridge FAQs](https://aws.amazon.com/eventbridge/faqs/)
+- [Kinesis Data Streams large records (up to 10 MiB)](https://docs.aws.amazon.com/streams/latest/dev/large-records.html)
+- [Kinesis Data Analytics for SQL discontinuation](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/discontinuation.html)
+- [Amazon MQ for RabbitMQ supported protocols](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/rabbitmq-supported-protocols.html)
+- [Amazon MQ for ActiveMQ engine versions](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/activemq-version-management.html)
+- [Amazon Pinpoint end of support](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html)
+
+For the full source list, see [docs/REFERENCES.md](../docs/REFERENCES.md).
 
 ---
 

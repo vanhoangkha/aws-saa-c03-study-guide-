@@ -198,7 +198,7 @@ IoT Devices (producers)
 Kinesis Stream (shards)
    ├→ Lambda (real-time processing)
    ├→ Managed Service for Apache Flink (stream analytics)
-   ├→ Kinesis Data Firehose (S3/Redshift)
+   ├→ Amazon Data Firehose (S3/Redshift)
    └→ Custom consumers (EC2, containers)
 ```
 
@@ -283,7 +283,7 @@ def lambda_handler(event, context):
 | Service | Use Case |
 |---------|----------|
 | **Data Streams** | Custom real-time processing |
-| **Data Firehose** | Load to S3, Redshift, ES (easier) |
+| **Data Firehose** | Load to S3, Redshift, OpenSearch (easier) |
 | **Data Analytics** (SQL version discontinued; now Managed Service for Apache Flink) | Analytics on streaming data |
 | **Video Streams** | Video ingestion and processing |
 
@@ -652,10 +652,10 @@ D. Amazon EventBridge
 ---
 
 ### Question 6
-An application needs to load streaming data into S3, Redshift, and OpenSearch with minimal code. Which service is MOST appropriate?
+An application needs to load streaming data into S3, Redshift, and Amazon OpenSearch Service with minimal code. Which service is MOST appropriate?
 
 A. Amazon Kinesis Data Streams with custom consumers  
-B. Amazon Kinesis Data Firehose  
+B. Amazon Data Firehose (formerly Kinesis Data Firehose)  
 C. AWS Lambda triggered by Kinesis  
 D. Amazon SQS with Lambda consumers  
 
@@ -665,11 +665,11 @@ D. Amazon SQS with Lambda consumers
 **Answer: B**
 
 **Explanation:**
-- **Amazon Kinesis Data Firehose** is fully managed service for loading streaming data
+- **Amazon Data Firehose** (formerly Kinesis Data Firehose) is a fully managed service for loading streaming data
 - No code required (vs Data Streams which needs custom consumers)
 - Automatic scaling
 - Built-in data transformation (Lambda)
-- Direct delivery to S3, Redshift, OpenSearch, HTTP endpoints
+- Direct delivery to S3, Redshift, Amazon OpenSearch Service, HTTP endpoints
 
 **Kinesis Data Firehose Architecture**:
 ```
@@ -809,7 +809,7 @@ def lambda_handler(event, context):
 | Feature | Data Firehose | Data Streams |
 |---------|---------------|--------------|
 | **Management** | Fully managed | Manage shards |
-| **Destinations** | Built-in (S3, Redshift, ES) | Custom code |
+| **Destinations** | Built-in (S3, Redshift, OpenSearch) | Custom code |
 | **Scaling** | Automatic | Manual shard management |
 | **Retention** | No retention | 24h to 365 days |
 | **Consumers** | One (delivery) | Multiple possible |
@@ -822,7 +822,7 @@ Data Streams: $0.015/shard/hour + $0.014/million PUT units
 ```
 
 **When to Use Firehose**:
-- Load data to S3, Redshift, ES, Splunk
+- Load data to S3, Redshift, OpenSearch, Splunk
 - Don't need multiple consumers
 - Want fully managed solution
 - Near real-time (seconds with zero buffering, up to 900 seconds with buffering)
@@ -844,7 +844,7 @@ Website → Firehose → S3 (Parquet) → Athena/QuickSight
 
 **2. Log Aggregation**:
 ```
-Applications → Firehose → OpenSearch → OpenSearch Dashboards
+Applications → Firehose → OpenSearch Service → OpenSearch Dashboards
 ```
 
 **3. Data Lake**:
@@ -860,7 +860,7 @@ IoT Devices → Firehose → S3 (partitioned) → Glue → Athena
 5. Partition S3 data by time for better query performance
 6. Monitor delivery to CloudWatch
 
-**References:** Amazon Kinesis Data Firehose, Streaming Data Delivery, Data Lake
+**References:** Amazon Data Firehose, Streaming Data Delivery, Data Lake
 </details>
 
 ---
@@ -881,7 +881,7 @@ D. AWS Step Functions
 **Explanation:**
 - **Amazon EventBridge** is serverless event bus for application and AWS service events
 - Content-based routing using event patterns
-- 100+ AWS service integrations as event sources
+- 90+ AWS services as event sources
 - 20+ AWS services as targets
 
 **EventBridge Architecture**:
@@ -1038,7 +1038,7 @@ Centralized Monitoring/Alerting
 |---------|-------------|-----|-----|
 | **Pattern** | Event routing | Pub/Sub | Queue |
 | **Filtering** | Advanced (content-based) | Basic (attributes) | No filtering |
-| **Sources** | 100+ AWS services | Applications | Applications |
+| **Sources** | 90+ AWS services | Applications | Applications |
 | **Targets** | 20+ AWS services | Limited | Consumers |
 | **Scheduling** | Built-in (cron) | No | No |
 | **Use Case** | Event-driven architecture | Fan-out notifications | Decoupling |
@@ -1158,8 +1158,8 @@ Amazon MQ Broker
 **Amazon MQ Features**:
 
 **1. Broker Engines**:
-- **ActiveMQ**: JMS, OpenWire, STOMP, MQTT, WSS
-- **RabbitMQ**: AMQP 0-9-1, MQTT, STOMP
+- **ActiveMQ**: JMS, OpenWire, AMQP, STOMP, MQTT, WSS
+- **RabbitMQ**: AMQP 0-9-1, AMQP 1.0, JMS (via the RabbitMQ JMS client)
 
 **2. High Availability**:
 - Active/Standby deployment (Multi-AZ)
@@ -1221,7 +1221,7 @@ MessageProducer producer = session.createProducer(queue);
 {
   "BrokerName": "ProductionBroker",
   "EngineType": "ActiveMQ",
-  "EngineVersion": "5.16.5",
+  "EngineVersion": "5.18",
   "DeploymentMode": "ACTIVE_STANDBY_MULTI_AZ",
   "HostInstanceType": "mq.m5.large",
   "PubliclyAccessible": false,
@@ -1628,7 +1628,7 @@ A SaaS company needs to automate the transfer of customer data from Salesforce t
 
 A. Amazon AppFlow  
 B. AWS Glue  
-C. Amazon Kinesis Data Firehose  
+C. Amazon Data Firehose  
 D. AWS DataSync  
 
 <details>
@@ -1779,7 +1779,7 @@ D. AWS Glue Streaming
 
 ## Summary
 
-**Total Questions**: 46  
+**Total Questions**: 16  
 **Topics Covered**:
 - Amazon SNS (Pub/Sub, Fan-out)
 - Amazon SQS (Standard vs FIFO Queues)
@@ -1804,7 +1804,7 @@ D. AWS Glue Streaming
 - **1-to-1 (Queue)**: SQS
 - **Exactly-once, Ordered**: SQS FIFO
 - **Real-time Streaming**: Kinesis Data Streams
-- **Load to Destinations**: Kinesis Data Firehose
+- **Load to Destinations**: Amazon Data Firehose
 
 **SQS**:
 - **Standard**: Unlimited throughput, at-least-once, best-effort ordering
@@ -1816,7 +1816,7 @@ D. AWS Glue Streaming
 
 **Kinesis**:
 - **Data Streams**: Custom processing, multiple consumers, replay
-- **Data Firehose**: Managed delivery to S3, Redshift, ES
+- **Data Firehose**: Managed delivery to S3, Redshift, OpenSearch
 
 **Step Functions**:
 - Orchestrate complex workflows
@@ -1826,7 +1826,7 @@ D. AWS Glue Streaming
 **EventBridge**:
 - Event-driven architecture
 - Content-based routing
-- 100+ AWS services as sources
+- 90+ AWS services as sources
 - Scheduled events (cron)
 
 **Amazon MQ**:
@@ -1877,7 +1877,7 @@ Fan-out (same message, many services) → SNS
 Queue (decouple, buffer)               → SQS
 Exactly-once, ordered                  → SQS FIFO
 Real-time stream processing            → Kinesis Data Streams
-Load stream to S3/Redshift/ES         → Kinesis Data Firehose
+Load stream to S3/Redshift/OpenSearch → Amazon Data Firehose
 Complex workflows                      → Step Functions
 Event routing (AWS services)           → EventBridge
 JMS/AMQP migration                    → Amazon MQ

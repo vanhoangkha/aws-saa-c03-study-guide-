@@ -1,6 +1,6 @@
 # Fast Learning - Security & Compliance
 
-> **Time to Complete**: 60-75 minutes | **Exam Weight**: ~20-25%
+> **Time to Complete**: 60-75 minutes | **Exam relevance**: mainly Domain 1, Design Secure Architectures (30% of scored content)
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -34,7 +34,7 @@ DETECTION? → GuardDuty, Macie, Detective
 |---------|--------------|---------|------------|
 | **GuardDuty** | Threat detection | Malicious activity, anomalies | Events analyzed |
 | **Macie** | Data security | Sensitive data in S3 (PII) | GB scanned |
-| **Inspector** | Vulnerability assessment | EC2/ECR vulnerabilities | Resources scanned |
+| **Inspector** | Vulnerability assessment | EC2/ECR/Lambda vulnerabilities | Per instance, image or function scanned |
 | **Detective** | Security investigation | Root cause analysis | GB ingested |
 | **Security Hub** | Central dashboard | Aggregates findings | Checks run |
 
@@ -320,7 +320,7 @@ CUSTOMER RESPONSIBILITY (Security IN the cloud)
 ### AWS Systems Manager - Session Manager
 - **Purpose**: Secure shell access to EC2
 - **No SSH keys needed**: IAM-based access
-- **Auditing**: CloudTrail logs all sessions
+- **Auditing**: CloudTrail logs session API calls (StartSession); session activity can be logged to S3 or CloudWatch Logs
 - **No bastion host**: Direct access via console/CLI
 - **Port 22**: Not required (uses port 443)
 
