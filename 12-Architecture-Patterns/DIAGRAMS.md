@@ -154,7 +154,7 @@ graph TB
     Route53 -->|US Traffic| ALB1
     Route53 -->|EU Traffic| ALB2
     
-    RDS1 -.Async Replication<br/>< 1 second.-> RDS2
+    RDS1 -.Async Replication<br/>typically < 1 second.-> RDS2
     S3_1 <-.S3 Cross-Region<br/>Replication.-> S3_2
     
     DynamoDB["DynamoDB Global Tables<br/>Multi-region, multi-active"] --> ASG1
@@ -642,7 +642,7 @@ graph TB
     ElastiCache -->|Cache Hit| AppServer
     ElastiCache -->|Cache Miss| DBQuery[Query Database]
     
-    DBQuery --> RDS["RDS with<br/>Read Replicas<br/>Query cache enabled"]
+    DBQuery --> RDS["RDS with<br/>Read Replicas"]
     
     RDS --> ElastiCache
     ElastiCache --> AppServer
