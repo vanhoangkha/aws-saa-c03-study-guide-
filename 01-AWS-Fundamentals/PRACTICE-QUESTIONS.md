@@ -46,7 +46,7 @@ D. Multiple EC2 instances in different Regions
 **Answer: B**
 
 **Explanation:**
-- CloudFront is AWS's Content Delivery Network (CDN) with 400+ edge locations globally
+- CloudFront is AWS's Content Delivery Network (CDN) with 750+ points of presence globally
 - It caches content close to users, minimizing latency
 - S3 serves as the origin for static content
 - Option A provides redundancy but doesn't optimize latency
@@ -354,7 +354,7 @@ D. Edge Locations are the same as Availability Zones
 
 **Explanation:**
 - Edge Locations support CloudFront (CDN), Lambda@Edge, and other edge services
-- There are 400+ edge locations vs 30+ Regions
+- CloudFront has 750+ points of presence vs 39 Regions
 - Edge Locations ≠ Availability Zones (different purposes)
 - Used for content delivery AND edge computing (Lambda@Edge, CloudFront Functions)
 
@@ -637,7 +637,7 @@ D. AWS Service Catalog
 **Explanation:**
 - **AWS Control Tower** provides automated multi-account setup
 - Includes Landing Zone (well-architected baseline)
-- Pre-configured guardrails (preventive and detective)
+- Pre-configured controls, formerly guardrails (preventive, detective, and proactive)
 - Account Factory for automated provisioning
 - Built on top of AWS Organizations
 - AWS Organizations (A) requires manual setup
@@ -725,7 +725,7 @@ D. SCPs enable cost savings automatically
 - **Consolidated billing** combines usage across all accounts
 - AWS treats the entire organization as a single billing entity
 - Volume discounts apply to combined usage
-- Example: 3 accounts with 500GB each = 1500GB total → higher tier pricing
+- Example (AWS Billing docs): 8 TB + 4 TB of data transfer = 12 TB; the 2 TB above the 10 TB tier threshold is billed at the cheaper next-tier rate
 - Not automatic discounts (A), just usage aggregation
 - All accounts benefit, not just management account (C)
 - SCPs are for permissions, not costs (D)
@@ -817,7 +817,7 @@ D. Organizational Lock
 - **Organizational Units (OUs)**: Logical groupings, up to 5 levels deep
 - **SCPs**: Maximum permissions, don't grant access, preventive control
 - **Consolidated Billing**: Volume discounts, single payment, RI sharing
-- **Control Tower**: Automated setup, Landing Zone, guardrails
+- **Control Tower**: Automated setup, Landing Zone, controls (guardrails)
 - **RAM**: Share resources (especially VPC subnets) across accounts
 
 **Common Exam Scenarios:**

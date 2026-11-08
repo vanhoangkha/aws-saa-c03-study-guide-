@@ -4,7 +4,7 @@
 
 This module covers the foundational concepts of Amazon Web Services (AWS) that are essential for the AWS Certified Solutions Architect - Associate (SAA-C03) exam. Understanding these fundamentals is critical for designing and deploying applications on AWS.
 
-**Exam Weight**: Foundation for all other domains (~10% direct questions, but essential for understanding everything else)
+**Exam Weight**: Not weighted separately. The SAA-C03 exam guide weights only its four domains (Secure 30%, Resilient 26%, High-Performing 24%, Cost-Optimized 20%); these fundamentals underpin all of them.
 
 ---
 
@@ -41,7 +41,7 @@ By the end of this module, you will be able to:
 **What is a Region?**
 - A geographical area containing multiple Availability Zones
 - Completely independent and isolated from other regions
-- Currently 30+ regions globally
+- 39 Regions globally (as of late 2026; AWS adds Regions regularly)
 
 **Key Characteristics:**
 - Each region has a unique code (e.g., `us-east-1`, `eu-west-1`)
@@ -66,13 +66,13 @@ Consider these factors:
 - One or more discrete data centers within a region
 - Each AZ has independent power, cooling, and networking
 - Connected to other AZs via low-latency links
-- Each region has minimum 3 AZs (most have 3-6)
+- Each Region has at least 3 AZs (some have more)
 
 **Key Characteristics:**
 - AZs are named: `us-east-1a`, `us-east-1b`, `us-east-1c`, etc.
 - Isolated from failures in other AZs
 - Enables high availability and fault tolerance
-- 120+ total AZs globally
+- 124 AZs globally (as of late 2026)
 
 **Multi-AZ Deployment Pattern:**
 ```
@@ -94,7 +94,7 @@ Region: us-east-1
 **What is an Edge Location?**
 - Endpoints for AWS services like CloudFront and Route 53
 - Used to cache content closer to end users
-- 400+ edge locations globally (more than Regions)
+- CloudFront has 750+ points of presence (PoPs) plus 15 Regional edge caches (far more than Regions)
 - Part of the AWS Global Network
 
 **Use Cases:**
@@ -142,8 +142,8 @@ Region: us-east-1
 
 **Command-Line Tool:**
 ```bash
-# Install AWS CLI
-pip install awscli
+# Install AWS CLI version 2 with the official installer for your OS
+# (see the AWS CLI User Guide: "Installing or updating to the latest version")
 
 # Configure credentials
 aws configure
@@ -161,6 +161,8 @@ aws ec2 run-instances --image-id ami-12345678 --instance-type t2.micro
 - Integration with CI/CD pipelines
 
 ### 2.3 AWS SDKs (Software Development Kits)
+
+> Note: "AWS Tools and SDKs" are listed as out of scope in the SAA-C03 exam guide.
 
 **Programming Languages Supported:**
 - Python (Boto3)
@@ -201,6 +203,8 @@ Resources:
 
 ### 2.5 AWS CloudShell
 
+> Note: AWS CloudShell is listed as out of scope in the SAA-C03 exam guide.
+
 **Browser-Based Shell:**
 - Pre-configured with AWS CLI and tools
 - No installation required
@@ -220,11 +224,14 @@ The AWS Well-Architected Framework helps you understand best practices for desig
 ### 3.2 Operational Excellence
 
 **Design Principles:**
-- Perform operations as code
+- Organize teams around business outcomes
+- Implement observability for actionable insights
+- Safely automate where possible (operations as code)
 - Make frequent, small, reversible changes
 - Refine operations procedures frequently
 - Anticipate failure
-- Learn from operational failures
+- Learn from all operational events and metrics
+- Use managed services
 
 **Key Services:**
 - AWS CloudFormation
@@ -376,7 +383,7 @@ The AWS Well-Architected Framework helps you understand best practices for desig
 - **AWS**: OS patches, database patching, backups
 - **Customer**: Database credentials, network access, data encryption
 
-**SaaS (S3):**
+**Abstracted services (S3, DynamoDB):**
 - **AWS**: Infrastructure, software, physical security
 - **Customer**: Data classification, bucket policies, encryption
 
@@ -392,7 +399,7 @@ The AWS Well-Architected Framework helps you understand best practices for desig
 - Created when AWS account is created
 - Has complete access to all resources
 - **NEVER use for everyday tasks**
-- Enable MFA immediately
+- Enable MFA immediately (AWS now enforces MFA for the root user of all account types)
 
 **Best Practices:**
 - Use federation through IAM Identity Center (temporary credentials) for daily human access, not long-term IAM users
@@ -461,10 +468,11 @@ Root (Organization)
 **Important SCP Rules:**
 - SCPs **DO NOT** affect the Management Account
 - SCPs **DO NOT** grant permissions (only restrict)
-- Yes: SCPs override IAM policies in member accounts
-- Yes: Effective permissions = IAM permissions AND SCP permissions
+- SCPs **DO NOT** affect service-linked roles
+- Yes: SCPs apply to all IAM users and roles in member accounts, including the member account root user
+- Yes: Effective permissions = IAM permissions AND SCP permissions (an action must be allowed by the SCPs at every level: root, each OU, and the account)
 
-**SCP Example 1: Deny All Access to Specific Region**
+**SCP Example 1: Deny All Actions Outside us-east-1**
 ```json
 {
   "Version": "2012-10-17",
@@ -535,7 +543,7 @@ User attempts action
     ↓
 Is there an explicit Deny in SCP? → YES → DENY
     ↓ NO
-Is there an explicit Allow in SCP? → YES → Check IAM Policy
+Allowed by SCPs at every level? → YES → Check IAM Policy
     ↓ NO                                      ↓
  DENY (implicit)                    Is there Allow in IAM? → YES → ALLOW
                                             ↓ NO
@@ -550,38 +558,38 @@ Is there an explicit Allow in SCP? → YES → Check IAM Policy
 - **Easy way to set up and govern multi-account AWS environments**
 - Built on top of AWS Organizations
 - Automated account provisioning
-- Pre-configured guardrails (SCPs + Config rules)
+- Pre-configured controls (formerly called guardrails): SCPs/RCPs, AWS Config rules, CloudFormation hooks
 - Dashboard for compliance monitoring
 
 **Key Features:**
 - **Landing Zone**: Well-architected multi-account baseline
-- **Guardrails**: Preventive (SCPs) and detective (Config rules)
+- **Controls (guardrails)**: Preventive (SCPs, RCPs, declarative policies), detective (AWS Config rules), and proactive (CloudFormation hooks)
 - **Account Factory**: Automated account provisioning
 - **Dashboard**: Centralized visibility and compliance
 
-**Control Tower Guardrails:**
+**Control Tower Controls (guidance levels):**
 
-**Mandatory Guardrails** (always enforced):
-- Disallow changes to CloudTrail configuration
+**Mandatory controls** (always enabled, cannot be deactivated):
 - Disallow deletion of log archive
-- Enable CloudTrail in all regions
-- Enable AWS Config in all regions
+- Disallow changes to the Log Archive S3 bucket policy, encryption, logging and lifecycle configuration
+- Enable AWS Config in all available Regions; disallow configuration changes to AWS Config
 
-**Strongly Recommended Guardrails**:
-- Detect whether MFA is enabled for the root user
-- Enable encryption for EBS volumes
-- Disallow public read/write on S3 buckets
+**Strongly recommended controls** (optional):
+- Detect whether MFA for the root user is enabled
+- Detect whether encryption is enabled for EBS volumes attached to EC2 instances
+- Detect whether public read/write access to S3 buckets is allowed
+- Detect whether unrestricted SSH from the internet is allowed
 
-**Elective Guardrails** (optional):
-- Restrict EC2 instance types
-- Disallow internet connections from VPC
-- Require tags on resources
+**Elective controls** (optional):
+- Disallow internet access for a customer-managed VPC
+- Disallow delete actions on S3 buckets without MFA
+- Detect whether MFA is enabled for IAM users
 
 **Control Tower vs Organizations:**
 | Feature | Organizations | Control Tower |
 |---------|---------------|---------------|
 | Setup Complexity | Manual | Automated |
-| Guardrails | Manual SCPs | Pre-built + custom |
+| Controls (guardrails) | Manual SCPs/RCPs | Pre-built + custom |
 | Account Provisioning | Manual | Account Factory |
 | Compliance Dashboard | No | Yes |
 | Use Case | Full control | Quick setup with best practices |
@@ -634,7 +642,7 @@ Account B (Application Account)
 1. Resource owner creates a resource share
 2. Specify which resources to share
 3. Specify which accounts/OUs can access
-4. Recipients accept the share (if outside Organization)
+4. Recipients accept the invitation (only when sharing outside your organization, or if sharing with AWS Organizations is not enabled)
 5. Recipients can use resources (but not modify/delete)
 
 **Exam Tip**: RAM is commonly tested with VPC subnet sharing scenarios for centralized networking.
@@ -647,12 +655,13 @@ Account B (Application Account)
 - Member accounts cannot change billing settings
 - Combined usage for volume discounts
 
-**Volume Discount Benefits:**
+**Volume Discount Benefits** (example from the AWS Billing docs, illustrative rates):
 ```
-Account 1: Uses 500 GB S3 storage
-Account 2: Uses 800 GB S3 storage
-Account 3: Uses 700 GB S3 storage
-Total: 2,000 GB → Higher volume pricing tier applies
+Account 1: Transfers 8 TB of data
+Account 2: Transfers 4 TB of data
+Combined: 12 TB → first 10 TB billed at the tier-1 rate,
+          the remaining 2 TB at the cheaper tier-2 rate
+(Billed separately, each account would pay the tier-1 rate for all of its usage)
 ```
 
 **Cost Allocation Tags:**
@@ -728,7 +737,7 @@ Total: 2,000 GB → Higher volume pricing tier applies
 ### Must Know for Exam
 
 1. **Regions and AZs:**
-   - Minimum 3 AZs per region
+   - At least 3 AZs per Region
    - Deploy across multiple AZs for HA
    - Choose region based on: compliance, latency, cost, services
 
@@ -836,7 +845,7 @@ D) 4
 
 **Answer: C**
 
-**Explanation**: Every AWS region has a minimum of 3 Availability Zones, though most have more.
+**Explanation**: AWS states that each Region consists of at least three isolated, physically separate Availability Zones; some Regions have more.
 </details>
 
 ### Question 5
@@ -886,3 +895,22 @@ D) Use Route 53 geoproximity routing
 
 [Back to Main README](../README.md) | [Next Module: IAM ](../02-IAM/README.md)
 
+## References
+
+Pages verified for the fact-check of this module (November 2026):
+- [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/) (Region and AZ counts, minimum of three AZs per Region)
+- [Amazon CloudFront features](https://aws.amazon.com/cloudfront/features/) (points of presence and Regional edge caches)
+- [AWS Local Zones: available Local Zones](https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html)
+- [Installing or updating the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [AWS CloudShell concepts](https://docs.aws.amazon.com/cloudshell/latest/userguide/working-with-aws-cloudshell.html) (1 GB persistent storage per Region)
+- [Well-Architected: Operational Excellence design principles](https://docs.aws.amazon.com/wellarchitected/latest/framework/oe-design-principles.html)
+- [Performance Efficiency Pillar](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html)
+- [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
+- [AWS Organizations FAQs](https://aws.amazon.com/organizations/faqs/) (OU nesting depth)
+- [AWS Control Tower: how controls work](https://docs.aws.amazon.com/controltower/latest/userguide/how-controls-work.html), [Mandatory controls](https://docs.aws.amazon.com/controltower/latest/controlreference/mandatory-controls.html), [Strongly recommended detective controls](https://docs.aws.amazon.com/controltower/latest/controlreference/strongly-recommended-detective-controls.html), [Elective preventive controls](https://docs.aws.amazon.com/controltower/latest/controlreference/elective-preventive-controls.html)
+- [AWS RAM: sharing your resources](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html)
+- [Consolidated billing: volume discounts](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilling-effective.html)
+- [AWS Free Tier](https://aws.amazon.com/free/) and [Free Tier start and expiry (re:Post Knowledge Center)](https://repost.aws/knowledge-center/aws-free-tier-account-start-expire)
+- [AWS Support plan pricing](https://aws.amazon.com/premiumsupport/pricing/) and [Developer, Business, and Enterprise On-Ramp end of support](https://docs.aws.amazon.com/awssupport/latest/user/support-plans-eos.html)
+- [Multi-factor authentication in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) (root user MFA enforcement)
+- [QuickSight evolves to Amazon Quick Suite (AWS Business Intelligence Blog)](https://aws.amazon.com/blogs/business-intelligence/reimagine-business-intelligence-amazon-quicksight-evolves-to-amazon-quick-suite)

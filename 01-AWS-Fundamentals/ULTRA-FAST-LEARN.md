@@ -1,16 +1,16 @@
 # 01: AWS Fundamentals - Ultra Fast Learning
 
 ## AWS Global Infrastructure
-- **Regions**: Geographic areas, 30+ worldwide, data stays unless you move it
-- **AZs**: minimum 3 per region (typically 3-6), physically separated, connected by low-latency links
-- **Edge Locations**: 400+ for CloudFront/Route 53, content caching
+- **Regions**: Geographic areas, 39 worldwide (late 2026), data stays unless you move it
+- **AZs**: at least 3 per Region (124 in total), physically separated, connected by low-latency links
+- **Edge Locations**: CloudFront 750+ PoPs (plus 15 Regional edge caches) for CloudFront/Route 53, content caching
 - **Choose Region by**: Compliance, latency, pricing, service availability
 
 ## Management Tools
 - **Console**: Web-based GUI
 - **CLI**: Command-line access, uses access keys
-- **CloudShell**: Browser-based shell, free
-- **SDK**: Programmatic access (Python/Java/Node.js)
+- **CloudShell**: Browser-based shell, free (out of scope for SAA-C03)
+- **SDK**: Programmatic access (Python/Java/Node.js) (AWS Tools and SDKs are out of scope for SAA-C03)
 - **CloudFormation**: Infrastructure as Code (IaC)
 
 ## Well-Architected Framework (6 Pillars)
@@ -55,7 +55,7 @@
 - **What**: Automated multi-account setup on top of Organizations
 - **Landing Zone**: Well-architected baseline
 - **Account Factory**: Auto-create accounts
-- **Guardrails**: Mandatory (always on) + Optional (your choice)
+- **Controls (formerly guardrails)**: Mandatory (always on) + Strongly recommended + Elective (optional)
 - **Dashboard**: Compliance visibility
 - **Use When**: Quick setup, less experience, want best practices
 
@@ -72,14 +72,14 @@
 - **Networking**: VPC, Route 53, CloudFront, Direct Connect
 - **Security**: IAM, KMS, WAF, Shield, GuardDuty
 - **Integration**: SQS, SNS, EventBridge, Step Functions
-- **Analytics**: Athena, Kinesis, EMR, Glue, QuickSight
+- **Analytics**: Athena, Kinesis, EMR, Glue, Amazon Quick (formerly QuickSight)
 
 ## Quick Exam Tips
 - **Region** = multiple AZs (min 3)
 - **AZ** = one or more data centers
 - **Edge Location** = CloudFront caching
 - **Free Tier**: New accounts (since 15 July 2025) get $100 credits (up to $200 with activities); free plan lasts up to 6 months; 30+ always-free services
-- **Support Plans**: Basic (free), Business Support+ ($29/month minimum), Enterprise Support ($5,000/month minimum), Unified Operations
+- **Support Plans**: Basic (free), Business Support+ ($29/month minimum per account), Enterprise Support ($5,000/month minimum), Unified Operations ($50,000/month minimum)
 - Status (November 2026): Developer Support, Business Support and Enterprise On-Ramp end on 1 Jan 2027
 - **Billing**: Use Cost Explorer, Budgets, Cost Allocation Tags
 
