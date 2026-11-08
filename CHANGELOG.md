@@ -7,6 +7,8 @@ Notable changes to this study guide. The format follows [Keep a Changelog](https
 First release of this repository, based on the MIT-licensed study guide by ChathurangaVKD (see [LICENSE](LICENSE)).
 
 ### Added
+- `docs/reference/IN-SCOPE-SERVICES.md`, covering every service on the exam guide in-scope list with scenario cues, module links and availability status (Proton, Data Pipeline, Application Discovery Service, Snow Family).
+- ECR, ECS task roles, EKS pricing and hybrid container options to module 03, and Container Insights, Managed Service for Prometheus and Managed Grafana to module 09.
 - `external/aws-saa-c02-study-guide`: the rdurelli study guide as a git submodule. It has no license, so it is linked rather than copied.
 - Original sections for topics only that guide covered: EC2 Hibernate and Amazon WorkSpaces (03), Data Lifecycle Manager (04), Amazon SWF (08), OpsWorks retirement (09), Elastic Transcoder end of support and MediaConvert (11).
 - `scripts/check_links.py` and a `Checks` workflow that verifies links, heading anchors and the simulator build on every push and pull request.

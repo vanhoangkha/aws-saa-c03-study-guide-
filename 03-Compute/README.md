@@ -116,15 +116,36 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 - Service
 - Cluster
 
+**IAM roles for ECS tasks:**
+- **Task role**: permissions your application code uses (for example, read from S3 or DynamoDB)
+- **Task execution role**: permissions the ECS agent uses to pull images from ECR and send logs to CloudWatch Logs
+- Give each task its own task role; do not rely on the EC2 instance role for application permissions
+
 ### EKS (Elastic Kubernetes Service)
-- Managed Kubernetes
-- Compatible with standard K8s
-- $0.10/hour cluster cost
+- Managed Kubernetes control plane
+- Compatible with standard K8s tooling
+- $0.10/hour per cluster in standard Kubernetes version support ($0.60/hour in extended support)
+- Worker nodes: managed node groups, self-managed EC2, Fargate, or EKS Auto Mode
+- Pods get AWS permissions through EKS Pod Identity or IAM roles for service accounts (IRSA)
 
 ### Fargate
 - Serverless containers
 - Works with ECS and EKS
-- Pay per task
+- Billed per second for the vCPU and memory a task or pod requests (one-minute minimum for Linux tasks)
+
+### ECR (Elastic Container Registry)
+- Managed private registry for container images and OCI artifacts; ECR Public for public images
+- Images are encrypted at rest; access is controlled with IAM and repository policies (for cross-account pulls)
+- **Image scanning**: basic scanning, or enhanced scanning with Amazon Inspector for continuous vulnerability scanning
+- **Lifecycle policies**: expire old or untagged images to control storage cost
+- **Replication**: cross-Region and cross-account
+- **Pull through cache**: cache images from upstream registries such as Docker Hub or Quay in ECR
+- **Private subnets**: tasks with no internet access need interface endpoints for `ecr.api` and `ecr.dkr` plus an S3 gateway endpoint (image layers are stored in S3), or a NAT gateway
+
+### Containers on premises
+- **ECS Anywhere**: run ECS tasks on your own servers, managed from the ECS control plane
+- **EKS Anywhere**: create and operate Kubernetes clusters on your own infrastructure with EKS tooling
+- **EKS Distro**: the Kubernetes distribution EKS uses, for clusters you install and manage yourself
 
 ---
 

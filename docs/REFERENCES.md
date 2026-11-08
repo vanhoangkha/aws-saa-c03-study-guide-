@@ -25,6 +25,7 @@ Every link was checked on 2026-11-08. To check them again, run `python3 scripts/
 |--------|------------|
 | [Exam page](https://aws.amazon.com/certification/certified-solutions-architect-associate/) | Format, price, languages, scheduling, and the four-step preparation plan |
 | [SAA-C03 exam guide](https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html) | Domains and weights, task statements, in-scope and out-of-scope services. Read this first and come back to it at the end |
+| [In-scope services in this guide](reference/IN-SCOPE-SERVICES.md) | The exam guide's service list with a one-line summary and scenario cue for each service |
 | [All AWS exam guides](https://docs.aws.amazon.com/aws-certification/latest/examguides/aws-certification-exam-guides.html) | Comparing SAA-C03 with Cloud Practitioner, SAP-C03 and the specialty exams |
 | [Certification policies](https://aws.amazon.com/certification/policies/) | ID requirements, online proctoring rules, retakes, accommodations |
 | [Certification FAQ](https://aws.amazon.com/certification/faqs/) | Scoring, results, discounts |

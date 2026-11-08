@@ -385,6 +385,27 @@ Example: CloudWatch Alarm → EventBridge → Lambda → Fix issue
 
 ---
 
+## 8. Container and Open-Source Observability
+
+### CloudWatch Container Insights
+- Collects metrics and logs for ECS, EKS and Kubernetes on EC2
+- AWS-native choice when no existing Prometheus or Grafana setup is mentioned
+
+### Amazon Managed Service for Prometheus
+- Serverless, Prometheus-compatible metrics store; query with PromQL
+- Ingests through Prometheus remote write or AWS managed collectors for EKS
+- Scales storage and ingestion automatically; no Prometheus servers to run
+- Typical use: Kubernetes and container metrics for teams that already use Prometheus
+
+### Amazon Managed Grafana
+- Managed Grafana workspaces for dashboards and alerting
+- Data sources include CloudWatch, Managed Service for Prometheus, X-Ray, OpenSearch, Athena and Redshift
+- Users sign in through IAM Identity Center or a SAML identity provider
+
+**Exam cue:** "The team already uses Prometheus and Grafana and wants to stop managing the servers" points to Managed Service for Prometheus plus Managed Grafana.
+
+---
+
 ## Monitoring Best Practices
 
 ### Application Monitoring

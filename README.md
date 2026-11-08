@@ -92,6 +92,7 @@ The modules hold about 217 Mermaid diagrams and 276 practice questions with expl
 | [Quick reference](docs/reference/QUICK-REFERENCE.md) | 15 min | Service lookup table |
 | [Architecture pattern sheet](docs/reference/SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md) | 30 min | Common scenario-to-architecture mappings |
 | [Study roadmap](docs/study-guides/STUDY-ROADMAP.md) | – | The eight-week plan in detail |
+| [In-scope services](docs/reference/IN-SCOPE-SERVICES.md) | – | Every service on the exam guide's in-scope list: what it does, the scenario cue, and the module that covers it |
 | [References](docs/REFERENCES.md) | – | Official AWS sources by module: exam guide, Well-Architected, decision guides, whitepapers, FAQs |
 
 External notes: the [AWS SAA-C02 Study Guide](https://github.com/keenanromain/AWS-SAA-C02-Study-Guide) by Keenan Romain, mirrored as [rdurelli/AWS-SAA-C03-Study-Guide](https://github.com/rdurelli/AWS-SAA-C03-Study-Guide). It is included as a git submodule in [external/aws-saa-c02-study-guide](external/aws-saa-c02-study-guide), which links to that repository rather than copying it. Its content belongs to its authors and carries no license. It was written for the previous exam version (SAA-C02), so check anything that may have changed against the current AWS documentation. To download it with this repository:
@@ -133,7 +134,7 @@ exam-reviews/                practice test reviews and exam-day cards
 docs/
     REFERENCES.md            official AWS sources by module
     study-guides/            ultra-fast and fast indexes, flashcards, roadmap
-    reference/               quick reference, diagram index, visual guide
+    reference/               in-scope services, quick reference, diagram index, visual guide
     exam-analysis/           topic coverage against the exam guide
 simulator/                   exam simulator (static page + question bank)
 external/                    SAA-C02 study guide (git submodule, not part of this repository)

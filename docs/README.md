@@ -21,6 +21,7 @@ Supporting material that cuts across the 14 modules. Practice test reviews are i
 
 | File | Contents |
 |------|----------|
+| [IN-SCOPE-SERVICES.md](reference/IN-SCOPE-SERVICES.md) | Every in-scope service from the exam guide, with scenario cues and module links |
 | [QUICK-REFERENCE.md](reference/QUICK-REFERENCE.md) | Service lookup table |
 | [QUICK-START.md](reference/QUICK-START.md) | Short path through the fast-learn material |
 | [DIAGRAMS-INDEX.md](reference/DIAGRAMS-INDEX.md) | Every diagram, by module |
