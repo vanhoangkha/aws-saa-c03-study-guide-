@@ -26,7 +26,7 @@ B. The Auto Scaling group is in cooldown period (correct)
 C. Minimum size of ASG is 0
 D. Desired size of ASG is 0
 
-**Explanation:** Cooldown periods suppress scaling actions to let metrics stabilize after a scaling event.
+**Explanation:** With simple scaling policies, the group waits for the cooldown period (default 300 seconds) after a scaling activity before any further simple-scaling activity can start, so a firing alarm has no effect until the cooldown ends. Target tracking and step scaling policies do not wait for cooldowns (they use instance warmup), and AWS recommends them over simple scaling.
 
 ---
 
@@ -125,7 +125,7 @@ B. Automatic failover for high availability (correct)
 C. Cross-region disaster recovery
 D. Cost optimization
 
-**Explanation:** Multi-AZ maintains synchronous standby for automatic failover, not for reads.
+**Explanation:** A Multi-AZ DB instance deployment keeps a synchronous standby in another AZ for automatic failover; the standby cannot serve reads. (A Multi-AZ DB cluster deployment, available for RDS for MySQL and PostgreSQL, adds two readable standbys.)
 
 ---
 
@@ -141,7 +141,7 @@ C. logs:CreateLogStream (correct)
 D. logs:DescribeLogStreams
 E. logs:PutLogEvents (correct)
 
-**Explanation:** Lambda runtime needs all three to create log groups, streams, and write events.
+**Explanation:** The AWSLambdaBasicExecutionRole managed policy grants exactly these three actions. Lambda uses them to create the log group (`/aws/lambda/<function-name>`) and log streams and to write log events.
 
 ---
 
@@ -161,15 +161,15 @@ D. Default
 ## Security
 
 ### Question 11
-How do you restrict S3 bucket access to specific IAM roles only?
+How do you restrict an S3 bucket so that only specific IAM roles can access it, even if other principals in the account have IAM policies that allow S3 access?
 
 **Options:**
-A. Bucket policy with explicit deny for all except listed roles
-B. Bucket policy with explicit deny for all users except listed
-C. Bucket policy allowing only specific role; users assume role (correct)
-D. Bucket policy with NotPrincipal
+A. Bucket policy with an explicit Deny for all principals whose aws:PrincipalArn is not one of the listed roles (correct)
+B. Bucket policy that only Allows the listed roles, with no Deny statement
+C. IAM identity policies attached to the listed roles that allow S3 access
+D. Bucket policy with a Deny statement that uses NotPrincipal to exempt the listed roles
 
-**Explanation:** Grant bucket access to a role; users authenticate then assume that role.
+**Explanation:** An explicit Deny overrides any Allow, so a bucket policy that denies every principal except the listed role ARNs (condition on `aws:PrincipalArn`) is what actually restricts access. An Allow-only bucket policy (B) or role policies (C) do not stop other principals whose own IAM policies grant S3 access. AWS recommends the `aws:PrincipalArn` condition instead of `NotPrincipal` with Deny (D), which also denies principals that have a permissions boundary.
 
 ---
 
@@ -198,7 +198,7 @@ C. Trusted Advisor (correct)
 D. CloudTrail
 E. Config
 
-**Explanation:** CloudWatch metrics and Trusted Advisor checks identify low-utilization instances.
+**Explanation:** CloudWatch metrics and Trusted Advisor checks identify low-utilization instances. AWS Compute Optimizer (not listed) is the purpose-built right-sizing service.
 
 ---
 
@@ -226,7 +226,7 @@ B. S3 → Lambda → SWF → DynamoDB
 C. S3 → Lambda → process → DynamoDB
 D. S3 → Lambda → Step Functions → DynamoDB (correct)
 
-**Explanation:** Step Functions orchestrates with visual console, priority via separate entry points.
+**Explanation:** Step Functions provides visual workflows with native Lambda and DynamoDB integrations, and AWS recommends it over Amazon SWF for new applications. Priorities can be handled with separate state machines or separate queues (SQS has no message priority).
 
 ---
 

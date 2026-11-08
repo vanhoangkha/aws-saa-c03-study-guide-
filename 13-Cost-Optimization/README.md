@@ -52,6 +52,7 @@ Cost optimization is a critical aspect of cloud architecture and a key pillar of
   - **DynamoDB**: 25 GB storage
   - **SNS**: 1M publishes/month
   - **CloudWatch**: 10 custom metrics
+  - **CloudFront**: 1 TB data transfer out and 10M requests/month
 
 **2. 12 Months Free**
 - Free for first 12 months after AWS account creation
@@ -59,14 +60,13 @@ Cost optimization is a critical aspect of cloud architecture and a key pillar of
   - **EC2**: 750 hours/month of t2.micro or t3.micro
   - **S3**: 5 GB standard storage
   - **RDS**: 750 hours/month of db.t2.micro
-  - **CloudFront**: 50 GB data transfer out
 
 **3. Trials**
 - Short-term free trials for specific services
 - Examples:
   - **SageMaker**: 250 hours/2 months of t2.medium
   - **Redshift**: 750 hours/2 months
-  - **Inspector**: 90-day trial
+  - **Inspector**: 15-day trial
 
 ### Total Cost of Ownership (TCO)
 
@@ -80,7 +80,7 @@ Cost optimization is a critical aspect of cloud architecture and a key pillar of
 **AWS Costs:**
 - Compute, storage, network
 - Reduced or eliminated on-premises costs
-- **TCO Calculator**: Compare on-premises vs AWS costs
+- **TCO estimates**: AWS Pricing Calculator for the AWS side; Migration Evaluator (formerly TSO Logic) for a full on-premises vs AWS business case. Migration Evaluator is out of scope for SAA-C03.
 
 ---
 
@@ -184,11 +184,14 @@ Running 24/7 for 1 month: $0.0416 × 730 hours = $30.37/month
 **Pricing Example:**
 ```
 t3.medium On-Demand: $0.0416/hour = $364/year
-t3.medium RI (1-year, All Upfront): ~$182/year
-Savings: ~50%
+t3.medium Standard RI (1-year, All Upfront): $213/year
+Savings: ~42%
 
-t3.medium RI (3-year, All Upfront): ~$109/year
-Savings: ~70%
+t3.medium Standard RI (3-year, All Upfront): $411 (~$137/year)
+Savings: ~62%
+(us-east-1 Linux list prices, November 2026. "Up to 72%" applies to some
+instance types only; AWS quotes average Standard RI savings of about 40% (1-year)
+and 60% (3-year).)
 ```
 
 ---
@@ -221,9 +224,14 @@ Savings: ~70%
   - Tenancy (shared, dedicated)
 - Less flexible than Compute Savings Plans
 
-**3. SageMaker Savings Plans**
+**3. SageMaker AI Savings Plans**
 - Up to 64% discount
-- For SageMaker instances
+- For SageMaker AI instances
+
+**4. Database Savings Plans**
+- Up to 35% discount
+- 1-year term, no upfront payment
+- Apply to Aurora, RDS, DynamoDB, ElastiCache, DocumentDB, Neptune, Keyspaces, Timestream, DMS and OpenSearch Service
 
 **Payment Options:**
 - All Upfront
@@ -249,7 +257,7 @@ Usage:
 |---------|---------------|-------------------|
 | **Flexibility** | High (instance family, region) | Low (specific instance) |
 | **Discount** | Up to 72% | Up to 72% |
-| **Applies to** | EC2, Fargate, Lambda | EC2 only |
+| **Applies to** | EC2, Fargate, Lambda (Compute SP); managed databases (Database SP) | EC2 (RDS, ElastiCache, OpenSearch and Redshift have their own reservations) |
 | **Commitment** | $/hour usage | Specific instance |
 | **Modification** | Automatic | Manual |
 
@@ -266,7 +274,7 @@ Usage:
 - **Up to 90% discount** vs On-Demand
 - Use spare EC2 capacity
 - Can be interrupted by AWS with 2-minute warning
-- Set maximum price (optional)
+- Set maximum price (optional; AWS recommends not setting one, because a maximum price increases interruptions)
 
 **How Spot Instances Work:**
 1. You request Spot Instances at your max price
@@ -281,7 +289,7 @@ AWS sends notification → 2-minute warning → Instance terminated
 
 **Spot Instance Termination Handling:**
 - EC2 sends termination notice to instance metadata
-- CloudWatch Events notification
+- Amazon EventBridge notification (formerly CloudWatch Events)
 - Use: Save work, checkpoint, gracefully shutdown
 
 **Spot Request Types:**
@@ -305,9 +313,9 @@ AWS sends notification → 2-minute warning → Instance terminated
   - **Capacity optimized**: Launch in pools with optimal capacity
   - **Price capacity optimized**: Best price for capacity
 
-**Spot Blocks (Deprecated):**
-- Reserve Spot Instances for 1-6 hours
-- No longer available for new users
+**Spot Blocks (Retired):**
+- Reserved Spot Instances for 1-6 hours
+- Closed to new customers on 1 July 2021; support ended 31 December 2022
 
 **When to Use Spot Instances:**
 - **Batch processing**: Data analysis, image processing
@@ -468,16 +476,18 @@ Total: $0
 
 **Free:**
 - Inbound data transfer (from internet to AWS)
-- Data transfer between services in same region
+- First 100 GB/month out to the internet (aggregated across services and Regions)
+- Many same-Region, same-AZ transfers (for example EC2 to S3 in the same Region)
 - Data transfer from AWS origins (S3, EC2, ELB) to CloudFront
 
 **Charged:**
 - Outbound to internet (tiered pricing)
 - Inter-region data transfer
-- Data transfer between AZs (small charge)
+- Data transfer between AZs ($0.01/GB in each direction)
 - Data transfer from CloudFront to origin (for example uploads)
+- Public IPv4 addresses, including in-use Elastic IPs ($0.005/hour each)
 
-**Pricing Tiers (Outbound to Internet):**
+**Pricing Tiers (Outbound to Internet, us-east-1, after the free 100 GB):**
 ```
 First 10 TB: $0.09/GB
 Next 40 TB: $0.085/GB
@@ -698,7 +708,7 @@ Savings: $150/month
 
 ### Budget Actions
 - **Automated responses** to budget alerts
-- Apply IAM policies
+- Apply IAM policies or SCPs
 - Stop EC2 or RDS instances
 - Target specific groups or users
 
@@ -801,7 +811,7 @@ Filters:
    - Time granularity
    - Include resource IDs (optional)
    - Data integration (Athena, Redshift, QuickSight)
-4. Reports delivered daily
+4. Report updated at least once a day (up to three times a day)
 
 **S3 Structure:**
 ```
@@ -1108,14 +1118,15 @@ Day 365+: S3 Glacier Deep Archive or delete
 
 **Example:**
 ```
-Without CloudFront:
-- 100 TB/month from EC2 to internet
-- Cost: 100,000 GB × $0.09 = $9,000
+Without CloudFront (us-east-1 tiers):
+- 100 TB/month (100,000 GB) from EC2 to internet
+- Cost: 10,240 GB × $0.09 + 40,960 GB × $0.085 + 48,800 GB × $0.07 = ~$7,819
 
-With CloudFront:
-- EC2 to CloudFront: Free (same region)
-- CloudFront to internet: 100,000 GB × $0.085 = $8,500
-- Savings: $500/month
+With CloudFront (North America tiers):
+- EC2 to CloudFront: Free
+- CloudFront to internet: 10,240 GB × $0.085 + 40,960 GB × $0.08 + 48,800 GB × $0.06 = ~$7,075
+- Savings: ~$744/month, plus fewer origin requests from caching
+(Ignores the free allowances: 100 GB/month for EC2, 1 TB/month for CloudFront.)
 ```
 
 ---
@@ -1170,6 +1181,7 @@ API Backend:
 - Auto Scaling group configurations
 - EBS volume configurations
 - Lambda function memory settings
+- ECS services on Fargate, RDS and Aurora DB instances, and more
 
 **How It Works:**
 - Analyzes CloudWatch metrics
@@ -1178,8 +1190,8 @@ API Backend:
 - Estimates cost savings
 
 **Pricing:**
-- Free for recommendations based on last 14 days
-- Enhanced recommendations (3 months): Additional charge
+- Free: analyzes the last 14 days (or 32 days) of metrics
+- Enhanced infrastructure metrics (up to 3 months of history, EC2/Auto Scaling/RDS): about $0.25 per resource per month
 
 ---
 
@@ -1216,17 +1228,17 @@ API Backend:
 - Selected security and fault tolerance checks
 
 **Full set (Business Support+, Enterprise Support or Unified Operations):**
-- Underutilized EC2 instances
-- Idle RDS instances
-- Unassociated Elastic IPs
-- Low utilization EBS volumes
-- Underutilized RIs
-- EC2 Reserved Instance optimization
+- Low utilization EC2 instances (CPU 10% or less and network I/O 5 MB or less on at least 4 of the last 14 days)
+- Idle RDS DB instances
+- Unassociated Elastic IP addresses
+- Underutilized EBS volumes (unattached, or less than 1 IOPS per day for 7 days)
+- Idle Load Balancers and idle NAT gateways
+- EC2 Reserved Instance lease expiration and optimization
 
 **Accessing Trusted Advisor:**
 - AWS Console → Trusted Advisor
 - API for programmatic access
-- CloudWatch Events for automated actions
+- Amazon EventBridge for automated actions
 
 ---
 
@@ -1253,17 +1265,19 @@ API Backend:
 **Example:**
 ```
 Architecture: Web Application
-- 3× m5.large EC2 instances (On-Demand): $182/month
-- Application Load Balancer: $25/month
-- RDS db.m5.large (Multi-AZ): $300/month
+- 3× m5.large EC2 instances (On-Demand, $0.096/hour): $210.24/month
+- Application Load Balancer ($0.0225/hour + 1 LCU at $0.008/hour): $22.27/month
+- RDS for MySQL db.m5.large Multi-AZ ($0.342/hour, instance only): $249.66/month
 - 500 GB S3 Standard: $11.50/month
-- 1 TB data transfer: $90/month
-Total: $608.50/month
+- 1,024 GB data transfer out (first 100 GB free): $83.16/month
+Total: ~$576.83/month (us-east-1 list prices, November 2026; excludes RDS storage)
 ```
 
 ---
 
-### AWS Migration Hub (TCO Analysis)
+### Migration Evaluator (TCO Analysis)
+
+> Out of scope for SAA-C03 (listed in the exam guide's out-of-scope services). AWS Migration Hub stopped accepting new customers on 7 November 2025; AWS Transform is its successor.
 
 **Migration Evaluator** (formerly TSO Logic):
 - Build business case for cloud migration
@@ -1446,7 +1460,7 @@ Total: $608.50/month
 
 ### Tools
 - [AWS Pricing Calculator](https://calculator.aws/)
-- [AWS TCO Calculator (Legacy)](https://calculator.aws/)
+- [Migration Evaluator](https://aws.amazon.com/migration-evaluator/)
 - [AWS Free Tier](https://aws.amazon.com/free/)
 
 ### Whitepapers
@@ -1474,3 +1488,29 @@ Total: $608.50/month
 
 **Previous Module:** [← 12-Architecture-Patterns](../12-Architecture-Patterns/README.md)
 
+
+---
+
+## References
+
+Pages this module was checked against (November 2026). The full reference list is in [docs/REFERENCES.md](../docs/REFERENCES.md).
+
+- [EC2 Reserved Instances pricing](https://aws.amazon.com/ec2/pricing/reserved-instances/)
+- [Savings Plans FAQs](https://aws.amazon.com/savingsplans/faq/)
+- [EC2 On-Demand pricing (data transfer, per-second billing)](https://aws.amazon.com/ec2/pricing/on-demand/)
+- [AWS Price List bulk API offer files](https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json) (EC2, RDS, S3, EBS, ELB, CloudFront, data transfer, VPC, Lambda list prices for us-east-1)
+- [Amazon CloudFront pay-as-you-go pricing](https://aws.amazon.com/cloudfront/pricing/pay-as-you-go/)
+- [AWS Free Tier FAQs](https://aws.amazon.com/free/free-tier-faqs/)
+- [Amazon Inspector pricing](https://aws.amazon.com/inspector/pricing/)
+- [Amazon RDS Reserved Instances](https://aws.amazon.com/rds/reserved-instances/)
+- [Amazon DynamoDB provisioned capacity pricing](https://aws.amazon.com/dynamodb/pricing/provisioned/)
+- [AWS Cost Explorer FAQs](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/faqs/) and [pricing](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/pricing/)
+- [Cost Explorer multi-year data](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-multi-year-data.html)
+- [AWS Budgets pricing](https://aws.amazon.com/aws-cost-management/aws-budgets/pricing/)
+- [Receiving budget alerts in chat applications](https://docs.aws.amazon.com/cost-management/latest/userguide/sns-alert-chime.html)
+- [What are AWS Cost and Usage Reports?](https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html)
+- [AWS Compute Optimizer pricing](https://aws.amazon.com/compute-optimizer/pricing/)
+- [AWS Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html) and [cost optimization checks](https://docs.aws.amazon.com/awssupport/latest/user/cost-optimization-checks.html)
+- [Create a Spot Instance request](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html)
+- [AWS Pricing/TCO tools (How AWS Pricing Works)](https://docs.aws.amazon.com/whitepapers/latest/how-aws-pricing-works/aws-pricingtco-tools.html)
+- [AWS Migration Hub availability change](https://docs.aws.amazon.com/migrationhub/latest/ug/migrationhub-availability-change.html)

@@ -62,7 +62,7 @@ WATCH OUT FOR:
 
 ### Top 20 Services (Know These Cold!)
 ```
-MUST MASTER (80% of exam):
+MUST MASTER:
 1. EC2 (instance types, pricing, placement groups)
 2. S3 (storage classes, lifecycle, versioning, encryption)
 3. VPC (subnets, security groups, NACLs, routing)
@@ -273,7 +273,7 @@ IAM:
 VPC:
 ├── VPCs/region: 5 (soft limit)
 ├── Subnets/VPC: 200
-├── Security groups/instance: 5
+├── Security groups/network interface: 5 (adjustable up to 16)
 
 EBS:
 ├── Snapshots: 100,000/region (adjustable)

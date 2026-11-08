@@ -13,7 +13,7 @@
 ## Key Concepts to Review
 
 ### Auto Scaling & High Availability
-- **Cooldown Periods**: Prevents rapid scaling; suppresses additional scale-out actions until cooldown ends
+- **Cooldown Periods**: Apply to simple scaling policies; pause further simple-scaling activities (scale-out and scale-in, default 300 s) until the cooldown ends
 - **Target Tracking**: Converges capacity to a metric (e.g., CPU %), combined with AZ rebalancing for even distribution
 - **Health Checks**: ELB health checks continuously probe targets; ASG replaces unhealthy instances automatically
 
@@ -44,7 +44,7 @@
 ### Amazon CloudFront
 - **Signed URLs vs Cookies**: URLs for individual files, Cookies for multiple files
 - **Custom Error Pages**: Configure in distribution settings, cached at edge
-- **Invalidation**: Removes cached objects immediately (break-glass for urgent updates)
+- **Invalidation**: Removes objects from edge caches before their TTL expires (break-glass for urgent updates)
 
 ### AWS Lambda
 - **Execution Role Permissions**: 
@@ -54,7 +54,7 @@
 - **Concurrency**: Reserved vs provisioned concurrency
 
 ### Amazon RDS & Aurora
-- **Multi-AZ**: Automatic failover, standby not for reads
+- **Multi-AZ**: Automatic failover; a Multi-AZ DB instance standby is not readable (Multi-AZ DB clusters have two readable standbys)
 - **Read Replicas**: Scale read traffic, can be in different regions
 - **Aurora Serverless**: Auto-scaling capacity units (ACUs)
 
