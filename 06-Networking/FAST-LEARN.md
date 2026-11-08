@@ -1,6 +1,6 @@
 # Fast Learning - Networking & Content Delivery
 
-> **Time to Complete**: 75-90 minutes | **Exam Weight**: ~20-25%
+> **Time to Complete**: 75-90 minutes | **Exam Weight**: not published per service; the exam guide weights only the four domains (30/26/24/20%)
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -26,7 +26,7 @@ NACLs → Subnet-level firewall (stateless)
 | **NACL** | Subnet | Stateless | Allow all | Allow & Deny |
 | **Route Table** | Subnet | N/A | Local routes | Routes only |
 | **Internet Gateway** | VPC | N/A | None | All traffic |
-| **NAT Gateway** | AZ | N/A | None | Outbound only |
+| **NAT Gateway** | AZ (zonal) or VPC (regional mode) | N/A | None | Outbound only |
 
 ### Security Group vs NACL (Critical!)
 | Feature | Security Group | NACL |
@@ -89,7 +89,7 @@ PRIVATE SUBNET
 | **Transit Gateway** | Hub for multiple VPCs | 100 Gbps per VPC attachment per AZ | $$ |
 | **VPN** | On-prem to AWS (encrypted) | 1.25 Gbps per tunnel (5 Gbps Large Bandwidth Tunnels on TGW) | $ |
 | **Direct Connect** | Dedicated on-prem to AWS | 1-400 Gbps | $$$ |
-| **PrivateLink** | Private access to services | 10 Gbps | $$ |
+| **PrivateLink** | Private access to services | 10 Gbps per AZ, scales to 100 Gbps | $$ |
 
 ### 4. Route 53 Routing Policies
 | Policy | Use Case | How It Works |
@@ -100,6 +100,7 @@ PRIVATE SUBNET
 | **Failover** | Active-passive DR | Health check based |
 | **Geolocation** | Location-based content | Based on user location |
 | **Geoproximity** | Traffic flow based on geography | Distance + bias |
+| **IP-based** | Route by client IP range | CIDR collections you upload |
 | **Multi-value** | Multiple IPs with health checks | Returns multiple values |
 
 ## Common Exam Scenarios
@@ -145,7 +146,7 @@ PRIVATE SUBNET
 ### VPC Flow Logs
 ```
 CAPTURES: IP traffic to/from ENIs
-STORAGE: CloudWatch Logs or S3
+STORAGE: CloudWatch Logs, S3, or Amazon Data Firehose
 LEVELS: VPC, Subnet, or ENI
 USE: Troubleshooting, security analysis
 
@@ -179,7 +180,7 @@ ORIGINS:
 ├── EC2 instance
 ├── ALB/ELB
 ├── Custom HTTP server
-└── MediaPackage
+└── MediaPackage (Elemental MediaPackage is out of scope for SAA-C03)
 
 SECURITY:
 ├── OAC (Origin Access Control) - S3 only via CloudFront (OAI is legacy)

@@ -25,7 +25,7 @@
 - Horizontally scaled, HA
 
 ### NAT Gateway
-- **AZ-specific** (deploy one per AZ for HA)
+- **Zonal**: AZ-specific (deploy one per AZ for HA); **regional mode** (Nov 2025) spans AZs automatically
 - Allows **private** subnets to access internet (outbound only)
 - **Managed** by AWS
 - **NAT Instance**: EC2-based, cheaper, you manage
@@ -102,7 +102,8 @@
 4. **Failover**: Primary/secondary (DR)
 5. **Geolocation**: Based on user location
 6. **Geoproximity**: Based on resource location (bias)
-7. **Multi-value**: Up to 8 healthy records (simple with health checks)
+7. **IP-based**: Based on client IP ranges you upload
+8. **Multi-value**: Up to 8 healthy records (simple with health checks)
 
 ### Health Checks
 - Monitor endpoints (HTTP, HTTPS, TCP)
@@ -137,7 +138,7 @@
 - **Transit Gateway**: Transitive, hub-and-spoke
 - **VPN**: Encrypted over internet
 - **Direct Connect**: Dedicated private link
-- **Route 53**: DNS, 7 routing policies
+- **Route 53**: DNS, 8 routing policies
 - **CloudFront**: CDN, 700+ edge locations
 - **Endpoint**: Private connection to AWS services
 

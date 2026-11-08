@@ -331,7 +331,7 @@ graph TB
     
     SecondaryCluster -.Can Promote<br/>< 1 minute RTO.-> NewPrimary[New Primary Region]
     
-    UseCases["Use Cases:<br/>Disaster Recovery (RPO &lt; 1 sec, RTO &lt; 1 min[<br/>Global read scaling<br/>Low latency for global users<br/>Up to 10 secondary regions (2025)<br/>16 read replicas total (secondary)"]
+    UseCases["Use Cases:<br/>Disaster Recovery (RPO &lt; 1 sec, RTO &lt; 1 min[<br/>Global read scaling<br/>Low latency for global users<br/>Up to 10 secondary regions (2025)<br/>Up to 16 read replicas in secondary clusters"]
     
     classDef style1 fill:#569A31
     class PrimaryCluster style1
@@ -561,9 +561,9 @@ graph TB
     Node1 <-.Replication.-> Node2
     Node1 <-.Replication.-> Node3
     
-    Features["Features:<br/>Microsecond read latency<br/>No application changes needed<br/>Compatible with DynamoDB API<br/>Multi-AZ, 3+ nodes recommended for production<br/>Not suitable for strongly consistent reads<br/>Pay for cluster nodes"]
+    Features["Features:<br/>Microsecond read latency<br/>Minimal code changes (DAX client)<br/>Compatible with DynamoDB API<br/>Multi-AZ, 3+ nodes recommended for production<br/>Not suitable for strongly consistent reads<br/>Pay for cluster nodes"]
     
-    Comparison["DAX vs ElastiCache:<br/>• DAX: DynamoDB-specific, no code change<br/>• ElastiCache: General purpose, requires code changes"]
+    Comparison["DAX vs ElastiCache:<br/>• DAX: DynamoDB-specific, minimal code change<br/>• ElastiCache: General purpose, requires code changes"]
     
     classDef style1 fill:#FF9900
     class DAX style1

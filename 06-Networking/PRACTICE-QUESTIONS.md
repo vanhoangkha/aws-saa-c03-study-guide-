@@ -63,7 +63,7 @@ D. VPC Peering
 | **Managed** | AWS-managed | Customer-managed |
 | **Availability** | Highly available (AZ) | Single instance |
 | **Bandwidth** | 5 Gbps, scales to 100 Gbps | Instance type dependent |
-| **Cost** | Hourly + data transfer | Instance cost |
+| **Cost** | Hourly + per-GB data processed | Instance cost |
 | **Maintenance** | AWS handles | Customer handles |
 
 **Configuration**:
@@ -205,7 +205,7 @@ D. Internet Gateway
 - **AWS Transit Gateway** is central hub for VPCs
 - Connects multiple VPCs, on-premises networks
 - Simplifies network topology
-- Scalable (up to 5000 VPCs)
+- Scalable (up to 5,000 attachments per transit gateway by default)
 
 **Transit Gateway vs VPC Peering**:
 
@@ -363,6 +363,7 @@ D. Latency-based Routing
 | **Failover** | Active-passive DR |
 | **Geolocation** | Route by user location |
 | **Geoproximity** | Route by resource location + bias |
+| **IP-based** | Route by client IP range |
 | **Multivalue** | Multiple IPs, health checks |
 
 **Geolocation vs Latency**:
@@ -409,7 +410,7 @@ D. Allow all traffic outbound
 ---
 
 ### Question 12
-A company needs to block specific IP addresses from accessing their application. Which is the MOST appropriate solution?
+A company needs to block specific IP addresses from accessing their application, which runs behind an Application Load Balancer. Which solutions can block these IP addresses? (Choose TWO)
 
 A. Security Group Deny rules  
 B. Network ACL Deny rules  
@@ -419,7 +420,7 @@ D. Route 53 DNS filtering
 <details>
 <summary>Show Answer</summary>
 
-**Answer: B or C (Context dependent)**
+**Answer: B, C**
 
 **Explanation:**
 
@@ -689,7 +690,7 @@ D. Elastic Load Balancing
 - **AWS Global Accelerator** provides static anycast IPs
 - Routes traffic over AWS global network
 - Deterministic, fast failover
-- Health checks and instant failover
+- Health checks; unhealthy endpoints removed in under a minute
 
 **Global Accelerator vs CloudFront**:
 
@@ -698,7 +699,7 @@ D. Elastic Load Balancing
 | **Use Case** | TCP/UDP apps | HTTP/HTTPS content |
 | **Caching** | No | Yes |
 | **Static IP** | Yes (2 anycast) | No |
-| **Failover** | Instant (< 30s) | DNS-based |
+| **Failover** | Under 1 minute, no DNS caching | Origin failover (origin groups) |
 | **Protocol** | TCP, UDP | HTTP, HTTPS, WebSocket |
 
 **Global Accelerator Benefits**:

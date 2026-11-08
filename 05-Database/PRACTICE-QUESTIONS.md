@@ -62,7 +62,7 @@ D. Amazon DocumentDB
   - Scales to 10+ trillion requests/day
   - Automatic scaling
   - Multi-AZ replication built-in
-  - Serverless option (on-demand pricing)
+  - Serverless in both capacity modes (on-demand is the default)
 
 **DynamoDB Features**:
 - Key-value and document database
@@ -345,10 +345,10 @@ D. DynamoDB Auto Scaling
   - In-memory cache for DynamoDB
   - Microsecond latency (vs millisecond)
   - Fully managed, highly available
-  - No application code changes (drop-in replacement)
+  - API-compatible with DynamoDB (swap in the DAX client; minimal code changes)
 
 **DAX Benefits**:
-- 10x performance improvement for read-heavy workloads
+- Up to 10x performance improvement for read-heavy workloads
 - Reduces read load on DynamoDB
 - Eventually consistent reads
 - Write-through cache
@@ -472,7 +472,7 @@ D. RDS Cross-Region Replication
 **Best Practice for Long Retention**:
 1. Enable automated backups (35 days)
 2. Create manual snapshots for long-term
-3. Use lifecycle policies to copy to S3/Glacier
+3. Optionally use AWS Backup for scheduled snapshots with longer retention, or export snapshots to S3
 
 **Automated Backup Features**:
 - Daily full snapshot
@@ -502,10 +502,9 @@ D. Amazon Redshift
   - IoT, DevOps, analytics
   - Automatic data lifecycle management
   - Built-in time-series analytics
-  - 1000x faster, 1/10th cost vs relational
 
 **Timestream Features**:
-- Automatic tiering (memory → magnetic)
+- Automatic tiering (memory → magnetic) in Timestream for LiveAnalytics
 - Built-in time-series functions
 - Serverless, auto-scaling
 - SQL queries
@@ -521,7 +520,7 @@ D. Amazon Redshift
 - **Redshift**: Data warehouse, not optimized for time-series
 - **Timestream**: Purpose-built, best for time-series
 
-**Status**: Amazon Timestream for LiveAnalytics closed to new customers on 20 June 2025. AWS recommends Amazon Timestream for InfluxDB for new customers.
+**Status**: Amazon Timestream for LiveAnalytics closed to new customers on 20 June 2025. AWS recommends Amazon Timestream for InfluxDB for new customers. Timestream is not in the SAA-C03 v1.1 in-scope service list.
 
 **References:** Amazon Timestream, Time-Series Databases
 </details>
@@ -740,7 +739,7 @@ D. RDS Read Replicas
 **Explanation:**
 - **Aurora Read Replicas**:
   - Up to 15 replicas
-  - Low replication lag (< 10ms)
+  - Low replication lag (typically tens of milliseconds; shared storage volume)
   - Offload read traffic
   - Can have custom endpoints
 
@@ -749,8 +748,8 @@ D. RDS Read Replicas
 - Example: Analytics queries to larger instances
 
 **Reader Endpoint**:
-- Load balances across all read replicas
-- Automatic failover if primary fails
+- Load balances connections across the read replicas
+- (Failover of the writer is handled by the cluster endpoint, which repoints to the promoted replica)
 
 **Aurora Auto Scaling**:
 - Automatically add/remove replicas based on load
@@ -842,7 +841,7 @@ D. Amazon DynamoDB
 - Provides immutable, cryptographically verifiable transaction log
 - Aurora, RDS, and DynamoDB are not ledger databases
 
-**Status (November 2026)**: Amazon QLDB has been discontinued. Know it as the classic exam answer for an immutable, cryptographically verifiable ledger, but it is no longer available for new workloads.
+**Status (November 2026)**: Amazon QLDB reached end of support on 31 July 2025 and is not in the SAA-C03 v1.1 in-scope service list. Know it as the classic answer for an immutable, cryptographically verifiable ledger, but it is no longer available; AWS recommends Aurora PostgreSQL for migrations.
 
 **References:** Amazon QLDB, Ledger Database
 </details>
