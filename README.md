@@ -89,7 +89,13 @@ The modules hold about 217 Mermaid diagrams and 276 practice questions with expl
 | [Architecture pattern sheet](docs/reference/SAA-ARCHITECTURE-PATTERN-MASTER-SHEET.md) | 30 min | Common scenario-to-architecture mappings |
 | [Study roadmap](docs/study-guides/STUDY-ROADMAP.md) | – | The eight-week plan in detail |
 
-External notes worth a read: [AWS SAA-C02 Study Guide](https://github.com/keenanromain/AWS-SAA-C02-Study-Guide) by Keenan Romain, also mirrored as [rdurelli/AWS-SAA-C03-Study-Guide](https://github.com/rdurelli/AWS-SAA-C03-Study-Guide). It's a single-page service summary written for the previous exam version (SAA-C02), so check anything that may have changed against the current AWS documentation.
+External notes: the [AWS SAA-C02 Study Guide](https://github.com/keenanromain/AWS-SAA-C02-Study-Guide) by Keenan Romain, mirrored as [rdurelli/AWS-SAA-C03-Study-Guide](https://github.com/rdurelli/AWS-SAA-C03-Study-Guide). It is included as a git submodule in [external/aws-saa-c02-study-guide](external/aws-saa-c02-study-guide), which links to that repository rather than copying it. Its content belongs to its authors and carries no license. It was written for the previous exam version (SAA-C02), so check anything that may have changed against the current AWS documentation. To download it with this repository:
+
+```bash
+git clone --recurse-submodules https://github.com/vanhoangkha/aws-saa-c03-study-guide-.git
+# or, in an existing clone
+git submodule update --init
+```
 
 ## Practice test reviews
 
@@ -124,6 +130,7 @@ docs/
     reference/               quick reference, diagram index, visual guide
     exam-analysis/           topic coverage against the exam guide
 simulator/                   exam simulator (static page + question bank)
+external/                    SAA-C02 study guide (git submodule, not part of this repository)
 scripts/                     Mermaid validation and repository statistics
 index.html                   study site
 ```
