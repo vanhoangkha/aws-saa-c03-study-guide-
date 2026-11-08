@@ -133,7 +133,7 @@ The exam guide weights domains, not services: Secure Architectures 30%, Resilien
 ### Fargate
 - Serverless containers
 - Works with ECS and EKS
-- Billed per second for the vCPU and memory a task or pod requests (one-minute minimum for Linux tasks)
+- Billed per second for the vCPU, memory and ephemeral storage (above the included 20 GiB) a task or pod requests (one-minute minimum for Linux tasks)
 
 ### ECR (Elastic Container Registry)
 - Managed private registry for container images and OCI artifacts; ECR Public for public images
@@ -244,6 +244,8 @@ Pages this module was checked against (November 2026). The full list is in [docs
 - [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)
 - [Lambda pricing](https://aws.amazon.com/lambda/pricing/)
 - [Lambda asynchronous invocation](https://docs.aws.amazon.com/help-panel/lambda/latest/console/configuration-async.html)
+- [AWS Fargate pricing](https://aws.amazon.com/fargate/pricing/)
+- [EC2 Auto Scaling cooldowns](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html)
 - [ALB target group health checks](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html)
 - [ALB target group attributes (cross-zone load balancing)](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html)
 - [Amazon EKS extended support pricing](https://aws.amazon.com/blogs/containers/amazon-eks-extended-support-for-kubernetes-versions-pricing/)
