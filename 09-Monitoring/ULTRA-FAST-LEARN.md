@@ -11,15 +11,15 @@
 
 ### CloudWatch Alarms
 - **States**: OK, ALARM, INSUFFICIENT_DATA
-- **Period**: 10 sec to 1 day
-- **Actions**: SNS, Auto Scaling, EC2 action (stop/terminate/reboot)
+- **Period**: 10, 20 or 30 sec (high-resolution alarm) or any multiple of 60 sec; period x evaluation periods max 7 days (1 day if period < 1 hour)
+- **Actions**: SNS, Auto Scaling, EC2 action (stop/terminate/reboot/recover), Lambda, Systems Manager OpsItem/incident
 - **Composite alarms**: AND/OR multiple alarms
 
 ### CloudWatch Logs
 - **Log groups**: Collection of log streams
 - **Log streams**: Sequence of log events
-- **Retention**: 1 day to 10 years (never expire)
-- **Subscription filters**: Stream to Lambda, Kinesis, Firehose
+- **Retention**: 1 day to 10 years, or never expire (default)
+- **Subscription filters**: Stream to Lambda, Kinesis Data Streams, Amazon Data Firehose, OpenSearch Service
 - **Metric filters**: Extract metrics from logs
 - **CloudWatch Logs Insights**: Query language for logs
 
@@ -33,7 +33,7 @@
 - **Visualize metrics**
 - **Global** (cross-region)
 - **3 dashboards free** (up to 50 metrics)
-- **Auto-refresh**: 1 min to 15 min
+- **Auto-refresh**: 10 sec, 1, 2, 5 or 15 min
 
 ### EventBridge (CloudWatch Events)
 - **React to events** from AWS services
@@ -99,7 +99,7 @@
 ## Trusted Advisor
 - **Best practice recommendations**
 - **6 categories**: Cost optimization, performance, security, fault tolerance, service limits, operational excellence
-- **Free**: 7 core checks (Basic support; Developer support is closed to new customers and discontinued 1 Jan 2027)
+- **Free**: 6 core security checks + service limit checks (Basic support; Developer support is closed to new customers and discontinued 1 Jan 2027)
 - **Paid**: All checks (Business Support+, Enterprise Support, Unified Operations; Business support discontinued 1 Jan 2027)
 
 ### Core Checks (Free)
@@ -120,7 +120,7 @@
 
 ### SSM Key Features
 - **Manage EC2 and on-premises** servers
-- **Free** (pay for underlying resources)
+- **No extra charge for most capabilities** (some are paid, e.g. advanced parameters)
 - **SSM Agent**: Must be installed (pre-installed on Amazon Linux 2, Ubuntu)
 
 ### SSM Components
@@ -144,7 +144,7 @@
 
 **Parameter Store**
 - **Secure storage** for config/secrets
-- **Free** (standard tier)
+- **Free** (standard tier: 4 KB, 10,000 params); advanced tier $0.05/param/month, 8 KB
 - **Hierarchical** structure (`/app/prod/db-password`)
 - **Integration**: CloudFormation, Lambda, ECS
 - **SecureString**: KMS encryption
@@ -179,7 +179,7 @@
 - **CloudTrail**: API logging, 90 days free
 - **Config**: Resource configuration, compliance
 - **X-Ray**: Distributed tracing, microservices
-- **Trusted Advisor**: Best practices, 7 free checks
+- **Trusted Advisor**: Best practices, core security + service limit checks free
 - **SSM Session Manager**: SSH without SSH/bastion
 - **SSM Parameter Store**: Free config storage
 - **SSM Run Command**: Execute on multiple instances

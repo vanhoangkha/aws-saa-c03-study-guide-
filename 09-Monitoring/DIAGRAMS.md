@@ -121,7 +121,7 @@ graph TB
         
         LogGroups --> LogStreams
         
-        Retention["Retention Policies<br/>1 day to never expire<br/>Default: Never expire"]
+        Retention["Retention Policies<br/>1 day to 10 years or never expire<br/>Default: Never expire"]
         
         LogStreams --> Retention
     end
@@ -136,7 +136,7 @@ graph TB
     
     subgraph Destinations_Group["Destinations"]
         Kinesis["Kinesis Data Streams<br/>Real-time analytics"]
-        Firehose["Kinesis Firehose<br/>S3, Redshift, OpenSearch"]
+        Firehose["Amazon Data Firehose<br/>S3, Redshift, OpenSearch"]
         Lambda2["Lambda Function<br/>Custom processing"]
         S3["S3 Bucket<br/>Archive"]
     end
@@ -409,7 +409,7 @@ graph TB
         
         Rules["Config Rules<br/>Compliance Checks"]
         
-        Managed["AWS Managed Rules<br/>190+ pre-built rules"]
+        Managed["AWS Managed Rules<br/>800+ pre-built rules"]
         Custom["Custom Rules<br/>Lambda functions"]
         
         Rules --> Managed

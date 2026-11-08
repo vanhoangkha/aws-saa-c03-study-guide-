@@ -247,7 +247,7 @@ graph TB
     Tasks --> OpenSearch
     Tasks --> Kinesis
     
-    CDC["Continuous Data Capture CDC<br/>Ongoing replication<br/>Minimal downtime"] -.Feature.-> Replication
+    CDC["Change Data Capture CDC<br/>Ongoing replication<br/>Minimal downtime"] -.Feature.-> Replication
     
     classDef style1 fill:#FF9900
     class Replication style1
@@ -305,7 +305,7 @@ sequenceDiagram
     SCT->>SCT: 3. Generate migration report
     
     Note over SCT: Conversion Assessment Report
-    Note over SCT: Automatic 80%, Manual 20%
+    Note over SCT: Automatic vs manual share varies by engine pair
     
     SCT->>Target: 4. Convert and create schema
     Note over Target: Tables, indexes, constraints created
