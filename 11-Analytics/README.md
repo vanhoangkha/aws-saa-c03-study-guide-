@@ -156,7 +156,7 @@ MSCK REPAIR TABLE sales_partitioned;
 
 **1. Use Columnar Formats:**
 - Parquet or ORC instead of CSV/JSON
-- 30-90% less data scanned
+- Compressing, partitioning and converting to columnar formats saves 30-90% per query (Athena FAQ)
 - Better compression
 
 **2. Compress Data:**
@@ -437,7 +437,7 @@ Status (November 2026): Kinesis Data Analytics for SQL applications is discontin
 - **Real-time analytics on streaming data**
 - Use SQL or Apache Flink
 - Serverless, automatic scaling
-- Analyze data from Kinesis Data Streams or Firehose
+- Read from Kinesis Data Streams or Amazon MSK (Firehose input applied only to the discontinued SQL applications)
 
 **Architecture:**
 ```
@@ -461,7 +461,7 @@ Status (November 2026): Kinesis Data Analytics for SQL applications is discontin
 
 **2. Apache Flink Applications:**
 - Advanced stream processing
-- Java or Scala code
+- Java, Scala or Python code (SQL through Flink SQL / Studio notebooks)
 - Stateful computations
 - Complex event processing
 
@@ -536,7 +536,7 @@ GROUP BY
 ### Key Features
 - **Managed Cluster**: Automatic provisioning and configuration
 - **Scalable**: Add/remove instances dynamically
-- **Flexible**: Run on EC2, EKS, or Outposts
+- **Flexible**: Run on EC2, EKS, Outposts, or EMR Serverless
 - **Cost-Effective**: Use Spot Instances for task nodes
 - **Integrated**: Works with S3, DynamoDB, Redshift
 
@@ -574,7 +574,7 @@ GROUP BY
 - Coordinates distribution of data and tasks
 - Tracks status of tasks
 - Monitors cluster health
-- **Critical**: Single point of failure (use multi-master for HA)
+- **Critical**: Single point of failure unless you launch three primary nodes (EMR 5.23.0+); even then the cluster runs in one AZ
 
 **Core Nodes:**
 - Run tasks and store data in HDFS
@@ -730,7 +730,7 @@ GROUP BY
 
 ### Pricing
 - **EC2 instance costs** (On-Demand, Reserved, Spot)
-- **EMR cost**: Additional charge per instance hour
+- **EMR cost**: Additional EMR charge, billed per second with a one-minute minimum
 - **Data transfer**: Standard rates
 
 ### Exam Tips
@@ -1060,11 +1060,11 @@ Crawler (S3) → Trigger → ETL Job 1 → Trigger → ETL Job 2 → Trigger →
 - GitHub
 - ServiceNow
 - Adobe Analytics
-- Twitter
+- Snowflake, Google BigQuery, Databricks
 
 **File Uploads:**
-- CSV, TSV, Excel
-- JSON, XML
+- CSV, TSV, Excel (XLSX)
+- JSON
 - ELF, CLF (log formats)
 
 **Databases via JDBC:**
@@ -1146,7 +1146,7 @@ Crawler (S3) → Trigger → ETL Job 1 → Trigger → ETL Job 2 → Trigger →
 **Analysis:**
 - Working area to create visualizations
 - Explore and prepare data
-- Not shared with others
+- Private to the author unless shared with other authors
 
 **Dashboard:**
 - Read-only snapshot of analysis
@@ -1191,7 +1191,7 @@ Dashboard shows only relevant region data per user
 - Scheduled email delivery
 - Export to PDF, Excel
 
-### QuickSight Q
+### QuickSight Q (now Amazon Q in Quick Sight)
 - **Natural language queries**
 - Ask questions in plain English
 - Powered by ML
@@ -1205,13 +1205,13 @@ Dashboard shows only relevant region data per user
 - **SPICE**: $0.25 per GB/month
 
 **Enterprise Edition:**
-- **Authors**: $24/month per user ($18 with an annual plan)
+- **Authors**: $24/month per user (Author Pro $40 with generative BI)
 - **Readers**: $3/month per user (fixed; replaced the old $0.30-per-session price, max $5)
-- **SPICE**: $0.38 per GB/month
+- **SPICE**: 10 GB per Author included, then $0.38 per GB/month
 - Additional features: Encryption, AD integration, hourly refresh
 
 **Capacity pricing (optional):**
-- Buy reader sessions in bulk instead of per-user Reader fees
+- Buy reader sessions in bulk instead of per-user Reader fees (for example, 500 sessions for $250/month; a session is 30 minutes)
 - Suits large deployments and public embedding
 
 ### Use Cases
@@ -1284,9 +1284,10 @@ Dashboard shows only relevant region data per user
 ---
 
 ### Video transcoding: Elastic Transcoder (discontinued) and MediaConvert
-- **Amazon Elastic Transcoder** converted media files in S3 to formats for phones, tablets and browsers. AWS discontinued it on 13 November 2025
+- **Amazon Elastic Transcoder** converted media files in S3 to formats for phones, tablets and browsers. AWS discontinued it on 13 November 2025, and exam guide v1.1 removed it from scope
 - **AWS Elemental MediaConvert** is the replacement: file-based video transcoding with modern codecs, at a lower per-minute price
 - Exam pattern: "convert uploaded videos in S3 to multiple formats" means MediaConvert, typically triggered by an S3 event through Lambda or EventBridge
+- Note: AWS Elemental MediaConvert is listed as out of scope for SAA-C03 (exam guide v1.1)
 
 ---
 
@@ -1459,6 +1460,22 @@ Dashboard shows only relevant region data per user
 - Big Data Analytics Options on AWS
 - AWS Glue Best Practices
 - Building Data Lakes on AWS
+
+---
+
+## References
+- Kinesis Data Streams large records (10 MiB): https://docs.aws.amazon.com/streams/latest/dev/large-records.html
+- Kinesis Data Analytics for SQL discontinuation: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/doc-history.html
+- Managed Service for Apache Flink sources: https://docs.aws.amazon.com/managed-flink/latest/java/how-sources.html
+- Athena FAQ (30-90% savings): https://aws.amazon.com/athena/faqs/
+- EMR multiple primary nodes: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html
+- EMR pricing (per-second billing): https://aws.amazon.com/emr/pricing/
+- EC2 Reserved Instances (up to 72%): https://aws.amazon.com/ec2/pricing/reserved-instances/
+- Glue workflows started by EventBridge: https://docs.aws.amazon.com/glue/latest/dg/starting-workflow-eventbridge.html
+- Quick Sight pricing: https://aws.amazon.com/quick/quicksight/pricing/
+- Quick Sight supported data sources: https://docs.aws.amazon.com/quick/latest/userguide/supported-data-sources.html
+- OpenSearch Dashboards: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html
+- Elastic Transcoder discontinuation: https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/
 
 ---
 

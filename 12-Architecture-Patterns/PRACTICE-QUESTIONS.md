@@ -160,9 +160,9 @@ D. AWS Step Functions
 - EventBridge is an event bus for routing events
 - Supports multiple sources including AWS services and custom apps
 - Content-based filtering and routing
-- Built-in integration with 90+ AWS services
+- Ingests events from over 200 AWS services, plus SaaS partners
 - SQS is for point-to-point messaging
-- SNS is for pub/sub but limited filtering
+- SNS is pub/sub with message filtering, but has no built-in event bus for AWS service and SaaS events
 - Step Functions is for workflow orchestration
 
 **References:** Event-Driven Architecture, EventBridge
@@ -237,7 +237,7 @@ D. ALB in multiple regions
 **Answer: B**
 
 **Explanation:**
-- CloudFront is a CDN with 700+ edge locations globally
+- CloudFront is a CDN with 750+ Points of Presence globally
 - Caches content close to users worldwide
 - S3 origin for static content
 - Lowest latency for global distribution
@@ -264,7 +264,7 @@ D. Presentation and application in public, database in private subnet
 **Answer: C**
 
 **Explanation:**
-- Presentation tier (web servers) needs internet access - public subnet
+- Presentation tier is internet-facing - public subnet (best practice: only the ALB is public; web servers can sit in private subnets behind it)
 - Application tier doesn't need direct internet access - private subnet
 - Database tier must be isolated - private subnet
 - Follows defense-in-depth security principle
@@ -410,7 +410,7 @@ D. ElastiCache
 ---
 
 ### Question 16
-A company needs to ensure their web application can handle a sudden 10x traffic increase during product launches. Which architectural pattern should be implemented?
+A company needs to ensure their web application can handle sudden traffic spikes that occur at unpredictable times. Which architectural pattern should be implemented?
 
 A. Static capacity with manual scaling  
 B. Auto Scaling with target tracking based on CPU utilization  
@@ -423,13 +423,13 @@ D. Serverless architecture with Lambda and DynamoDB on-demand
 **Answer: D**
 
 **Explanation:**
-- Serverless scales automatically without pre-warming
-- Lambda scales to thousands of concurrent executions
-- DynamoDB on-demand scales with traffic
+- Serverless scales automatically with no capacity planning
+- Lambda adds up to 1,000 execution environments every 10 seconds per function (up to the account concurrency limit)
+- DynamoDB on-demand instantly handles up to double the previous peak; for larger planned jumps, pre-warm (warm throughput)
 - No capacity planning required
 - Option A doesn't scale
 - Option B has lag time for scaling
-- Option C requires predicting launch time
+- Option C requires knowing when spikes will happen
 - Serverless handles unpredictable spikes best
 
 **References:** Serverless Architecture, Elastic Scaling

@@ -1,6 +1,6 @@
 # Fast Learning - Analytics Services
 
-> **Time to Complete**: 45-60 minutes | **Exam Weight**: ~8-12%
+> **Time to Complete**: 45-60 minutes | The exam guide weights only the four domains (30/26/24/20%), not individual services
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -57,7 +57,7 @@ KEY FEATURES:
 └── Can query VPC Flow Logs, CloudTrail, ALB logs
 
 OPTIMIZATION:
-├── Use columnar formats (Parquet, ORC) - 90% cheaper
+├── Compress + partition + columnar (Parquet, ORC) - saves 30-90% per query
 ├── Compress data (GZIP, Snappy)
 ├── Partition data (by date, region, etc.)
 ├── Use larger files (> 128 MB)
@@ -126,7 +126,7 @@ FEATURES:
 ├── Pay per second (job run time)
 ├── Data Catalog (shared metadata)
 ├── Supports Spark & Python
-└── BookmarkMemory (tracks processed data)
+└── Job bookmarks (track processed data)
 ```
 
 ### 4. Amazon EMR (Elastic MapReduce)
@@ -255,7 +255,7 @@ USE LAMBDA WHEN:
 
 ### Athena Query Optimization
 ```
-COSTS COMPARISON (1 TB data):
+COSTS COMPARISON (1 TB data, illustrative; AWS quotes 30-90% savings):
 ├── CSV uncompressed: $5.00
 ├── CSV compressed (GZIP): $1.25 (75% saving)
 ├── Parquet uncompressed: $0.50 (90% saving)
@@ -270,16 +270,16 @@ PERFORMANCE:
 ### Redshift Distribution Styles
 | Style | When to Use | Example |
 |-------|-------------|---------|
-| **EVEN** | No clear join patterns | Fact table (default) |
+| **EVEN** | No clear join patterns | Large table without a good join key |
 | **KEY** | Frequently joined tables | Join on customer_id |
 | **ALL** | Small dimension tables | Broadcast to all nodes |
-| **AUTO** | Let Redshift decide | Most cases |
+| **AUTO** | Let Redshift decide (default) | Most cases |
 
 ### QuickSight Quick Facts
 ```
 WHAT: Business Intelligence (BI) service
 PRICING: Per user (Enterprise Readers $3/month)
-USERS: Standard Author ($9/user annual), Enterprise Author ($24/user, $18 annual)
+USERS: Standard Author ($9/user annual, $12 monthly), Enterprise Author ($24/user/month)
 
 DATA SOURCES:
 ├── Athena, Redshift, RDS
@@ -290,7 +290,7 @@ DATA SOURCES:
 FEATURES:
 ├── ML Insights (anomaly detection)
 ├── Embedded analytics
-├── SPICE (in-memory, 10 GB free/user)
+├── SPICE (in-memory, 10 GB included per Author)
 ├── Auto-refresh
 └── Mobile apps
 
@@ -312,7 +312,7 @@ FEATURES:
 ├── Automated snapshots to S3
 ├── Encryption at rest & transit
 ├── Fine-grained access control
-└── Integrated with Kibana
+└── OpenSearch Dashboards (Kibana on legacy Elasticsearch domains)
 
 NOT A REPLACEMENT FOR:
  Relational database (use RDS)
@@ -339,10 +339,10 @@ NOT A REPLACEMENT FOR:
    YES → Athena, Glue, QuickSight
    NO → Redshift, EMR, OpenSearch
    
-4. Data size?
-   < 1 TB → Athena
-   TB to PB → Redshift
-   PB+ → EMR or Redshift
+4. Query pattern? (Athena also scales to PB of data in S3)
+   Ad-hoc / infrequent → Athena
+   Frequent, complex BI joins → Redshift
+   Custom big data frameworks → EMR
 ```
 
 ### Common Analytics Patterns
@@ -424,7 +424,7 @@ INTEGRATES WITH:
 Status (November 2026): Kinesis Data Analytics for SQL applications is discontinued (no new apps from 15 Oct 2025, apps deleted from 27 Jan 2026). Use Amazon Managed Service for Apache Flink, or Managed Service for Apache Flink Studio for SQL.
 ```
 WHAT: Real-time analytics on streaming data
-INPUT: Kinesis Data Streams, Amazon Data Firehose
+INPUT: Kinesis Data Streams, Amazon MSK
 QUERY: Apache Flink (Java, Python, SQL)
 
 USE CASES:
