@@ -4,7 +4,7 @@
 
 AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, and Load Balancers.
 
-**Exam Weight**: ~20-25%
+The exam guide weights domains, not services: Secure Architectures 30%, Resilient Architectures 26%, High-Performing Architectures 24%, Cost-Optimized Architectures 20%. Compute topics appear in all four.
 
 ---
 
@@ -32,14 +32,14 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 | Model | Discount | Use Case |
 |-------|----------|----------|
 | On-Demand | None | Short-term, unpredictable |
-| Reserved (1-3 yr) | Up to 72% | Steady state |
+| Reserved (1-3 yr) | Up to 72% (Standard), up to 66% (Convertible) | Steady state |
 | Savings Plans | Up to 72% (EC2 Instance SP), up to 66% (Compute SP) | Flexible commitment |
 | Spot | Up to 90% | Fault-tolerant workloads |
-| Dedicated | None | Compliance, licensing |
+| Dedicated Hosts | On-Demand per host, or up to 70% off with a Dedicated Host Reservation | Compliance, licensing |
 
 ### Placement Groups
-- **Cluster**: Low latency, same AZ
-- **Spread**: Max 7/AZ, critical apps
+- **Cluster**: Low latency, same AZ (same high-bisection network segment, not a single rack)
+- **Spread**: Max 7 running instances per AZ per group, critical apps
 - **Partition**: Distributed apps (Hadoop, Kafka)
 
 ### Hibernate
@@ -63,7 +63,7 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 - Min/Desired/Max capacity
 - Health checks
 - Lifecycle hooks
-- Cooldown periods (default 300s)
+- Cooldown periods (default 300s, used by simple scaling)
 
 ---
 
@@ -74,12 +74,12 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 | ALB | 7 (HTTP/HTTPS) | Microservices, containers | Path/host routing, Lambda targets |
 | NLB | 4 (TCP/UDP) | Extreme performance | Static IP, millions req/sec |
 | GWLB | 3 (Network) | Virtual appliances | Firewalls, IDS |
-| CLB | 4 & 7 | Legacy | Not recommended |
+| CLB | 4 & 7 | Previous generation | Not recommended |
 
 ### Features
 - Health checks
 - Sticky sessions
-- Cross-zone load balancing
+- Cross-zone load balancing (ALB: always on at the load balancer, can be turned off per target group; NLB and GWLB: off by default)
 - SSL/TLS termination
 
 ---
@@ -88,18 +88,20 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 
 ### Limits
 - Max execution: **15 minutes**
-- Memory: 128 MB - 10 GB
-- /tmp storage: 512 MB - 10 GB
-- Concurrent executions: 1,000 (default)
+- Memory: 128 MB - 10,240 MB (CPU scales with memory; 1,769 MB = 1 vCPU)
+- /tmp storage: 512 MB - 10,240 MB
+- Concurrent executions: 1,000 per Region (default, can be raised; new accounts may start lower)
+- Deployment package: 50 MB zipped (direct upload), 250 MB unzipped including layers; container images up to 10 GB
 
 ### Invocation Types
 1. **Synchronous**: API Gateway, CLI
 2. **Asynchronous**: S3, SNS, EventBridge
 3. **Event Source Mapping**: SQS, Kinesis, DynamoDB Streams
 
-### Pricing
+### Pricing (x86, US East (N. Virginia), first tier)
 - $0.20 per 1M requests
-- $0.00001667 per GB-second
+- $0.0000166667 per GB-second
+- Free tier: 1M requests and 400,000 GB-seconds per month
 
 ---
 
@@ -119,12 +121,12 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 ### EKS (Elastic Kubernetes Service)
 - Managed Kubernetes
 - Compatible with standard K8s
-- $0.10/hour cluster cost
+- $0.10 per cluster per hour while the Kubernetes version is in standard support, $0.60 in extended support
 
 ### Fargate
 - Serverless containers
 - Works with ECS and EKS
-- Pay per task
+- Pay for the vCPU and memory a task or pod requests, per second
 
 ---
 
@@ -138,9 +140,10 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 ### AWS Batch
 - Managed batch computing
 - Automatic resource provisioning
-- Uses Spot instances for cost savings
+- Can use EC2 On-Demand, Spot or Fargate capacity (Spot for cost savings)
 
 ### Lightsail
+- Out of scope for SAA-C03 (listed as out of scope in the exam guide)
 - Simple VPS
 - Fixed monthly pricing
 - Pre-configured templates
@@ -177,7 +180,7 @@ Need compute?
 - **Serverless containers** → Fargate
 
 ### Key Points
-- EC2 instance store = ephemeral (lost on stop)
+- EC2 instance store = ephemeral (lost on stop, hibernate or terminate)
 - EBS = persistent block storage (AZ-specific)
 - T instances = burstable CPU
 - Spot instances = 2-minute warning before termination
@@ -192,4 +195,22 @@ Need compute?
 **Difficulty**: 3/3
 
 [Previous: IAM](../02-IAM/README.md) | [Next: Storage ](../04-Storage/README.md) | [Main](../README.md)
+
+## References
+
+Pages this module was checked against (November 2026). The full list is in [docs/REFERENCES.md](../docs/REFERENCES.md).
+
+- [Savings Plans and Reserved Instances (Cost Optimization whitepaper)](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/savings-plans.html)
+- [Sell Reserved Instances in the RI Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html)
+- [EC2 placement strategies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-strategies.html)
+- [EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html)
+- [Amazon EC2 T3 instances](https://aws.amazon.com/ec2/instance-types/t3/)
+- [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)
+- [Lambda pricing](https://aws.amazon.com/lambda/pricing/)
+- [Lambda asynchronous invocation](https://docs.aws.amazon.com/help-panel/lambda/latest/console/configuration-async.html)
+- [ALB target group health checks](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html)
+- [ALB target group attributes (cross-zone load balancing)](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html)
+- [Amazon EKS extended support pricing](https://aws.amazon.com/blogs/containers/amazon-eks-extended-support-for-kubernetes-versions-pricing/)
+- [The 7 Rs migration strategies](https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html)
+- [Migrate an Amazon QLDB ledger to Amazon Aurora PostgreSQL](https://aws.amazon.com/blogs/database/migrate-an-amazon-qldb-ledger-to-amazon-aurora-postgresql/)
 
