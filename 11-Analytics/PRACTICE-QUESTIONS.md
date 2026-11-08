@@ -132,7 +132,7 @@ D. Use Athena workgroups
 - WHERE clause with partition keys limits scan to specific partitions
 - Dramatically reduces data scanned and costs
 - Example: WHERE year='2024' AND month='01'
-- S3 Select reduces transfer but doesn't work with Athena
+- S3 Select filters a single object, not a table of partitioned data, and is no longer available to new customers
 - Intelligent-Tiering is for storage costs
 - Workgroups organize queries but don't optimize scans
 
@@ -235,8 +235,8 @@ D. Crawlers cannot be triggered automatically
 **Answer: B**
 
 **Explanation:**
-- EventBridge (formerly CloudWatch Events) can trigger on S3 events
-- S3 PutObject events can invoke Glue Crawler
+- An EventBridge rule matching S3 PutObject events can target a Glue workflow whose EVENT trigger starts the crawler
+- (S3 data events reach EventBridge through a CloudTrail trail)
 - Automated schema discovery when new data arrives
 - Manual running isn't automatic
 - Config tracks configuration, doesn't trigger workflows
@@ -359,7 +359,7 @@ D. Amazon Athena
 ---
 
 ### Question 14
-A company collects application logs in CloudWatch Logs and wants to analyze them using SQL queries. What is the MOST cost-effective solution?
+A company collects application logs in CloudWatch Logs. The logs must be kept for 7 years and are analyzed only occasionally using SQL queries. What is the MOST cost-effective solution?
 
 A. Keep logs in CloudWatch and use Logs Insights  
 B. Export logs to S3 and query with Athena  
@@ -376,7 +376,7 @@ D. Load logs into Redshift
 - Export to S3 significantly reduces storage costs
 - Athena queries S3 data with SQL ($5/TB scanned)
 - Most cost-effective for infrequent analysis
-- Logs Insights is good for recent logs
+- Logs Insights is good for recent logs, but long-term retention in CloudWatch Logs costs more than S3
 - Kinesis adds streaming costs
 - Redshift requires cluster costs
 
@@ -672,5 +672,5 @@ D. AWS Glue Streaming
 - Glue Crawlers automatically discover schemas
 - EMR for Apache Spark/Hadoop workloads
 - QuickSight for dashboards and BI
-- Parquet/ORC formats reduce costs 30-90% vs CSV/JSON
+- Compression, partitioning and columnar formats (Parquet/ORC) save 30-90% per query
 

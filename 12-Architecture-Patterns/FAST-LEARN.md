@@ -1,6 +1,6 @@
 # Fast Learning - Architecture Patterns
 
-> **Time to Complete**: 60-75 minutes | **Exam Weight**: ~25-30%
+> **Time to Complete**: 60-75 minutes | The exam guide weights only the four domains (30/26/24/20%), not individual topics
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -188,7 +188,7 @@ MULTI-REGION (survive a regional failure / go global):
 ├── Route 53: failover, latency, weighted routing
 ├── Global Accelerator: static anycast IPs
 ├── DynamoDB Global Tables: multi-Region active-active
-├── Aurora Global Database: < 1 second replication lag
+├── Aurora Global Database: typically < 1 second replication lag
 └── CloudFront: edge locations worldwide
 
 ACTIVE-ACTIVE: all sites serve traffic (Route 53 weighted / latency)
@@ -381,7 +381,7 @@ DAX latency:                microseconds
 | Active-Passive | Route 53 failover | Standby Region waits |
 | Active-Active | Route 53 weighted/latency | Both Regions serve traffic |
 | Big data pipeline | Kinesis → Lambda/Analytics → S3 → Athena → QuickSight | Ingest, process, store, query, visualize |
-| Video streaming | S3 + CloudFront + MediaConvert + Cognito | Signed URLs restrict access |
+| Video streaming | S3 + CloudFront + MediaConvert + Cognito | Signed URLs restrict access (MediaConvert is out of scope for SAA-C03) |
 | E-commerce | CloudFront/S3, API Gateway/Lambda, DynamoDB + RDS, OpenSearch, ElastiCache | Right DB per job |
 
 ## 5-Minute Master Review
@@ -441,5 +441,5 @@ DAX latency:                microseconds
 6) Multi-AZ (Read Replicas are for read scaling)
 7) Backup and Restore
 8) 15 minutes
-9) AWS Cloud Map (or ECS Service Discovery)
+9) AWS Cloud Map (or ECS Service Discovery); note Cloud Map is listed as out of scope for SAA-C03
 10) Aurora Global Database

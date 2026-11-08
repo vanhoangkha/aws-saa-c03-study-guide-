@@ -41,7 +41,7 @@
 ### Managed Service for Apache Flink (formerly Kinesis Data Analytics)
 - **Status**: Kinesis Data Analytics for SQL applications is discontinued (apps deleted from 27 Jan 2026)
 - **Real-time** stream processing with Apache Flink (Java, Python, SQL)
-- **Input**: Kinesis Streams or Firehose
+- **Input**: Kinesis Data Streams or Amazon MSK
 - **Output**: Kinesis Streams, Firehose, Lambda
 - **Use case**: Real-time dashboards, metrics, alerts
 
@@ -111,7 +111,7 @@
 - **Search and analytics** engine
 - **Use cases**: Log analytics, full-text search, real-time app monitoring
 - **Managed service**: Previously called Elasticsearch Service
-- **Kibana**: Visualization (included)
+- **OpenSearch Dashboards**: Visualization (included; Kibana on legacy Elasticsearch domains)
 - **Integration**: Kinesis Firehose, Lambda, CloudWatch Logs
 
 ## AWS Data Pipeline
@@ -136,7 +136,7 @@
 | Management | More control | Fully managed |
 | Compatibility | Apache Kafka | AWS proprietary |
 | Use case | Kafka migration | New AWS apps |
-| Cost | Generally cheaper | Pay for shards |
+| Cost | Broker-hours + storage (or MSK Serverless) | Shard-hours (provisioned) or per GB (on-demand) |
 
 ## AWS Batch
 - **Batch processing** at any scale
@@ -154,7 +154,7 @@
 - **Redshift**: Data warehouse, OLAP, columnar
 - **Redshift Spectrum**: Query S3 without loading
 - **QuickSight**: Serverless BI, SPICE engine
-- **OpenSearch**: Search, log analytics, Kibana
+- **OpenSearch**: Search, log analytics, OpenSearch Dashboards
 - **Lake Formation**: Build data lakes, centralized permissions
 - **MSK**: Managed Kafka (migrate existing workloads)
 - **AWS Batch**: Batch jobs, EC2/Spot provisioning

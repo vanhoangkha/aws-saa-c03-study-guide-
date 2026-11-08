@@ -48,7 +48,7 @@
 
 ### 3-Tier Web Application
 ```
-Users → CloudFront → Route 53
+Users → Route 53 → CloudFront
   ↓
 ALB (Public Subnet)
   ↓
@@ -218,7 +218,7 @@ CloudFront (WAF) → ALB (SG) → Private Subnet (NACL) → EC2 (SG) → Data (E
 ### Scenario 2: Video Streaming
 - **Storage**: S3
 - **CDN**: CloudFront
-- **Transcoding**: MediaConvert or Lambda
+- **Transcoding**: MediaConvert or Lambda (MediaConvert is out of scope for SAA-C03)
 - **Auth**: Cognito
 - **Signed URLs**: Restrict access
 

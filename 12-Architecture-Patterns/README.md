@@ -44,7 +44,7 @@ This module covers common AWS architecture patterns and design principles essent
                   │
 ┌─────────────────▼───────────────────────────┐
 │         Presentation Tier (Web)             │
-│  CloudFront → Route 53 → ALB → EC2/ECS     │
+│  Route 53 → CloudFront → ALB → EC2/ECS     │
 │              Auto Scaling Group             │
 └─────────────────┬───────────────────────────┘
                   │
@@ -211,7 +211,7 @@ This module covers common AWS architecture patterns and design principles essent
 ### Microservices Tools
 - **Compute**: Lambda, ECS, EKS
 - **API Management**: API Gateway, ALB
-- **Service Discovery**: AWS Cloud Map, ECS Service Discovery
+- **Service Discovery**: AWS Cloud Map, ECS Service Discovery (Cloud Map is listed as out of scope for SAA-C03)
 - **Communication**: SQS, SNS, EventBridge
 - **Orchestration**: Step Functions
 - **Monitoring**: CloudWatch, X-Ray
@@ -301,7 +301,7 @@ Primary Region: us-east-1        Standby Region: us-west-2
 - **AWS Backup**: Centralized backup
 - **S3 Cross-Region Replication**: Data replication
 - **RDS Read Replicas**: Database replication (can promote)
-- **Aurora Global Database**: < 1 second lag
+- **Aurora Global Database**: typically < 1 second lag
 - **DynamoDB Global Tables**: Multi-region active-active
 - **Route 53**: DNS failover
 - **CloudFormation**: Infrastructure as Code for quick deployment
@@ -435,17 +435,17 @@ User Request
 - S3 for data storage (lifecycle to Glacier)
 - Lambda for job orchestration
 - Step Functions for workflow
-- CloudWatch Events for scheduling
+- EventBridge Scheduler for scheduling
 
 ### Scenario 3: Highly Available Database
 **Requirements**: Zero data loss, <1 min RTO
 
 **Solution**:
 - Aurora with Multi-AZ
-- Aurora Read Replicas across regions
+- Aurora Global Database for cross-Region DR
 - Route 53 failover routing
 - Automated backups with PITR
-- Cross-region replica promotion for DR
+- Promote the secondary Region (Global Database failover) for DR
 
 ### Scenario 4: Serverless API
 **Requirements**: Unpredictable traffic, pay per use
@@ -514,6 +514,16 @@ User Request
  Think cloud-native (leverage AWS services)  
 
 ---
+
+## References
+- DR strategies whitepaper: https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html
+- RTO by DR strategy: https://aws.amazon.com/what-is/recovery-time-objective/
+- CloudFront PoPs: https://aws.amazon.com/cloudfront/features/
+- EventBridge FAQ: https://aws.amazon.com/eventbridge/faqs/
+- API Gateway REST API quotas: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-execution-service-limits-table.html
+- DynamoDB on-demand scaling: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html
+- Lambda scaling rate: https://docs.aws.amazon.com/lambda/latest/dg/scaling-behavior.html
+- App Mesh end of support: https://docs.aws.amazon.com/app-mesh/latest/userguide/doc-history.html
 
 ## Additional Resources
 
