@@ -4,7 +4,7 @@
 **Score:** 34/65 (52.31%) - **FAILED**  
 **Time Taken:** 130 minutes  
 **Status:** Below passing threshold  
-**Passing Score:** 72% (need 47/65 correct)
+**Passing Score:** 720/1000 scaled score (not a raw 72%; about 47/65 is a rough guide)
 
 ---
 
@@ -16,7 +16,7 @@
 | **Correct Answers** | 34 (52.31%) |
 | **Incorrect Answers** | 31 (47.69%) |
 | **Pass/Fail** | **FAIL**  |
-| **Passing Score** | 72% |
+| **Passing Score** | 720/1000 (scaled) |
 | **Gap to Pass** | -19.69% (need 13 more correct) |
 | **Time Used** | 130 minutes (2 hours 10 minutes) |
 
@@ -186,15 +186,15 @@ You have a primary website in us-east-1 and a standby in us-west-2. You want aut
 |--------|------------------------|----------------------|
 | **Configuration** | Enable on alias record | Create Route 53 health check resource |
 | **Complexity** | Simple - 1 checkbox | Complex - additional resource |
-| **Cost** | FREE (included with alias) | $0.50/month per check |
-| **Use Case** | Alias to ALB/CloudFront/S3 | Non-AWS endpoints, IP addresses |
+| **Cost** | FREE (included with alias) | $0.50/month (AWS) or $0.75/month (non-AWS) per check |
+| **Use Case** | Alias to ALB/NLB/S3 website (not CloudFront) | Non-AWS endpoints, IP addresses |
 | **Monitoring** | Uses target's health | Custom endpoint monitoring |
 | **Best For** | AWS resources with health checks | External websites, on-premises |
 
 **Decision Flow:**
 
 ```
-Is your target an AWS resource (ALB/CloudFront/API Gateway)?
+Is your target an AWS resource (ALB/NLB/API Gateway; not CloudFront)?
 │
 ├─ YES ──► Use "Evaluate Target Health"
 │           └─ No separate health check needed
@@ -204,7 +204,7 @@ Is your target an AWS resource (ALB/CloudFront/API Gateway)?
 └─ NO ───► Create explicit Route 53 Health Check
             └─ Monitor IP address or domain
             └─ Configure health check settings
-            └─ Costs $0.50/month
+            └─ Costs $0.75/month (non-AWS endpoint)
 ```
 
 **Configuration Steps:**
@@ -339,7 +339,7 @@ A company needs to increase VPN throughput from on-premises to AWS from 1.25 Gbp
 │     Packet 51-75 ───► VPN Tunnel 3                │
 │     Packet 76-100 ──► VPN Tunnel 4                │
 │                                                     │
-│  Distribution: Equal across all equal-cost paths   │
+│  Distribution: per flow (5-tuple hash), not packet │
 │  Protocol: BGP advertises same AS path length      │
 │  Result: 4x throughput increase                    │
 │                                                     │
@@ -395,7 +395,7 @@ Total: 4 tunnels × 1.25 Gbps = 5 Gbps aggregate
 
 **KEY TAKEAWAYS:**
 - Transit Gateway supports ECMP, VPG does NOT
-- Yes: Each VPN tunnel = 1.25 Gbps max
+- Yes: Each standard VPN tunnel = 1.25 Gbps max (Large Bandwidth tunnels on TGW/Cloud WAN: up to 5 Gbps)
 - Yes: ECMP = Load balance across multiple equal-cost paths
 - Yes: Requires BGP with ECMP on customer gateway
 - Yes: For 5 Gbps: Need 4 active tunnels (2 VPN connections)
@@ -480,7 +480,7 @@ An application in a private subnet needs to access AWS services without internet
 │      └─────┬──────┘          └─────────────┘   │
 └────────────┼───────────────────────────────────┘
              │
-             │ AWS PrivateLink
+             │ AWS network (no PrivateLink)
              ▼
         ┌─────────┐         ┌──────────────┐
         │   S3    │         │  DynamoDB    │
@@ -848,7 +848,7 @@ Update Rules:
 
 | Limitation | Description |
 |------------|-------------|
-| **Export name must be unique** | Within a region, export names must be globally unique |
+| **Export name must be unique** | Export names must be unique per account and Region |
 | **Can't delete exporting stack** | If any stack imports the value, can't delete exporting stack |
 | **Can't modify export name** | Can't change export name while any stack imports it |
 | **Region-specific** | Exports only work within the same region |
@@ -956,7 +956,7 @@ Account A needs to allow Account B to send messages to its SQS queue. What's the
       "Sid": "AllowAccountBToSendMessages",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::222222222222:root"  // Account B
+        "AWS": "arn:aws:iam::222222222222:root"
       },
       "Action": [
         "sqs:SendMessage",
@@ -977,7 +977,7 @@ Account A needs to allow Account B to send messages to its SQS queue. What's the
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::222222222222:role/LambdaExecutionRole"  // Specific role in Account B
+        "AWS": "arn:aws:iam::222222222222:role/LambdaExecutionRole"
       },
       "Action": [
         "sqs:SendMessage",
@@ -1110,7 +1110,7 @@ Need cross-account SQS access?
 | **KMS** | YES | Key Policy |
 | **Secrets Manager** | YES | Resource Policy |
 | **EC2** | NO | Must use IAM roles |
-| **DynamoDB** | NO | Must use IAM roles |
+| **DynamoDB** | YES | Resource-based policy (tables and streams) |
 
 **KEY TAKEAWAYS:**
 - Yes: **SQS Queue Policy (resource-based)** = Simpler, preferred for SQS access
@@ -1363,8 +1363,8 @@ Termination policies control **which instances** Auto Scaling terminates during 
 │  ┌──────────────────────────────────────┐                  │
 │  │  Step 1: Select AZ                   │                  │
 │  │  - Pick AZ with most instances       │                  │
-│  │  - Or AZ with instances closest to   │                  │
-│  │    next billing hour                 │                  │
+│  │  - (unprotected instances only)      │                  │
+│  │                                      │                  │
 │  └──────────────────────────────────────┘                  │
 │      ↓                                                       │
 │  ┌──────────────────────────────────────┐                  │
@@ -1897,7 +1897,7 @@ def handler(event, context):
 | Provider | Use Case | Example |
 |----------|----------|---------|
 | **Lambda Function** | Most common, full control | Call APIs, complex logic |
-| **SNS Topic** | Notify external systems (not for returning values) | Trigger workflows |
+| **SNS Topic** | Notify an external handler (it must send the response, data included) | Trigger workflows |
 | **EventBridge (via Lambda)** | Coordinate with other AWS services | Multi-step provisioning |
 
 **Best Practices:**
@@ -2000,7 +2000,7 @@ VPC Peering creates a direct network connection between two VPCs, allowing resou
 |---------|---------------------|----------------------|
 | **Regions** | Both VPCs in same region | VPCs in different regions |
 | **Latency** | <1ms | Region-dependent (5-100ms) |
-| **Data Transfer Cost** | Free | $0.01-0.02/GB |
+| **Data Transfer Cost** | Free within an AZ; $0.01/GB each way across AZs | $0.01-0.02/GB |
 | **Encryption** | Optional | **Always encrypted** |
 | **Bandwidth** | No limit | No limit (AWS backbone) |
 | **Use Cases** | Multi-VPC architecture | **Cross-region DR, EFS access** |
@@ -2225,7 +2225,7 @@ echo "10.0.1.50:/ /mnt/efs nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,tim
  **Non-transitive**: If VPC-A ←→ VPC-B and VPC-B ←→ VPC-C, VPC-A **cannot** reach VPC-C
  **No overlapping CIDR**: VPCs must have non-overlapping IP ranges
  **No edge-to-edge routing**: Can't route through VPN, Direct Connect, or Internet Gateway
- **Limit**: 125 peering connections per VPC (can be increased)
+ **Limit**: 50 active peering connections per VPC by default (adjustable up to 125)
 
 ```
 Example of Non-Transitivity:
@@ -2234,7 +2234,7 @@ Example of Non-Transitivity:
 │                                                             │
 │ VPC-A can talk to VPC-B                                     │
 │ VPC-B can talk to VPC-C                                     │
-│ VPC-A can talk to VPC-C  (no direct peering)               │
+│ VPC-A cannot talk to VPC-C  (no direct peering)            │
 │                                                             │
 │  Solution: Create direct peering VPC-A ←→ VPC-C            │
 │  Or use Transit Gateway for hub-and-spoke model            │
@@ -2265,8 +2265,8 @@ EFS Replication:
 | Metric | Same-Region EFS | Cross-Region (VPC Peering) |
 |--------|-----------------|----------------------------|
 | **Latency** | 0.5-1ms | 50-100ms (region-dependent) |
-| **Throughput** | Up to 10 GB/s | Limited by inter-region bandwidth |
-| **IOPS** | Up to 500,000 | Same, but higher latency |
+| **Throughput** | Up to 60 GiB/s read (Elastic, Region-dependent) | Limited by inter-region bandwidth |
+| **IOPS** | Up to 250,000 read by default (Elastic) | Same, but higher latency |
 | **Best For** | Low-latency apps | Cross-region DR, batch processing |
 
 **Troubleshooting Cross-Region EFS Access:**
@@ -2422,11 +2422,11 @@ S3 Transfer Acceleration Use Case:
 
 | Requirement | Details |
 |-------------|---------|
-| **Node Type** | RA3.xlplus, RA3.4xlarge, RA3.16xlarge |
-| **Redshift Version** | Automatically enabled on RA3 nodes |
+| **Node Type** | RA3.4xlarge, RA3.16xlarge (certain Regions only) |
+| **Redshift Version** | Setting: Automatic (default), Turn on, Turn off |
 | **Cluster Type** | Multi-node clusters (not single-node) |
 | **Storage** | Redshift Managed Storage (RMS) on S3 |
-| **Configuration** | No setup needed - enabled by default |
+| **Configuration** | No extra charge; per AWS docs the Automatic default currently never turns AQUA on, so choose Turn on |
 
 **Redshift RA3 Nodes (AQUA-enabled):**
 
@@ -2439,7 +2439,7 @@ S3 Transfer Acceleration Use Case:
 │    - vCPU: 4                                                │
 │    - Memory: 32 GB                                          │
 │    - Managed Storage: Unlimited (S3)                        │
-│    - AQUA: Enabled                                           │
+│    - AQUA: Not supported                                     │
 │    - Use: Small-medium workloads                            │
 │                                                              │
 │  RA3.4xlarge:                                               │
@@ -2602,11 +2602,11 @@ DC2.8xlarge (without AQUA):
 
 RA3.4xlarge (with AQUA):
   - 2 nodes × $3.26/hour = $6.52/hour
-  - Storage: Unlimited (S3) = $0.30/GB = $3,000/month
+  - Storage: Unlimited (RMS) = $0.024/GB-month = ~$246/month
   - Query time: 1 minute (10x faster!)
-  - Monthly: ($6.52 × 730) + $3,000 = $7,760
+  - Monthly: ($6.52 × 730) + $246 = ~$5,006
 
- RA3 costs slightly more but:
+ RA3 costs less here and gives:
   - 10x faster queries
   - Unlimited storage
   - AQUA acceleration included
@@ -2821,7 +2821,7 @@ aws ec2 attach-volume \
 | **Volume Type** | io1, io2, or io2 Block Express only |
 | **Instances** | Up to 16 instances per volume |
 | **Availability Zone** | All instances must be in **same AZ** |
-| **Instance Types** | Most instance types supported (excludes some burstable) |
+| **Instance Types** | Nitro-based instances only |
 | **File System** | Must use cluster-aware file system (GFS2, OCFS2) |
 | **Application** | Must handle concurrent access (locking) |
 
@@ -2929,19 +2929,19 @@ Limitations:
 │                                                             │
 │  1  Same AZ only:                                          │
 │     ┌──────────┐    ┌──────────┐                          │
-│     │ us-east-1a│   │ us-east-1a│                            │
+│     │ us-east-1a│ Yes │ us-east-1a│                          │
 │     └──────────┘    └──────────┘                          │
 │          ↓               ↓                                  │
 │      [io2 Multi-Attach]                                    │
 │                                                             │
 │     ┌──────────┐    ┌──────────┐                          │
-│     │ us-east-1a│   │ us-east-1b│ (Different AZ!)          │
+│     │ us-east-1a│ No  │ us-east-1b│ (Different AZ!)        │
 │     └──────────┘    └──────────┘                          │
 │                                                             │
 │  2  Maximum 16 instances per volume                        │
 │                                                             │
-│  3  Cannot enable Multi-Attach after volume creation       │
-│     (Must create new volume with --multi-attach-enabled)   │
+│  3  Enable at creation, or later on io1/io2 only while     │
+│     the volume is not attached to any instance             │
 │                                                             │
 │  4  No boot volumes (data volumes only)                    │
 │                                                             │
@@ -2959,8 +2959,8 @@ Limitations:
 Single gp3 Volume (your wrong answer):
 ┌────────────────────────────────────────────────────────────┐
 │  Performance:                                              │
-│    - IOPS: 16,000 (max)                                   │
-│    - Throughput: 1,000 MB/s                                │
+│    - IOPS: 80,000 (max)                                   │
+│    - Throughput: 2,000 MiB/s                               │
 │    - Latency: Single-digit ms                              │
 │    - Cost: $0.08/GB-month + $0.005/IOPS (above 3,000)     │
 │  Attachment: Single instance only                          │
@@ -2970,8 +2970,8 @@ Single gp3 Volume (your wrong answer):
 io2 Multi-Attach Volume (correct answer):
 ┌────────────────────────────────────────────────────────────┐
 │  Performance:                                              │
-│    - IOPS: 64,000 (per volume, shared across instances)   │
-│    - Throughput: 1,000 MB/s                                │
+│    - IOPS: 256,000 (per volume, shared across instances)  │
+│    - Throughput: 4,000 MiB/s                               │
 │    - Latency: Sub-millisecond                              │
 │    - Cost: $0.125/GB-month + $0.065/IOPS                   │
 │  Attachment: Up to 16 instances simultaneously             │
@@ -3105,6 +3105,8 @@ You need to discover on-premises VMware virtual machines for migration planning.
 **What is AWS Application Discovery Service?**
 
 Application Discovery Service helps you plan migrations by collecting configuration, usage, and behavior data from your on-premises servers. It offers two discovery modes: **Agent-based** and **Agentless**.
+
+**Status (2026):** Application Discovery Service and Migration Hub are closed to new customers; AWS Transform is the AWS-named replacement. Keep this content for the exam.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -3359,24 +3361,24 @@ tail -f /var/log/aws/discovery/agent.log
 # Query network connections
 aws discovery list-configurations \
   --configuration-type SERVER \
-  --filters name=server.configurationId,values=d-server-1234
+  --filters name=server.configurationId,values=d-server-1234,condition=EQUALS
 
 # Get network connection map
-aws discovery describe-network-connections \
-  --configuration-ids d-server-1234
+aws discovery list-server-neighbors \
+  --configuration-id d-server-1234
 
 # Output:
 {
-  "connections": [
+  "neighbors": [
     {
       "sourceServerId": "d-server-1234",
       "destinationServerId": "d-server-5678",
-      "sourcePort": 443,
       "destinationPort": 3306,
-      "protocol": "TCP",
-      "connectionCount": 1523
+      "transportProtocol": "TCP",
+      "connectionsCount": 1523
     }
-  ]
+  ],
+  "knownDependencyCount": 1
 }
 ```
 
@@ -4178,7 +4180,7 @@ Amazon Rekognition is an AI/ML service for image and video analysis. It offers b
 | **Setup** | Zero setup, use immediately | Train model, wait 30-120 min |
 | **Accuracy** | High for common objects | **High for your custom objects** |
 | **Use Case** | General object detection | Brand logos, defects, custom items |
-| **Cost** | $1/1000 images | $4/hour training + $4/hour inference |
+| **Cost** | $1/1000 images | $1/hour training + $4/hour per inference unit |
 | **Your Scenario** | Can't detect custom logos | Detects your brand logos |
 
 **Why Object Detection Won't Work:**
@@ -4727,11 +4729,11 @@ If question mentions "custom," "brand-specific," "company logo," or "you have la
    - Applied SCP to management account (incorrect)
    - Must know SCPs don't affect management account
 
-3. **S3 Glacier Vault Lock Policies** - Question 18
+3. **S3 Glacier Vault Lock Policies** - Question 18 (the vault-based Amazon Glacier service is closed to new customers; new archives use S3 Glacier storage classes with S3 Object Lock)
    - Selected retention tag instead of LegalHold
    - Need to understand vault lock vs access policies
 
-4. **CloudTrail vs CloudTrail Lake** - Question 37
+4. **CloudTrail vs CloudTrail Lake** - Question 37 (CloudTrail Lake closed to new customers since 31 May 2026)
    - Selected CloudTrail with S3 instead of CloudTrail Lake
    - Must understand querying capabilities
 
@@ -4836,8 +4838,8 @@ Rate-Based Rules:
 │    Attacker IP: 203.0.113.50                               │
 │    Sends 150 requests to /api/login in 5 minutes          │
 │    Threshold: 100 requests per 5 minutes                   │
-│    Result: IP blocked for 10 minutes                       │
-│    After 10 min: IP unblocked, counter resets             │
+│    Result: IP blocked while its rate stays above limit    │
+│    Unblocked once rate in the window falls below limit    │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -4900,16 +4902,16 @@ Rate-Based Rules:
 │ │  Request #100: Count = 100  Allow    │                   │
 │ │  Request #101: Count = 101  BLOCK    │ ← Threshold       │
 │  │                                         │    exceeded    │
-│  │  IP blocked for 10 minutes              │                │
+│  │  IP blocked while rate > limit          │                │
 │  └────────────────────────────────────────┘                │
 │                                                              │
-│  Time: 10:05:01 (5 minutes later)                          │
+│  Window is trailing (default 5 min; 1/2/5/10 options)      │
 │  ┌────────────────────────────────────────┐                │
-│  │  Request counter resets automatically  │                │
-│  │  Count = 0                              │                │
+│  │  Old requests age out of the window    │                │
+│  │  (no fixed reset time)                  │                │
 │  └────────────────────────────────────────┘                │
 │                                                              │
-│  Time: 10:10:01 (10 minutes after block)                   │
+│  When the count in the window drops below the limit:        │
 │  ┌────────────────────────────────────────┐                │
 │  │  IP unblocked automatically             │                │
 │  │  Can make new requests                  │                │
@@ -5010,7 +5012,7 @@ With WAF Rate-Based Rule (100 req/5min):
 │  09:01:41 - Try password #101  → 403 Forbidden (WAF)       │
 │  09:01:42 - Try password #102  → 403 Forbidden (WAF)       │
 │  ...                                                        │
-│  09:11:41 - IP unblocked, counter reset                    │
+│  Later    - IP unblocked once its rate falls below limit   │
 │  09:11:42 - Try password #103  → 401 Unauthorized          │
 │  ...                                                        │
 │                                                             │
@@ -5103,8 +5105,8 @@ rules = [
         'RateBasedStatement': {
             'Limit': 1000,
             'AggregateKeyType': 'CUSTOM_KEYS',  # Not just IP
-            'CustomAggregateKeyType': 'HEADER',
-            'ForwardedIPConfig': None,
+            'CustomKeys': [{'Header': {'Name': 'x-api-key',
+                'TextTransformations': [{'Priority': 0, 'Type': 'NONE'}]}}],
             'ScopeDownStatement': {
                 'ByteMatchStatement': {
                     'SearchString': 'x-api-key',
@@ -5125,6 +5127,7 @@ rules = [
 aws wafv2 get-rate-based-statement-managed-keys \
   --scope REGIONAL \
   --web-acl-name login-api-protection \
+  --web-acl-id a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 \
   --rule-name RateLimitLoginEndpoint
 
 # Output:
@@ -5596,7 +5599,7 @@ Since SCPs don't protect management account:
 │     - Alert on any API calls                               │
 │     - Monitor root user usage                              │
 │                                                             │
-│  4  Implement SCM (Security Command Center) account       │
+│  4  Use a dedicated Security Tooling (Audit) account      │
 │     - Dedicated account for security tools                 │
 │     - GuardDuty, Security Hub, Config                      │
 │                                                             │
@@ -5715,7 +5718,7 @@ AWS RAM enables you to share AWS resources across AWS accounts within your organ
 │  ┌──────────────────────────────────────┐                  │
 │  │  Transit Gateway: tgw-123456         │                  │
 │  │  - Created and managed in Account A  │                  │
-│  │  - Account A pays for it             │                  │
+│  │  - VPC owners pay their attachments  │                  │
 │  └────────────┬─────────────────────────┘                  │
 │               │                                              │
 │               ↓ AWS RAM Share                               │
@@ -5735,8 +5738,8 @@ AWS RAM enables you to share AWS resources across AWS accounts within your organ
 │  └────────────┘   └────────────┘ └────────────┘           │
 │                                                              │
 │   Single Transit Gateway shared across all accounts         │
-│   Account A owns and pays for TGW                           │
-│   Accounts B-U can attach VPCs (no additional TGW cost)    │
+│   Account A owns and manages the TGW                        │
+│   Accounts B-U attach VPCs (each pays its attachment-hours)│
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -5813,11 +5816,11 @@ Common Misconception:
 | **Route 53 Resolver** | Rules, endpoints | Centralized DNS resolution |
 | **License Manager** | License configurations | Share software licenses |
 | **Resource Groups** | Resource groups | Organized resource management |
-| **Aurora** | DB clusters | Share Aurora DB with read replicas |
+| **Aurora** | DB clusters | Cross-account cloning |
 | **EC2** | Capacity Reservations, Dedicated Hosts | Share reserved capacity |
 | **Systems Manager** | Documents | Share automation documents |
 | **Outposts** | Outpost, Site | Share on-premises infrastructure |
-| **App Mesh** | Mesh | Share service mesh |
+| **App Mesh** | Mesh | Share service mesh (App Mesh ended 30 Sep 2026; use ECS Service Connect) |
 | **CodeBuild** | Projects, Report Groups | Share CI/CD resources |
 | **Network Firewall** | Firewall policies, Rule groups | Centralized firewall management |
 | **S3** | S3 on Outposts | Share S3 buckets on Outposts |
@@ -5881,7 +5884,8 @@ aws ec2 create-transit-gateway-vpc-attachment \
 #   - Modify Transit Gateway settings
 #   - Delete Transit Gateway
 #   - See Transit Gateway in Account A's console
-#   - Be charged for Transit Gateway (Account A pays)
+# Account B IS billed for its VPC attachment-hours and, by default,
+# for data processing on traffic it sends
 ```
 
 **RAM Sharing Modes:**
@@ -5945,7 +5949,7 @@ Scenario: Centralized Network Hub
 │  │  Transit Gateway: tgw-central        │                  │
 │  │  - 3 route tables                     │                  │
 │  │  - Connected to VPN, Direct Connect   │                  │
-│  │  - Cost: $0.05/hour = $36/month       │                  │
+│  │  - Cost: $0.05 per attachment-hour    │                  │
 │  └────────────┬─────────────────────────┘                  │
 │               ↓                                              │
 │  ┌────────────────────────────────────────┐                │
@@ -5964,9 +5968,9 @@ Scenario: Centralized Network Hub
 │  └──────────┘    └──────────┘   └──────────┘             │
 │                                                              │
 │  Cost Savings:                                              │
-│     Without RAM: 20 accounts × $36/month = $720/month       │
-│     With RAM: 1 TGW × $36/month = $36/month                 │
-│     Savings: $684/month (95% reduction!)                    │
+│     Without RAM: 20 TGWs, 20 sets of VPN/DX links           │
+│     With RAM: 1 TGW, 1 shared set of VPN/DX links           │
+│     Savings: no duplicated hybrid connectivity              │
 │                                                              │
 │  Plus:                                                      │
 │    • Centralized routing management                         │
@@ -5978,8 +5982,9 @@ Scenario: Centralized Network Hub
 
 **RAM Permissions:**
 
+Transit Gateway share - attachment permissions (illustrative):
+
 ```json
-// Transit Gateway share - read-only attachment permissions
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -5998,13 +6003,9 @@ Scenario: Centralized Network Hub
     }
   ]
 }
-
-// Consumer accounts CANNOT:
-//   - Modify Transit Gateway settings
-//   - Delete Transit Gateway
-//   - Change route tables (only owner can)
-//   - Share with other accounts (only owner can)
 ```
+
+Consumer accounts CANNOT modify or delete the Transit Gateway, change its route tables, or re-share it (only the owner can).
 
 **Monitoring RAM Shares:**
 
@@ -6134,11 +6135,11 @@ Example: Aurora DB Cluster Sharing
 │                                                             │
 │  With RAM (Shared Cluster):                                │
 │    Account A: Aurora cluster ($500/month) - owner pays     │
-│    Account B: Read replica access (no cluster cost)        │
-│    Account C: Read replica access (no cluster cost)        │
-│    Total: $500/month                                       │
+│    Account B: Clone via RAM (pays its own DB instances)    │
+│    Account C: Clone via RAM (pays its own DB instances)    │
+│    Total: $500/month + clone instances                     │
 │                                                             │
-│  Savings: $1,000/month (67%)                               │
+│  Savings: storage shared until clones change data          │
 │                                                             │
 │  Note: Owner account pays for ALL usage of shared resource│
 │        Consumer accounts pay for their attachments/usage   │
@@ -6229,7 +6230,7 @@ NAT Gateway enables instances in private subnets to connect to the Internet or o
 │  │                                             │           │
 │  │  2. Private NAT Gateway                    │           │
 │  │     - For VPC-to-VPC communication         │           │
-│  │     - Must be in PRIVATE subnet            │           │
+│  │     - Normally in a PRIVATE subnet         │           │
 │  │     - NO Elastic IP                        │           │
 │  │     - Routes to Transit Gateway/VPN        │           │
 │  │     - Does NOT provide Internet access!    │           │
@@ -6440,8 +6441,10 @@ aws ec2 run-instances \
   --instance-type t3.nano \
   --subnet-id subnet-public \
   --associate-public-ip-address \
-  --source-dest-check false \
   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=NAT-Instance-Dev}]'
+
+# Disable source/destination check (not a run-instances option)
+aws ec2 modify-instance-attribute --instance-id i-0nat123 --no-source-dest-check
 
 # Pros: ~90% cheaper ($3.80 vs $32.85/month)
 # Cons: Manual management, lower throughput, not HA
@@ -6579,7 +6582,7 @@ aws cloudwatch get-metric-statistics \
 # - BytesInFromDestination: Data received from Internet
 # - BytesOutToSource: Data sent to private instances
 # - BytesInFromSource: Data received from private instances
-# - ErrorPortAllocation: NAT port exhaustion (>65K connections)
+# - ErrorPortAllocation: NAT port exhaustion (>55,000 connections to one destination per IP)
 # - PacketsDropCount: Dropped packets
 # - ActiveConnectionCount: Current connections
 
@@ -6620,10 +6623,10 @@ Issue 2: NAT Gateway port exhaustion
 ┌────────────────────────────────────────────────────────────┐
 │  Error: ErrorPortAllocation metric increasing              │
 │                                                             │
-│  Cause: >65,000 concurrent connections per destination     │
+│  Cause: >55,000 concurrent connections per destination     │
 │                                                             │
 │  Solutions:                                                │
-│    1  Add more NAT Gateways (split traffic)              │
+│    1  Add secondary IPs or NAT Gateways (split traffic)  │
 │    2  Use connection pooling in applications              │
 │    3  Implement connection reuse                          │
 │    4  Use VPC Endpoints for AWS services                  │
@@ -6933,8 +6936,9 @@ aws lambda tag-resource \
 
 **Step 3: Enforce Tagging (Optional but Recommended)**
 
+IAM Policy: Deny resource creation without required tags
+
 ```json
-// IAM Policy: Deny resource creation without required tags
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -6990,8 +6994,9 @@ aws lambda tag-resource \
 # 5. Click "Activate"
 # 6. Wait 24 hours for tags to appear in cost data
 
-# Via CLI (not directly supported, use console)
-# Tags automatically appear in cost reports after activation
+# Via CLI:
+aws ce update-cost-allocation-tags-status \
+  --cost-allocation-tags-status TagKey=Environment,Status=Active
 ```
 
 **Step 5: View Costs by Tags in Cost Explorer**
@@ -7081,7 +7086,7 @@ Cost Explorer Query:
 | Tag Type | Description | Who Can Activate | Examples |
 |----------|-------------|------------------|----------|
 | **User-Defined Tags** | Custom tags you create | Management account | Environment, Department, Project |
-| **AWS-Generated Tags** | Automatically created by AWS | Automatically active | aws:createdBy, aws:cloudformation:stack-name |
+| **AWS-Generated Tags** | Automatically created by AWS | Management account (must activate) | aws:createdBy, aws:cloudformation:stack-name |
 
 **AWS-Generated Tags (Automatic):**
 
@@ -7104,8 +7109,8 @@ Automatically Available Tags:
 │    - EKS cluster name                                      │
 │    - Example: "production-cluster"                         │
 │                                                             │
-│  These appear automatically in cost reports                │
-│  No activation needed                                      │
+│  AWS applies these tags automatically, but they must       │
+│  be activated before they appear in cost reports           │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -7122,8 +7127,8 @@ Day 0 (Today):
 Day 1 (24 hours later):
   ┌──────────────────────────────────────┐
   │  Tags appear in new cost data        │
-  │  Historical data NOT retroactively    │
-  │  tagged                               │
+  │  Earlier months: request a tag        │
+  │  backfill (not automatic)             │
   └──────────────────────────────────────┘
            ↓
 Day 2-30:
@@ -7258,8 +7263,8 @@ aws ce get-cost-and-usage \
   --metrics UnblendedCost UsageQuantity \
   --group-by Type=DIMENSION,Key=SERVICE \
              Type=TAG,Key=Environment \
-             Type=TAG,Key=Department \
   --output json > cost-report.json
+# (Cost Explorer allows at most two group-by keys per request)
 
 # Create CSV for CFO
 aws ce get-cost-and-usage \
@@ -7309,7 +7314,7 @@ Issue 1: Tags not appearing in Cost Explorer
 │     Tags activated in management account?                  │
 │     Waited 24 hours after activation?                      │
 │     Resources tagged AFTER activation?                     │
-│       (Historical data not retroactively tagged)           │
+│       (Older months need a tag backfill request)           │
 │     Tag key exact match (case-sensitive)?                  │
 │     Looking at correct time range?                         │
 │                                                             │
@@ -7436,6 +7441,8 @@ AWS MGN is a lift-and-shift migration service that automates the conversion of p
 | **Your scenario** | Correct (does the work) | Wrong (only monitoring) |
 | **Cost** | Free (pay for AWS resources) | Free (tracking only) |
 
+**Status (2026):** Migration Hub is closed to new customers; AWS Transform is the AWS-named replacement. MGN remains the current server migration service.
+
 **Why Migration Hub is Wrong:**
 
 ```
@@ -7449,7 +7456,7 @@ AWS MGN is a lift-and-shift migration service that automates the conversion of p
 │     Tracks servers across multiple tools                   │
 │     Shows migration progress                               │
 │     Groups servers by application                          │
-│     Integrates with: MGN, SMS, Database Migration Service  │
+│     Integrates with: MGN, DMS (SMS is retired)             │
 │                                                             │
 │  What Migration Hub DOESN'T Do:                           │
 │     Install agents on servers                              │
@@ -7500,23 +7507,23 @@ aws mgn initialize-service --region us-east-1
 aws mgn create-replication-configuration-template \
   --associate-default-security-group \
   --bandwidth-throttling 0 \
-  --create-public-ip false \
+  --no-create-public-ip \
   --data-plane-routing PRIVATE_IP \
   --default-large-staging-disk-type GP3 \
   --ebs-encryption DEFAULT \
   --replication-server-instance-type t3.small \
   --replication-servers-security-groups-ids sg-12345678 \
   --staging-area-subnet-id subnet-abcdef \
-  --staging-area-tags Key=Purpose,Value=MGN-Staging \
-  --use-dedicated-replication-server false
+  --staging-area-tags Purpose=MGN-Staging \
+  --no-use-dedicated-replication-server
 
 # Step 3: Create launch templates (how EC2s should be configured)
 aws mgn create-launch-configuration-template \
-  --copy-private-ip false \
-  --copy-tags true \
+  --no-copy-private-ip \
+  --copy-tags \
   --launch-disposition STARTED \
-  --licensing Type=AWS \
-  --target-instance-type-right-sizing BASIC
+  --licensing osByol=false \
+  --target-instance-type-right-sizing-method BASIC
 ```
 
 **Phase 2: Replication (Week 2-3)**
@@ -7710,7 +7717,7 @@ Migration Cost (50 servers, 30-day replication):
 | **CloudEndure** | 15-30 min | Low | Legacy (now MGN) | Included in MGN |
 | **VM Import/Export** | Hours | Medium | One-time VM | S3 storage + time |
 | **Database Migration Service** | Minimal | Medium | Databases only | Per hour + storage |
-| **Snow Family** | Days-weeks | Medium | Petabytes offline | Device rental |
+| **Snow Family** | Days-weeks | Medium | Petabytes offline (closed to new customers; use DataSync or AWS Data Transfer Terminal) | Device rental |
 
 **Monitoring Migration:**
 
@@ -7951,7 +7958,7 @@ Alias Record:
   - Can be used at zone apex (root domain)
   - Free queries
   - Supports AWS resources (ALB, CloudFront, S3)
-  - Can use "Evaluate Target Health"
+  - Can use "Evaluate Target Health" (not with CloudFront targets)
   
 CNAME Record:
   - Cannot be used at zone apex
@@ -8003,7 +8010,7 @@ Exam Tip: Symmetric = encryption, Asymmetric = signing
 What: Permission boundaries for AWS Organizations
 Apply to: All member accounts (NOT management account)
 Effect: Maximum allowed permissions (deny by default)
-Cannot: Override resource-based policies
+Cannot: Restrict principals outside the organization
 Use case: Prevent actions across entire org
 
 Exam Tip: SCPs DO NOT affect the management account!
@@ -8013,13 +8020,13 @@ Exam Tip: SCPs DO NOT affect the management account!
 ```yaml
 gp3 (General Purpose SSD):
   - Balance price/performance
-  - 3,000-16,000 IOPS
-  - 125-1,000 MB/s throughput
+  - 3,000-80,000 IOPS
+  - 125-2,000 MiB/s throughput
   - Best for most workloads
   
 io2 (Provisioned IOPS SSD):
   - High performance, low latency
-  - Up to 64,000 IOPS per volume
+  - Up to 256,000 IOPS per volume (all io2 is Block Express)
   - Supports Multi-Attach
   - 99.999% durability
   - Use case: Databases

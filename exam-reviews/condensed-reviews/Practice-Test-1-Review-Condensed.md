@@ -40,9 +40,9 @@
 
 ### Q12: ECS Dynamic Port Mapping
 - **Wrong:** Works with EC2 launch type + bridge mode  
-- **Right:** Requires ALB + awsvpc or host network mode
-- **ALB:** Routes to dynamic ports automatically
-- **NLB/CLB:** Cannot do dynamic port mapping
+- **Right:** Bridge mode with host port 0 + ALB or NLB (awsvpc gives each task its own IP instead)
+- **ALB/NLB:** Route to dynamic ports automatically
+- **CLB:** Cannot do dynamic port mapping
 
 ### Q14: Aurora Read Replica Lag
 - **Wrong:** Increase write instance size  
@@ -119,7 +119,7 @@
 ### Q45: S3 Lifecycle Policy Transitions
 - **Rules:**
   - Standard → Standard-IA: Min 30 days
-  - Standard → Glacier: Min 30 days
+  - Standard → Glacier classes: No minimum (can transition on day 0)
   - Cannot: Glacier → Standard (must restore first)
 - **One-Zone IA:** Min 30 days before transition
 
@@ -160,7 +160,7 @@
 - **gp2:** 3 IOPS/GB, burstable to 3000, legacy
 - **io2:** 256,000 IOPS, 99.999% durability, expensive
 - **io1:** 64,000 IOPS, 99.9% durability
-- **Use io2/io1:** When need >16,000 IOPS
+- **Use io2/io1:** When need >80,000 IOPS, sub-ms latency, or io2's 99.999% durability
 
 ### Q6: S3 GET Request Performance
 - **Wrong:** Single GET is fastest  
@@ -197,7 +197,7 @@
 ### Q40: EFS Performance Modes
 - **General Purpose:** Low latency, web serving, CMS
 - **Max I/O:** Higher latency, big data, media processing
-- **Throughput modes:** Bursting (default) or Provisioned
+- **Throughput modes:** Elastic (recommended default), Bursting, or Provisioned
 
 ### Q47: Global Accelerator vs CloudFront
 - **Global Accelerator:** Static IP, TCP/UDP, non-HTTP, gaming, IoT
@@ -220,9 +220,9 @@
 - **Imported keys:** Must rotate manually
 
 ### Q16: WAF Rate-Based Rules
-- **Function:** Block IPs exceeding request threshold (5 min window)
+- **Function:** Block IPs exceeding request threshold (1, 2, 5 or 10 min window; default 5)
 - **Use case:** DDoS protection, brute force prevention
-- **Threshold:** Set requests per 5-minute period
+- **Threshold:** Set requests per evaluation window
 
 ### Q27: VPC Security Group vs NACL
 - **Security Group:** Stateful, instance level, allow rules only
@@ -266,8 +266,8 @@
 
 ### Q11: Reserved Instances Types
 - **Standard RI:** Max discount (72%), can't change, 1-3 years
-- **Convertible RI:** Less discount (54%), can change instance type
-- **Scheduled RI:** Reserve for recurring schedules
+- **Convertible RI:** Less discount (66%), can change instance type
+- **Scheduled RI:** No longer available to buy (use On-Demand Capacity Reservations or Savings Plans)
 - **Savings Plans:** Flexible, commitment in $/hour
 
 ### Q30: S3 Intelligent-Tiering
@@ -292,7 +292,7 @@
 4. **Cost-Optimized (60%)** - S3 storage classes, RIs, Spot instances
 
 ## Quick Tips
-- **ECS:** Task definition = blueprint, awsvpc for dynamic ports
+- **ECS:** Task definition = blueprint, bridge mode + host port 0 for dynamic ports
 - **S3:** 30-day minimum for IA classes, lifecycle rules one-way
 - **RDS:** Multi-AZ = HA (sync), Read Replica = scale (async)
 - **VPC:** SG = stateful/allow only, NACL = stateless/allow+deny

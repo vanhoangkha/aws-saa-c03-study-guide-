@@ -4,7 +4,7 @@
 **Score:** 52/65 (80.00%) - **PASS**  
 **Time Taken:** 97 minutes 17 seconds  
 **Status:** Solid pass, consistent improvement  
-**Passing Score:** 72% (need 47/65 correct)
+**Passing Score:** 72% on this practice test (need 47/65 correct); the real exam uses a scaled score of 720/1000
 
 ---
 
@@ -87,7 +87,7 @@ MISCONCEPTION: Changing bucket default storage class affects existing objects
 │                                                       │
 │ Standard → Intelligent-Tiering  Direct               │
 │ Standard → Standard-IA  Direct (30 days min)         │
-│ Standard → Glacier  Direct (30 days min)             │
+│ Standard → Glacier  Direct (no minimum age)          │
 │                                                       │
 │ Glacier Deep Archive → Other classes  BLOCKED        │
 │                 │                                     │
@@ -146,7 +146,7 @@ MISCONCEPTION: Changing bucket default storage class affects existing objects
 
 | Restore Tier | Retrieval Time | Cost (per GB) | Use Case |
 |--------------|----------------|---------------|----------|
-| **Standard** | 12-48 hours | $0.02 | Default, cost-effective |
+| **Standard** | Within 12 hours | $0.02 | Default, cost-effective |
 | **Bulk** | 48 hours | $0.0025 | Large datasets, lowest cost |
 | **Expedited** | N/A for Deep Archive | N/A | Not available for Deep Archive |
 
@@ -164,7 +164,7 @@ MISCONCEPTION: Changing bucket default storage class affects existing objects
    ├─ Number of days: 1-365 (how long accessible)
    │  Example: 30 days
    ├─ Retrieval tier: Standard or Bulk
-   │  Choose: Standard (12-48 hours)
+   │  Choose: Standard (within 12 hours)
    └─ Click "Restore"
 
 4. Wait for Restoration (12-48 hours)
@@ -236,13 +236,14 @@ aws s3 cp \
 aws s3 sync \
   s3://media-archive/videos/ \
   s3://media-archive/videos-intelligent-tiering/ \
-  --storage-class INTELLIGENT_TIERING
+  --storage-class INTELLIGENT_TIERING \
+  --force-glacier-transfer
 ```
 
 **Step 4: Delete Glacier Versions**
 ```bash
-# Delete after successful copy
-aws s3 rm s3://media-archive/videos/video1.mp4
+# Delete originals after copying to a new prefix (an in-place copy already replaced them)
+aws s3 rm s3://media-archive/videos/ --recursive
 ```
 
 **Cost Analysis for 500 TB Migration:**
@@ -255,8 +256,8 @@ aws s3 rm s3://media-archive/videos/video1.mp4
 │  Restore Cost (Standard Tier):                      │
 │  512,000 GB × $0.02/GB = $10,240                    │
 │                                                      │
-│  Temporary Storage (30 days):                       │
-│  512,000 GB × $0.004/GB/month = $2,048              │
+│  Temporary copy (30 days, billed as S3 Standard):   │
+│  512,000 GB × $0.023/GB/month = $11,776             │
 │                                                      │
 │  Data Transfer (same region): FREE                  │
 │                                                      │
@@ -264,7 +265,7 @@ aws s3 rm s3://media-archive/videos/video1.mp4
 │  512,000 GB × $0.023/GB/month = $11,776/month       │
 │  (Frequent Access tier)                             │
 │                                                      │
-│  Total Migration Cost: ~$12,288                     │
+│  Total Migration Cost: ~$22,016                     │
 │  Monthly Cost After Migration: $11,776              │
 │                                                      │
 └─────────────────────────────────────────────────────┘
@@ -281,8 +282,8 @@ LifecycleRule:
     - StorageClass: INTELLIGENT_TIERING
       Days: 0
       
-# Lifecycle can't transition FROM Glacier
-# Only transitions TO Glacier-class storage
+# Lifecycle can't transition FROM Glacier to warmer classes
+# Transitions only move down (e.g. Flexible → Deep Archive)
 ```
 
 **Method 2: S3 Batch Operations WITHOUT Restore**
@@ -323,7 +324,7 @@ Step 3: S3 Batch Operations - Delete (optional)
 ```
 Need to migrate from Glacier Deep Archive?
 │
-├─ To Glacier Flexible? ──► Direct transition (lifecycle policy)
+├─ To Glacier Flexible? ──► Restore → copy (lifecycle can't move it up)
 │
 ├─ To Standard/IA/Intelligent-Tiering?
 │   └─► Must restore → copy → delete
@@ -338,7 +339,7 @@ Need to migrate from Glacier Deep Archive?
 - Yes: Copy restored objects to target storage class, then delete Glacier version
 - Yes: Restoration takes 12-48 hours for Deep Archive
 - Changing bucket default storage class does NOT affect existing objects
-- Lifecycle policies cannot transition FROM Glacier classes
+- Lifecycle policies cannot transition FROM Glacier classes to warmer classes
 - Cannot directly change storage class of archived objects
 
 **MEMORY AID:** "GDR = Glacier Definitely Requires (restore before moving)"
@@ -479,8 +480,8 @@ Result: Poor user experience
 │  │  - Storage Class: Standard          │             │
 │  │  - Versioning: Enabled              │             │
 │  │  - Encryption: SSE-S3               │             │
-│  │  - Lifecycle: Move to IA after      │             │
-│  │    90 days of no access             │             │
+│  │  - Lifecycle: Move to IA 90 days    │             │
+│  │    after creation (age, not access) │             │
 │  └─────────────────────────────────────┘             │
 │           │                                           │
 │           │ Trigger on upload                         │
@@ -506,7 +507,7 @@ Result: Poor user experience
 │  │ Cost: $0.023/GB/month         │                  │
 │  │ Access: FREE                  │                  │
 │  └──────────────┬────────────────┘                  │
-│                 │ After 90 days no access           │
+│                 │ 90 days after creation            │
 │                 ▼                                   │
 │  Day 90+: S3 Standard-IA                           │
 │  ┌──────────────────────────────┐                  │
@@ -514,7 +515,7 @@ Result: Poor user experience
 │  │ Cost: $0.0125/GB/month        │                  │
 │  │ Access: $0.01/GB retrieval    │                  │
 │  └──────────────┬────────────────┘                  │
-│                 │ After 180 days no access          │
+│                 │ 180 days later (age-based)        │
 │                 ▼                                   │
 │  Day 270+: S3 Glacier Flexible                     │
 │  ┌──────────────────────────────┐                  │
@@ -532,7 +533,7 @@ Result: Poor user experience
 {
   "Rules": [
     {
-      "Id": "TransitionOldFiles",
+      "ID": "TransitionOldFiles",
       "Status": "Enabled",
       "Filter": {
         "Prefix": ""
@@ -636,7 +637,7 @@ Migrate mission-critical SQL Server to MySQL with minimal downtime and real-time
 
 **Key Learning Points:**
 - AWS DMS = Database migration (homogeneous & heterogeneous)
-- AWS Migration Hub = Centralized migration tracking and monitoring
+- AWS Migration Hub = Centralized migration tracking and monitoring (closed to new customers; AWS Transform is the replacement)
 - AWS MGN = Server/VM lift-and-shift, not for DB monitoring
 
 **Study Resources:**

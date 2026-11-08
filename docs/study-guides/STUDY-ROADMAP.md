@@ -27,7 +27,7 @@
 | **07** | Security & Compliance | Complete | KMS, WAF, GuardDuty, encryption |
 | **08** | Application Integration | Complete | SQS, SNS, EventBridge, Step Functions |
 | **09** | Monitoring & Management | Complete | CloudWatch, CloudTrail, Config, SSM |
-| **10** | Migration & Transfer | Complete | DataSync, DMS, Migration Hub, 6 R's |
+| **10** | Migration & Transfer | Complete | DataSync, DMS, Migration Hub, 7 R's |
 | **11** | Analytics | Complete | Athena, Kinesis, EMR, Glue, QuickSight |
 | **12** | Architecture Patterns | Complete | Multi-tier, serverless, DR strategies |
 | **13** | Cost Optimization | Complete | Pricing models, Cost Explorer, Budgets |
@@ -120,16 +120,16 @@
 
 ### Week 5: Advanced Topics
 **Days 1-2**: Module 10 - Migration & Transfer Services
-- Migration Strategies (6 R's: Rehost, Replatform, Repurchase, Refactor, Retire, Retain)
+- Migration Strategies (7 R's: Rehost, Replatform, Repurchase, Refactor, Retire, Retain, Relocate)
 - AWS DataSync (automated data transfer)
 - Database Migration Service (DMS) with CDC
 - AWS Schema Conversion Tool (SCT)
-- AWS Migration Hub (centralized tracking)
+- AWS Migration Hub (centralized tracking; closed to new customers, AWS Transform replaces it)
 - Application Migration Service (MGN)
 
 **Days 3-4**: Module 11 - Analytics Services
 - Amazon Athena (serverless SQL on S3)
-- Amazon Kinesis (Streams, Firehose, Analytics)
+- Amazon Kinesis Data Streams, Amazon Data Firehose, Managed Service for Apache Flink
 - Amazon EMR (Hadoop/Spark clusters)
 - AWS Glue (ETL, Data Catalog, Crawlers)
 - Amazon QuickSight (BI dashboards)

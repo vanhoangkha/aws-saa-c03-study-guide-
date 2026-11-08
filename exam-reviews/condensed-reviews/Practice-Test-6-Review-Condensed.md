@@ -37,8 +37,7 @@
 
 ```
 Quick Reference:
-/30 → 4 total - 5 = 0 usable
-/29 → 8 total - 5 = 3 usable
+/30, /29 → not allowed (smallest VPC subnet is /28)
 /28 → 16 total - 5 = 11 usable
 /27 → 32 total - 5 = 27 usable
 ```

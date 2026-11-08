@@ -587,10 +587,10 @@
 
 | Strategy | RTO | RPO | Cost | When to Use |
 |----------|-----|-----|------|-------------|
-| **Backup & Restore** | Hours-Days | Hours |  | Non-critical, cost-sensitive |
-| **Pilot Light** | 10min-Hours | Minutes |  | Important, some downtime OK |
-| **Warm Standby** | Minutes | Seconds |  | Business-critical |
-| **Multi-Site** | Real-time | Near-zero |  | Mission-critical, zero downtime |
+| **Backup & Restore** | Hours-Days | Hours | Low | Non-critical, cost-sensitive |
+| **Pilot Light** | 10min-Hours | Minutes | Medium | Important, some downtime OK |
+| **Warm Standby** | Minutes | Seconds | High | Business-critical |
+| **Multi-Site** | Real-time | Near-zero | Highest | Mission-critical, zero downtime |
 
 ### Implementation Details
 - **Backup & Restore**: Daily backups to S3, deploy from scratch during disaster

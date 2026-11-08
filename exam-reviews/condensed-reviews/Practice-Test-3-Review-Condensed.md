@@ -116,7 +116,7 @@
 - **Purpose:** Pre-warmed instances (no cold starts)
 - **Use case:** Latency-sensitive apps
 - **Cost:** Pay for provisioned capacity even if unused
-- **vs Reserved:** Provisioned = instant, Reserved = cost savings
+- **vs Reserved:** Provisioned = pre-warmed (billed), Reserved = guarantees/caps concurrency (no charge)
 
 ---
 

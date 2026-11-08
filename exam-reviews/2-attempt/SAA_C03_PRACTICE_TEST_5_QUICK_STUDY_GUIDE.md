@@ -21,7 +21,7 @@
 │ Fargate Launch Type                    │
 │ ├── Serverless container compute       │
 │ ├── No instance management             │
-│ └── Limited Outposts support           │
+│ └── Not supported on Outposts          │
 └─────────────────────────────────────────┘
 ```
 
@@ -99,14 +99,14 @@ Configuration:
 │ Feature              │ ALB          │ NLB          │
 ├──────────────────────┼──────────────┼──────────────┤
 │ OSI Layer            │ 7 (HTTP)     │ 4 (TCP/UDP)  │
-│ Static IP            │            │                │
-│ Elastic IP           │            │                │
-│ Host-based routing   │            │                │
-│ Path-based routing   │            │                │
-│ WebSocket            │            │                │
-│ Dynamic port mapping │            │                │
+│ Static IP            │ No           │ Yes          │
+│ Elastic IP           │ No           │ Yes          │
+│ Host-based routing   │ Yes          │ No           │
+│ Path-based routing   │ Yes          │ No           │
+│ WebSocket            │ Yes          │ Yes          │
+│ Dynamic port mapping │ Yes          │ Yes          │
 │ Ultra-low latency    │ Good         │ Best         │
-│ TLS termination      │            │                │
+│ TLS termination      │ Yes          │ Yes          │
 │ Preserve source IP   │ Via header   │ Native       │
 └──────────────────────┴──────────────┴──────────────┘
 ```
@@ -242,7 +242,7 @@ Configuration:
 │ ├── DNS management                            │
 │ ├── Multiple routing policies                 │
 │ ├── Cost optimization (cheaper)               │
-│ ├── HTTP/HTTPS only                           │
+│ ├── Any protocol (DNS-based)                  │
 │ └── Standard web applications                 │
 │                                                │
 │ Does NOT provide:                            │
@@ -344,13 +344,14 @@ Problem: Hot spot in one AZ after scaling
 #### Multi-AZ vs Read Replicas
 ```
 ┌─────────────────────────────────────────────┐
-│ MULTI-AZ FOR READ SCALING                   │
+│ MULTI-AZ (NOT FOR READ SCALING)             │
 ├─────────────────────────────────────────────┤
 │ Purpose: High Availability                  │
 │ ├── Synchronous replication                │
 │ ├── Automatic failover                      │
 │ ├── Same region, different AZ              │
-│ └── Standby NOT accessible for reads       │
+│ ├── Standby NOT accessible for reads       │
+│ └── (Multi-AZ DB cluster: 2 readable stbys)│
 │                                             │
 │ Use for:                                    │
 │ ├── Disaster recovery                       │
@@ -364,7 +365,7 @@ Problem: Hot spot in one AZ after scaling
 │ Purpose: Read Performance                   │
 │ ├── Asynchronous replication               │
 │ ├── Can be in different region             │
-│ ├── Up to 5 read replicas                  │
+│ ├── Up to 15 (MySQL/MariaDB/PG; Oracle 5)  │
 │ └── Each replica can have own replicas     │
 │                                             │
 │ Use for:                                    │
@@ -482,7 +483,8 @@ Example DoS Protection:
 Rule # | Type   | Protocol | Port | Source      | Allow/Deny
 -------|--------|----------|------|-------------|------------
 100    | Inbound| TCP      | 3306 | 0.0.0.0/0  | DENY
-*      | Inbound| ALL      | ALL  | 0.0.0.0/0  | ALLOW
+200    | Inbound| ALL      | ALL  | 0.0.0.0/0  | ALLOW
+*      | Inbound| ALL      | ALL  | 0.0.0.0/0  | DENY
 ```
 
 ---
@@ -771,7 +773,7 @@ Yes: CloudFront is CDN, not storage
 ```
 No: "Fargate on Outposts for standard workloads"
 Yes: EC2 launch type is standard for Outposts
-   Fargate on Outposts is limited
+   Fargate is not supported on Outposts
 ```
 
 ---
@@ -781,7 +783,7 @@ Yes: EC2 launch type is standard for Outposts
 ### ECS
 - awsvpc = task-level ENI + security groups
 - Dynamic port mapping = ALB or NLB (not CLB)
-- Outposts = EC2 launch type (Fargate limited)
+- Outposts = EC2 launch type (no Fargate)
 
 ### Load Balancers
 - ALB = Layer 7, host/path routing, no static IP

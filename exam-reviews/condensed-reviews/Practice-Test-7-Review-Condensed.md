@@ -16,7 +16,7 @@
 
 **Time Used:** 100/130 minutes | **Questions Marked:** 16 (24.6%)
 
-**Status:** BORDERLINE PASS - Only 1.15% below real exam threshold.
+**Status:** BORDERLINE PASS - Near the real exam pass mark (720/1000 scaled, not a fixed percentage).
 
 ---
 
@@ -95,7 +95,7 @@ All correct! Topics mastered:
 - EC2 metadata for AMI-ID retrieval
 - SQS queue depth for ECS scaling
 - Auto Scaling lifecycle hooks
-- S3 Select SQL expression limits (256 KB)
+- S3 Select SQL expression limits (256 KB; S3 Select closed to new customers)
 - Amazon Kinesis for GPS data ingestion
 - AWS Lake Formation for data lakes
 - Amazon Rekognition Custom Labels for wildlife
@@ -132,8 +132,8 @@ Parameter Store → AMI IDs, license keys, config
 ```
 RDS TDE Support:
 ├── Oracle Enterprise Edition
-├── SQL Server Enterprise Edition
-└── MySQL, MariaDB, PostgreSQL
+├── SQL Server Enterprise Edition (and Standard 2019+)
+└── Not supported: MySQL, MariaDB, PostgreSQL
 ```
 
 #### Q35: Redshift Enable Encryption
@@ -303,7 +303,7 @@ Private NAT Gateway:
 ```
 Need standalone AD in AWS?
 ├── <500 users, basic features, low cost
-│   └── Simple AD ($36/mo)
+│   └── Simple AD ($36/mo; moving to maintenance, closed to new customers - use Managed Microsoft AD)
 └── >500 users, Microsoft AD features
     └── AWS Managed Microsoft AD ($144/mo)
 
@@ -418,7 +418,7 @@ Unpredictable → On-Demand → 0%
 **Back:** Public NAT = Internet access (needs EIP, public subnet). Private NAT = VPC/on-prem connectivity (no EIP, private subnet). Deploy Public NAT per AZ to save cross-AZ charges.
 
 ### Front: TDE Support in RDS
-**Back:** Only Oracle Enterprise Edition and SQL Server Enterprise Edition support Transparent Data Encryption. NOT supported: MySQL, MariaDB, PostgreSQL, Aurora.
+**Back:** Only Oracle Enterprise Edition and SQL Server (Enterprise, and Standard 2019+) support Transparent Data Encryption. NOT supported: MySQL, MariaDB, PostgreSQL, Aurora.
 
 ### Front: Spot vs Savings Plans
 **Back:** Spot = 90% off, fault-tolerant, spiky workload. EC2 Instance SP = 72% off, same family, steady. Compute SP = 66% off, flexible families. Savings Plans require commitment (not for spikes).

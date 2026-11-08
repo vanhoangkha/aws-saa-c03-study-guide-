@@ -29,8 +29,9 @@
 - **Token:** 15-min validity, obtained via AWS CLI/SDK
 
 ### Q29: S3 + CloudFront Origin Access Identity (OAI)
+- **Status:** OAI is legacy; Origin Access Control (OAC) replaces it for new setups
 - **Purpose:** CloudFront accesses private S3 without making bucket public
-- **Setup:** 1) Create OAI, 2) Grant OAI in S3 bucket policy, 3) Users → CloudFront only
+- **Setup:** 1) Create OAC (or legacy OAI), 2) Grant it in S3 bucket policy, 3) Users → CloudFront only
 - **Result:** Direct S3 access blocked, CloudFront access allowed
 
 ### Q30: AWS Secrets Manager vs SSM Parameter Store
@@ -71,7 +72,7 @@
 - **Disabled:** Single node group, max 5 replicas, vertical scaling
 - **Enabled:** Multiple shards, horizontal scaling, better performance
 - **Use Enabled:** Need >5 replicas or horizontal scaling
-- **Migration:** Can't switch modes, must create new cluster
+- **Migration:** Disabled → Enabled can be done online via Compatible mode (Valkey/Redis OSS 7+); otherwise create a new cluster
 
 ### Q21: CloudFront Cache Behaviors
 - **Default:** Applies to all requests
@@ -122,9 +123,9 @@
 
 ### Q46: S3 Lifecycle Policy Minimum Days
 - **Standard → Standard-IA:** 30 days minimum
-- **Standard → Glacier:** 30 days minimum
+- **Standard → Glacier:** No minimum (can transition on day 0)
 - **IA → Glacier:** 30 days after transition to IA
-- **Cannot:** Skip IA tiers, go directly Standard → Deep Archive (<90 days)
+- **Can:** Skip IA tiers and go directly Standard → Glacier or Deep Archive
 
 ---
 
@@ -133,7 +134,7 @@
 ### Security Focus
 - **CloudFront certs:** ALWAYS us-east-1
 - **RDS IAM auth:** Token-based, no passwords
-- **OAI:** CloudFront → private S3 access
+- **OAC (replaces OAI):** CloudFront → private S3 access
 - **Secrets Manager:** Auto-rotation, Secrets management
 - **GuardDuty:** Threat detection from logs
 
@@ -150,7 +151,7 @@
 
 ### Cost
 - **Savings Plans:** More flexible than RIs
-- **S3 lifecycle:** 30-day minimums before transitions
+- **S3 lifecycle:** 30-day minimum before IA transitions
 
 ---
 

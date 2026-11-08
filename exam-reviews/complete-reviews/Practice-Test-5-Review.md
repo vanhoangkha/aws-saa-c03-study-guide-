@@ -4,7 +4,7 @@
 **Score:** 42/65 (64.62%) - **FAILED**  
 **Time Taken:** 130 minutes (2 hours 10 minutes)  
 **Status:** Significant regression from previous tests  
-**Passing Score:** 72% (need 47/65 correct)
+**Passing Score:** 72% on this practice test (need 47/65 correct); the real exam uses a scaled score of 720/1000
 
 ---
 
@@ -174,7 +174,7 @@ D. Create CloudWatch dashboard with math expressions to manually aggregate metri
 │  │  ├─ Changes frequency: 5 min → 1 min │              │
 │  │  ├─ Same metrics: CPU, Network, Disk │              │
 │  │  ├─ Per-instance granularity         │              │
-│  │  └─ Cost: $0.10/instance/month       │              │
+│  │  └─ Cost: billed per metric (~$2/mo) │              │
 │  │                                      │              │
 │  │  What it DOESN'T do:                 │              │
 │ │   Custom application metrics        │                 │
@@ -255,6 +255,11 @@ D. Create CloudWatch dashboard with math expressions to manually aggregate metri
   },
   "metrics": {
     "namespace": "CustomApp",
+    "append_dimensions": {
+      "AutoScalingGroupName": "${aws:AutoScalingGroupName}",
+      "InstanceId": "${aws:InstanceId}",
+      "InstanceType": "${aws:InstanceType}"
+    },
     "metrics_collected": {
       "statsd": {
         "service_address": ":8125",
@@ -273,9 +278,9 @@ D. Create CloudWatch dashboard with math expressions to manually aggregate metri
       }
     },
     "aggregation_dimensions": [
-      ["AutoScalingGroupName"],                    // Aggregate by ASG
-      ["AutoScalingGroupName", "InstanceType"],    // Aggregate by ASG + Instance Type
-      ["InstanceId", "AutoScalingGroupName"]       // Per-instance + ASG context
+      ["AutoScalingGroupName"],
+      ["AutoScalingGroupName", "InstanceType"],
+      ["InstanceId", "AutoScalingGroupName"]
     ]
   }
 }
@@ -322,17 +327,10 @@ D. Create CloudWatch dashboard with math expressions to manually aggregate metri
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm
 rpm -U ./amazon-cloudwatch-agent.rpm
 
-# Fetch ASG name from instance metadata
-TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
-INSTANCE_ID=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/instance-id)
-ASG_NAME=$(aws autoscaling describe-auto-scaling-instances \
-  --instance-ids $INSTANCE_ID \
-  --query "AutoScalingInstances[0].AutoScalingGroupName" \
-  --output text \
-  --region us-east-1)
-
 # Create CloudWatch agent config with ASG dimension
-cat > /opt/aws/amazon-cloudwatch-agent/etc/config.json << EOF
+# The agent fills ${aws:...} values from instance metadata (global
+# append_dimensions accepts only these placeholders, not literal values)
+cat > /opt/aws/amazon-cloudwatch-agent/etc/config.json << 'EOF'
 {
   "agent": {
     "metrics_collection_interval": 60
@@ -343,8 +341,8 @@ cat > /opt/aws/amazon-cloudwatch-agent/etc/config.json << EOF
       ["AutoScalingGroupName"]
     ],
     "append_dimensions": {
-      "AutoScalingGroupName": "$ASG_NAME",
-      "InstanceId": "$INSTANCE_ID"
+      "AutoScalingGroupName": "${aws:AutoScalingGroupName}",
+      "InstanceId": "${aws:InstanceId}"
     },
     "metrics_collected": {
       "statsd": {
@@ -625,11 +623,11 @@ aws ecs create-cluster \
 
 **Step 3: Launch EC2 Instances on Outposts**
 ```bash
-# Launch EC2 instances on Outposts subnet
+# Launch EC2 instances on Outposts subnet (--subnet-id is the Outposts subnet)
 aws ec2 run-instances \
   --image-id ami-0c55b159cbfafe1f0 \
   --instance-type m5.large \
-  --subnet-id subnet-outposts-1234abcd \  # Outposts subnet
+  --subnet-id subnet-outposts-1234abcd \
   --iam-instance-profile Name=ecsInstanceRole \
   --user-data file://ecs-user-data.sh \
   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=outposts-ecs-instance}]'
@@ -651,7 +649,7 @@ systemctl enable --now ecs
 ```json
 {
   "family": "outposts-app",
-  "requiresCompatibilities": ["EC2"], //  EC2 launch type
+  "requiresCompatibilities": ["EC2"],
   "networkMode": "bridge",
   "containerDefinitions": [
     {
@@ -1075,7 +1073,7 @@ Need low latency from on-premises?
 Dynamic Port Mapping:
   - Supported: ALB, NLB
   - Not supported: Classic Load Balancer
-  - Requires: awsvpc or bridge networking mode
+  - Requires: bridge networking mode (awsvpc tasks use IP targets instead)
 ```
 
 ### S3 Performance Optimization
@@ -1094,7 +1092,7 @@ S3 Performance Best Practices:
     
   Consistency:
     - Strong read-after-write for all operations (PUTs, DELETEs, LISTs)
-    - Immediate visibility across all regions
+    - Applies within the bucket's Region (cross-Region replication is asynchronous)
     
   Delete Behavior:
     - Without versioning: Object deleted completely (no marker)
@@ -1202,7 +1200,7 @@ Elastic IP:
   - Stop/Start: IP PERSISTS
   - Reboot: IP PERSISTS
   - Detach/Attach: Manual control
-  - Cost: Free when associated, charged when idle
+  - Cost: $0.005/hr whether associated or idle (all public IPv4 is billed)
   
 Private IP:
   - Stop/Start: IP PERSISTS
@@ -1304,7 +1302,7 @@ Test 5: 42/65 (64.62%) FAIL (-10.76%)
 - Average (last 3 tests): 47.67/65 (73.33%)
 - Trend: Declining
 
-**To Pass Exam (72%):**
+**To Pass Exam (720/1000 scaled; 72% used here as a guide):**
 - Need: 47/65 correct
 - Current: 42/65 correct
 - Gap: +5 questions (+7.7%)

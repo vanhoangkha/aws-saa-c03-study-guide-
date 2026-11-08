@@ -25,7 +25,7 @@
 ### Q25: Glacier Retrieval Options
 - **Expedited:** 1-5 min, most expensive ($0.03/GB)
 - **Standard:** 3-5 hours, moderate ($0.01/GB)
-- **Bulk:** 5-12 hours, cheapest ($0.0025/GB)
+- **Bulk:** 5-12 hours, cheapest (free for Glacier Flexible Retrieval)
 - **Deep Archive Retrieval:**
   - Standard: 12 hours
   - Bulk: 48 hours
@@ -33,7 +33,7 @@
 ### Q43: EC2 Reserved Instance Scope
 - **Regional RI:** Flexibility across AZs + instance sizes (within family)
 - **Zonal RI:** Capacity reservation in specific AZ, less flexible
-- **Convertible RI:** Change instance family, OS, tenancy (54% discount)
+- **Convertible RI:** Change instance family, OS, tenancy (66% discount)
 - **Standard RI:** Cannot change instance type (72% discount)
 
 ### Q54: AWS Cost Explorer
@@ -60,10 +60,10 @@
 - **Use case:** Let previous scaling action stabilize
 
 ### Q24: EFS Lifecycle Management
-- **IA transition:** Move to Infrequent Access after N days (7, 14, 30, 60, 90)
+- **IA transition:** Move to Infrequent Access after N days (1, 7, 14, 30, 60, 90, 180, 270, 365); Archive class also available
 - **Cost savings:** Up to 92% vs Standard storage
 - **Transparent:** Automatic, no app changes needed
-- **Access:** Automatically moved back to Standard on access
+- **Access:** Moved back to Standard on first access only if "Transition into Standard" is set (default None)
 
 ### Q30: Lambda Versions + Aliases
 - **Version:** Immutable snapshot ($LATEST = mutable)
@@ -108,9 +108,9 @@
 - **EFA:** Elastic Fabric Adapter (HPC, MPI, inter-node communication)
 
 ### Q55: CloudFront Signed URLs vs Signed Cookies
-- **Signed URLs:** Single file access, RTMP
+- **Signed URLs:** Single file access (RTMP distributions were discontinued in 2020)
 - **Signed Cookies:** Multiple files, don't change URLs
-- **Use URLs:** Individual files, RTMP streaming
+- **Use URLs:** Individual files, clients that don't support cookies
 - **Use Cookies:** Multiple files, existing URLs unchanged
 
 ---
@@ -173,7 +173,7 @@
 
 ## Memorize
 - **Glacier retrieval times:** Expedited (1-5 min), Standard (3-5h), Bulk (5-12h)
-- **RI types:** Standard (72%, no change), Convertible (54%, can change)
+- **RI types:** Standard (72%, no change), Convertible (66%, can change)
 - **RI scope:** Regional (flexible AZ/size), Zonal (fixed AZ)
-- **EFS IA transition:** 7, 14, 30, 60, 90 days options
+- **EFS IA transition:** 1, 7, 14, 30, 60, 90, 180, 270, 365 days options
 

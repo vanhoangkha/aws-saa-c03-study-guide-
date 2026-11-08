@@ -538,7 +538,7 @@ AWS Storage Gateway Types:
 │   ├── Use case: File shares backed by S3
 │   ├── Features: Multi-region (S3 CRR)
 │   └── Cost: $0.01/GB transferred (low cost)
-├── FSx File Gateway
+├── FSx File Gateway (no longer available to new customers since Oct 2024)
 │   ├── Protocol: SMB only (Windows)
 │   ├── Storage: FSx for Windows File Server
 │   ├── Use case: Windows-native features
@@ -576,7 +576,7 @@ AWS Directory Service Options:
 ├── AWS Managed Microsoft AD
 │   ├── Full Microsoft AD in AWS
 │   ├── Trust relationships with on-premises AD
-│   ├── Supports up to 500,000 users
+│   ├── Up to ~30,000 objects (Standard), 500,000 (Enterprise)
 │   ├── Cost: ~$144/month (Standard)
 │   └── Use when: Need actual Microsoft AD features
 ├── Simple AD
@@ -637,7 +637,7 @@ EC2 Pricing Models for Spiky Workloads:
 │   ├── Use when: Steady, predictable workload
 │   └── NOT for: Spiky, temporary traffic
 └── Reserved Instances
-    ├── Discount: Up to 75%
+    ├── Discount: Up to 72%
     ├── Commitment: 1 or 3 years
     └── Use when: Steady baseline capacity
 ```
@@ -722,23 +722,14 @@ Troubleshooting RUNNABLE State:
 ```
 
 **Why awslogs Driver Matters:**
-- AWS Batch requires CloudWatch Logs
-- Without awslogs driver, job cannot be placed
-- Even if CPU/memory is available
+- AWS Batch jobs send logs to CloudWatch Logs through the awslogs driver
+- If the compute resources (for example a custom AMI) don't register the awslogs driver, jobs stay RUNNABLE
+- Even if CPU/memory is available (ECS-optimized AMIs register it by default)
 
 **Correct Configuration:**
-```json
-{
-  "containerProperties": {
-    "logConfiguration": {
-      "logDriver": "awslogs",
-      "options": {
-        "awslogs-group": "/aws/batch/job",
-        "awslogs-region": "us-east-1"
-      }
-    }
-  }
-}
+```bash
+# On a custom AMI: register the awslogs driver with the ECS agent
+echo 'ECS_AVAILABLE_LOGGING_DRIVERS=["json-file","awslogs"]' >> /etc/ecs/ecs.config
 ```
 
 ---

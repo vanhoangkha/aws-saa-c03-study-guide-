@@ -20,7 +20,7 @@
 
 ### Question 1: ECS Task Definitions
 
-A company wants to deploy a containerized application on AWS ECS. The application requires 2 GB of memory and 1 vCPU. The container should access AWS Secrets Manager to retrieve database credentials, and all container logs should be sent to CloudWatch Logs.
+A company wants to deploy a containerized application on AWS ECS. The application requires 2 GB of memory and 1 vCPU. The container should access AWS Secrets Manager to retrieve database credentials, and all container logs should be sent to CloudWatch Logs. An existing task execution role already grants image pull and CloudWatch Logs write permissions.
 
 What must be included in the ECS task definition to meet these requirements? (Choose THREE)
 
@@ -45,8 +45,8 @@ F. Container definition with logConfiguration pointing to CloudWatch
 
 For this scenario:
 - Application accessing Secrets Manager = Task Role
-- CloudWatch Logs integration = logConfiguration in task definition
-- Pulling images/initial setup = Task Execution Role (not asked)
+- CloudWatch Logs integration = logConfiguration in task definition (the awslogs driver writes with the Task Execution Role, which already exists here)
+- Pulling images/initial setup = Task Execution Role (already in place)
 
 ---
 
@@ -311,7 +311,7 @@ Resources:
 - **Outputs**: Make values available from one stack
 - **Export**: Publish the value with a unique name
 - **ImportValue**: Reference the exported value in another stack
-- Automatic updates if the value changes
+- An exported value can't be changed while another stack imports it
 
 **Why Others Are Wrong**:
 - **A**: Parameters require manual input; not dynamic
@@ -341,7 +341,7 @@ D. Deploy EKS in AWS and connect via VPN
 - Fully supported EKS deployment on your infrastructure
 - Same tooling as cloud EKS
 - Managed control plane lifecycle
-- Automatic updates
+- Tooling-driven cluster upgrades (you run them)
 - Works with on-premises, edge, or bare metal
 
 **EKS Distro (Option C)**:
@@ -393,9 +393,9 @@ D. Switch to DynamoDB
 - Applications with long idle periods
 
 **Pricing**:
-- ~$0.06 per ACU-hour
+- ~$0.12 per ACU-hour (Serverless v2, us-east-1)
 - Storage: $0.10/GB-month
-- No charges when paused
+- No compute charges when paused (storage still billed)
 
 **Why Not Others**:
 - **A**: Manual scaling; still pay for idle time
@@ -476,9 +476,9 @@ D. Define multiple API versions with different response models
 **Example VTL Mapping**:
 ```vtl
 {
-  "user_id": $input.path('$.userId'),
-  "name": $input.path('$.name'),
-  "email": $input.path('$.email')
+  "user_id": "$input.path('$.userId')",
+  "name": "$input.path('$.name')",
+  "email": "$input.path('$.email')"
 }
 ```
 
@@ -551,7 +551,7 @@ aws autoscaling update-auto-scaling-group \
 
 ### Question 14: Lambda Custom Resources in CloudFormation
 
-You're deploying EC2 instances across multiple regions using CloudFormation. Each region requires a different AMI ID for the same OS (Amazon Linux 2). Rather than hardcoding AMI IDs for each region, you want to dynamically look up the latest AMI during stack creation.
+You're deploying EC2 instances across multiple regions using CloudFormation. Each region requires a different AMI ID for the same OS (Amazon Linux 2). Rather than hardcoding AMI IDs for each region, you want to dynamically look up the latest AMI during stack creation using your own filter logic (name pattern, tags), without maintaining AMI IDs anywhere.
 
 What's the best approach?
 
@@ -614,7 +614,7 @@ def lambda_handler(event, context):
 **Why Not Others**:
 - **A**: Requires manual updates when new AMIs released
 - **C**: Manual entry for each stack deployment
-- **D**: Still requires populating Parameter Store per region
+- **D**: Your own parameters must be populated per region; AWS public SSM parameters (e.g., `/aws/service/ami-amazon-linux-latest/...`) are the simplest choice when you only need AWS's latest AMI, but can't apply custom filter logic
 
 **Exam Keyword**: "Dynamic lookup" + "CloudFormation" = Lambda Custom Resource
 
@@ -693,6 +693,8 @@ D. Create materialized views for frequently accessed data
 
 **Correct Answer**: B
 
+**Status**: Redshift now applies AQUA to all compute by default; there is no per-cluster switch. Treat "enable AQUA" as the exam-era answer.
+
 **Explanation**:
 
 **Amazon Redshift AQUA**:
@@ -716,8 +718,8 @@ D. Create materialized views for frequently accessed data
 - Improves large scan performance
 
 **Limitations**:
-- Only works with **RA3 instance types**
-- Must enable AQUA in cluster configuration
+- Originally RA3 only; now applied automatically by Redshift
+- No cluster setting to turn it on or off
 - Not all query types benefit (best for scans/aggregations)
 
 **Why Not Others**:
@@ -739,6 +741,8 @@ C. Use AWS Migration Hub without discovery
 D. Manually document server specifications
 
 **Correct Answer**: B
+
+**Status**: Application Discovery Service and Migration Hub are closed to new customers; AWS points new customers to AWS Transform.
 
 **Explanation**:
 
@@ -789,7 +793,7 @@ The solution must avoid internet exposure and minimize latency. What architectur
 
 A. Set up VPC peering between VPC A and VPC B, configure routing
 B. Use AWS PrivateLink to connect VPCs and on-premises
-C. Set up inter-region VPC peering between VPC A and VPC B, use Direct Connect to VPC B
+C. Set up inter-region VPC peering between VPC A and VPC B, and associate VPC A with the Direct Connect connection through a Direct Connect gateway
 D. Copy EFS data to S3 and access via S3 Transfer Acceleration
 
 **Correct Answer**: C
@@ -798,9 +802,8 @@ D. Copy EFS data to S3 and access via S3 Transfer Acceleration
 
 **Architecture**:
 ```
-On-premises --[Direct Connect]--> VPC B (us-east-1) --[Inter-region VPC Peering]--> VPC A (eu-west-1) --[EFS Mount Target]
-                                      |
-                                   EC2 instances
+EC2 instances in VPC B (us-east-1) --[Inter-region VPC Peering]--> VPC A (eu-west-1) --[EFS Mount Target]
+On-premises --[Direct Connect]--> Direct Connect gateway --> VPC A (eu-west-1) virtual private gateway
 ```
 
 **Configuration Steps**:
@@ -817,9 +820,9 @@ mount -t nfs4 -o nfsvers=4.1 fs-12345678.efs.eu-west-1.amazonaws.com:/ /mnt/efs
 ```
 
 3. **On-Premises Access**:
-   - Direct Connect connects to VPC B
-   - Route traffic from VPC B to VPC A via peering
-   - On-premises mounts EFS via VPC B IP routing
+   - Direct Connect gateway associated with VPC A's virtual private gateway
+   - VPC peering does not support edge-to-edge routing, so on-premises traffic can't reach VPC A through VPC B
+   - On-premises mounts EFS using the mount target IP in VPC A
 
 **Key Points**:
 - All traffic stays on AWS network
@@ -828,7 +831,7 @@ mount -t nfs4 -o nfsvers=4.1 fs-12345678.efs.eu-west-1.amazonaws.com:/ /mnt/efs
 - Secure (private connection)
 
 **Why Not Others**:
-- **A**: VPC peering alone doesn't specify inter-region (required here)
+- **A**: VPC peering alone gives no on-premises path (peering has no edge-to-edge routing)
 - **B**: PrivateLink doesn't support EFS
 - **D**: Doesn't provide file system access; requires data copy
 
@@ -1155,7 +1158,7 @@ AZ-C: NAT Gateway + EC2 instances (Same-AZ, no data transfer charge)
 | **1 NAT (Current)** | $0.045 | $0.045/GB | $0.01/GB (2 AZs) |
 | **3 NATs (Optimized)** | $0.135 | $0.045/GB | $0 |
 
-**Break-Even**: If you transfer > ~100 GB/month across AZs, multiple NAT Gateways are cheaper
+**Break-Even**: Two extra NAT Gateways cost ~$65/month, so at $0.01/GB they pay off above ~6,500 GB/month of cross-AZ traffic
 
 **Why This Saves Money**:
 - Eliminates cross-AZ data transfer charges ($0.01/GB)
@@ -1215,7 +1218,7 @@ kms.decrypt(
 **Benefits**:
 - Low-latency encryption/decryption (local API calls)
 - Data encrypted in one region can be decrypted in another
-- Disaster recovery (automatic failover)
+- Disaster recovery (replica keys usable independently; no automatic failover)
 - Compliance (data residency maintained)
 
 **Use Cases**:
@@ -1243,6 +1246,8 @@ C. Enable CloudTrail Lake and run SQL queries
 D. Export logs to CloudWatch Logs Insights
 
 **Correct Answer**: C
+
+**Status**: CloudTrail Lake closed to new customers on 31 May 2026. Accounts without it use option A (trail logs in S3 queried with Athena).
 
 **Explanation**:
 
@@ -1453,7 +1458,7 @@ aws ec2 run-instances \
 
 ### Question 29: NAT Gateway Cost Optimization
 
-You have EC2 instances in private subnets across three Availability Zones in us-east-1. Each AZ has approximately 500 GB of outbound internet traffic per month. Currently, all instances use a single NAT Gateway in us-east-1a. Your AWS bill shows high cross-AZ data transfer charges. How should you optimize costs?
+You have EC2 instances in private subnets across three Availability Zones in us-east-1. Each AZ has approximately 5 TB (5,000 GB) of outbound internet traffic per month. Currently, all instances use a single NAT Gateway in us-east-1a. Your AWS bill shows high cross-AZ data transfer charges. How should you optimize costs?
 
 A. Use NAT Instances instead of NAT Gateways
 B. Deploy one Public NAT Gateway in each AZ
@@ -1468,34 +1473,23 @@ D. Configure instances to use an Internet Gateway directly
 
 **Current Setup** (1 NAT Gateway in AZ-A):
 - NAT Gateway: $0.045/hour = $32.40/month
-- Data processing: 1,500 GB × $0.045 = $67.50
-- Cross-AZ transfer (AZ-B, AZ-C to AZ-A): 1,000 GB × $0.01 = $10.00
-- **Total: $109.90/month**
+- Data processing: 15,000 GB × $0.045 = $675.00
+- Cross-AZ transfer (AZ-B, AZ-C to AZ-A): 10,000 GB × $0.01 = $100.00
+- **Total: $807.40/month**
 
 **Optimized Setup** (1 NAT Gateway per AZ):
 - NAT Gateways: 3 × $32.40 = $97.20/month
-- Data processing: 1,500 GB × $0.045 = $67.50
+- Data processing: 15,000 GB × $0.045 = $675.00
 - Cross-AZ transfer: $0 (same-AZ)
-- **Total: $164.70/month**
+- **Total: $772.20/month**
 
-**Wait, this is MORE expensive!** Let me recalculate...
-
-**Actually, the break-even depends on traffic volume**:
+**The break-even depends on traffic volume**:
 - Extra NAT Gateway cost: 2 × $32.40 = $64.80/month
-- Cross-AZ savings: 1,000 GB × $0.01 = $10.00/month
+- Cross-AZ savings: 10,000 GB × $0.01 = $100.00/month
 
 **Break-even point**: ~6,500 GB/month cross-AZ traffic
 
-**In this scenario (1,000 GB cross-AZ)**, a single NAT Gateway is actually cheaper.
-
-**Let me revise the question context**:
-
-If the scenario showed:
-- **High cross-AZ costs** (e.g., $100+/month)
-- **10+ TB of traffic**
-- **Latency concerns**
-
-Then multiple NAT Gateways would be the answer.
+**In this scenario (10,000 GB cross-AZ)**, one NAT Gateway per AZ is cheaper. Below ~6,500 GB/month, a single NAT Gateway would cost less.
 
 **For exam purposes**, the correct reasoning is:
 - Same-AZ NAT Gateway = No cross-AZ charges

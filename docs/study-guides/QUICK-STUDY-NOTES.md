@@ -2,7 +2,7 @@
 
 ## Memory Aids & Mnemonics
 
-### The 6 R's of Migration (RRRRR-R)
+### The 7 R's of Migration (RRRRR-RR)
 **"Real Robots Rarely Refactor, Retire, or Retain"**
 1. **R**ehost - Lift and Shift
 2. **R**eplatform - Lift, Tinker, and Shift
@@ -10,14 +10,16 @@
 4. **R**efactor - Re-architect
 5. **R**etire - Turn off
 6. **R**etain - Keep for now
+7. **R**elocate - Move VMs as-is (e.g., VMware Cloud on AWS)
 
-### Well-Architected Framework (CROPS)
+### Well-Architected Framework (CROPS + S, 6 pillars)
 **"CROPS grow well in the cloud"**
 - **C**ost Optimization
 - **R**eliability
 - **O**perational Excellence
 - **P**erformance Efficiency
 - **S**ecurity
+- **S**ustainability
 
 ### S3 Storage Classes (SIGGIZ-OD)
 **"SIG GIZ is ODD"**
@@ -110,7 +112,7 @@
 | Data warehouse | **Redshift** | Columnar, petabyte-scale |
 | Graph database | **Neptune** | Relationships, social networks |
 | Time-series | **Timestream** | IoT, metrics, events |
-| Ledger | **QLDB** | Immutable, cryptographic |
+| Ledger | **QLDB** (discontinued) | Immutable, cryptographic |
 
 ### Network Services Quick Guide
 
@@ -124,7 +126,7 @@
 | **Transit Gateway** | Hub for VPCs | Transitive, simplifies architecture |
 | **Direct Connect** | Dedicated connection | On-prem to AWS, low latency |
 | **VPN** | Encrypted connection | Over internet to VPC |
-| **Route 53** | DNS service | 7 routing policies |
+| **Route 53** | DNS service | 8 routing policies |
 | **CloudFront** | CDN | Global edge locations |
 | **Global Accelerator** | Network performance | Static IPs, AWS backbone |
 
@@ -138,6 +140,7 @@
 5. **G**eolocation - Route by user location
 6. **L**atency - Lowest latency region
 7. **F**ailover - Active-passive DR
+8. **G**eoproximity - Route by location of resources, with bias
 
 ---
 
@@ -239,17 +242,17 @@
 **Tool Selection**:
 - **Same engine** (Oracle → Oracle): DMS only
 - **Different engine** (Oracle → PostgreSQL): SCT + DMS
-- **Large data + limited bandwidth**: Snowball + DMS (CDC)
+- **Large data + limited bandwidth**: Snowball + DMS (CDC) (Snowball closed to new customers)
 - **Ongoing replication**: DMS with CDC enabled
 
 ### Scenario 7: Real-Time Analytics
 **Pipeline**: "**KALE**"
 - **K**inesis Data Streams - Ingest real-time data
-- **A**nalytics - Process with SQL/Flink
+- **A**nalytics - Managed Service for Apache Flink (KDA for SQL retired)
 - **L**ambda - Transform/enrich (optional)
-- **E**lasticsearch/S3 - Store results
+- **E**lasticsearch (now OpenSearch)/S3 - Store results
 
-**Alternative**: Kinesis Firehose → S3 → Athena → QuickSight
+**Alternative**: Amazon Data Firehose → S3 → Athena → QuickSight
 
 ---
 
@@ -258,7 +261,7 @@
 ### Identity & Access (IAM)
 **Golden Rules**:
 1. **Least Privilege**: Give minimum permissions needed
-2. **Never use root**: Create admin user immediately
+2. **Never use root**: Create an admin in IAM Identity Center immediately
 3. **MFA**: Enable for all privileged users
 4. **Roles not keys**: Use IAM roles for EC2, Lambda
 5. **Policy structure**: Effect, Action, Resource, Condition
@@ -287,14 +290,14 @@
 - **DataSync**: NFS/SMB → S3/EFS (fast, automated)
 - **DMS**: Database migration (same or different engines)
 - **MGN**: Application Migration Service (lift-and-shift)
-- **Migration Hub**: Track all migrations
-- **Snow Family**: Physical data transfer (TB to EB)
+- **Migration Hub**: Track all migrations (closed to new customers; AWS Transform)
+- **Snow Family**: Physical data transfer (TB to EB) (closed to new customers)
 
 ### Analytics Services
 **"AGAKE"** (A-Gake)
 - **A**thena: Query S3 with SQL (serverless)
 - **G**lue: ETL and Data Catalog
-- **A**nalytics: Kinesis Data Analytics (real-time)
+- **A**nalytics: Managed Service for Apache Flink (formerly Kinesis Data Analytics)
 - **K**inesis: Streaming data (Streams, Firehose)
 - **E**MR: Big data frameworks (Hadoop, Spark)
 
@@ -449,7 +452,7 @@
 ## Final Power Tips
 
 ### The 3-2-1 Rule for Exam
-- **3 minutes** per question average (65 questions / 130 minutes)
+- **2 minutes** per question average (130 minutes / 65 questions)
 - **2 passes**: First = answer known questions, Second = tackle hard ones
 - **1 rule**: Eliminate obviously wrong answers first
 

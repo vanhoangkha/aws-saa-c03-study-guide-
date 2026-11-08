@@ -377,7 +377,7 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 - Reduces network bandwidth usage
 - Offloads CPU from compute nodes
 - No operational complexity
-- Automatic with compatible instance types
+- Automatic: Redshift now applies AQUA by default (no per-cluster setting)
 
 **Use Cases**:
 - Large dataset scans
@@ -393,6 +393,8 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 
 **A**:
 **Use**: AWS Application Discovery Service - Agentless Method
+
+**Status**: Application Discovery Service and Migration Hub are closed to new customers; AWS points new customers to AWS Transform.
 
 **How it Works**:
 - Deploy OVA appliance in VMware
@@ -421,11 +423,12 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 - EFS in VPC A (Region 1)
 - EC2 in VPC B (Region 2)
 - Inter-region VPC peering between VPC A and B
-- Direct Connect to VPC B for on-premises access
+- Direct Connect (via a Direct Connect gateway) to VPC A for on-premises access
 
 **Why This Works**:
 - VPC peering allows private cross-region traffic
 - Direct Connect extends private network to on-premises
+- Peering has no edge-to-edge routing: on-premises traffic can't reach VPC A through VPC B's Direct Connect link
 - All traffic stays on AWS network (not internet)
 
 **Not**: PrivateLink (doesn't support EFS), VPN (higher latency and cost)
@@ -595,7 +598,7 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 
 **Benefits**:
 - Low-latency encryption/decryption locally
-- Disaster recovery (automatic failover)
+- Disaster recovery (replica keys work independently in each Region; no automatic failover)
 - Global data residency compliance
 
 **Use Cases**:
@@ -612,6 +615,8 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 
 **A**:
 **Use**: AWS CloudTrail Lake
+
+**Status**: CloudTrail Lake closed to new customers on 31 May 2026; new accounts query trail logs in S3 with Athena.
 
 **What it is**:
 - Managed data lake for CloudTrail events
@@ -739,7 +744,7 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 - Works with physical, virtual, and cloud servers
 
 **vs Other Services**:
-- Migration Hub: Tracking only
+- Migration Hub: Tracking only (closed to new customers; AWS Transform)
 - DataSync: File/object storage only
 - Database Migration Service: Databases only (not full servers)
 

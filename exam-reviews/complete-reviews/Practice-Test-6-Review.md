@@ -49,7 +49,7 @@
 ## Critical Areas for Improvement
 
 ### Priority 1: Design Resilient Architectures (39% failure rate)
-**Impact:** This domain accounts for ~28% of the exam and you're scoring 14% below passing.
+**Impact:** This domain accounts for 26% of the exam and you're scoring 14% below passing.
 
 **Failed Questions:**
 1. **Q5:** Site-to-Site VPN prerequisites - VGW vs NAT instance confusion
@@ -62,7 +62,7 @@
 8. **Q58:** ECS container instance bootstrap - User data vs task definition
 
 ### Priority 2: Design High-Performing Architectures (22% failure rate)
-**Impact:** This domain is 35% of exam content.
+**Impact:** This domain is 24% of exam content.
 
 **Failed Questions:**
 1. **Q11:** S3 VPC endpoint - Gateway endpoint creation and bucket policy
@@ -149,8 +149,7 @@ AWS Subnet Sizing:
 Formula: 2^(32-n) = total IPs
 Usable IPs = total - 5 (AWS reserves first 4 and last)
 
-/30 → 4 IPs → 0 usable
-/29 → 8 IPs → 3 usable
+/29, /30 → not allowed (smallest IPv4 subnet is /28)
 /28 → 16 IPs → 11 usable
 /27 → 32 IPs → 27 usable   (meets ≥20 requirement)
 /26 → 64 IPs → 59 usable   (overprovisioned)
@@ -409,7 +408,7 @@ EC2 Bootstrap Methods:
 AWS Configuration Propagation Times:
 ├── Instant/Seconds
 │   ├── Security Group rules
-│   ├── IAM policy changes (within seconds)
+│   ├── IAM policy changes (eventually consistent, usually seconds)
 │   └── Route table updates
 ├── Minutes
 │   ├── DNS propagation (Route 53 TTL)
@@ -474,15 +473,15 @@ API Gateway Caching:
 │   ├── Request path
 │   ├── Query string parameters
 │   ├── Request headers
-│   └── Request body (limited)
+│   └── Path parameters (not the request body)
 ├── Cache Splitting Strategies
 │   ├── ?type=equity vs ?type=fixed-income
-│   ├── Separate TTLs per parameter
+│   ├── TTL set per stage or per method
 │   └── Invalidation per key
 └── Configuration
     ├── Method-level cache settings
     ├── Include parameters in cache key
-    └── Per-key TTL (if needed)
+    └── Method-level TTL override (if needed)
 ```
 
 **Example:**
@@ -542,12 +541,12 @@ Lambda@Edge Event Hooks:
 - Provisioned mode with Auto Scaling prevents throttling
 
 #### Question 20: Kinesis Data Firehose for Telemetry (Marked for review)
-- Correctly chose Firehose over Kinesis Data Streams
+- Correctly chose Firehose (now Amazon Data Firehose) over Kinesis Data Streams
 - Serverless ingestion, compression, S3/Redshift delivery
 
 #### Question 22: Redshift Encryption Migration (Marked for review)
 - Correctly answered: Create new encrypted cluster, migrate data
-- Cannot enable encryption on existing Redshift cluster
+- You can now modify an existing cluster to enable KMS encryption (Redshift migrates the data; HSM still needs a new cluster)
 
 #### Question 25: VPC Subnet CIDR (Marked for review - AND got wrong)
 - Already covered above in Priority 1
@@ -566,7 +565,7 @@ Lambda@Edge Event Hooks:
 
 #### Question 54: Amazon Polly + Lex for Customer Service (Marked for review)
 - Correctly selected both Polly (TTS) and Lex (chatbot)
-- Fraud Detector, Kendra, Textract are different use cases
+- Fraud Detector, Kendra, Textract are different use cases (Fraud Detector and Kendra are closed to new customers)
 
 #### Question 60: API Gateway Integration Targets (Marked for review - AND got wrong)
 - Already covered above

@@ -123,9 +123,9 @@ Incorrect Questions (Final Review):
 
 | Attempt | Target Score | Actual Score | Status |
 |---------|--------------|--------------|--------|
-| First | 60% (18/30) | _____ |  |
-| Second | 80% (24/30) | _____ |  |
-| Third | 90% (27/30) | _____ |  |
+| First | 60% (18/30) | _____ | [ ] |
+| Second | 80% (24/30) | _____ | [ ] |
+| Third | 90% (27/30) | _____ | [ ] |
 
 ---
 
@@ -147,7 +147,7 @@ Incorrect Questions (Final Review):
 10. B - Multipart Upload
 11. B - CloudWatch agent + custom metric
 12. C - Compute SP + RDS RI
-13. D - Export to Glacier immediately
+13. D - UNLOAD to S3, Glacier Deep Archive immediately
 14. B - ECS on EC2 on Outposts
 15. B - Redis Multi-AZ
 16. C - FSx for Lustre with S3 integration

@@ -40,7 +40,7 @@
 - **Feature:** Share CloudWatch data across accounts
 - **Use case:** Central monitoring account, multi-account visibility
 - **Setup:** Monitoring account + source accounts linked
-- **Permissions:** IAM roles for cross-account access
+- **Permissions:** Observability Access Manager (OAM) sinks and links
 
 ### Q13: ALB Path-Based Routing
 - **Feature:** Route to different targets based on URL path
@@ -80,10 +80,10 @@
 - **Use case:** HA caching, session store
 
 ### Q27: ECS Dynamic Port Mapping
-- **Requirement:** Application Load Balancer
-- **How:** ALB routes to ephemeral ports (32768-65535)
+- **Requirement:** Application Load Balancer or Network Load Balancer (not CLB)
+- **How:** Load balancer routes to ephemeral ports (32768-65535)
 - **Benefit:** Multiple containers per instance, efficient resource use
-- **Network mode:** awsvpc or bridge
+- **Network mode:** bridge with host port 0 (awsvpc uses IP targets instead)
 
 ### Q31: Glue Data Catalog Crawler
 - **Purpose:** Automatically discover schema, populate data catalog
@@ -177,7 +177,7 @@
 
 ### ECS & Containers
 - **Outposts vs Local Zones:** Deployment locations
-- **Dynamic ports:** Requires ALB, efficient resource use
+- **Dynamic ports:** Requires ALB or NLB, efficient resource use
 - **Network modes:** awsvpc, bridge, host differences
 
 ### S3 Performance
@@ -233,7 +233,7 @@
 
 ### Must Memorize
 1. **CloudWatch agent:** aggregation_dimensions for metric grouping
-2. **ECS dynamic ports:** Requires ALB + awsvpc/bridge mode
+2. **ECS dynamic ports:** Requires ALB or NLB + bridge mode (host port 0)
 3. **IMDS endpoint:** http://169.254.169.254/latest/meta-data/
 4. **S3 performance:** Multipart (>100MB), Transfer Acceleration, byte-range
 5. **Global Accelerator:** Static IPs, TCP/UDP, instant failover

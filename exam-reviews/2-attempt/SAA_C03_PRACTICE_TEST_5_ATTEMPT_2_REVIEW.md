@@ -49,7 +49,7 @@
 ## Critical Areas for Improvement
 
 ### Priority 1: Design High-Performing Architectures (39% failure rate)
-**Impact:** This domain accounts for 35% of the exam and you're scoring 15% below passing.
+**Impact:** This domain accounts for 24% of the exam and you're scoring 15% below passing.
 
 **Failed Questions:**
 1. **Q8:** ECS deployment (Outposts vs Local Zones) - Architecture placement
@@ -90,7 +90,7 @@
 **Correct Answer:** D - ECS EC2 launch type on AWS Outposts
 
 **Why You Failed:**
-- Fargate support on Outposts is limited/not broadly available
+- Fargate is not supported on Outposts
 - EC2 launch type is the standard path for ECS on Outposts
 - Missed the requirement for "consistent, high CPU and memory requirements"
 
@@ -102,7 +102,7 @@ Outposts Deployment:
 │   ├── Consistent CPU/RAM sizing
 │   └── Standard for Outposts
 └── ECS Fargate
-    └── Limited/no Outposts support
+    └── Not supported on Outposts
 ```
 
 **Study Resources:**
@@ -226,7 +226,7 @@ ALB Routing Rules (Layer 7):
 Dynamic Port Mapping Support:
 ├── Application Load Balancer
 ├── Network Load Balancer
-└── Classic Load Balancer
+└── Classic Load Balancer (NOT supported)
 
 Requirement: Multiple ECS tasks on single instance
 Solution: Host port = 0 (ephemeral port range)

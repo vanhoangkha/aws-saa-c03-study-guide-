@@ -278,7 +278,7 @@ On-Premises Office
 
 **Key Features:**
 - **ECMP:** Distributes traffic across multiple VPN tunnels equally
-- **Scalability:** Add up to 50 VPN connections per Transit Gateway
+- **Scalability:** VPN attachments count toward the 5,000 attachments per Transit Gateway (default 50 VPN connections per Region, adjustable)
 - **Bandwidth:** Each VPN = 1.25 Gbps; 4 VPNs = 5 Gbps aggregate
 - **High Availability:** If one tunnel fails, traffic redistributes to others
 
@@ -346,18 +346,17 @@ In which AWS region must the ACM certificate be requested?
 **Complete Setup:**
 ```bash
 # Step 1: Request certificate in us-east-1
+# (--region MUST be us-east-1)
 aws acm request-certificate \
-  --region us-east-1 \              # MUST be us-east-1
+  --region us-east-1 \
   --domain-name app.company.com \
   --validation-method DNS
 
 # Step 2: Create CloudFront distribution
+# dist-config.json sets ViewerCertificate:
+#   ACMCertificateArn=arn:aws:acm:us-east-1:123456789012:certificate/abc-123, SSLSupportMethod=sni-only
 aws cloudfront create-distribution \
-  --origin-domain-name mybucket.s3.amazonaws.com \
-  --default-root-object index.html \
-  --viewer-certificate \
-    ACMCertificateArn=arn:aws:acm:us-east-1:123456789012:certificate/abc-123 \
-    SSLSupportMethod=sni-only
+  --distribution-config file://dist-config.json
 ```
 
 **Why others are wrong:**
@@ -554,7 +553,7 @@ Allowed Direct Transitions:
 ```
 Step 1: Restore from Glacier Deep Archive
 ├── Retrieval Options:
-│   ├── Standard: 12-48 hours ($0.02/GB)
+│   ├── Standard: within 12 hours ($0.02/GB)
 │   └── Bulk: 48 hours ($0.0025/GB) Cost-effective
 ├── Specify days accessible: 1-365 days
 └── Objects remain in Glacier + temporary accessible copy created
@@ -594,7 +593,7 @@ aws s3api delete-object \
 **Cost Calculation (300 TB):**
 - Restoration: 300 TB × $0.0025/GB = $768 (bulk tier)
 - Storage during transition: ~$3,840/month (30 days both copies)
-- Final cost: $0.0125/GB/month (Intelligent-Tiering Archive tier)
+- Final cost: $0.0125/GB/month (Intelligent-Tiering Infrequent Access tier)
 
 **Why others are wrong:**
 - **A:** Bucket default class ONLY affects new uploads, not existing objects
@@ -688,7 +687,7 @@ aws s3api complete-multipart-upload \
 ```
 
 **Best Practices:**
-- **Part size:** 100 MB - 5 GB (100 MB recommended for large files)
+- **Part size:** 5 MB - 5 GB (100 MB is a reasonable choice for large files)
 - **Parallelism:** Upload 5-10 parts simultaneously for speed
 - **S3 lifecycle:** Clean up incomplete uploads after 7 days
 
@@ -702,9 +701,9 @@ s3 = boto3.client('s3')
 
 # Configure multipart threshold and part size
 config = TransferConfig(
-    multipart_threshold=1024 * 25,      # 25 MB
+    multipart_threshold=1024 * 1024 * 25,      # 25 MB
     max_concurrency=10,
-    multipart_chunksize=1024 * 25,      # 25 MB parts
+    multipart_chunksize=1024 * 1024 * 25,      # 25 MB parts
     use_threads=True
 )
 
@@ -975,7 +974,7 @@ Which solution reduces costs while meeting compliance requirements?
 **A.** Reduce automated snapshot retention to 7 days; keep manual snapshots in Redshift for 7 years  
 **B.** Export automated snapshots to S3 after 7 days; delete from Redshift; keep manual snapshots in Redshift  
 **C.** Use automated snapshots for 35 days; copy manual snapshots to S3 after 1 year; delete from Redshift  
-**D.** Reduce automated snapshots to 7 days; copy manual snapshots to S3 Glacier immediately after creation
+**D.** Reduce automated snapshots to 7 days; UNLOAD each monthly compliance dataset to S3 and transition it to S3 Glacier Deep Archive immediately, then delete the manual snapshot
 
 <details>
 <summary> Click to reveal answer</summary>
@@ -994,7 +993,7 @@ Redshift Snapshot Storage Pricing:
 ├── Beyond free tier: $0.024/GB/month
 │   Same price as active Redshift storage
 │
-└── S3 Storage (exported snapshots): $0.023/GB/month (Standard)
+└── S3 Storage (UNLOADed data; Redshift snapshots themselves cannot be exported): $0.023/GB/month (Standard)
     └── S3 Glacier Deep Archive: $0.00099/GB/month
 ```
 
@@ -1008,8 +1007,8 @@ Daily Automated Snapshots:
 
 Monthly Manual Snapshots:
 ├── Created: 1st of every month
-├── Immediately export to S3 Glacier Deep Archive
-├── Delete from Redshift after export
+├── Immediately UNLOAD the data to S3 (Parquet), lifecycle to Glacier Deep Archive
+├── Delete the manual snapshot from Redshift after the UNLOAD
 ├── Retention: 7 years in Glacier
 └── Cost: $0.00099/GB/month (96% cheaper than Redshift storage)
 ```
@@ -1039,12 +1038,7 @@ aws redshift create-cluster-snapshot \
   --cluster-identifier my-cluster \
   --snapshot-identifier manual-snapshot-2026-03
 
-# Export to S3 immediately
-aws redshift create-snapshot-copy-grant \
-  --snapshot-copy-grant-name my-grant \
-  --kms-key-id <kms-key>
-
-# Wait for snapshot completion, then copy to S3
+# Snapshots can't be exported to your own bucket; UNLOAD the data to S3 instead
 aws redshift-data execute-statement \
   --cluster-identifier my-cluster \
   --database dev \
@@ -1076,8 +1070,8 @@ aws redshift delete-cluster-snapshot \
 
 **Why others are wrong:**
 - **A:** Keeping manual snapshots in Redshift for 7 years is extremely expensive
-- **B:** Automated snapshots should stay in Redshift for quick recovery; manual is compliance concern
-- **C:** Waiting 1 year to move to S3 wastes 12 months of expensive Redshift storage
+- **B:** Redshift snapshots can't be exported to S3; automated snapshots should stay in Redshift for quick recovery
+- **C:** Redshift snapshots can't be copied to your own S3 bucket, and waiting 1 year wastes 12 months of Redshift snapshot storage
 
 **Key Concept:** Operational snapshots in Redshift (7 days); Compliance snapshots → S3 Glacier immediately
 </details>
@@ -1131,7 +1125,7 @@ ECS Anywhere (Non-AWS infrastructure):
 
 Local Zones (AWS infrastructure in metro areas):
 ├── Supported: ECS on EC2
-├── Supported: ECS on Fargate
+├── Not supported: ECS on Fargate
 ├── Latency: Single-digit milliseconds
 └── Use case: Ultra-low latency to users in specific cities
 ```
@@ -1273,7 +1267,7 @@ except redis.ConnectionError:
 **Why others are wrong:**
 - **A:** Memcached has no replication or automatic failover
 - **C:** Auto Discovery (Memcached) helps find nodes but doesn't provide failover
-- **D:** Cluster Mode provides horizontal scaling but question asks specifically for Multi-AZ failover (requires Cluster Mode disabled for traditional Multi-AZ)
+- **D:** Cluster Mode enabled also supports Multi-AZ failover, but only when each shard has replicas; sharding alone (as stated) doesn't provide failover
 
 **Key Concept:** Redis Multi-AZ = Primary + Replica + Automatic failover; Memcached = No failover
 </details>
@@ -1383,7 +1377,7 @@ aws fsx create-data-repository-task \
 ```bash
 # 1. Mount FSx for Lustre
 sudo mkdir /mnt/fsx
-sudo mount -t lustre fs-0123456789abcdef0.fsx.us-east-1.amazonaws.com@tcp:/fsx /mnt/fsx
+sudo mount -t lustre fs-0123456789abcdef0.fsx.us-east-1.amazonaws.com@tcp:/<mountname> /mnt/fsx
 
 # 2. Access data (automatically imports from S3 on first access)
 cd /mnt/fsx/genomic-data/
@@ -1409,7 +1403,7 @@ FSx for Lustre Pricing (us-east-1):
 │   └── Use case: Temporary processing (delete after)
 │
 └── PERSISTENT_1 deployment:
-    ├── $0.145/GB/month + $0.145/GB/month (replication)
+    ├── $0.145-$0.290/GB/month by throughput tier (no separate replication charge)
     ├── Example: 4.8 TB × $290/TB = $1,392/month
     └── Use case: Long-term storage with HA
 
@@ -1580,7 +1574,7 @@ DynamoDB Table (Orders):
 DynamoDB Stream:
 ├── Record 1: INSERT order-001 {"total": 99.99, "status": "pending"}
 ├── Record 2: MODIFY order-001 {"status": "confirmed"}
-└── Record 3: DELETE order-002
+└── Record 3: REMOVE order-002
         │
         │ Trigger Lambda
         ▼
@@ -1663,7 +1657,7 @@ def lambda_handler(event, context):
             new_status = record['dynamodb']['NewImage'].get('Status', {}).get('S')
             
             if old_status == 'pending' and new_status == 'confirmed':
-                update_inventory(new_order)
+                update_inventory(record['dynamodb']['NewImage'])
                 
         elif event_name == 'REMOVE':
             old_order = record['dynamodb']['OldImage']
@@ -1755,7 +1749,7 @@ On-Premises Data Center (Virginia):
 │
 └── Traffic Flow with 7224:9100:
     ├── S3 us-east-1: Uses local region (lowest latency)
-    ├── S3 us-west-2: NOT advertised (must use internet)
+    ├── S3 us-west-2: on-prem prefixes not propagated there (return traffic uses internet)
     └── DynamoDB us-east-1: Uses local region
 
 Without 7224:9100 (default 7224:9300):
@@ -1970,7 +1964,7 @@ aws datasync describe-task-execution \
 ```
 
 **Why others are wrong:**
-- **A:** Snowball Edge is for offline transfer; 50 TB can transfer online in ~14 hours; Snowball adds 1-2 weeks shipping time
+- **A:** Snowball Edge (closed to new customers; use DataSync or AWS Data Transfer Terminal) is for offline transfer; 50 TB can transfer online in ~14 hours; Snowball adds 1-2 weeks shipping time
 - **B:** S3 CRR requires exporting EFS to S3, replication, then importing to EFS (3 steps vs 1)
 - **D:** rsync is manual, requires scripting, error handling, monitoring; DataSync is purpose-built
 
@@ -2175,10 +2169,10 @@ Modern Approach (2019+):
 ├── Process:
 │   ├── 1. Modify cluster → Enable encryption
 │   ├── 2. Select KMS key
-│   ├── 3. Redshift creates encrypted snapshots
-│   ├── 4. Redshift migrates data (background)
-│   └── 5. Cluster remains available (read-only during final cutover)
-└── Downtime: Minimal (minutes for final cutover)
+│   ├── 3. Redshift migrates data to a new encrypted cluster
+│   ├── 4. Status shows "resizing" during migration
+│   └── 5. Cluster stays available in read-only mode for the whole migration
+└── Downtime: No read downtime; writes blocked until migration completes
 ```
 
 **Implementation:**
@@ -2194,7 +2188,7 @@ Modern Approach (2019+):
    ├── KMS key: aws/redshift (default) or custom key
    └── Click "Modify cluster"
 5. Redshift migration process:
-   ├── Status: "Modifying"
+   ├── Status: "Resizing" (read-only)
    ├── Progress: 0% → 100%
    ├── Duration: ~2-4 hours for 5 TB
    └── Final status: "Available" (encrypted)
@@ -2219,23 +2213,17 @@ aws redshift describe-clusters \
 **Migration Process:**
 
 ```
-Phase 1: Snapshot Creation
-├── Redshift creates encrypted snapshot
+Data Migration (automatic):
+├── Redshift migrates data to a new encrypted cluster
 ├── Uses specified KMS key
-└── Duration: ~30 minutes for 5 TB
+├── Cluster available in READ-ONLY mode (status: resizing)
+└── Duration depends on data volume
 
-Phase 2: Data Migration (Background)
-├── Redshift copies data to encrypted storage
-├── Cluster remains AVAILABLE for queries
-├── Performance may be slightly reduced
-└── Duration: 2-4 hours for 5 TB
+Completion:
+├── Cluster returns to AVAILABLE status (encrypted)
+└── Writes resume
 
-Phase 3: Final Cutover
-├── Brief read-only period (5-10 minutes)
-├── Switches to encrypted storage
-└── Cluster returns to AVAILABLE status
-
-Total Downtime: ~10 minutes (minimal)
+Total Downtime: No read outage; writes paused during migration
 ```
 
 **Encryption Options:**
@@ -2293,10 +2281,10 @@ WHERE datname = current_database();
 
 **Why others are wrong:**
 - **B:** Manual unload/reload was required pre-2019; no longer necessary
-- **C:** CloudHSM is more expensive and complex; KMS is sufficient for most compliance needs
+- **C:** HSM encryption can't be enabled by modifying a cluster (needs a new cluster); KMS is sufficient for most compliance needs
 - **D:** DMS adds unnecessary complexity; native Redshift feature is simpler
 
-**Key Concept:** Modern Redshift (2019+) = Enable encryption on existing cluster with minimal downtime
+**Key Concept:** Modern Redshift (2019+) = Enable KMS encryption on existing cluster; read-only during migration
 </details>
 
 ---
@@ -2461,7 +2449,7 @@ Configuration:
 
 ### Question 27: EBS Provisioned IOPS for Database (Similar to PT6-Q6)
 
-Database requires 20,000 IOPS consistent performance. Which EBS volume type?
+Database requires 20,000 IOPS with consistent sub-millisecond latency and 99.999% durability. Which EBS volume type?
 
 **A.** gp3 with 20,000 provisioned IOPS  
 **B.** io2 with 20,000 provisioned IOPS  
@@ -2479,8 +2467,8 @@ Database requires 20,000 IOPS consistent performance. Which EBS volume type?
 
 ```
 gp3: Up to 80,000 IOPS max
-├── Cannot provision 20,000 IOPS
-└── Need io2 instead
+├── Can provision 20,000 IOPS (cheaper)
+└── But no sub-millisecond latency or 99.999% durability
 
 io2: Up to 256,000 IOPS
 ├── Can provision 20,000 IOPS
@@ -2489,8 +2477,8 @@ io2: Up to 256,000 IOPS
 ```
 
 **Decision:**
-- Need > 16,000 IOPS → Use io2
-- Need ≤ 80,000 IOPS → Use gp3 (cheaper)
+- Need > 80,000 IOPS, sub-ms latency or 99.999% durability → Use io2
+- Need ≤ 80,000 IOPS only → Use gp3 (cheaper)
 
 **Key Concept:** gp3 max = 80,000 IOPS; io2 (up to 256,000) for higher IOPS or sub-millisecond latency
 </details>
@@ -2769,6 +2757,7 @@ Resources:
     Properties:
       Runtime: python3.11
       Handler: index.handler
+      Role: !GetAtt PasswordGenLambdaRole.Arn
       Code:
         ZipFile: |
           import secrets
@@ -2817,7 +2806,7 @@ us-east-1 VPC (10.0.0.0/16)
 eu-west-1 VPC (10.1.0.0/16)
 ├── EC2 Instances
 ├── Route: 10.0.0.0/16 → pcx-12345
-└── Mount EFS: fs-12345.efs.us-east-1.amazonaws.com
+└── Mount EFS: by mount target IP (EFS DNS name doesn't resolve from the peer VPC)
 ```
 
 **Configuration Steps:**
@@ -2836,9 +2825,9 @@ eu-west-1 VPC (10.1.0.0/16)
 4. Update security groups:
    - EFS SG: Allow NFS from 10.1.0.0/16
 
-5. Mount EFS from eu-west-1:
+5. Mount EFS from eu-west-1 (use the mount target IP address):
    sudo mount -t nfs4 -o nfsvers=4.1 \
-   fs-12345.efs.us-east-1.amazonaws.com:/ /mnt/efs
+   10.0.1.25:/ /mnt/efs
 ```
 
 **Considerations:**
@@ -2902,9 +2891,11 @@ With AQUA:
 └── Result: 5 TB (95% less data movement)
 ```
 
+**Status:** AQUA configuration is retired; Redshift decides automatically whether to use AQUA (the console notes it is currently never turned on). Keep for exam recognition.
+
 **AQUA Features:**
-- Available on RA3 node types only
-- Automatic (no code changes)
+- Was available on ra3.4xlarge and ra3.16xlarge only
+- No code changes needed
 - Free (included with RA3 pricing)
 - Best for: Scans, aggregations, filters
 
@@ -2920,9 +2911,9 @@ With AQUA:
 
 ### Question 36: Application Discovery Service (Similar to PT1-Q60)
 
-A company planning AWS migration needs to discover on-premises application dependencies without installing agents on VMware VMs. Which discovery method works?
+A company planning AWS migration needs to discover on-premises server inventory and utilization without installing agents on VMware VMs. Which discovery method works?
 
-**A.** Agentless discovery using AWS Application Discovery Service Connector  
+**A.** Agentless discovery using AWS Application Discovery Service Agentless Collector  
 **B.** Agent-based discovery  
 **C.** AWS Migration Hub import  
 **D.** CloudWatch agent
@@ -2936,10 +2927,12 @@ A company planning AWS migration needs to discover on-premises application depen
 
 **AWS Application Discovery Service:**
 
+**Status:** Application Discovery Service and Migration Hub are closed to new customers (replacement: AWS Transform). The older Discovery Connector ended support on 17 Nov 2025 (replaced by Agentless Collector).
+
 ```
 Agentless (VMware):
-├── Deploy: OVA appliance in vCenter
-├── Discovers: VMs, CPU, memory, network, dependencies
+├── Deploy: Agentless Collector OVA in vCenter
+├── Discovers: VMs, CPU, memory, disk, network throughput (no network dependencies)
 ├── No agent installation on VMs
 └── Limitations: VMware only, less detailed metrics
 
@@ -2966,7 +2959,7 @@ Use Agent-based when:
 └── Migration planning
 ```
 
-**Key Concept:** Agentless = VMware OVA appliance (no VM agent installation)
+**Key Concept:** Agentless = VMware OVA appliance (no VM agent installation); network dependency mapping needs the agent
 </details>
 
 ---
@@ -3070,7 +3063,7 @@ Secrets Manager:
 Parameter Store:
 ├── Rotation: Manual only
 ├── Free tier: Standard parameters
-├── Advanced: Rotation with custom Lambda
+├── Advanced: Parameter policies (expiration notifications), no native rotation
 └── Use case: Configuration data, SSM integration
 ```
 
@@ -3142,8 +3135,8 @@ A company stores millions of files in S3 with unpredictable access patterns. Som
 Automatic Tier Movement:
 ├── Frequent Access: Objects accessed in last 30 days
 ├── Infrequent Access: Not accessed 30 days (moves automatically)
-├── Archive Instant Access: Not accessed 90 days (optional)
-├── Archive Access: Not accessed 90-270 days (optional)
+├── Archive Instant Access: Not accessed 90 days (automatic)
+├── Archive Access: Not accessed 90-730 days (optional)
 └── Deep Archive Access: Not accessed 180-730 days (optional)
 
 Cost:
@@ -3176,8 +3169,8 @@ Good for Intelligent-Tiering:
 └── Avoid lifecycle management complexity
 
 Not ideal for:
-├── Objects < 128 KB (minimum size)
-├── Objects stored < 30 days (charged minimum)
+├── Objects < 128 KB (not monitored or tiered; always Frequent Access rate)
+├── Objects stored < 30 days (no minimum duration, but no tiering savings)
 ├── Known access patterns (use lifecycle instead)
 ```
 
@@ -3216,8 +3209,8 @@ Standard (3-5 hours):
 └── Use: Most common, balanced cost/speed
 
 Bulk (5-12 hours):
-├── Cost: $0.0025/GB + $0.025 per 1,000 requests
-├── 100 GB cost: 100 × $0.0025 + $0.025 = $0.275 (LOWEST)
+├── Cost: Free (no per-GB or request fee)
+├── 100 GB cost: $0.00 (LOWEST)
 └── Use: Large datasets, non-urgent (meets 12-hour requirement)
 ```
 
@@ -3227,14 +3220,14 @@ Bulk (5-12 hours):
 100 GB Retrieval:
 ├── Expedited: $13.00 (overkill for 12-hour SLA)
 ├── Standard: $1.05 (faster than needed)
-└── Bulk: $0.275 (meets 12-hour requirement at lowest cost)
+└── Bulk: $0.00 (meets 12-hour requirement at lowest cost)
 
-Savings: $13.00 - $0.275 = $12.725 (98% cheaper than Expedited)
+Savings: $13.00 (100% cheaper than Expedited)
 ```
 
 **Why others wrong:**
 - A: Expedited too expensive for this use case
-- B: Standard works but costs 4x more than Bulk
+- B: Standard works but costs more than Bulk (Bulk is free)
 - D: Glacier Instant Retrieval is different storage class (ms retrieval)
 
 **Key Concept:** Bulk retrieval = Most cost-effective for large datasets with flexible timeline
@@ -3329,7 +3322,7 @@ Lambda Function URL:
 
 API Gateway HTTP API:
 ├── Cost: $1 per million requests
-├── Features: Routing, auth, throttling, caching
+├── Features: Routing, auth, throttling (no caching)
 └── Use case: RESTful APIs with multiple routes
 
 API Gateway REST API:
@@ -3640,7 +3633,6 @@ Purpose: Interactive log analytics
 Example Query:
 fields @timestamp, @message
 | filter @message like /ERROR/
-| stats count() by bin(1h)
 | sort @timestamp desc
 | limit 100
 ```
@@ -3956,6 +3948,7 @@ Manual Promotion Required:
 ├── 1. Detach eu-west-1 from global database
 ├── 2. Promote eu-west-1 to standalone cluster
 ├── 3. Update application endpoint
+├── Or: one-step managed failover (failover-global-cluster --allow-data-loss)
 └── Time: <1 minute (manual steps)
 ```
 
@@ -4243,7 +4236,7 @@ Good for Hibernate:
 └── Intermittent workloads
 
 Requirements:
-├── Supported instance types (M3-M5, C3-C5, R3-R5)
+├── Supported instance types (most C, M, R, T families incl. current generations)
 ├── RAM < 150 GB
 ├── Root volume: EBS (not instance store)
 ├── Encryption: Enable on root volume
@@ -4674,7 +4667,7 @@ A financial company must retain audit logs for 7 years and prevent anyone (inclu
 <details>
 <summary> Click to reveal answer</summary>
 
-**Correct Answer: B** (or C if using Glacier)
+**Correct Answer: B**
 
 **Explanation:**
 
@@ -4706,8 +4699,8 @@ S3 Object Lock (Compliance):
 ├── Granularity: Per-object or bucket default
 ├── Use: Flexible compliance, any S3 class
 
-Glacier Vault Lock:
-├── Storage class: Glacier only
+Glacier Vault Lock (vault-based Amazon Glacier, closed to new customers since Nov 2025):
+├── Storage: Glacier vaults only, not S3 buckets
 ├── Granularity: Vault-level policy
 ├── Use: Long-term archives, vault-level immutability
 ```
@@ -4736,13 +4729,14 @@ aws s3api put-object-lock-configuration \
 # Upload object (automatically locked for 7 years)
 aws s3 cp audit-log.txt s3://compliance-logs/
 
-# Attempt to delete (will fail)
+# Delete without version ID only adds a delete marker; the locked version remains
 aws s3 rm s3://compliance-logs/audit-log.txt
-# Error: Access Denied (even as root user)
+# Deleting the locked version (--version-id) fails: Access Denied (even as root user)
 ```
 
 **Why others wrong:**
 - A: Versioning + lifecycle doesn't prevent deletion (with versions)
+- C: Glacier Vault Lock applies to Glacier vaults, not S3 objects
 - D: IAM policies can be changed by admins
 
 **Key Concept:** S3 Object Lock Compliance = Immutable retention (even root cannot delete)
@@ -4872,7 +4866,7 @@ Scope:
 ```
 2 123456789012 eni-1234567890abcdef0 \
   10.0.1.5 203.0.113.5 \
-  443 52000 6 \
+  52000 443 6 \
   10 5000 \
   1620000000 1620000300 \
   ACCEPT OK
@@ -4883,8 +4877,8 @@ Fields:
 ├── ENI: eni-1234567890abcdef0
 ├── Source IP: 10.0.1.5
 ├── Dest IP: 203.0.113.5
-├── Dest port: 443 (HTTPS)
 ├── Source port: 52000
+├── Dest port: 443 (HTTPS)
 ├── Protocol: 6 (TCP)
 ├── Packets: 10
 ├── Bytes: 5000
@@ -4927,8 +4921,8 @@ aws ec2 create-flow-logs \
 # Query with CloudWatch Logs Insights
 fields @timestamp, srcAddr, dstAddr, dstPort, action
 | filter action = "REJECT"
-| stats count() by dstPort
-| sort count desc
+| stats count() as rejects by dstPort
+| sort rejects desc
 ```
 
 **Why others wrong:**
@@ -5114,9 +5108,9 @@ aws compute-optimizer get-ec2-instance-recommendations \
 aws compute-optimizer export-ec2-instance-recommendations \
   --s3-destination-config '{
     "bucket": "my-recommendations-bucket",
-    "keyPrefix": "compute-optimizer/",
-    "format": "Csv"
-  }'
+    "keyPrefix": "compute-optimizer/"
+  }' \
+  --file-format Csv
 ```
 
 **Key Concept:** Compute Optimizer = ML-driven rightsizing recommendations (free, automated)
@@ -5211,7 +5205,7 @@ exports.handler = async () => {
 # Create Canary
 aws synthetics create-canary \
   --name api-health-check \
-  --runtime-version syn-nodejs-puppeteer-3.9 \
+  --runtime-version syn-nodejs-puppeteer-10.0 \
   --artifact-s3-location s3://my-canary-results/ \
   --execution-role-arn arn:aws:iam::123456789012:role/CloudWatchSyntheticsRole \
   --schedule '{
@@ -5288,7 +5282,7 @@ A development team has a database with highly variable workload (idle at night, 
 ```
 Purpose: Automatically scales capacity based on load
 ├── Scaling: Sub-second granularity
-├── Range: 0.5 ACU to 128 ACU
+├── Range: 0 ACU (auto-pause) to 256 ACU on recent versions
 ├── No downtime: Scales without interruption
 ├── Cost: Pay only for ACU-hours used
 └── Ideal: Variable, unpredictable workloads
@@ -5320,13 +5314,13 @@ Serverless v2:
 Actually, better comparison:
 Serverless v2 with scale-to-zero capability:
 ├── Busy: 16 ACU × 8 hrs = 128 ACU-hours
-├── Idle: 0.5 ACU × 16 hrs = 8 ACU-hours
-├── Cost: ~$16/day = $480/month
+├── Idle: 0 ACU (auto-pause) × 16 hrs = 0 ACU-hours
+├── Cost: ~$15.36/day = ~$461/month
 
-Provisioned with scheduled stop (not possible with Aurora)
+Provisioned with scheduled stop (possible: Aurora clusters can be stopped for up to 7 days, but needs scripting)
 
 Real benefit: Variable workload
-├── Serverless: Scales instantly to 128 ACU during spike
+├── Serverless: Scales quickly up to its max ACU during spike
 ├── Provisioned: Fixed at 8 ACU (performance degradation)
 ```
 
@@ -5396,7 +5390,7 @@ A partner company needs to upload files to S3 using SFTP protocol (their legacy 
 Purpose: Managed SFTP/FTPS/FTP service for S3/EFS
 ├── Protocols: SFTP, FTPS, FTP, AS2
 ├── Storage: S3 or EFS backend
-├── Authentication: Service-managed, custom (Lambda), IAM
+├── Authentication: Service-managed, custom (Lambda/API Gateway), AWS Directory Service
 ├── No code changes: Legacy systems work as-is
 └── High availability: Multi-AZ by default
 
@@ -5415,7 +5409,7 @@ Partner Company (Legacy SFTP Client)
         │ SFTP Protocol
         ▼
 AWS Transfer Family (SFTP Server)
-├── Endpoint: transfer.s3.us-east-1.amazonaws.com
+├── Endpoint: s-1234567890abcdef0.server.transfer.us-east-1.amazonaws.com
 ├── Authentication: SSH keys or custom Lambda
 ├── Multi-AZ: Automatic
 └── Logging: CloudWatch Logs

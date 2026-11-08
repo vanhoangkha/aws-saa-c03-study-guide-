@@ -56,7 +56,7 @@ Having trouble with practice tests? Check out these targeted resources:
 ├──────────────────┼────────────────┼──────────────────┼─────────────────┤
 │ Region           │ Geographic     │ 30+ globally     │ Data residency  │
 │ Availability Zone│ Within Region  │ 3-6 per region   │ High availability│
-│ Edge Location    │ Global         │ 400+ worldwide   │ Low latency CDN │
+│ Edge Location    │ Global         │ 700+ worldwide   │ Low latency CDN │
 │ Local Zone       │ Metro areas    │ 15+ cities       │ Ultra-low latency│
 └──────────────────┴────────────────┴──────────────────┴─────────────────┘
 ```
@@ -136,6 +136,7 @@ Having trouble with practice tests? Check out these targeted resources:
 │ Snow Family → Physical Data Transfer    │
 └─────────────────────────────────────────┘
 ```
+Status: Snow Family is closed to new customers (use DataSync, AWS Data Transfer Terminal, or Outposts).
 
 #### Database
 ```
@@ -210,6 +211,7 @@ Having trouble with practice tests? Check out these targeted resources:
 │ Data Pipeline → Data Workflow          │
 └─────────────────────────────────────────┘
 ```
+Status: Data Pipeline is closed to new customers.
 
 #### Migration & Transfer
 ```
@@ -222,6 +224,7 @@ Having trouble with practice tests? Check out these targeted resources:
 │ Migration Hub → Migration Tracking      │
 └─────────────────────────────────────────┘
 ```
+Status: SMS is retired (use Application Migration Service); Migration Hub is closed to new customers (AWS Transform); Snow Family is closed to new customers.
 
 ### 2.2 Quick Service Selection Guide
 
@@ -404,7 +407,7 @@ Z - High Frequency    → Gaming, high-performance computing
 │ Standard-IA        │99.9% │ ≥3  │   30    │ Instant   │Infreq   │
 │ One Zone-IA        │99.5% │  1  │   30    │ Instant   │Infreq+OK│
 │ Glacier Instant    │99.9% │ ≥3  │   90    │Millisec   │ Archive │
-│ Glacier Flexible   │99.99%│ ≥3  │   90    │ 1-5 min   │ Archive │
+│ Glacier Flexible   │99.99%│ ≥3  │   90    │ Min-hours │ Archive │
 │ Glacier Deep       │99.99%│ ≥3  │  180    │ 12 hours  │LongArch │
 └────────────────────┴──────┴─────┴─────────┴───────────┴─────────┘
 
@@ -437,7 +440,7 @@ Z - High Frequency    → Gaming, high-performance computing
 ```
 SSE-S3  → AWS manages keys (AES-256) - default
 SSE-KMS → AWS KMS keys (audit trail, control)
-SSE-C   → Customer provides keys (you manage)
+SSE-C   → Customer provides keys (you manage); off by default on new buckets since April 2026
 Client  → Encrypt before upload (client-side)
 ```
 
@@ -461,7 +464,7 @@ Client  → Encrypt before upload (client-side)
 │ gp2 (SSD)  │3K-16K   │1GB-16TB│ Boot volumes        │
 │            │         │        │ Baseline performance│
 ├────────────┼─────────┼────────┼─────────────────────┤
-│ io2 (SSD)  │Up to 64K│4GB-16TB│ Mission-critical DB │
+│ io2 (SSD)  │≤ 256K   │4GB-64TB│ Mission-critical DB │
 │            │         │        │ Sustained IOPS      │
 ├────────────┼─────────┼────────┼─────────────────────┤
 │ st1 (HDD)  │  500    │125GB-  │ Big data, logs      │
@@ -491,8 +494,8 @@ Client  → Encrypt before upload (client-side)
  Elastic - grows/shrinks automatically
  Pay for what you use
  POSIX-compliant file system
- Performance modes: General Purpose, Max I/O
- Throughput modes: Bursting, Provisioned
+ Performance modes: General Purpose (recommended), Max I/O (previous generation)
+ Throughput modes: Elastic (default), Bursting, Provisioned
 ```
 
 **Storage Classes**
@@ -539,6 +542,8 @@ Client  → Encrypt before upload (client-side)
 │               │          │ Exabyte-scale (truck!) │
 └───────────────┴──────────┴────────────────────────┘
 ```
+
+**Status**: Snow Family is closed to new customers and Snowmobile is retired. New customers use DataSync, AWS Data Transfer Terminal, or Outposts.
 
 **Rule**: If transfer > 1 week over network → Use Snow Family
 
@@ -608,7 +613,7 @@ Client  → Encrypt before upload (client-side)
 │ Failover        │ Automatic    │ Manual promotion  │
 │ Endpoint        │ One DNS name │ Each has own DNS  │
 │ Backups From    │ Standby      │ Can use replica   │
-│ Max Count       │ 1 standby    │ Up to 15 (Aurora) │
+│ Max Count       │ 1 standby    │ 15 (Oracle: 5)    │
 │ Cross-Region    │ No           │ Yes               │
 │ Read Traffic    │ Standby=No   │ Yes               │
 │ Use For         │ Availability │ Performance       │
@@ -626,9 +631,9 @@ Client  → Encrypt before upload (client-side)
  5x faster than MySQL, 3x faster than PostgreSQL
  6 copies across 3 AZs (2 copies per AZ)
  Self-healing with peer-to-peer replication
- Up to 15 Read Replicas (10ms lag)
+ Up to 15 Read Replicas (typically < 100ms lag)
  Automated failover (< 30 seconds)
- Auto-scaling storage (10GB → 128TB)
+ Auto-scaling storage (10GB → 256TiB)
  Backtrack: Restore to any point without backup
  Aurora Global: Cross-region (< 1 sec lag)
 ```
@@ -743,7 +748,7 @@ Need a database?
 │  └─ IoT, DevOps metrics? → Timestream
 │
 └─ Immutable ledger?
-   └─ Cryptographically verifiable? → QLDB
+   └─ Cryptographically verifiable? → QLDB (discontinued; AWS suggests Aurora PostgreSQL)
 ```
 
 ### 5.7 Database Comparison
@@ -815,7 +820,7 @@ AWS Reserves 5 IPs per Subnet:
 │   Feature   │ NAT Gateway  │ NAT Instance │
 ├─────────────┼──────────────┼──────────────┤
 │ Managed by  │ AWS          │ You          │
-│ Bandwidth   │ 5-45 Gbps    │ Instance type│
+│ Bandwidth   │ 5-100 Gbps   │ Instance type│
 │ HA          │ HA in AZ     │ Manual script│
 │ Cost        │ $/hr + $/GB  │ EC2 cost     │
 │ Bastion use │ No           │ Yes          │
@@ -918,7 +923,7 @@ AWS Reserves 5 IPs per Subnet:
 
 **Key Features**
 ```
- 400+ Edge Locations worldwide
+ 700+ Edge Locations (PoPs) worldwide
  Caches content close to users
  DDoS protection (AWS Shield Standard included)
   Integrates with AWS WAF
@@ -972,7 +977,7 @@ AWS Reserves 5 IPs per Subnet:
 ├────────────────┼──────────────┼─────────────────┤
 │ Connection     │ Over internet│ Private fiber   │
 │ Setup Time     │ Minutes      │ Weeks to months │
-│ Bandwidth      │ Up to 1.25Gb │ 1-100 Gbps      │
+│ Bandwidth      │ Up to 1.25Gb │ 1-400 Gbps      │
 │ Cost           │ Low          │ High            │
 │ Encryption     │ Built-in     │ Need VPN/MACsec │
 │ Latency        │ Variable     │ Low, consistent │
@@ -1013,8 +1018,8 @@ AWS Reserves 5 IPs per Subnet:
 └──────────────────────────────────────────────────┘
 ```
 
-**IAM Policy Structure**
-```json
+**IAM Policy Structure** (comments are for study only; remove them in a real policy)
+```jsonc
 {
   "Version": "2012-10-17",
   "Statement": [{
@@ -1038,7 +1043,7 @@ AWS Reserves 5 IPs per Subnet:
 **IAM Best Practices**
 ```
  Enable MFA for root and privileged users
- Create individual IAM users (never share)
+ Federate human users via IAM Identity Center (never share)
  Use groups to assign permissions
  Grant least privilege
  Use roles for EC2 (not access keys)
@@ -1056,7 +1061,7 @@ AWS Reserves 5 IPs per Subnet:
 ```
 ┌────────────────────┬──────────────────────────────┐
 │ SAML 2.0           │ Enterprise (Active Directory)│
-│ AWS SSO            │ Centralized multi-account    │
+│ IAM Identity Center│ Centralized multi-account    │
 │ Cognito            │ Mobile/Web app users         │
 │ OIDC               │ Google, Facebook, etc.       │
 └────────────────────┴──────────────────────────────┘
@@ -1082,7 +1087,7 @@ AWS Owned      → Free, AWS controls, you don't see
 ```
 
 **Key Limits**
-- **API Requests**: 5,500/sec (shared), can request increase to 30K
+- **API Requests**: 10,000, 20,000 or 100,000/sec shared (symmetric, varies by Region), adjustable
 - **Encrypt/Decrypt**: Max 4 KB per call
 - **Envelope Encryption**: For > 4 KB data
 
@@ -1219,7 +1224,7 @@ AWS Owned      → Free, AWS controls, you don't see
 - SQS queues (fan-out pattern)
 - Lambda functions
 - Mobile push notifications
-- Kinesis Data Firehose
+- Amazon Data Firehose
 
 **Features**
 - Message filtering
@@ -1449,18 +1454,19 @@ Sources:
 
 **What**: Best practice recommendations
 
-**Check Categories (5)**
+**Check Categories (6)**
 ```
 1. Cost Optimization     → Reduce costs
 2. Performance          → Improve performance
 3. Security             → Close security gaps
 4. Fault Tolerance      → Increase resilience
 5. Service Limits       → Avoid hitting limits
+6. Operational Excellence → Improve operations
 ```
 
 **Support Plan Differences**
-- **Basic/Developer**: 7 core checks
-- **Business/Enterprise**: All checks + API access
+- **Basic/Developer**: Service-limit checks plus selected security and fault-tolerance checks
+- **Business Support+/Enterprise/Unified Operations**: All checks + API access
 
 ### 9.6 Systems Manager
 
@@ -1520,13 +1526,13 @@ Sources:
 │                    │ Consumers                   │
 │                    │ Retention: 1-365 days       │
 ├────────────────────┼─────────────────────────────┤
-│ Kinesis Data       │ Load streaming data to      │
-│ Firehose           │ S3, Redshift, ElasticSearch │
-│                    │ Near real-time (60s buffer) │
+│ Amazon Data        │ Load streaming data to      │
+│ Firehose           │ S3, Redshift, OpenSearch    │
+│                    │ Near real-time (0-900s buf.)│
 │                    │ Serverless, auto-scaling    │
 ├────────────────────┼─────────────────────────────┤
-│ Kinesis Data       │ Real-time analytics with    │
-│ Analytics          │ SQL or Apache Flink         │
+│ Managed Service    │ Real-time analytics with    │
+│ for Apache Flink   │ Apache Flink (SQL retired)  │
 │                    │ Serverless                  │
 └────────────────────┴─────────────────────────────┘
 ```
@@ -1650,7 +1656,7 @@ Features:
 
 **Use Case**: One-time migration, ongoing replication to AWS
 
-### 11.3 Migration Strategies (6 R's)
+### 11.3 Migration Strategies (7 R's)
 
 ```
 1. REHOST      → "Lift & Shift" - Move as-is (fastest)
@@ -1659,6 +1665,7 @@ Features:
 4. REFACTOR    → "Re-architect" - Cloud-native rebuild
 5. RETIRE      → Turn off what you don't need
 6. RETAIN      → Keep on-premises (for now)
+7. RELOCATE    → Move VMs as-is (e.g., VMware Cloud on AWS)
 ```
 
 **Most Common**: Rehost (70%) for quick wins, then optimize
@@ -1780,7 +1787,7 @@ REMEMBER: Trail=Audit, Watch=Monitor, Config=Compliance
 
 ## Migration & Transfer (Module 10)
 
-### 6 R's Migration Strategy
+### 7 R's Migration Strategy
 
 ```
 1. Rehost        → Lift & Shift (fast, no changes)
@@ -1789,6 +1796,7 @@ REMEMBER: Trail=Audit, Watch=Monitor, Config=Compliance
 4. Refactor      → Re-architect (cloud-native)
 5. Retire        → Turn off unused apps
 6. Retain        → Keep on-premises (for now)
+7. Relocate      → Move VMs as-is (e.g., VMware Cloud on AWS)
 
 EXAM TIP: Most migrations use Rehost (quick wins)
 ```
@@ -1842,6 +1850,8 @@ EXAM TIP: DMS keeps source DB online during migration
 
 Rule: If > 1 week over network → Use Snow
 OpsHub: GUI to manage Snow devices
+Status: Snow Family closed to new customers, Snowmobile retired
+        (new customers: DataSync, AWS Data Transfer Terminal, Outposts)
 ```
 
 ---
@@ -1874,13 +1884,13 @@ Integration: AWS Glue Data Catalog for schema
 │                    │ Consumers                   │
 │                    │ Retention: 1-365 days       │
 ├────────────────────┼─────────────────────────────┤
-│ Kinesis Data       │ Load streaming data to      │
-│ Firehose           │ S3, Redshift, ElasticSearch │
-│                    │ Near real-time (60s buffer) │
+│ Amazon Data        │ Load streaming data to      │
+│ Firehose           │ S3, Redshift, OpenSearch    │
+│                    │ Near real-time (0-900s buf.)│
 │                    │ Serverless, auto-scaling    │
 ├────────────────────┼─────────────────────────────┤
-│ Kinesis Data       │ Real-time analytics with    │
-│ Analytics          │ SQL or Apache Flink         │
+│ Managed Service    │ Real-time analytics with    │
+│ for Apache Flink   │ Apache Flink (SQL retired)  │
 │                    │ Serverless                  │
 └────────────────────┴─────────────────────────────┘
 ```
@@ -2083,7 +2093,7 @@ RPO: Recovery Point Objective
 • VPC CIDR block: /16 to /28
 • AWS reserved IPs per subnet: 5 (first 4 + last 1)
 • Internet Gateways per VPC: 1
-• NAT Gateway bandwidth: 5 Gbps - 45 Gbps
+• NAT Gateway bandwidth: 5 Gbps - 100 Gbps
 • VPC Peering: Not transitive
 • Route 53 health check interval: 30 sec (standard), 10 sec (fast)
 • CloudFront cache TTL: Default 24 hours
@@ -2097,7 +2107,7 @@ RPO: Recovery Point Objective
 • SQS long polling: 1-20 seconds
 • SQS delay queue: 0-15 minutes
 • SQS FIFO throughput: 300 msg/sec (3,000 with batching)
-• SNS message size: Max 256 KB
+• SNS message size: Max 256 KiB (up to 1 MiB to SQS/Lambda/Firehose)
 ```
 
 ### CloudWatch & Monitoring
@@ -2112,19 +2122,19 @@ RPO: Recovery Point Objective
 
 ### KMS & Security
 ```
-• KMS API requests: 5,500/sec (shared, can increase to 10K-30K)
+• KMS API requests: 10K, 20K or 100K/sec (shared symmetric, by Region)
 • KMS encrypt/decrypt: Max 4 KB per call
 • Customer managed keys: $1/month
 • Secrets Manager: $0.40/secret/month
-• WAF web ACL: Max 1,500 rules
+• WAF web ACL: 1,500 WCUs (capacity units) default
 ```
 
 ### Kinesis
 ```
 • Kinesis Data Streams shard: 1 MB/sec write, 2 MB/sec read
 • Kinesis Data Streams retention: 1-365 days (default 24 hours)
-• Kinesis Data Firehose buffer: 1-128 MB or 60-900 seconds
-• Kinesis max record size: 1 MB
+• Amazon Data Firehose buffer: 1-128 MB or 0-900 seconds
+• Kinesis max record size: 1 MiB default (up to 10 MiB)
 ```
 
 ### Storage Transfer
@@ -2133,6 +2143,7 @@ RPO: Recovery Point Objective
 • Snowcone: 8-14 TB
 • Snowball Edge: 80-210 TB
 • Snowmobile: Up to 100 PB
+• Status: Snow Family closed to new customers; Snowmobile retired
 ```
 
 ### Important Ports
@@ -2153,7 +2164,7 @@ RPO: Recovery Point Objective
 ```
 • Reserved Instance discount: Up to 72% (3-year)
 • Spot Instance discount: Up to 90%
-• Savings Plans discount: Up to 66%
+• Savings Plans discount: Up to 72% (EC2 Instance), 66% (Compute)
 • S3 durability: 99.999999999% (11 nines)
 • S3 Standard availability: 99.99%
 • DynamoDB availability: 99.99%
@@ -2165,7 +2176,7 @@ RPO: Recovery Point Objective
 • Step Functions Standard: Up to 1 year
 • Step Functions Express: Up to 5 minutes
 • API Gateway timeout: 29 seconds
-• CloudFront max timeout: 60 seconds
+• CloudFront origin response timeout: 30 s default (1-120 s)
 • ELB connection idle timeout: 60 seconds (default)
 • Auto Scaling cooldown: 300 seconds (default)
 ```
@@ -2183,7 +2194,7 @@ RPO: Recovery Point Objective
 - **S3**: Infinite object storage, globally unique bucket names
 - **EBS**: Hard drive for EC2 instances
 - **EFS**: Network file system for multiple EC2s
-- **Glacier**: Cheap archival (hours to retrieve)
+- **Glacier**: Cheap archival (milliseconds to hours to retrieve, by class)
 
 ### Database
 - **RDS**: Managed MySQL/PostgreSQL/SQL Server/Oracle/MariaDB
@@ -2359,7 +2370,7 @@ Need compute?
 ### RDS & Aurora
 - **Automated backups**: 1-35 days retention
 - **Max storage**: 64 TB (most engines)
-- **Read replicas**: Up to 15 (Aurora), 5 (others)
+- **Read replicas**: Up to 15 (Aurora, MySQL, MariaDB, PostgreSQL), 5 (Oracle)
 - **Multi-AZ**: Automatic failover (1-2 minutes)
 
 ### DynamoDB
@@ -2376,9 +2387,9 @@ Need compute?
 - **Rules per SG**: 60 inbound, 60 outbound
 
 ### CloudFront
-- **Edge locations**: 400+ globally
+- **Edge locations**: 700+ globally
 - **TTL**: Default 24 hours (customizable)
-- **Max file size**: 20 GB
+- **Max cacheable file size**: 50 GB
 
 ---
 
@@ -2478,7 +2489,8 @@ Always Free:
   • SNS: 1M publishes
   • CloudWatch: 10 custom metrics
 
-12 Months Free:
+12 Months Free (accounts created before 15 July 2025;
+newer accounts get the credit-based Free Tier instead):
   • EC2: 750 hours/month t2.micro/t3.micro
   • S3: 5 GB standard storage
   • RDS: 750 hours/month db.t2.micro
@@ -2489,7 +2501,7 @@ Always Free:
 
 ```
  FREE: Data IN to AWS (ingress)
- FREE: Data between services in same region
+ FREE: Data within the same AZ over private IP (cross-AZ is paid)
  FREE: Data to CloudFront
 
  PAID: Data OUT from AWS (egress)
@@ -2630,7 +2642,7 @@ Cost Reduction Tips:
    **A**: VPC
 
 10. **Q**: You need to transfer 100 TB of data to AWS with limited bandwidth?
-    **A**: AWS Snowball
+    **A**: AWS Snowball (closed to new customers; new customers use DataSync or AWS Data Transfer Terminal)
 
 ---
 

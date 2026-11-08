@@ -4,7 +4,7 @@
 **Score:** 49/65 (75.38%) - **BORDERLINE PASS**  
 **Time Taken:** Not recorded  
 **Status:** Above passing threshold but needs improvement  
-**Passing Score:** 72% (need 47/65 correct)
+**Passing Score:** 72% on this practice test (need 47/65 correct); the real exam uses a scaled score of 720/1000
 
 ---
 
@@ -171,9 +171,9 @@ You want to use a custom domain (www.example.com) with CloudFront distribution u
 **Step 1: Request ACM Certificate in us-east-1**
 
 ```bash
-# CRITICAL: Must be in us-east-1
+# CRITICAL: --region MUST be us-east-1
 aws acm request-certificate \
-  --region us-east-1 \                    # MUST be us-east-1
+  --region us-east-1 \
   --domain-name www.example.com \
   --subject-alternative-names example.com \
   --validation-method DNS
@@ -199,6 +199,8 @@ aws acm request-certificate \
 aws cloudfront create-distribution \
   --distribution-config '{
     "CallerReference": "unique-string-123",
+    "Comment": "",
+    "Enabled": true,
     "Aliases": {
       "Quantity": 1,
       "Items": ["www.example.com"]
@@ -221,6 +223,7 @@ aws cloudfront create-distribution \
     "DefaultCacheBehavior": {
       "TargetOriginId": "S3-origin",
       "ViewerProtocolPolicy": "redirect-to-https",
+      "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
       "AllowedMethods": {
         "Quantity": 2,
         "Items": ["GET", "HEAD"]
@@ -232,6 +235,7 @@ aws cloudfront create-distribution \
 **Step 3: Create Route 53 Alias Record**
 
 ```bash
+# Z2FDTNDATAQYW2 is the fixed hosted zone ID for all CloudFront alias targets
 aws route53 change-resource-record-sets \
   --hosted-zone-id Z123ABC \
   --change-batch '{
@@ -241,7 +245,7 @@ aws route53 change-resource-record-sets \
         "Name": "www.example.com",
         "Type": "A",
         "AliasTarget": {
-          "HostedZoneId": "Z2FDTNDATAQYW2",  # CloudFront hosted zone ID (always this)
+          "HostedZoneId": "Z2FDTNDATAQYW2",
           "DNSName": "d123abc.cloudfront.net",
           "EvaluateTargetHealth": false
         }
@@ -477,7 +481,7 @@ Correct Cross-Account S3 Access:
 - S3 Transfer Acceleration
 - Multipart upload
 - Byte-range fetches
-- S3 Select & Glacier Select
+- S3 Select & Glacier Select (closed to new customers; use Athena)
 
 **Study Resources:**
 - [Module 04: Storage - S3 Performance](../../04-Storage/README.md#s3-performance)
@@ -519,7 +523,7 @@ Glacier Instant Retrieval  | Milliseconds   | High retrieval cost
                           |                | No free quota
                           |                | Not cost-optimized
 ────────────────────────────────────────────────────────────
-Glacier Flexible Retrieval | Minutes-Hours  | 10 GB/month FREE
+Glacier Flexible Retrieval | Minutes-Hours  | Bulk retrievals FREE
                           |                | Low cost after quota
                           |                | Best for occasional access
 ────────────────────────────────────────────────────────────
@@ -529,7 +533,7 @@ Glacier Deep Archive      | 12-48 hours    | Lowest storage cost
 ```
 
 **Cost Optimization Strategy:**
-- **Unpredictable access:** Flexible Retrieval (use free 10 GB quota)
+- **Unpredictable access:** Flexible Retrieval (Bulk retrievals are free)
 - **Rare access (< 1x/year):** Deep Archive
 - **Millisecond access needed:** Instant Retrieval (but expensive)
 
@@ -554,7 +558,7 @@ Glacier Instant Retrieval  | Milliseconds   | High retrieval cost
                           |                | No free quota
                           |                | Not cost-optimized
 ────────────────────────────────────────────────────────────
-Glacier Flexible Retrieval | Minutes-Hours  | 10 GB/month FREE
+Glacier Flexible Retrieval | Minutes-Hours  | Bulk retrievals FREE
                           |                | Low cost after quota
                           |                | Best for occasional access
 ────────────────────────────────────────────────────────────
@@ -564,7 +568,7 @@ Glacier Deep Archive      | 12-48 hours    | Lowest storage cost
 ```
 
 **Cost Optimization Strategy:**
-- **Unpredictable access:** Flexible Retrieval (use free 10 GB quota)
+- **Unpredictable access:** Flexible Retrieval (Bulk retrievals are free)
 - **Rare access (< 1x/year):** Deep Archive
 - **Millisecond access needed:** Instant Retrieval (but expensive)
 
@@ -577,7 +581,7 @@ Glacier Deep Archive      | 12-48 hours    | Lowest storage cost
 #### 1. S3 Glacier Retrieval Cost Optimization (Detailed Analysis)
 
 **SCENARIO:**
-Your company stores 100 TB of compliance logs in S3 that are accessed 5-10 times per year (unpredictable). Each retrieval is typically 50 GB. You need to minimize costs while meeting regulatory requirements for 24-hour retrieval time.
+Your company stores 100 TB of compliance logs in S3 that are accessed 5-10 times per year (unpredictable). Each retrieval is typically 50 GB. You need to minimize costs while meeting regulatory requirements for 5-hour retrieval time.
 
 **Common Wrong Answer:** S3 Glacier Instant Retrieval
 **Correct Answer:** **S3 Glacier Flexible Retrieval**
@@ -607,12 +611,12 @@ Your company stores 100 TB of compliance logs in S3 that are accessed 5-10 times
 │  │ Retrieval:                             │                │
 │  │   - Expedited: 1-5 minutes             │                │
 │  │   - Standard: 3-5 hours                │                │
-│  │   - Bulk: 5-12 hours (FREE 10GB/month)│ ← BEST CHOICE  │
+│  │   - Bulk: 5-12 hours (FREE)           │ ← BEST CHOICE  │
 │  │ Storage: $0.0036/GB-month              │                │
 │  │ Retrieval:                             │                │
 │  │   - Expedited: $0.03/GB + $0.01/request│               │
 │  │   - Standard: $0.01/GB + $0.03/1000 req│               │
-│  │   - Bulk: FREE first 10GB/month        │                │
+│  │   - Bulk: FREE                         │                │
 │  │ Minimum: 90 days storage               │                │
 │ │ Use Case:  YOUR SCENARIO (unpredictable)│               │
 │  └────────────────────────────────────────┘                │
@@ -662,14 +666,14 @@ Option 2: S3 Glacier Flexible Retrieval
 │                                                             │
 │  Retrieval Cost (10 times × 50 GB, Standard):             │
 │    10 × 50 GB × $0.01/GB = $5.00/year                      │
-│    OR use Bulk (first 10 GB/month FREE):                  │
-│    10 × (50 GB - 10 GB free) × $0 = $0/year               │
+│    OR use Bulk (FREE, 5-12 hours):                        │
+│    10 × 50 GB × $0 = $0/year                              │
 │                                                             │
 │  Total Annual Cost: $4,423.68 + $5.00 = $4,428.68         │
 │  OR with Bulk FREE: $4,423.68                              │
 │                                                             │
 │   Savings: $501.52/year vs Instant Retrieval              │
-│   Meets 24-hour requirement (Standard: 3-5 hours)         │
+│   Meets 5-hour requirement (Standard: 3-5 hours)          │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
@@ -688,14 +692,14 @@ Option 3: S3 Glacier Deep Archive
 │                                                             │
 │   CHEAPEST option                                          │
 │    But: 12-48 hour retrieval (slower than requirement)   │
-│  Use if 24-hour SLA can extend to 48 hours                │
+│  Use if the SLA can extend to 12-48 hours                 │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
  RECOMMENDATION: Glacier Flexible Retrieval
    - Best balance of cost ($4,428/year) and retrieval time (3-5 hours)
-   - Use Bulk retrieval tier for FREE 10 GB/month quota
-   - Meets 24-hour regulatory requirement
+   - Use the free Bulk tier when 5-12 hours is acceptable
+   - Meets 5-hour regulatory requirement
 ```
 
 **Glacier Flexible Retrieval Tiers Explained:**
@@ -710,7 +714,7 @@ Option 3: S3 Glacier Deep Archive
 │     │ Cost: $0.03/GB + $0.01/request   │                   │
 │     │ Use: Emergency access needed     │                   │
 │     │ Example: Legal request           │                   │
-│     │ Limit: 250 MB max object size    │                   │
+│     │ 1-5 min applies to objects <250MB│                   │
 │     └──────────────────────────────────┘                   │
 │                                                              │
 │  2  Standard (3-5 hours):                                  │
@@ -723,8 +727,8 @@ Option 3: S3 Glacier Deep Archive
 │                                                              │
 │  3  Bulk (5-12 hours):                                     │
 │     ┌──────────────────────────────────┐                   │
-│     │ Cost: FREE first 10 GB/month     │ ← FREE TIER!      │
-│     │ Then: $0.0025/GB                 │                   │
+│     │ Cost: FREE (no per-GB fee)       │ ← FREE!           │
+│     │ Deep Archive Bulk: $0.0025/GB    │                   │
 │     │ Use: Large datasets, no rush    │                   │
 │     │ Example: Year-end compliance     │                   │
 │     │ Best for: Cost optimization      │                   │
@@ -740,7 +744,7 @@ Option 3: S3 Glacier Deep Archive
 {
   "Rules": [
     {
-      "Id": "Compliance-Log-Lifecycle",
+      "ID": "Compliance-Log-Lifecycle",
       "Status": "Enabled",
       "Filter": {
         "Prefix": "logs/compliance/"
@@ -784,7 +788,7 @@ Trap 3: "Confusing Glacier options"
   Expedited: Retrieval tier for Flexible (1-5 minutes)
 
 Trap 4: "Ignoring FREE tier"
-  WRONG: Overlooking Bulk's free 10 GB/month
+  WRONG: Overlooking that Bulk retrievals are free
   RIGHT: Use Bulk tier for predictable cost savings
 ```
 
@@ -976,7 +980,7 @@ Pricing Model Comparison:
 │  │                                          │                │
 │  │ EC2 Instance Savings Plans:             │                │
 │ │    Any size in instance family        │                   │
-│ │    Any region                          │                   │
+│ │    Same region only                    │                   │
 │ │    Any OS, tenancy                     │                   │
 │ │    Must stay in same family (m5)      │                   │
 │  │                                          │                │
@@ -1010,7 +1014,7 @@ Pricing Model Comparison:
 │                                                             │
 │  3  No Upfront (Lowest discount)                          │
 │     Pay monthly only                                       │
-│     Example: $0 upfront, $0.107/hour                       │
+│     Example: $0 upfront, $0.154/hour                       │
 │     Discount: ~60%                                         │
 │     Best for: Limited capital                              │
 │                                                             │
@@ -1058,7 +1062,7 @@ Spot Instances for Cost Optimization:
 │  Flexible, may change instance types:                      │
 │    → Compute Savings Plans                                 │
 │                                                             │
-│  Specific family, may change sizes/regions:                │
+│  Specific family, may change sizes/OS:                     │
 │    → EC2 Instance Savings Plans                            │
 │                                                             │
 │  Variable, unpredictable:                                  │
@@ -1244,7 +1248,7 @@ Method 2: IAM Role
 ```yaml
 Unpredictable Access Pattern:
   Best: Flexible Retrieval
-  Why: 10 GB/month FREE retrieval
+  Why: Bulk retrievals are FREE
   
 Rare Access (< 1x/year):
   Best: Deep Archive

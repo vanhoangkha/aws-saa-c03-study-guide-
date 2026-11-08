@@ -2,7 +2,7 @@
 
 **Test Performance**: 49/65 (75.38%) - FAIL  
 **Date**: March 1, 2026  
-**Passing Score**: 72% (≥720/1000)
+**Passing Score**: 720/1000 scaled score (not a raw 72%)
 
 ---
 
@@ -201,7 +201,7 @@ How to reduce cost for ASG (min 2, max 12) without risking performance?
 ```
 All On-Demand @ 12 instances = 12x cost
 All Spot @ 12 instances = ~1.2x cost (but risky)
-Mixed (2 OD + 8 Spot @ 80%) = ~4x cost (balanced)
+Mixed (4 OD + 8 Spot @ 80%) = ~5x cost (balanced)
 ```
 
 **AVOID:**
@@ -341,7 +341,7 @@ How to identify actual client IPs and request details for forensics?
 | **CloudTrail** | API calls | No | No | No |
 
 **ALB ACCESS LOG FIELDS:**
-- Client IP (x-forwarded-for)
+- Client IP and port
 - Request URL and method
 - User agent
 - Response status codes
@@ -601,7 +601,7 @@ An application archives logs to S3 Glacier Flexible Retrieval. For compliance, l
 
 **Cost Savings:**
 ```
-Expedited: $0.03/GB + $0.01/1000 requests
+Expedited: $0.03/GB + $10.00/1000 requests
 Standard: $0.01/GB + $0.05/1000 requests
 Savings: ~66% on retrieval costs
 ```
@@ -755,7 +755,7 @@ Mixed (4 OD + 6 Spot): $400 OD + $180 Spot = $580 (42% savings)
 **Why Not Others:**
 - **A:** Spot interruptions can affect entire fleet (no baseline protection)
 - **B:** No cost optimization (pays full price)
-- **D:** No guaranteed baseline (base=0 means all Spot initially)
+- **D:** No guaranteed On-Demand baseline (base=0), and 50% Spot saves less than 80%
 
 **Interruption Handling:**
 - Spot interrupts instance → Auto Scaling launches replacement

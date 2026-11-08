@@ -4,7 +4,7 @@
 **Score:** 49/65 (75.38%) - **BORDERLINE PASS**  
 **Time Taken:** 98 minutes 56 seconds  
 **Status:** Above passing threshold but needs improvement  
-**Passing Score:** 72% (need 47/65 correct)
+**Passing Score:** 72% on this practice test (need 47/65 correct); the real exam uses a scaled score of 720/1000
 
 ---
 
@@ -153,7 +153,7 @@ D. Memory Utilization (custom metric)
 │ │   CPU usage                      │     │
 │ │   Network traffic                │     │
 │ │   Disk I/O                       │     │
-│ │   Memory usage (inside guest)    │     │
+│ │   NOT memory usage (inside guest)│     │
 │  └───────────────────────────────────┘  │
 │                                          │
 │  Solution: CloudWatch Agent             │
@@ -198,7 +198,7 @@ D. Memory Utilization (custom metric)
 │  │  Namespace:                        │              │
 │  │    CWAgent                         │              │
 │  │  Dimensions:                       │              │
-│  │    InstanceId: i-1234567890abcdef0 │              │
+│  │    AutoScalingGroupName: my-asg    │              │
 │  └────────────────────────────────────┘              │
 │           │                                           │
 │           │ Used by Auto Scaling                      │
@@ -238,12 +238,15 @@ D. Memory Utilization (custom metric)
   },
   "metrics": {
     "namespace": "CWAgent",
+    "append_dimensions": {
+      "AutoScalingGroupName": "${aws:AutoScalingGroupName}"
+    },
+    "aggregation_dimensions": [["AutoScalingGroupName"]],
     "metrics_collected": {
       "mem": {
         "measurement": [
           {
             "name": "mem_used_percent",
-            "rename": "MemoryUtilization",
             "unit": "Percent"
           }
         ],
@@ -728,7 +731,7 @@ D. Instant retrieval (milliseconds)
 │     │ Provisioned Capacity:                │               │
 │     │   - $100/month per unit              │               │
 │     │   - Guarantees retrieval speed       │               │
-│     │ Limit: 250 MB max object size        │               │
+│     │ 1-5 min applies to objects < 250 MB  │               │
 │     │ Use Case: Emergency access           │               │
 │     │ Example: Legal discovery, audits     │               │
 │     └──────────────────────────────────────┘               │
@@ -748,8 +751,8 @@ D. Instant retrieval (milliseconds)
 │  3  BULK (5-12 hours) - CHEAPEST                          │
 │     ┌──────────────────────────────────────┐               │
 │     │ Retrieval Time: 5-12 hours           │ ← TOO SLOW    │
-│     │ Cost: FREE (first 10 GB/month)       │               │
-│     │       $0.0025/GB after free tier     │               │
+│     │ Cost: FREE (no per-GB fee)           │               │
+│     │       (Deep Archive Bulk: $0.0025/GB)│               │
 │     │ Large datasets: Petabytes OK         │               │
 │     │ Use Case: Non-urgent, bulk restore   │               │
 │     │ Example: Year-end compliance export  │               │
@@ -804,14 +807,14 @@ Option B: Standard (3-5 hours)
 Option C: Bulk (5-12 hours)
 ┌────────────────────────────────────────────────────────────┐
 │  Retrieval Cost:                                           │
-│    First 10 GB: FREE                                       │
-│    Remaining 90 GB × $0.0025/GB = $0.225                   │
-│    Total: $0.225                                           │
+│    Bulk retrievals are FREE                                │
+│    100 GB × $0/GB = $0.00                                  │
+│    Total: $0.00                                            │
 │                                                             │
 │  Retrieval Time: 5-12 hours                                │
 │                                                             │
 │  Analysis:                                                 │
-│     Cheapest option (78% cheaper than Standard)            │
+│     Cheapest option (free)                                 │
 │     May not meet 4-hour SLA (can take up to 12 hours)     │
 │     Unpredictable timing (5-12 hour range)                 │
 │     Risk of SLA violation                                  │
@@ -916,7 +919,7 @@ Option C: Bulk (5-12 hours)
 │  │ Bulk retrieval (days acceptable)             │         │
 │  │   Example: Year-end archive export           │         │
 │  │   Answer: Bulk ($)                           │         │
-│  │   Cost: $0.0025/GB (+ 10GB/month FREE)       │         │
+│  │   Cost: FREE (no per-GB fee)                 │         │
 │  │   SLA: 5-12 hours                            │         │
 │  └──────────────────────────────────────────────┘         │
 │                                                             │
@@ -1020,9 +1023,9 @@ Annual Cost Comparison (5 TB total retrieved):
 │    Savings: $101.00/year vs Expedited                      │
 │                                                             │
 │  Bulk (5-12 hr):                                           │
-│    FREE: 10 GB/month × 12 months = 120 GB                  │
-│    Paid: (5,000 - 120) GB × $0.0025 = $12.20              │
-│    Total: $12.20/year                                      │
+│    Bulk retrievals are FREE                                │
+│    5,000 GB × $0/GB = $0.00                                │
+│    Total: $0.00/year                                       │
 │     But: Doesn't meet 4-hour SLA                           │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
@@ -1051,7 +1054,7 @@ Trap 4: "Forgetting the restore expiration"
 **KEY TAKEAWAY:**
 - **Expedited** = 1-5 minutes, $0.03/GB (emergency only)
 - **Standard** = 3-5 hours, $0.01/GB ( best for most scenarios)
-- **Bulk** = 5-12 hours, $0.0025/GB + 10 GB/month FREE (bulk exports)
+- **Bulk** = 5-12 hours, FREE (bulk exports)
 - **Choose based on:** SLA requirement vs cost trade-off
 
 **EXAM TIP:**
@@ -1128,7 +1131,7 @@ D. Compute SP for web; EC2 Instance SP for app; RDS RI for DB
 │  │   - Highest discount (up to 72%)   │                    │
 │  │   - Flexible within family (m5.*)  │                    │
 │  │   - Any size: m5.large → m5.24xl   │                    │
-│  │   - Any region, AZ, OS              │                    │
+│  │   - Fixed region, any AZ/OS         │                    │
 │  └────────────────────────────────────┘                    │
 │           ↓                                                  │
 │  DB TIER (RDS Database)                                     │
@@ -1323,7 +1326,7 @@ Your Answer - Multiple Problems:
 │     │ Flexibility:                         │               │
 │     │    Locked to instance family (m5) │                  │
 │     │    Any size (m5.large → m5.24xl)   │                 │
-│     │    Any region                       │                 │
+│     │    Same region only                 │                 │
 │     │    Any OS, tenancy                  │                 │
 │     │                                       │               │
 │     │ Use Case:                            │               │
@@ -1388,7 +1391,7 @@ Your Answer - Multiple Problems:
 │                                                             │
 │  ┌─────────────────────────────────────────┐              │
 │  │ Running RDS?                            │              │
-│  │    YES → MUST use RDS Reserved Instance │ ← ALWAYS     │
+│  │    YES → RDS RI (or Database SP, ≤35%)  │              │
 │  │    EC2 Savings Plans DON'T cover RDS    │              │
 │  └─────────────────────────────────────────┘              │
 │                                                             │
@@ -1459,7 +1462,7 @@ Your Answer - Multiple Problems:
 
  Mistake 2: Trying to cover RDS with EC2/Compute SP
    Problem: RDS is NOT covered by EC2 Savings Plans
-   Fix: Always use separate RDS Reserved Instances
+   Fix: Use RDS Reserved Instances (or Database Savings Plans, up to 35%)
 
  Mistake 3: Using EC2 Instance SP for variable workloads
    Problem: Locked to one instance family
@@ -1505,7 +1508,7 @@ aws ce get-savings-plans-utilization \
 - **Strategy** = Mix and match for each tier's needs
 
 **EXAM TIP:**
-- If question has **RDS** in any tier → Must use **RDS RI** (EC2 SP doesn't cover RDS)
+- If question has **RDS** in any tier → Use **RDS RI** (EC2/Compute SP don't cover RDS; Database Savings Plans give up to 35%)
 - If EC2 tier has **mixed families** → Use **Compute SP**
 - If EC2 tier is **stable family** → Use **EC2 Instance SP** for maximum discount
 - **Multi-tier architectures** almost always need **mixed strategies**
@@ -1818,13 +1821,12 @@ AutoScalingGroup:
         OnDemandBaseCapacity: 10              # First 10 always On-Demand
         OnDemandPercentageAboveBaseCapacity: 20  # Above 10: 20% OD, 80% Spot
         SpotAllocationStrategy: price-capacity-optimized  # Best strategy
-        SpotInstancePools: 4                  # Diversify across 4 pools
         SpotMaxPrice: ""                      # Pay up to On-Demand price
       
       LaunchTemplate:
         LaunchTemplateSpecification:
           LaunchTemplateId: !Ref LaunchTemplate
-          Version: $Latest
+          Version: !GetAtt LaunchTemplate.LatestVersionNumber
         
         # Instance type overrides (diversification)
         Overrides:
@@ -1907,7 +1909,7 @@ Real-World Scaling Scenario:
 │  ┌──────────────────────────────────────┐                 │
 │  │ Desired Capacity: 20                 │                 │
 │  │ Scale-in:                            │                 │
-│  │   • Terminate Spot first (cheaper)   │                 │
+│  │   • Keep 20% OD / 80% Spot split     │                 │
 │  │   • Keep On-Demand base              │                 │
 │  │ Running:                             │                 │
 │ │   • 10 On-Demand (base)             │                    │
@@ -1980,6 +1982,7 @@ Monthly Cost Comparison (Average: 30 instances, Peak 4hr/day: 50):
 
 ```python
 # Lambda function - Handle Spot interruption warning
+import time
 import boto3
 
 def lambda_handler(event, context):
@@ -2222,7 +2225,7 @@ AUTO SCALING METRICS:
 
 LIFECYCLE HOOKS:
 ├─ Purpose: Run custom actions before termination
-├─ States: Terminating:Wait, Launching:Wait
+├─ States: Terminating:Wait, Pending:Wait
 └─ Use cases: Backup data, drain connections
 
 TERMINATION POLICIES:

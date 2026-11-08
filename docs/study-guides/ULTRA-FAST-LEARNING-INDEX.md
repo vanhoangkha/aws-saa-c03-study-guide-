@@ -76,7 +76,7 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 - EBS Volume Types (gp3, io2, st1, sc1)
 - EFS (Elastic File System)
 - Storage Gateway
-- Snow Family (Snowcone, Snowball, Snowmobile)
+- Snow Family (Snowcone, Snowball, Snowmobile; closed to new customers)
 - FSx (Windows, Lustre, NetApp, OpenZFS)
 
 **Exam Weight**: High (~15-20%)
@@ -92,7 +92,7 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 - DynamoDB (NoSQL, Indexes, Streams, Global Tables)
 - ElastiCache (Redis vs Memcached)
 - Redshift (Data Warehouse)
-- DocumentDB, Neptune, QLDB, Timestream
+- DocumentDB, Neptune, QLDB (discontinued), Timestream
 
 **Exam Weight**: High (~15-20%)
 
@@ -106,8 +106,8 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 - VPC Components (IGW, NAT Gateway, VPC Endpoints)
 - Security Groups vs NACLs
 - VPC Connectivity (Peering, Transit Gateway, VPN, Direct Connect)
-- Route 53 (7 Routing Policies - SWLFGPM mnemonic)
-- CloudFront (CDN, Origins, OAI)
+- Route 53 (8 Routing Policies incl. IP-based - SWLFGPM mnemonic)
+- CloudFront (CDN, Origins, OAC, which replaces OAI)
 
 **Exam Weight**: Very High (~20-25%)
 
@@ -139,7 +139,7 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 - SNS (Pub/Sub, Fan-out Pattern)
 - EventBridge (Event-driven Architecture)
 - Step Functions (Workflow Orchestration)
-- Kinesis (Streams vs Firehose vs Analytics)
+- Kinesis Data Streams vs Amazon Data Firehose vs Managed Service for Apache Flink
 - AppSync, AppFlow, Amazon MQ
 
 **Exam Weight**: Medium (~10-15%)
@@ -156,7 +156,7 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 - X-Ray (Distributed Tracing)
 - Trusted Advisor (Best Practices)
 - Systems Manager (Session Manager, Parameter Store, Run Command)
-- Personal Health Dashboard
+- AWS Health Dashboard (formerly Personal Health Dashboard)
 
 **Exam Weight**: Medium (~10-15%)
 
@@ -166,11 +166,11 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 **File**: [10-Migration/ULTRA-FAST-LEARN.md](../../10-Migration/ULTRA-FAST-LEARN.md)
 
 **Topics Covered**:
-- 6 R's Migration Strategies (RRRRRT mnemonic)
+- 7 R's Migration Strategies (RRRRRT mnemonic; plus Relocate)
 - AWS DataSync (Automated Data Transfer)
 - DMS (Database Migration Service)
-- Snow Family (Physical Data Transfer)
-- Migration Hub (Tracking)
+- Snow Family (Physical Data Transfer; closed to new customers)
+- Migration Hub (Tracking; closed to new customers, AWS Transform)
 - Application Migration Service (MGN)
 - AWS Backup
 - Disaster Recovery Strategies
@@ -184,7 +184,7 @@ This guide provides condensed, bullet-point summaries for **ultra-fast learning*
 
 **Topics Covered**:
 - Athena (Serverless SQL on S3)
-- Kinesis (Streams, Firehose, Analytics)
+- Kinesis (Streams, Amazon Data Firehose, Managed Service for Apache Flink)
 - EMR (Hadoop, Spark, Big Data)
 - AWS Glue (Serverless ETL, Data Catalog)
 - Redshift (Data Warehouse, Spectrum)
