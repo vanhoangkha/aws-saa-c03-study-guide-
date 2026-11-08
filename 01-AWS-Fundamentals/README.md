@@ -41,7 +41,7 @@ By the end of this module, you will be able to:
 **What is a Region?**
 - A geographical area containing multiple Availability Zones
 - Completely independent and isolated from other regions
-- Currently 30+ regions globally
+- 39 Regions globally (November 2026)
 
 **Key Characteristics:**
 - Each region has a unique code (e.g., `us-east-1`, `eu-west-1`)

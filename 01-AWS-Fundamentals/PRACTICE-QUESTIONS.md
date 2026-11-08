@@ -354,7 +354,7 @@ D. Edge Locations are the same as Availability Zones
 
 **Explanation:**
 - Edge Locations support CloudFront (CDN), Lambda@Edge, and other edge services
-- There are 400+ edge locations vs 30+ Regions
+- There are 700+ edge locations vs 39 Regions
 - Edge Locations ≠ Availability Zones (different purposes)
 - Used for content delivery AND edge computing (Lambda@Edge, CloudFront Functions)
 

@@ -383,12 +383,12 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• Edge Locations support CloudFront (CDN), Lambda@Edge, and other edge services\n• There are 400+ edge locations vs 30+ Regions\n• Edge Locations ≠ Availability Zones (different purposes)\n• Used for content delivery AND edge computing (Lambda@Edge, CloudFront Functions)",
+  "explanation": "• Edge Locations support CloudFront (CDN), Lambda@Edge, and other edge services\n• There are 700+ edge locations vs 39 Regions\n• Edge Locations ≠ Availability Zones (different purposes)\n• Used for content delivery AND edge computing (Lambda@Edge, CloudFront Functions)",
   "module": "AWS Fundamentals",
   "multi": false,
   "why": [
    "Edge Locations support CloudFront (CDN), Lambda@Edge, and other edge services.",
-   "There are 400+ edge locations vs 30+ Regions.",
+   "There are 700+ edge locations vs 39 Regions.",
    "Edge Locations ≠ Availability Zones (different purposes)",
    "Used for content delivery AND edge computing (Lambda@Edge, CloudFront Functions)"
   ],

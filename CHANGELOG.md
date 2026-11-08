@@ -7,6 +7,7 @@ Notable changes to this study guide. The format follows [Keep a Changelog](https
 First release of this repository, based on the MIT-licensed study guide by ChathurangaVKD (see [LICENSE](LICENSE)).
 
 ### Added
+- Newer features flashcard table and a list of retired services with their replacements in FLASHCARDS.md.
 - Quick-pick table and commonly confused pairs (Macie vs Comprehend, Textract vs Rekognition) in the ML services notes, with two new module 11 questions.
 - 14 practice questions on newer features (two each in modules 03, 04, 05, 06, 07, 08 and 12); the simulator bank now has 312 questions.
 - "Newer Features to Know" tables in modules 03, 04, 05, 06, 07, 08 and 12: Lambda SnapStart and function URLs, S3 Express One Zone and S3 Tables, Aurora I/O-Optimized, Limitless and DSQL, zero-ETL, VPC Lattice, Verified Access, IPAM, CloudFront VPC origins, resource control policies, EventBridge Pipes, Resilience Hub, Fault Injection Service and Application Recovery Controller.

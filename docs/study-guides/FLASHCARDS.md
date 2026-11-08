@@ -4,21 +4,12 @@
 
 ---
 
-## **NEW: Focused Review Resources for Weak Areas**
+## Focused Review Resources for Weak Areas
 
-Having trouble with practice tests? Check out these targeted resources:
-
-### **Track Your Progress**
-- **[Test Results Tracker](../..//14-Practice/TEST-RESULTS-TRACKER.md)** - Log practice test scores and identify weak areas
-
-### **Focused Flashcards**
-- **Focused Review Flashcards** - 35 cards covering the most commonly missed topics
-
-### **Deep Dive Study Notes**
-- **Weak Areas Study Notes** - explanations of difficult concepts
-
-### **Targeted Practice**
-- **Targeted Weak Area Questions** - 30+ practice questions on commonly missed topics
+- [Test Results Tracker](../../14-Practice/TEST-RESULTS-TRACKER.md): log practice test scores and find weak areas
+- [Focused review flashcards](INCORRECT-AREAS-FLASHCARDS.md): 31 cards on the most commonly missed topics
+- [Weak areas study guide](PRACTICE-TEST-4-INCORRECT-STUDY-GUIDE.md): explanations of difficult concepts
+- [Targeted weak area questions](INCORRECT-AREAS-PRACTICE-QUESTIONS.md): 31 questions on commonly missed topics
 
 **Use these resources when you:**
 - Score below 70% on practice tests
@@ -43,6 +34,7 @@ Having trouble with practice tests? Check out these targeted resources:
 12. [Architecture Patterns](#12-architecture-patterns)
 13. [Cost Optimization](#cost-optimization-module-13)
 14. [Quick Reference & Exam Tips](#critical-numbers--limits-must-memorize)
+15. [Newer Features (2023-2026)](#newer-features-2023-2026)
 
 ---
 
@@ -54,7 +46,7 @@ Having trouble with practice tests? Check out these targeted resources:
 ┌──────────────────┬────────────────┬──────────────────┬─────────────────┐
 │    Component     │    Scope       │     Count        │   Purpose       │
 ├──────────────────┼────────────────┼──────────────────┼─────────────────┤
-│ Region           │ Geographic     │ 30+ globally     │ Data residency  │
+│ Region           │ Geographic     │ 39 globally      │ Data residency  │
 │ Availability Zone│ Within Region  │ 3-6 per region   │ High availability│
 │ Edge Location    │ Global         │ 700+ worldwide   │ Low latency CDN │
 │ Local Zone       │ Metro areas    │ 15+ cities       │ Ultra-low latency│
@@ -2534,6 +2526,41 @@ Cost Reduction Tips:
 - [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/)
 - [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/)
 - [AWS Pricing Calculator](https://calculator.aws/)
+
+---
+
+## Newer Features (2023-2026)
+
+Features released after the original SAA-C03 content. Cover the right column and name the service.
+
+| Scenario cue | Answer |
+|--------------|--------|
+| Java Lambda cold starts, lowest cost | Lambda SnapStart |
+| Single-function HTTPS endpoint, no API Gateway features needed | Lambda function URL |
+| Single-digit millisecond S3 access, compute in one AZ | S3 Express One Zone |
+| Managed Apache Iceberg tables with automatic compaction | S3 Tables |
+| Mount an S3 bucket as a file system for read-heavy Linux apps | Mountpoint for Amazon S3 |
+| Aurora I/O is 25% or more of the Aurora bill | Aurora I/O-Optimized |
+| Active-active multi-Region relational database, strong consistency | Aurora DSQL |
+| Scale Aurora PostgreSQL writes beyond one writer | Aurora Limitless Database |
+| Operational data in Redshift within seconds, no pipelines | Zero-ETL integration |
+| Database upgrade with minimal downtime | RDS Blue/Green Deployments |
+| Service-to-service networking across VPCs and accounts, overlapping CIDRs | VPC Lattice |
+| VPN-less access to internal web apps based on identity and device | Verified Access |
+| Plan and track IP addresses across an organization | VPC IPAM |
+| CloudFront in front of a private (internal) ALB or EC2 | CloudFront VPC origins |
+| Client certificate authentication on ALB | ALB mutual TLS |
+| Only principals in my organization can use my S3 buckets or KMS keys | Resource control policy (RCP) |
+| Find unused roles and permissions | IAM Access Analyzer unused access |
+| SQS to filter to enrich to target, no glue code | EventBridge Pipes |
+| Millions of S3 objects processed in parallel with retries | Step Functions Distributed Map |
+| Move traffic away from one impaired AZ | ARC zonal shift |
+| Controlled chaos experiments with stop conditions | AWS Fault Injection Service |
+| Check a design against RTO and RPO targets | AWS Resilience Hub |
+| Container images with continuous vulnerability scanning | ECR enhanced scanning (Amazon Inspector) |
+| Managed Prometheus and Grafana | Amazon Managed Service for Prometheus, Amazon Managed Grafana |
+
+Retired or closed to new customers (prefer the replacement in new designs): Snow Family devices (DataSync, Data Transfer Terminal), S3 Object Lambda, AWS Data Pipeline (Glue, Step Functions, MWAA), Migration Hub and Application Discovery Service (AWS Transform), AWS Proton, CloudTrail Lake, Amazon Kendra.
 
 ---
 
