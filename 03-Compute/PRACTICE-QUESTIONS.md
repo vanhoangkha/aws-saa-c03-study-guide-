@@ -292,9 +292,9 @@ D. No placement group needed
 
 **Explanation:**
 - **Cluster Placement Group** places instances close together in single AZ
-- Low-latency network (10 Gbps between instances)
+- Low-latency network (up to 10 Gbps single-flow traffic between instances, versus 5 Gbps outside a cluster placement group)
 - High throughput, enhanced networking
-- All instances in same rack/physical proximity
+- Instances share the same high-bisection bandwidth network segment (they are not isolated to a single rack)
 
 **Placement Group Types**:
 
@@ -356,7 +356,7 @@ D. Amazon Lightsail
 **Beanstalk vs Others**:
 - **Lambda**: Functions, not full applications
 - **EC2 + Auto Scaling**: More manual configuration
-- **Lightsail**: Simpler, less scalable
+- **Lightsail**: Simpler, less scalable (Lightsail is out of scope for SAA-C03)
 
 **References:** AWS Elastic Beanstalk, PaaS
 </details>
@@ -387,7 +387,7 @@ D. Spot Instances
 | Option | Commitment | Discount | Capacity Guarantee |
 |--------|------------|----------|-------------------|
 | **On-Demand** | None | None | No guarantee |
-| **Reserved** | 1-3 years | Up to 72% | Yes (regional or zonal) |
+| **Reserved** | 1-3 years | Up to 72% | Zonal RIs only (Regional RIs give a discount, no capacity) |
 | **Savings Plans** | 1-3 years | Up to 72% (EC2 Instance), 66% (Compute) | No |
 | **Capacity Reservations** | None | None | Yes (zonal) |
 | **Spot** | None | Up to 90% | No (can be interrupted) |
@@ -596,7 +596,7 @@ D. R5 (Memory Optimized)
 - Baseline performance depends on instance size
 - Earn credits when CPU < baseline
 - Spend credits when CPU > baseline
-- **Unlimited mode**: Can burst beyond credits (additional charges)
+- **Unlimited mode** (default for T3): Can burst beyond credits (surplus credits are charged if average CPU exceeds the baseline over 24 hours)
 
 **T3 Instance Types**:
 - t3.nano: 5% baseline
@@ -729,13 +729,14 @@ D. AWS Fargate
 - Minimal refactoring required
 - Full control over OS and configuration
 
-**Migration Strategies (6 R's)**:
+**Migration Strategies (7 Rs)**:
 1. **Rehost (Lift-and-Shift)**: Move as-is to EC2
-2. **Replatform (Lift-Tinker-Shift)**: Minor optimizations
-3. **Repurchase**: Move to SaaS
-4. **Refactor/Re-architect**: Redesign for cloud-native
-5. **Retire**: Decommission
-6. **Retain**: Keep on-premises
+2. **Relocate**: Move servers or VMs to the cloud without major changes, keeping the existing architecture
+3. **Replatform (Lift-Tinker-Shift)**: Minor optimizations
+4. **Repurchase**: Move to SaaS
+5. **Refactor/Re-architect**: Redesign for cloud-native
+6. **Retire**: Decommission
+7. **Retain**: Keep on-premises
 
 **Lift-and-Shift Approach**:
 - Quick migration
@@ -786,7 +787,8 @@ D. Use Step Functions
 - 1000 files uploaded to S3
 - Lambda invoked 1000 times concurrently (within account limits)
 - If account limit is 1000, all execute immediately
-- If limit exceeded, some invocations throttled (429 error)
+- If the limit is exceeded, some invocations are throttled. S3 invokes Lambda asynchronously, so Lambda keeps throttled events in its queue and retries them for up to 6 hours (configurable maximum event age)
+- Each function can also scale by at most 1,000 execution environments every 10 seconds
 
 **References:** Lambda Concurrency, Automatic Scaling
 </details>
@@ -855,7 +857,7 @@ D. AWS Direct Connect
 - Provides a consistent hybrid experience
 - Supports EC2, EBS, RDS, ECS, EKS, S3, and more
 - Dedicated Hosts are for compliance, not hybrid cloud
-- Snowball Edge is for edge computing and data transfer, not full AWS services
+- Snowball Edge is for edge computing and data transfer, not full AWS services (and it has not been available to new customers since November 7, 2025)
 - Direct Connect is for network connectivity, not running AWS services on-premises
 
 **References:** AWS Outposts, Hybrid Cloud
@@ -930,7 +932,8 @@ D. AWS Snowball Edge
 **Explanation:**
 - VMware Cloud on AWS integrates VMware vSphere, NSX, and vSAN with AWS infrastructure
 - Enables seamless migration and hybrid operations
-- Managed by both AWS and VMware
+- Runs on AWS bare-metal infrastructure. Since May 2024 it is sold only by Broadcom and its resellers, not by AWS
+- Amazon Elastic VMware Service (Amazon EVS, launched August 2025) is a newer AWS option for VMware Cloud Foundation workloads; it is not in the SAA-C03 in-scope service list, while VMware Cloud on AWS is
 - Outposts is for running AWS services on-premises
 - Dedicated Hosts are for compliance
 - Snowball Edge is for edge computing
@@ -1015,12 +1018,12 @@ D. Amazon Aurora
 ---
 
 ### Question 28
-A financial institution needs a fully managed, immutable, cryptographically verifiable ledger database. Which AWS service should they use?
+A financial institution ran its transaction ledger on Amazon QLDB, which has reached end of support. The team needs a fully managed AWS database for the ledger and its audit history, following AWS migration guidance. Which service should they use?
 
-A. Amazon QLDB  
-B. Amazon Aurora  
-C. Amazon RDS  
-D. Amazon DynamoDB  
+A. Amazon Aurora PostgreSQL-Compatible Edition  
+B. Amazon DynamoDB  
+C. Amazon Keyspaces  
+D. Amazon Neptune  
 
 <details>
 <summary>Show Answer</summary>
@@ -1028,13 +1031,13 @@ D. Amazon DynamoDB
 **Answer: A**
 
 **Explanation:**
-- Amazon QLDB (Quantum Ledger Database) is a fully managed ledger database
-- Provides immutable, cryptographically verifiable transaction log
-- Aurora, RDS, and DynamoDB are not ledger databases
+- Amazon QLDB reached end of support on July 31, 2025. AWS published guidance for migrating QLDB ledgers to Amazon Aurora PostgreSQL, using AWS DMS to load the exported data
+- Aurora PostgreSQL stores the ledger as relational tables (or JSON). It does not provide QLDB's built-in cryptographic verification, so add that in the application if it is required
+- DynamoDB, Keyspaces and Neptune are not the AWS-recommended migration target for QLDB ledgers
 
-**Status (November 2026):** Amazon QLDB has been discontinued, and AWS now points ledger workloads to Amazon Aurora PostgreSQL. Keep this question for recognising the service in older exam material.
+**Note:** Older practice material may still show "Amazon QLDB" as the answer for an immutable ledger. QLDB is no longer available, so it is not a valid answer on a current exam.
 
-**References:** Amazon QLDB, Ledger Database
+**References:** Migrate an Amazon QLDB ledger to Amazon Aurora PostgreSQL (AWS Database Blog)
 </details>
 
 ---
@@ -1059,7 +1062,7 @@ D. Amazon DynamoDB
 - ECS Anywhere
 - EKS Anywhere
 - Amazon Keyspaces
-- Amazon QLDB (discontinued)
+- Amazon QLDB end of support (migration to Aurora PostgreSQL)
 
 **Exam Tips**:
 

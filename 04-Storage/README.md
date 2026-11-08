@@ -4,7 +4,7 @@
 
 AWS storage services for SAA-C03 exam: S3, EBS, EFS, Storage Gateway, and Snow Family.
 
-**Exam Weight**: ~15-20%
+The exam guide weights domains, not services: Secure Architectures 30%, Resilient Architectures 26%, High-Performing Architectures 24%, Cost-Optimized Architectures 20%. Storage topics appear in all four.
 
 ---
 
@@ -39,6 +39,7 @@ AWS storage services for SAA-C03 exam: S3, EBS, EFS, Storage Gateway, and Snow F
 | **Glacier Instant** | Archive, instant retrieval | 11 9's | 99.9% | 90 days |
 | **Glacier Flexible** | Archive, minutes-hours | 11 9's | 99.99% | 90 days |
 | **Glacier Deep Archive** | Long-term archive | 11 9's | 99.99% | 180 days |
+| **Express One Zone** | Single-digit ms latency, one AZ (directory buckets) | Single AZ: data lost if the AZ is destroyed | 99.95% | 1 hour |
 
 **Mnemonic: "SIG-GIZ-OD"**
 - Standard, Intelligent, Glacier (3 types), One Zone, Deep Archive
@@ -65,16 +66,17 @@ AWS storage services for SAA-C03 exam: S3, EBS, EFS, Storage Gateway, and Snow F
 - Use cases: Compliance, lower latency, disaster recovery
 
 **Encryption:**
+- Every bucket encrypts new objects by default with SSE-S3 (since January 5, 2023)
 - **SSE-S3**: AWS managed keys
 - **SSE-KMS**: AWS KMS managed keys
-- **SSE-C**: Customer-provided keys
+- **SSE-C**: Customer-provided keys (disabled by default on new general purpose buckets since April 2026; enable it with PutBucketEncryption if needed)
 - **Client-Side**: Encrypt before upload
 
 **Access Control:**
 - Bucket policies (JSON)
 - IAM policies
-- ACLs (legacy)
-- Block Public Access (default)
+- ACLs (legacy; disabled by default on buckets created since April 2023 via Object Ownership "Bucket owner enforced")
+- Block Public Access (all four settings on by default for new buckets since April 2023)
 
 **S3 Transfer Acceleration:**
 - Upload to edge location → CloudFront → S3
@@ -82,7 +84,7 @@ AWS storage services for SAA-C03 exam: S3, EBS, EFS, Storage Gateway, and Snow F
 - Uses AWS backbone network
 
 **S3 Event Notifications:**
-- Trigger Lambda, SQS, SNS
+- Trigger Lambda, SQS, SNS, or send to EventBridge
 - Events: Object created, deleted, restored
 
 ### S3 Performance
@@ -114,7 +116,7 @@ AWS storage services for SAA-C03 exam: S3, EBS, EFS, Storage Gateway, and Snow F
 - Persist independently from EC2 instance
 - Automatically replicated within AZ
 - Can detach and reattach
-- Maximum size: 64 TB per volume
+- Maximum size: 64 TiB per volume for gp3 and io2; 16 TiB for gp2, io1, st1 and sc1
 
 ### EBS Volume Types
 
@@ -123,7 +125,7 @@ Limits follow the current AWS documentation: gp3 goes up to 80,000 IOPS, 2,000 M
 | Type | Name | IOPS | Throughput | Use Case |
 |------|------|------|------------|----------|
 | **gp3** | General Purpose SSD | 3,000-80,000 | 125-2,000 MiB/s | Boot volumes, virtual desktops |
-| **gp2** | General Purpose SSD | 3-16,000 | Based on size | Legacy general purpose |
+| **gp2** | General Purpose SSD | 100-16,000 (3 IOPS/GiB) | 128-250 MiB/s, based on size | Legacy general purpose |
 | **io2** | Provisioned IOPS SSD | 256,000 | 4,000 MiB/s | Databases, critical apps |
 | **io1** | Provisioned IOPS SSD | 64,000 | 1,000 MB/s | Legacy provisioned IOPS |
 | **st1** | Throughput Optimized HDD | 500 | 500 MB/s | Big data, data warehouses |
@@ -164,7 +166,7 @@ Limits follow the current AWS documentation: gp3 goes up to 80,000 IOPS, 2,000 M
 **Elastic File System** - Managed NFS file system
 
 **Characteristics:**
-- Multi-AZ, regional service
+- Regional file systems (multi-AZ, recommended) or One Zone file systems (single AZ)
 - Automatically scales (petabytes)
 - NFSv4.1 protocol
 - Linux only
@@ -200,8 +202,9 @@ Limits follow the current AWS documentation: gp3 goes up to 80,000 IOPS, 2,000 M
 ### EFS Storage Classes
 
 - **Standard**: Frequently accessed
-- **IA (Infrequent Access)**: Cost-optimized for files not accessed daily
-- **Lifecycle Management**: Automatically move files to IA
+- **IA (Infrequent Access)**: For files accessed a few times a quarter; up to 95% lower cost than Standard
+- **Archive**: For files accessed a few times a year or less; up to 50% lower cost than IA (needs Elastic throughput)
+- **Lifecycle Management**: Default policy moves files to IA after 30 days and to Archive after 90 days without access
 
 ---
 
@@ -250,8 +253,8 @@ Limits follow the current AWS documentation: gp3 goes up to 80,000 IOPS, 2,000 M
 - Use: Edge computing, remote locations
 
 **2. Snowball Edge:**
-- **Storage Optimized**: 80 TB storage
-- **Compute Optimized**: 42 TB storage + more compute
+- **Storage Optimized**: 210 TB usable NVMe storage, 104 vCPUs (current device; older devices had 80 TB)
+- **Compute Optimized**: 28 TB NVMe storage, 104 vCPUs, 416 GB usable memory
 - Can run EC2, Lambda locally
 - Cluster multiple devices
 - Use: Large data migrations, edge processing
@@ -318,7 +321,7 @@ Need storage?
 | **Access** | HTTP/API | Mount to EC2 | Mount (NFS) | Mount (SMB) |
 | **Scope** | Regional | AZ | Regional | Regional/Multi-AZ |
 | **Sharing** | Via URL/API | Single EC2* | Multiple EC2 | Multiple instances |
-| **Max Size** | Unlimited | 64 TB/volume | Unlimited | 64 TB |
+| **Max Size** | Unlimited | 64 TiB/volume (gp3, io2) | Unlimited | 64 TB |
 | **Use Case** | Files, backups | Boot disk, DB | Shared files | Windows apps |
 
 *Except io1/io2 Multi-Attach (max 16 EC2)
@@ -367,7 +370,7 @@ Need storage?
 - Snapshots stored in S3 (incremental)
 - gp3/io2 = SSD (boot volumes, databases)
 - st1/sc1 = HDD (big data, cannot boot)
-- Max 64 TB per volume
+- Max 64 TiB per volume (gp3, io2); 16 TiB for gp2, io1, st1, sc1
 
 **EFS:**
 - Regional, Multi-AZ by default
@@ -378,7 +381,7 @@ Need storage?
 
 **Snow Family** (closed to new customers):
 - Snowcone: 8-14 TB (retired)
-- Snowball: 42-80 TB
+- Snowball Edge: 210 TB (Storage Optimized), 28 TB NVMe (Compute Optimized)
 - Snowmobile: 100 PB (retired)
 - Use when transfer > 1 week over network
 
@@ -466,3 +469,31 @@ At 10 Mbps, transferring 50 TB would take about 460 days (more than a year). AWS
 
 [Previous: Compute](../03-Compute/README.md) | [Next: Database ](../05-Database/README.md) | [Main](../README.md)
 
+
+## References
+
+Pages this module was checked against (November 2026). The full list is in [docs/REFERENCES.md](../docs/REFERENCES.md).
+
+- [S3 storage classes](https://aws.amazon.com/s3/storage-classes/)
+- [S3 max object size raised to 50 TB (What's New, December 2025)](https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-maximum-object-size-50-tb/)
+- [S3 multipart upload limits](https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html)
+- [S3 server-side encryption (default SSE-S3, SSE-C default)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html)
+- [S3 Block Public Access and ACL defaults for new buckets](https://aws.amazon.com/blogs/storage/understanding-s3-block-public-access/)
+- [S3 Event Notifications destinations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html)
+- [S3 presigned URL expiration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html)
+- [S3 Intelligent-Tiering access tiers](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering-overview.html)
+- [S3 Express One Zone availability](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Endpoints.html)
+- [S3 Select availability](https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html)
+- [EBS General Purpose SSD volumes](https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html)
+- [EBS gp3 limits raised to 64 TiB, 80,000 IOPS, 2,000 MiB/s (What's New, September 2025)](https://aws.amazon.com/about-aws/whats-new/2025/09/amazon-ebs-size-provisioned-performance-gp3-volumes/)
+- [EBS volume types (st1, sc1, io2)](https://aws.amazon.com/ebs/volume-types/)
+- [Detach an EBS volume (root volume rules)](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-detaching-volume.html)
+- [EBS Multi-Attach](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html)
+- [EBS Snapshots Archive](https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-archive.html)
+- [EFS performance specifications](https://docs.aws.amazon.com/efs/latest/ug/performance.html)
+- [EFS file system types and storage classes](https://docs.aws.amazon.com/efs/latest/ug/features.html)
+- [EFS lifecycle management](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html)
+- [Snowball Edge device specifications and availability](https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html)
+- [AWS service availability updates (October 2025)](https://aws.amazon.com/about-aws/whats-new/2025/10/aws-service-availability/)
+- [FSx for OpenZFS features](https://aws.amazon.com/fsx/openzfs/features/)
+- [CloudFront features (points of presence)](https://aws.amazon.com/cloudfront/features/)

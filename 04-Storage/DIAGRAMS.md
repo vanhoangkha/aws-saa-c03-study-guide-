@@ -88,8 +88,8 @@ graph TB
     subgraph Access_Control_Group["Access Control"]
         BucketPolicy["Bucket Policy<br/>Resource-based"]
         IAMPolicy["IAM Policy<br/>Identity-based"]
-        ACL["ACL<br/>Legacy"]
-        BlockPublic[Block Public Access]
+        ACL["ACL<br/>Legacy, disabled by default"]
+        BlockPublic["Block Public Access<br/>On by default for new buckets"]
     end
     
     App --> IAMPolicy
@@ -188,11 +188,11 @@ graph TB
     S3Encryption --> ServerSide["Server-Side Encryption<br/>Encrypted at rest"]
     S3Encryption --> ClientSide["Client-Side Encryption<br/>Encrypted before upload"]
     
-    ServerSide --> SSE_S3["SSE-S3<br/>AWS Managed Keys<br/>AES-256<br/>Default option<br/>Header: x-amz-server-side-encryption: AES256"]
+    ServerSide --> SSE_S3["SSE-S3<br/>AWS Managed Keys<br/>AES-256<br/>Default for every bucket since Jan 2023<br/>Header: x-amz-server-side-encryption: AES256"]
     
     ServerSide --> SSE_KMS["SSE-KMS<br/>AWS KMS Keys<br/>Audit trail via CloudTrail<br/>User control<br/>KMS quota limits<br/>Header: x-amz-server-side-encryption: aws:kms"]
     
-    ServerSide --> SSE_C["SSE-C<br/>Customer-Provided Keys<br/>Full control<br/>HTTPS required<br/>Keys not stored by AWS"]
+    ServerSide --> SSE_C["SSE-C<br/>Customer-Provided Keys<br/>Disabled by default on new buckets since Apr 2026<br/>Full control<br/>HTTPS required<br/>Keys not stored by AWS"]
     
     ClientSide --> ClientLib["Encrypt using client libraries<br/>Upload encrypted data<br/>Decrypt on download<br/>Full client control"]
     
@@ -321,9 +321,9 @@ graph TB
     
     SSD --> GP3["gp3 - General Purpose SSD<br/>20% cheaper than gp2<br/>3,000-80,000 IOPS<br/>125-2,000 MiB/s<br/>Predictable performance<br/>Use: Boot volumes, dev/test"]
     
-    SSD --> GP2["gp2 - General Purpose SSD<br/>3 IOPS per GB<br/>Max 16,000 IOPS<br/>Burst to 3,000 IOPS<br/>Use: Boot volumes"]
+    SSD --> GP2["gp2 - General Purpose SSD<br/>3 IOPS per GiB, min 100<br/>Max 16,000 IOPS<br/>Burst to 3,000 IOPS<br/>Use: Boot volumes"]
     
-    SSD --> IO2["io2/io2 Block Express - Provisioned IOPS SSD<br/>Up to 256,000 IOPS<br/>Up to 4,000 MB/s<br/>99.999% durability<br/>Use: Critical databases, high performance"]
+    SSD --> IO2["io2/io2 Block Express - Provisioned IOPS SSD<br/>Up to 256,000 IOPS<br/>Up to 4,000 MiB/s<br/>99.999% durability<br/>Use: Critical databases, high performance"]
     
     SSD --> IO1["io1 - Provisioned IOPS SSD<br/>Up to 64,000 IOPS<br/>Up to 1,000 MB/s<br/>Use: Databases"]
     
@@ -475,7 +475,7 @@ graph TB
     
     OnPrem["On-Premises<br/>via VPN/Direct Connect"] -.NFSv4.-> MT1
     
-    Features["Features:<br/>Multi-AZ by default<br/>Automatic scaling<br/>Pay for what you use<br/>1000s concurrent connections<br/>POSIX-compliant<br/>Linux only"]
+    Features["Features:<br/>Regional (multi-AZ) or One Zone<br/>Automatic scaling<br/>Pay for what you use<br/>1000s concurrent connections<br/>POSIX-compliant<br/>Linux only"]
     
     classDef style1 fill:#569A31
     class EFS style1
@@ -491,13 +491,13 @@ graph TB
     
     EFS --> Standard["Standard Storage Class<br/>Frequent access<br/>Higher cost<br/>Multi-AZ"]
     
-    EFS --> IA["EFS Infrequent Access<br/>92% lower cost<br/>Lower throughput<br/>Multi-AZ"]
+    EFS --> IA["EFS Infrequent Access<br/>Up to 95% lower cost than Standard<br/>Lower throughput<br/>Multi-AZ"]
     
-    EFS --> OneZone["EFS One Zone<br/>47% cheaper than Standard<br/>Single AZ<br/>Frequent access"]
+    EFS --> OneZone["EFS One Zone file system<br/>Lower price than Regional<br/>Single AZ<br/>Frequent access"]
     
-    EFS --> OneZoneIA["EFS One Zone-IA<br/>Lowest cost<br/>Single AZ<br/>Infrequent access"]
+    EFS --> OneZoneIA["One Zone file system, IA class<br/>Lower cost<br/>Single AZ<br/>Infrequent access"]
     
-    Lifecycle["Lifecycle Management<br/>Auto-move files to IA<br/>Based on access pattern<br/>7, 14, 30, 60, 90 days"]
+    Lifecycle["Lifecycle Management<br/>Auto-move files to IA and Archive<br/>Based on days since last access<br/>Default: IA after 30, Archive after 90"]
     
     Standard -.Lifecycle Policy.-> IA
     OneZone -.Lifecycle Policy.-> OneZoneIA
@@ -524,7 +524,7 @@ graph TB
     end
     
     subgraph Throughput_Modes_Group["Throughput Modes"]
-        Bursting["Bursting Throughput<br/>Scales with size<br/>50 MB/s per TB<br/>Burst to 100 MB/s"]
+        Bursting["Bursting Throughput<br/>Scales with size<br/>50 MiB/s per TiB baseline<br/>Burst to 100 MiB/s per TiB (min 100 MiB/s)"]
         
         Provisioned["Provisioned Throughput<br/>Set throughput independent of size<br/>Additional cost<br/>Use: High throughput to storage ratio"]
         
@@ -620,15 +620,15 @@ graph TB
 
 ```mermaid
 graph TB
-    SnowFamily["AWS Snow Family<br/>Physical Data Transfer & Edge Computing<br/>Closed to new customers"]
+    SnowFamily["AWS Snow Family<br/>Physical Data Transfer & Edge Computing<br/>Not available to new customers (Snowball Edge since Nov 7, 2025)"]
     
     SnowFamily --> Snowcone["Snowcone (retired)<br/>Smallest device<br/>8-14 TB usable<br/>2 CPUs, 4 GB RAM<br/>Battery powered<br/>Use: Edge computing, IoT, remote locations"]
     
     SnowFamily --> Snowball[Snowball Edge]
     
-    Snowball --> SnowballStorage["Snowball Edge Storage Optimized<br/>80 TB usable<br/>40 vCPUs, 80 GB RAM<br/>1 TB SSD for block volumes<br/>Use: Large data migrations, local storage"]
+    Snowball --> SnowballStorage["Snowball Edge Storage Optimized<br/>210 TB usable NVMe (current device)<br/>104 vCPUs, 416 GB RAM<br/>Older devices: 80 TB<br/>Use: Large data migrations, local storage"]
     
-    Snowball --> SnowballCompute["Snowball Edge Compute Optimized<br/>42-28 TB usable<br/>52 vCPUs, 208 GB RAM<br/>Optional GPU<br/>Use: ML, video processing, analytics"]
+    Snowball --> SnowballCompute["Snowball Edge Compute Optimized<br/>28 TB NVMe usable<br/>104 vCPUs, 416 GB usable RAM<br/>Use: ML, video processing, analytics"]
     
     SnowFamily --> Snowmobile["Snowmobile (retired)<br/>Shipping container<br/>100 PB capacity<br/>GPS tracking, security<br/>Use: Exabyte-scale migration"]
     
@@ -686,7 +686,7 @@ graph TB
     
     FSx --> NetApp["FSx for NetApp ONTAP<br/>NetApp ONTAP features<br/>NFS, SMB, iSCSI<br/>Multi-protocol access<br/>Snapshots, replication<br/>Use: Enterprise apps, multi-protocol access"]
     
-    FSx --> OpenZFS["FSx for OpenZFS<br/>Linux workloads<br/>NFS protocol<br/>Up to 1 million IOPS<br/>Point-in-time snapshots<br/>Use: Linux apps, data analytics"]
+    FSx --> OpenZFS["FSx for OpenZFS<br/>Linux workloads<br/>NFS protocol<br/>Over 1 million IOPS (cached data)<br/>Point-in-time snapshots<br/>Use: Linux apps, data analytics"]
     
     subgraph Key_Differences_Group["Key Differences"]
         Windows --> WinNote["Windows environment<br/>SMB shares<br/>AD integration"]

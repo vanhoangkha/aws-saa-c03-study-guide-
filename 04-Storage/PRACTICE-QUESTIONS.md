@@ -70,8 +70,8 @@ D. Milliseconds (immediate)
   - Standard: 3-5 hours
   - Bulk: 5-12 hours
 - **Glacier Deep Archive**:
-  - Standard: 12 hours
-  - Bulk: 48 hours
+  - Standard: within 12 hours
+  - Bulk: within 48 hours
 
 **References:** S3 Standard-IA, S3 Retrieval Times
 </details>
@@ -98,7 +98,7 @@ D. S3 Intelligent-Tiering
 - Lowest cost per GB
 - Perfect for compliance, regulatory archives
 
-**Cost Comparison (approximate)**:
+**Cost Comparison (approximate, US East (N. Virginia), first tier)**:
 - **Deep Archive**: $0.00099/GB/month (cheapest)
 - **Glacier Flexible**: $0.0036/GB/month
 - **Standard-IA**: $0.0125/GB/month
@@ -130,7 +130,7 @@ D. Use S3 Standard storage class
 
 **Explanation:**
 - **CloudFront** is AWS's CDN (Content Delivery Network)
-- Caches content at 700+ edge locations globally
+- Caches content at 750+ points of presence globally
 - Reduces latency for users worldwide
 - Reduces load on origin S3 bucket
 
@@ -167,8 +167,7 @@ D. Amazon EFS
 **Explanation:**
 - **EBS Provisioned IOPS SSD (io2/io2 Block Express)** for high-performance databases
 - Consistent IOPS performance
-- Up to 256,000 IOPS per volume (io2)
-- Up to 256,000 IOPS (io2 Block Express)
+- Up to 256,000 IOPS and 4,000 MiB/s per volume (all io2 volumes are now io2 Block Express)
 - 99.999% durability
 
 **EBS Volume Types**:
@@ -177,7 +176,6 @@ D. Amazon EFS
 |------|----------|------|------------|
 | **gp3** | General purpose | 80,000 | 2,000 MiB/s |
 | **io2** | High-performance databases | 256,000 | 4,000 MiB/s |
-| **io2 Block Express** | Largest databases | 256,000 | 4,000 MB/s |
 | **st1** | Big data, data warehouses | 500 | 500 MB/s |
 | **sc1** | Cold storage | 250 | 250 MB/s |
 
@@ -227,6 +225,7 @@ D. Instance Store
 - **Max I/O**: Higher latency, massive parallel access (previous generation; AWS recommends General Purpose for all file systems)
 
 **EFS Throughput Modes**:
+- **Elastic** (default, recommended): Scales automatically, pay for data read and written
 - **Bursting**: Throughput scales with size
 - **Provisioned**: Set throughput independent of size
 
@@ -289,6 +288,7 @@ D. Client-Side Encryption
 
 **Explanation:**
 - **SSE-S3** uses S3-managed encryption keys
+- Applied by default to all new objects in every bucket since January 5, 2023
 - AWS handles all key management
 - AES-256 encryption
 - No additional cost
@@ -300,7 +300,7 @@ D. Client-Side Encryption
 |--------|----------------|------|----------|
 | **SSE-S3** | AWS manages | Free | Simple encryption |
 | **SSE-KMS** | AWS KMS | KMS API costs | Audit trail, key rotation |
-| **SSE-C** | Customer provides | Free | Customer controls keys |
+| **SSE-C** | Customer provides | Free | Customer controls keys (disabled by default on new buckets since April 2026) |
 | **Client-Side** | Customer | Free | Encrypt before upload |
 
 **SSE-KMS Benefits** (when needed):
@@ -347,7 +347,7 @@ D. S3 Transfer Acceleration
 **Replication Options**:
 - **Replication Time Control (RTC)**: 99.99% replicated within 15 minutes
 - **Delete marker replication**: Optional
-- **Existing object replication**: Manual batch operation
+- **Existing object replication**: S3 Batch Replication
 
 **References:** S3 Cross-Region Replication, Disaster Recovery
 </details>
@@ -528,14 +528,14 @@ D. Amazon Glacier
 
 **Explanation:**
 - **EBS Snapshot Archive** tier:
-  - 75% cheaper than standard snapshots
+  - Up to 75% lower storage cost than the standard tier
   - For snapshots stored 90+ days
-  - Restore time: 24-72 hours
+  - Restore time: up to 72 hours
   - Minimum 90-day storage
 
 **EBS Snapshot Management**:
 - **Standard**: Fast restore (minutes), higher cost
-- **Archive**: Cheaper, slower restore (24-72 hrs)
+- **Archive**: Cheaper, slower restore (up to 72 hours)
 - Automatic archival with lifecycle policies
 
 **EBS Snapshot Features**:
@@ -569,7 +569,7 @@ D. CloudTrail
 **Explanation:**
 - **S3 Event Notifications** trigger on bucket events
 - Near real-time notifications
-- Destinations: SNS, SQS, Lambda
+- Destinations: SNS, SQS, Lambda, and EventBridge (when enabled on the bucket)
 
 **S3 Events**:
 - Object created (PUT, POST, COPY, CompleteMultipartUpload)
@@ -768,7 +768,7 @@ D. Enable S3 Retrieval directly
 ---
 
 ### Question 20
-A company has data in S3 Standard storage. Objects accessed within 30 days should remain in Standard, but older objects should move to S3 Glacier. How can this be automated?
+A company has data in S3 Standard storage. Objects should stay in S3 Standard for 30 days after they are created and then move to S3 Glacier Flexible Retrieval. How can this be automated?
 
 A. S3 Intelligent-Tiering  
 B. S3 Lifecycle Policies  
@@ -781,7 +781,8 @@ D. Manual migration
 **Answer: B**
 
 **Explanation:**
-- **S3 Lifecycle Policies** automate transitions and expiration
+- **S3 Lifecycle Policies** automate transitions and expiration based on object age (days since creation), which matches this requirement
+- Intelligent-Tiering moves objects by access pattern, not by age, and does not move them into the Glacier Flexible Retrieval storage class
 - Rule-based transitions between storage classes
 - Can filter by prefix or tags
 - No code required
