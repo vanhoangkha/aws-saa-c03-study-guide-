@@ -278,8 +278,9 @@ PERFORMANCE:
 ### QuickSight Quick Facts
 ```
 WHAT: Business Intelligence (BI) service
-PRICING: Per user (Enterprise Readers $3/month)
-USERS: Standard Author ($9/user annual), Enterprise Author ($24/user, $18 annual)
+PRICING: Per user by role (Reader, Author, Pro roles) + SPICE per GB;
+         session capacity pricing for large audiences
+USERS: Readers view dashboards, Authors build them
 
 DATA SOURCES:
 ├── Athena, Redshift, RDS
@@ -290,7 +291,7 @@ DATA SOURCES:
 FEATURES:
 ├── ML Insights (anomaly detection)
 ├── Embedded analytics
-├── SPICE (in-memory, 10 GB free/user)
+├── SPICE (in-memory, 10 GB included per Author)
 ├── Auto-refresh
 └── Mobile apps
 

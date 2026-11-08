@@ -519,7 +519,7 @@ graph TB
     Dashboards --> Embedded
     Dashboards --> Enterprise
     
-    Pricing["Pricing:<br/>Standard author: $9/user/month annual<br/>Enterprise author: $24/user/month, $18 annual<br/>SPICE: $0.25/GB/month Standard<br/>Enterprise readers: $3/user/month"]
+    Pricing["Pricing model:<br/>Per user by role, Reader or Author<br/>10 GB SPICE per Author, extra per GB<br/>Session capacity for large audiences"]
     
     classDef style1 fill:#FF9900
     class SPICE style1

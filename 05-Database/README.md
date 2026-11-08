@@ -102,6 +102,7 @@ AWS offers a range of database services for different use cases. This module cov
 - Storage auto-scales: **10 GB to 256 TiB** (current engine versions; 128 TiB on older versions)
 - Up to **15 Read Replicas** (faster replication than RDS)
 - **Automatic failover** in less than 30 seconds
+- Higher instance price than the equivalent RDS instance
 
 ### Aurora High Availability
 - **6 copies of data across 3 AZs**:
@@ -143,7 +144,7 @@ AWS offers a range of database services for different use cases. This module cov
 **Aurora Global Database**
 - **1 primary region** (read/write)
 - Up to **10 secondary regions** (read-only) *(updated from 5 in 2025)*
-- Read-only Aurora Replicas in secondary clusters (up to 16); each secondary Region reduces the primary cluster's maximum replicas by one
+- Up to **16 Aurora Replicas in each secondary cluster**; each secondary Region reduces the primary cluster's replica limit (15) by one
 - **< 1 second** replication lag
 - **< 1 minute** to promote secondary region (disaster recovery)
 
@@ -212,6 +213,7 @@ AWS offers a range of database services for different use cases. This module cov
 - Pay per request (can cost more than well-utilized provisioned capacity for steady traffic)
 - Good for **unpredictable workloads**
 - Switch provisioned to on-demand up to 4 times per rolling 24 hours; on-demand to provisioned any time
+- **Higher cost per request** than well-utilized provisioned capacity
 
 ### DynamoDB Advanced Features
 
