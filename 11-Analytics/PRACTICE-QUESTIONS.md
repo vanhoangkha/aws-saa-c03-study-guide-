@@ -648,6 +648,50 @@ D. AWS Glue Streaming
 
 ---
 
+### Question 25
+A company receives thousands of scanned loan application forms as PDFs each day. It needs the field values (name, income, loan amount) and the tables extracted into a database, with the least development effort.
+
+A. Amazon Rekognition  
+B. Amazon Textract  
+C. Amazon Comprehend  
+D. Amazon SageMaker AI with a custom OCR model  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Explanation:**
+- Textract extracts printed and handwritten text, form key-value pairs and tables from scanned documents
+- Rekognition analyzes images and video and can read short text in photos, but it does not understand forms or tables
+- Comprehend analyzes text that has already been extracted, and a custom SageMaker AI model needs far more effort
+
+</details>
+
+---
+
+### Question 26
+A support application stores chat transcripts in a DynamoDB table. Before the transcripts are sent to an analytics system, names, phone numbers and credit card numbers must be removed from the text.
+
+A. Amazon Macie  
+B. Amazon Comprehend PII detection, then mask the returned entity offsets before sending  
+C. AWS Glue DataBrew profile job  
+D. Amazon Translate  
+
+<details>
+<summary>Show Answer</summary>
+
+**Answer: B**
+
+**Explanation:**
+- Comprehend detects PII entities such as NAME, PHONE and CREDIT_DEBIT_NUMBER in text you send it, returning their type and position so they can be masked
+- Macie discovers sensitive data in S3 buckets, not in text flowing through an application
+- Translate changes the language, and a profiling job does not redact free text
+
+</details>
+
+---
+
 ## Summary
 
 ### Key Concepts Tested:

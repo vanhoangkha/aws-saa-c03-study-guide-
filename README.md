@@ -6,7 +6,7 @@
 
 Free study notes, diagrams and practice questions for the SAA-C03 exam, organised in 14 modules. Each module comes in three lengths, so you can pick the one that fits the time you have.
 
-- [Exam simulator](https://vanhoangkha.github.io/aws-saa-c03-study-guide-/simulator/): a timed 65-question, 130-minute exam or a single-topic drill, drawn from 312 questions. Scores and history stay in your browser. There is no sign-up and no tracking.
+- [Exam simulator](https://vanhoangkha.github.io/aws-saa-c03-study-guide-/simulator/): a timed 65-question, 130-minute exam or a single-topic drill, drawn from 314 questions. Scores and history stay in your browser. There is no sign-up and no tracking.
 - [Study site](https://vanhoangkha.github.io/aws-saa-c03-study-guide-/): the same modules with search, learning paths, the exam domain breakdown and a score tracker.
 - [Exam-day reference card](exam-reviews/quick-reference/ULTRA-QUICK-REFERENCE-CARD.md): rules, edge cases, service selection and limits for the last 30 minutes.
 
@@ -78,7 +78,7 @@ Every module has three versions of the same material:
 | 13 | Cost Optimization | [Ultra](13-Cost-Optimization/ULTRA-FAST-LEARN.md) | [Fast](13-Cost-Optimization/FAST-LEARN.md) | [Full](13-Cost-Optimization/README.md) | [Diagrams](13-Cost-Optimization/DIAGRAMS.md) | [Questions](13-Cost-Optimization/PRACTICE-QUESTIONS.md) |
 | 14 | Practice and Exam Prep | [Ultra](14-Practice/ULTRA-FAST-LEARN.md) | [Fast](14-Practice/FAST-LEARN.md) | [Full](14-Practice/README.md) | – | [Questions](14-Practice/PRACTICE-QUESTIONS.md) |
 
-The modules hold about 217 Mermaid diagrams and 276 practice questions with explanations. Module 11 also has [notes on the AWS ML services](11-Analytics/AWS-ML-SERVICES-NOTES.md).
+The modules hold about 217 Mermaid diagrams and 314 practice questions with explanations. Module 11 also has [notes on the AWS ML services](11-Analytics/AWS-ML-SERVICES-NOTES.md).
 
 ## Other material
 

@@ -8885,6 +8885,50 @@ window.QUESTIONS = [
   "others": []
  },
  {
+  "id": "11-25",
+  "q": "A company receives thousands of scanned loan application forms as PDFs each day. It needs the field values (name, income, loan amount) and the tables extracted into a database, with the least development effort.",
+  "options": {
+   "A": "Amazon Rekognition",
+   "B": "Amazon Textract",
+   "C": "Amazon Comprehend",
+   "D": "Amazon SageMaker AI with a custom OCR model"
+  },
+  "answer": [
+   "B"
+  ],
+  "explanation": "• Textract extracts printed and handwritten text, form key-value pairs and tables from scanned documents\n• Rekognition analyzes images and video and can read short text in photos, but it does not understand forms or tables\n• Comprehend analyzes text that has already been extracted, and a custom SageMaker AI model needs far more effort",
+  "module": "Analytics",
+  "multi": false,
+  "why": [
+   "Textract extracts printed and handwritten text, form key-value pairs and tables from scanned documents.",
+   "Rekognition analyzes images and video and can read short text in photos, but it does not understand forms or tables.",
+   "Comprehend analyzes text that has already been extracted, and a custom SageMaker AI model needs far more effort."
+  ],
+  "others": []
+ },
+ {
+  "id": "11-26",
+  "q": "A support application stores chat transcripts in a DynamoDB table. Before the transcripts are sent to an analytics system, names, phone numbers and credit card numbers must be removed from the text.",
+  "options": {
+   "A": "Amazon Macie",
+   "B": "Amazon Comprehend PII detection, then mask the returned entity offsets before sending",
+   "C": "AWS Glue DataBrew profile job",
+   "D": "Amazon Translate"
+  },
+  "answer": [
+   "B"
+  ],
+  "explanation": "• Comprehend detects PII entities such as NAME, PHONE and CREDIT_DEBIT_NUMBER in text you send it, returning their type and position so they can be masked\n• Macie discovers sensitive data in S3 buckets, not in text flowing through an application\n• Translate changes the language, and a profiling job does not redact free text",
+  "module": "Analytics",
+  "multi": false,
+  "why": [
+   "Comprehend detects PII entities such as NAME, PHONE and CREDIT_DEBIT_NUMBER in text you send it, returning their type and position so they can be masked.",
+   "Macie discovers sensitive data in S3 buckets, not in text flowing through an application.",
+   "Translate changes the language, and a profiling job does not redact free text."
+  ],
+  "others": []
+ },
+ {
   "id": "12-1",
   "q": "A company needs to deploy a web application that can handle unpredictable traffic spikes and minimize operational overhead. The application should scale automatically and use a pay-per-use pricing model. Which architecture is MOST appropriate?",
   "options": {

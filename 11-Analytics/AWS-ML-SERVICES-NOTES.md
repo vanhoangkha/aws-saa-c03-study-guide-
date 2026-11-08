@@ -1,7 +1,35 @@
 # AWS Machine Learning Services (SAA-C03 Focus)
 
+The exam guide lists Comprehend, Lex, Polly, Rekognition, SageMaker AI, Textract, Transcribe and Translate. Questions test which managed service fits a task, not how to build models. Pick the pre-trained AI service when one matches the task; pick SageMaker AI only when you must build or train your own model.
+
+## Quick pick
+
+| Input | Task | Service |
+|-------|------|---------|
+| Text | Sentiment, entities, key phrases, language, topics | Amazon Comprehend |
+| Text | Detect or redact PII in documents or messages | Amazon Comprehend (PII detection and redaction) |
+| Text | Translate between languages | Amazon Translate |
+| Text | Turn into lifelike speech | Amazon Polly |
+| Audio | Turn speech into text, captions, call transcripts | Amazon Transcribe |
+| Audio or text | Chatbot or voice bot (intents, slots) | Amazon Lex |
+| Images or video | Objects, faces, text in images, unsafe content | Amazon Rekognition |
+| Scanned documents | Extract text, forms and tables (OCR plus structure) | Amazon Textract |
+| Video streams from cameras | Ingest and store for playback or analysis | Kinesis Video Streams, often with Rekognition |
+| Any | Build, train and host a custom model | Amazon SageMaker AI |
+
+## Commonly confused pairs
+
+- **Macie vs Comprehend:** Macie finds sensitive data such as PII in **S3 buckets**; Comprehend detects PII in **text you send it** (application data, chat messages, documents in a pipeline).
+- **Textract vs Rekognition:** Textract reads **documents** (forms, tables, key-value pairs); Rekognition analyzes **images and video** (it can detect short text in photos, but it does not understand forms).
+- **Transcribe vs Polly:** Transcribe is speech **to** text; Polly is text **to** speech.
+- **Lex vs Connect:** Lex builds the conversational bot; Amazon Connect is the contact center that can use a Lex bot.
+- **AI services vs SageMaker AI:** "No ML expertise" or "least development effort" points to an AI service; "custom model" or "data scientists train" points to SageMaker AI.
+
+## Service notes
+
 ### Amazon Comprehend
 - Fully managed NLP service for text analysis (sentiment, entities, language, key phrases).
+- Detects PII in real time or in batch; redaction runs as an asynchronous batch job.
 - Supports custom entity recognition and classification.
 - Integrates with S3, Lambda, and other AWS services.
 - Use cases: customer feedback, document analysis, content moderation.
@@ -73,7 +101,8 @@
 1. Which AWS service is best for detecting objects and faces in images? (A: Amazon Rekognition)
 2. How can you automate video content moderation? (A: Use Amazon Rekognition with Lambda)
 
-### Amazon SageMaker
+### Amazon SageMaker AI
+- Formerly Amazon SageMaker; the exam guide now uses the name SageMaker AI.
 - End-to-end ML platform: build, train, deploy models at scale.
 - Supports Jupyter notebooks, built-in algorithms, and managed infrastructure.
 - Integrates with S3, Lambda, and other AWS services.

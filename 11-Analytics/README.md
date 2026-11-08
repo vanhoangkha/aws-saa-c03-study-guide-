@@ -1291,6 +1291,11 @@ Prices and plan names changed with the move to Amazon Quick and may change again
 
 ---
 
+### AI and ML services
+The exam guide also lists Comprehend, Lex, Polly, Rekognition, SageMaker AI, Textract, Transcribe and Translate. See [AWS ML services notes](AWS-ML-SERVICES-NOTES.md) for a quick-pick table and commonly confused pairs.
+
+---
+
 ## 7. Data Lake Architecture on AWS
 
 ### What is a Data Lake?
