@@ -1,6 +1,6 @@
 # Fast Learning - IAM (Identity & Access Management)
 
-> **Time to Complete**: 45-60 minutes | **Exam Weight**: ~15-20%
+> **Time to Complete**: 45-60 minutes | **Exam Weight**: not weighted separately (exam guide domains are 30/26/24/20%; IAM is core to Domain 1, Secure Architectures)
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -112,13 +112,13 @@ Account A                    Account B
 - **Policies** = JSON permissions documents
 - **IAM** = Global service (not regional)
 
-### MFA Options (VHAS)
+### MFA Options (VHPS)
 | Type | Example | Use Case |
 |------|---------|----------|
-| **V**irtual | Google Authenticator | Most common |
-| **H**ardware | YubiKey | High security |
-| **A**WS | AWS device | AWS-specific |
-| **S**MS | Text message | Deprecated (not recommended) |
+| **V**irtual authenticator app | Google Authenticator | Common, TOTP codes |
+| **H**ardware TOTP token | Thales token | Physical code generator |
+| **P**asskey / security key (FIDO2) | YubiKey, synced passkeys | Phishing-resistant, AWS-recommended |
+| **S**MS | Text message | No longer supported by AWS |
 
 ### Access Types
 ```
@@ -145,7 +145,7 @@ Account A                    Account B
 
 ### Important Limits
 - Max **5,000 users** per account
-- Max **300 groups** per account
+- Max **300 groups** per account (default, can be raised to 500)
 - User can be in max **10 groups**
 - Max **2 access keys** per user
 - Managed policies: **10** per user (up to 20 on request), **10** per group, **20** per role (up to 25 on request)

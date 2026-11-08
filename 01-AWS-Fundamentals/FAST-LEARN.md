@@ -1,22 +1,22 @@
 # Fast Learning - AWS Fundamentals
 
-> **Time to Complete**: 30-45 minutes | **Exam Weight**: ~10% foundation
+> **Time to Complete**: 30-45 minutes | **Exam Weight**: not weighted separately (the exam guide weights only its 4 domains: 30/26/24/20%)
 
 ## Must-Know Concepts (5 Minutes)
 
 ### AWS Global Infrastructure - The 3 Pillars
 ```
 REGIONS → AVAILABILITY ZONES → EDGE LOCATIONS
-  30+           3-6 per region        400+
+  39            3+ per region        750+ PoPs
 Isolated      Independent DCs      CDN endpoints
 ```
 
 **Memory Aid: "RAE" = Regions, AZs, Edge**
 
 ### Key Numbers to Remember
-- **Regions**: 30+ worldwide
-- **AZs per Region**: Minimum 3, typically 3-6
-- **Edge Locations**: 400+ (most numerous)
+- **Regions**: 39 worldwide (124 AZs, as of late 2026)
+- **AZs per Region**: At least 3
+- **Edge Locations**: CloudFront has 750+ PoPs plus 15 Regional edge caches (most numerous)
 - **Local Zones**: Extended regions for ultra-low latency
 
 ## Quick Reference Tables
@@ -189,13 +189,13 @@ Application Accounts
 3. **RI Sharing**: Reserved Instances shared across accounts
 4. **Cost Allocation**: Tags work across organization
 
-**Example:**
+**Example (from the AWS Billing docs, illustrative rates):**
 ```
-Account 1: 500 GB S3
-Account 2: 800 GB S3
-Account 3: 700 GB S3
-Total: 2,000 GB → Higher pricing tier applies to all
+Account 1: 8 TB data transfer
+Account 2: 4 TB data transfer
+Total: 12 TB → first 10 TB at the tier-1 rate, remaining 2 TB at the cheaper tier-2 rate
 ```
+Note: the cheaper rate applies only to usage above each tier threshold, not retroactively to all usage.
 - Multi-AZ = High Availability
 - Multi-Region = Disaster Recovery
 
