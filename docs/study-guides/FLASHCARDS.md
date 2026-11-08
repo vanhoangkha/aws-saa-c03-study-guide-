@@ -41,8 +41,8 @@ Having trouble with practice tests? Check out these targeted resources:
 10. [Analytics](#10-analytics)
 11. [Migration & Transfer](#11-migration--transfer)
 12. [Architecture Patterns](#12-architecture-patterns)
-13. [Cost Optimization](#13-cost-optimization)
-14. [Quick Reference & Exam Tips](#14-quick-reference--exam-tips)
+13. [Cost Optimization](#cost-optimization-module-13)
+14. [Quick Reference & Exam Tips](#critical-numbers--limits-must-memorize)
 
 ---
 

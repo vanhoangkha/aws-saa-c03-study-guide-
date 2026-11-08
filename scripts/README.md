@@ -1,126 +1,24 @@
 # Scripts
 
-This folder contains utility scripts for maintaining the AWS Solution Architect study materials.
+Maintenance scripts for the study guide. Run them from the repository root.
 
-## Available Scripts
+| Script | What it does | Changes files |
+|--------|--------------|---------------|
+| `check_links.py` | Checks every relative link and heading anchor in the tracked Markdown files. Exits with 1 if one does not resolve. Runs in CI. | No |
+| `validate_mermaid.py` | Looks for common Mermaid syntax problems in the `DIAGRAMS.md` files (quoted subgraph names, unescaped `<` and `>`, mismatched quotes, `style` in sequence diagrams, floating nodes). Exits with 1 if it finds any. | No |
+| `fix_diagram_rendering.py` | Repairs malformed node brackets and escaped `<br/>` tags in the `DIAGRAMS.md` files. | Yes |
+| `add_disclaimers.py` | Adds the "original practice questions, not exam questions" note to every `PRACTICE-QUESTIONS.md` that lacks it. | Yes |
+| `count_stats.py` | Prints the number of practice questions per module. | No |
+| `simulator_smoke_test.js` | Loads the simulator in jsdom and runs a full exam, the weak-area mode and a domain quiz. Needs `npm install jsdom`. | No |
 
-### `validate_mermaid.py`
+The simulator question bank is built by `simulator/build_questions.py`.
 
-Validates all Mermaid diagrams in the repository for syntax issues and rendering problems.
+## Usage
 
-**Usage:**
 ```bash
-cd /path/to/AWS-Solution-Architect
+python3 scripts/check_links.py
 python3 scripts/validate_mermaid.py
+node scripts/simulator_smoke_test.js simulator/
 ```
 
-**What it checks:**
-- Quoted subgraph syntax (old format)
-- Unescaped HTML operators (`<`, `>`)
-- Unquoted special characters
-- Mismatched quotes
-- Old-style `style` statements
-- Style statements in sequence diagrams
-- Improper indentation
-- Floating nodes (warning only)
-
-**Exit codes:**
-- `0` - All validations passed
-- `1` - Critical errors found
-
----
-
-### `fix_mermaid.py`
-
-Automatically fixes common Mermaid diagram syntax issues.
-
-**Usage:**
-```bash
-cd /path/to/AWS-Solution-Architect
-python3 scripts/fix_mermaid.py
-```
-
-**What it fixes:**
-- Converts quoted subgraph syntax to ID-based syntax
-- Escapes `<` and `>` as HTML entities (preserves `<br/>`)
-- Removes style statements from sequence diagrams
-- Converts old `style` statements to `classDef`/`class`
-- Adds quotes around nodes with special characters
-
-**Note:** Always review changes with `git diff` before committing.
-
----
-
-### `fix_diagrams.py`
-
-Legacy script for diagram fixes (superseded by `fix_mermaid.py`).
-
----
-
-## Quick Start
-
-1. **Validate all diagrams:**
-   ```bash
-   python3 scripts/validate_mermaid.py
-   ```
-
-2. **Auto-fix common issues:**
-   ```bash
-   python3 scripts/fix_mermaid.py
-   ```
-
-3. **Review changes:**
-   ```bash
-   git diff
-   ```
-
-4. **Validate again:**
-   ```bash
-   python3 scripts/validate_mermaid.py
-   ```
-
-## Requirements
-
-- Python 3.6 or higher
-- No external dependencies (uses only standard library)
-
-## Documentation
-
-For detailed information about validation rules, best practices, and troubleshooting, see:
-- Mermaid Validation Guide
-
-## CI/CD Integration
-
-Add to your CI pipeline (`.github/workflows/validate.yml`):
-
-```yaml
-name: Validate Diagrams
-
-on: [push, pull_request]
-
-jobs:
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-      - name: Validate Mermaid Diagrams
-        run: python3 scripts/validate_mermaid.py
-```
-
-## Contributing
-
-When adding new validation rules:
-
-1. Update `validate_mermaid.py` with detection logic
-2. Update `fix_mermaid.py` with auto-fix logic (if applicable)
-3. Add examples to the Validation Guide
-4. Test with real diagrams before committing
-
-## License
-
-Same as parent repository (see [LICENSE](../LICENSE))
-
+Review `git diff` after running a script that changes files.

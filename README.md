@@ -131,7 +131,7 @@ docs/
     exam-analysis/           topic coverage against the exam guide
 simulator/                   exam simulator (static page + question bank)
 external/                    SAA-C02 study guide (git submodule, not part of this repository)
-scripts/                     Mermaid validation and repository statistics
+scripts/                     link and Mermaid checks, simulator smoke test
 index.html                   study site
 ```
 

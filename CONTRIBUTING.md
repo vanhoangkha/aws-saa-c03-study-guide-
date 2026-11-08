@@ -15,14 +15,19 @@ For new topics or larger changes, use the feature request template first so the 
 3. If you changed a `DIAGRAMS.md`, check the Mermaid syntax:
    ```bash
    python3 scripts/validate_mermaid.py
-   python3 scripts/fix_mermaid.py   # optional: fixes common issues
-   git diff                         # review what the fixer changed
+   python3 scripts/fix_diagram_rendering.py   # optional: repairs broken brackets
+   git diff                                   # review what the fixer changed
    ```
 4. If you changed a `PRACTICE-QUESTIONS.md`, rebuild the simulator's question bank and commit `simulator/questions.js` with it:
    ```bash
    python3 simulator/build_questions.py
    ```
-5. Commit, push and open a pull request against `master`. Fill in the template and link any related issue.
+5. Check that links and heading anchors still resolve:
+   ```bash
+   python3 scripts/check_links.py
+   ```
+   The same check, and the question-bank build, run on every pull request.
+6. Commit, push and open a pull request against `master`. Fill in the template and link any related issue.
 
 Pull requests are reviewed for technical accuracy, relevance to SAA-C03, consistency with the existing material, and originality. Expect a first review within a week.
 

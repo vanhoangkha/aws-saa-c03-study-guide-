@@ -206,7 +206,7 @@ graph TB
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Standard: Upload ([[Day 0(
+    [*] --> Standard: Upload (Day 0)
     
     Standard --> StandardIA: After 30 days<br/>Transition
     
