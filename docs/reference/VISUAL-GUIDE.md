@@ -1,6 +1,6 @@
 # AWS Visual Memory Guide - Diagrams & Charts
 
-## 🎨 Visual Learning for AWS Concepts
+## Visual Learning for AWS Concepts
 
 ---
 
@@ -131,13 +131,13 @@ SECURITY:
     └───────────────────┘
 
 FEATURES:
-✓ Multi-Region failover
-✓ Multi-AZ within region
-✓ Auto Scaling for elasticity
-✓ Load balancer health checks
-✓ RDS automated failover
-✓ S3 cross-region replication
-✓ CloudFront edge caching
+ Multi-Region failover
+ Multi-AZ within region
+ Auto Scaling for elasticity
+ Load balancer health checks
+ RDS automated failover
+ S3 cross-region replication
+ CloudFront edge caching
 ```
 
 ---
@@ -182,11 +182,11 @@ FEATURES:
     └───────────────┘            └───────────┘
 
 BENEFITS:
-✓ No server management
-✓ Auto-scaling
-✓ Pay per use
-✓ High availability built-in
-✓ Focus on code, not infrastructure
+ No server management
+ Auto-scaling
+ Pay per use
+ High availability built-in
+ Focus on code, not infrastructure
 
 COST MODEL:
 • API Gateway: per million requests
@@ -689,12 +689,12 @@ APPLICATION LOAD BALANCER (ALB) - Layer 7
 │  *.example.com → Backend 3              │
 │                                         │
 │  Features:                              │
-│  ✓ Path-based routing                   │
-│  ✓ Host-based routing                   │
-│  ✓ WebSockets support                   │
-│  ✓ HTTP/2 support                       │
-│  ✓ Integrates with WAF                  │
-│  ✓ Authenticates users (Cognito, OIDC) │
+│   Path-based routing                    │
+│   Host-based routing                    │
+│   WebSockets support                    │
+│   HTTP/2 support                        │
+│   Integrates with WAF                   │
+│   Authenticates users (Cognito, OIDC)  │
 └─────────────────────────────────────────┘
 
 NETWORK LOAD BALANCER (NLB) - Layer 4
@@ -707,11 +707,11 @@ NETWORK LOAD BALANCER (NLB) - Layer 4
 │  Ultra-low latency                      │
 │                                         │
 │  Features:                              │
-│  ✓ TCP/UDP/TLS                          │
-│  ✓ Static IP or Elastic IP              │
-│  ✓ Preserves source IP                  │
-│  ✓ Sub-millisecond latency              │
-│  ✓ TLS termination                      │
+│   TCP/UDP/TLS                           │
+│   Static IP or Elastic IP               │
+│   Preserves source IP                   │
+│   Sub-millisecond latency               │
+│   TLS termination                       │
 └─────────────────────────────────────────┘
 
 CLASSIC LOAD BALANCER (CLB) - Layer 4 & 7
@@ -721,9 +721,9 @@ CLASSIC LOAD BALANCER (CLB) - Layer 4 & 7
 │  Use ALB or NLB for new apps            │
 │                                         │
 │  Features:                              │
-│  ✓ HTTP, HTTPS, TCP, SSL               │
-│  ⚠ Less features than ALB/NLB          │
-│  ⚠ Being phased out                    │
+│   HTTP, HTTPS, TCP, SSL                │
+│   Less features than ALB/NLB           │
+│   Being phased out                     │
 └─────────────────────────────────────────┘
 
 GATEWAY LOAD BALANCER (GWLB) - Layer 3
@@ -734,9 +734,9 @@ GATEWAY LOAD BALANCER (GWLB) - Layer 3
 │  Deep packet inspection                 │
 │                                         │
 │  Features:                              │
-│  ✓ Layer 3 (IP packets)                 │
-│  ✓ GENEVE protocol                      │
-│  ✓ Scale security appliances            │
+│   Layer 3 (IP packets)                  │
+│   GENEVE protocol                       │
+│   Scale security appliances             │
 └─────────────────────────────────────────┘
 
 DECISION TREE:
@@ -798,7 +798,7 @@ PERFORMANCE REQUIREMENTS:
 
 ---
 
-**Remember**: A picture is worth a thousand words. Use these visual aids to understand relationships between services and architectural patterns! 🎨
+**Remember**: A picture is worth a thousand words. Use these visual aids to understand relationships between services and architectural patterns!
 
-**Study Tip**: Draw these diagrams from memory. If you can draw it, you understand it! ✏️
+**Study Tip**: Draw these diagrams from memory. If you can draw it, you understand it!
 

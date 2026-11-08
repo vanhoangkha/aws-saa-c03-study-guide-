@@ -545,16 +545,16 @@ AWS offers a comprehensive range of database services for different use cases. T
 
 ## Key Takeaways
 
-✅ RDS Multi-AZ is for disaster recovery (synchronous), Read Replicas for scaling (asynchronous)  
-✅ Aurora is 5x faster than MySQL, auto-scales storage, up to 15 Read Replicas  
-✅ DynamoDB is serverless NoSQL with DAX for microsecond latency  
-✅ ElastiCache Redis supports persistence and replication, Memcached is simpler  
-✅ Redshift is for data warehousing (OLAP), not OLTP  
-✅ Use RDS Proxy to reduce database connection overhead  
-✅ DynamoDB Global Tables for multi-region active-active replication  
-✅ Aurora Global Database has < 1 second replication lag  
-✅ Choose database based on: Relational vs NoSQL, OLTP vs OLAP, latency requirements  
-✅ RDS automated backups are deleted when instance is deleted (unless retained)  
+ RDS Multi-AZ is for disaster recovery (synchronous), Read Replicas for scaling (asynchronous)
+ Aurora is 5x faster than MySQL, auto-scales storage, up to 15 Read Replicas
+ DynamoDB is serverless NoSQL with DAX for microsecond latency
+ ElastiCache Redis supports persistence and replication, Memcached is simpler
+ Redshift is for data warehousing (OLAP), not OLTP
+ Use RDS Proxy to reduce database connection overhead
+ DynamoDB Global Tables for multi-region active-active replication
+ Aurora Global Database has < 1 second replication lag
+ Choose database based on: Relational vs NoSQL, OLTP vs OLAP, latency requirements
+ RDS automated backups are deleted when instance is deleted (unless retained)
 
 ---
 

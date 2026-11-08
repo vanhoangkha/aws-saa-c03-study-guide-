@@ -2,9 +2,9 @@
 
 > Focused practice questions for weak areas and common exam scenarios
 
-> **⚠️ DISCLAIMER:** These are **original practice questions** created for educational purposes. They are **NOT actual exam questions** and do not represent questions from the AWS certification exam. All content is based on publicly available AWS documentation.
+> **DISCLAIMER:** These are **original practice questions** created for educational purposes. They are **NOT actual exam questions** and do not represent questions from the AWS certification exam. All content is based on publicly available AWS documentation.
 
-## 📋 Categories
+## Categories
 - [Auto Scaling & High Availability](#auto-scaling--high-availability)
 - [Storage & Data Management](#storage--data-management)
 - [Networking](#networking)
@@ -22,7 +22,7 @@ An Auto Scaling group isn't responding to CloudWatch alarms despite the alarm fi
 
 **Options:**
 A. Wrong CloudWatch metric configured
-B. The Auto Scaling group is in cooldown period ✓
+B. The Auto Scaling group is in cooldown period (correct)
 C. Minimum size of ASG is 0
 D. Desired size of ASG is 0
 
@@ -36,7 +36,7 @@ You need to upgrade one EC2 instance in an ASG without receiving traffic. What s
 **Options:**
 A. Hibernate the instance
 B. Use cooldown timers
-C. Put instance in Standby, upgrade, return to InService ✓
+C. Put instance in Standby, upgrade, return to InService (correct)
 D. Use lifecycle hooks
 
 **Explanation:** Standby detaches from load balancing while retaining in ASG, preventing replacement.
@@ -50,7 +50,7 @@ How do you achieve WORM (Write Once Read Many) in S3?
 
 **Options:**
 A. Enable versioning
-B. Enable Object Lock at bucket creation ✓
+B. Enable Object Lock at bucket creation (correct)
 C. Use S3 Glacier
 D. Configure bucket policy
 
@@ -63,7 +63,7 @@ After deleting an S3 object (no versioning), what do you see immediately in a li
 
 **Options:**
 A. Object still appears
-B. Object is deleted ✓
+B. Object is deleted (correct)
 C. May appear or not depending on consistency
 D. Object has a delete marker
 
@@ -79,7 +79,7 @@ What VPC feature provides private connectivity to S3 and DynamoDB without cost?
 **Options:**
 A. NAT Gateway
 B. VPC Peering
-C. Gateway Endpoints ✓
+C. Gateway Endpoints (correct)
 D. Interface Endpoints
 
 **Explanation:** Gateway endpoints for S3/DynamoDB are free and route-table based.
@@ -90,7 +90,7 @@ D. Interface Endpoints
 Internet-facing ALB requests fail despite healthy targets. What's likely wrong?
 
 **Options:**
-A. ALB subnet route table lacks IGW route ✓
+A. ALB subnet route table lacks IGW route (correct)
 B. Targets in public subnet
 C. ALB has no Elastic IP
 D. Cross-zone LB disabled
@@ -105,11 +105,11 @@ D. Cross-zone LB disabled
 Your read-heavy app hits 100% CPU on RDS. What helps scale reads? (Choose 3)
 
 **Options:**
-A. Add Read Replicas ✓
+A. Add Read Replicas (correct)
 B. Enable Storage Auto Scaling
 C. Use SQS to throttle
-D. Use ElastiCache ✓
-E. Shard across multiple RDS instances ✓
+D. Use ElastiCache (correct)
+E. Shard across multiple RDS instances (correct)
 F. Enable Multi-AZ
 
 **Explanation:** Read replicas, caching, and sharding all reduce read load on primary.
@@ -121,7 +121,7 @@ Multi-AZ RDS deployment provides:
 
 **Options:**
 A. Read scaling
-B. Automatic failover for high availability ✓
+B. Automatic failover for high availability (correct)
 C. Cross-region disaster recovery
 D. Cost optimization
 
@@ -135,11 +135,11 @@ D. Cost optimization
 Lambda needs to write CloudWatch Logs. Which permissions required? (Choose 3)
 
 **Options:**
-A. logs:CreateLogGroup ✓
+A. logs:CreateLogGroup (correct)
 B. logs:GetLogEvents
-C. logs:CreateLogStream ✓
+C. logs:CreateLogStream (correct)
 D. logs:DescribeLogStreams
-E. logs:PutLogEvents ✓
+E. logs:PutLogEvents (correct)
 
 **Explanation:** Lambda runtime needs all three to create log groups, streams, and write events.
 
@@ -151,7 +151,7 @@ Which ECS networking mode provides task-level security groups?
 **Options:**
 A. Host
 B. Bridge
-C. awsvpc ✓
+C. awsvpc (correct)
 D. Default
 
 **Explanation:** awsvpc gives each task its own ENI, enabling task-level security groups.
@@ -166,7 +166,7 @@ How do you restrict S3 bucket access to specific IAM roles only?
 **Options:**
 A. Bucket policy with explicit deny for all except listed roles
 B. Bucket policy with explicit deny for all users except listed
-C. Bucket policy allowing only specific role; users assume role ✓
+C. Bucket policy allowing only specific role; users assume role (correct)
 D. Bucket policy with NotPrincipal
 
 **Explanation:** Grant bucket access to a role; users authenticate then assume that role.
@@ -179,7 +179,7 @@ CloudFront serves private content from S3. How do you grant access to multiple f
 **Options:**
 A. S3 pre-signed URLs
 B. CloudFront signed URLs
-C. CloudFront signed cookies ✓
+C. CloudFront signed cookies (correct)
 D. CloudFront geo restrictions
 
 **Explanation:** Signed cookies grant access to multiple objects without changing URLs.
@@ -192,9 +192,9 @@ D. CloudFront geo restrictions
 Which services identify underutilized EC2 instances? (Choose 2)
 
 **Options:**
-A. CloudWatch ✓
+A. CloudWatch (correct)
 B. SNS
-C. Trusted Advisor ✓
+C. Trusted Advisor (correct)
 D. CloudTrail
 E. Config
 
@@ -206,7 +206,7 @@ E. Config
 Most cost-effective connectivity for small vendor team to VPC databases?
 
 **Options:**
-A. AWS Client VPN ✓
+A. AWS Client VPN (correct)
 B. Direct Connect
 C. Site-to-Site VPN to VGW
 D. Site-to-Site VPN to Transit Gateway
@@ -224,7 +224,7 @@ Serverless media processing pipeline with visual workflow and priority queues?
 A. S3 → Lambda → SQS → DynamoDB
 B. S3 → Lambda → SWF → DynamoDB
 C. S3 → Lambda → process → DynamoDB
-D. S3 → Lambda → Step Functions → DynamoDB ✓
+D. S3 → Lambda → Step Functions → DynamoDB (correct)
 
 **Explanation:** Step Functions orchestrates with visual console, priority via separate entry points.
 

@@ -1,14 +1,14 @@
 # Practice Test 2 Review - Quick Reference
 
-**Date:** Mar 2, 2026 | **Score:** 49/65 (75%) ⚠️ BORDERLINE PASS | **Improvement:** +7 from Test 1
+**Date:** Mar 2, 2026 | **Score:** 49/65 (75%) BORDERLINE PASS | **Improvement:** +7 from Test 1
 
 ## Domain Scores
 | Domain | Score | Status |
 |--------|-------|--------|
-| Resilient Architectures | 13/15 (87%) | ✅ Strong |
-| Cost-Optimized | 12/14 (86%) | ✅ Strong |
-| High-Performing | 15/20 (75%) | ⚠️ Review |
-| Secure Architectures | 9/16 (56%) | ❌ CRITICAL |
+| Resilient Architectures | 13/15 (87%) | Strong |
+| Cost-Optimized | 12/14 (86%) | Strong |
+| High-Performing | 15/20 (75%) | Review |
+| Secure Architectures | 9/16 (56%) | CRITICAL |
 
 **Progress:** High-Performing +32%, Resilient +16%, Secure -22% (dropped), Cost -14%
 

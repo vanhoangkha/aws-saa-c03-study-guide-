@@ -42,7 +42,7 @@ def module_parse(path):
 CAT = {"Auto Scaling & High Availability": "Compute", "Storage & Data Management": "Storage", "Databases": "Database",
        "Serverless & Containers": "Application Integration"}
 
-def practice_parse(path):  # 14-Practice: "✓" marks the correct option, category = preceding "## " heading
+def practice_parse(path):  # 14-Practice: "(correct)" marks the correct option, category = preceding "## " heading
     out, skipped, cat = [], [], ""
     for blk in re.split(r"^(?=## |### Question )", path.read_text(), flags=re.M):
         if blk.startswith("## "): cat = blk[3:].split("\n")[0].strip(); continue
@@ -51,8 +51,8 @@ def practice_parse(path):  # 14-Practice: "✓" marks the correct option, catego
         n = int(m.group(1)); head = blk.split("**Explanation:**")[0]
         opts, ans = {}, []
         for k, v in options(head).items():
-            if "✓" in v: ans.append(k)
-            opts[k] = v.replace("✓", "").strip()
+            if "(correct)" in v: ans.append(k)
+            opts[k] = v.replace("(correct)", "").strip()
         em = re.search(r"\*\*Explanation:\*\*\s*(.*?)(?=\n---|\Z)", blk, re.S)
         if not ans or len(opts) < 2: skipped.append((cat, n)); continue
         out.append(dict(id=f"14-{n}", q=stem_of(head.split("\n", 1)[1]), options=opts, answer=ans,

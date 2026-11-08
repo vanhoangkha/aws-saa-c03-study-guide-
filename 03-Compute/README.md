@@ -1,6 +1,6 @@
 # Module 03: Compute Services
 
-## 📚 Overview
+## Overview
 
 AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, and Load Balancers.
 
@@ -8,7 +8,7 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 
 ---
 
-## 🎯 Key Services
+## Key Services
 
 1. **Amazon EC2** - Virtual servers
 2. **AWS Lambda** - Serverless functions
@@ -140,7 +140,7 @@ AWS compute services for SAA-C03 exam: EC2, Lambda, containers, Auto Scaling, an
 
 ---
 
-## 🎯 Exam Tips
+## Exam Tips
 
 ### Decision Tree
 ```
@@ -177,7 +177,7 @@ Need compute?
 ---
 
 **Estimated Study Time**: 8-10 hours  
-**Difficulty**: ⭐⭐⭐
+**Difficulty**: 3/3
 
-[⬅️ Previous: IAM](../02-IAM/README.md) | [Next: Storage ➡️](../04-Storage/README.md) | [📚 Main](../README.md)
+[Previous: IAM](../02-IAM/README.md) | [Next: Storage ](../04-Storage/README.md) | [Main](../README.md)
 

@@ -199,7 +199,7 @@ graph TB
     Q3 --> LineChart
     Q4 --> BarChart
     
-    Features["Features:<br/>✅ Purpose-built query language<br/>✅ Visualization<br/>✅ Query multiple log groups<br/>✅ Save queries<br/>💰 Pay per GB scanned"]
+    Features["Features:<br/>Purpose-built query language<br/>Visualization<br/>Query multiple log groups<br/>Save queries<br/>Pay per GB scanned"]
     
     classDef style1 fill:#FF9900
     class Insights style1
@@ -417,8 +417,8 @@ graph TB
     end
     
     subgraph Compliance_Group["Compliance"]
-        Compliant["✅ Compliant Resources"]
-        NonCompliant["❌ Non-Compliant Resources"]
+        Compliant["Compliant Resources"]
+        NonCompliant["Non-Compliant Resources"]
     end
     
     subgraph Actions_Group["Actions"]
@@ -584,7 +584,7 @@ graph TB
     SSM --> S3
     SSM --> CloudWatch
     
-    Benefits["Benefits:<br/>✅ No bastion hosts<br/>✅ No SSH keys to manage<br/>✅ IAM-based access control<br/>✅ Full audit trail<br/>✅ Session recording<br/>✅ Works in private subnets"]
+    Benefits["Benefits:<br/>No bastion hosts<br/>No SSH keys to manage<br/>IAM-based access control<br/>Full audit trail<br/>Session recording<br/>Works in private subnets"]
     
     classDef style1 fill:#FF9900
     class SSM style1
@@ -599,9 +599,9 @@ graph TB
     subgraph Parameter_Store_Group["Parameter Store"]
         PS["Parameter Store<br/>Centralized Configuration"]
         
-        Standard["Standard Parameters<br/>✅ Free<br/>📏 4 KB<br/>📊 10,000 params"]
+        Standard["Standard Parameters<br/>Free<br/>4 KB<br/>10,000 params"]
         
-        Advanced["Advanced Parameters<br/>💰 $0.05/param/month<br/>📏 8 KB<br/>📊 100,000 params<br/>📋 Policies"]
+        Advanced["Advanced Parameters<br/>$0.05/param/month<br/>8 KB<br/>100,000 params<br/>Policies"]
         
         PS --> Standard
         PS --> Advanced
@@ -610,7 +610,7 @@ graph TB
     subgraph Parameter_Types_Group["Parameter Types"]
         String["String<br/>Plain text"]
         StringList["StringList<br/>Comma-separated"]
-        SecureString["SecureString<br/>🔐 KMS encrypted"]
+        SecureString["SecureString<br/>KMS encrypted"]
     end
     
     subgraph Hierarchical_Organization_Group["Hierarchical Organization"]

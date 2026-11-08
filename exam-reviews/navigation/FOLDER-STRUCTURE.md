@@ -1,93 +1,93 @@
-# 📁 Exam Reviews - Folder Organization & File Structure
+# Exam Reviews - Folder Organization & File Structure
 
 **Visual guide to understanding how documents are organized**
 
 ---
 
-## 📊 Document Organization by Category
+## Document Organization by Category
 
 ### Category Distribution
 
 ```
 Total: 19 documents
 
-🚀 Quick Reference:     2 files (11%)  ████
-📚 Master Guides:       2 files (11%)  ████  
-📝 Complete Reviews:    5 files (26%)  ██████████
-⚡ Condensed Reviews:   5 files (26%)  ██████████
-🧭 Navigation:          5 files (26%)  ██████████
+ Quick Reference:     2 files (11%) ████
+ Master Guides:       2 files (11%) ████
+ Complete Reviews:    5 files (26%) ██████████
+ Condensed Reviews:   5 files (26%) ██████████
+ Navigation:          5 files (26%) ██████████
 ```
 
 ---
 
-## 🗂️ File Structure (Alphabetical with Categories)
+## File Structure (Alphabetical with Categories)
 
 ```
 exam-reviews/
 │
-├── 00-CATEGORIZATION-INDEX.md              🧭 Navigation (Master Index)
-├── ALL-TESTS-MASTER-QUICK-REFERENCE.md     📚 Master Guide
-├── CATEGORY-QUICK-REFERENCE.md             🧭 Navigation (Quick Lookup)
-├── COMPLETE-EXAM-REVIEW.md                 📚 Master Guide
-├── CONDENSED-REVIEWS-README.md             🧭 Navigation (Explainer)
-├── FOLDER-STRUCTURE.md                     🧭 Navigation (This File)
-├── MEMORY-CARDS.md                         🚀 Quick Reference
-├── Practice-Test-1-Review-Condensed.md     ⚡ Condensed Review
-├── Practice-Test-1-Review.md               📝 Complete Review
-├── Practice-Test-2-Review-Condensed.md     ⚡ Condensed Review
-├── Practice-Test-2-Review.md               📝 Complete Review
-├── Practice-Test-3-Review-Condensed.md     ⚡ Condensed Review
-├── Practice-Test-3-Review.md               📝 Complete Review
-├── Practice-Test-4-Review-Condensed.md     ⚡ Condensed Review
-├── Practice-Test-4-Review.md               📝 Complete Review
-├── Practice-Test-5-Review-Condensed.md     ⚡ Condensed Review
-├── Practice-Test-5-Review.md               📝 Complete Review
-├── QUICK-ACCESS-INDEX.md                   🧭 Navigation (Topic Index)
-├── QUICK-NAVIGATION.md                     🧭 Navigation (Jump Links)
-└── ULTRA-QUICK-REFERENCE-CARD.md           🚀 Quick Reference
+├── 00-CATEGORIZATION-INDEX.md               Navigation (Master Index)
+├── ALL-TESTS-MASTER-QUICK-REFERENCE.md      Master Guide
+├── CATEGORY-QUICK-REFERENCE.md              Navigation (Quick Lookup)
+├── COMPLETE-EXAM-REVIEW.md                  Master Guide
+├── CONDENSED-REVIEWS-README.md              Navigation (Explainer)
+├── FOLDER-STRUCTURE.md                      Navigation (This File)
+├── MEMORY-CARDS.md                          Quick Reference
+├── Practice-Test-1-Review-Condensed.md      Condensed Review
+├── Practice-Test-1-Review.md                Complete Review
+├── Practice-Test-2-Review-Condensed.md      Condensed Review
+├── Practice-Test-2-Review.md                Complete Review
+├── Practice-Test-3-Review-Condensed.md      Condensed Review
+├── Practice-Test-3-Review.md                Complete Review
+├── Practice-Test-4-Review-Condensed.md      Condensed Review
+├── Practice-Test-4-Review.md                Complete Review
+├── Practice-Test-5-Review-Condensed.md      Condensed Review
+├── Practice-Test-5-Review.md                Complete Review
+├── QUICK-ACCESS-INDEX.md                    Navigation (Topic Index)
+├── QUICK-NAVIGATION.md                      Navigation (Jump Links)
+└── ULTRA-QUICK-REFERENCE-CARD.md            Quick Reference
 ```
 
 ---
 
-## 🎨 File Structure (Grouped by Category)
+## File Structure (Grouped by Category)
 
 ```
 exam-reviews/
 │
-├─── 📁 NAVIGATION FILES (Start Here!)
-│    ├── 00-CATEGORIZATION-INDEX.md        ⭐ READ THIS FIRST
-│    ├── CATEGORY-QUICK-REFERENCE.md       ⭐ Quick category lookup
-│    ├── FOLDER-STRUCTURE.md               ⭐ This file
+├─── NAVIGATION FILES (Start Here!)
+│    ├── 00-CATEGORIZATION-INDEX.md         READ THIS FIRST
+│    ├── CATEGORY-QUICK-REFERENCE.md        Quick category lookup
+│    ├── FOLDER-STRUCTURE.md                This file
 │    ├── QUICK-ACCESS-INDEX.md             Topic-based navigation
 │    ├── QUICK-NAVIGATION.md               Jump links
 │    └── CONDENSED-REVIEWS-README.md       Condensed docs explainer
 │
-├─── 📁 QUICK REFERENCE MATERIALS (Last-Minute)
+├─── QUICK REFERENCE MATERIALS (Last-Minute)
 │    ├── ULTRA-QUICK-REFERENCE-CARD.md     15 min read - Must-know rules
 │    └── MEMORY-CARDS.md                   20 min read - Visual mnemonics
 │
-├─── 📁 MASTER GUIDES (Overview)
+├─── MASTER GUIDES (Overview)
 │    ├── COMPLETE-EXAM-REVIEW.md           45 min - Overall analysis
 │    └── ALL-TESTS-MASTER-QUICK-REFERENCE.md  90 min - Top 135+ concepts
 │
-├─── 📁 COMPLETE TEST REVIEWS (Detailed)
-│    ├── Practice-Test-1-Review.md         52% ❌ - 4 hrs read
-│    ├── Practice-Test-2-Review.md         75% ⚠️ - 2.5 hrs read
-│    ├── Practice-Test-3-Review.md         80% ✅ - 2 hrs read
-│    ├── Practice-Test-4-Review.md         75% ⚠️ - 3 hrs read
-│    └── Practice-Test-5-Review.md         65% ❌ - 2.5 hrs read
+├─── COMPLETE TEST REVIEWS (Detailed)
+│    ├── Practice-Test-1-Review.md         52% - 4 hrs read
+│    ├── Practice-Test-2-Review.md         75% - 2.5 hrs read
+│    ├── Practice-Test-3-Review.md         80% - 2 hrs read
+│    ├── Practice-Test-4-Review.md         75% - 3 hrs read
+│    └── Practice-Test-5-Review.md         65% - 2.5 hrs read
 │
-└─── 📁 CONDENSED REVIEWS (Fast Learning)
-     ├── Practice-Test-1-Review-Condensed.md  52% ❌ - 40 min read
-     ├── Practice-Test-2-Review-Condensed.md  75% ⚠️ - 25 min read
-     ├── Practice-Test-3-Review-Condensed.md  80% ✅ - 20 min read
-     ├── Practice-Test-4-Review-Condensed.md  75% ⚠️ - 30 min read
-     └── Practice-Test-5-Review-Condensed.md  65% ❌ - 25 min read
+└─── CONDENSED REVIEWS (Fast Learning)
+     ├── Practice-Test-1-Review-Condensed.md 52%  - 40 min read
+     ├── Practice-Test-2-Review-Condensed.md 75%  - 25 min read
+     ├── Practice-Test-3-Review-Condensed.md 80%  - 20 min read
+     ├── Practice-Test-4-Review-Condensed.md 75%  - 30 min read
+     └── Practice-Test-5-Review-Condensed.md 65%  - 25 min read
 ```
 
 ---
 
-## 📊 File Size & Read Time Comparison
+## File Size & Read Time Comparison
 
 ### Navigation Files
 | File | Size | Typical Read Time |
@@ -110,7 +110,7 @@ exam-reviews/
 
 ---
 
-## 🎯 File Naming Convention
+## File Naming Convention
 
 ### Pattern Analysis
 
@@ -133,7 +133,7 @@ Special Files:
 
 ---
 
-## 🔍 Finding Files by Purpose
+## Finding Files by Purpose
 
 ### "I want to..."
 
@@ -166,7 +166,7 @@ Special Files:
 
 ---
 
-## 📈 Reading Order Flowchart
+## Reading Order Flowchart
 
 ```
 START
@@ -195,7 +195,7 @@ START
 
 ---
 
-## 🗺️ Document Relationships
+## Document Relationships
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -234,7 +234,7 @@ START
 
 ---
 
-## 🎓 Pro Tips for Navigating
+## Pro Tips for Navigating
 
 ### 1. **Bookmark These 3 Files:**
    - 00-CATEGORIZATION-INDEX.md (comprehensive guide)
@@ -255,15 +255,15 @@ START
    - All point back to 00-CATEGORIZATION-INDEX.md
 
 ### 4. **Color Coding (if viewing with compatible markdown viewer):**
-   - 🚀 = Use before exam
-   - 📚 = Comprehensive learning
-   - 📝 = Detailed reviews
-   - ⚡ = Fast versions
-   - 🧭 = Navigation helpers
+   - = Use before exam
+   - = Comprehensive learning
+   - = Detailed reviews
+   - = Fast versions
+   - = Navigation helpers
 
 ---
 
-## 📝 Summary
+## Summary
 
 **Total Files:** 19  
 **Categories:** 5  

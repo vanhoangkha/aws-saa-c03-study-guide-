@@ -2,9 +2,9 @@
 
 This directory contains all documentation organized by purpose.
 
-## 📁 Directory Structure
+## Directory Structure
 
-### 📚 Study Guides (`study-guides/`)
+### Study Guides (`study-guides/`)
 Focused learning materials for exam preparation:
 - **[FAST-LEARN-GUIDE.md](study-guides/FAST-LEARN-GUIDE.md)** - Complete fast-track guide (11-14 hrs)
 - **[ULTRA-FAST-LEARNING-INDEX.md](study-guides/ULTRA-FAST-LEARNING-INDEX.md)** - Express learning path (3-4 hrs)
@@ -15,7 +15,7 @@ Focused learning materials for exam preparation:
 - **[INCORRECT-AREAS-PRACTICE-QUESTIONS.md](study-guides/INCORRECT-AREAS-PRACTICE-QUESTIONS.md)** - Targeted practice
 - **[PRACTICE-TEST-4-INCORRECT-STUDY-GUIDE.md](study-guides/PRACTICE-TEST-4-INCORRECT-STUDY-GUIDE.md)** - PT4 review
 
-### 📖 Reference Materials (`reference/`)
+### Reference Materials (`reference/`)
 Quick lookup guides and visual aids:
 - **[QUICK-REFERENCE.md](reference/QUICK-REFERENCE.md)** - Quick facts and cheat sheets
 - **[QUICK-START.md](reference/QUICK-START.md)** - Getting started guide
@@ -25,7 +25,7 @@ Quick lookup guides and visual aids:
 
 > **Note:** For official AWS exam guides, please visit [AWS Certification](https://aws.amazon.com/certification/certified-solutions-architect-associate/).
 
-### 📋 Project Documentation (`project-docs/`)
+### Project Documentation (`project-docs/`)
 Repository and contribution information:
 - **[CHANGELOG.md](project-docs/CHANGELOG.md)** - Version history
 - **[CODE_OF_CONDUCT.md](project-docs/CODE_OF_CONDUCT.md)** - Community guidelines
@@ -34,7 +34,7 @@ Repository and contribution information:
 - **[SECURITY.md](project-docs/SECURITY.md)** - Security policies
 - **[PROJECT-CLEANUP-SUMMARY.md](project-docs/PROJECT-CLEANUP-SUMMARY.md)** - Cleanup notes
 
-## 🎯 Quick Navigation
+## Quick Navigation
 
 ### For Quick Learning
 1. Start with [ULTRA-FAST-LEARNING-INDEX.md](study-guides/ULTRA-FAST-LEARNING-INDEX.md) (3-4 hrs)
@@ -55,7 +55,7 @@ Repository and contribution information:
 2. Review [CODE_OF_CONDUCT.md](project-docs/CODE_OF_CONDUCT.md)
 3. Check [CHANGELOG.md](project-docs/CHANGELOG.md)
 
-## 📊 Exam Reviews
+## Exam Reviews
 
 All practice test reviews are stored in the **[exam-reviews/](../exam-reviews/)** directory at the project root.
 

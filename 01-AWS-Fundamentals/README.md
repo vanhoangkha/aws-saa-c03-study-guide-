@@ -1,6 +1,6 @@
 # Module 01: AWS Fundamentals
 
-## 📚 Overview
+## Overview
 
 This module covers the foundational concepts of Amazon Web Services (AWS) that are essential for the AWS Certified Solutions Architect - Associate (SAA-C03) exam. Understanding these fundamentals is critical for designing and deploying applications on AWS.
 
@@ -8,20 +8,20 @@ This module covers the foundational concepts of Amazon Web Services (AWS) that a
 
 ---
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 By the end of this module, you will be able to:
 
-- ✅ Explain AWS Global Infrastructure (Regions, Availability Zones, Edge Locations)
-- ✅ Navigate the AWS Management Console and use AWS CLI
-- ✅ Understand the AWS Well-Architected Framework's 6 pillars
-- ✅ Identify AWS Shared Responsibility Model
-- ✅ Describe AWS account management and billing basics
-- ✅ Explain AWS service categories and when to use them
+- Explain AWS Global Infrastructure (Regions, Availability Zones, Edge Locations)
+- Navigate the AWS Management Console and use AWS CLI
+- Understand the AWS Well-Architected Framework's 6 pillars
+- Identify AWS Shared Responsibility Model
+- Describe AWS account management and billing basics
+- Explain AWS service categories and when to use them
 
 ---
 
-## 📖 Table of Contents
+## Table of Contents
 
 1. [AWS Global Infrastructure](#1-aws-global-infrastructure)
 2. [AWS Management Tools](#2-aws-management-tools)
@@ -29,8 +29,8 @@ By the end of this module, you will be able to:
 4. [Shared Responsibility Model](#4-shared-responsibility-model)
 5. [AWS Account Management](#5-aws-account-management)
 6. [AWS Service Categories](#6-aws-service-categories)
-7. [Exam Tips](#-exam-tips)
-8. [Practice Questions](#-practice-questions)
+7. [Exam Tips](#exam-tips)
+8. [Practice Questions](#practice-questions)
 
 ---
 
@@ -58,7 +58,7 @@ Consider these factors:
 4. Pricing - Costs vary by region
 ```
 
-**Exam Tip**: 🎯 Choose the region closest to your users to minimize latency.
+**Exam Tip**: Choose the region closest to your users to minimize latency.
 
 ### 1.2 Availability Zones (AZs)
 
@@ -87,7 +87,7 @@ Region: us-east-1
     └── Application Server 3
 ```
 
-**Exam Tip**: 🎯 Always deploy across multiple AZs for high availability.
+**Exam Tip**: Always deploy across multiple AZs for high availability.
 
 ### 1.3 Edge Locations
 
@@ -103,7 +103,7 @@ Region: us-east-1
 - AWS WAF and Shield
 - Lambda@Edge
 
-**Exam Tip**: 🎯 Edge Locations ≠ Regions. They're for caching and low-latency access.
+**Exam Tip**: Edge Locations ≠ Regions. They're for caching and low-latency access.
 
 ### 1.4 Local Zones
 
@@ -331,7 +331,7 @@ The AWS Well-Architected Framework helps you understand best practices for desig
 - Serverless services
 - AWS Graviton processors
 
-**Exam Tip**: 🎯 Know the 6 pillars by heart. Use mnemonic: **"CROPSS"** or **"SCROPP"**
+**Exam Tip**: Know the 6 pillars by heart. Use mnemonic: **"CROPSS"** or **"SCROPP"**
 
 ---
 
@@ -380,7 +380,7 @@ The AWS Well-Architected Framework helps you understand best practices for desig
 - **AWS**: Infrastructure, software, physical security
 - **Customer**: Data classification, bucket policies, encryption
 
-**Exam Tip**: 🎯 If you can configure it, you're responsible for it!
+**Exam Tip**: If you can configure it, you're responsible for it!
 
 ---
 
@@ -395,11 +395,11 @@ The AWS Well-Architected Framework helps you understand best practices for desig
 - Enable MFA immediately
 
 **Best Practices:**
-- ✅ Create IAM users for daily tasks
-- ✅ Enable MFA on root account
-- ✅ Use strong password
-- ✅ Don't share root credentials
-- ✅ Delete root access keys
+- Create IAM users for daily tasks
+- Enable MFA on root account
+- Use strong password
+- Don't share root credentials
+- Delete root access keys
 
 ### 5.2 AWS Organizations
 
@@ -411,11 +411,11 @@ The AWS Well-Architected Framework helps you understand best practices for desig
 - Apply policies across accounts
 
 **Key Benefits:**
-- ✅ **Consolidated Billing**: Single payment method, volume discounts
-- ✅ **Centralized Management**: Control access and security policies
-- ✅ **Service Control Policies (SCPs)**: Set permission guardrails
-- ✅ **Account Automation**: Programmatic account creation
-- ✅ **Cost Allocation**: Tag-based cost tracking across accounts
+- **Consolidated Billing**: Single payment method, volume discounts
+- **Centralized Management**: Control access and security policies
+- **Service Control Policies (SCPs)**: Set permission guardrails
+- **Account Automation**: Programmatic account creation
+- **Cost Allocation**: Tag-based cost tracking across accounts
 
 #### AWS Organizations Structure
 
@@ -459,10 +459,10 @@ Root (Organization)
 - Inherited down the OU hierarchy
 
 **Important SCP Rules:**
-- ❌ SCPs **DO NOT** affect the Management Account
-- ❌ SCPs **DO NOT** grant permissions (only restrict)
-- ✅ SCPs override IAM policies in member accounts
-- ✅ Effective permissions = IAM permissions AND SCP permissions
+- SCPs **DO NOT** affect the Management Account
+- SCPs **DO NOT** grant permissions (only restrict)
+- Yes: SCPs override IAM policies in member accounts
+- Yes: Effective permissions = IAM permissions AND SCP permissions
 
 **SCP Example 1: Deny All Access to Specific Region**
 ```json
@@ -533,16 +533,16 @@ Root (Organization)
 ```
 User attempts action
     ↓
-Is there an explicit Deny in SCP? → YES → ❌ DENY
+Is there an explicit Deny in SCP? → YES → DENY
     ↓ NO
 Is there an explicit Allow in SCP? → YES → Check IAM Policy
     ↓ NO                                      ↓
-❌ DENY (implicit)                    Is there Allow in IAM? → YES → ✅ ALLOW
+ DENY (implicit)                    Is there Allow in IAM? → YES → ALLOW
                                             ↓ NO
-                                        ❌ DENY
+                                         DENY
 ```
 
-**Exam Tip**: 🎯 Remember: SCPs affect ALL users and roles in member accounts, but NOT the management account!
+**Exam Tip**: Remember: SCPs affect ALL users and roles in member accounts, but NOT the management account!
 
 #### AWS Control Tower
 
@@ -624,11 +624,11 @@ Account B (Application Account)
 ```
 
 **Benefits of Subnet Sharing:**
-- ✅ Centralized network management
-- ✅ Reduced number of VPCs
-- ✅ Simplified network architecture
-- ✅ Lower operational overhead
-- ✅ Efficient use of IP addresses
+- Centralized network management
+- Reduced number of VPCs
+- Simplified network architecture
+- Lower operational overhead
+- Efficient use of IP addresses
 
 **RAM Sharing Process:**
 1. Resource owner creates a resource share
@@ -637,7 +637,7 @@ Account B (Application Account)
 4. Recipients accept the share (if outside Organization)
 5. Recipients can use resources (but not modify/delete)
 
-**Exam Tip**: 🎯 RAM is commonly tested with VPC subnet sharing scenarios for centralized networking!
+**Exam Tip**: RAM is commonly tested with VPC subnet sharing scenarios for centralized networking!
 
 #### Consolidated Billing
 
@@ -722,7 +722,7 @@ Total: 2,000 GB → Higher volume pricing tier applies
 
 ---
 
-## 🎯 Exam Tips
+## Exam Tips
 
 ### Must Know for Exam
 
@@ -772,7 +772,7 @@ Total: 2,000 GB → Higher volume pricing tier applies
 
 ---
 
-## 📝 Practice Questions
+## Practice Questions
 
 ### Question 1
 **Which of the following is an AWS responsibility under the Shared Responsibility Model?**
@@ -856,7 +856,7 @@ D) Use Route 53 geoproximity routing
 
 ---
 
-## 🔗 Additional Resources
+## Additional Resources
 
 ### AWS Official Documentation
 - [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
@@ -871,17 +871,17 @@ D) Use Route 53 geoproximity routing
 4. **Enable MFA**: Enable multi-factor authentication on your AWS account
 
 ### Next Steps
-- ✅ Complete this module
-- ➡️ **Next**: [Module 02: Identity and Access Management (IAM)](../02-IAM/README.md)
-- 📚 **Related**: [Quick Reference](../QUICK-REFERENCE.md) for service comparisons
+- Complete this module
+- **Next**: [Module 02: Identity and Access Management (IAM)](../02-IAM/README.md)
+- **Related**: [Quick Reference](../QUICK-REFERENCE.md) for service comparisons
 
 ---
 
-**Module Progress**: 🎯 Foundation Complete  
+**Module Progress**: Foundation Complete
 **Estimated Study Time**: 4-6 hours  
-**Difficulty**: ⭐ Beginner
+**Difficulty**: 1/3 Beginner
 
 ---
 
-[⬅️ Back to Main README](../README.md) | [Next Module: IAM ➡️](../02-IAM/README.md)
+[Back to Main README](../README.md) | [Next Module: IAM ](../02-IAM/README.md)
 

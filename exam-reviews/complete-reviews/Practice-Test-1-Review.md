@@ -1,61 +1,61 @@
 # Practice Test 1 (SAA-C03) - Exam Review
 
 **Date:** February 22, 2026  
-**Score:** 34/65 (52.31%) - ❌ **FAILED**  
+**Score:** 34/65 (52.31%) - **FAILED**
 **Time Taken:** 130 minutes  
 **Status:** Below passing threshold  
 **Passing Score:** 72% (need 47/65 correct)
 
 ---
 
-## 📊 Performance Summary
+## Performance Summary
 
 | Metric | Result |
 |--------|--------|
 | **Total Questions** | 65 |
 | **Correct Answers** | 34 (52.31%) |
 | **Incorrect Answers** | 31 (47.69%) |
-| **Pass/Fail** | **FAIL** ❌ |
+| **Pass/Fail** | **FAIL**  |
 | **Passing Score** | 72% |
 | **Gap to Pass** | -19.69% (need 13 more correct) |
 | **Time Used** | 130 minutes (2 hours 10 minutes) |
 
 ---
 
-## 📈 Domain Performance Analysis
+## Domain Performance Analysis
 
 | Domain | Total | Correct | Incorrect | Score | Status |
 |--------|-------|---------|-----------|-------|--------|
-| **Design Resilient Architectures** | 19 | 8 | 11 | 42.11% | ❌ **CRITICAL** |
-| **Design High-Performing Architectures** | 17 | 8 | 9 | 47.06% | ❌ **CRITICAL** |
-| **Design Secure Architectures** | 19 | 12 | 7 | 63.16% | ⚠️ Needs Review |
-| **Design Cost-Optimized Architectures** | 10 | 6 | 4 | 60.00% | ⚠️ Needs Review |
+| **Design Resilient Architectures** | 19 | 8 | 11 | 42.11% | **CRITICAL** |
+| **Design High-Performing Architectures** | 17 | 8 | 9 | 47.06% | **CRITICAL** |
+| **Design Secure Architectures** | 19 | 12 | 7 | 63.16% | Needs Review |
+| **Design Cost-Optimized Architectures** | 10 | 6 | 4 | 60.00% | Needs Review |
 
 ### Performance Visualization
 ```
-Design Resilient:           ████░░░░░░ 42% ❌ CRITICAL
-Design High-Performing:     █████░░░░░ 47% ❌ CRITICAL
-Design Secure:              ██████░░░░ 63% ⚠️
-Design Cost-Optimized:      ██████░░░░ 60% ⚠️
+Design Resilient:           ████░░░░░░ 42% CRITICAL
+Design High-Performing:     █████░░░░░ 47% CRITICAL
+Design Secure:              ██████░░░░ 63%
+Design Cost-Optimized:      ██████░░░░ 60%
 ```
 
 ---
 
-## ❌ Critical Areas That Need Immediate Attention
+## Critical Areas That Need Immediate Attention
 
-### Priority 1: Design Resilient Architectures (42% - 11 incorrect) 🔴
+### Priority 1: Design Resilient Architectures (42% - 11 incorrect)
 
 ---
 
-#### ❌ Question 2: ECS Task Definitions
+#### Question 2: ECS Task Definitions
 
-**📋 QUESTION CONTEXT:**
+**QUESTION CONTEXT:**
 A company needs to deploy containerized applications on AWS with specific CPU and memory requirements, environment variables, and port mappings. What component defines these container specifications?
 
-**Your Answer:** ❌ AWS Service definition
-**Correct Answer:** ✅ **ECS Task Definition (JSON format)**
+**Your Answer:** AWS Service definition
+**Correct Answer:** **ECS Task Definition (JSON format)**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 An **ECS Task Definition** is a blueprint (JSON/YAML) that describes how Docker containers should run on ECS.
 
@@ -65,7 +65,7 @@ An **ECS Task Definition** is a blueprint (JSON/YAML) that describes how Docker 
 ┌─────────────────────────────────────────────────┐
 │         ECS TASK DEFINITION                     │
 ├─────────────────────────────────────────────────┤
-│  📦 Container Definitions                       │
+│   Container Definitions                         │
 │     ├─ Image (ECR/Docker Hub URL)              │
 │     ├─ CPU & Memory (hard/soft limits)         │
 │     ├─ Port Mappings (host:container)          │
@@ -73,7 +73,7 @@ An **ECS Task Definition** is a blueprint (JSON/YAML) that describes how Docker 
 │     ├─ Entry Point & Commands                   │
 │     └─ Health Checks                            │
 │                                                  │
-│  🔧 Task-Level Settings                         │
+│   Task-Level Settings                           │
 │     ├─ Task Role (IAM for AWS service access)  │
 │     ├─ Execution Role (pull images, logs)      │
 │     ├─ Network Mode (bridge/host/awsvpc)       │
@@ -132,25 +132,25 @@ An **ECS Task Definition** is a blueprint (JSON/YAML) that describes how Docker 
 }
 ```
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ Task Definition = Container configuration blueprint (JSON/YAML)
-- ✅ Contains CPU, memory, images, ports, env vars, IAM roles
-- ✅ Versioned (family:revision, e.g., web-app:5)
-- ✅ Reusable across multiple services
+**KEY TAKEAWAYS:**
+- Task Definition = Container configuration blueprint (JSON/YAML)
+- Contains CPU, memory, images, ports, env vars, IAM roles
+- Versioned (family:revision, e.g., web-app:5)
+- Reusable across multiple services
 
-**💡 MEMORY AID:** Think "TD = To-Do list" - Task Definition lists everything containers need to do
+**MEMORY AID:** Think "TD = To-Do list" - Task Definition lists everything containers need to do
 
 ---
 
-#### ❌ Question 8: Route 53 DNS Failover Configuration
+#### Question 8: Route 53 DNS Failover Configuration
 
-**📋 QUESTION CONTEXT:**
+**QUESTION CONTEXT:**
 You have a primary website in us-east-1 and a standby in us-west-2. You want automatic failover if the primary becomes unhealthy. Which Route 53 configuration is correct?
 
-**Your Answer:** ❌ Create two separate health checks
-**Correct Answer:** ✅ **Use "Evaluate Target Health" on alias records pointing to ALB**
+**Your Answer:** Create two separate health checks
+**Correct Answer:** **Use "Evaluate Target Health" on alias records pointing to ALB**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **Route 53 Failover Routing Policy:**
 
@@ -163,7 +163,7 @@ You have a primary website in us-east-1 and a standby in us-west-2. You want aut
 │           │                                          │
 │           ├─► Primary Record (us-east-1)            │
 │           │    ├─ Type: A (Alias to ALB)           │
-│           │    ├─ Evaluate Target Health: YES ✅    │
+│           │    ├─ Evaluate Target Health: YES       │
 │           │    └─ Failover: Primary                 │
 │           │         │                                │
 │           │         └─► ALB (us-east-1)             │
@@ -171,7 +171,7 @@ You have a primary website in us-east-1 and a standby in us-west-2. You want aut
 │           │                                          │
 │           └─► Secondary Record (us-west-2)          │
 │                ├─ Type: A (Alias to ALB)           │
-│                ├─ Evaluate Target Health: YES ✅    │
+│                ├─ Evaluate Target Health: YES       │
 │                └─ Failover: Secondary               │
 │                     │                                │
 │                     └─► ALB (us-west-2)             │
@@ -196,7 +196,7 @@ You have a primary website in us-east-1 and a standby in us-west-2. You want aut
 ```
 Is your target an AWS resource (ALB/CloudFront/API Gateway)?
 │
-├─ YES ──► Use "Evaluate Target Health" ✅
+├─ YES ──► Use "Evaluate Target Health"
 │           └─ No separate health check needed
 │           └─ Uses built-in AWS health checks
 │           └─ FREE
@@ -217,7 +217,7 @@ Alias: Yes
 Alias Target: ALB in us-east-1
 Routing Policy: Failover
 Failover Record Type: Primary
-Evaluate Target Health: YES ✅ (CRITICAL!)
+Evaluate Target Health: YES (CRITICAL!)
 Record ID: primary-useast1
 ```
 
@@ -229,7 +229,7 @@ Alias: Yes
 Alias Target: ALB in us-west-2
 Routing Policy: Failover
 Failover Record Type: Secondary
-Evaluate Target Health: YES ✅ (CRITICAL!)
+Evaluate Target Health: YES (CRITICAL!)
 Record ID: secondary-uswest2
 ```
 
@@ -246,37 +246,37 @@ Failover Scenario:
 4. User → Route 53 → Secondary ALB (us-west-2) → Healthy Targets
 ```
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ "Evaluate Target Health" = Use target's built-in health checks
-- ✅ FREE for alias records to AWS resources
-- ✅ Simplest failover configuration
-- ✅ Primary/Secondary records must have SAME name
-- ❌ Don't create separate health checks for ALB (redundant & costs money)
+**KEY TAKEAWAYS:**
+- "Evaluate Target Health" = Use target's built-in health checks
+- Yes: FREE for alias records to AWS resources
+- Yes: Simplest failover configuration
+- Yes: Primary/Secondary records must have SAME name
+- Don't create separate health checks for ALB (redundant & costs money)
 
-**💡 MEMORY AID:** "ETH = Easy, Trust the Health (of AWS resources)"
+**MEMORY AID:** "ETH = Easy, Trust the Health (of AWS resources)"
 
 ---
 
-#### ❌ Question 13: Multi-Region VPN with Transit Gateway ECMP
+#### Question 13: Multi-Region VPN with Transit Gateway ECMP
 
-**📋 QUESTION CONTEXT:**
+**QUESTION CONTEXT:**
 A company needs to increase VPN throughput from on-premises to AWS from 1.25 Gbps to 5 Gbps using multiple VPN tunnels. What solution enables this?
 
-**Your Answer:** ❌ Virtual Private Gateway (VPG) with multiple VPN connections
-**Correct Answer:** ✅ **Transit Gateway with ECMP (Equal-Cost Multi-Path) routing**
+**Your Answer:** Virtual Private Gateway (VPG) with multiple VPN connections
+**Correct Answer:** **Transit Gateway with ECMP (Equal-Cost Multi-Path) routing**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **VPN Throughput Comparison:**
 
 | Solution | Max Throughput per VPN | ECMP Support | Total Possible Throughput |
 |----------|----------------------|--------------|---------------------------|
-| **Virtual Private Gateway (VGW)** | 1.25 Gbps | ❌ NO | 1.25 Gbps (single active) |
-| **Transit Gateway** | 1.25 Gbps per tunnel | ✅ YES | 50 Gbps+ (multiple active tunnels) |
+| **Virtual Private Gateway (VGW)** | 1.25 Gbps | NO | 1.25 Gbps (single active) |
+| **Transit Gateway** | 1.25 Gbps per tunnel | YES | 50 Gbps+ (multiple active tunnels) |
 
 **Architecture Comparison:**
 
-**❌ VPG (Virtual Private Gateway) - NO ECMP:**
+**VPG (Virtual Private Gateway) - NO ECMP:**
 
 ```
                     AWS VPC
@@ -295,11 +295,11 @@ A company needs to increase VPN throughput from on-premises to AWS from 1.25 Gbp
                        │
                On-Premises Router
                
-⚠️ Only ONE VPN active at a time = 1.25 Gbps limit
-⚠️ Others are failover only, not load-balanced
+ Only ONE VPN active at a time = 1.25 Gbps limit
+ Others are failover only, not load-balanced
 ```
 
-**✅ Transit Gateway - WITH ECMP:**
+**Transit Gateway - WITH ECMP:**
 
 ```
                     AWS Region
@@ -320,9 +320,9 @@ A company needs to increase VPN throughput from on-premises to AWS from 1.25 Gbp
                On-Premises Router
                (BGP ECMP support required)
                
-✅ All VPNs active simultaneously
-✅ Traffic load-balanced across all tunnels
-✅ Total throughput: 4 × 1.25 = 5 Gbps
+ All VPNs active simultaneously
+ Traffic load-balanced across all tunnels
+ Total throughput: 4 × 1.25 = 5 Gbps
 ```
 
 **ECMP (Equal-Cost Multi-Path) Explained:**
@@ -393,27 +393,27 @@ Total: 4 tunnels × 1.25 Gbps = 5 Gbps aggregate
    - Propagate routes via BGP
    - Verify ECMP distribution
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ Transit Gateway supports ECMP, VPG does NOT
-- ✅ Each VPN tunnel = 1.25 Gbps max
-- ✅ ECMP = Load balance across multiple equal-cost paths
-- ✅ Requires BGP with ECMP on customer gateway
-- ✅ For 5 Gbps: Need 4 active tunnels (2 VPN connections)
-- ❌ VPG only uses 1 tunnel at a time (others for failover only)
+**KEY TAKEAWAYS:**
+- Transit Gateway supports ECMP, VPG does NOT
+- Yes: Each VPN tunnel = 1.25 Gbps max
+- Yes: ECMP = Load balance across multiple equal-cost paths
+- Yes: Requires BGP with ECMP on customer gateway
+- Yes: For 5 Gbps: Need 4 active tunnels (2 VPN connections)
+- No: VPG only uses 1 tunnel at a time (others for failover only)
 
-**💡 MEMORY AID:** "TGW = Traffic Gets Wider (with ECMP), VPG = Very Poor Grouping (single active path)"
+**MEMORY AID:** "TGW = Traffic Gets Wider (with ECMP), VPG = Very Poor Grouping (single active path)"
 
 ---
 
-#### ❌ Question 15: VPC Endpoints - Gateway vs Interface
+#### Question 15: VPC Endpoints - Gateway vs Interface
 
-**📋 QUESTION CONTEXT:**
+**QUESTION CONTEXT:**
 An application in a private subnet needs to access AWS services without internet gateway. When should you use Gateway Endpoint vs Interface Endpoint?
 
-**Your Answer:** ❌ Used Gateway Endpoint for all services
-**Correct Answer:** ✅ **Gateway Endpoints for S3/DynamoDB only, Interface Endpoints for most other services**
+**Your Answer:** Used Gateway Endpoint for all services
+**Correct Answer:** **Gateway Endpoints for S3/DynamoDB only, Interface Endpoints for most other services**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **VPC Endpoint Types Comparison:**
 
@@ -429,8 +429,8 @@ An application in a private subnet needs to access AWS services without internet
 │  │            │                 │   IP)      │          │
 │  └──────┬─────┘                 └─────┬──────┘          │
 │         │                              │                 │
-│    ✅ S3                          ✅ Almost all         │
-│    ✅ DynamoDB                        AWS services      │
+│     S3                           Almost all             │
+│     DynamoDB                        AWS services        │
 │                                                          │
 │    FREE                          $0.01/hour + data      │
 │    No IP required                Private IP required    │
@@ -584,7 +584,7 @@ Need to access AWS service from private subnet?
 Monthly Cost:
 • Endpoint hourly charge: $0.00
 • Data processing: $0.00
-• Total: $0.00 🎉
+• Total: $0.00
 ```
 
 **Interface Endpoint (PAID):**
@@ -600,22 +600,22 @@ Example: 1 Interface Endpoint, 2 AZs, 100 GB/month
 Total: $15.60/month per service
 ```
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ **Gateway Endpoint:** S3 & DynamoDB ONLY (FREE)
-- ✅ **Interface Endpoint:** Almost all other AWS services (PAID)
-- ✅ Gateway Endpoint = Route table entry (no IP)
-- ✅ Interface Endpoint = ENI with private IP (one per AZ)
-- ✅ Both eliminate need for Internet Gateway/NAT Gateway
-- ✅ Interface endpoints support security groups
+**KEY TAKEAWAYS:**
+- **Gateway Endpoint:** S3 & DynamoDB ONLY (FREE)
+- **Interface Endpoint:** Almost all other AWS services (PAID)
+- Gateway Endpoint = Route table entry (no IP)
+- Interface Endpoint = ENI with private IP (one per AZ)
+- Both eliminate need for Internet Gateway/NAT Gateway
+- Interface endpoints support security groups
 
-**💡 MEMORY AID:** "GSD = Gateway for S3 & DynamoDB, Interface for everything else"
+**MEMORY AID:** "GSD = Gateway for S3 & DynamoDB, Interface for everything else"
 
 **Common Services Quick Reference:**
 
 | Need Access To | Endpoint Type |
 |----------------|---------------|
-| S3 | Gateway ✅ |
-| DynamoDB | Gateway ✅ |
+| S3 | Gateway  |
+| DynamoDB | Gateway  |
 | SNS | Interface |
 | SQS | Interface |
 | Lambda | Interface |
@@ -627,23 +627,23 @@ Total: $15.60/month per service
 
 ---
 
-#### ❌ Question 25 & 41: CloudFormation Cross-Stack References
+#### Question 25 & 41: CloudFormation Cross-Stack References
 
-**📋 QUESTION CONTEXT:**
+**QUESTION CONTEXT:**
 You have a CloudFormation stack that creates a VPC and subnets. You want to reference these resources in other stacks that create EC2 instances. What's the correct approach?
 
-**Your Answer:** ❌ Use Mappings or Parameters
-**Correct Answer:** ✅ **Use Outputs with Export, then Fn::ImportValue in other stacks**
+**Your Answer:** Use Mappings or Parameters
+**Correct Answer:** **Use Outputs with Export, then Fn::ImportValue in other stacks**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **CloudFormation Stack Communication Methods:**
 
 | Method | Use Case | Cross-Stack? | Example |
 |--------|----------|--------------|---------|
-| **Parameters** | Pass values INTO a stack at creation | ❌ No | Passing instance type, key name |
-| **Mappings** | Static lookup tables WITHIN a stack | ❌ No | AMI IDs per region |
-| **Outputs + Export** | Share values FROM a stack to others | ✅ YES | VPC ID, subnet IDs, security groups |
+| **Parameters** | Pass values INTO a stack at creation | No | Passing instance type, key name |
+| **Mappings** | Static lookup tables WITHIN a stack | No | AMI IDs per region |
+| **Outputs + Export** | Share values FROM a stack to others | YES | VPC ID, subnet IDs, security groups |
 
 **Architecture Pattern:**
 
@@ -730,19 +730,19 @@ Outputs:
     Description: VPC ID
     Value: !Ref MyVPC
     Export:
-      Name: network-vpc-id               # ✅ Export name for cross-stack reference
+      Name: network-vpc-id               # Export name for cross-stack reference
 
   PublicSubnetId:
     Description: Public Subnet ID
     Value: !Ref PublicSubnet
     Export:
-      Name: network-public-subnet-id     # ✅ Export name
+      Name: network-public-subnet-id     # Export name
 
   PrivateSubnetId:
     Description: Private Subnet ID
     Value: !Ref PrivateSubnet
     Export:
-      Name: network-private-subnet-id    # ✅ Export name
+      Name: network-private-subnet-id    # Export name
 ```
 
 **Complete Example - Application Stack:**
@@ -757,7 +757,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Web server security group
-      VpcId: !ImportValue network-vpc-id              # ✅ Import VPC ID
+      VpcId: !ImportValue network-vpc-id              # Import VPC ID
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 80
@@ -769,7 +769,7 @@ Resources:
     Properties:
       InstanceType: t3.micro
       ImageId: ami-0c55b159cbfafe1f0
-      SubnetId: !ImportValue network-public-subnet-id  # ✅ Import Subnet ID
+      SubnetId: !ImportValue network-public-subnet-id #  Import Subnet ID
       SecurityGroupIds:
         - !Ref WebServerSecurityGroup
 
@@ -787,7 +787,7 @@ Resources:
     Properties:
       DBSubnetGroupDescription: Database subnet group
       SubnetIds:
-        - !ImportValue network-private-subnet-id       # ✅ Import Subnet ID
+        - !ImportValue network-private-subnet-id       # Import Subnet ID
         - !ImportValue network-private-subnet-2-id
 
 Parameters:
@@ -799,18 +799,18 @@ Parameters:
 
 **Why Other Options Don't Work:**
 
-**❌ Parameters:**
+**Parameters:**
 ```yaml
 # This WON'T automatically get values from another stack
 Parameters:
   VPCId:
     Type: String
     Description: VPC ID
-    # ❌ Must manually pass value: --parameters ParameterKey=VPCId,ParameterValue=vpc-123
-    # ❌ Not dynamic - if VPC changes, must update parameter
+    # Must manually pass value: --parameters ParameterKey=VPCId,ParameterValue=vpc-123
+    # Not dynamic - if VPC changes, must update parameter
 ```
 
-**❌ Mappings:**
+**Mappings:**
 ```yaml
 # This is for static lookups, not cross-stack references
 Mappings:
@@ -819,7 +819,7 @@ Mappings:
       AMI: ami-123456
     us-west-2:
       AMI: ami-789012
-# ❌ Can't dynamically reference another stack's resources
+# Can't dynamically reference another stack's resources
 ```
 
 **Dependency and Update Behavior:**
@@ -853,27 +853,27 @@ Update Rules:
 | **Can't modify export name** | Can't change export name while any stack imports it |
 | **Region-specific** | Exports only work within the same region |
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ **Outputs + Export** = Share resources FROM a stack
-- ✅ **Fn::ImportValue** = Import resources INTO another stack
-- ✅ Export names must be unique across region
-- ✅ Can't delete exporting stack while others import
-- ❌ **Parameters** = Manual input at stack creation (not cross-stack)
-- ❌ **Mappings** = Static lookup tables (not dynamic cross-stack)
+**KEY TAKEAWAYS:**
+- Yes: **Outputs + Export** = Share resources FROM a stack
+- Yes: **Fn::ImportValue** = Import resources INTO another stack
+- Yes: Export names must be unique across region
+- Yes: Can't delete exporting stack while others import
+- **Parameters** = Manual input at stack creation (not cross-stack)
+- **Mappings** = Static lookup tables (not dynamic cross-stack)
 
-**💡 MEMORY AID:** "OIE = Output, Import, Export (the cross-stack trio)"
+**MEMORY AID:** "OIE = Output, Import, Export (the cross-stack trio)"
 
 ---
 
-#### ❌ Question 31: Cross-Account SQS Access
+#### Question 31: Cross-Account SQS Access
 
-**📋 QUESTION CONTEXT:**
+**QUESTION CONTEXT:**
 Account A needs to allow Account B to send messages to its SQS queue. What's the most appropriate solution?
 
-**Your Answer:** ❌ Create IAM role in Account A, assume from Account B
-**Correct Answer:** ✅ **Add resource-based policy (queue policy) to SQS queue allowing Account B**
+**Your Answer:** Create IAM role in Account A, assume from Account B
+**Correct Answer:** **Add resource-based policy (queue policy) to SQS queue allowing Account B**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **Two Approaches to Cross-Account Access:**
 
@@ -882,7 +882,7 @@ Account A needs to allow Account B to send messages to its SQS queue. What's the
 │          CROSS-ACCOUNT ACCESS METHODS                │
 ├──────────────────────────────────────────────────────┤
 │                                                       │
-│  METHOD 1: Resource-Based Policy (SIMPLER) ✅        │
+│ METHOD 1: Resource-Based Policy (SIMPLER)            │
 │  ┌────────────────────────────────────┐              │
 │  │ Account A                          │              │
 │  │  ┌──────────────┐                  │              │
@@ -906,7 +906,7 @@ Account A needs to allow Account B to send messages to its SQS queue. What's the
 │  │  └──────────────┘                  │              │
 │  └────────────────────────────────────┘              │
 │                                                       │
-│  METHOD 2: IAM Role (MORE COMPLEX) ❌                │
+│ METHOD 2: IAM Role (MORE COMPLEX)                    │
 │  ┌────────────────────────────────────┐              │
 │  │ Account A                          │              │
 │  │  ┌──────────────┐  ┌────────────┐  │              │
@@ -943,7 +943,7 @@ Account A needs to allow Account B to send messages to its SQS queue. What's the
 | **Best For** | Simple access scenarios | Complex, multiple resources |
 | **Code Changes** | Minimal | Must add AssumeRole logic |
 | **AWS Services** | Works with Lambda, EC2, etc. | Requires AssumeRole capability |
-| **Recommended For SQS** | ✅ YES (preferred) | ⚠️ Only if needed for other reasons |
+| **Recommended For SQS** | YES (preferred) | Only if needed for other reasons |
 
 **Solution: SQS Queue Policy (Resource-Based)**
 
@@ -1092,7 +1092,7 @@ Decision Tree:
 
 Need cross-account SQS access?
 │
-├─ Simple send/receive messages? ──► Resource-Based Policy ✅
+├─ Simple send/receive messages? ──► Resource-Based Policy
 │                                    (Queue Policy)
 │
 └─ Need access to multiple AWS services? ──► IAM Role
@@ -1103,24 +1103,24 @@ Need cross-account SQS access?
 
 | Service | Supports Resource-Based Policy? | Policy Name |
 |---------|-------------------------------|-------------|
-| **SQS** | ✅ YES | Queue Policy |
-| **SNS** | ✅ YES | Topic Policy |
-| **S3** | ✅ YES | Bucket Policy |
-| **Lambda** | ✅ YES | Function Policy |
-| **KMS** | ✅ YES | Key Policy |
-| **Secrets Manager** | ✅ YES | Resource Policy |
-| **EC2** | ❌ NO | Must use IAM roles |
-| **DynamoDB** | ❌ NO | Must use IAM roles |
+| **SQS** | YES | Queue Policy |
+| **SNS** | YES | Topic Policy |
+| **S3** | YES | Bucket Policy |
+| **Lambda** | YES | Function Policy |
+| **KMS** | YES | Key Policy |
+| **Secrets Manager** | YES | Resource Policy |
+| **EC2** | NO | Must use IAM roles |
+| **DynamoDB** | NO | Must use IAM roles |
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ **SQS Queue Policy (resource-based)** = Simpler, preferred for SQS access
-- ✅ Add principal as entire account or specific role/user
-- ✅ No AssumeRole needed from Account B
-- ✅ Works with Lambda, EC2, any AWS service
-- ⚠️ **IAM Role** = More complex, better for multi-service access
-- ⚠️ Use roles when you need detailed audit trail of which role accessed
+**KEY TAKEAWAYS:**
+- Yes: **SQS Queue Policy (resource-based)** = Simpler, preferred for SQS access
+- Yes: Add principal as entire account or specific role/user
+- Yes: No AssumeRole needed from Account B
+- Yes: Works with Lambda, EC2, any AWS service
+- Partial: **IAM Role** = More complex, better for multi-service access
+- Partial: Use roles when you need detailed audit trail of which role accessed
 
-**💡 MEMORY AID:** "RBP = Really Better (for) Policies (on SQS/SNS/S3)"
+**MEMORY AID:** "RBP = Really Better (for) Policies (on SQS/SNS/S3)"
 
 ---
 
@@ -1164,19 +1164,19 @@ Need cross-account SQS access?
 
 ---
 
-### 📖 DETAILED EXPLANATIONS FOR PRIORITY 2 WEAKNESSES
+### DETAILED EXPLANATIONS FOR PRIORITY 2 WEAKNESSES
 
 ---
 
-#### ❌ 1. API Gateway Mapping Templates (Question 1)
+#### 1. API Gateway Mapping Templates (Question 1)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 You need to transform incoming API requests before they reach your backend Lambda function. The client sends JSON in one format, but your Lambda expects a different format.
 
-**Your Answer:** ❌ Method Response Models
-**Correct Answer:** ✅ **API Gateway Mapping Templates**
+**Your Answer:** Method Response Models
+**Correct Answer:** **API Gateway Mapping Templates**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What are Mapping Templates?**
 
@@ -1318,36 +1318,36 @@ $util.base64Decode($input)         # Base64 decode
 
 | Integration Type | Mapping Template Support | Use Case |
 |------------------|-------------------------|----------|
-| **Lambda Proxy** | ❌ No (passes raw event) | Simple Lambda integrations |
-| **Lambda (non-proxy)** | ✅ Yes | Need to transform before Lambda |
-| **HTTP Proxy** | ❌ No | Pass request directly to HTTP endpoint |
-| **HTTP (non-proxy)** | ✅ Yes | Transform before HTTP endpoint |
-| **AWS Service** | ✅ Yes | Call DynamoDB, S3, etc. directly |
-| **Mock** | ✅ Yes | Return static response |
+| **Lambda Proxy** | No (passes raw event) | Simple Lambda integrations |
+| **Lambda (non-proxy)** | Yes | Need to transform before Lambda |
+| **HTTP Proxy** | No | Pass request directly to HTTP endpoint |
+| **HTTP (non-proxy)** | Yes | Transform before HTTP endpoint |
+| **AWS Service** | Yes | Call DynamoDB, S3, etc. directly |
+| **Mock** | Yes | Return static response |
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Method Response Models** = Define the STRUCTURE (schema) for documentation/validation
 - **Mapping Templates** = TRANSFORM the data (change the actual content)
 
 **When NOT to Use Mapping Templates:**
-- ❌ Simple Lambda functions (use Lambda Proxy integration)
-- ❌ Complex transformations (move logic to Lambda)
-- ❌ Need conditional logic (VTL is limited, use Lambda instead)
+- Simple Lambda functions (use Lambda Proxy integration)
+- Complex transformations (move logic to Lambda)
+- Need conditional logic (VTL is limited, use Lambda instead)
 
-**📝 EXAM TIP:** 
+**EXAM TIP:**
 If the question mentions "transform request format," "modify JSON structure," or "add/remove fields," the answer is **Mapping Templates**, not Method Response Models.
 
 ---
 
-#### ❌ 2. Auto Scaling Termination Policies (Question 5)
+#### 2. Auto Scaling Termination Policies (Question 5)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 Your Auto Scaling group has instances launched from different launch templates (v1, v2, v3). During scale-in, you want to terminate instances running the oldest launch template version first.
 
-**Your Answer:** ❌ AllocationStrategy
-**Correct Answer:** ✅ **OldestLaunchTemplate Termination Policy**
+**Your Answer:** AllocationStrategy
+**Correct Answer:** **OldestLaunchTemplate Termination Policy**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What are Termination Policies?**
 
@@ -1409,24 +1409,24 @@ The **Default** policy follows this sequence:
 │            DEFAULT TERMINATION POLICY LOGIC                 │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  1️⃣  Select AZ with most instances                          │
+│  1  Select AZ with most instances                          │
 │      (Balance instances across AZs first)                   │
 │      Example: AZ-A: 5 instances, AZ-B: 3 instances          │
 │      → Target AZ-A                                           │
 │      ↓                                                       │
-│  2️⃣  Check for oldest Launch Template/Configuration          │
+│  2  Check for oldest Launch Template/Configuration          │
 │      Within target AZ, find instances with oldest LT/LC     │
 │      Example: LT v1: 2 instances, LT v2: 3 instances        │
 │      → Target LT v1 instances                                │
 │      ↓                                                       │
-│  3️⃣  Among remaining, find closest to next billing hour      │
+│  3  Among remaining, find closest to next billing hour      │
 │      Example: Instance A: 55 min into hour                  │
 │               Instance B: 10 min into hour                  │
 │      → Target Instance A (save 5 min of billing)            │
 │      ↓                                                       │
-│  4️⃣  If still tied, pick random instance                     │
+│  4  If still tied, pick random instance                     │
 │      ↓                                                       │
-│  ✅ TERMINATE SELECTED INSTANCE                              │
+│   TERMINATE SELECTED INSTANCE                                │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -1457,9 +1457,9 @@ Step 2: Terminate i-001 (LT v1 in AZ-A)
 Step 3: Terminate i-004 (LT v1 in AZ-B)
 
 Result:
-✅ All LT v1 instances removed
-✅ Only v2 and v3 instances remain
-✅ Gradual migration to newer versions
+ All LT v1 instances removed
+ Only v2 and v3 instances remain
+ Gradual migration to newer versions
 ```
 
 **AllocationStrategy vs OldestLaunchTemplate:**
@@ -1489,8 +1489,8 @@ Auto Scaling maintains this mix during scale-in:
 │    1x m5.xlarge (expensive)            │
 │                                         │
 │  Scale-In to 3 instances:              │
-│    ❌ Don't terminate all c5.large     │
-│    ✅ Keep cost-optimized mix:         │
+│     Don't terminate all c5.large       │
+│     Keep cost-optimized mix:           │
 │       1x c5.large                       │
 │       1x m5.large                       │
 │       1x m5.xlarge                      │
@@ -1502,22 +1502,22 @@ Auto Scaling maintains this mix during scale-in:
 ```
 Scenario: Blue-Green Deployment with Launch Templates
 
-1️⃣  Initial State (LT v1 - Amazon Linux 2):
+1  Initial State (LT v1 - Amazon Linux 2):
    - 10 instances running LT v1
    
-2️⃣  Create new LT v2 (Amazon Linux 2023 + app v2):
+2  Create new LT v2 (Amazon Linux 2023 + app v2):
    - Update ASG to use LT v2
    - Set termination policy: OldestLaunchTemplate
    
-3️⃣  Trigger Instance Refresh:
+3  Trigger Instance Refresh:
    - Scale out: Launch 5 instances with LT v2
    - Total: 15 instances (10 old + 5 new)
    
-4️⃣  Scale In (back to 10):
+4  Scale In (back to 10):
    - ASG terminates 5 instances with LT v1 (oldest)
    - Total: 10 instances (5 old + 5 new)
    
-5️⃣  Continue refreshing:
+5  Continue refreshing:
    - Gradually all LT v1 instances replaced
    - Eventually: 10 instances all running LT v2
 ```
@@ -1544,10 +1544,10 @@ You can specify multiple policies. Auto Scaling applies them in order:
 Policies: [OldestLaunchTemplate, ClosestToNextInstanceHour]
 
 Evaluation:
-1️⃣  First, group by Launch Template version
-2️⃣  Select instances with oldest LT version
-3️⃣  Among those, pick closest to billing hour
-4️⃣  Terminate selected instance
+1  First, group by Launch Template version
+2  Select instances with oldest LT version
+3  Among those, pick closest to billing hour
+4  Terminate selected instance
 ```
 
 **Instance Protection:**
@@ -1564,25 +1564,25 @@ aws autoscaling set-instance-protection \
 # Protected instances are skipped by termination policies
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **AllocationStrategy** = For Spot Instances, maintains cost-optimized instance type mix
 - **OldestLaunchTemplate** = Terminates instances with oldest LT version (version management)
 - **Use OldestLaunchTemplate when:** Rolling out new Launch Template versions gradually
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If question mentions "Launch Template versions," "gradually update instances," or "migrate to new AMI," think **OldestLaunchTemplate**, not AllocationStrategy.
 
 ---
 
-#### ❌ 3. CloudFormation Custom Resources (Question 10)
+#### 3. CloudFormation Custom Resources (Question 10)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 Your CloudFormation stack needs to call an external API during stack creation to retrieve a dynamic value (like an API key or secret token) that will be used by other resources in the stack.
 
-**Your Answer:** ❌ SNS Topic
-**Correct Answer:** ✅ **Lambda-backed Custom Resource**
+**Your Answer:** SNS Topic
+**Correct Answer:** **Lambda-backed Custom Resource**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What are CloudFormation Custom Resources?**
 
@@ -1753,9 +1753,9 @@ def handler(event, context):
 | Aspect | SNS Topic | Lambda Custom Resource |
 |--------|-----------|------------------------|
 | **Purpose** | Pub/sub messaging | Execute custom logic |
-| **Can call external APIs** | ❌ No | ✅ Yes |
-| **Can return values** | ❌ No (just sends notifications) | ✅ Yes (returns data attributes) |
-| **Synchronous** | ❌ No (async notifications) | ✅ Yes (CFN waits for response) |
+| **Can call external APIs** | No | Yes |
+| **Can return values** | No (just sends notifications) | Yes (returns data attributes) |
+| **Synchronous** | No (async notifications) | Yes (CFN waits for response) |
 | **Use in CloudFormation** | Send notifications about stack events | Provision custom resources |
 
 **SNS would only work for notifications:**
@@ -1902,17 +1902,17 @@ def handler(event, context):
 
 **Best Practices:**
 
-✅ **Always send response** (SUCCESS or FAILED) - or stack will hang for 1 hour
-✅ **Use unique PhysicalResourceId** - helps CloudFormation track resource lifecycle
-✅ **Handle all RequestTypes** (Create, Update, Delete)
-✅ **Implement idempotency** - same input = same output
-✅ **Set appropriate timeouts** - Lambda timeout < CloudFormation timeout (1 hour)
-✅ **Use IAM roles with least privilege**
-✅ **Log errors for debugging**
+ **Always send response** (SUCCESS or FAILED) - or stack will hang for 1 hour
+ **Use unique PhysicalResourceId** - helps CloudFormation track resource lifecycle
+ **Handle all RequestTypes** (Create, Update, Delete)
+ **Implement idempotency** - same input = same output
+ **Set appropriate timeouts** - Lambda timeout < CloudFormation timeout (1 hour)
+ **Use IAM roles with least privilege**
+ **Log errors for debugging**
 
-❌ **Don't use for standard AWS resources** - use native CloudFormation types
-❌ **Don't store secrets in response** - use `NoEcho: true` or Secrets Manager
-❌ **Don't make PhysicalResourceId dynamic** - keep it stable across updates
+ **Don't use for standard AWS resources** - use native CloudFormation types
+ **Don't store secrets in response** - use `NoEcho: true` or Secrets Manager
+ **Don't make PhysicalResourceId dynamic** - keep it stable across updates
 
 **Failure Handling:**
 
@@ -1943,25 +1943,25 @@ Timestamp: !GetAtt MyCustomResource.Timestamp
 ResourceId: !Ref MyCustomResource  # Returns 'api-key-12345'
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **SNS** = Notifications only, can't execute logic or return values
 - **Lambda Custom Resource** = Execute custom code, call external APIs, return dynamic values
 - **Use Custom Resources when:** Need to integrate non-AWS services, fetch dynamic values, or implement custom provisioning logic
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If the question mentions "call external API," "retrieve dynamic values," "custom provisioning logic," or "inject values into CloudFormation," the answer is **Lambda-backed Custom Resource**, not SNS.
 
 ---
 
-#### ❌ 4. Inter-Region VPC Peering for EFS (Question 20)
+#### 4. Inter-Region VPC Peering for EFS (Question 20)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 You have an EFS file system in us-east-1 and EC2 instances in eu-west-1 that need to access it. What networking configuration enables this?
 
-**Your Answer:** ❌ Same-region VPC Peering
-**Correct Answer:** ✅ **Inter-Region VPC Peering**
+**Your Answer:** Same-region VPC Peering
+**Correct Answer:** **Inter-Region VPC Peering**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What is VPC Peering?**
 
@@ -2004,12 +2004,12 @@ VPC Peering creates a direct network connection between two VPCs, allowing resou
 | **Encryption** | Optional | **Always encrypted** |
 | **Bandwidth** | No limit | No limit (AWS backbone) |
 | **Use Cases** | Multi-VPC architecture | **Cross-region DR, EFS access** |
-| **Your Scenario** | ❌ Won't work (different regions) | ✅ Correct answer |
+| **Your Scenario** | Won't work (different regions) | Correct answer |
 
 **Why Same-Region Peering Won't Work:**
 
 ```
-❌ WRONG APPROACH:
+ WRONG APPROACH:
 ┌──────────────────────────────────────────────────────────┐
 │  VPC-A (us-east-1)  ←same-region→  VPC-B (us-east-1)    │
 │                                                           │
@@ -2017,7 +2017,7 @@ VPC Peering creates a direct network connection between two VPCs, allowing resou
 │  Same-region peering can't connect to different regions │
 └──────────────────────────────────────────────────────────┘
 
-✅ CORRECT APPROACH:
+ CORRECT APPROACH:
 ┌──────────────────────────────────────────────────────────┐
 │  VPC-A (us-east-1)  ←inter-region→  VPC-B (eu-west-1)   │
 │                                                           │
@@ -2199,9 +2199,9 @@ echo "10.0.1.50:/ /mnt/efs nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,tim
 │  - Read/Write access        →→→  - Read-only               │
 │  - Automatic replication    →→→  - Eventual consistency    │
 │                                                             │
-│  ✅ Pros: Fully managed, automatic                          │
-│  ❌ Cons: Replica is read-only, replication lag             │
-│  💰 Cost: Data transfer + storage in both regions          │
+│   Pros: Fully managed, automatic                            │
+│   Cons: Replica is read-only, replication lag               │
+│   Cost: Data transfer + storage in both regions            │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
@@ -2213,28 +2213,28 @@ echo "10.0.1.50:/ /mnt/efs nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,tim
 │  - Single EFS     ←Private IP→  - Read/Write access        │
 │  - Direct access               - Same data instantly       │
 │                                                             │
-│  ✅ Pros: Single source of truth, read/write, instant       │
-│  ❌ Cons: Cross-region latency (50-100ms), data transfer    │
-│  💰 Cost: Data transfer only (no duplicate storage)        │
+│   Pros: Single source of truth, read/write, instant         │
+│   Cons: Cross-region latency (50-100ms), data transfer      │
+│   Cost: Data transfer only (no duplicate storage)          │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
 
 **VPC Peering Limitations:**
 
-❌ **Non-transitive**: If VPC-A ←→ VPC-B and VPC-B ←→ VPC-C, VPC-A **cannot** reach VPC-C
-❌ **No overlapping CIDR**: VPCs must have non-overlapping IP ranges
-❌ **No edge-to-edge routing**: Can't route through VPN, Direct Connect, or Internet Gateway
-❌ **Limit**: 125 peering connections per VPC (can be increased)
+ **Non-transitive**: If VPC-A ←→ VPC-B and VPC-B ←→ VPC-C, VPC-A **cannot** reach VPC-C
+ **No overlapping CIDR**: VPCs must have non-overlapping IP ranges
+ **No edge-to-edge routing**: Can't route through VPN, Direct Connect, or Internet Gateway
+ **Limit**: 125 peering connections per VPC (can be increased)
 
 ```
 Example of Non-Transitivity:
 ┌────────────────────────────────────────────────────────────┐
 │  VPC-A ←peering→ VPC-B ←peering→ VPC-C                     │
 │                                                             │
-│  VPC-A can talk to VPC-B ✅                                 │
-│  VPC-B can talk to VPC-C ✅                                 │
-│  VPC-A can talk to VPC-C ❌ (no direct peering)            │
+│ VPC-A can talk to VPC-B                                     │
+│ VPC-B can talk to VPC-C                                     │
+│ VPC-A can talk to VPC-C  (no direct peering)               │
 │                                                             │
 │  Solution: Create direct peering VPC-A ←→ VPC-C            │
 │  Or use Transit Gateway for hub-and-spoke model            │
@@ -2257,7 +2257,7 @@ EFS Replication:
   - EFS Storage (eu-west-1): 1 TB × $0.30/GB = $307.20/month
   - Total: $634.88/month
 
-💡 VPC Peering is cheaper if you don't need a full replica!
+ VPC Peering is cheaper if you don't need a full replica!
 ```
 
 **Performance Considerations:**
@@ -2274,42 +2274,42 @@ EFS Replication:
 ```
 Common Issues:
 
-1️⃣  Cannot mount EFS:
-   ✅ Check route tables have peering routes
-   ✅ Verify security groups allow NFS (2049)
-   ✅ Confirm VPC peering status is "Active"
-   ✅ Test connectivity: telnet 10.0.1.50 2049
+1  Cannot mount EFS:
+    Check route tables have peering routes
+    Verify security groups allow NFS (2049)
+    Confirm VPC peering status is "Active"
+    Test connectivity: telnet 10.0.1.50 2049
 
-2️⃣  Slow performance:
-   ✅ Check inter-region latency: ping 10.0.1.50
-   ✅ Use EFS mount options: rsize/wsize=1048576
-   ✅ Consider EFS Replication for read-heavy workloads
+2  Slow performance:
+    Check inter-region latency: ping 10.0.1.50
+    Use EFS mount options: rsize/wsize=1048576
+    Consider EFS Replication for read-heavy workloads
 
-3️⃣  Intermittent connection drops:
-   ✅ Add "hard" mount option (retries indefinitely)
-   ✅ Increase timeout: timeo=600
-   ✅ Check network ACLs (not just security groups)
+3  Intermittent connection drops:
+    Add "hard" mount option (retries indefinitely)
+    Increase timeout: timeo=600
+    Check network ACLs (not just security groups)
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Same-Region VPC Peering** = Only works within one region
 - **Inter-Region VPC Peering** = Connects VPCs across different AWS regions (your scenario)
 - **Use Inter-Region Peering when:** Need to access regional services (like EFS) from another region
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If the question mentions "different regions," "cross-region," or "region A to region B," always think **Inter-Region VPC Peering** (or Transit Gateway for complex scenarios), not same-region peering.
 
 ---
 
-#### ❌ 5. Redshift AQUA Performance (Question 48)
+#### 5. Redshift AQUA Performance (Question 48)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 Your Redshift data warehouse has slow query performance when scanning large tables. You want to accelerate query processing without changing your queries or schema.
 
-**Your Answer:** ❌ S3 Transfer Acceleration
-**Correct Answer:** ✅ **Redshift AQUA (Advanced Query Accelerator)**
+**Your Answer:** S3 Transfer Acceleration
+**Correct Answer:** **Redshift AQUA (Advanced Query Accelerator)**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What is Redshift AQUA?**
 
@@ -2352,16 +2352,16 @@ WITHOUT AQUA:
 │  Query: SELECT * FROM users WHERE age > 25;                │
 ├────────────────────────────────────────────────────────────┤
 │                                                             │
-│  1️⃣  Redshift Compute Node requests data                   │
+│  1  Redshift Compute Node requests data                   │
 │      ↓                                                      │
-│  2️⃣  ALL data transferred from S3 to Compute Node          │
+│  2  ALL data transferred from S3 to Compute Node          │
 │      (1 TB of user data)                                   │
 │      ↓                                                      │
-│  3️⃣  Compute Node filters WHERE age > 25                   │
+│  3  Compute Node filters WHERE age > 25                   │
 │      (Returns 100 GB)                                      │
 │                                                             │
-│  ⏱️  Time: 10 minutes                                       │
-│  📊 Data Transferred: 1 TB                                  │
+│    Time: 10 minutes                                        │
+│   Data Transferred: 1 TB                                    │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
@@ -2370,16 +2370,16 @@ WITH AQUA:
 │  Query: SELECT * FROM users WHERE age > 25;                │
 ├────────────────────────────────────────────────────────────┤
 │                                                             │
-│  1️⃣  AQUA intercepts query                                 │
+│  1  AQUA intercepts query                                 │
 │      ↓                                                      │
-│  2️⃣  AQUA reads data from S3 in parallel                   │
+│  2  AQUA reads data from S3 in parallel                   │
 │      ↓                                                      │
-│  3️⃣  AQUA filters WHERE age > 25 (in hardware cache)       │
+│  3  AQUA filters WHERE age > 25 (in hardware cache)       │
 │      ↓                                                      │
-│  4️⃣  Only filtered results (100 GB) sent to Compute Node  │
+│  4  Only filtered results (100 GB) sent to Compute Node  │
 │                                                             │
-│  ⏱️  Time: 1 minute (10x faster!)                          │
-│  📊 Data Transferred: 100 GB (90% reduction)               │
+│    Time: 1 minute (10x faster!)                           │
+│   Data Transferred: 100 GB (90% reduction)                 │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -2392,7 +2392,7 @@ WITH AQUA:
 | **Where it works** | **Redshift queries** | S3 data transfers over Internet |
 | **Performance gain** | Up to 10x faster queries | Up to 3x faster uploads |
 | **Use case** | Scan-heavy workloads | Upload large files from remote locations |
-| **Your scenario** | ✅ Correct | ❌ Wrong (not for queries) |
+| **Your scenario** | Correct | Wrong (not for queries) |
 | **Cost** | Included (RA3 nodes) | Extra ($0.04-0.08/GB transferred) |
 
 **Why S3 Transfer Acceleration is Wrong:**
@@ -2406,16 +2406,16 @@ S3 Transfer Acceleration Use Case:
 │                                                             │
 │  WITHOUT Transfer Acceleration:                            │
 │    Tokyo → Public Internet → us-east-1 S3                 │
-│    ⏱️  30 minutes, high latency, possible timeouts         │
+│      30 minutes, high latency, possible timeouts          │
 │                                                             │
 │  WITH Transfer Acceleration:                               │
 │    Tokyo → CloudFront Edge (Tokyo) → AWS backbone          │
 │         → us-east-1 S3                                     │
-│    ⏱️  10 minutes, optimized routing, reliable             │
+│      10 minutes, optimized routing, reliable              │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
-❌ This has NOTHING to do with Redshift query performance!
+ This has NOTHING to do with Redshift query performance!
 ```
 
 **AQUA Requirements:**
@@ -2439,26 +2439,26 @@ S3 Transfer Acceleration Use Case:
 │    - vCPU: 4                                                │
 │    - Memory: 32 GB                                          │
 │    - Managed Storage: Unlimited (S3)                        │
-│    - AQUA: ✅ Enabled                                        │
+│    - AQUA: Enabled                                           │
 │    - Use: Small-medium workloads                            │
 │                                                              │
 │  RA3.4xlarge:                                               │
 │    - vCPU: 12                                               │
 │    - Memory: 96 GB                                          │
 │    - Managed Storage: Unlimited (S3)                        │
-│    - AQUA: ✅ Enabled                                        │
+│    - AQUA: Enabled                                           │
 │    - Use: Medium-large workloads                            │
 │                                                              │
 │  RA3.16xlarge:                                              │
 │    - vCPU: 48                                               │
 │    - Memory: 384 GB                                         │
 │    - Managed Storage: Unlimited (S3)                        │
-│    - AQUA: ✅ Enabled                                        │
+│    - AQUA: Enabled                                           │
 │    - Use: Enterprise workloads                              │
 │                                                              │
 │  DC2/DS2 nodes:                                             │
 │    - Local SSD storage (limited)                            │
-│    - AQUA: ❌ Not available                                  │
+│    - AQUA: Not available                                     │
 │    - Legacy node types                                      │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
@@ -2606,7 +2606,7 @@ RA3.4xlarge (with AQUA):
   - Query time: 1 minute (10x faster!)
   - Monthly: ($6.52 × 730) + $3,000 = $7,760
 
-💡 RA3 costs slightly more but:
+ RA3 costs slightly more but:
   - 10x faster queries
   - Unlimited storage
   - AQUA acceleration included
@@ -2651,25 +2651,25 @@ RA3.4xlarge (with AQUA):
 │  └─────────────────────────────────────────────────┘      │
 │                                                              │
 │  Benefits:                                                  │
-│    ✅ Parallel data retrieval from S3                       │
-│    ✅ Hardware-accelerated filtering                        │
-│    ✅ Reduced network traffic to compute nodes              │
-│    ✅ Lower CPU usage on compute nodes                      │
+│     Parallel data retrieval from S3                         │
+│     Hardware-accelerated filtering                          │
+│     Reduced network traffic to compute nodes                │
+│     Lower CPU usage on compute nodes                        │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
 **Best Practices with AQUA:**
 
-✅ **Use RA3 node types** - AQUA only works with RA3
-✅ **Optimize for scan-heavy workloads** - WHERE clauses, aggregations
-✅ **Keep data in S3** - Don't load everything to local cache
-✅ **Use columnar formats** - Parquet, ORC (work great with AQUA)
-✅ **Monitor CloudWatch metrics** - Track AQUA cache hit ratio
+ **Use RA3 node types** - AQUA only works with RA3
+ **Optimize for scan-heavy workloads** - WHERE clauses, aggregations
+ **Keep data in S3** - Don't load everything to local cache
+ **Use columnar formats** - Parquet, ORC (work great with AQUA)
+ **Monitor CloudWatch metrics** - Track AQUA cache hit ratio
 
-❌ **Don't use for small clusters** - Overhead not worth it for <100 GB
-❌ **Don't expect magic** - Still optimize your queries (sort keys, dist keys)
-❌ **Don't mix node types** - Use all RA3 nodes in cluster
+ **Don't use for small clusters** - Overhead not worth it for <100 GB
+ **Don't expect magic** - Still optimize your queries (sort keys, dist keys)
+ **Don't mix node types** - Use all RA3 nodes in cluster
 
 **Alternatives to AQUA:**
 
@@ -2681,25 +2681,25 @@ RA3.4xlarge (with AQUA):
 | **Sort Keys** | Optimize range queries | Works with AQUA, complementary |
 | **Distribution Keys** | Optimize JOINs | Works with AQUA, complementary |
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **S3 Transfer Acceleration** = Speeds up uploads/downloads from Internet to S3
 - **Redshift AQUA** = Speeds up Redshift queries by accelerating data scans from S3
 - **Use AQUA when:** Scan-heavy workloads, large tables, RA3 nodes
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If the question mentions "Redshift query performance," "slow scans," or "accelerate analytics," and you're already on Redshift, the answer is **AQUA**, not S3 Transfer Acceleration (which is for S3 uploads/downloads).
 
 ---
 
-#### ❌ 6. EBS Volume Types for Banking Apps (Question 34)
+#### 6. EBS Volume Types for Banking Apps (Question 34)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 A banking application requires multiple EC2 instances to concurrently access the same EBS volume for a shared transaction log. Which EBS volume type supports Multi-Attach?
 
-**Your Answer:** ❌ gp2 (General Purpose SSD)
-**Correct Answer:** ✅ **io2/io2 Block Express (Provisioned IOPS SSD)**
+**Your Answer:** gp2 (General Purpose SSD)
+**Correct Answer:** **io2/io2 Block Express (Provisioned IOPS SSD)**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What is EBS Multi-Attach?**
 
@@ -2732,9 +2732,9 @@ Multi-Attach allows you to attach a single EBS volume to **multiple EC2 instance
 │                  │     log for all nodes    │                │
 │                  └──────────────────────────┘                │
 │                                                              │
-│  ✅ All instances can read/write simultaneously              │
-│  ✅ Application manages concurrent access (locking)          │
-│  ✅ Shared storage for clustered applications                │
+│   All instances can read/write simultaneously                │
+│   Application manages concurrent access (locking)            │
+│   Shared storage for clustered applications                  │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -2743,14 +2743,14 @@ Multi-Attach allows you to attach a single EBS volume to **multiple EC2 instance
 
 | Volume Type | Multi-Attach Support | Use Case | Max IOPS | Max Throughput |
 |-------------|---------------------|----------|----------|----------------|
-| **gp2** | ❌ No | General purpose workloads | 16,000 | 250 MB/s |
-| **gp3** | ❌ No | Cost-effective, balanced | 16,000 | 1,000 MB/s |
-| **io1** | ✅ Yes (limited) | High-performance databases | 64,000 | 1,000 MB/s |
-| **io2** | ✅ **Yes (best)** | Mission-critical apps | 64,000 | 1,000 MB/s |
-| **io2 Block Express** | ✅ **Yes (best)** | Largest workloads | 256,000 | 4,000 MB/s |
-| **st1** | ❌ No | Big data, data warehouses | 500 | 500 MB/s |
-| **sc1** | ❌ No | Infrequent access | 250 | 250 MB/s |
-| **Magnetic (standard)** | ❌ No | Legacy | 40-200 | 40-90 MB/s |
+| **gp2** | No | General purpose workloads | 16,000 | 250 MB/s |
+| **gp3** | No | Cost-effective, balanced | 16,000 | 1,000 MB/s |
+| **io1** | Yes (limited) | High-performance databases | 64,000 | 1,000 MB/s |
+| **io2** | **Yes (best)** | Mission-critical apps | 64,000 | 1,000 MB/s |
+| **io2 Block Express** | **Yes (best)** | Largest workloads | 256,000 | 4,000 MB/s |
+| **st1** | No | Big data, data warehouses | 500 | 500 MB/s |
+| **sc1** | No | Infrequent access | 250 | 250 MB/s |
+| **Magnetic (standard)** | No | Legacy | 40-200 | 40-90 MB/s |
 
 **Why gp2/gp3 Don't Support Multi-Attach:**
 
@@ -2772,7 +2772,7 @@ gp2/gp3 Limitation:
 │         ↑                                                   │
 │         │                                                   │
 │  ┌──────┴───────┐                                          │
-│  │ EC2 Instance │  ❌ Cannot attach!                       │
+│ │ EC2 Instance │   Cannot attach!                          │
 │  │   (Node 2)   │  Error: Volume already attached          │
 │  └──────────────┘                                          │
 │                                                             │
@@ -2829,16 +2829,16 @@ aws ec2 attach-volume \
 
 ```
 Standard File Systems (NOT compatible with Multi-Attach):
-❌ ext4, XFS, NTFS
+ ext4, XFS, NTFS
    - No distributed locking
    - Data corruption with multiple writers
    - Designed for single-node access
 
 Cluster-Aware File Systems (Compatible with Multi-Attach):
-✅ GFS2 (Global File System 2) - Linux
-✅ OCFS2 (Oracle Cluster File System) - Linux
-✅ Windows Server Failover Clustering
-✅ Custom application-level locking
+ GFS2 (Global File System 2) - Linux
+ OCFS2 (Oracle Cluster File System) - Linux
+ Windows Server Failover Clustering
+ Custom application-level locking
 
 Example: Setting up GFS2
 ┌────────────────────────────────────────────────────────────┐
@@ -2890,10 +2890,10 @@ Scenario: High-Availability Transaction Log
 │              └──────────────────────────────┘               │
 │                                                             │
 │  Transaction Flow:                                         │
-│  1️⃣  Server 1 writes transaction T1                        │
-│  2️⃣  GFS2 acquires distributed lock                        │
-│  3️⃣  All servers see T1 immediately                        │
-│  4️⃣  If Server 1 fails, Servers 2/3 continue               │
+│  1  Server 1 writes transaction T1                        │
+│  2  GFS2 acquires distributed lock                        │
+│  3  All servers see T1 immediately                        │
+│  4  If Server 1 fails, Servers 2/3 continue               │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -2910,12 +2910,12 @@ Scenario: High-Availability Transaction Log
 
 **When to Use Multi-Attach:**
 
-✅ **Clustered applications** (Oracle RAC, SAP HANA)
-✅ **High-availability** (failover scenarios)
-✅ **Shared configuration/state** (across instances)
-✅ **Real-time data sync** (low-latency requirements)
+ **Clustered applications** (Oracle RAC, SAP HANA)
+ **High-availability** (failover scenarios)
+ **Shared configuration/state** (across instances)
+ **Real-time data sync** (low-latency requirements)
 
-❌ **When NOT to use:**
+ **When NOT to use:**
 - Don't need concurrent writes (use EFS instead)
 - Instances in different AZs (use EFS)
 - Simple shared file storage (use EFS, cheaper)
@@ -2927,27 +2927,27 @@ Scenario: High-Availability Transaction Log
 Limitations:
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
-│  1️⃣  Same AZ only:                                          │
+│  1  Same AZ only:                                          │
 │     ┌──────────┐    ┌──────────┐                          │
-│     │ us-east-1a│ ✅  │ us-east-1a│                          │
+│     │ us-east-1a│   │ us-east-1a│                            │
 │     └──────────┘    └──────────┘                          │
 │          ↓               ↓                                  │
 │      [io2 Multi-Attach]                                    │
 │                                                             │
 │     ┌──────────┐    ┌──────────┐                          │
-│     │ us-east-1a│ ❌  │ us-east-1b│ (Different AZ!)        │
+│     │ us-east-1a│   │ us-east-1b│ (Different AZ!)          │
 │     └──────────┘    └──────────┘                          │
 │                                                             │
-│  2️⃣  Maximum 16 instances per volume                        │
+│  2  Maximum 16 instances per volume                        │
 │                                                             │
-│  3️⃣  Cannot enable Multi-Attach after volume creation       │
+│  3  Cannot enable Multi-Attach after volume creation       │
 │     (Must create new volume with --multi-attach-enabled)   │
 │                                                             │
-│  4️⃣  No boot volumes (data volumes only)                    │
+│  4  No boot volumes (data volumes only)                    │
 │                                                             │
-│  5️⃣  io1/io2/io2 Block Express only (no gp2/gp3/st1/sc1)  │
+│  5  io1/io2/io2 Block Express only (no gp2/gp3/st1/sc1)  │
 │                                                             │
-│  6️⃣  Application must handle concurrent access               │
+│  6  Application must handle concurrent access               │
 │     (File system or app-level locking required)            │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
@@ -2978,7 +2978,7 @@ io2 Multi-Attach Volume (correct answer):
 │  Use Case: Clustered banking apps, HA databases            │
 └────────────────────────────────────────────────────────────┘
 
-💡 io2 is more expensive but enables shared access!
+ io2 is more expensive but enables shared access!
 ```
 
 **Cost Example:**
@@ -2993,15 +2993,15 @@ Option 1: gp3 (doesn't support Multi-Attach, need 3 volumes):
   Storage: 3 × 100 GB × $0.08/GB = $24/month
   IOPS: 3 × (10,000 - 3,000) × $0.005 = $105/month
   Total: $129/month
-  ❌ Problem: Data not shared, needs replication logic
+   Problem: Data not shared, needs replication logic
 
 Option 2: io2 Multi-Attach (1 shared volume):
   Storage: 100 GB × $0.125/GB = $12.50/month
   IOPS: 10,000 × $0.065 = $650/month
   Total: $662.50/month
-  ✅ Benefit: True shared storage, no replication needed
+   Benefit: True shared storage, no replication needed
 
-💡 io2 is more expensive but provides true clustering capability
+ io2 is more expensive but provides true clustering capability
 ```
 
 **Monitoring Multi-Attach Volumes:**
@@ -3065,7 +3065,7 @@ High-Availability Banking App:
 │                                                             │
 │  Server 1 Fails:                                           │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐                │
-│  │ ❌ FAILED │  │ Active   │  │ Active   │ ← Promoted     │
+│ │  FAILED │  │ Active   │  │ Active   │ ← Promoted        │
 │  │ Server 1 │  │ Server 2 │  │ Server 3 │                │
 │  └──────────┘  └────┬─────┘  └────┬─────┘                │
 │                     │             │                        │
@@ -3073,34 +3073,34 @@ High-Availability Banking App:
 │                           ↓                                 │
 │            [io2 Multi-Attach Volume]                       │
 │                                                             │
-│  ✅ No data loss - Server 2 & 3 continue immediately       │
-│  ✅ Transaction log remains accessible                      │
-│  ✅ Failover time: <5 seconds                              │
+│   No data loss - Server 2 & 3 continue immediately         │
+│   Transaction log remains accessible                        │
+│   Failover time: <5 seconds                                │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **gp2/gp3** = Single-attach only, cost-effective for general use
 - **io2/io2 Block Express** = Multi-Attach supported, required for clustered banking apps
 - **Use Multi-Attach when:** Need shared block storage across multiple instances in same AZ
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If the question mentions "multiple instances," "concurrent access," "shared storage," or "clustered application," look for **io2 Multi-Attach**, not gp2/gp3.
 
 ---
 
 (Continuing with remaining weaknesses in next message due to length...)
 
-#### ❌ 7. Application Discovery Service - Agent vs Agentless (Question 60)
+#### 7. Application Discovery Service - Agent vs Agentless (Question 60)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 You need to discover on-premises VMware virtual machines for migration planning. You want minimal installation overhead and the ability to collect data without installing software on each VM.
 
-**Your Answer:** ❌ Agent-based Discovery
-**Correct Answer:** ✅ **Agentless Discovery (VMware vCenter)**
+**Your Answer:** Agent-based Discovery
+**Correct Answer:** **Agentless Discovery (VMware vCenter)**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What is AWS Application Discovery Service?**
 
@@ -3150,9 +3150,9 @@ Application Discovery Service helps you plan migrations by collecting configurat
 | **Data Collected** | Detailed (processes, network) | Basic (CPU, memory, disk) |
 | **Deployment Effort** | High (agent per server) | **Low (single appliance)** |
 | **Performance Impact** | Minimal (<1% CPU) | None (reads from vCenter) |
-| **Network Dependencies** | ✅ Yes (tracks connections) | ❌ No |
-| **Process-Level Data** | ✅ Yes | ❌ No |
-| **Your Scenario** | ❌ Too much overhead | ✅ Correct (VMware) |
+| **Network Dependencies** | Yes (tracks connections) | No |
+| **Process-Level Data** | Yes | No |
+| **Your Scenario** | Too much overhead | Correct (VMware) |
 
 **Agentless Discovery Architecture:**
 
@@ -3190,9 +3190,9 @@ Application Discovery Service helps you plan migrations by collecting configurat
 │       │  - Stores in Migration Hub         │               │
 │       └────────────────────────────────────┘               │
 │                                                              │
-│  ✅ NO agent installation on 100+ VMs!                      │
-│  ✅ Single appliance discovers all VMs                      │
-│  ✅ Minimal performance impact                              │
+│   NO agent installation on 100+ VMs!                        │
+│   Single appliance discovers all VMs                        │
+│   Minimal performance impact                                │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -3206,18 +3206,18 @@ Data Collected:
 ┌────────────────────────────────────────────────────────────┐
 │  Infrastructure Data (from vCenter API):                   │
 │                                                             │
-│  ✅ VM inventory (name, UUID, OS)                           │
-│  ✅ CPU allocation (vCPUs, utilization)                     │
-│  ✅ Memory allocation (GB, utilization)                     │
-│  ✅ Disk capacity (GB provisioned)                          │
-│  ✅ Network adapters (MAC, vSwitch)                         │
-│  ✅ Performance metrics (15-min intervals)                  │
-│  ✅ Tags and custom attributes                              │
+│   VM inventory (name, UUID, OS)                             │
+│   CPU allocation (vCPUs, utilization)                       │
+│   Memory allocation (GB, utilization)                       │
+│   Disk capacity (GB provisioned)                            │
+│   Network adapters (MAC, vSwitch)                           │
+│   Performance metrics (15-min intervals)                    │
+│   Tags and custom attributes                                │
 │                                                             │
-│  ❌ Network connections between VMs                         │
-│  ❌ Running processes                                       │
-│  ❌ Installed applications                                  │
-│  ❌ Detailed performance (1-min intervals)                  │
+│   Network connections between VMs                           │
+│   Running processes                                         │
+│   Installed applications                                    │
+│   Detailed performance (1-min intervals)                    │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -3229,14 +3229,14 @@ Data Collected:
 ┌────────────────────────────────────────────────────────────┐
 │  Detailed Data (from agent on each server):               │
 │                                                             │
-│  ✅ Everything from agentless PLUS:                         │
-│  ✅ Network connections (TCP/UDP, source/dest IPs)         │
-│  ✅ Running processes (PID, command, user)                 │
-│  ✅ Installed software packages                             │
-│  ✅ System configuration files                              │
-│  ✅ Performance data (1-min granularity)                    │
-│  ✅ Inbound/outbound network traffic                        │
-│  ✅ Application dependencies                                │
+│   Everything from agentless PLUS:                           │
+│   Network connections (TCP/UDP, source/dest IPs)           │
+│   Running processes (PID, command, user)                   │
+│   Installed software packages                               │
+│   System configuration files                                │
+│   Performance data (1-min granularity)                      │
+│   Inbound/outbound network traffic                          │
+│   Application dependencies                                  │
 │                                                             │
 │  More detailed but requires agent installation             │
 │                                                             │
@@ -3388,11 +3388,11 @@ aws discovery describe-network-connections \
 ├────────────────────────┼──────────────┼──────────────────┤
 │  Installation          │ 1 appliance  │ N agents         │
 │  Time to Deploy        │ 30 minutes   │ Hours-Days       │
-│  VMware Required       │ ✅ Yes        │ ❌ No            │
-│  Physical Servers      │ ❌ No         │ ✅ Yes           │
-│  Network Dependencies  │ ❌ No         │ ✅ Yes           │
-│  Running Processes     │ ❌ No         │ ✅ Yes           │
-│  Granular Performance  │ ❌ 15-min     │ ✅ 1-min         │
+│ VMware Required       │  Yes        │  No                 │
+│ Physical Servers      │  No         │  Yes                │
+│ Network Dependencies  │  No         │  Yes                │
+│ Running Processes     │  No         │  Yes                │
+│ Granular Performance  │  15-min     │  1-min              │
 │  Maintenance Overhead  │ Low          │ High             │
 │  Cost                  │ Free         │ Free             │
 └────────────────────────────────────────────────────────────┘
@@ -3402,18 +3402,18 @@ aws discovery describe-network-connections \
 
 ```
 Use Agentless When:
-✅ All servers are VMware VMs
-✅ Need quick discovery (migration planning phase)
-✅ Don't need network connection data
-✅ Minimal impact on production
-✅ Limited access to individual VMs
+ All servers are VMware VMs
+ Need quick discovery (migration planning phase)
+ Don't need network connection data
+ Minimal impact on production
+ Limited access to individual VMs
 
 Use Agent-Based When:
-✅ Mix of VMware, physical servers, Hyper-V
-✅ Need network dependency mapping
-✅ Need process-level details
-✅ Planning complex application migrations
-✅ Can install software on servers
+ Mix of VMware, physical servers, Hyper-V
+ Need network dependency mapping
+ Need process-level details
+ Planning complex application migrations
+ Can install software on servers
 ```
 
 **Real-World Migration Scenario:**
@@ -3467,15 +3467,15 @@ Resource Requirements:
 │    - vCenter Access: Read-only permissions                 │
 │                                                             │
 │  vCenter Permissions Required:                             │
-│    ✅ View-only access to VMs                              │
-│    ✅ Read performance metrics                              │
-│    ✅ Access to vCenter API                                 │
-│    ❌ No modification permissions needed                    │
+│     View-only access to VMs                                │
+│     Read performance metrics                                │
+│     Access to vCenter API                                   │
+│     No modification permissions needed                      │
 │                                                             │
 │  Supports:                                                 │
-│    ✅ vSphere 5.5, 6.0, 6.5, 6.7, 7.0                      │
-│    ✅ Up to 10,000 VMs per connector                        │
-│    ✅ Multiple vCenter servers                              │
+│     vSphere 5.5, 6.0, 6.5, 6.7, 7.0                        │
+│     Up to 10,000 VMs per connector                          │
+│     Multiple vCenter servers                                │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -3543,29 +3543,29 @@ Example: E-Commerce Application Discovery
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
-❌ Agentless CANNOT discover these network connections!
-✅ Agent-Based reveals the full dependency map
+Agentless CANNOT discover these network connections!
+Yes: Agent-Based reveals the full dependency map
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Agentless** = Quick discovery for VMware, minimal overhead, basic data (inventory + performance)
 - **Agent-Based** = Detailed discovery, network dependencies, any platform, more setup
 - **Use Agentless when:** VMware environment, need quick inventory, minimal installation effort
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If question mentions "VMware vCenter," "minimal installation," or "without installing agents," choose **Agentless Discovery**. If it mentions "network dependencies" or "application connections," choose **Agent-Based Discovery**.
 
 ---
 
-#### ❌ 8. Real-Time Recommendation Engine (Question 64)
+#### 8. Real-Time Recommendation Engine (Question 64)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 An e-commerce platform needs to show personalized product recommendations in real-time (millisecond latency). Recommendations are based on user behavior and updated frequently. Which service provides the lowest latency?
 
-**Your Answer:** ❌ Amazon Neptune (Graph Database)
-**Correct Answer:** ✅ **Amazon ElastiCache for Redis**
+**Your Answer:** Amazon Neptune (Graph Database)
+**Correct Answer:** **Amazon ElastiCache for Redis**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What is ElastiCache for Redis?**
 
@@ -3606,13 +3606,13 @@ ElastiCache for Redis is a fully managed, in-memory data store that provides **s
 
 | Feature | ElastiCache Redis | Amazon Neptune |
 |---------|------------------|----------------|
-| **Latency** | **<1ms** ✅ | 5-20ms |
+| **Latency** | **<1ms**  | 5-20ms |
 | **Storage Type** | In-memory (RAM) | Disk-based |
 | **Use Case** | Caching, real-time | Graph queries, relationships |
 | **Query Type** | Key-value GET/SET | Gremlin/SPARQL graph traversal |
 | **Data Size** | Limited by RAM | Unlimited (disk) |
 | **Cost** | Lower for small data | Higher |
-| **Your Scenario** | ✅ Perfect fit | ❌ Overkill, slower |
+| **Your Scenario** | Perfect fit | Overkill, slower |
 | **Throughput** | Millions ops/sec | Thousands queries/sec |
 
 **Why Neptune is Wrong for This Scenario:**
@@ -3632,7 +3632,7 @@ Neptune Strengths (Graph Relationships):
 │                                                             │
 │  Use Case: Social networks, fraud detection                │
 │  Latency: 10-50ms per query (too slow for real-time)     │
-│  ❌ NOT optimized for millisecond response times           │
+│   NOT optimized for millisecond response times             │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
@@ -3646,7 +3646,7 @@ ElastiCache Redis Strengths (Fast Caching):
 │                                                             │
 │  Use Case: Real-time recommendations, session storage      │
 │  Latency: 0.2-1ms (100x faster than Neptune!)            │
-│  ✅ Perfect for sub-millisecond requirements               │
+│   Perfect for sub-millisecond requirements                 │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -3748,7 +3748,7 @@ SMEMBERS product:789:also_bought
 │  │    GET user:12345:recs ← 0.8ms        │                  │
 │  │      ↓                                 │                  │
 │  │  Returns recommendations               │                  │
-│  │  Total latency: <5ms ✅                │                  │
+│ │  Total latency: <5ms                 │                     │
 │  └──────────────────────────────────────┘                  │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
@@ -3808,10 +3808,10 @@ aws elasticache create-replication-group \
 │         └────────────────────┘                              │
 │                                                              │
 │  Benefits:                                                  │
-│    ✅ Automatic failover (<30 seconds)                      │
-│    ✅ Read replicas scale read throughput                   │
-│    ✅ Multi-AZ for high availability                        │
-│    ✅ Cluster mode for sharding (scale to TB)              │
+│     Automatic failover (<30 seconds)                        │
+│     Read replicas scale read throughput                     │
+│     Multi-AZ for high availability                          │
+│     Cluster mode for sharding (scale to TB)                │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -3905,13 +3905,13 @@ Neptune Graph Query Example:
 │    .groupCount().order(local).by(values, desc).limit(10)  │
 │                                                             │
 │  This query:                                               │
-│    1️⃣  Finds users who bought same products (graph hop)   │
-│    2️⃣  Finds what those users also bought (graph hop)     │
-│    3️⃣  Groups and ranks results                            │
+│    1  Finds users who bought same products (graph hop)   │
+│    2  Finds what those users also bought (graph hop)     │
+│    3  Groups and ranks results                            │
 │                                                             │
-│  ⏱️  Latency: 20-100ms (depending on graph size)          │
-│  🔍 Use Case: Complex relationship analysis                │
-│  ❌ Too slow for real-time recommendations                 │
+│    Latency: 20-100ms (depending on graph size)           │
+│   Use Case: Complex relationship analysis                  │
+│   Too slow for real-time recommendations                   │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
@@ -3922,12 +3922,12 @@ Redis Cache Lookup Example:
 │  ZREVRANGE user:12345:recs 0 9 WITHSCORES                  │
 │                                                             │
 │  This query:                                               │
-│    1️⃣  Looks up key in hash table (O(1) operation)        │
-│    2️⃣  Returns top 10 from sorted set (O(log N))          │
+│    1  Looks up key in hash table (O(1) operation)        │
+│    2  Returns top 10 from sorted set (O(log N))          │
 │                                                             │
-│  ⏱️  Latency: 0.5-1ms (200x faster than Neptune!)         │
-│  🔍 Use Case: Real-time recommendations                    │
-│  ✅ Perfect for millisecond response requirements          │
+│    Latency: 0.5-1ms (200x faster than Neptune!)          │
+│   Use Case: Real-time recommendations                      │
+│   Perfect for millisecond response requirements            │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -3940,17 +3940,17 @@ Redis Cache Lookup Example:
 ┌────────────────────────────────────────────────────────────┐
 │  User Action (e.g., purchase):                             │
 │      ↓                                                       │
-│  1️⃣  Write to primary database (DynamoDB)                  │
+│  1  Write to primary database (DynamoDB)                  │
 │      ↓                                                       │
-│  2️⃣  Update cache immediately (Redis)                      │
+│  2  Update cache immediately (Redis)                      │
 │      ↓                                                       │
-│  3️⃣  Return response                                        │
+│  3  Return response                                        │
 │                                                             │
 │  Benefits:                                                 │
-│    ✅ Cache always up-to-date                              │
-│    ✅ No cache misses                                       │
+│     Cache always up-to-date                                │
+│     No cache misses                                         │
 │  Drawbacks:                                                │
-│    ❌ Slower writes (2 operations)                         │
+│     Slower writes (2 operations)                           │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -3961,21 +3961,21 @@ Redis Cache Lookup Example:
 ┌────────────────────────────────────────────────────────────┐
 │  Read Request:                                             │
 │      ↓                                                       │
-│  1️⃣  Check Redis cache                                     │
+│  1  Check Redis cache                                     │
 │      ├─ Cache Hit (0.8ms) → Return                        │
 │      └─ Cache Miss                                         │
 │          ↓                                                   │
-│  2️⃣  Query DynamoDB (10ms)                                 │
+│  2  Query DynamoDB (10ms)                                 │
 │      ↓                                                       │
-│  3️⃣  Update Redis cache                                    │
+│  3  Update Redis cache                                    │
 │      ↓                                                       │
-│  4️⃣  Return response                                        │
+│  4  Return response                                        │
 │                                                             │
 │  Benefits:                                                 │
-│    ✅ Only cache what's requested                          │
-│    ✅ Simple to implement                                   │
+│     Only cache what's requested                            │
+│     Simple to implement                                     │
 │  Drawbacks:                                                │
-│    ❌ First request is slow (cache miss)                   │
+│     First request is slow (cache miss)                     │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -4022,7 +4022,7 @@ def refresh_recommendations_background():
 Best Practices:
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
-│  1️⃣  Use Connection Pooling:                               │
+│  1  Use Connection Pooling:                               │
 │     redis_pool = redis.ConnectionPool(                     │
 │         host='cache.abc.com',                              │
 │         port=6379,                                         │
@@ -4031,19 +4031,19 @@ Best Practices:
 │     )                                                       │
 │     redis_client = redis.Redis(connection_pool=redis_pool) │
 │                                                             │
-│  2️⃣  Pipeline Commands:                                    │
+│  2  Pipeline Commands:                                    │
 │     pipe = redis_client.pipeline()                         │
 │     pipe.get('user:1:recs')                                │
 │     pipe.get('user:2:recs')                                │
 │     pipe.get('user:3:recs')                                │
 │     results = pipe.execute()  # 1 round trip, not 3!      │
 │                                                             │
-│  3️⃣  Use Read Replicas:                                    │
+│  3  Use Read Replicas:                                    │
 │     - Write to primary                                     │
 │     - Read from replicas (scale reads)                     │
 │     - Eventual consistency OK for recommendations          │
 │                                                             │
-│  4️⃣  Monitor Key Metrics:                                  │
+│  4  Monitor Key Metrics:                                  │
 │     - Cache hit ratio (aim for >90%)                       │
 │     - Evictions (should be near zero)                      │
 │     - CPU utilization (<70%)                               │
@@ -4103,25 +4103,25 @@ aws cloudwatch get-metric-statistics \
 # - CurrConnections: Track concurrent connections
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Neptune** = Graph database, complex relationship queries, 20-100ms latency
 - **ElastiCache Redis** = In-memory cache, simple key-value lookups, <1ms latency
 - **Use Redis when:** Need sub-millisecond latency, caching, real-time recommendations
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If question mentions "real-time," "millisecond latency," "caching," or "fast reads," choose **ElastiCache Redis**. Choose **Neptune** only when you need complex graph traversals (social networks, fraud detection).
 
 ---
 
-#### ❌ 9. Amazon Rekognition Use Cases (Question 65)
+#### 9. Amazon Rekognition Use Cases (Question 65)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 A company wants to detect custom brand logos in user-uploaded images. They have labeled training images of their specific logos. Which Rekognition feature should they use?
 
-**Your Answer:** ❌ Object Detection
-**Correct Answer:** ✅ **Amazon Rekognition Custom Labels**
+**Your Answer:** Object Detection
+**Correct Answer:** **Amazon Rekognition Custom Labels**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What is Amazon Rekognition?**
 
@@ -4179,7 +4179,7 @@ Amazon Rekognition is an AI/ML service for image and video analysis. It offers b
 | **Accuracy** | High for common objects | **High for your custom objects** |
 | **Use Case** | General object detection | Brand logos, defects, custom items |
 | **Cost** | $1/1000 images | $4/hour training + $4/hour inference |
-| **Your Scenario** | ❌ Can't detect custom logos | ✅ Detects your brand logos |
+| **Your Scenario** | Can't detect custom logos | Detects your brand logos |
 
 **Why Object Detection Won't Work:**
 
@@ -4187,36 +4187,36 @@ Amazon Rekognition is an AI/ML service for image and video analysis. It offers b
 Pre-Trained Object Detection:
 ┌────────────────────────────────────────────────────────────┐
 │  Can detect:                                               │
-│    ✅ Person, Car, Dog, Cat, Chair, Phone                  │
-│    ✅ 1000+ common everyday objects                        │
+│     Person, Car, Dog, Cat, Chair, Phone                    │
+│     1000+ common everyday objects                          │
 │                                                             │
 │  Cannot detect:                                            │
-│    ❌ Your company's logo                                  │
-│    ❌ Your product's packaging                             │
-│    ❌ Manufacturing defects                                │
-│    ❌ Anything not in pre-trained model                    │
+│     Your company's logo                                    │
+│     Your product's packaging                               │
+│     Manufacturing defects                                  │
+│     Anything not in pre-trained model                      │
 │                                                             │
 │  Example:                                                  │
 │    Input: Image with Nike swoosh logo                     │
-│    Output: "Logo detected" ❌ (too generic)               │
-│            "Sports equipment" ❌ (not specific)            │
+│    Output: "Logo detected" (too generic)                  │
+│            "Sports equipment" (not specific)               │
 │                                                             │
-│    You need: "Nike swoosh detected: 95% confidence" ✅     │
+│    You need: "Nike swoosh detected: 95% confidence"        │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
 Custom Labels:
 ┌────────────────────────────────────────────────────────────┐
 │  Can detect:                                               │
-│    ✅ YOUR company's logo                                  │
-│    ✅ YOUR product variations                              │
-│    ✅ YOUR manufacturing defects                           │
-│    ✅ Any object you train it on                           │
+│     YOUR company's logo                                    │
+│     YOUR product variations                                │
+│     YOUR manufacturing defects                             │
+│     Any object you train it on                             │
 │                                                             │
 │  Example:                                                  │
 │    Train with 100 images of your logo                     │
 │    Input: User photo with your logo                       │
-│    Output: "CompanyLogo detected: 95% confidence" ✅       │
+│    Output: "CompanyLogo detected: 95% confidence"          │
 │            Location: {x: 120, y: 45, width: 50, height: 50}│
 │                                                             │
 └────────────────────────────────────────────────────────────┘
@@ -4392,7 +4392,7 @@ for label in response['CustomLabels']:
 │                                                              │
 │  Custom Services:                                          │
 │  ┌────────────────────────────────────────┐                │
-│  │ Custom Labels ★                        │ ← YOUR ANSWER  │
+│ │ Custom Labels                         │ ← YOUR ANSWER    │
 │  │ - Train on YOUR images                 │                │
 │  │ - Detect YOUR custom objects           │                │
 │  │ - Brand logos, defects, anything       │                │
@@ -4405,14 +4405,14 @@ for label in response['CustomLabels']:
 
 | Scenario | Service | Why |
 |----------|---------|-----|
-| Detect company logo | **Custom Labels** ✅ | Your specific logo |
+| Detect company logo | **Custom Labels**  | Your specific logo |
 | Detect "car" in photo | Object Detection | Pre-trained knows "car" |
 | Identify celebrity | Celebrity Recognition | Pre-trained celebrity DB |
 | Find text in image | Text Detection (OCR) | Pre-trained text extraction |
 | Detect explicit content | Content Moderation | Pre-trained safety model |
-| Identify manufacturing defect | **Custom Labels** ✅ | Your specific defect types |
+| Identify manufacturing defect | **Custom Labels**  | Your specific defect types |
 | Verify safety gear on workers | PPE Detection | Pre-trained hard hat/vest |
-| Classify plant disease | **Custom Labels** ✅ | Your specific diseases |
+| Classify plant disease | **Custom Labels**  | Your specific diseases |
 
 **Custom Labels Training Requirements:**
 
@@ -4519,7 +4519,7 @@ response = rekognition.detect_labels(
         {'Name': 'Shoe', 'Confidence': 98.5},
         {'Name': 'Sports Equipment', 'Confidence': 92.3},
         {'Name': 'Logo', 'Confidence': 87.1}  # ← Too generic!
-        # ❌ Doesn't tell you which logo or brand
+        # Doesn't tell you which logo or brand
     ]
 }
 ```
@@ -4564,24 +4564,24 @@ response = rekognition.detect_custom_labels(
 Data Collection Guidelines:
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
-│  ✅ Variety in training data:                              │
+│   Variety in training data:                                │
 │     • Different angles (front, side, tilted)               │
 │     • Different lighting (bright, dark, indoor, outdoor)   │
 │     • Different sizes (close-up, far away)                 │
 │     • Different backgrounds (white, busy, cluttered)       │
 │     • Different contexts (on product, on billboard)        │
 │                                                             │
-│  ✅ Balanced dataset:                                       │
+│   Balanced dataset:                                         │
 │     • Equal number of positive/negative examples           │
 │     • 50/50 split for binary classification                │
 │     • Similar counts for multi-class                       │
 │                                                             │
-│  ✅ Quality over quantity:                                  │
+│   Quality over quantity:                                    │
 │     • 50 high-quality images > 200 poor quality            │
 │     • Clear, focused images                                │
 │     • Accurate labels                                      │
 │                                                             │
-│  ❌ Avoid:                                                  │
+│   Avoid:                                                    │
 │     • All images from same angle/lighting                  │
 │     • Low-resolution images                                │
 │     • Mislabeled images                                    │
@@ -4697,12 +4697,12 @@ def lambda_handler(event, context):
 | **Pre-Trained Object Detection** | 100-300ms | Medium (generic) | $1/1000 images | None |
 | **OpenCV + Manual Rules** | <10ms | Low | Free (DIY) | N/A (rule-based) |
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Object Detection** = Pre-trained for common objects (car, person, dog), cannot detect custom logos
 - **Custom Labels** = Train on YOUR images to detect YOUR specific objects (logos, defects)
 - **Use Custom Labels when:** Need to detect brand-specific objects that aren't in pre-trained models
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If question mentions "custom," "brand-specific," "company logo," or "you have labeled training data," choose **Rekognition Custom Labels**, not pre-trained Object Detection.
 
 ---
@@ -4715,7 +4715,7 @@ If question mentions "custom," "brand-specific," "company logo," or "you have la
 
 ---
 
-### Priority 3: Design Secure Architectures (63% - 7 incorrect) ⚠️
+### Priority 3: Design Secure Architectures (63% - 7 incorrect)
 
 **Key Weaknesses Identified:**
 
@@ -4745,19 +4745,19 @@ If question mentions "custom," "brand-specific," "company logo," or "you have la
 
 ---
 
-### 📖 DETAILED EXPLANATIONS FOR PRIORITY 3 WEAKNESSES
+### DETAILED EXPLANATIONS FOR PRIORITY 3 WEAKNESSES
 
 ---
 
-#### ❌ 1. AWS WAF Rate-Based Rules (Question 7)
+#### 1. AWS WAF Rate-Based Rules (Question 7)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 Your API receives repeated requests from the same IP address to a specific URI (`/api/login`). You want to block IPs that make more than 100 requests per 5 minutes to this specific endpoint.
 
-**Your Answer:** ❌ IP Reputation Lists
-**Correct Answer:** ✅ **URI-Specific Rate-Based Rules**
+**Your Answer:** IP Reputation Lists
+**Correct Answer:** **URI-Specific Rate-Based Rules**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What is AWS WAF?**
 
@@ -4777,8 +4777,8 @@ AWS WAF (Web Application Firewall) protects web applications from common exploit
 │  ┌──────────────────────────────────────┐                  │
 │  │  AWS WAF (Web ACL)                   │                  │
 │  │  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━│                  │
-│  │  Rule 1: IP Reputation ❌            │                  │
-│  │  Rule 2: Rate-Based (URI) ✅         │ ← EVALUATE       │
+│ │  Rule 1: IP Reputation             │                     │
+│ │  Rule 2: Rate-Based (URI)          │ ← EVALUATE          │
 │  │  Rule 3: SQL Injection               │                  │
 │  │  Rule 4: XSS Protection              │                  │
 │  └────────────┬─────────────────────────┘                  │
@@ -4799,7 +4799,7 @@ AWS WAF (Web Application Firewall) protects web applications from common exploit
 | **Granularity** | Per-URI, per-IP | Global block list |
 | **Dynamic** | Auto-blocks after threshold | Static list updates |
 | **Use Case** | **API brute-force protection** | Block known botnets |
-| **Your Scenario** | ✅ Correct (URI-specific rate limit) | ❌ Wrong (doesn't rate limit) |
+| **Your Scenario** | Correct (URI-specific rate limit) | Wrong (doesn't rate limit) |
 | **Configuration** | Set request limit (e.g., 100/5min) | Subscribe to threat intelligence |
 
 **Why IP Reputation Lists Don't Work:**
@@ -4808,35 +4808,35 @@ AWS WAF (Web Application Firewall) protects web applications from common exploit
 IP Reputation Lists:
 ┌────────────────────────────────────────────────────────────┐
 │  What it does:                                             │
-│    ✅ Blocks known malicious IPs from threat databases     │
-│    ✅ Protection against known botnets, tor exit nodes     │
-│    ✅ Maintained by AWS and 3rd parties                    │
+│     Blocks known malicious IPs from threat databases       │
+│     Protection against known botnets, tor exit nodes       │
+│     Maintained by AWS and 3rd parties                      │
 │                                                             │
 │  What it DOESN'T do:                                       │
-│    ❌ Rate limiting (doesn't count requests)               │
-│    ❌ URI-specific blocking                                │
-│    ❌ Block legitimate IPs that send too many requests     │
+│     Rate limiting (doesn't count requests)                 │
+│     URI-specific blocking                                  │
+│     Block legitimate IPs that send too many requests       │
 │                                                             │
 │  Example:                                                  │
 │    Attacker IP: 203.0.113.50 (not in reputation list)     │
 │    Sends 500 requests/minute to /api/login                │
-│    Result: ❌ NOT blocked (IP not known as malicious)     │
+│    Result: NOT blocked (IP not known as malicious)        │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
 Rate-Based Rules:
 ┌────────────────────────────────────────────────────────────┐
 │  What it does:                                             │
-│    ✅ Counts requests per IP per time period               │
-│    ✅ Blocks IPs exceeding threshold                       │
-│    ✅ Can target specific URIs                             │
-│    ✅ Automatic blocking + unblocking                      │
+│     Counts requests per IP per time period                 │
+│     Blocks IPs exceeding threshold                         │
+│     Can target specific URIs                               │
+│     Automatic blocking + unblocking                        │
 │                                                             │
 │  Example:                                                  │
 │    Attacker IP: 203.0.113.50                               │
 │    Sends 150 requests to /api/login in 5 minutes          │
 │    Threshold: 100 requests per 5 minutes                   │
-│    Result: ✅ IP blocked for 10 minutes                    │
+│    Result: IP blocked for 10 minutes                       │
 │    After 10 min: IP unblocked, counter resets             │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
@@ -4894,11 +4894,11 @@ Rate-Based Rules:
 │  ┌────────────────────────────────────────┐                │
 │  │  Request Counter (5-minute window)     │                │
 │  │  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━│                │
-│  │  Request #1:  Count = 1   ✅ Allow     │                │
-│  │  Request #50: Count = 50  ✅ Allow     │                │
-│  │  Request #99: Count = 99  ✅ Allow     │                │
-│  │  Request #100: Count = 100 ✅ Allow    │                │
-│  │  Request #101: Count = 101 ❌ BLOCK    │ ← Threshold    │
+│ │  Request #1:  Count = 1    Allow     │                   │
+│ │  Request #50: Count = 50   Allow     │                   │
+│ │  Request #99: Count = 99   Allow     │                   │
+│ │  Request #100: Count = 100  Allow    │                   │
+│ │  Request #101: Count = 101  BLOCK    │ ← Threshold       │
 │  │                                         │    exceeded    │
 │  │  IP blocked for 10 minutes              │                │
 │  └────────────────────────────────────────┘                │
@@ -4994,7 +4994,7 @@ Brute-Force Login Attack:
 │  09:10:00 - Try password #600  → 401 Unauthorized          │
 │  09:15:37 - Try password #943  → 200 OK (SUCCESS!)         │
 │                                                             │
-│  Result: ❌ Attacker guessed password after 943 attempts   │
+│ Result:  Attacker guessed password after 943 attempts      │
 │  Backend load: Heavy (943 authentication requests)         │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
@@ -5014,7 +5014,7 @@ With WAF Rate-Based Rule (100 req/5min):
 │  09:11:42 - Try password #103  → 401 Unauthorized          │
 │  ...                                                        │
 │                                                             │
-│  Result: ✅ Attack severely throttled                       │
+│ Result:  Attack severely throttled                          │
 │  Backend load: Minimal (only 100 requests reach backend)  │
 │  Attacker: Frustrated, moves to easier target              │
 │                                                             │
@@ -5170,25 +5170,25 @@ Rate-Based Rule Cost:
 └────────────────────────────────────────────────────────────┘
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **IP Reputation Lists** = Block known malicious IPs from threat feeds
 - **Rate-Based Rules** = Limit requests per IP, can target specific URIs, auto-blocks abusive IPs
 - **Use Rate-Based Rules when:** Need to protect against brute-force, DDoS, or API abuse
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If question mentions "rate limiting," "too many requests," or "brute-force protection," choose **Rate-Based Rules**. IP Reputation Lists only block pre-identified malicious IPs.
 
 ---
 
-#### ❌ 2. Service Control Policies (SCPs) - Management Account (Question 11)
+#### 2. Service Control Policies (SCPs) - Management Account (Question 11)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 You want to prevent all AWS accounts in your organization from launching EC2 instances in the us-west-1 region. You apply an SCP to the management account.
 
-**Your Answer:** ❌ Apply SCP to management account
-**Correct Answer:** ✅ **Apply SCP to root OU or member accounts (SCPs don't affect management account)**
+**Your Answer:** Apply SCP to management account
+**Correct Answer:** **Apply SCP to root OU or member accounts (SCPs don't affect management account)**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What are Service Control Policies (SCPs)?**
 
@@ -5203,7 +5203,7 @@ SCPs are IAM-like policies that define the maximum permissions for accounts in a
 │  │  Management Account (Root)           │                  │
 │  │  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━│                  │
 │  │  Account ID: 111111111111            │                  │
-│  │  SCPs: ❌ NOT AFFECTED BY SCPs       │ ← IMPORTANT!     │
+│ │  SCPs:  NOT AFFECTED BY SCPs       │ ← IMPORTANT!        │
 │  │  Has full admin access always        │                  │
 │  └────────────┬─────────────────────────┘                  │
 │               │                                              │
@@ -5224,7 +5224,7 @@ SCPs are IAM-like policies that define the maximum permissions for accounts in a
 │  │ Member   │  │ Member   │  │ Member   │                │
 │  │ Account  │  │ Account  │  │ Account  │                │
 │  │ 222...   │  │ 333...   │  │ 444...   │                │
-│  │ ✅ SCP    │  │ ✅ SCP    │  │ ✅ SCP    │ ← Affected   │
+│ │  SCP    │  │  SCP    │  │  SCP    │ ← Affected          │
 │  │ applies  │  │ applies  │  │ applies  │                │
 │  └──────────┘  └──────────┘  └──────────┘                │
 │                                                              │
@@ -5240,19 +5240,19 @@ Management Account Special Status:
 │  The management account (formerly "master account") is     │
 │  EXEMPT from ALL SCPs for critical reasons:                │
 │                                                             │
-│  1️⃣  Prevents lockout scenarios                            │
+│  1  Prevents lockout scenarios                            │
 │     If SCP blocked all actions, you'd lock yourself out!  │
 │                                                             │
-│  2️⃣  Maintains organizational control                      │
+│  2  Maintains organizational control                      │
 │     Always retains ability to manage organization         │
 │                                                             │
-│  3️⃣  Billing and administrative functions                  │
+│  3  Billing and administrative functions                  │
 │     Must access billing, manage accounts, etc.            │
 │                                                             │
-│  ❌ Common Mistake: Applying SCP to management account     │
+│   Common Mistake: Applying SCP to management account       │
 │     (It will have NO EFFECT!)                              │
 │                                                             │
-│  ✅ Correct: Apply SCP to root OU or member accounts       │
+│   Correct: Apply SCP to root OU or member accounts         │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -5263,22 +5263,22 @@ Management Account Special Status:
 Permission Evaluation for Member Accounts:
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
-│  1️⃣  SCPs (Organization level)                             │
+│  1  SCPs (Organization level)                             │
 │      ↓                                                       │
-│  2️⃣  Resource-based policies (S3 bucket policy)            │
+│  2  Resource-based policies (S3 bucket policy)            │
 │      ↓                                                       │
-│  3️⃣  IAM policies (User/Role permissions)                  │
+│  3  IAM policies (User/Role permissions)                  │
 │      ↓                                                       │
-│  4️⃣  Permission boundary (Optional)                        │
+│  4  Permission boundary (Optional)                        │
 │                                                             │
 │  Final Permission = Intersection of ALL allows             │
 │                                                             │
 │  Example:                                                  │
 │  ┌──────────────────────────────────────────┐             │
-│  │ SCP: Deny us-west-1                      │  ❌ Deny     │
-│  │ IAM Policy: Allow EC2:* all regions      │  ✅ Allow    │
+│ │ SCP: Deny us-west-1                      │   Deny        │
+│ │ IAM Policy: Allow EC2:* all regions      │   Allow       │
 │  │                                            │             │
-│  │ Result: DENY (SCP overrides IAM)         │  ❌ Blocked  │
+│ │ Result: DENY (SCP overrides IAM)         │   Blocked     │
 │  └──────────────────────────────────────────┘             │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
@@ -5286,9 +5286,9 @@ Permission Evaluation for Member Accounts:
 Permission Evaluation for Management Account:
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
-│  1️⃣  SCPs: ❌ IGNORED (doesn't apply)                      │
+│ 1  SCPs:  IGNORED (doesn't apply)                         │
 │      ↓                                                       │
-│  2️⃣  IAM policies: Only constraint                         │
+│  2  IAM policies: Only constraint                         │
 │                                                             │
 │  Result: Management account has full access                │
 │                                                             │
@@ -5319,22 +5319,22 @@ Permission Evaluation for Management Account:
 **Applying SCP Correctly:**
 
 ```bash
-# ❌ WRONG: Apply to management account (no effect)
+# WRONG: Apply to management account (no effect)
 aws organizations attach-policy \
   --policy-id p-12345678 \
   --target-id 111111111111  # Management account ID (WON'T WORK!)
 
-# ✅ CORRECT: Apply to root OU (affects all member accounts)
+# CORRECT: Apply to root OU (affects all member accounts)
 aws organizations attach-policy \
   --policy-id p-12345678 \
   --target-id r-abcd  # Root OU ID
 
-# ✅ CORRECT: Apply to specific OU
+# CORRECT: Apply to specific OU
 aws organizations attach-policy \
   --policy-id p-12345678 \
   --target-id ou-abcd-12345678  # Production OU
 
-# ✅ CORRECT: Apply to specific member account
+# CORRECT: Apply to specific member account
 aws organizations attach-policy \
   --policy-id p-12345678 \
   --target-id 222222222222  # Member account ID
@@ -5358,7 +5358,7 @@ Test 1: Launch EC2 in us-west-1 from Management Account
 │      --instance-type t3.micro \                            │
 │      --region us-west-1                                    │
 │                                                             │
-│  Result: ✅ SUCCESS                                         │
+│ Result:  SUCCESS                                            │
 │  Reason: SCPs don't affect management account              │
 └────────────────────────────────────────────────────────────┘
 
@@ -5370,7 +5370,7 @@ Test 2: Launch EC2 in us-west-1 from Member Account
 │      --region us-west-1 \                                  │
 │      --profile member-account                              │
 │                                                             │
-│  Result: ❌ DENIED                                          │
+│ Result:  DENIED                                             │
 │  Error: "You are not authorized to perform this operation"│
 │  Reason: SCP blocks us-west-1 for member accounts          │
 └────────────────────────────────────────────────────────────┘
@@ -5517,8 +5517,8 @@ Test 2: Launch EC2 in us-west-1 from Member Account
 │  │   │                                                       │
 │  │   ├─ Account A                                           │
 │  │   │   Effective SCPs: SCP-1 + SCP-2                     │
-│  │   │   - Deny us-west-1 ✅                                │
-│  │   │   - Require MFA ✅                                   │
+│ │   │   - Deny us-west-1                                    │
+│ │   │   - Require MFA                                       │
 │  │   │                                                       │
 │  │   └─ Account B                                           │
 │  │       Effective SCPs: SCP-1 + SCP-2                     │
@@ -5528,8 +5528,8 @@ Test 2: Launch EC2 in us-west-1 from Member Account
 │      │                                                       │
 │      └─ Account C                                           │
 │          Effective SCPs: SCP-1 + SCP-3                     │
-│          - Deny us-west-1 ✅                                │
-│          - Deny large instances ✅                          │
+│          - Deny us-west-1                                   │
+│          - Deny large instances                             │
 │          - NO MFA requirement (not inherited from Prod OU) │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
@@ -5539,20 +5539,20 @@ Test 2: Launch EC2 in us-west-1 from Member Account
 
 ```
 Do's:
-✅ Apply SCPs to root OU for organization-wide policies
-✅ Use deny lists (default allow, explicit deny)
-✅ Test in sandbox account first
-✅ Document all SCPs and their purpose
-✅ Use descriptive Sid names
-✅ Exclude necessary global services (IAM, Organizations)
-✅ Monitor CloudTrail for denied actions
+ Apply SCPs to root OU for organization-wide policies
+ Use deny lists (default allow, explicit deny)
+ Test in sandbox account first
+ Document all SCPs and their purpose
+ Use descriptive Sid names
+ Exclude necessary global services (IAM, Organizations)
+ Monitor CloudTrail for denied actions
 
 Don'ts:
-❌ Don't apply SCPs to management account (no effect)
-❌ Don't use allow lists (can accidentally deny everything)
-❌ Don't forget NotAction for global services
-❌ Don't block IAM/Organizations in management account path
-❌ Don't overlap conflicting SCPs
+ Don't apply SCPs to management account (no effect)
+ Don't use allow lists (can accidentally deny everything)
+ Don't forget NotAction for global services
+ Don't block IAM/Organizations in management account path
+ Don't overlap conflicting SCPs
 ```
 
 **Troubleshooting SCP Issues:**
@@ -5585,22 +5585,22 @@ aws cloudtrail lookup-events \
 Since SCPs don't protect management account:
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
-│  1️⃣  Use minimal IAM users in management account           │
+│  1  Use minimal IAM users in management account           │
 │     - Only break-glass emergency admin                     │
 │     - All regular users in member accounts                 │
 │                                                             │
-│  2️⃣  Enable MFA on root user                               │
+│  2  Enable MFA on root user                               │
 │     - Store credentials in secure vault                    │
 │                                                             │
-│  3️⃣  Use CloudTrail for all management account activity    │
+│  3  Use CloudTrail for all management account activity    │
 │     - Alert on any API calls                               │
 │     - Monitor root user usage                              │
 │                                                             │
-│  4️⃣  Implement SCM (Security Command Center) account       │
+│  4  Implement SCM (Security Command Center) account       │
 │     - Dedicated account for security tools                 │
 │     - GuardDuty, Security Hub, Config                      │
 │                                                             │
-│  5️⃣  Restrict management account to org management only    │
+│  5  Restrict management account to org management only    │
 │     - Don't run workloads                                  │
 │     - Don't create resources                               │
 │                                                             │
@@ -5617,7 +5617,7 @@ Secure AWS Organization:
 │  - No workloads                                            │
 │  - Root user MFA enabled                                   │
 │  - CloudTrail to S3 in Log Archive account                 │
-│  - ❌ SCPs don't apply here                                │
+│ -  SCPs don't apply here                                   │
 │                                                             │
 │  Root OU                                                   │
 │  ├─ SCP: Deny all regions except us-east-1, eu-west-1     │
@@ -5646,12 +5646,12 @@ Secure AWS Organization:
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Management Account** = Exempt from ALL SCPs (by design)
 - **Member Accounts** = Affected by SCPs at their OU level and above
 - **Apply SCPs to** = Root OU, specific OUs, or member accounts (NOT management account)
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If question asks about applying SCPs to control permissions, **NEVER** apply them to the management account (they won't work). Apply to root OU or member accounts instead.
 
 ---
@@ -5666,7 +5666,7 @@ If question asks about applying SCPs to control permissions, **NEVER** apply the
 
 ---
 
-### Priority 4: Design Cost-Optimized Architectures (60% - 4 incorrect) ⚠️
+### Priority 4: Design Cost-Optimized Architectures (60% - 4 incorrect)
 
 **Key Weaknesses Identified:**
 
@@ -5688,19 +5688,19 @@ If question asks about applying SCPs to control permissions, **NEVER** apply the
 
 ---
 
-### 📖 DETAILED EXPLANATIONS FOR PRIORITY 4 WEAKNESSES
+### DETAILED EXPLANATIONS FOR PRIORITY 4 WEAKNESSES
 
 ---
 
-#### ❌ 1. AWS Resource Access Manager (RAM) - Question 4
+#### 1. AWS Resource Access Manager (RAM) - Question 4
 
-**📋 SCENARIO:**
+**SCENARIO:**
 Your organization has a centralized Transit Gateway in Account A that needs to be shared with 20 member accounts (Accounts B-U) so they can attach their VPCs. How should you share the Transit Gateway?
 
-**Your Answer:** ❌ Share from management account with automatic propagation
-**Correct Answer:** ✅ **Share directly from Account A to member accounts using AWS RAM**
+**Your Answer:** Share from management account with automatic propagation
+**Correct Answer:** **Share directly from Account A to member accounts using AWS RAM**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What is AWS Resource Access Manager (RAM)?**
 
@@ -5734,9 +5734,9 @@ AWS RAM enables you to share AWS resources across AWS accounts within your organ
 │  │ shared TGW │   │ shared TGW │ │ shared TGW │           │
 │  └────────────┘   └────────────┘ └────────────┘           │
 │                                                              │
-│  ✅ Single Transit Gateway shared across all accounts       │
-│  ✅ Account A owns and pays for TGW                         │
-│  ✅ Accounts B-U can attach VPCs (no additional TGW cost)  │
+│   Single Transit Gateway shared across all accounts         │
+│   Account A owns and pays for TGW                           │
+│   Accounts B-U can attach VPCs (no additional TGW cost)    │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -5749,15 +5749,15 @@ AWS RAM enables you to share AWS resources across AWS accounts within your organ
 | **Who owns resource** | Original account (Account A) | N/A |
 | **Who pays** | Resource owner account | N/A |
 | **Sharing granularity** | Specific resources | N/A |
-| **Your scenario** | ✅ Correct way to share | ❌ Not a valid AWS feature |
-| **Management account role** | Optional (can share via OU) | ❌ Can't auto-propagate resources |
+| **Your scenario** | Correct way to share | Not a valid AWS feature |
+| **Management account role** | Optional (can share via OU) | Can't auto-propagate resources |
 
 **Why "Management Account Propagation" is Wrong:**
 
 ```
 Common Misconception:
 ┌────────────────────────────────────────────────────────────┐
-│  ❌ WRONG: Management Account Auto-Propagation             │
+│   WRONG: Management Account Auto-Propagation               │
 │                                                             │
 │  Management Account                                        │
 │  ┌──────────────────────────────┐                         │
@@ -5776,7 +5776,7 @@ Common Misconception:
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
-✅ CORRECT: AWS RAM Direct Sharing
+ CORRECT: AWS RAM Direct Sharing
 ┌────────────────────────────────────────────────────────────┐
 │  Account A (Resource Owner)                                │
 │  ┌──────────────────────────────┐                         │
@@ -5796,10 +5796,10 @@ Common Misconception:
 │     Selected accounts can use TGW                          │
 │                                                             │
 │  Benefits:                                                 │
-│    ✅ Explicit control over sharing                        │
-│    ✅ Resource stays in owner account                      │
-│    ✅ Owner pays and manages                               │
-│    ✅ Can revoke access anytime                            │
+│     Explicit control over sharing                          │
+│     Resource stays in owner account                        │
+│     Owner pays and manages                                 │
+│     Can revoke access anytime                              │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -5893,7 +5893,7 @@ aws ec2 create-transit-gateway-vpc-attachment \
 │  AWS Organization: o-abc123                                │
 │                                                             │
 │  Settings:                                                 │
-│    ✅ Enable sharing within organization                   │
+│     Enable sharing within organization                     │
 │                                                             │
 │  Benefits:                                                 │
 │    • Automatic acceptance (no invitation needed)           │
@@ -5918,13 +5918,13 @@ aws ram enable-sharing-with-aws-organization
 │  Share with accounts OUTSIDE your organization             │
 │                                                             │
 │  Settings:                                                 │
-│    ✅ Allow external principals: true                      │
+│     Allow external principals: true                        │
 │                                                             │
 │  Process:                                                  │
-│    1️⃣  Owner creates share with external account ID        │
-│    2️⃣  External account receives invitation                │
-│    3️⃣  External account must accept invitation             │
-│    4️⃣  External account can then use resource              │
+│    1  Owner creates share with external account ID        │
+│    2  External account receives invitation                │
+│    3  External account must accept invitation             │
+│    4  External account can then use resource              │
 │                                                             │
 │  Use Case:                                                 │
 │    • Partner/vendor integration                            │
@@ -5964,9 +5964,9 @@ Scenario: Centralized Network Hub
 │  └──────────┘    └──────────┘   └──────────┘             │
 │                                                              │
 │  Cost Savings:                                              │
-│    ❌ Without RAM: 20 accounts × $36/month = $720/month     │
-│    ✅ With RAM: 1 TGW × $36/month = $36/month               │
-│    💰 Savings: $684/month (95% reduction!)                  │
+│     Without RAM: 20 accounts × $36/month = $720/month       │
+│     With RAM: 1 TGW × $36/month = $36/month                 │
+│     Savings: $684/month (95% reduction!)                    │
 │                                                              │
 │  Plus:                                                      │
 │    • Centralized routing management                         │
@@ -6059,21 +6059,21 @@ Issue 1: "Cannot share resource"
 │  Error: "You are not authorized to share this resource"   │
 │                                                             │
 │  Solutions:                                                │
-│    ✅ Ensure you own the resource (in your account)        │
-│    ✅ Check resource type is shareable via RAM             │
-│    ✅ Verify IAM permissions (ram:CreateResourceShare)     │
-│    ✅ Enable organization sharing if using OUs             │
+│     Ensure you own the resource (in your account)          │
+│     Check resource type is shareable via RAM               │
+│     Verify IAM permissions (ram:CreateResourceShare)       │
+│     Enable organization sharing if using OUs               │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
 Issue 2: "Member account can't see shared resource"
 ┌────────────────────────────────────────────────────────────┐
 │  Check:                                                    │
-│    1️⃣  Share status is ACTIVE                              │
-│    2️⃣  Invitation accepted (if external sharing)           │
-│    3️⃣  Same region (most RAM resources are regional)       │
-│    4️⃣  Account is in specified OU/principal list           │
-│    5️⃣  Organization sharing is enabled                     │
+│    1  Share status is ACTIVE                              │
+│    2  Invitation accepted (if external sharing)           │
+│    3  Same region (most RAM resources are regional)       │
+│    4  Account is in specified OU/principal list           │
+│    5  Organization sharing is enabled                     │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
@@ -6104,7 +6104,7 @@ Issue 3: "Can't modify shared resource"
 **Best Practices:**
 
 ```
-✅ Do's:
+ Do's:
   • Use organization sharing for internal accounts
   • Share with OUs instead of individual accounts (easier management)
   • Name shares descriptively (e.g., "TGW-Production-Hub")
@@ -6113,7 +6113,7 @@ Issue 3: "Can't modify shared resource"
   • Review shares quarterly
   • Use resource-based policies for fine-grained control
 
-❌ Don'ts:
+ Don'ts:
   • Don't share to management account (use member accounts)
   • Don't enable external principals unless necessary
   • Don't share overly broad (share specific resources)
@@ -6146,25 +6146,25 @@ Example: Aurora DB Cluster Sharing
 └────────────────────────────────────────────────────────────┘
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Management Account Propagation** = Not a real AWS feature (doesn't exist)
 - **AWS RAM** = Share resources directly from owner account to specific accounts/OUs
 - **Use RAM when:** Need to share resources across accounts without duplication
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If question mentions "share resources across accounts," think **AWS RAM**. Management account doesn't automatically propagate resources - that's not how AWS works.
 
 ---
 
-#### ❌ 2. NAT Gateway Multi-AZ Placement - Question 14
+#### 2. NAT Gateway Multi-AZ Placement - Question 14
 
-**📋 SCENARIO:**
+**SCENARIO:**
 You need to provide Internet access for private subnets in multiple Availability Zones. You want high availability and cost optimization. Where should you deploy NAT Gateways?
 
-**Your Answer:** ❌ Private NAT Gateway in public subnet
-**Correct Answer:** ✅ **Public NAT Gateway in each AZ's public subnet**
+**Your Answer:** Private NAT Gateway in public subnet
+**Correct Answer:** **Public NAT Gateway in each AZ's public subnet**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What is a NAT Gateway?**
 
@@ -6203,9 +6203,9 @@ NAT Gateway enables instances in private subnets to connect to the Internet or o
 │  │  └──────────────────────┘ │  │ └────────────────────┘││
 │  └────────────────────────────┘  └────────────────────────┘│
 │                                                              │
-│  ✅ Each AZ has its own NAT Gateway (high availability)     │
-│  ✅ NAT Gateways in PUBLIC subnets (need Internet Gateway)  │
-│  ✅ Private instances route through NAT in same AZ          │
+│   Each AZ has its own NAT Gateway (high availability)       │
+│   NAT Gateways in PUBLIC subnets (need Internet Gateway)    │
+│   Private instances route through NAT in same AZ            │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -6213,7 +6213,7 @@ NAT Gateway enables instances in private subnets to connect to the Internet or o
 **Why "Private NAT in Public Subnet" is Wrong:**
 
 ```
-❌ WRONG: Private NAT Gateway in Public Subnet
+ WRONG: Private NAT Gateway in Public Subnet
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
 │  Confusion:                                                │
@@ -6236,8 +6236,8 @@ NAT Gateway enables instances in private subnets to connect to the Internet or o
 │  └────────────────────────────────────────────┘           │
 │                                                             │
 │  Invalid Configuration:                                    │
-│    ❌ Private NAT in public subnet = Contradiction         │
-│    ❌ Private NAT cannot access Internet Gateway           │
+│     Private NAT in public subnet = Contradiction           │
+│     Private NAT cannot access Internet Gateway             │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -6247,11 +6247,11 @@ NAT Gateway enables instances in private subnets to connect to the Internet or o
 | Feature | Public NAT Gateway | Private NAT Gateway |
 |---------|-------------------|---------------------|
 | **Purpose** | **Internet access** | VPC-to-VPC communication |
-| **Subnet Type** | **Public subnet** ✅ | Private subnet |
+| **Subnet Type** | **Public subnet**  | Private subnet |
 | **Elastic IP** | **Yes (required)** | No |
 | **Routes to** | Internet Gateway | Transit Gateway / VPN |
 | **Use Case** | Private instances need Internet | Overlapping CIDR workaround |
-| **Your Scenario** | ✅ Correct | ❌ Wrong (no Internet) |
+| **Your Scenario** | Correct | Wrong (no Internet) |
 | **Cost** | $0.045/hour + data transfer | $0.045/hour + data transfer |
 
 **Public NAT Gateway Setup:**
@@ -6371,11 +6371,11 @@ High Availability Architecture:
 │                                                             │
 │  Scenario 1: AZ-A Failure                                  │
 │  ┌────────────────────────┐  ┌────────────────────────┐   │
-│  │ AZ-A ❌ (DOWN)          │  │ AZ-B ✅ (UP)           │   │
+│ │ AZ-A  (DOWN)          │  │ AZ-B  (UP)           │        │
 │  │                         │  │                         │   │
 │  │ NAT Gateway (offline)   │  │ NAT Gateway (working)  │   │
 │  │ Private instances       │  │ Private instances      │   │
-│  │ └→ No Internet ❌       │  │ └→ Internet OK ✅      │   │
+│ │ └→ No Internet        │  │ └→ Internet OK       │        │
 │  └────────────────────────┘  └────────────────────────┘   │
 │                                                             │
 │  Impact: Only instances in AZ-A lose Internet              │
@@ -6385,11 +6385,11 @@ High Availability Architecture:
 │                                                             │
 │  Scenario 2: Single NAT in AZ-A (WRONG)                    │
 │  ┌────────────────────────┐  ┌────────────────────────┐   │
-│  │ AZ-A ❌ (DOWN)          │  │ AZ-B (UP but...)       │   │
+│ │ AZ-A  (DOWN)          │  │ AZ-B (UP but...)       │      │
 │  │                         │  │                         │   │
 │  │ NAT Gateway (offline)   │  │ No NAT Gateway         │   │
 │  │ Private instances       │  │ Private instances      │   │
-│  │ └→ No Internet ❌       │  │ └→ No Internet ❌      │   │
+│ │ └→ No Internet        │  │ └→ No Internet       │        │
 │  └────────────────────────┘  └────────────────────────┘   │
 │                                                             │
 │  Impact: ALL instances lose Internet (single point of failure)│
@@ -6406,14 +6406,14 @@ NAT Gateway Costs (us-east-1):
 │  Hourly Cost: $0.045/hour per NAT Gateway                  │
 │  Data Processing: $0.045/GB                                │
 │                                                             │
-│  Option 1: Single NAT Gateway (❌ Single Point of Failure) │
+│ Option 1: Single NAT Gateway ( Single Point of Failure)    │
 │    Hourly: 1 × $0.045 = $0.045/hour                        │
 │    Monthly: $0.045 × 730 hours = $32.85/month              │
 │    Data (100 GB): 100 × $0.045 = $4.50/month               │
 │    Total: $37.35/month                                     │
 │    Availability: ~99.5% (single AZ)                        │
 │                                                             │
-│  Option 2: NAT Gateway per AZ (✅ High Availability)       │
+│ Option 2: NAT Gateway per AZ ( High Availability)          │
 │    Hourly: 2 × $0.045 = $0.090/hour                        │
 │    Monthly: $0.090 × 730 hours = $65.70/month              │
 │    Data (100 GB): 100 × $0.045 = $4.50/month               │
@@ -6555,8 +6555,8 @@ Private NAT Gateway is for VPC-to-VPC, NOT Internet!
 │  Without Private NAT: Routing conflict (same CIDR)          │
 │  With Private NAT: Translates to unique IP space            │
 │                                                              │
-│  ❌ Does NOT provide Internet access                        │
-│  ✅ Only for VPC-to-VPC with CIDR overlap                   │
+│   Does NOT provide Internet access                          │
+│   Only for VPC-to-VPC with CIDR overlap                     │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -6602,13 +6602,13 @@ aws cloudwatch put-metric-alarm \
 Issue 1: Private instances can't reach Internet
 ┌────────────────────────────────────────────────────────────┐
 │  Checklist:                                                │
-│    ✅ NAT Gateway is in PUBLIC subnet                      │
-│    ✅ NAT Gateway has Elastic IP                           │
-│    ✅ Public subnet route table has 0.0.0.0/0 → IGW        │
-│    ✅ Private subnet route table has 0.0.0.0/0 → NAT       │
-│    ✅ Security group allows outbound traffic               │
-│    ✅ Network ACL allows inbound/outbound traffic          │
-│    ✅ NAT Gateway status is "available"                    │
+│     NAT Gateway is in PUBLIC subnet                        │
+│     NAT Gateway has Elastic IP                             │
+│     Public subnet route table has 0.0.0.0/0 → IGW          │
+│     Private subnet route table has 0.0.0.0/0 → NAT         │
+│     Security group allows outbound traffic                 │
+│     Network ACL allows inbound/outbound traffic            │
+│     NAT Gateway status is "available"                      │
 │                                                             │
 │  Test:                                                     │
 │    ssh into private instance                               │
@@ -6623,21 +6623,21 @@ Issue 2: NAT Gateway port exhaustion
 │  Cause: >65,000 concurrent connections per destination     │
 │                                                             │
 │  Solutions:                                                │
-│    1️⃣  Add more NAT Gateways (split traffic)              │
-│    2️⃣  Use connection pooling in applications              │
-│    3️⃣  Implement connection reuse                          │
-│    4️⃣  Use VPC Endpoints for AWS services                  │
+│    1  Add more NAT Gateways (split traffic)              │
+│    2  Use connection pooling in applications              │
+│    3  Implement connection reuse                          │
+│    4  Use VPC Endpoints for AWS services                  │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
 Issue 3: High NAT Gateway costs
 ┌────────────────────────────────────────────────────────────┐
 │  Review:                                                   │
-│    1️⃣  BytesOutToDestination metric (GB transferred)       │
-│    2️⃣  Which instances use NAT Gateway most?               │
-│    3️⃣  Can you use VPC Endpoints for S3/DynamoDB?          │
-│    4️⃣  Can you use PrivateLink for other AWS services?     │
-│    5️⃣  Are there unnecessary Internet connections?         │
+│    1  BytesOutToDestination metric (GB transferred)       │
+│    2  Which instances use NAT Gateway most?               │
+│    3  Can you use VPC Endpoints for S3/DynamoDB?          │
+│    4  Can you use PrivateLink for other AWS services?     │
+│    5  Are there unnecessary Internet connections?         │
 │                                                             │
 │  Example:                                                  │
 │    Metric shows 1 TB/month through NAT                     │
@@ -6732,12 +6732,12 @@ Outputs:
     Value: "$65.70 (2 NAT Gateways × $32.85) + data transfer"
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Private NAT Gateway** = For VPC-to-VPC communication (NOT Internet access)
 - **Public NAT Gateway** = For Internet access, must be in PUBLIC subnet, needs Elastic IP
 - **Best Practice** = One NAT Gateway per AZ for high availability
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If question mentions "Internet access for private subnets," use **Public NAT Gateway in public subnet**. "Private NAT Gateway" is a red herring - it doesn't provide Internet access!
 
 ---
@@ -6752,15 +6752,15 @@ If question mentions "Internet access for private subnets," use **Public NAT Gat
 
 ---
 
-#### ❌ 3. Cost Allocation Tags in Organizations - Question 16
+#### 3. Cost Allocation Tags in Organizations - Question 16
 
-**📋 SCENARIO:**
+**SCENARIO:**
 Your AWS Organization has 15 member accounts. Each account provisions resources with tags like Environment (prod/dev) and Department (Engineering/Marketing). The CFO wants a consolidated cost report across all accounts grouped by these tags. How do you configure this?
 
-**Your Answer:** ❌ Management account tags all resources across member accounts
-**Correct Answer:** ✅ **Member accounts tag their resources; management account activates cost allocation tags**
+**Your Answer:** Management account tags all resources across member accounts
+**Correct Answer:** **Member accounts tag their resources; management account activates cost allocation tags**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What are Cost Allocation Tags?**
 
@@ -6796,9 +6796,9 @@ Cost Allocation Tags are key-value pairs attached to AWS resources that appear i
 │  ┌──────────────────────────────────────┐                  │
 │  │  Billing Console → Cost Allocation   │                  │
 │  │  Tags → Activate:                    │                  │
-│  │    ✅ Environment                     │                  │
-│  │    ✅ Department                      │                  │
-│  │    ✅ CostCenter                      │                  │
+│ │     Environment                     │                     │
+│ │     Department                      │                     │
+│ │     CostCenter                      │                     │
 │  └────────────────┬─────────────────────┘                  │
 │                   ↓                                          │
 │  Step 4: View in Cost Explorer                             │
@@ -6816,7 +6816,7 @@ Cost Allocation Tags are key-value pairs attached to AWS resources that appear i
 **Why Management Account Can't Tag Member Account Resources:**
 
 ```
-❌ WRONG: Management Account Tags Member Resources
+ WRONG: Management Account Tags Member Resources
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
 │  Management Account (111111111111)                         │
@@ -6836,23 +6836,23 @@ Cost Allocation Tags are key-value pairs attached to AWS resources that appear i
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
-✅ CORRECT: Member Accounts Tag Their Own Resources
+ CORRECT: Member Accounts Tag Their Own Resources
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
 │  Each Member Account:                                      │
-│    1️⃣  Tags its own resources (EC2, RDS, S3, etc.)        │
-│    2️⃣  Uses consistent tag keys across accounts            │
-│    3️⃣  Enforces tagging via IAM policies/AWS Config        │
+│    1  Tags its own resources (EC2, RDS, S3, etc.)        │
+│    2  Uses consistent tag keys across accounts            │
+│    3  Enforces tagging via IAM policies/AWS Config        │
 │                                                             │
 │  Management Account:                                       │
-│    1️⃣  Activates cost allocation tags (one-time)           │
-│    2️⃣  Views consolidated billing with tags                │
-│    3️⃣  Generates cost reports grouped by tags              │
+│    1  Activates cost allocation tags (one-time)           │
+│    2  Views consolidated billing with tags                │
+│    3  Generates cost reports grouped by tags              │
 │                                                             │
 │  Benefits:                                                 │
-│    ✅ Respects account boundaries                          │
-│    ✅ Each team controls their own tags                    │
-│    ✅ Centralized reporting                                 │
+│     Respects account boundaries                            │
+│     Each team controls their own tags                      │
+│     Centralized reporting                                   │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -7306,33 +7306,33 @@ Monthly Department Chargeback Report:
 Issue 1: Tags not appearing in Cost Explorer
 ┌────────────────────────────────────────────────────────────┐
 │  Checklist:                                                │
-│    ✅ Tags activated in management account?                │
-│    ✅ Waited 24 hours after activation?                    │
-│    ✅ Resources tagged AFTER activation?                   │
+│     Tags activated in management account?                  │
+│     Waited 24 hours after activation?                      │
+│     Resources tagged AFTER activation?                     │
 │       (Historical data not retroactively tagged)           │
-│    ✅ Tag key exact match (case-sensitive)?                │
-│    ✅ Looking at correct time range?                       │
+│     Tag key exact match (case-sensitive)?                  │
+│     Looking at correct time range?                         │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
 Issue 2: Inconsistent tagging across accounts
 ┌────────────────────────────────────────────────────────────┐
 │  Solutions:                                                │
-│    1️⃣  Create organization-wide tagging policy document    │
-│    2️⃣  Use Tag Policies in AWS Organizations               │
-│    3️⃣  Implement AWS Config rules                          │
-│    4️⃣  Use CloudFormation/Terraform for consistency        │
-│    5️⃣  Regular audits with Tag Editor                       │
+│    1  Create organization-wide tagging policy document    │
+│    2  Use Tag Policies in AWS Organizations               │
+│    3  Implement AWS Config rules                          │
+│    4  Use CloudFormation/Terraform for consistency        │
+│    5  Regular audits with Tag Editor                       │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
 Issue 3: Too many untagged resources
 ┌────────────────────────────────────────────────────────────┐
 │  Remediation:                                              │
-│    1️⃣  Use Tag Editor to find untagged resources           │
-│    2️⃣  Bulk-tag using AWS CLI or scripts                   │
-│    3️⃣  Enforce tagging policies going forward              │
-│    4️⃣  Set up automated tagging (Lambda on CloudTrail)     │
+│    1  Use Tag Editor to find untagged resources           │
+│    2  Bulk-tag using AWS CLI or scripts                   │
+│    3  Enforce tagging policies going forward              │
+│    4  Set up automated tagging (Lambda on CloudTrail)     │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -7340,7 +7340,7 @@ Issue 3: Too many untagged resources
 **Best Practices:**
 
 ```
-✅ Do's:
+ Do's:
   • Define tagging strategy before creating resources
   • Use consistent tag keys across all accounts
   • Activate tags in management account immediately
@@ -7350,7 +7350,7 @@ Issue 3: Too many untagged resources
   • Document tag standards
   • Use Tag Policies for enforcement
 
-❌ Don'ts:
+ Don'ts:
   • Don't use inconsistent tag keys (Environment vs Env vs environment)
   • Don't forget to activate new tags in management account
   • Don't rely on manual tagging alone (automate!)
@@ -7359,25 +7359,25 @@ Issue 3: Too many untagged resources
   • Don't make tags too specific (hard to group)
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Management Account** = Can only activate cost allocation tags, CANNOT tag member account resources
 - **Member Accounts** = Must tag their own resources
 - **Process** = Members tag → Management activates → View in Cost Explorer
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If question mentions "consolidated cost reporting across accounts with tags," remember: **Member accounts tag resources, management account activates tags for reporting**. Management account cannot directly tag resources in member accounts.
 
 ---
 
-#### ❌ 4. AWS Application Migration Service (MGN) - Question 61
+#### 4. AWS Application Migration Service (MGN) - Question 61
 
-**📋 SCENARIO:**
+**SCENARIO:**
 You need to migrate 50 physical and virtual servers from your on-premises data center to AWS. You want automated replication, minimal downtime cutover, and the ability to test without affecting production. Which service should you use?
 
-**Your Answer:** ❌ AWS Migration Hub API
-**Correct Answer:** ✅ **AWS Application Migration Service (MGN)**
+**Your Answer:** AWS Migration Hub API
+**Correct Answer:** **AWS Application Migration Service (MGN)**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **What is AWS Application Migration Service (MGN)?**
 
@@ -7430,52 +7430,52 @@ AWS MGN is a lift-and-shift migration service that automates the conversion of p
 |---------|---------|---------------|
 | **Type** | Migration execution tool | Migration tracking dashboard |
 | **Function** | **Performs actual migration** | Tracks migration progress |
-| **Installs agents** | ✅ Yes (replication agent) | ❌ No (just tracks) |
-| **Replicates data** | ✅ Yes (continuous) | ❌ No |
-| **Creates EC2 instances** | ✅ Yes (automated) | ❌ No |
-| **Your scenario** | ✅ Correct (does the work) | ❌ Wrong (only monitoring) |
+| **Installs agents** | Yes (replication agent) | No (just tracks) |
+| **Replicates data** | Yes (continuous) | No |
+| **Creates EC2 instances** | Yes (automated) | No |
+| **Your scenario** | Correct (does the work) | Wrong (only monitoring) |
 | **Cost** | Free (pay for AWS resources) | Free (tracking only) |
 
 **Why Migration Hub is Wrong:**
 
 ```
-❌ WRONG: Migration Hub API
+ WRONG: Migration Hub API
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
 │  Migration Hub is a TRACKING tool, not a migration tool!  │
 │                                                             │
 │  What Migration Hub Does:                                 │
-│    ✅ Centralized dashboard for migration status           │
-│    ✅ Tracks servers across multiple tools                 │
-│    ✅ Shows migration progress                             │
-│    ✅ Groups servers by application                        │
-│    ✅ Integrates with: MGN, SMS, Database Migration Service│
+│     Centralized dashboard for migration status             │
+│     Tracks servers across multiple tools                   │
+│     Shows migration progress                               │
+│     Groups servers by application                          │
+│     Integrates with: MGN, SMS, Database Migration Service  │
 │                                                             │
 │  What Migration Hub DOESN'T Do:                           │
-│    ❌ Install agents on servers                            │
-│    ❌ Replicate data                                       │
-│    ❌ Create EC2 instances                                 │
-│    ❌ Perform cutover                                      │
-│    ❌ Actually migrate anything!                           │
+│     Install agents on servers                              │
+│     Replicate data                                         │
+│     Create EC2 instances                                   │
+│     Perform cutover                                        │
+│     Actually migrate anything!                             │
 │                                                             │
 │  Think of it as: GPS tracker on a moving truck            │
 │  MGN is the actual truck doing the moving                  │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
-✅ CORRECT: AWS Application Migration Service (MGN)
+ CORRECT: AWS Application Migration Service (MGN)
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
 │  MGN is the EXECUTION tool that does actual migration!    │
 │                                                             │
 │  What MGN Does:                                            │
-│    ✅ Installs replication agent on source servers         │
-│    ✅ Continuously replicates data to AWS                  │
-│    ✅ Converts server format (physical/VM → EC2)           │
-│    ✅ Creates EC2 instances                                 │
-│    ✅ Performs test launches                                │
-│    ✅ Executes cutover with minimal downtime               │
-│    ✅ Validates migration success                           │
+│     Installs replication agent on source servers           │
+│     Continuously replicates data to AWS                    │
+│     Converts server format (physical/VM → EC2)             │
+│     Creates EC2 instances                                   │
+│     Performs test launches                                  │
+│     Executes cutover with minimal downtime                 │
+│     Validates migration success                             │
 │                                                             │
 │  Perfect for your scenario:                                │
 │    • 50 servers to migrate                                 │
@@ -7566,9 +7566,9 @@ Day 8+: Continuous Replication
 │  (Changes on source replicated to AWS within seconds)     │
 │                                                             │
 │  You can now:                                              │
-│    ✅ Launch test instances                                 │
-│    ✅ Validate applications                                 │
-│    ✅ Plan cutover window                                   │
+│     Launch test instances                                   │
+│     Validate applications                                   │
+│     Plan cutover window                                     │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -7599,25 +7599,25 @@ aws mgn terminate-target-instances \
 Cutover Process:
 ┌────────────────────────────────────────────────────────────┐
 │  Pre-Cutover (T-1 hour):                                   │
-│    1️⃣  Verify all servers 100% replicated                  │
-│    2️⃣  Final sync check (replication lag < 1 min)          │
-│    3️⃣  Notify stakeholders                                  │
-│    4️⃣  Put source servers in maintenance mode               │
+│    1  Verify all servers 100% replicated                  │
+│    2  Final sync check (replication lag < 1 min)          │
+│    3  Notify stakeholders                                  │
+│    4  Put source servers in maintenance mode               │
 │                                                             │
 │  Cutover (T-0):                                            │
-│    5️⃣  Stop source server applications                      │
-│    6️⃣  Wait for final data sync (2-5 minutes)              │
-│    7️⃣  Mark servers ready for cutover in MGN console        │
-│    8️⃣  Launch cutover instances                             │
+│    5  Stop source server applications                      │
+│    6  Wait for final data sync (2-5 minutes)              │
+│    7  Mark servers ready for cutover in MGN console        │
+│    8  Launch cutover instances                             │
 │       aws mgn start-cutover \                               │
 │         --source-server-ids s-123,s-456,s-789               │
 │                                                             │
 │  Post-Cutover (T+30 min):                                  │
-│    9️⃣  Verify EC2 instances running                         │
-│    🔟 Test application connectivity                         │
-│    1️⃣1️⃣ Update DNS/load balancers                           │
-│    1️⃣2️⃣ Validate end-to-end functionality                   │
-│    1️⃣3️⃣ Monitor for issues                                  │
+│    9  Verify EC2 instances running                         │
+│     Test application connectivity                           │
+│    11 Update DNS/load balancers                           │
+│    12 Validate end-to-end functionality                   │
+│    13 Monitor for issues                                  │
 │                                                             │
 │  Downtime: 15-30 minutes (minimal!)                        │
 │                                                             │
@@ -7648,25 +7648,25 @@ aws mgn finalize-cutover \
 │         MGN COMPONENTS IN AWS                               │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  1️⃣  Replication Servers (Staging Area):                    │
+│  1  Replication Servers (Staging Area):                    │
 │     - Lightweight EC2 instances (t3.small)                  │
 │     - Receive data from replication agents                  │
 │     - Write to staging EBS volumes (GP3)                    │
 │     - One per subnet (auto-managed by MGN)                  │
 │     - Cost: ~$15/month per replication server               │
 │                                                              │
-│  2️⃣  Staging EBS Volumes:                                    │
+│  2  Staging EBS Volumes:                                    │
 │     - GP3 volumes (cost-optimized)                          │
 │     - Same size as source disks                             │
 │     - Holds replicated data                                 │
 │     - Cost: $0.08/GB-month                                  │
 │                                                              │
-│  3️⃣  Target EC2 Instances (After Cutover):                  │
+│  3  Target EC2 Instances (After Cutover):                  │
 │     - Production instances                                  │
 │     - Configured per launch template                        │
 │     - Cost: Standard EC2 pricing                            │
 │                                                              │
-│  4️⃣  MGN Service (Control Plane):                           │
+│  4  MGN Service (Control Plane):                           │
 │     - FREE (no charge for MGN service)                      │
 │     - Only pay for AWS resources used                       │
 │                                                              │
@@ -7780,11 +7780,11 @@ MGN + Migration Hub Together:
 Issue 1: Replication agent won't install
 ┌────────────────────────────────────────────────────────────┐
 │  Check:                                                    │
-│    ✅ Source server can reach AWS (443/TCP)                │
-│    ✅ IAM credentials have MGN permissions                  │
-│    ✅ Supported OS (Windows 2008+, RHEL 5+, Ubuntu 12+)    │
-│    ✅ Free disk space (10 GB minimum)                      │
-│    ✅ Python 2.7+ installed (Linux)                         │
+│     Source server can reach AWS (443/TCP)                  │
+│     IAM credentials have MGN permissions                    │
+│     Supported OS (Windows 2008+, RHEL 5+, Ubuntu 12+)      │
+│     Free disk space (10 GB minimum)                        │
+│     Python 2.7+ installed (Linux)                           │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
@@ -7805,44 +7805,44 @@ Issue 2: Replication stuck at X%
 Issue 3: Test instance won't boot
 ┌────────────────────────────────────────────────────────────┐
 │  Check:                                                    │
-│    ✅ Instance type compatible with source                  │
-│    ✅ Network settings (VPC, subnet, SG)                    │
-│    ✅ Boot order configuration                              │
-│    ✅ EC2 console system log for errors                     │
-│    ✅ MGN agent logs on source                              │
+│     Instance type compatible with source                    │
+│     Network settings (VPC, subnet, SG)                      │
+│     Boot order configuration                                │
+│     EC2 console system log for errors                       │
+│     MGN agent logs on source                                │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Migration Hub** = Tracking dashboard (doesn't migrate anything)
 - **AWS MGN** = Actual migration tool (replicates data, creates EC2s, executes cutover)
 - **Use MGN when:** Need to migrate servers with minimal downtime
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 If question mentions "migrate servers," "replication," "minimal downtime," or "cutover," the answer is **AWS MGN** (or CloudEndure, which is now MGN). Migration Hub is only for tracking, not executing migrations.
 
 ---
 
-## 🎯 Flagged Questions for Review
+## Flagged Questions for Review
 
 You marked **7 questions** for review. Here they are:
 
 | # | Topic | Question | Status |
 |---|-------|----------|--------|
-| 30 | Resilient | Route 53 Alias vs CNAME for ALB | ❌ Incorrect |
-| 33 | Secure | IAM Identity Center with SAML | ✅ Correct |
-| 41 | Resilient | CloudFormation Outputs for cross-stack | ❌ Incorrect |
-| 49 | Resilient | EKS Anywhere vs EKS Distro | ❌ Incorrect |
-| 52 | Secure | EBS gp3 + st1 volume selection | ✅ Correct |
-| 53 | Secure | KMS Asymmetric keys for signing | ❌ Incorrect |
-| 54 | Secure | KMS Symmetric keys for encryption | ❌ Incorrect |
+| 30 | Resilient | Route 53 Alias vs CNAME for ALB | Incorrect |
+| 33 | Secure | IAM Identity Center with SAML | Correct |
+| 41 | Resilient | CloudFormation Outputs for cross-stack | Incorrect |
+| 49 | Resilient | EKS Anywhere vs EKS Distro | Incorrect |
+| 52 | Secure | EBS gp3 + st1 volume selection | Correct |
+| 53 | Secure | KMS Asymmetric keys for signing | Incorrect |
+| 54 | Secure | KMS Symmetric keys for encryption | Incorrect |
 
 **Action:** Review these carefully and understand why you flagged them.
 
 ---
 
-## 📚 Recommended Study Plan (Next 3 Weeks)
+## Recommended Study Plan (Next 3 Weeks)
 
 ### Week 1: Fix Critical Domain 1 - Resilient Architectures (42%)
 
@@ -7928,7 +7928,7 @@ You marked **7 questions** for review. Here they are:
 
 ---
 
-## 🎓 Quick Reference Cards
+## Quick Reference Cards
 
 ### Card 1: ECS Task Definitions
 ```yaml
@@ -8058,7 +8058,7 @@ Exam Tip: Use Outputs with Export, then ImportValue in other stacks
 
 ---
 
-## 💡 Key Lessons Learned
+## Key Lessons Learned
 
 ### What Went Wrong?
 
@@ -8107,19 +8107,19 @@ Exam Tip: Use Outputs with Export, then ImportValue in other stacks
 
 ---
 
-## 📝 Exam Strategy Improvements
+## Exam Strategy Improvements
 
 ### Time Management Issues
-- ⏱️ Used 130 minutes for 65 questions (2 min/question) ✅ Good pace
-- 🚩 Flagged 7 questions for review
-- 📊 Got 3/7 flagged questions wrong (42% accuracy on flagged)
+- Used 130 minutes for 65 questions (2 min/question) Good pace
+- Flagged 7 questions for review
+- Got 3/7 flagged questions wrong (42% accuracy on flagged)
 
 **Improvement:** When you flag a question, you're often uncertain. Trust your first instinct more, or spend extra time before flagging.
 
 ### Reading Comprehension
-- ❌ Missed keywords like "management account" in SCP questions
-- ❌ Confused "on-premises Kubernetes" with "hybrid deployment"
-- ❌ Selected "Object Detection" when "Custom Labels" was needed
+- Missed keywords like "management account" in SCP questions
+- Confused "on-premises Kubernetes" with "hybrid deployment"
+- Selected "Object Detection" when "Custom Labels" was needed
 
 **Improvement:** Underline key requirements in the question stem before looking at answers.
 
@@ -8139,10 +8139,10 @@ Exam Tip: Use Outputs with Export, then ImportValue in other stacks
 
 ---
 
-## 🔗 Next Steps
+## Next Steps
 
 ### Immediate Actions (Today)
-1. ✅ Review this exam analysis completely
+1. Review this exam analysis completely
 2. [ ] Create flashcards for all 31 incorrect questions
 3. [ ] Read [Module 03: ECS & Fargate](../03-Compute/README.md#ecs-and-fargate)
 4. [ ] Watch video on CloudFormation Outputs and cross-stack references
@@ -8161,17 +8161,17 @@ Exam Tip: Use Outputs with Export, then ImportValue in other stacks
 
 ---
 
-## 📊 Performance Tracking
+## Performance Tracking
 
 ### Score Progression Goal
 ```
-Practice Test 1:  52% ❌ (Current)
-Practice Test 2:  65% 🎯 (Target - 2 weeks)
-Practice Test 3:  72% 🎯 (Target - 3 weeks)
-Practice Test 4:  78% ✅ (Target - 4 weeks)
-Practice Test 5:  80% ✅ (Target - 5 weeks)
-Final Practice:   85% ✅ (Target - 6 weeks)
-Actual Exam:      80%+ ✅ (PASS)
+Practice Test 1: 52%  (Current)
+Practice Test 2: 65%  (Target - 2 weeks)
+Practice Test 3: 72%  (Target - 3 weeks)
+Practice Test 4: 78%  (Target - 4 weeks)
+Practice Test 5: 80%  (Target - 5 weeks)
+Final Practice:   85% (Target - 6 weeks)
+Actual Exam:      80%+ (PASS)
 ```
 
 ### Domain Score Goals
@@ -8184,22 +8184,22 @@ Actual Exam:      80%+ ✅ (PASS)
 
 ---
 
-## ⚠️ Important Reminders
+## Important Reminders
 
 ### Don't Get Discouraged!
-- 📉 52% is actually a good starting point - you're learning!
-- 🎯 You need +20% improvement, which is achievable in 3-4 weeks
-- 💪 Focus on the TWO critical domains - that's where you'll gain the most
+- 52% is actually a good starting point - you're learning!
+- You need +20% improvement, which is achievable in 3-4 weeks
+- Focus on the TWO critical domains - that's where you'll gain the most
 
 ### Focus Areas Summary
 ```
-🔴 CRITICAL (42-47%):
+ CRITICAL (42-47%):
    - ECS/EKS/Fargate concepts
    - Route 53 failover
    - CloudFormation cross-stack
    - VPC endpoints & networking
 
-⚠️ NEEDS REVIEW (60-63%):
+ NEEDS REVIEW (60-63%):
    - KMS key types
    - SCPs & Organizations
    - AWS WAF rules
@@ -8207,15 +8207,15 @@ Actual Exam:      80%+ ✅ (PASS)
 ```
 
 ### Study Smart, Not Just Hard
-- 📖 Don't just read - do hands-on labs
-- 🧠 Create flashcards for services you confuse
-- 👥 Join study groups or forums
-- 🎥 Watch AWS re:Invent videos on weak topics
-- 📝 Take notes and create your own cheat sheets
+- Don't just read - do hands-on labs
+- Create flashcards for services you confuse
+- Join study groups or forums
+- Watch AWS re:Invent videos on weak topics
+- Take notes and create your own cheat sheets
 
 ---
 
-## 🎯 Success Criteria for Practice Test 2
+## Success Criteria for Practice Test 2
 
 **Minimum Goals:**
 - [ ] Overall Score: ≥ 65% (42+ correct)
@@ -8232,11 +8232,11 @@ Actual Exam:      80%+ ✅ (PASS)
 
 ---
 
-**Remember:** The journey from 52% to 80% is totally achievable. Stay focused, follow the study plan, and practice consistently. You've got this! 🚀
+**Remember:** The journey from 52% to 80% is totally achievable. Stay focused, follow the study plan, and practice consistently. You've got this!
 
 **Target for Practice Test 2:** ≥65% (42+ correct answers)
 
-Good luck with your studies! 💪
+Good luck with your studies!
 
 ---
 

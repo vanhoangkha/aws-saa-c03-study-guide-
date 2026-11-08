@@ -94,11 +94,11 @@ mindmap
 ```mermaid
 graph TB
     subgraph Pricing_Models_Group["Pricing Models"]
-        OnDemand["On-Demand<br/>💰 No Discount<br/>⏱️ Pay by hour/second<br/>📊 Flexible"]
-        Reserved["Reserved Instances<br/>💰 Up to 72% Discount<br/>⏱️ 1 or 3 years<br/>📊 Steady workloads"]
-        Savings["Savings Plans<br/>💰 Up to 66% Discount<br/>⏱️ 1 or 3 years<br/>📊 Flexible instance type"]
-        Spot["Spot Instances<br/>💰 Up to 90% Discount<br/>⏱️ Can be terminated<br/>📊 Fault-tolerant"]
-        Dedicated["Dedicated Hosts<br/>💰 No Discount<br/>⏱️ Physical server<br/>📊 Compliance/Licensing"]
+        OnDemand["On-Demand<br/>No Discount<br/>Pay by hour/second<br/>Flexible"]
+        Reserved["Reserved Instances<br/>Up to 72% Discount<br/>1 or 3 years<br/>Steady workloads"]
+        Savings["Savings Plans<br/>Up to 66% Discount<br/>1 or 3 years<br/>Flexible instance type"]
+        Spot["Spot Instances<br/>Up to 90% Discount<br/>Can be terminated<br/>Fault-tolerant"]
+        Dedicated["Dedicated Hosts<br/>No Discount<br/>Physical server<br/>Compliance/Licensing"]
     end
     
     subgraph Use_Cases_Group["Use Cases"]
@@ -303,7 +303,7 @@ graph TB
     
     subgraph Classic_Load_Balancer_CLB_Group["Classic Load Balancer (CLB)"]
         CLB[Layer 4 & 7 - Legacy]
-        CLB --> CLBNote["❌ Not recommended<br/>For new applications"]
+        CLB --> CLBNote["Not recommended<br/>For new applications"]
     end
     
     classDef style1 fill:#FF9900
@@ -418,12 +418,12 @@ graph TB
         NLB1["Load Balancer Node 1<br/>AZ-1a"]
         NLB2["Load Balancer Node 2<br/>AZ-1b"]
         
-        subgraph AZ_1a_Group["AZ-1a "]
+        subgraph AZ_1a_Group["AZ-1a"]
             N1[EC2 - 25%]
             N2[EC2 - 25%]
         end
         
-        subgraph AZ_1b_Group["AZ-1b "]
+        subgraph AZ_1b_Group["AZ-1b"]
             N3[EC2 - 50%]
         end
         
@@ -502,7 +502,7 @@ graph TB
         Lambda1 -->|Return Response| Client1
         Examples1["Examples:<br/>• API Gateway<br/>• ALB<br/>• CLI invoke"]
         
-        Note1["⏱️ Wait for response<br/>🔁 Retry 0 times<br/>❌ Client handles errors"]
+        Note1["Wait for response<br/>Retry 0 times<br/>Client handles errors"]
     end
     
     subgraph Asynchronous_Invocation_Group["Asynchronous Invocation"]
@@ -514,7 +514,7 @@ graph TB
         
         Examples2["Examples:<br/>• S3<br/>• SNS<br/>• EventBridge<br/>• CloudWatch Events"]
         
-        Note2["⚡ Returns immediately<br/>🔁 Retry 2 times<br/>☠️ DLQ for failures"]
+        Note2["Returns immediately<br/>Retry 2 times<br/>DLQ for failures"]
     end
     
     subgraph Event_Source_Mapping_Group["Event Source Mapping"]
@@ -530,7 +530,7 @@ graph TB
         
         Lambda3 --> Batch[Process Batch]
         
-        Note3["📦 Batch processing<br/>🔁 Retry entire batch<br/>⏸️ Can pause polling"]
+        Note3["Batch processing<br/>Retry entire batch<br/>Can pause polling"]
     end
     
     classDef style1 fill:#FF9900
@@ -546,17 +546,17 @@ graph TB
 ```mermaid
 graph TB
     subgraph Lambda_Limits_Group["Lambda Limits"]
-        Memory["Memory<br/>128 MB - 10 GB<br/>⚙️ Configurable in 1 MB increments"]
+        Memory["Memory<br/>128 MB - 10 GB<br/>Configurable in 1 MB increments"]
         
-        Timeout["Timeout<br/>⏱️ 15 minutes maximum<br/>⚙️ Default: 3 seconds"]
+        Timeout["Timeout<br/>15 minutes maximum<br/>Default: 3 seconds"]
         
-        Concurrent["Concurrent Executions<br/>🔢 1,000 default per region<br/>📈 Can request increase"]
+        Concurrent["Concurrent Executions<br/>1,000 default per region<br/>Can request increase"]
         
-        EnvVars["Environment Variables<br/>📝 4 KB total<br/>🔐 Can encrypt with KMS"]
+        EnvVars["Environment Variables<br/>4 KB total<br/>Can encrypt with KMS"]
         
-        Deployment["Deployment Package<br/>📦 50 MB zipped<br/>📂 250 MB unzipped<br/>💾 /tmp storage: 512 MB - 10 GB"]
+        Deployment["Deployment Package<br/>50 MB zipped<br/>250 MB unzipped<br/>/tmp storage: 512 MB - 10 GB"]
         
-        Layers["Lambda Layers<br/>📚 5 layers per function<br/>📦 50 MB per layer"]
+        Layers["Lambda Layers<br/>5 layers per function<br/>50 MB per layer"]
     end
     
     subgraph Performance_Tips_Group["Performance Tips"]
@@ -707,7 +707,7 @@ graph TB
     ALB --> ENI2
     ALB --> ENI3
     
-    Note["✅ Each task has own ENI<br/>✅ Full VPC networking<br/>✅ Security Groups per task<br/>✅ Required for Fargate"]
+    Note["Each task has own ENI<br/>Full VPC networking<br/>Security Groups per task<br/>Required for Fargate"]
     
     classDef style1 fill:#FF9900
     class Task1 style1
@@ -732,11 +732,11 @@ graph TB
     Components --> CloudWatch["CloudWatch<br/>Monitoring"]
     
     subgraph Deployment_Options_Group["Deployment Options"]
-        AllAtOnce["All at Once<br/>⚡ Fastest<br/>❌ Downtime"]
-        Rolling["Rolling<br/>⚙️ Batch updates<br/>✅ No downtime<br/>⚠️ Reduced capacity"]
-        RollingExtra["Rolling with Extra Batch<br/>⚙️ Launch new batch first<br/>✅ Full capacity"]
-        Immutable["Immutable<br/>🆕 New ASG<br/>✅ Zero downtime<br/>💰 Double capacity temp"]
-        BlueGreen["Blue/Green<br/>🔄 Separate environment<br/>✅ Instant rollback<br/>💰 Double cost"]
+        AllAtOnce["All at Once<br/>Fastest<br/>Downtime"]
+        Rolling["Rolling<br/>Batch updates<br/>No downtime<br/>Reduced capacity"]
+        RollingExtra["Rolling with Extra Batch<br/>Launch new batch first<br/>Full capacity"]
+        Immutable["Immutable<br/>New ASG<br/>Zero downtime<br/>Double capacity temp"]
+        BlueGreen["Blue/Green<br/>Separate environment<br/>Instant rollback<br/>Double cost"]
     end
     
     EB -.Deployment Strategy.-> AllAtOnce

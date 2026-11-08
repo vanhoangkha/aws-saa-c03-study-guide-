@@ -1,4 +1,4 @@
-# 08: Application Integration - Ultra Fast Learning 🚀
+# 08: Application Integration - Ultra Fast Learning
 
 ## SQS (Simple Queue Service)
 

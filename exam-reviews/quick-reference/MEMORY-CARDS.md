@@ -1,4 +1,4 @@
-# 🎴 Visual Memory Cards - Complete SAA-C03 Coverage
+# Visual Memory Cards - Complete SAA-C03 Coverage
 
 **Purpose:** Comprehensive visual memory system covering ALL 7 Practice Tests
 
@@ -9,7 +9,7 @@
 
 ---
 
-## 📊 Coverage Statistics
+## Coverage Statistics
 
 ```
 Total Visual Cards: 63 cards
@@ -29,48 +29,48 @@ Total Visual Cards: 63 cards
 Digital Flashcards: 130+ Anki-ready
 ```
 
-## 🎯 All 7 Practice Tests Integrated
+## All 7 Practice Tests Integrated
 
-✅ **Test 1 (52%)** - 19 critical topics added  
-✅ **Test 2 (75%)** - 13 security/performance topics  
-✅ **Test 3 (80%)** - 13 advanced topics  
-✅ **Test 4 (75%)** - 16 cost/resilient topics  
-✅ **Test 5 (65%)** - 19 high-performing topics  
-✅ **Test 6 (80%)** - 13 resilient architecture topics  
-✅ **Test 7 (73.85%)** - 17 security/cost/directory services topics  
+ **Test 1 (52%)** - 19 critical topics added
+ **Test 2 (75%)** - 13 security/performance topics
+ **Test 3 (80%)** - 13 advanced topics
+ **Test 4 (75%)** - 16 cost/resilient topics
+ **Test 5 (65%)** - 19 high-performing topics
+ **Test 6 (80%)** - 13 resilient architecture topics
+ **Test 7 (73.85%)** - 17 security/cost/directory services topics
 
 **Total:** 110+ unique exam topics comprehensively covered
 
 ---
 
-## 🔥 CRITICAL CARDS (Memorize First!)
+## CRITICAL CARDS (Memorize First!)
 
-### Card 1: CloudFront Certificate Region 🌐
+### Card 1: CloudFront Certificate Region
 ```
 ╔══════════════════════════════════════════════╗
-║  🔒 CLOUDFRONT + ACM CERTIFICATE             ║
+║   CLOUDFRONT + ACM CERTIFICATE               ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
-║  ✅ MUST BE: us-east-1 (N. Virginia)        ║
-║  ❌ CANNOT BE: Any other region             ║
+║   MUST BE: us-east-1 (N. Virginia)          ║
+║   CANNOT BE: Any other region               ║
 ║                                              ║
 ║  Why? CloudFront control plane = us-east-1  ║
 ║                                              ║
-║  💡 Memory: "CF-E1" (CloudFront = East-1)   ║
+║   Memory: "CF-E1" (CloudFront = East-1)     ║
 ║                                              ║
-║  Trap: "Use region closest to users" ❌     ║
-║        "Use same region as origin" ❌        ║
+║ Trap: "Use region closest to users"         ║
+║        "Use same region as origin"           ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 2 (Critical Topic)
-Difficulty: ⭐⭐⭐ (Easy to forget!)
+Difficulty: (Easy to forget!)
 ```
 
-### Card 2: VPC Endpoint Types 🔌
+### Card 2: VPC Endpoint Types
 ```
 ┌────────────────────────────────────────────┐
-│  🔌 VPC ENDPOINTS DECISION                │
+│   VPC ENDPOINTS DECISION                  │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Service = S3? ──────────► Gateway (FREE) │
@@ -87,84 +87,84 @@ Difficulty: ⭐⭐⭐ (Easy to forget!)
 │    • One per AZ                            │
 │    • $0.01/hour + data                     │
 │                                            │
-│  💡 Memory: "GSD = Gateway for S3 &       │
+│   Memory: "GSD = Gateway for S3 &         │
 │             DynamoDB, Interface for rest"  │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 1, Question 15
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 3: Transit Gateway vs VPG 🚇
+### Card 3: Transit Gateway vs VPG
 ```
 ┌────────────────────────────────────────────┐
-│  🚇 VPN THROUGHPUT SCALING                │
+│   VPN THROUGHPUT SCALING                  │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Need > 1.25 Gbps VPN throughput?         │
 │                                            │
-│  ❌ VPG (Virtual Private Gateway)         │
+│   VPG (Virtual Private Gateway)           │
 │     • Max: 1.25 Gbps                       │
 │     • Only 1 VPN active at a time          │
 │     • Others are standby only              │
 │     • NO ECMP support                      │
 │                                            │
-│  ✅ Transit Gateway                        │
+│   Transit Gateway                          │
 │     • Max: 50+ Gbps aggregate              │
 │     • Multiple VPNs active simultaneously  │
 │     • ECMP load balancing                  │
 │     • Example: 4 tunnels = 5 Gbps          │
 │                                            │
-│  💡 Memory: "TGW = Traffic Gets Wider"    │
+│   Memory: "TGW = Traffic Gets Wider"      │
 │            "VPG = Very Poor (for) Growing"│
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 1, Question 13
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 4: CloudWatch Metrics - Default vs Custom 📊
+### Card 4: CloudWatch Metrics - Default vs Custom
 ```
 ╔══════════════════════════════════════════════╗
-║  📊 CLOUDWATCH METRICS                       ║
+║   CLOUDWATCH METRICS                         ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  DEFAULT (No agent needed):                  ║
-║  ✅ CPU Utilization                          ║
-║  ✅ Network In / Out                         ║
-║  ✅ Disk Read / Write                        ║
-║  ✅ Status Checks                            ║
+║   CPU Utilization                            ║
+║   Network In / Out                           ║
+║   Disk Read / Write                          ║
+║   Status Checks                              ║
 ║                                              ║
 ║  CUSTOM (Agent required):                    ║
-║  ⚙️ Memory Utilization                       ║
-║  ⚙️ Disk Space Used %                        ║
-║  ⚙️ Swap Utilization                         ║
-║  ⚙️ Application metrics                      ║
+║   Memory Utilization                        ║
+║   Disk Space Used %                         ║
+║   Swap Utilization                          ║
+║   Application metrics                       ║
 ║                                              ║
 ║  Detailed Monitoring:                        ║
 ║  • Changes frequency: 5 min → 1 min          ║
 ║  • Does NOT add new metrics                  ║
 ║  • Does NOT include memory                   ║
 ║                                              ║
-║  💡 Memory: "MDS = Memory, Disk, Swap       ║
+║   Memory: "MDS = Memory, Disk, Swap         ║
 ║            (need Agent)"                     ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 4, Q7 & Test 5, Q2
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 📦 STORAGE CARDS
+## STORAGE CARDS
 
-### Card 5: S3 Storage Class Decision 🗄️
+### Card 5: S3 Storage Class Decision
 ```
 ┌────────────────────────────────────────────┐
-│  🗄️ S3 STORAGE CLASS SELECTION            │
+│   S3 STORAGE CLASS SELECTION              │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Keyword → Storage Class:                  │
@@ -182,25 +182,25 @@ Difficulty: ⭐⭐⭐
 │  • Glacier Flexible: 1-12 hours            │
 │  • Glacier Deep: 12-48 hours               │
 │                                            │
-│  💡 Memory: "FAST = Frequent Access =      │
+│   Memory: "FAST = Frequent Access =        │
 │            Standard Storage"               │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 3, Question 7
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 6: S3 Glacier Restoration 🧊
+### Card 6: S3 Glacier Restoration
 ```
 ╔══════════════════════════════════════════════╗
-║  🧊 S3 GLACIER RESTORATION                   ║
+║   S3 GLACIER RESTORATION                     ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
-║  ❌ WRONG: Change bucket default class       ║
+║   WRONG: Change bucket default class         ║
 ║     → Only affects NEW uploads               ║
 ║                                              ║
-║  ✅ CORRECT: 4-Step Process                  ║
+║   CORRECT: 4-Step Process                    ║
 ║                                              ║
 ║  Step 1: Initiate Restore (12-48 hours)     ║
 ║  Step 2: Access Temporary Copy (1-365 days) ║
@@ -213,30 +213,30 @@ Difficulty: ⭐⭐
 ║  • Restore creates temporary accessible copy ║
 ║  • Original stays in Glacier until deleted   ║
 ║                                              ║
-║  💡 Memory: "GDR = Glacier Definitely       ║
+║   Memory: "GDR = Glacier Definitely         ║
 ║            Requires (restore)"              ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 3, Question 4
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-### Card 6B: S3 Performance Optimization 🚀
+### Card 6B: S3 Performance Optimization
 ```
 ┌────────────────────────────────────────────┐
-│  🚀 S3 PERFORMANCE OPTIMIZATION            │
+│   S3 PERFORMANCE OPTIMIZATION              │
 ├────────────────────────────────────────────┤
 │                                            │
-│  ❌ AVOID: LIST Operations                 │
+│   AVOID: LIST Operations                   │
 │  • LIST expensive at scale                 │
 │  • Slow for millions of objects            │
 │  • Consumes API requests                   │
 │  • Not suitable for metadata queries       │
 │                                            │
-│  ✅ INSTEAD: Use Alternatives               │
+│   INSTEAD: Use Alternatives                 │
 │                                            │
 │  Option 1: S3 Inventory                    │
 │  • Scheduled reports of objects            │
@@ -264,57 +264,57 @@ Difficulty: ⭐⭐⭐
 │  • Best for: Global uploads                │
 │  • 50-500% faster for distant regions      │
 │                                            │
-│  💡 Memory: "LIST = Last resort, use      │
+│   Memory: "LIST = Last resort, use        │
 │            Inventory + Athena instead"     │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, S3 Performance
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-### Card 7: Redshift Snapshots 📸
+### Card 7: Redshift Snapshots
 ```
 ┌────────────────────────────────────────────┐
-│  📸 REDSHIFT SNAPSHOTS                     │
+│   REDSHIFT SNAPSHOTS                       │
 ├────────────────────────────────────────────┤
 │                                            │
 │  AUTOMATED SNAPSHOTS:                      │
 │  • Retention: 1-35 days (configurable)     │
-│  • Auto-deleted: YES ✅                     │
+│ • Auto-deleted: YES                         │
 │  • Cost: FREE (up to 1x cluster size)      │
 │                                            │
 │  MANUAL SNAPSHOTS:                         │
-│  • Retention: FOREVER (until deleted) ⚠️   │
-│  • Auto-deleted: NO ❌                      │
+│ • Retention: FOREVER (until deleted)      │
+│ • Auto-deleted: NO                          │
 │  • Cost: $0.024/GB/month                   │
 │  • Accumulates if not cleaned up           │
 │                                            │
 │  Cost Reduction:                           │
-│  ✅ Delete old manual snapshots            │
-│  ❌ Increase retention (increases cost)    │
-│  ❌ Cross-region copy (doubles cost)       │
+│   Delete old manual snapshots              │
+│   Increase retention (increases cost)      │
+│   Cross-region copy (doubles cost)         │
 │                                            │
-│  💡 Memory: "Manual = Must-delete"         │
+│   Memory: "Manual = Must-delete"           │
 │            "Auto = Auto-expires"           │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 4, Question 13
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-### Card 7B: Redshift Query Monitoring 📊
+### Card 7B: Redshift Query Monitoring
 ```
 ┌────────────────────────────────────────────┐
-│  📊 REDSHIFT QUERY MONITORING              │
+│   REDSHIFT QUERY MONITORING                │
 ├────────────────────────────────────────────┤
 │                                            │
-│  ✅ CORRECT: Redshift Console              │
+│   CORRECT: Redshift Console                │
 │  • Query Monitoring Rules (QMR)            │
 │  • Workload Management (WLM)               │
 │  • System Tables (STL/STV views)           │
@@ -326,12 +326,12 @@ Difficulty: ⭐⭐
 │  • STL_WLM_QUERY: Workload management      │
 │  • SVL_QUERY_METRICS: Query metrics        │
 │                                            │
-│  ❌ WRONG: CloudTrail                      │
+│   WRONG: CloudTrail                        │
 │  • CloudTrail = API calls only             │
 │  • Not for query performance               │
 │  • Not for query execution details         │
 │                                            │
-│  ❌ WRONG: CloudWatch                      │
+│   WRONG: CloudWatch                        │
 │  • CloudWatch = Cluster metrics only       │
 │  • CPU, disk, network                      │
 │  • Not individual query performance        │
@@ -342,23 +342,23 @@ Difficulty: ⭐⭐
 │  • Real-time monitoring → STV_RECENTS      │
 │  • Audit API calls → CloudTrail            │
 │                                            │
-│  💡 Memory: "Redshift Queries = Redshift  │
+│   Memory: "Redshift Queries = Redshift    │
 │            Console, NOT CloudTrail"        │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, Analytics
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 🖥️ COMPUTE CARDS
+## COMPUTE CARDS
 
-### Card 8: ECS Task Definition 📋
+### Card 8: ECS Task Definition
 ```
 ┌────────────────────────────────────────────┐
-│  📋 ECS COMPONENTS                         │
+│   ECS COMPONENTS                           │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Task Definition (Blueprint)               │
@@ -380,29 +380,29 @@ Difficulty: ⭐⭐
 │  Cluster (Logical Grouping)                │
 │    └─ Contains multiple services/tasks     │
 │                                            │
-│  💡 Memory: "TD = To-Do list"             │
+│   Memory: "TD = To-Do list"               │
 │            (lists what containers need)    │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 1, Question 2
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 9: ECS on Outposts 🏢
+### Card 9: ECS on Outposts
 ```
 ╔══════════════════════════════════════════════╗
-║  🏢 ECS ON OUTPOSTS                          ║
+║   ECS ON OUTPOSTS                            ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  AWS Outposts = On-premises AWS hardware     ║
 ║                                              ║
-║  ✅ SUPPORTED: ECS EC2 Launch Type           ║
+║   SUPPORTED: ECS EC2 Launch Type             ║
 ║     • You manage EC2 instances               ║
 ║     • Full control over infrastructure       ║
 ║     • Install ECS agent                      ║
 ║                                              ║
-║  ❌ NOT SUPPORTED: ECS Fargate               ║
+║   NOT SUPPORTED: ECS Fargate                 ║
 ║     • Requires AWS-managed infrastructure    ║
 ║     • Not available on customer premises     ║
 ║                                              ║
@@ -411,24 +411,24 @@ Difficulty: ⭐⭐
 ║  • < 10ms: Local Zones (metro)               ║
 ║  • < 20ms: Wavelength (5G edge)              ║
 ║                                              ║
-║  💡 Memory: "Outposts = On-premises,        ║
+║   Memory: "Outposts = On-premises,          ║
 ║            EC2 Only (no Fargate)"           ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 5, Question 8
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-### Card 9B: ECS Network Modes 🌐
+### Card 9B: ECS Network Modes
 ```
 ┌────────────────────────────────────────────┐
-│  🌐 ECS NETWORK MODES                      │
+│   ECS NETWORK MODES                        │
 ├────────────────────────────────────────────┤
 │                                            │
-│  AWSVPC MODE: ✅ (Recommended)              │
+│ AWSVPC MODE:  (Recommended)                 │
 │  • Each task gets own ENI                  │
 │  • Task-level security groups              │
 │  • Task-level network isolation            │
@@ -449,30 +449,30 @@ Difficulty: ⭐⭐⭐
 │  • Use: High performance, specific needs   │
 │                                            │
 │  KEY DISTINCTION:                          │
-│  • Task-level SG? → awsvpc mode ✅         │
+│ • Task-level SG? → awsvpc mode             │
 │  • Dynamic ports + ALB? → bridge or awsvpc │
-│  • Classic LB? → ❌ No dynamic port mapping│
+│ • Classic LB? →  No dynamic port mapping   │
 │                                            │
 │  Load Balancer Support:                    │
-│  • ALB: All modes ✅                       │
-│  • NLB: All modes ✅                       │
-│  • Classic LB: Static ports only ❌        │
+│ • ALB: All modes                           │
+│ • NLB: All modes                           │
+│ • Classic LB: Static ports only            │
 │                                            │
-│  💡 Memory: "awsvpc = AWS VPC per task =  │
+│   Memory: "awsvpc = AWS VPC per task =    │
 │            Task-level security groups"     │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, Question 4
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-### Card 10: Auto Scaling Custom Metrics 📈
+### Card 10: Auto Scaling Custom Metrics
 ```
 ┌────────────────────────────────────────────┐
-│  📈 AUTO SCALING WITH CUSTOM METRICS       │
+│   AUTO SCALING WITH CUSTOM METRICS         │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Problem: Scale based on memory usage      │
@@ -495,21 +495,21 @@ Difficulty: ⭐⭐⭐
 │  • 10 instances = 10 separate metrics      │
 │  • Must manually aggregate in dashboard    │
 │                                            │
-│  💡 Memory: "AD-ASG = Aggregation          │
+│   Memory: "AD-ASG = Aggregation            │
 │            Dimensions for ASG"             │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, Question 2
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-### Card 10B: Auto Scaling Lifecycle States 🔄
+### Card 10B: Auto Scaling Lifecycle States
 ```
 ┌────────────────────────────────────────────┐
-│  🔄 AUTO SCALING LIFECYCLE STATES          │
+│   AUTO SCALING LIFECYCLE STATES            │
 ├────────────────────────────────────────────┤
 │                                            │
 │  State Transitions:                        │
@@ -547,32 +547,32 @@ Difficulty: ⭐⭐⭐
 │  • Standby: Temporary, returns to service  │
 │  • Terminate: Instance deleted             │
 │                                            │
-│  💡 Memory: "Standby = Stop traffic, but  │
+│   Memory: "Standby = Stop traffic, but    │
 │            Stay in ASG"                    │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, Question 3
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-### Card 10C: EC2 IP Addressing Behavior 🌐
+### Card 10C: EC2 IP Addressing Behavior
 ```
 ┌────────────────────────────────────────────┐
-│  🌐 EC2 IP ADDRESSING BEHAVIOR             │
+│   EC2 IP ADDRESSING BEHAVIOR               │
 ├────────────────────────────────────────────┤
 │                                            │
 │  PUBLIC IPv4 (Ephemeral):                  │
-│  • Stop/Start: IP CHANGES ⚠️               │
-│  • Reboot: IP PERSISTS ✅                  │
+│ • Stop/Start: IP CHANGES                  │
+│ • Reboot: IP PERSISTS                      │
 │  • Terminate: IP RELEASED                  │
 │  • FREE when instance running              │
 │                                            │
 │  ELASTIC IP (Static):                      │
 │  • Assigned to account, not instance       │
-│  • Persists across stop/start ✅           │
+│ • Persists across stop/start               │
 │  • Charged when NOT attached               │
 │  • Charged when attached to stopped EC2    │
 │  • FREE when attached to running instance  │
@@ -593,32 +593,32 @@ Difficulty: ⭐⭐
 │  • Don't care about IP change? → Public IP │
 │  • Internal only? → Private IP             │
 │                                            │
-│  💡 Memory: "Ephemeral Public = Every Stop│
+│   Memory: "Ephemeral Public = Every Stop  │
 │            Produces New IP"                │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, EC2 Scenarios
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 🔐 SECURITY & ACCESS CARDS
+## SECURITY & ACCESS CARDS
 
-### Card 11: Cross-Account SQS Access 🔑
+### Card 11: Cross-Account SQS Access
 ```
 ┌────────────────────────────────────────────┐
-│  🔑 CROSS-ACCOUNT SQS ACCESS              │
+│   CROSS-ACCOUNT SQS ACCESS                │
 ├────────────────────────────────────────────┤
 │                                            │
-│  ✅ SIMPLE: Resource-Based Policy          │
+│   SIMPLE: Resource-Based Policy            │
 │     • Add queue policy to SQS              │
 │     • Allow Principal: Account B           │
 │     • 1 step, no AssumeRole needed         │
 │     • FREE                                 │
 │                                            │
-│  ⚠️ COMPLEX: IAM Role                      │
+│   COMPLEX: IAM Role                       │
 │     • Create role in Account A             │
 │     • Trust policy for Account B           │
 │     • AssumeRole from Account B            │
@@ -635,23 +635,23 @@ Difficulty: ⭐⭐
 │  Services with Resource Policies:          │
 │  • SQS, SNS, S3, Lambda, KMS               │
 │                                            │
-│  💡 Memory: "RBP = Really Better (for)    │
+│   Memory: "RBP = Really Better (for)      │
 │            Policies (on SQS/SNS/S3)"       │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 1, Question 31
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 🏗️ ARCHITECTURE CARDS
+## ARCHITECTURE CARDS
 
-### Card 12: CloudFormation Cross-Stack 🔗
+### Card 12: CloudFormation Cross-Stack
 ```
 ╔══════════════════════════════════════════════╗
-║  🔗 CLOUDFORMATION CROSS-STACK               ║
+║   CLOUDFORMATION CROSS-STACK                 ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  Stack 1 (Network):                          ║
@@ -672,33 +672,33 @@ Difficulty: ⭐⭐
 ║  • Can't delete exporting stack while        ║
 ║    others import                             ║
 ║                                              ║
-║  ❌ NOT for Cross-Stack:                     ║
+║   NOT for Cross-Stack:                       ║
 ║  • Parameters = Manual input at creation     ║
 ║  • Mappings = Static lookup tables           ║
 ║                                              ║
-║  💡 Memory: "OIE = Output, Import, Export"  ║
+║   Memory: "OIE = Output, Import, Export"    ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 1, Q25 & Q41
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 13: Route 53 Failover 🔄
+### Card 13: Route 53 Failover
 ```
 ┌────────────────────────────────────────────┐
-│  🔄 ROUTE 53 FAILOVER                      │
+│   ROUTE 53 FAILOVER                        │
 ├────────────────────────────────────────────┤
 │                                            │
 │  For ALB/CloudFront/API Gateway:           │
-│  ✅ Use "Evaluate Target Health"           │
+│   Use "Evaluate Target Health"             │
 │     • FREE                                 │
 │     • Uses built-in health checks          │
 │     • No separate health check needed      │
 │     • Simplest configuration               │
 │                                            │
 │  For external/non-AWS endpoints:           │
-│  ⚠️ Use separate Route 53 Health Check     │
+│   Use separate Route 53 Health Check      │
 │     • $0.50/month per check                │
 │     • Monitor IP or domain                 │
 │     • Custom health check settings         │
@@ -710,23 +710,23 @@ Difficulty: ⭐⭐⭐
 │                                            │
 │  Failover time: < 1 minute                 │
 │                                            │
-│  💡 Memory: "ETH = Easy, Trust the        │
+│   Memory: "ETH = Easy, Trust the          │
 │            Health (of AWS resources)"      │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 1, Question 8
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 💰 COST OPTIMIZATION CARDS
+## COST OPTIMIZATION CARDS
 
-### Card 14: Cost Comparison Quick Reference 💵
+### Card 14: Cost Comparison Quick Reference
 ```
 ┌────────────────────────────────────────────┐
-│  💵 COST QUICK REFERENCE                   │
+│   COST QUICK REFERENCE                     │
 ├────────────────────────────────────────────┤
 │                                            │
 │  VPC Endpoints:                            │
@@ -759,12 +759,12 @@ Multiple Tests
 
 ---
 
-## 🎯 EXAM TRAP CARDS
+## EXAM TRAP CARDS
 
-### Card 15: Common Exam Traps ⚠️
+### Card 15: Common Exam Traps
 ```
 ╔══════════════════════════════════════════════╗
-║  ⚠️ COMMON EXAM TRAPS                        ║
+║   COMMON EXAM TRAPS                         ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  Trap 1: "Closest region to users"          ║
@@ -796,10 +796,10 @@ Multiple Tests
 All Tests - Study These!
 ```
 
-### Card 16: Keyword Recognition 🔍
+### Card 16: Keyword Recognition
 ```
 ┌────────────────────────────────────────────┐
-│  🔍 EXAM KEYWORD DECODER                   │
+│   EXAM KEYWORD DECODER                     │
 ├────────────────────────────────────────────┤
 │                                            │
 │  "Frequently accessed" → S3 Standard       │
@@ -834,12 +834,12 @@ Keyword Pattern Recognition
 
 ---
 
-## 🆕 PRACTICE TEST 6 & 7 CRITICAL CARDS
+## PRACTICE TEST 6 & 7 CRITICAL CARDS
 
-### Card 54: VPC Subnet CIDR Calculations 🔢
+### Card 54: VPC Subnet CIDR Calculations
 ```
 ╔══════════════════════════════════════════════╗
-║  🔢 VPC SUBNET CIDR SIZING                   ║
+║   VPC SUBNET CIDR SIZING                     ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  Formula: Usable IPs = 2^(32-n) - 5          ║
@@ -852,28 +852,28 @@ Keyword Pattern Recognition
 ║  • Broadcast (x.x.x.255)                     ║
 ║                                              ║
 ║  Quick Reference:                            ║
-║  /28 → 16 total - 5 = 11 usable ❌           ║
-║  /27 → 32 total - 5 = 27 usable ✅           ║
+║ /28 → 16 total - 5 = 11 usable               ║
+║ /27 → 32 total - 5 = 27 usable               ║
 ║  /26 → 64 total - 5 = 59 usable              ║
 ║  /25 → 128 total - 5 = 123 usable            ║
 ║  /24 → 256 total - 5 = 251 usable            ║
 ║                                              ║
 ║  Example: Need 20 instances                  ║
-║  • /28 = 11 IPs (insufficient) ❌            ║
-║  • /27 = 27 IPs (sufficient) ✅              ║
+║ • /28 = 11 IPs (insufficient)                ║
+║ • /27 = 27 IPs (sufficient)                  ║
 ║                                              ║
-║  💡 Memory: "Always subtract 5 from total"  ║
+║   Memory: "Always subtract 5 from total"    ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 6, Question 25
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 55: DynamoDB Streams for Change Data Capture 📊
+### Card 55: DynamoDB Streams for Change Data Capture
 ```
 ┌────────────────────────────────────────────┐
-│  📊 DYNAMODB STREAMS (CDC)                 │
+│   DYNAMODB STREAMS (CDC)                   │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Purpose: Capture item-level changes       │
@@ -901,22 +901,22 @@ Difficulty: ⭐⭐
 │  • Cross-region replication                │
 │  • Material views                          │
 │                                            │
-│  ❌ WRONG: Duplicate table for tracking    │
-│  ✅ RIGHT: Enable DynamoDB Streams         │
+│   WRONG: Duplicate table for tracking      │
+│   RIGHT: Enable DynamoDB Streams           │
 │                                            │
-│  💡 Memory: "Streams = 24hr CDC, Lambda   │
+│   Memory: "Streams = 24hr CDC, Lambda     │
 │            trigger, Global Tables"         │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 6, Question 35
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 56: RDS Parameter Groups 🔧
+### Card 56: RDS Parameter Groups
 ```
 ╔══════════════════════════════════════════════╗
-║  🔧 RDS PARAMETER GROUPS                     ║
+║   RDS PARAMETER GROUPS                       ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  DEFAULT PARAMETER GROUP:                    ║
@@ -940,29 +940,29 @@ Difficulty: ⭐⭐
 ║  • character_set_server                      ║
 ║  • innodb_buffer_pool_size                   ║
 ║                                              ║
-║  ❌ TRAP: "Edit default parameter group"    ║
-║  ✅ FIX: Create custom parameter group       ║
+║   TRAP: "Edit default parameter group"      ║
+║   FIX: Create custom parameter group         ║
 ║                                              ║
-║  💡 Memory: "Default = Don't edit, Custom  ║
+║   Memory: "Default = Don't edit, Custom    ║
 ║            = Create to modify"               ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 6, Question 36
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 57: S3 Gateway Endpoint Non-Transitive Routing 🚫
+### Card 57: S3 Gateway Endpoint Non-Transitive Routing
 ```
 ┌────────────────────────────────────────────┐
-│  🚫 VPC ENDPOINTS NOT TRANSITIVE           │
+│   VPC ENDPOINTS NOT TRANSITIVE             │
 ├────────────────────────────────────────────┤
 │                                            │
 │  S3 Gateway Endpoint Limitation:           │
 │                                            │
 │  VPC-A (has S3 endpoint)                   │
 │    ↓ VPC Peering                           │
-│  VPC-B (no S3 endpoint) ❌ Cannot use A's  │
+│ VPC-B (no S3 endpoint)  Cannot use A's     │
 │                                            │
 │  Solution: Create S3 endpoint in EACH VPC  │
 │                                            │
@@ -981,23 +981,23 @@ Difficulty: ⭐⭐
 │    via peering/VPN                         │
 │  • Gateway = Route table only, no transit  │
 │                                            │
-│  ❌ TRAP: "Create S3 endpoint in VPC-A,   │
+│   TRAP: "Create S3 endpoint in VPC-A,     │
 │           peer to VPC-B"                   │
-│  ✅ FIX: Create S3 endpoint in each VPC    │
+│   FIX: Create S3 endpoint in each VPC      │
 │                                            │
-│  💡 Memory: "Gateway endpoints = Per VPC, │
+│   Memory: "Gateway endpoints = Per VPC,   │
 │            NOT transitive"                 │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 6, Question 11
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 58: KMS Multi-Region Keys 🔐
+### Card 58: KMS Multi-Region Keys
 ```
 ╔══════════════════════════════════════════════╗
-║  🔐 KMS MULTI-REGION KEYS                    ║
+║   KMS MULTI-REGION KEYS                      ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  SINGLE-REGION KEYS (Default):               ║
@@ -1009,7 +1009,7 @@ Difficulty: ⭐⭐⭐
 ║  MULTI-REGION KEYS:                          ║
 ║  • Primary key in one region                 ║
 ║  • Replica keys in other regions             ║
-║  • Same key ID across all regions ✅         ║
+║ • Same key ID across all regions             ║
 ║  • Same key material                         ║
 ║                                              ║
 ║  Key Benefits:                               ║
@@ -1031,24 +1031,24 @@ Difficulty: ⭐⭐⭐
 ║  • S3 Cross-Region Replication with KMS      ║
 ║  • Multi-region disaster recovery            ║
 ║                                              ║
-║  ❌ TRAP: "KMS keys are global"             ║
-║  ✅ REALITY: Keys are regional by default,  ║
+║   TRAP: "KMS keys are global"               ║
+║   REALITY: Keys are regional by default,    ║
 ║             must explicitly create           ║
 ║             multi-region keys                ║
 ║                                              ║
-║  💡 Memory: "MRK = Multi-Region Key =      ║
+║   Memory: "MRK = Multi-Region Key =        ║
 ║            Same key ID, different regions"   ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 7, Question 31
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 59: AWS Directory Service Options 👥
+### Card 59: AWS Directory Service Options
 ```
 ┌────────────────────────────────────────────┐
-│  👥 AWS DIRECTORY SERVICE TYPES            │
+│   AWS DIRECTORY SERVICE TYPES              │
 ├────────────────────────────────────────────┤
 │                                            │
 │  SIMPLE AD:                                │
@@ -1082,22 +1082,22 @@ Difficulty: ⭐⭐⭐
 │  • Enterprise features → Managed AD        │
 │  • Trust relationships → Managed AD        │
 │                                            │
-│  ❌ TRAP: "Use Simple AD for 10,000 users"│
-│  ✅ FIX: Use AWS Managed Microsoft AD      │
+│   TRAP: "Use Simple AD for 10,000 users"  │
+│   FIX: Use AWS Managed Microsoft AD        │
 │                                            │
-│  💡 Memory: "Simple (<500), Connector     │
+│   Memory: "Simple (<500), Connector       │
 │            (proxy), Managed (enterprise)"  │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 7, Question 27
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 60: NAT Gateway Types and Cost Optimization 💰
+### Card 60: NAT Gateway Types and Cost Optimization
 ```
 ╔══════════════════════════════════════════════╗
-║  💰 NAT GATEWAY TYPES & COST                 ║
+║   NAT GATEWAY TYPES & COST                   ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  PUBLIC NAT GATEWAY:                         ║
@@ -1119,9 +1119,9 @@ Difficulty: ⭐⭐⭐
 ║  • Cross-AZ data transfer: $0.01/GB          ║
 ║                                              ║
 ║  Cost Optimization:                          ║
-║  ❌ Single NAT for multiple AZs              ║
+║   Single NAT for multiple AZs                ║
 ║     → Cross-AZ charges add up                ║
-║  ✅ One NAT Gateway per AZ                   ║
+║   One NAT Gateway per AZ                     ║
 ║     → Eliminates cross-AZ transfer           ║
 ║                                              ║
 ║  Architecture:                               ║
@@ -1130,31 +1130,31 @@ Difficulty: ⭐⭐⭐
 ║    NAT Gateway                               ║
 ║  • Saves cross-AZ data transfer costs        ║
 ║                                              ║
-║  💡 Memory: "Public NAT = Internet, Private │
+║   Memory: "Public NAT = Internet, Private   │
 ║            NAT = Internal, Deploy per AZ"    ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 7, Question 16
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 61: Direct Connect BGP Community Tags 🏷️
+### Card 61: Direct Connect BGP Community Tags
 ```
 ┌────────────────────────────────────────────┐
-│  🏷️ DIRECT CONNECT BGP COMMUNITY TAGS     │
+│   DIRECT CONNECT BGP COMMUNITY TAGS       │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Public Virtual Interface (VIF):           │
 │                                            │
 │  BGP Community Tag Scopes:                 │
-│  • 7224:9100 → Local region only ✅        │
+│ • 7224:9100 → Local region only            │
 │  • 7224:9200 → All regions in continent    │
 │  • 7224:9300 → Global (all regions)        │
 │                                            │
 │  Local Preference (NOT on Public VIF):     │
 │  • Only for Private/Transit VIF            │
-│  • Cannot use on Public VIF ❌             │
+│ • Cannot use on Public VIF                 │
 │                                            │
 │  Use Case Example:                         │
 │  Problem: Route traffic to local region,   │
@@ -1167,23 +1167,23 @@ Difficulty: ⭐⭐⭐
 │  • Private VIF: VPC resources via VGW      │
 │  • Transit VIF: Transit Gateway            │
 │                                            │
-│  ❌ TRAP: "Use Local Preference on public │
+│   TRAP: "Use Local Preference on public   │
 │           VIF"                             │
-│  ✅ FIX: Use BGP community tag 7224:9100   │
+│   FIX: Use BGP community tag 7224:9100     │
 │                                            │
-│  💡 Memory: "Public VIF = BGP tags        │
+│   Memory: "Public VIF = BGP tags          │
 │            (9100/9200/9300), NOT LP"       │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 7, Question 1
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 62: Storage Gateway Types Comparison 💾
+### Card 62: Storage Gateway Types Comparison
 ```
 ╔══════════════════════════════════════════════╗
-║  💾 STORAGE GATEWAY TYPES                    ║
+║   STORAGE GATEWAY TYPES                      ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  S3 FILE GATEWAY:                            ║
@@ -1220,19 +1220,19 @@ Difficulty: ⭐⭐⭐
 ║  • Block storage → Volume Gateway            ║
 ║  • Tape backup → Tape Gateway                ║
 ║                                              ║
-║  💡 Memory: "File (NFS/SMB), FSx (Windows), │
+║   Memory: "File (NFS/SMB), FSx (Windows),   │
 ║            Volume (iSCSI), Tape (VTL)"       ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 7, Question 56
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 63: CloudFront Signed URLs vs Signed Cookies 🍪
+### Card 63: CloudFront Signed URLs vs Signed Cookies
 ```
 ┌────────────────────────────────────────────┐
-│  🍪 CLOUDFRONT ACCESS CONTROL              │
+│   CLOUDFRONT ACCESS CONTROL                │
 ├────────────────────────────────────────────┤
 │                                            │
 │  SIGNED URLs:                              │
@@ -1266,57 +1266,57 @@ Difficulty: ⭐⭐
 │  3. Generate signed URL or set cookie      │
 │  4. Include expiration time                │
 │                                            │
-│  ❌ TRAP: "Use signed URLs for website    │
+│   TRAP: "Use signed URLs for website      │
 │           with multiple protected files"   │
-│  ✅ FIX: Use signed cookies                │
+│   FIX: Use signed cookies                  │
 │                                            │
-│  💡 Memory: "URL = One file, Cookie =     │
+│   Memory: "URL = One file, Cookie =       │
 │            Many files"                     │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 7, Question 48
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 🎴 FLASHCARD STUDY SCHEDULE
+## FLASHCARD STUDY SCHEDULE
 
 ### Day 1-2: Critical Cards (Must Know!)
-- ✅ CloudFront Certificate (Card 1)
-- ✅ VPC Endpoints (Card 2)
-- ✅ Transit Gateway ECMP (Card 3)
-- ✅ CloudWatch Metrics (Card 4)
+- CloudFront Certificate (Card 1)
+- VPC Endpoints (Card 2)
+- Transit Gateway ECMP (Card 3)
+- CloudWatch Metrics (Card 4)
 
 ### Day 3-4: Storage Cards
-- ✅ S3 Storage Classes (Card 5)
-- ✅ S3 Glacier Restoration (Card 6)
-- ✅ Redshift Snapshots (Card 7)
+- S3 Storage Classes (Card 5)
+- S3 Glacier Restoration (Card 6)
+- Redshift Snapshots (Card 7)
 
 ### Day 5-6: Compute Cards
-- ✅ ECS Task Definition (Card 8)
-- ✅ ECS on Outposts (Card 9)
-- ✅ Auto Scaling Custom Metrics (Card 10)
+- ECS Task Definition (Card 8)
+- ECS on Outposts (Card 9)
+- Auto Scaling Custom Metrics (Card 10)
 
 ### Day 7-8: Security & Architecture
-- ✅ Cross-Account SQS (Card 11)
-- ✅ CloudFormation Cross-Stack (Card 12)
-- ✅ Route 53 Failover (Card 13)
+- Cross-Account SQS (Card 11)
+- CloudFormation Cross-Stack (Card 12)
+- Route 53 Failover (Card 13)
 
 ### Day 9-10: Cost & Traps
-- ✅ Cost Comparison (Card 14)
-- ✅ Common Traps (Card 15)
-- ✅ Keyword Recognition (Card 16)
+- Cost Comparison (Card 14)
+- Common Traps (Card 15)
+- Keyword Recognition (Card 16)
 
 ### Day 11-12: Full Review
-- ✅ Review all cards randomly
-- ✅ Focus on cards you struggled with
-- ✅ Quiz yourself with keywords
+- Review all cards randomly
+- Focus on cards you struggled with
+- Quiz yourself with keywords
 
 ---
 
-## 🎯 How to Use These Cards
+## How to Use These Cards
 
 ### Method 1: Rapid Review (15 minutes)
 1. Read front of card (problem/question)
@@ -1348,12 +1348,12 @@ Difficulty: ⭐⭐
 
 ---
 
-## 🗄️ ADDITIONAL STORAGE CARDS
+## ADDITIONAL STORAGE CARDS
 
-### Card 17: S3 Versioning & MFA Delete 🔐
+### Card 17: S3 Versioning & MFA Delete
 ```
 ╔══════════════════════════════════════════════╗
-║  🔐 S3 VERSIONING & MFA DELETE               ║
+║   S3 VERSIONING & MFA DELETE                 ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  VERSIONING:                                 ║
@@ -1374,31 +1374,31 @@ Difficulty: ⭐⭐
 ║  2. Delete the delete marker                 ║
 ║  3. Object becomes accessible again          ║
 ║                                              ║
-║  💡 Memory: "VMS = Versioning Means         ║
+║   Memory: "VMS = Versioning Means           ║
 ║            Suspend-only (never disable)"     ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 1, Q5 & Q58
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 18: S3 Object Lock Modes 🔒
+### Card 18: S3 Object Lock Modes
 ```
 ┌────────────────────────────────────────────┐
-│  🔒 S3 OBJECT LOCK MODES                   │
+│   S3 OBJECT LOCK MODES                     │
 ├────────────────────────────────────────────┤
 │                                            │
 │  COMPLIANCE MODE:                          │
-│  ✅ WORM (Write Once Read Many)            │
-│  ❌ Cannot delete (even root)              │
-│  ❌ Cannot shorten retention               │
-│  ✅ Use: Regulatory (SEC, FINRA)           │
+│   WORM (Write Once Read Many)              │
+│   Cannot delete (even root)                │
+│   Cannot shorten retention                 │
+│   Use: Regulatory (SEC, FINRA)             │
 │                                            │
 │  GOVERNANCE MODE:                          │
-│  ⚠️ Can delete with permission              │
-│  ⚠️ Need s3:BypassGovernanceRetention      │
-│  ✅ Use: Internal policies                 │
+│   Can delete with permission               │
+│   Need s3:BypassGovernanceRetention       │
+│   Use: Internal policies                   │
 │                                            │
 │  LEGAL HOLD:                               │
 │  • Indefinite protection                   │
@@ -1409,20 +1409,20 @@ Difficulty: ⭐⭐
 │  Requirement:                              │
 │  • Versioning MUST be enabled              │
 │                                            │
-│  💡 Memory: "CGV = Compliance (root       │
+│   Memory: "CGV = Compliance (root         │
 │            can't), Governance (with perm), │
 │            Versioning (required)"          │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, Question 6
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 19: S3 Encryption Options 🔐
+### Card 19: S3 Encryption Options
 ```
 ╔══════════════════════════════════════════════╗
-║  🔐 S3 ENCRYPTION METHODS                    ║
+║   S3 ENCRYPTION METHODS                      ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  SSE-S3 (Server-Side S3):                    ║
@@ -1448,19 +1448,19 @@ Difficulty: ⭐⭐⭐
 ║  • Encrypt BEFORE upload                     ║
 ║  • You manage everything                     ║
 ║                                              ║
-║  💡 Memory: "SKC = S3 (simple), KMS         ║
+║   Memory: "SKC = S3 (simple), KMS           ║
 ║            (audit), Customer (you manage)"   ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 1, Q10
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 20: S3 Performance Optimization 🚀
+### Card 20: S3 Performance Optimization
 ```
 ┌────────────────────────────────────────────┐
-│  🚀 S3 PERFORMANCE PATTERNS                │
+│   S3 PERFORMANCE PATTERNS                  │
 ├────────────────────────────────────────────┤
 │                                            │
 │  MULTIPART UPLOAD:                         │
@@ -1487,7 +1487,7 @@ Difficulty: ⭐⭐
 │  • 5,500 GET/s per prefix                  │
 │  • Spread across prefixes for scale        │
 │                                            │
-│  💡 Memory: "MBTP = Multipart (big files),│
+│   Memory: "MBTP = Multipart (big files),  │
 │            Byte-range (downloads),         │
 │            Transfer Accel (distances),     │
 │            Prefix (scaling)"               │
@@ -1495,13 +1495,13 @@ Difficulty: ⭐⭐
 └────────────────────────────────────────────┘
 
 Test: Practice Test 2, Q5 & Test 5, Q19
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 21: S3 Requester Pays 💰
+### Card 21: S3 Requester Pays
 ```
 ╔══════════════════════════════════════════════╗
-║  💰 S3 REQUESTER PAYS                        ║
+║   S3 REQUESTER PAYS                          ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  Cost Split:                                 ║
@@ -1509,8 +1509,8 @@ Difficulty: ⭐⭐⭐
 ║  • Requester: Transfer + request costs       ║
 ║                                              ║
 ║  Requirements:                               ║
-║  ❌ Anonymous access NOT allowed             ║
-║  ✅ Must be authenticated AWS account        ║
+║   Anonymous access NOT allowed               ║
+║   Must be authenticated AWS account          ║
 ║                                              ║
 ║  Use Cases:                                  ║
 ║  • Share large datasets                      ║
@@ -1528,23 +1528,23 @@ Difficulty: ⭐⭐⭐
 ║  • Each pays their own transfer              ║
 ║  • Owner only pays storage                   ║
 ║                                              ║
-║  💡 Memory: "RP = Requester Pays (for      ║
+║   Memory: "RP = Requester Pays (for        ║
 ║            transfer), Not Anonymous"         ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 4, Question 10
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 💾 DATABASE CARDS
+## DATABASE CARDS
 
-### Card 22: DynamoDB Indexes (GSI vs LSI) 📇
+### Card 22: DynamoDB Indexes (GSI vs LSI)
 ```
 ┌────────────────────────────────────────────┐
-│  📇 DYNAMODB INDEXES                       │
+│   DYNAMODB INDEXES                         │
 ├────────────────────────────────────────────┤
 │                                            │
 │  LOCAL SECONDARY INDEX (LSI):              │
@@ -1571,7 +1571,7 @@ Difficulty: ⭐⭐
 │  • Item size: Max 400 KB                   │
 │  • Projection: ALL, KEYS_ONLY, INCLUDE     │
 │                                            │
-│  💡 Memory: "LSI = Local (same partition), │
+│   Memory: "LSI = Local (same partition),   │
 │            5 max, Start only"              │
 │            "GSI = Global (diff keys), 20   │
 │            max, anytime"                   │
@@ -1579,13 +1579,13 @@ Difficulty: ⭐⭐
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, Multiple Questions
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 23: DynamoDB Streams & DAX 📊
+### Card 23: DynamoDB Streams & DAX
 ```
 ╔══════════════════════════════════════════════╗
-║  📊 DYNAMODB STREAMS & DAX                   ║
+║   DYNAMODB STREAMS & DAX                     ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  DYNAMODB STREAMS:                           ║
@@ -1612,20 +1612,20 @@ Difficulty: ⭐⭐⭐
 ║  • Multi-AZ (3 nodes minimum)                ║
 ║  • Eventually consistent reads only          ║
 ║                                              ║
-║  💡 Memory: "DAX = DynamoDB Accelerator    ║
+║   Memory: "DAX = DynamoDB Accelerator      ║
 ║            (microseconds)"                   ║
 ║            "Streams = 24h, Triggers Lambda"  ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 2, Q31 & Multiple
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 24: RDS Multi-AZ vs Read Replicas 🗄️
+### Card 24: RDS Multi-AZ vs Read Replicas
 ```
 ┌────────────────────────────────────────────┐
-│  🗄️ RDS MULTI-AZ VS READ REPLICAS         │
+│   RDS MULTI-AZ VS READ REPLICAS           │
 ├────────────────────────────────────────────┤
 │                                            │
 │  MULTI-AZ (High Availability):             │
@@ -1653,7 +1653,7 @@ Difficulty: ⭐⭐
 │  Can Combine:                              │
 │  • Multi-AZ primary + read replicas        │
 │                                            │
-│  💡 Memory: "MAZ = Must have Automatic    │
+│   Memory: "MAZ = Must have Automatic      │
 │            (failover), Zero reads"         │
 │            "RR = Read Replicas (for        │
 │            reads), 15 max"                 │
@@ -1661,13 +1661,13 @@ Difficulty: ⭐⭐
 └────────────────────────────────────────────┘
 
 Test: Practice Test 1, Q32 & Multiple
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 25: Aurora Global Database 🌍
+### Card 25: Aurora Global Database
 ```
 ╔══════════════════════════════════════════════╗
-║  🌍 AURORA GLOBAL DATABASE                   ║
+║   AURORA GLOBAL DATABASE                     ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  Architecture:                               ║
@@ -1698,19 +1698,19 @@ Difficulty: ⭐⭐⭐
 ║  • Global DB = Region-level DR               ║
 ║  • Read Replicas = Instance-level scaling    ║
 ║                                              ║
-║  💡 Memory: "AGD = Aurora Goes (in) <1sec, │
+║   Memory: "AGD = Aurora Goes (in) <1sec,   │
 ║            Disaster recovery <1min"          ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 4, Question 2
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 26: RDS Blue/Green Deployments 🔵🟢
+### Card 26: RDS Blue/Green Deployments
 ```
 ┌────────────────────────────────────────────┐
-│  🔵🟢 RDS BLUE/GREEN DEPLOYMENTS           │
+│   RDS BLUE/GREEN DEPLOYMENTS               │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Purpose:                                  │
@@ -1743,23 +1743,23 @@ Difficulty: ⭐⭐⭐
 │  • Schema changes                          │
 │  • Parameter changes                       │
 │                                            │
-│  💡 Memory: "BG = Blue (current), Green   │
+│   Memory: "BG = Blue (current), Green     │
 │            (test), 1-min (switchover)"     │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 4, Question 60
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## ⚡ COMPUTE & SERVERLESS CARDS
+## COMPUTE & SERVERLESS CARDS
 
-### Card 27: Lambda Limits & Configuration ⚡
+### Card 27: Lambda Limits & Configuration
 ```
 ╔══════════════════════════════════════════════╗
-║  ⚡ LAMBDA LIMITS & CONFIGURATION            ║
+║   LAMBDA LIMITS & CONFIGURATION              ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  LIMITS:                                     ║
@@ -1787,19 +1787,19 @@ Difficulty: ⭐⭐
 ║  • $0.0000166667 per GB-second               ║
 ║  • Free: 1M requests + 400K GB-sec/month     ║
 ║                                              ║
-║  💡 Memory: "Lambda Limits = 15min max,    ║
+║   Memory: "Lambda Limits = 15min max,      ║
 ║            10GB memory, 10GB /tmp"           ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 3, Q48 & Test 5
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 28: Lambda Aliases & Versions 🏷️
+### Card 28: Lambda Aliases & Versions
 ```
 ┌────────────────────────────────────────────┐
-│  🏷️ LAMBDA VERSIONS & ALIASES              │
+│   LAMBDA VERSIONS & ALIASES                │
 ├────────────────────────────────────────────┤
 │                                            │
 │  VERSIONS:                                 │
@@ -1830,25 +1830,25 @@ Difficulty: ⭐⭐
 │  • Can trigger alias or version            │
 │  • Different configs per environment       │
 │                                            │
-│  💡 Memory: "VAT = Versions (immutable),  │
+│   Memory: "VAT = Versions (immutable),    │
 │            Aliases (pointers), Traffic     │
 │            (split)"                        │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 4, Question 30
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 29: ECS Dynamic Port Mapping 🐳
+### Card 29: ECS Dynamic Port Mapping
 ```
 ╔══════════════════════════════════════════════╗
-║  🐳 ECS DYNAMIC PORT MAPPING                 ║
+║   ECS DYNAMIC PORT MAPPING                   ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  Requirements:                               ║
-║  ✅ Application Load Balancer (ALB)          ║
-║  ✅ Network mode: awsvpc or bridge           ║
+║   Application Load Balancer (ALB)            ║
+║   Network mode: awsvpc or bridge             ║
 ║                                              ║
 ║  How it Works:                               ║
 ║  • Container uses ephemeral ports            ║
@@ -1862,7 +1862,7 @@ Difficulty: ⭐⭐⭐
 ║  • No port conflicts                         ║
 ║  • Flexible scaling                          ║
 ║                                              ║
-║  ❌ NOT Supported:                           ║
+║   NOT Supported:                             ║
 ║  • Network Load Balancer (NLB)               ║
 ║  • Classic Load Balancer (CLB)               ║
 ║  • Static port mapping only with NLB/CLB     ║
@@ -1871,19 +1871,19 @@ Difficulty: ⭐⭐⭐
 ║  • containerPort: 80 (app listens)           ║
 ║  • hostPort: 0 (dynamic allocation)          ║
 ║                                              ║
-║  💡 Memory: "DPM = Dynamic Port Mapping =  ║
+║   Memory: "DPM = Dynamic Port Mapping =    ║
 ║            ALB + awsvpc/bridge"              ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 1, Q12 & Test 5, Q27
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 30: Auto Scaling Custom Metrics 📊
+### Card 30: Auto Scaling Custom Metrics
 ```
 ┌────────────────────────────────────────────┐
-│  📊 AUTO SCALING WITH CUSTOM METRICS       │
+│   AUTO SCALING WITH CUSTOM METRICS         │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Problem: Scale on memory/disk/custom      │
@@ -1915,23 +1915,23 @@ Difficulty: ⭐⭐⭐
 │  • Prevents scaling thrashing              │
 │  • Allows stabilization                    │
 │                                            │
-│  💡 Memory: "ASG Memory = Agent + Custom  │
+│   Memory: "ASG Memory = Agent + Custom    │
 │            metric + aggregation_dimensions"│
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 4, Q7 & Test 5, Q2
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 🌐 NETWORKING & CONTENT DELIVERY CARDS
+## NETWORKING & CONTENT DELIVERY CARDS
 
-### Card 31: Global Accelerator vs CloudFront 🌍
+### Card 31: Global Accelerator vs CloudFront
 ```
 ╔══════════════════════════════════════════════╗
-║  🌍 GLOBAL ACCELERATOR VS CLOUDFRONT         ║
+║   GLOBAL ACCELERATOR VS CLOUDFRONT           ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  GLOBAL ACCELERATOR:                         ║
@@ -1957,20 +1957,20 @@ Difficulty: ⭐⭐⭐
 ║  • Caching needed? → CloudFront              ║
 ║  • HTTP/HTTPS only? → CloudFront             ║
 ║                                              ║
-║  💡 Memory: "GA = Gaming/Anycast (static   ║
+║   Memory: "GA = Gaming/Anycast (static     ║
 ║            IPs, TCP/UDP)"                    ║
 ║            "CF = Caching, HTTP only"         ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 5, Question 16
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 32: ALB Routing & Features 🔀
+### Card 32: ALB Routing & Features
 ```
 ┌────────────────────────────────────────────┐
-│  🔀 ALB ROUTING & FEATURES                 │
+│   ALB ROUTING & FEATURES                   │
 ├────────────────────────────────────────────┤
 │                                            │
 │  PATH-BASED ROUTING:                       │
@@ -2005,19 +2005,19 @@ Difficulty: ⭐⭐⭐
 │  • SSL/TLS termination                     │
 │  • Cross-zone load balancing               │
 │                                            │
-│  💡 Memory: "ALB = Advanced (L7), Paths,  │
+│   Memory: "ALB = Advanced (L7), Paths,    │
 │            Auth, Lambda"                   │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, Q13 & Q41
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 33: VPC Flow Logs 📝
+### Card 33: VPC Flow Logs
 ```
 ╔══════════════════════════════════════════════╗
-║  📝 VPC FLOW LOGS                            ║
+║   VPC FLOW LOGS                              ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  What's Captured:                            ║
@@ -2048,23 +2048,23 @@ Difficulty: ⭐⭐
 ║  • Network monitoring                        ║
 ║  • Compliance auditing                       ║
 ║                                              ║
-║  💡 Memory: "VFL = All traffic (accept +   ║
+║   Memory: "VFL = All traffic (accept +     ║
 ║            reject), 3 levels (VPC/sub/ENI)" ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 1, Q37 & Test 5, Q14
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 📊 MONITORING & ANALYTICS CARDS
+## MONITORING & ANALYTICS CARDS
 
-### Card 34: QuickSight for Analytics 📊
+### Card 34: QuickSight for Analytics
 ```
 ┌────────────────────────────────────────────┐
-│  📊 AMAZON QUICKSIGHT                      │
+│   AMAZON QUICKSIGHT                        │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Purpose:                                  │
@@ -2097,19 +2097,19 @@ Difficulty: ⭐⭐
 │  • vs Athena: Dashboards vs SQL queries    │
 │  • vs Redshift: BI layer vs data warehouse │
 │                                            │
-│  💡 Memory: "QS = Quick SPICE (in-memory  │
+│   Memory: "QS = Quick SPICE (in-memory    │
 │            BI), ML insights"               │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, Question 1
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 35: CloudWatch Cross-Account 🔍
+### Card 35: CloudWatch Cross-Account
 ```
 ╔══════════════════════════════════════════════╗
-║  🔍 CLOUDWATCH CROSS-ACCOUNT                 ║
+║   CLOUDWATCH CROSS-ACCOUNT                   ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  Feature: Cross-Account Observability        ║
@@ -2142,19 +2142,19 @@ Difficulty: ⭐⭐
 ║  • AWS Organizations                         ║
 ║  • Central monitoring team                   ║
 ║                                              ║
-║  💡 Memory: "CAO = Cross-Account            ║
+║   Memory: "CAO = Cross-Account              ║
 ║            Observability (central monitoring)"║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 5, Question 12
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 36: AWS Glue Data Catalog 🗂️
+### Card 36: AWS Glue Data Catalog
 ```
 ┌────────────────────────────────────────────┐
-│  🗂️ AWS GLUE DATA CATALOG & CRAWLERS      │
+│   AWS GLUE DATA CATALOG & CRAWLERS        │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Purpose:                                  │
@@ -2189,23 +2189,23 @@ Difficulty: ⭐⭐⭐
 │  • EMR Hive metastore                      │
 │  • Redshift Spectrum                       │
 │                                            │
-│  💡 Memory: "Glue Crawler = Auto-discover │
+│   Memory: "Glue Crawler = Auto-discover   │
 │            schema, Catalog (for Athena)"   │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, Question 31
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 🛡️ ADDITIONAL SECURITY CARDS
+## ADDITIONAL SECURITY CARDS
 
-### Card 37: AWS Security Hub 🛡️
+### Card 37: AWS Security Hub
 ```
 ╔══════════════════════════════════════════════╗
-║  🛡️ AWS SECURITY HUB                         ║
+║   AWS SECURITY HUB                           ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  Purpose:                                    ║
@@ -2240,19 +2240,19 @@ Difficulty: ⭐⭐
 ║  4. Review findings                          ║
 ║  5. Automate remediation                     ║
 ║                                              ║
-║  💡 Memory: "SH = Security Hub (central    ║
+║   Memory: "SH = Security Hub (central      ║
 ║            findings from Guard/Inspector)"   ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 5, Question 62
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 38: Systems Manager Session Manager 🖥️
+### Card 38: Systems Manager Session Manager
 ```
 ┌────────────────────────────────────────────┐
-│  🖥️ SYSTEMS MANAGER SESSION MANAGER       │
+│   SYSTEMS MANAGER SESSION MANAGER         │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Purpose:                                  │
@@ -2261,12 +2261,12 @@ Difficulty: ⭐⭐
 │  • No bastion hosts required               │
 │                                            │
 │  Benefits:                                 │
-│  ✅ IAM-based authentication               │
-│  ✅ Logged in CloudTrail                   │
-│  ✅ No inbound ports (no SG rules)         │
-│  ✅ No public IPs needed                   │
-│  ✅ Centralized audit trail                │
-│  ✅ Session recording                      │
+│   IAM-based authentication                 │
+│   Logged in CloudTrail                     │
+│   No inbound ports (no SG rules)           │
+│   No public IPs needed                     │
+│   Centralized audit trail                  │
+│   Session recording                        │
 │                                            │
 │  Requirements:                             │
 │  • SSM agent (pre-installed Amazon Linux)  │
@@ -2285,23 +2285,23 @@ Difficulty: ⭐⭐
 │  • Patch management                        │
 │  • Parameter Store integration             │
 │                                            │
-│  💡 Memory: "SSM = Secure Shell without   │
+│   Memory: "SSM = Secure Shell without     │
 │            SSH (no keys, no ports)"        │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 4, Question 47
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 🚀 DEPLOYMENT & MANAGEMENT CARDS
+## DEPLOYMENT & MANAGEMENT CARDS
 
-### Card 39: Elastic Beanstalk Deployment Policies 🎯
+### Card 39: Elastic Beanstalk Deployment Policies
 ```
 ╔══════════════════════════════════════════════╗
-║  🎯 ELASTIC BEANSTALK DEPLOYMENTS            ║
+║   ELASTIC BEANSTALK DEPLOYMENTS              ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  ALL AT ONCE:                                ║
@@ -2337,20 +2337,20 @@ Difficulty: ⭐⭐
 ║  • Instant rollback (swap back)              ║
 ║  • Cost: 2x resources (2 environments)       ║
 ║                                              ║
-║  💡 Memory: "ARI-B = All (fast/down),      ║
+║   Memory: "ARI-B = All (fast/down),        ║
 ║            Rolling (batches), Immutable     ║
 ║            (safe), Blue/Green (separate)"   ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 4, Question 17
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 40: EC2 Instance Metadata (IMDS) 🏷️
+### Card 40: EC2 Instance Metadata (IMDS)
 ```
 ┌────────────────────────────────────────────┐
-│  🏷️ EC2 INSTANCE METADATA SERVICE (IMDS)  │
+│   EC2 INSTANCE METADATA SERVICE (IMDS)    │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Endpoint:                                 │
@@ -2383,23 +2383,23 @@ Difficulty: ⭐⭐⭐
 │  • Discovery instance info                 │
 │  • Bootstrap configuration                 │
 │                                            │
-│  💡 Memory: "IMDS = 169.254.169.254,      │
+│   Memory: "IMDS = 169.254.169.254,        │
 │            v2 = token (more secure)"       │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, Question 15
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 📦 STORAGE FILE SYSTEMS CARDS
+## STORAGE FILE SYSTEMS CARDS
 
-### Card 41: FSx Family Comparison 📁
+### Card 41: FSx Family Comparison
 ```
 ╔══════════════════════════════════════════════╗
-║  📁 FSX FAMILY COMPARISON                    ║
+║   FSX FAMILY COMPARISON                      ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  FSx for WINDOWS:                            ║
@@ -2434,20 +2434,20 @@ Difficulty: ⭐⭐
 ║  • NetApp migration? → FSx ONTAP             ║
 ║  • Linux high-perf? → FSx OpenZFS            ║
 ║                                              ║
-║  💡 Memory: "WLNO = Windows (SMB), Lustre  ║
+║   Memory: "WLNO = Windows (SMB), Lustre    ║
 ║            (HPC), NetApp (migrate), OpenZFS  ║
 ║            (Linux)"                          ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 3, Q17-18 & Test 5
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 42: EFS Lifecycle Management 🗄️
+### Card 42: EFS Lifecycle Management
 ```
 ┌────────────────────────────────────────────┐
-│  🗄️ EFS LIFECYCLE MANAGEMENT               │
+│   EFS LIFECYCLE MANAGEMENT                 │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Purpose:                                  │
@@ -2482,23 +2482,23 @@ Difficulty: ⭐⭐⭐
 │  • Archival data                           │
 │  • Backups                                 │
 │                                            │
-│  💡 Memory: "EFS IA = 92% cheaper, auto   │
+│   Memory: "EFS IA = 92% cheaper, auto     │
 │            transition (7-90 days)"         │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 4, Question 24
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 💰 ADDITIONAL COST OPTIMIZATION CARDS
+## ADDITIONAL COST OPTIMIZATION CARDS
 
-### Card 43: EC2 Reserved Instance Scope 💵
+### Card 43: EC2 Reserved Instance Scope
 ```
 ╔══════════════════════════════════════════════╗
-║  💵 EC2 RESERVED INSTANCE SCOPE              ║
+║   EC2 RESERVED INSTANCE SCOPE                ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  REGIONAL RI:                                ║
@@ -2533,20 +2533,20 @@ Difficulty: ⭐⭐
 ║  • Uncertain workload? → Convertible RI      ║
 ║  • Stable workload? → Standard RI            ║
 ║                                              ║
-║  💡 Memory: "RZ-SC = Regional (flexible),  ║
+║   Memory: "RZ-SC = Regional (flexible),    ║
 ║            Zonal (capacity), Standard (72%), ║
 ║            Convertible (54%)"                ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 4, Question 43
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 44: Glacier Retrieval Tiers ❄️
+### Card 44: Glacier Retrieval Tiers
 ```
 ┌────────────────────────────────────────────┐
-│  ❄️ GLACIER RETRIEVAL OPTIONS              │
+│   GLACIER RETRIEVAL OPTIONS               │
 ├────────────────────────────────────────────┤
 │                                            │
 │  GLACIER FLEXIBLE RETRIEVAL:               │
@@ -2575,27 +2575,27 @@ Difficulty: ⭐⭐⭐
 │  • Bulk: $2.56                             │
 │                                            │
 │  Common Exam Trap:                         │
-│  ❌ "Cannot restore Glacier objects"       │
-│  ✅ Must restore first, THEN copy/use      │
+│   "Cannot restore Glacier objects"         │
+│   Must restore first, THEN copy/use        │
 │                                            │
-│  💡 Memory: "ESB = Expedited (1-5min/$$$), │
+│   Memory: "ESB = Expedited (1-5min/$$$),   │
 │            Standard (3-5h/$$), Bulk        │
 │            (5-12h/$)"                      │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 4, Question 25
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 📊 KINESIS & STREAMING CARDS
+## KINESIS & STREAMING CARDS
 
-### Card 45: Kinesis Family Comparison 🌊
+### Card 45: Kinesis Family Comparison
 ```
 ╔══════════════════════════════════════════════╗
-║  🌊 KINESIS FAMILY COMPARISON                ║
+║   KINESIS FAMILY COMPARISON                  ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  KINESIS DATA STREAMS:                       ║
@@ -2631,20 +2631,20 @@ Difficulty: ⭐⭐
 ║  • Output: Streams, Firehose, Lambda         ║
 ║  • Use: Real-time dashboards, metrics        ║
 ║                                              ║
-║  💡 Memory: "DSFA = Data Streams (real-    ║
+║   Memory: "DSFA = Data Streams (real-      ║
 ║            time, shards), Firehose (load),   ║
 ║            Analytics (SQL)"                  ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 1, Q52 & Test 5, Q23
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 46: Kinesis Data Streams Scaling 📈
+### Card 46: Kinesis Data Streams Scaling
 ```
 ┌────────────────────────────────────────────┐
-│  📈 KINESIS DATA STREAMS CAPACITY          │
+│   KINESIS DATA STREAMS CAPACITY            │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Per Shard Limits:                         │
@@ -2678,23 +2678,23 @@ Difficulty: ⭐⭐⭐
 │  • HTTP/2 push (lower latency)             │
 │  • Cost: $0.015/shard-hour + data out      │
 │                                            │
-│  💡 Memory: "1K records OR 1MB write,     │
+│   Memory: "1K records OR 1MB write,       │
 │            2MB read per shard"             │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Analytics Module, Multiple Questions
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 🌐 ROUTE 53 ADVANCED CARDS
+## ROUTE 53 ADVANCED CARDS
 
-### Card 47: Route 53 Routing Policies Deep Dive 🗺️
+### Card 47: Route 53 Routing Policies Deep Dive
 ```
 ╔══════════════════════════════════════════════╗
-║  🗺️ ROUTE 53 ROUTING POLICIES               ║
+║   ROUTE 53 ROUTING POLICIES                 ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  GEOLOCATION:                                ║
@@ -2737,19 +2737,19 @@ Difficulty: ⭐⭐⭐
 ║  • Client-side load balancing                ║
 ║  • Not a substitute for ELB                  ║
 ║                                              ║
-║  💡 Memory: "GL+GP = GeoLocation (region), │
+║   Memory: "GL+GP = GeoLocation (region),   │
 ║            GeoProximity (distance+bias)"     ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Practice Test 1, Q29 & Test 3, Q22
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 48: Route 53 Health Checks 🏥
+### Card 48: Route 53 Health Checks
 ```
 ┌────────────────────────────────────────────┐
-│  🏥 ROUTE 53 HEALTH CHECKS                 │
+│   ROUTE 53 HEALTH CHECKS                   │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Health Check Types:                       │
@@ -2788,24 +2788,24 @@ Difficulty: ⭐⭐⭐
 │  • Automated DNS failover                  │
 │  • Monitor private resources (via CW)      │
 │                                            │
-│  💡 Memory: "ECC = Endpoint (IP/domain),  │
+│   Memory: "ECC = Endpoint (IP/domain),    │
 │            Calculated (combine), CloudWatch│
 │            (metrics)"                      │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 2, Question 37
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 🛠️ INFRASTRUCTURE AS CODE CARDS
+## INFRASTRUCTURE AS CODE CARDS
 
-### Card 49: CloudFormation Core Concepts ☁️
+### Card 49: CloudFormation Core Concepts
 ```
 ╔══════════════════════════════════════════════╗
-║  ☁️ CLOUDFORMATION ESSENTIALS               ║
+║   CLOUDFORMATION ESSENTIALS                ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  Template Sections:                          ║
@@ -2847,23 +2847,23 @@ Difficulty: ⭐⭐
 ║  • Retain (keep resource)                    ║
 ║  • Snapshot (backup before delete)           ║
 ║                                              ║
-║  💡 Memory: "CFN = Create, Update (change  ║
+║   Memory: "CFN = Create, Update (change    ║
 ║            sets), Delete (policy), Drift"    ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Architecture Patterns Module
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 🔄 MIGRATION & TRANSFER CARDS
+## MIGRATION & TRANSFER CARDS
 
-### Card 50: AWS Transfer Family 📤
+### Card 50: AWS Transfer Family
 ```
 ┌────────────────────────────────────────────┐
-│  📤 AWS TRANSFER FAMILY                    │
+│   AWS TRANSFER FAMILY                      │
 ├────────────────────────────────────────────┤
 │                                            │
 │  Protocols Supported:                      │
@@ -2903,19 +2903,19 @@ Difficulty: ⭐⭐
 │  • Transfer Family: Legacy protocol support│
 │  • Direct S3: Modern apps, SDK/CLI         │
 │                                            │
-│  💡 Memory: "Transfer = Legacy protocols  │
+│   Memory: "Transfer = Legacy protocols    │
 │            (SFTP/FTP) → S3/EFS"            │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Migration Module
-Difficulty: ⭐⭐
+Difficulty:
 ```
 
-### Card 51: DataSync vs Storage Gateway vs Transfer Family 🔄
+### Card 51: DataSync vs Storage Gateway vs Transfer Family
 ```
 ╔══════════════════════════════════════════════╗
-║  🔄 DATA MIGRATION SERVICE COMPARISON        ║
+║   DATA MIGRATION SERVICE COMPARISON          ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  AWS DATASYNC:                               ║
@@ -2950,34 +2950,34 @@ Difficulty: ⭐⭐
 ║  • Hybrid with caching? → Storage Gateway    ║
 ║  • NFS/SMB on-prem → AWS? → DataSync         ║
 ║                                              ║
-║  💡 Memory: "DST = DataSync (scheduled),    ║
+║   Memory: "DST = DataSync (scheduled),      ║
 ║            Storage Gateway (hybrid cache),   ║
 ║            Transfer (FTP protocols)"         ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: Migration & Storage Modules
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-### Card 51B: Storage Gateway Types - Detailed 🗄️
+### Card 51B: Storage Gateway Types - Detailed
 ```
 ┌────────────────────────────────────────────┐
-│  🗄️ STORAGE GATEWAY TYPES (DETAILED)      │
+│   STORAGE GATEWAY TYPES (DETAILED)        │
 ├────────────────────────────────────────────┤
 │                                            │
 │  FILE GATEWAY (NFS/SMB → S3):              │
 │  • On-premises: File share (NFS/SMB)       │
-│  • In AWS: Direct S3 console/API access ✅ │
+│ • In AWS: Direct S3 console/API access     │
 │  • Files stored as S3 objects              │
 │  • Use: Hybrid file access, app + admin    │
 │  • Key feature: Bi-directional access      │
 │                                            │
 │  VOLUME GATEWAY - CACHED MODE:             │
 │  • On-premises: Block storage (iSCSI)      │
-│  • In AWS: Volume snapshots only ❌        │
+│ • In AWS: Volume snapshots only            │
 │  • No direct S3 console access             │
 │  • Primary data in S3, cache on-prem       │
 │  • Use: Block storage with cloud backup    │
@@ -2994,7 +2994,7 @@ Difficulty: ⭐⭐⭐
 │  • Use: Backup/archive workflows           │
 │                                            │
 │  KEY DISTINCTION:                          │
-│  • File Gateway = S3 objects (console ✅)  │
+│ • File Gateway = S3 objects (console )     │
 │  • Volume Gateway = Snapshots only         │
 │  • Tape Gateway = Glacier archives         │
 │                                            │
@@ -3003,24 +3003,24 @@ Difficulty: ⭐⭐⭐
 │  • Need block storage? → Volume Gateway    │
 │  • Legacy tape backup? → Tape Gateway      │
 │                                            │
-│  💡 Memory: "File Gateway = Files visible │
+│   Memory: "File Gateway = Files visible   │
 │            in S3 console, Volume = Volume  │
 │            snapshots only"                 │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: Practice Test 5, Storage scenarios
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 🎯 EXAM-SPECIFIC PATTERN CARDS
+## EXAM-SPECIFIC PATTERN CARDS
 
-### Card 52: Cost Optimization Decision Tree 💰
+### Card 52: Cost Optimization Decision Tree
 ```
 ┌────────────────────────────────────────────┐
-│  💰 COST OPTIMIZATION PATTERNS             │
+│   COST OPTIMIZATION PATTERNS               │
 ├────────────────────────────────────────────┤
 │                                            │
 │  COMPUTE:                                  │
@@ -3059,19 +3059,19 @@ Difficulty: ⭐⭐⭐
 │  • Cost Explorer recommendations          │
 │  • Delete unused resources (EIP, EBS)     │
 │                                            │
-│  💡 Memory: "SRL = Spot (90%), Reserved   │
+│   Memory: "SRL = Spot (90%), Reserved     │
 │            (72%), Lifecycle (auto)"        │
 │                                            │
 └────────────────────────────────────────────┘
 
 Test: All Practice Tests - Cost Domain
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
-### Card 53: High Availability Pattern Recognition 🔄
+### Card 53: High Availability Pattern Recognition
 ```
 ╔══════════════════════════════════════════════╗
-║  🔄 HIGH AVAILABILITY PATTERNS               ║
+║   HIGH AVAILABILITY PATTERNS                 ║
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  SINGLE-REGION HA:                           ║
@@ -3113,18 +3113,18 @@ Difficulty: ⭐⭐⭐
 ║  • VPN: Dual tunnels automatic               ║
 ║  • Direct Connect: LAG or backup VPN         ║
 ║                                              ║
-║  💡 Memory: "HA = 2+ AZs, Auto failover,   ║
+║   Memory: "HA = 2+ AZs, Auto failover,     ║
 ║            Load balancing, Replication"      ║
 ║                                              ║
 ╚══════════════════════════════════════════════╝
 
 Test: All Practice Tests - Resilient Domain
-Difficulty: ⭐⭐⭐
+Difficulty:
 ```
 
 ---
 
-## 📱 Digital Flashcard Format
+## Digital Flashcard Format
 
 ### For Anki/Quizlet Import
 
@@ -3324,7 +3324,7 @@ Back: Dedicated 2 MB/s throughput per consumer. HTTP/2 push for lower latency. C
 
 ---
 
-## 🏆 Comprehensive Study Plan (53 Cards + 110 Flashcards)
+## Comprehensive Study Plan (53 Cards + 110 Flashcards)
 
 ### 5-Week Master Plan
 
@@ -3360,7 +3360,7 @@ Back: Dedicated 2 MB/s throughput per consumer. HTTP/2 push for lower latency. C
 
 ---
 
-## 🎯 Domain Coverage Checklist
+## Domain Coverage Checklist
 
 ### Resilient Architectures (30% of exam)
 - [ ] Cards 3, 11-15 (NAT, Transit Gateway, VPN, CloudFront)
@@ -3388,12 +3388,12 @@ Back: Dedicated 2 MB/s throughput per consumer. HTTP/2 push for lower latency. C
 
 ---
 
-## 📊 Mastery Tracking
+## Mastery Tracking
 
 ### By Difficulty
-**⭐ Easy (11 cards):** 1, 2, 3, 8, 17, 32, 33, 37, 38, 40, 50  
-**⭐⭐ Medium (26 cards):** 4-7, 9-16, 18-21, 23-24, 27, 34-36, 42, 44, 48-49  
-**⭐⭐⭐ Hard (16 cards):** 22, 25-26, 28-31, 39, 41, 43, 45-47, 51-53
+**Easy (11 cards):** 1, 2, 3, 8, 17, 32, 33, 37, 38, 40, 50
+**Medium (26 cards):** 4-7, 9-16, 18-21, 23-24, 27, 34-36, 42, 44, 48-49
+**(key) Hard (16 cards):** 22, 25-26, 28-31, 39, 41, 43, 45-47, 51-53
 
 ### Daily Practice Goals
 - **Week 1:** 15 min/day
@@ -3412,7 +3412,7 @@ Back: Dedicated 2 MB/s throughput per consumer. HTTP/2 push for lower latency. C
 
 ---
 
-## 🎯 Exam Day Strategy
+## Exam Day Strategy
 
 ### 2 Hours Before Exam
 1. **0-30 min:** Review Critical Cards 1-10 + New Cards 54-63
@@ -3432,18 +3432,18 @@ Back: Dedicated 2 MB/s throughput per consumer. HTTP/2 push for lower latency. C
 - **CloudFront?** → Cards 1, 63
 
 ### Common Traps (From All 7 Tests)
-1. ✅ CloudFront ACM = us-east-1 ONLY
-2. ✅ Gateway Endpoint = S3/DynamoDB ONLY (NOT transitive!)
-3. ✅ Multi-AZ standby = NOT readable
-4. ✅ SSE-C = Key every request
-5. ✅ VPG ≠ ECMP (only TGW)
-6. ✅ Memory scaling = CloudWatch agent required
-7. ✅ Dynamic ports = ALB only
-8. ✅ Versioning = Suspend only (never disable)
-9. ✅ KMS keys = Regional by default (multi-region keys need explicit creation)
-10. ✅ RDS default parameter groups = Cannot modify (create custom)
-11. ✅ Simple AD = Max 500-5000 users
-12. ✅ NAT Gateway = Deploy per AZ for cost optimization
+1. CloudFront ACM = us-east-1 ONLY
+2. Gateway Endpoint = S3/DynamoDB ONLY (NOT transitive!)
+3. Multi-AZ standby = NOT readable
+4. SSE-C = Key every request
+5. VPG ≠ ECMP (only TGW)
+6. Memory scaling = CloudWatch agent required
+7. Dynamic ports = ALB only
+8. Versioning = Suspend only (never disable)
+9. KMS keys = Regional by default (multi-region keys need explicit creation)
+10. RDS default parameter groups = Cannot modify (create custom)
+11. Simple AD = Max 500-5000 users
+12. NAT Gateway = Deploy per AZ for cost optimization
 
 ---
 
@@ -3453,7 +3453,7 @@ Back: Dedicated 2 MB/s throughput per consumer. HTTP/2 push for lower latency. C
 **Study Time:** 35 days × 15-30 min = 10-17 hours  
 **Success Rate:** 85%+ with disciplined review
 
-🎯 **You've got this!** Trust your preparation. 🚀
+ **You've got this!** Trust your preparation.
 ```
 
 ### Before Exam Day
@@ -3465,9 +3465,9 @@ Back: Dedicated 2 MB/s throughput per consumer. HTTP/2 push for lower latency. C
 - [ ] Can make correct decisions without flowcharts
 
 ### Confidence Level
-- [ ] ⭐⭐⭐ Topics: 100% confident
-- [ ] ⭐⭐ Topics: 90% confident
-- [ ] ⭐ Topics: 80% confident
+- [ ] Topics: 100% confident
+- [ ] Topics: 90% confident
+- [ ] Topics: 80% confident
 
 ### If Still Struggling
 1. Review the detailed explanation in main documents
@@ -3483,5 +3483,5 @@ Back: Dedicated 2 MB/s throughput per consumer. HTTP/2 push for lower latency. C
 **Study Time:** 15 minutes per day for 12 days  
 **Success Rate:** 95%+ with daily review
 
-🎯 **Exam Day Tip:** Review all critical cards (1-4) the morning of your exam!
+ **Exam Day Tip:** Review all critical cards (1-4) the morning of your exam!
 

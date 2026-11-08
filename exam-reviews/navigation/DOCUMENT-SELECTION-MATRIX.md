@@ -1,4 +1,4 @@
-# 🎯 Document Selection Matrix
+# Document Selection Matrix
 
 **Use this to quickly decide which document to read based on your situation**
 
@@ -6,20 +6,20 @@
 
 ## Quick Decision Tool
 
-### ⏱️ How Much Time Do You Have?
+### How Much Time Do You Have?
 
 | Time Available | What to Read | Category |
 |----------------|--------------|----------|
-| **15 minutes** | ULTRA-QUICK-REFERENCE-CARD.md | 🚀 Quick Ref |
-| **30 minutes** | ULTRA-QUICK + MEMORY-CARDS | 🚀 Quick Ref |
-| **1 hour** | ALL-TESTS-MASTER-QUICK-REFERENCE (partial) | 📚 Master Guide |
-| **2 hours** | ALL-TESTS-MASTER-QUICK-REFERENCE (full) | 📚 Master Guide |
+| **15 minutes** | ULTRA-QUICK-REFERENCE-CARD.md | Quick Ref |
+| **30 minutes** | ULTRA-QUICK + MEMORY-CARDS | Quick Ref |
+| **1 hour** | ALL-TESTS-MASTER-QUICK-REFERENCE (partial) | Master Guide |
+| **2 hours** | ALL-TESTS-MASTER-QUICK-REFERENCE (full) | Master Guide |
 | **3 hours** | COMPLETE-EXAM-REVIEW + condensed reviews | Mixed |
-| **4+ hours** | Complete test reviews (start with Test 1) | 📝 Complete |
+| **4+ hours** | Complete test reviews (start with Test 1) | Complete |
 
 ---
 
-## 🎯 What's Your Goal?
+## What's Your Goal?
 
 | Your Goal | Document to Read | Why |
 |-----------|------------------|-----|
@@ -35,7 +35,7 @@
 
 ---
 
-## 📅 When Are You Taking the Exam?
+## When Are You Taking the Exam?
 
 | Time Until Exam | Study Priority | Documents |
 |-----------------|----------------|-----------|
@@ -48,7 +48,7 @@
 
 ---
 
-## 🎓 What's Your Learning Style?
+## What's Your Learning Style?
 
 | Learning Style | Best Documents | Why |
 |----------------|----------------|-----|
@@ -61,7 +61,7 @@
 
 ---
 
-## 📊 What's Your Current Score Level?
+## What's Your Current Score Level?
 
 | Your Avg Score | Priority Documents | Focus |
 |----------------|-------------------|-------|
@@ -73,7 +73,7 @@
 
 ---
 
-## 🎯 What Domain Are You Weak In?
+## What Domain Are You Weak In?
 
 | Weak Domain | Best Documents | Specific Tests |
 |-------------|----------------|----------------|
@@ -85,7 +85,7 @@
 
 ---
 
-## 📖 What Type of Content Do You Need?
+## What Type of Content Do You Need?
 
 | Content Type | Document | Description |
 |--------------|----------|-------------|
@@ -99,7 +99,7 @@
 
 ---
 
-## 🔄 Where Are You in Study Process?
+## Where Are You in Study Process?
 
 | Study Phase | What to Read | Next Steps |
 |-------------|--------------|------------|
@@ -114,7 +114,7 @@
 
 ---
 
-## 🎨 Visual Decision Tree
+## Visual Decision Tree
 
 ```
 START: What do you need?
@@ -149,7 +149,7 @@ START: What do you need?
 
 ---
 
-## 🎯 Quick Recommendations by Scenario
+## Quick Recommendations by Scenario
 
 ### Scenario: "Exam is in 6 hours, help!"
 1. ULTRA-QUICK-REFERENCE-CARD.md (15 min)
@@ -186,7 +186,7 @@ START: What do you need?
 
 ---
 
-## 📋 Master Checklist
+## Master Checklist
 
 Use this to ensure you've covered everything:
 
@@ -213,7 +213,7 @@ Use this to ensure you've covered everything:
 
 ---
 
-## 💡 Pro Tips
+## Pro Tips
 
 1. **Don't read everything at once** - Information overload is real
 2. **Start with your score level** - Focus on appropriate difficulty

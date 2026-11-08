@@ -1,6 +1,6 @@
 # Monitoring & Management - Practice Questions
 
-> **⚠️ DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
+> **DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
 
 ## Exam-Standard Questions (SAA-C03)
 
@@ -536,12 +536,12 @@ D. Import logs into Elasticsearch
 5. **Service Comparisons**: CloudTrail vs Config vs CloudWatch
 
 ### Exam Tips:
-- ✅ EC2 memory metrics require CloudWatch Agent
-- ✅ CloudTrail for "who made changes"
-- ✅ Config for "what does it look like"
-- ✅ Session Manager eliminates need for SSH keys and open ports
-- ✅ Metric filters create metrics from log data
-- ✅ Config Aggregator for multi-account/region compliance
-- ✅ CloudTrail Insights detects unusual API activity
-- ✅ Parameter Store for configuration and secrets management
+- EC2 memory metrics require CloudWatch Agent
+- CloudTrail for "who made changes"
+- Config for "what does it look like"
+- Session Manager eliminates need for SSH keys and open ports
+- Metric filters create metrics from log data
+- Config Aggregator for multi-account/region compliance
+- CloudTrail Insights detects unusual API activity
+- Parameter Store for configuration and secrets management
 

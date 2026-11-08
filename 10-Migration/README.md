@@ -160,15 +160,15 @@ Exclude: /temp/*, /cache/*
 - No charge for data transferred within same AWS Region
 
 ### Exam Tips
-✅ **DataSync vs Snow Family**
+ **DataSync vs Snow Family**
    - DataSync: For ongoing or regular transfers over network
    - Snow Family: For one-time large migrations or limited bandwidth
 
-✅ **DataSync vs S3 Transfer Acceleration**
+ **DataSync vs S3 Transfer Acceleration**
    - DataSync: For file systems (NFS, SMB) to AWS
    - S3 Transfer Acceleration: For direct uploads to S3
 
-✅ **DataSync vs Storage Gateway**
+ **DataSync vs Storage Gateway**
    - DataSync: Data migration and transfer
    - Storage Gateway: Hybrid cloud storage with local caching
 
@@ -392,13 +392,13 @@ Exclude: /temp/*, /cache/*
 - **Data Transfer**: Standard data transfer rates
 
 ### Exam Tips
-✅ **DMS for ongoing replication**: Continuous data replication with CDC
+ **DMS for ongoing replication**: Continuous data replication with CDC
 
-✅ **SCT for heterogeneous migrations**: Different database engines require Schema Conversion Tool
+ **SCT for heterogeneous migrations**: Different database engines require Schema Conversion Tool
 
-✅ **Multi-AZ for production**: High availability for critical migrations
+ **Multi-AZ for production**: High availability for critical migrations
 
-✅ **Snowball + DMS**: Use Snowball Edge for initial large data load, then DMS for CDC
+ **Snowball + DMS**: Use Snowball Edge for initial large data load, then DMS for CDC
 
 ---
 
@@ -621,15 +621,15 @@ Application: E-Commerce Website
 - No additional charge for tracking and monitoring
 
 ### Exam Tips
-✅ **Centralized tracking**: Migration Hub provides single dashboard for all migrations
+ **Centralized tracking**: Migration Hub provides single dashboard for all migrations
 
-✅ **Application Discovery Service**: Discover servers and dependencies before migration
+ **Application Discovery Service**: Discover servers and dependencies before migration
 
-✅ **Integration**: Works with DMS, MGN, and partner tools
+ **Integration**: Works with DMS, MGN, and partner tools
 
-✅ **Application grouping**: Group servers and databases by application
+ **Application grouping**: Group servers and databases by application
 
-✅ **Strategy Recommendations**: Automated recommendations for 6 R's migration strategy
+ **Strategy Recommendations**: Automated recommendations for 6 R's migration strategy
 
 ---
 
@@ -782,40 +782,40 @@ Application: E-Commerce Website
 
 ### Key Concepts to Remember
 
-✅ **6 R's of Migration**
+ **6 R's of Migration**
    - Rehost, Replatform, Repurchase, Refactor, Retire, Retain
    - Choose based on business needs and complexity
 
-✅ **DataSync**
+ **DataSync**
    - Automated data transfer (NFS/SMB to AWS)
    - 10x faster than open-source tools
    - Use agent for on-premises sources
 
-✅ **DMS (Database Migration Service)**
+ **DMS (Database Migration Service)**
    - Minimal downtime database migration
    - Supports homogeneous and heterogeneous migrations
    - Use SCT for schema conversion (different engines)
    - CDC for continuous replication
 
-✅ **Migration Hub**
+ **Migration Hub**
    - Centralized tracking dashboard
    - Integrates with DMS, MGN, and partner tools
    - Application grouping and progress tracking
    - Free service
 
-✅ **Snow Family**
+ **Snow Family**
    - Snowcone: 8 TB, edge computing
    - Snowball: 80-210 TB, large migrations
    - Snowmobile: 100 PB, datacenter migrations
    - Use when bandwidth is limited
 
-✅ **Application Migration Service (MGN)**
+ **Application Migration Service (MGN)**
    - Lift-and-shift (rehost) migrations
    - Continuous replication
    - Automated cutover
    - Replaces CloudEndure and SMS
 
-✅ **AWS Backup**
+ **AWS Backup**
    - Centralized backup management
    - Cross-region and cross-account backup
    - Backup policies and compliance
@@ -830,11 +830,11 @@ Application: E-Commerce Website
 **AWS Backup** is a fully managed, policy-based backup service that centralizes and automates data protection across AWS services.
 
 **Key Benefits:**
-- ✅ **Centralized Management**: Single console for all backups
-- ✅ **Policy-Based**: Automated backup scheduling and retention
-- ✅ **Cross-Region/Cross-Account**: Copy backups for disaster recovery
-- ✅ **Compliance**: Lifecycle policies and backup auditing
-- ✅ **Cost-Effective**: Pay only for backup storage used
+- **Centralized Management**: Single console for all backups
+- **Policy-Based**: Automated backup scheduling and retention
+- **Cross-Region/Cross-Account**: Copy backups for disaster recovery
+- **Compliance**: Lifecycle policies and backup auditing
+- **Cost-Effective**: Pay only for backup storage used
 
 ### Supported AWS Services
 
@@ -1050,26 +1050,26 @@ Day 90+: Delete (retention expired)
 
 | Feature | AWS Backup | Service-Native (e.g., RDS snapshots) |
 |---------|------------|--------------------------------------|
-| Centralized management | ✅ Yes | ❌ Per-service |
-| Policy-based automation | ✅ Yes | ⚠️ Limited |
-| Cross-region copy | ✅ Automated | ⚠️ Manual |
-| Cross-account backup | ✅ Yes | ❌ Complex |
-| Compliance reporting | ✅ Built-in | ❌ Manual |
-| Lifecycle management | ✅ Automated | ⚠️ Manual |
-| Multiple services | ✅ 15+ services | ❌ Single service |
-| Cost | 💰 Backup storage cost | 💰 Snapshot storage cost |
+| Centralized management | Yes | Per-service |
+| Policy-based automation | Yes | Limited |
+| Cross-region copy | Automated | Manual |
+| Cross-account backup | Yes | Complex |
+| Compliance reporting | Built-in | Manual |
+| Lifecycle management | Automated | Manual |
+| Multiple services | 15+ services | Single service |
+| Cost | Backup storage cost | Snapshot storage cost |
 
 **When to Use AWS Backup:**
-- ✅ Multiple AWS services to back up
-- ✅ Need centralized management
-- ✅ Cross-region or cross-account requirements
-- ✅ Compliance and audit requirements
-- ✅ Policy-based automation
+- Multiple AWS services to back up
+- Need centralized management
+- Cross-region or cross-account requirements
+- Compliance and audit requirements
+- Policy-based automation
 
 **When to Use Service-Native:**
-- ✅ Simple, single-service backups
-- ✅ Tight integration with service features
-- ✅ Custom scripting requirements
+- Simple, single-service backups
+- Tight integration with service features
+- Custom scripting requirements
 
 ### AWS Backup Monitoring
 
@@ -1105,7 +1105,7 @@ Day 90+: Delete (retention expired)
 
 ### Exam Tips for AWS Backup
 
-✅ **Key Exam Points:**
+ **Key Exam Points:**
 - AWS Backup provides **centralized**, **policy-based** backup
 - Supports **15+ AWS services**
 - **Cross-region** and **cross-account** backup for DR
@@ -1113,7 +1113,7 @@ Day 90+: Delete (retention expired)
 - Integration with **AWS Organizations** for policy enforcement
 - **Lifecycle management** (warm → cold storage → delete)
 
-✅ **Common Exam Scenarios:**
+ **Common Exam Scenarios:**
 - "Centralized backup across multiple services" → **AWS Backup**
 - "Cross-region disaster recovery backup" → **AWS Backup with copy actions**
 - "Enforce backup policies across all accounts" → **AWS Backup Policies with Organizations**
@@ -1159,9 +1159,9 @@ RTO = 2 hours (9 AM to 11 AM to recover)
 - No resources running in DR region
 
 **Characteristics:**
-- 💰 **Cost**: Lowest (only backup storage)
-- ⏱️ **RTO**: Hours to days
-- 💾 **RPO**: Hours (depends on backup frequency)
+- **Cost**: Lowest (only backup storage)
+- **RTO**: Hours to days
+- **RPO**: Hours (depends on backup frequency)
 
 **Use Case:** Non-critical applications, long RTO acceptable
 
@@ -1188,9 +1188,9 @@ Disaster:
 - Scale up resources during disaster
 
 **Characteristics:**
-- 💰 **Cost**: Low (minimal running resources)
-- ⏱️ **RTO**: Minutes to hours
-- 💾 **RPO**: Minutes (continuous replication)
+- **Cost**: Low (minimal running resources)
+- **RTO**: Minutes to hours
+- **RPO**: Minutes (continuous replication)
 
 **Use Case:** Critical applications, moderate RTO requirements
 
@@ -1219,9 +1219,9 @@ Disaster:
 - Scale up during disaster
 
 **Characteristics:**
-- 💰 **Cost**: Medium (scaled-down resources running)
-- ⏱️ **RTO**: Minutes
-- 💾 **RPO**: Seconds to minutes
+- **Cost**: Medium (scaled-down resources running)
+- **RTO**: Minutes
+- **RPO**: Seconds to minutes
 
 **Use Case:** Business-critical applications
 
@@ -1250,9 +1250,9 @@ Disaster:
 - Immediate failover
 
 **Characteristics:**
-- 💰 **Cost**: Highest (full duplication)
-- ⏱️ **RTO**: Real-time (automatic)
-- 💾 **RPO**: Near-zero (continuous sync)
+- **Cost**: Highest (full duplication)
+- **RTO**: Real-time (automatic)
+- **RPO**: Near-zero (continuous sync)
 
 **Use Case:** Mission-critical applications, zero downtime requirements
 
@@ -1276,34 +1276,34 @@ Disaster: Automatic failover, no intervention needed
 
 | Strategy | RTO | RPO | Cost | Use Case |
 |----------|-----|-----|------|----------|
-| **Backup & Restore** | Hours-Days | Hours | 💰 Lowest | Non-critical, cost-sensitive |
-| **Pilot Light** | 10min-Hours | Minutes | 💰💰 Low | Important apps, acceptable downtime |
-| **Warm Standby** | Minutes | Seconds | 💰💰💰 Medium | Business-critical apps |
-| **Multi-Site** | Real-time | Near-zero | 💰💰💰💰 Highest | Mission-critical, zero downtime |
+| **Backup & Restore** | Hours-Days | Hours | Lowest | Non-critical, cost-sensitive |
+| **Pilot Light** | 10min-Hours | Minutes | Low | Important apps, acceptable downtime |
+| **Warm Standby** | Minutes | Seconds | Medium | Business-critical apps |
+| **Multi-Site** | Real-time | Near-zero | Highest | Mission-critical, zero downtime |
 
 ### DR Best Practices
 
-✅ **Define Requirements:**
+ **Define Requirements:**
 - Document acceptable RTO and RPO
 - Understand business impact of downtime
 - Balance cost vs availability
 
-✅ **Automate Everything:**
+ **Automate Everything:**
 - Use CloudFormation for infrastructure
 - Automate failover with Route 53 health checks
 - Test automation regularly
 
-✅ **Test Regularly:**
+ **Test Regularly:**
 - Schedule DR drills
 - Document procedures
 - Update runbooks
 
-✅ **Monitor and Alert:**
+ **Monitor and Alert:**
 - CloudWatch alarms for replication lag
 - Route 53 health checks
 - AWS Health Dashboard
 
-✅ **Data Replication:**
+ **Data Replication:**
 - **RDS**: Read replicas, Multi-AZ, Aurora Global Database
 - **DynamoDB**: Global Tables
 - **S3**: Cross-Region Replication (CRR)
@@ -1312,7 +1312,7 @@ Disaster: Automatic failover, no intervention needed
 
 ### Exam Tips for Disaster Recovery
 
-✅ **Exam Keywords Mapping:**
+ **Exam Keywords Mapping:**
 - "Lowest cost DR" → **Backup and Restore**
 - "Core components always running" → **Pilot Light**
 - "Scaled-down version running" → **Warm Standby**

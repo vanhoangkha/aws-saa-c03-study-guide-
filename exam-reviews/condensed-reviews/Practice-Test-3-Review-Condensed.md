@@ -1,14 +1,14 @@
 # Practice Test 3 Review - Quick Reference
 
-**Date:** Mar 1, 2026 | **Score:** 52/65 (80%) ✅ PASS | **Time:** 97 min
+**Date:** Mar 1, 2026 | **Score:** 52/65 (80%) PASS | **Time:** 97 min
 
 ## Domain Scores
 | Domain | Score | Status |
 |--------|-------|--------|
-| High-Performing | 15/17 (88%) | ✅ Strong |
-| Resilient | 13/16 (81%) | ⚠️ Review |
-| Secure | 18/23 (78%) | ⚠️ Review |
-| Cost-Optimized | 5/8 (63%) | ❌ Weak |
+| High-Performing | 15/17 (88%) | Strong |
+| Resilient | 13/16 (81%) | Review |
+| Secure | 18/23 (78%) | Review |
+| Cost-Optimized | 5/8 (63%) | Weak |
 
 **Progress:** Test 1: 65% → Test 2: 75% → Test 3: 80% (steady improvement)
 

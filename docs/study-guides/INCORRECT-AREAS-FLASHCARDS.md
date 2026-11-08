@@ -1,4 +1,4 @@
-# 🎴 Flashcards - Incorrect Question Areas Only
+# Flashcards - Incorrect Question Areas Only
 
 ## Priority Areas Based on Quiz Performance
 
@@ -8,7 +8,7 @@
 
 ---
 
-## 🔴 Design Resilient Architectures (11 Cards)
+## Design Resilient Architectures (11 Cards)
 
 ### Card 1: ECS Task Definition
 **Q**: What is an Amazon ECS Task Definition?
@@ -62,9 +62,9 @@
 - `logs:PutLogEvents`
 
 **Common Mistakes**:
-- ❌ Thinking CloudTrail logs Lambda output (it doesn't)
-- ❌ Confusing X-Ray tracing with CloudWatch Logs
-- ❌ Assuming permissions are automatic
+- Thinking CloudTrail logs Lambda output (it doesn't)
+- Confusing X-Ray tracing with CloudWatch Logs
+- Assuming permissions are automatic
 
 **Fix**: Attach `AWSLambdaBasicExecutionRole` managed policy
 
@@ -126,7 +126,7 @@
 
 | Feature | CNAME | Alias |
 |---------|-------|-------|
-| At apex (root) | ❌ Not allowed | ✅ Allowed |
+| At apex (root) | Not allowed | Allowed |
 | DNS query cost | Charges apply | Free |
 | AWS resource | Not required | Required |
 | Example | www.example.com → example.com | example.com → ALB |
@@ -144,9 +144,9 @@
 **Best Practice**: Use SQS Queue Policy (resource-based policy)
 
 **Why Not IAM Role**:
-- ❌ Requires AssumeRole overhead
-- ❌ More complex trust relationships
-- ❌ Temporary credentials management
+- Requires AssumeRole overhead
+- More complex trust relationships
+- Temporary credentials management
 
 **Queue Policy Example**:
 ```json
@@ -220,16 +220,16 @@ Resources:
 
 **A**:
 **Aurora Serverless**:
-- ✅ Auto-scales compute capacity based on load
-- ✅ Starts/stops automatically
-- ✅ Pay per second
-- ✅ Good for unpredictable workloads
+- Auto-scales compute capacity based on load
+- Starts/stops automatically
+- Pay per second
+- Good for unpredictable workloads
 
 **Aurora Provisioned**:
-- ⚙️ Fixed instance size
-- ⚙️ Manual scaling required
-- ⚙️ Always running (pay even when idle)
-- ⚙️ Good for predictable workloads
+- Fixed instance size
+- Manual scaling required
+- Always running (pay even when idle)
+- Good for predictable workloads
 
 **Serverless RTO**: < 1 minute for failover
 
@@ -259,7 +259,7 @@ Resources:
 
 ---
 
-## 🚀 Design High-Performing Architectures (9 Cards)
+## Design High-Performing Architectures (9 Cards)
 
 ### Card 12: API Gateway Mapping Templates
 **Q**: How do you transform API responses to support legacy clients in API Gateway?
@@ -302,7 +302,7 @@ Resources:
 - **Default**: Balance across AZs, then oldest launch config
 - **OldestInstance**: Longest-running instance
 - **NewestInstance**: Most recently launched
-- **OldestLaunchTemplate**: Oldest template version ⭐
+- **OldestLaunchTemplate**: Oldest template version
 - **OldestLaunchConfiguration**: Oldest launch config
 - **ClosestToNextInstanceHour**: Cost optimization
 
@@ -483,7 +483,7 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 
 ---
 
-## 🔒 Design Secure Architectures (7 Cards)
+## Design Secure Architectures (7 Cards)
 
 ### Card 21: AWS Service Control Policies (SCPs)
 **Q**: How do you prevent AWS member accounts from creating Internet Gateways?
@@ -654,7 +654,7 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 
 ---
 
-## 💰 Design Cost-Optimized Architectures (4 Cards)
+## Design Cost-Optimized Architectures (4 Cards)
 
 ### Card 28: AWS Resource Access Manager (RAM)
 **Q**: How do you share resources across AWS accounts without duplication?
@@ -745,7 +745,7 @@ ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
 
 ---
 
-## 🎯 Study Strategy
+## Study Strategy
 
 ### Daily Review Schedule:
 - **Morning**: 5 cards (active recall)

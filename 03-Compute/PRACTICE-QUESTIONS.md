@@ -1,6 +1,6 @@
 # Compute Services - Practice Questions
 
-> **⚠️ DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
+> **DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
 
 ## Exam-Standard Questions (SAA-C03)
 
@@ -819,10 +819,10 @@ D. Use NLB instead of ALB
 | **Local Storage** | Fast | Lost on instance failure |
 
 **Why ElastiCache/DynamoDB is Better**:
-- ✅ Any instance can serve any request
-- ✅ Auto Scaling works properly
-- ✅ Instance failure doesn't lose sessions
-- ✅ Better load distribution
+- Any instance can serve any request
+- Auto Scaling works properly
+- Instance failure doesn't lose sessions
+- Better load distribution
 
 **Sticky Sessions Issues**:
 - Uneven instance utilization

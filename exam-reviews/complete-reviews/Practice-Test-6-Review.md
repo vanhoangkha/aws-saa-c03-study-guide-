@@ -3,42 +3,42 @@
 
 ---
 
-## 📊 Executive Summary
+## Executive Summary
 
 **Test Date:** March 5, 2026  
 **Attempt Number:** 1st Attempt  
 **Final Score:** 52/65 (80.00%)  
-**Result:** PASS ✅ (Pass threshold: 75%)  
+**Result:** PASS (Pass threshold: 75%)
 **Duration:** 5820 seconds (~97 minutes)  
 **Performance:** +5.00% above passing threshold
 
 ---
 
-## 🎯 Performance by Domain
+## Performance by Domain
 
 ### Domain 1: Design Resilient Architectures (18 questions)
-- **Score:** 11/18 (61.11%) ❌
+- **Score:** 11/18 (61.11%)
 - **Correct:** 11
 - **Incorrect:** 7
 - **Review Marked:** 6
 - **Status:** CRITICAL - Major weakness
 
 ### Domain 2: Design High-Performing Architectures (27 questions)
-- **Score:** 21/27 (77.78%) ⚠️
+- **Score:** 21/27 (77.78%)
 - **Correct:** 21
 - **Incorrect:** 6
 - **Review Marked:** 8
 - **Status:** PASSING - Needs minor improvement
 
 ### Domain 3: Design Secure Architectures (13 questions)
-- **Score:** 13/13 (100%) ✅
+- **Score:** 13/13 (100%)
 - **Correct:** 13
 - **Incorrect:** 0
 - **Review Marked:** 6
 - **Status:** PERFECT
 
 ### Domain 4: Design Cost-Optimized Architectures (7 questions)
-- **Score:** 7/7 (100%) ✅
+- **Score:** 7/7 (100%)
 - **Correct:** 7
 - **Incorrect:** 0
 - **Review Marked:** 1
@@ -46,7 +46,7 @@
 
 ---
 
-## 🚨 Critical Areas for Improvement
+## Critical Areas for Improvement
 
 ### Priority 1: Design Resilient Architectures (39% failure rate)
 **Impact:** This domain accounts for ~28% of the exam and you're scoring 14% below passing.
@@ -74,11 +74,11 @@
 
 ---
 
-## 📝 Detailed Question Analysis
+## Detailed Question Analysis
 
 ### INCORRECT ANSWERS - RESILIENT ARCHITECTURES
 
-#### Question 5: Site-to-Site VPN Prerequisites ❌
+#### Question 5: Site-to-Site VPN Prerequisites
 **Your Answer:** A + B (NAT instance + public IP)  
 **Correct Answer:** B + C (Public IP on customer gateway + VGW attached to VPC)
 
@@ -90,14 +90,14 @@
 **Key Learning:**
 ```
 Site-to-Site VPN Components:
-├── Customer Side ✅
+├── Customer Side
 │   └── Public IP (on device or NAT fronting it)
-├── AWS Side ✅
+├── AWS Side
 │   └── Virtual Private Gateway (VGW)
 │       ├── Attached to target VPC
 │       ├── Terminates IPsec tunnels
 │       └── Participates in routing (static/BGP)
-└── ❌ NAT Gateway/Instance
+└── NAT Gateway/Instance
     └── Used for private subnet egress, NOT VPN
 ```
 
@@ -108,7 +108,7 @@ Site-to-Site VPN Components:
 
 ---
 
-#### Question 6: EBS Performance Optimization ❌
+#### Question 6: EBS Performance Optimization
 **Your Answer:** C + D (Provisioned IOPS + ELB)  
 **Correct Answer:** A + C (Larger instance type + Provisioned IOPS)
 
@@ -120,21 +120,21 @@ Site-to-Site VPN Components:
 **Key Learning:**
 ```
 EBS Performance Factors:
-├── Volume Type ✅
+├── Volume Type
 │   ├── gp2/gp3: Balanced IOPS/throughput
 │   ├── io1/io2: Provisioned IOPS (predictable)
 │   └── st1/sc1: Throughput-optimized HDD
-├── Instance Type ✅
+├── Instance Type
 │   ├── Each type has EBS bandwidth limit
 │   ├── Larger instances = more bandwidth
 │   └── Check "EBS-optimized" specs
-└── ❌ Load Balancers
+└── Load Balancers
     └── Distribute network traffic, not disk I/O
 ```
 
 ---
 
-#### Question 25: VPC Subnet CIDR Sizing ❌
+#### Question 25: VPC Subnet CIDR Sizing
 **Your Answer:** B - 10.0.0.0/28  
 **Correct Answer:** A - 10.0.0.0/27
 
@@ -149,11 +149,11 @@ AWS Subnet Sizing:
 Formula: 2^(32-n) = total IPs
 Usable IPs = total - 5 (AWS reserves first 4 and last)
 
-/30 → 4 IPs  → 0 usable   ❌
-/29 → 8 IPs  → 3 usable   ❌
-/28 → 16 IPs → 11 usable  ❌
-/27 → 32 IPs → 27 usable  ✅ (meets ≥20 requirement)
-/26 → 64 IPs → 59 usable  ✅ (overprovisioned)
+/30 → 4 IPs → 0 usable
+/29 → 8 IPs → 3 usable
+/28 → 16 IPs → 11 usable
+/27 → 32 IPs → 27 usable   (meets ≥20 requirement)
+/26 → 64 IPs → 59 usable   (overprovisioned)
 ```
 
 **Quick Reference:**
@@ -163,7 +163,7 @@ Usable IPs = total - 5 (AWS reserves first 4 and last)
 
 ---
 
-#### Question 35: DynamoDB Change Capture ❌
+#### Question 35: DynamoDB Change Capture
 **Your Answer:** B - Create another DynamoDB table for modified records  
 **Correct Answer:** C - Use DynamoDB Streams
 
@@ -175,15 +175,15 @@ Usable IPs = total - 5 (AWS reserves first 4 and last)
 **Key Learning:**
 ```
 DynamoDB Change Tracking:
-├── ❌ Timestamp + Scan
+├── Timestamp + Scan
 │   ├── Expensive at scale
 │   ├── No guaranteed ordering
 │   └── Clock skew issues
-├── ❌ Duplicate Table
+├── Duplicate Table
 │   ├── Extra write logic needed
 │   ├── Data drift risk
 │   └── Doubles costs
-└── ✅ DynamoDB Streams
+└── DynamoDB Streams
     ├── Ordered change feed (24h retention)
     ├── Item-level modifications captured
     ├── Keys-only or before/after images
@@ -198,7 +198,7 @@ DynamoDB Change Tracking:
 
 ---
 
-#### Question 36: RDS Parameter Group Management ❌
+#### Question 36: RDS Parameter Group Management
 **Your Answer:** D - Edit the default parameter group  
 **Correct Answer:** B - Create custom DB parameter group, set max_connections, attach
 
@@ -210,11 +210,11 @@ DynamoDB Change Tracking:
 **Key Learning:**
 ```
 RDS Parameter Management:
-├── Default Parameter Groups ❌
+├── Default Parameter Groups
 │   ├── AWS-managed
 │   ├── Immutable (cannot edit)
 │   └── Template for custom groups
-├── Custom Parameter Groups ✅
+├── Custom Parameter Groups
 │   ├── Create from default
 │   ├── Modify values
 │   ├── Attach to DB instance
@@ -231,7 +231,7 @@ RDS Parameter Management:
 
 ---
 
-#### Question 42: S3 Storage Class Selection ❌
+#### Question 42: S3 Storage Class Selection
 **Your Answer:** D - Two S3 buckets required  
 **Correct Answer:** C - Standard for folder A, One Zone-IA for folder B
 
@@ -247,7 +247,7 @@ S3 Storage Classes (Per Object):
 │   └── S3 Standard (low latency, high throughput)
 ├── Infrequent Access
 │   ├── S3 Standard-IA (multi-AZ)
-│   └── S3 One Zone-IA ✅ (single AZ, non-critical)
+│   └── S3 One Zone-IA (single AZ, non-critical)
 ├── Archive
 │   ├── Glacier Instant Retrieval (ms access)
 │   ├── Glacier Flexible Retrieval (min-hours)
@@ -260,7 +260,7 @@ S3 Storage Classes (Per Object):
 
 ---
 
-#### Question 48: RDS Cost Optimization ❌
+#### Question 48: RDS Cost Optimization
 **Your Answer:** A - Use On-Demand instead of Reserved  
 **Correct Answer:** B - Don't use Multi-AZ in development
 
@@ -273,12 +273,12 @@ S3 Storage Classes (Per Object):
 ```
 RDS Cost Optimization:
 ├── Compute
-│   ├── Reserved Instances (steady workloads) ✅
-│   ├── On-Demand (variable workloads) ❌ higher cost
+│   ├── Reserved Instances (steady workloads)
+│   ├── On-Demand (variable workloads) higher cost
 │   └── Right-size instance types
 ├── High Availability
-│   ├── Multi-AZ Production ✅ (automatic failover)
-│   └── Multi-AZ Development ❌ (unnecessary cost)
+│   ├── Multi-AZ Production (automatic failover)
+│   └── Multi-AZ Development (unnecessary cost)
 ├── Storage
 │   ├── gp2/gp3 vs io1/io2 selection
 │   └── Storage autoscaling
@@ -293,7 +293,7 @@ RDS Cost Optimization:
 
 ---
 
-#### Question 58: ECS Container Instance Bootstrap ❌
+#### Question 58: ECS Container Instance Bootstrap
 **Your Answer:** C - Task definition  
 **Correct Answer:** B - EC2 User Data on container instance
 
@@ -305,12 +305,12 @@ RDS Cost Optimization:
 **Key Learning:**
 ```
 ECS EC2 Launch Type Configuration:
-├── Host-Level (Container Instance) ✅
+├── Host-Level (Container Instance)
 │   ├── EC2 User Data
 │   ├── /etc/ecs/ecs.config
 │   ├── /etc/docker/daemon.json
 │   └── Runs at instance boot
-├── Task-Level ❌
+├── Task-Level
 │   ├── Task Definition
 │   ├── Container images, CPU, memory
 │   ├── Environment variables
@@ -329,7 +329,7 @@ ECS EC2 Launch Type Configuration:
 
 ### INCORRECT ANSWERS - HIGH-PERFORMING ARCHITECTURES
 
-#### Question 11: S3 VPC Endpoint ❌
+#### Question 11: S3 VPC Endpoint
 **Your Answer:** C - Create S3 Gateway Endpoint in VPC-B (peer to VPC-A)  
 **Correct Answer:** B - Create S3 Gateway Endpoint in VPC-A with bucket policy
 
@@ -362,7 +362,7 @@ S3 Gateway VPC Endpoints:
 
 ---
 
-#### Question 46: EC2 Automated Bootstrap ❌
+#### Question 46: EC2 Automated Bootstrap
 **Your Answer:** D - Use EC2Config  
 **Correct Answer:** A - Use User Data scripts
 
@@ -374,12 +374,12 @@ S3 Gateway VPC Endpoints:
 **Key Learning:**
 ```
 EC2 Bootstrap Methods:
-├── User Data ✅ (Recommended)
+├── User Data (Recommended)
 │   ├── Runs at first boot (cloud-init)
 │   ├── Shell/PowerShell scripts
 │   ├── Download latest packages
 │   └── Cross-platform
-├── EC2Config ❌ (Legacy)
+├── EC2Config (Legacy)
 │   └── Replaced by EC2Launch/EC2Launch v2
 ├── Metadata
 │   └── Read-only instance info
@@ -395,7 +395,7 @@ EC2 Bootstrap Methods:
 
 ---
 
-#### Question 49: Security Group Rule Propagation ❌
+#### Question 49: Security Group Rule Propagation
 **Your Answer:** A - Takes 2-5 minutes  
 **Correct Answer:** C - Changes apply instantly
 
@@ -408,7 +408,7 @@ EC2 Bootstrap Methods:
 ```
 AWS Configuration Propagation Times:
 ├── Instant/Seconds
-│   ├── Security Group rules ✅
+│   ├── Security Group rules
 │   ├── IAM policy changes (within seconds)
 │   └── Route table updates
 ├── Minutes
@@ -426,7 +426,7 @@ AWS Configuration Propagation Times:
 
 ---
 
-#### Question 60: API Gateway Integration Targets ❌
+#### Question 60: API Gateway Integration Targets
 **Your Answer:** A + D + E (Public HTTP + VPC Link + SFTP)  
 **Correct Answer:** A + B + D (Public HTTP + Lambda cross-account + VPC Link)
 
@@ -438,14 +438,14 @@ AWS Configuration Propagation Times:
 **Key Learning:**
 ```
 API Gateway Integration Types:
-✅ Supported:
+ Supported:
 ├── AWS Lambda (same/cross-account)
 ├── HTTP/HTTPS endpoints (public internet)
 ├── AWS Services (DynamoDB, SNS, SQS, etc.)
 ├── VPC Link → NLB → private resources
 └── Mock integrations
 
-❌ Not Supported:
+ Not Supported:
 ├── Direct database connections
 ├── SFTP/FTP
 └── Custom protocols without HTTP wrapper
@@ -458,7 +458,7 @@ API Gateway Integration Types:
 
 ---
 
-#### Question 61: API Gateway Cache Key ❌
+#### Question 61: API Gateway Cache Key
 **Your Answer:** C - API Stage  
 **Correct Answer:** D - Query-string parameter in cache key
 
@@ -472,7 +472,7 @@ API Gateway Integration Types:
 API Gateway Caching:
 ├── Cache Key Components
 │   ├── Request path
-│   ├── Query string parameters ✅
+│   ├── Query string parameters
 │   ├── Request headers
 │   └── Request body (limited)
 ├── Cache Splitting Strategies
@@ -492,7 +492,7 @@ API Gateway Caching:
 
 ---
 
-#### Question 63: Lambda@Edge Event Hooks ❌
+#### Question 63: Lambda@Edge Event Hooks
 **Your Answer:** C + D + E (Sender Request + Origin Request + Origin Response)  
 **Correct Answer:** A + D + E (Viewer Request + Origin Request + Origin Response)
 
@@ -504,17 +504,17 @@ API Gateway Caching:
 **Key Learning:**
 ```
 Lambda@Edge Event Hooks:
-├── Viewer Request ✅
+├── Viewer Request
 │   ├── After CloudFront receives request
 │   ├── Before cache lookup
 │   └── Use: Auth, URL rewrite, A/B testing
 ├── Viewer Response
 │   ├── Before returning to viewer
 │   └── Use: Header manipulation, cookies
-├── Origin Request ✅
+├── Origin Request
 │   ├── Before forwarding to origin (cache miss)
 │   └── Use: Dynamic origin selection, signing
-└── Origin Response ✅
+└── Origin Response
     ├── After receiving from origin
     └── Use: Header addition, content modification
 ```
@@ -529,57 +529,57 @@ Lambda@Edge Event Hooks:
 
 ### REVIEW MARKED QUESTIONS (Got Correct but Flagged)
 
-#### Question 4: EBS + S3 Encryption at Rest ✅ (Marked for review)
+#### Question 4: EBS + S3 Encryption at Rest (Marked for review)
 - Correctly identified: Enable EBS encryption + Enable S3 SSE
 - Review: Encryption at rest vs in transit (SSL/TLS)
 
-#### Question 12: AWS Batch for Long-Running Jobs ✅ (Marked for review)
+#### Question 12: AWS Batch for Long-Running Jobs (Marked for review)
 - Correctly answered
 - Key: Batch provides managed job queues, retries, Spot integration
 
-#### Question 18: DynamoDB Auto Scaling ✅ (Marked for review)
+#### Question 18: DynamoDB Auto Scaling (Marked for review)
 - Correctly identified Auto Scaling vs manual capacity
 - Provisioned mode with Auto Scaling prevents throttling
 
-#### Question 20: Kinesis Data Firehose for Telemetry ✅ (Marked for review)
+#### Question 20: Kinesis Data Firehose for Telemetry (Marked for review)
 - Correctly chose Firehose over Kinesis Data Streams
 - Serverless ingestion, compression, S3/Redshift delivery
 
-#### Question 22: Redshift Encryption Migration ✅ (Marked for review)
+#### Question 22: Redshift Encryption Migration (Marked for review)
 - Correctly answered: Create new encrypted cluster, migrate data
 - Cannot enable encryption on existing Redshift cluster
 
-#### Question 25: VPC Subnet CIDR ❌ (Marked for review - AND got wrong)
+#### Question 25: VPC Subnet CIDR (Marked for review - AND got wrong)
 - Already covered above in Priority 1
 
-#### Question 27: ALB SNI for Multiple Certificates ✅ (Marked for review)
+#### Question 27: ALB SNI for Multiple Certificates (Marked for review)
 - Correctly identified SNI (Server Name Indication)
 - Multiple certs on single ALB without SAN coupling
 
-#### Question 39: IGW Route for Public Subnet ✅ (Marked for review)
+#### Question 39: IGW Route for Public Subnet (Marked for review)
 - Correctly answered: 0.0.0.0/0 → IGW in route table
 - Public subnet requires IGW route + public IP
 
-#### Question 52: ENI for MAC Address Persistence ✅ (Marked for review)
+#### Question 52: ENI for MAC Address Persistence (Marked for review)
 - Correctly identified ENI (Elastic Network Interface)
 - ENI MAC address persists, can be moved between instances
 
-#### Question 54: Amazon Polly + Lex for Customer Service ✅ (Marked for review)
+#### Question 54: Amazon Polly + Lex for Customer Service (Marked for review)
 - Correctly selected both Polly (TTS) and Lex (chatbot)
 - Fraud Detector, Kendra, Textract are different use cases
 
-#### Question 60: API Gateway Integration Targets ❌ (Marked for review - AND got wrong)
+#### Question 60: API Gateway Integration Targets (Marked for review - AND got wrong)
 - Already covered above
 
-#### Question 61: API Gateway Cache Key ❌ (Marked for review - AND got wrong)
+#### Question 61: API Gateway Cache Key (Marked for review - AND got wrong)
 - Already covered above
 
-#### Question 63: Lambda@Edge Events ❌ (Marked for review - AND got wrong)
+#### Question 63: Lambda@Edge Events (Marked for review - AND got wrong)
 - Already covered above
 
 ---
 
-## 🎓 Study Recommendations
+## Study Recommendations
 
 ### Week 1: Resilient Architectures Deep Dive
 **Focus:** Close the 39% failure rate gap (critical priority)
@@ -658,7 +658,7 @@ Lambda@Edge Event Hooks:
 
 ---
 
-## 🧪 Practice Labs Needed
+## Practice Labs Needed
 
 ### High Priority Labs
 
@@ -725,7 +725,7 @@ Lambda@Edge Event Hooks:
 
 ---
 
-## 📊 Statistical Analysis
+## Statistical Analysis
 
 ### Question Difficulty Analysis
 ```
@@ -760,37 +760,37 @@ Of marked questions:
 
 ### Domain Performance Trend
 ```
-Security:         100% ✅ (Strongest)
-Cost Optimization: 100% ✅ (Strongest)
-High-Performing:   78% ⚠️  (Close to passing)
-Resilient:        61% ❌  (Critical weakness)
+Security:         100% (Strongest)
+Cost Optimization: 100% (Strongest)
+High-Performing:   78%   (Close to passing)
+Resilient:        61%   (Critical weakness)
 ```
 
 ---
 
-## 🎯 Next Steps Action Plan
+## Next Steps Action Plan
 
 ### Immediate (This Week)
-1. ✅ Review all 13 incorrect answers in detail
-2. ✅ Complete 6 high-priority labs listed above
-3. ✅ Master CIDR/subnet calculations (critical gap)
-4. ✅ Study VPC networking and endpoint patterns
+1. Review all 13 incorrect answers in detail
+2. Complete 6 high-priority labs listed above
+3. Master CIDR/subnet calculations (critical gap)
+4. Study VPC networking and endpoint patterns
 
 ### Short Term (Weeks 2-3)
-1. ✅ Complete Week 1-3 study plan
-2. ✅ Take section quiz on Resilient Architectures (target 85%+)
-3. ✅ Practice API Gateway and Lambda@Edge scenarios
-4. ✅ Build decision trees for architecture patterns
+1. Complete Week 1-3 study plan
+2. Take section quiz on Resilient Architectures (target 85%+)
+3. Practice API Gateway and Lambda@Edge scenarios
+4. Build decision trees for architecture patterns
 
 ### Before Next Practice Test
-1. ✅ Score 85%+ on Resilient Architectures section quiz
-2. ✅ Complete all recommended labs
-3. ✅ Review all 13 incorrect questions from this attempt
-4. ✅ Practice subnet CIDR calculations until mastery
+1. Score 85%+ on Resilient Architectures section quiz
+2. Complete all recommended labs
+3. Review all 13 incorrect questions from this attempt
+4. Practice subnet CIDR calculations until mastery
 
 ---
 
-## 📚 Key Resources
+## Key Resources
 
 ### AWS Documentation (Priority Reading)
 - [VPC CIDR Block Sizing](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-sizing-ipv4)
@@ -812,15 +812,15 @@ Resilient:        61% ❌  (Critical weakness)
 
 ---
 
-## 💪 Strengths & Opportunities
+## Strengths & Opportunities
 
-### Your Strengths ✅
+### Your Strengths
 - **Perfect Security Domain:** 100% accuracy shows strong understanding
 - **Perfect Cost Optimization:** 100% demonstrates good architectural judgment
 - **Good test pacing:** 97 minutes with 33 minutes remaining
 - **Self-awareness:** 32% review rate shows good question evaluation
 
-### Opportunities for Growth 📈
+### Opportunities for Growth
 - **CIDR Calculations:** Practice subnet sizing math until automatic
 - **VPC Networking:** Study endpoint types, routing, and connectivity
 - **RDS Management:** Learn parameter groups, Multi-AZ scenarios
@@ -830,7 +830,7 @@ Resilient:        61% ❌  (Critical weakness)
 
 ---
 
-## 🎉 Congratulations!
+## Congratulations!
 
 **You passed Practice Test 6 on your first attempt!** This is a significant achievement:
 - Scored 80% (5% above passing)
@@ -843,11 +843,11 @@ Resilient:        61% ❌  (Critical weakness)
 ---
 
 **Study Focus Priority:**
-1. 🔴 **CRITICAL:** VPC networking and CIDR calculations
-2. 🟡 **HIGH:** RDS parameter management and DynamoDB Streams
-3. 🟢 **MEDIUM:** API Gateway and Lambda@Edge patterns
+1. **CRITICAL:** VPC networking and CIDR calculations
+2. **HIGH:** RDS parameter management and DynamoDB Streams
+3. **MEDIUM:** API Gateway and Lambda@Edge patterns
 
 **Target for Real Exam:** Based on this performance, you're on track to pass the actual SAA-C03 exam. Focus the next 2-3 weeks on closing gaps in Resilient Architectures.
 
-Good luck with your continued preparation! 🚀
+Good luck with your continued preparation!
 

@@ -1,6 +1,6 @@
 # Security - Practice Questions
 
-> **⚠️ DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
+> **DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
 
 ## Exam-Standard Questions (SAA-C03)
 
@@ -1021,12 +1021,12 @@ aws sts assume-role \
 ```
 
 **Benefits**:
-- ✅ No long-term credentials
-- ✅ Automatic credential rotation
-- ✅ Auditable (CloudTrail)
-- ✅ Time-limited access
-- ✅ Revocable (delete role)
-- ✅ Prevents confused deputy
+- No long-term credentials
+- Automatic credential rotation
+- Auditable (CloudTrail)
+- Time-limited access
+- Revocable (delete role)
+- Prevents confused deputy
 
 **Best Practices**:
 1. Always use External ID

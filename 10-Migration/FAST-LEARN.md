@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - Migration & Transfer
+# Fast Learning - Migration & Transfer
 
 > **Time to Complete**: 40-50 minutes | **Exam Weight**: ~8-12%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### Migration Service Selector (SDASMAD)
 ```
@@ -15,7 +15,7 @@ APPLICATIONS? → Application Migration Service (MGN)
 
 **Memory Aid**: "Snow Delivers, DMS Migrates, DataSync Syncs, Storage Gateway Gates"
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### Snow Family (Physical Data Transfer)
 | Device | Capacity | Use Case | Transfer Speed |
@@ -36,7 +36,7 @@ APPLICATIONS? → Application Migration Service (MGN)
 | **Storage Gateway** | Hybrid storage | On-prem ↔ S3 | Hybrid cloud storage |
 | **MGN** | Servers/VMs | On-prem → EC2 | Lift-and-shift migration |
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. AWS DMS (Database Migration Service)
 ```
@@ -143,41 +143,41 @@ VS STORAGE GATEWAY:
 └── Storage Gateway: Continuous hybrid storage
 ```
 
-## 💡 Common Exam Scenarios
+## Common Exam Scenarios
 
 ### Scenario 1: Migrate Oracle to PostgreSQL
 **Q**: Migrate Oracle database to RDS PostgreSQL with minimal downtime
-**✅ ANSWER**: DMS + SCT (Schema Conversion Tool) for heterogeneous migration
+**ANSWER**: DMS + SCT (Schema Conversion Tool) for heterogeneous migration
 
 ### Scenario 2: Transfer 80 TB, Slow Internet
 **Q**: Transfer 80 TB data, internet is 100 Mbps (would take months)
-**✅ ANSWER**: AWS Snowball Edge (1 week including shipping)
+**ANSWER**: AWS Snowball Edge (1 week including shipping)
 
 ### Scenario 3: Continuous File Sync to S3
 **Q**: On-prem file server needs to continuously sync to S3
-**✅ ANSWER**: AWS Storage Gateway (File Gateway mode)
+**ANSWER**: AWS Storage Gateway (File Gateway mode)
 
 ### Scenario 4: SFTP Upload to S3
 **Q**: Third parties upload files via SFTP, need to land in S3
-**✅ ANSWER**: AWS Transfer Family (SFTP, FTPS, FTP to S3)
+**ANSWER**: AWS Transfer Family (SFTP, FTPS, FTP to S3)
 
 ### Scenario 5: One-Time NFS Migration
 **Q**: Migrate 10 TB NFS share to EFS, one-time
-**✅ ANSWER**: AWS DataSync
+**ANSWER**: AWS DataSync
 
 ### Scenario 6: Entire Datacenter Migration
 **Q**: Migrate 500 servers from on-prem to AWS
-**✅ ANSWER**: AWS Application Migration Service (MGN)
+**ANSWER**: AWS Application Migration Service (MGN)
 
 ### Scenario 7: Database with Continuous Replication
 **Q**: MySQL on-prem, need ongoing replication to RDS
-**✅ ANSWER**: DMS with CDC (Change Data Capture)
+**ANSWER**: DMS with CDC (Change Data Capture)
 
 ### Scenario 8: Exabyte-Scale Transfer
 **Q**: 10 EB (exabytes) of data to migrate
-**✅ ANSWER**: AWS Snowmobile (100 PB each, need ~100)
+**ANSWER**: AWS Snowmobile (100 PB each, need ~100)
 
-## 🎓 Speed Learning Tips
+## Speed Learning Tips
 
 ### DMS Replication Instance
 ```
@@ -194,10 +194,10 @@ MIGRATION TYPES:
 ### Schema Conversion Tool (SCT)
 ```
 WHEN NEEDED: Heterogeneous migrations
-├── Oracle → PostgreSQL ✅
-├── SQL Server → MySQL ✅
-├── Oracle → Aurora ✅
-└── MySQL → MySQL ❌ (not needed)
+├── Oracle → PostgreSQL
+├── SQL Server → MySQL
+├── Oracle → Aurora
+└── MySQL → MySQL (not needed)
 
 CAPABILITIES:
 ├── Converts schema
@@ -212,31 +212,31 @@ CAPABILITIES:
 When to use each:
 
 DIRECT CONNECT:
-✅ Dedicated, consistent bandwidth
-✅ 1-100 Gbps
-✅ Private connection
-❌ Weeks to months setup
-❌ Expensive
+Yes: Dedicated, consistent bandwidth
+Yes: 1-100 Gbps
+Yes: Private connection
+No: Weeks to months setup
+No: Expensive
 
 SNOWBALL:
-✅ 10+ TB data
-✅ Poor internet
-✅ One-time migration
-❌ Shipping time (days)
+Yes: 10+ TB data
+Yes: Poor internet
+Yes: One-time migration
+No: Shipping time (days)
 
 DATASYNC:
-✅ Scheduled transfers
-✅ NFS/SMB sources
-✅ Automated
-❌ Limited to 10 Gbps
+Yes: Scheduled transfers
+Yes: NFS/SMB sources
+Yes: Automated
+No: Limited to 10 Gbps
 
 TRANSFER FAMILY:
-✅ SFTP/FTP protocol needed
-✅ External users uploading
-❌ Higher cost
+Yes: SFTP/FTP protocol needed
+Yes: External users uploading
+No: Higher cost
 ```
 
-## 📝 Rapid-Fire Facts
+## Rapid-Fire Facts
 
 ### Snow Family Comparison
 ```
@@ -302,7 +302,7 @@ USE CASES:
 └── Secure file transfer to cloud
 ```
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### Migration Decision Tree
 ```
@@ -345,25 +345,25 @@ USE CASES:
 ```
 
 ### DMS Best Practices
-✅ Use Multi-AZ for production
-✅ Enable CloudWatch logging
-✅ Test with validation enabled
-✅ Use CDC for minimal downtime
-✅ Size replication instance appropriately
-✅ Use SCT assessment before migration
-✅ Migrate to Aurora when possible (better performance)
+ Use Multi-AZ for production
+ Enable CloudWatch logging
+ Test with validation enabled
+ Use CDC for minimal downtime
+ Size replication instance appropriately
+ Use SCT assessment before migration
+ Migrate to Aurora when possible (better performance)
 
 ### Common Mistakes to Avoid
-❌ Using internet for massive data transfer (use Snow)
-❌ Not testing DMS migration before cutover
-❌ Forgetting SCT for heterogeneous migrations
-❌ Choosing wrong Snow device for data size
-❌ Not considering bandwidth for transfer time
-❌ Using deprecated SMS (use MGN instead)
-❌ Not enabling validation in DMS
-❌ Underestimating replication instance size
+ Using internet for massive data transfer (use Snow)
+ Not testing DMS migration before cutover
+ Forgetting SCT for heterogeneous migrations
+ Choosing wrong Snow device for data size
+ Not considering bandwidth for transfer time
+ Using deprecated SMS (use MGN instead)
+ Not enabling validation in DMS
+ Underestimating replication instance size
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Quick Questions** (Answers at bottom)
 
@@ -415,7 +415,7 @@ INTEGRATES WITH:
 └── S3 (export data)
 ```
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~40-50 min
 - Practice: Understand DMS, Snow device selection
 - Ready for: Migration practice questions

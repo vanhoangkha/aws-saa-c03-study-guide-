@@ -1,4 +1,4 @@
-# 06: Networking - Ultra Fast Learning 🚀
+# 06: Networking - Ultra Fast Learning
 
 ## VPC Basics
 - **Regional** resource (spans all AZs)

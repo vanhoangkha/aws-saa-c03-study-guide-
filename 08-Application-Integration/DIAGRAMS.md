@@ -9,7 +9,7 @@ graph TB
     subgraph Standard_Queue_Group["Standard Queue"]
         Standard[SQS Standard Queue]
         
-        Standard_Features["Features:<br/>✅ Unlimited throughput<br/>✅ At-least-once delivery<br/>✅ Best-effort ordering<br/>⚠️ May receive duplicates<br/>⚠️ May arrive out of order"]
+        Standard_Features["Features:<br/>Unlimited throughput<br/>At-least-once delivery<br/>Best-effort ordering<br/>May receive duplicates<br/>May arrive out of order"]
         
         Standard_Use["Use Cases:<br/>• High throughput needed<br/>• Order doesn't matter<br/>• Duplicate handling in app<br/>• Event-driven architecture"]
     end
@@ -17,7 +17,7 @@ graph TB
     subgraph FIFO_Queue_Group["FIFO Queue"]
         FIFO["SQS FIFO Queue<br/>name.fifo"]
         
-        FIFO_Features["Features:<br/>📊 300 msg/sec standard<br/>📊 3,000 msg/sec with batching<br/>✅ Exactly-once processing<br/>✅ Strict ordering<br/>✅ Deduplication"]
+        FIFO_Features["Features:<br/>300 msg/sec standard<br/>3,000 msg/sec with batching<br/>Exactly-once processing<br/>Strict ordering<br/>Deduplication"]
         
         FIFO_Use["Use Cases:<br/>• Banking transactions<br/>• Order processing<br/>• Strict ordering required<br/>• No duplicates allowed"]
     end
@@ -100,7 +100,7 @@ graph LR
     CloudWatch["CloudWatch<br/>Queue Depth Metric"] -.Monitor.-> Queue
     CloudWatch -.Scale based on queue depth.-> ASG
     
-    Benefits["Benefits:<br/>✅ Decouple components<br/>✅ Handle traffic spikes<br/>✅ Independent scaling<br/>✅ Failure isolation<br/>✅ Asynchronous processing"]
+    Benefits["Benefits:<br/>Decouple components<br/>Handle traffic spikes<br/>Independent scaling<br/>Failure isolation<br/>Asynchronous processing"]
     
     classDef style1 fill:#FF9900
     class Queue style1
@@ -182,7 +182,7 @@ graph TB
     Filter --> HTTP
     Filter --> Kinesis
     
-    Features["Features:<br/>✅ Pub/Sub pattern<br/>✅ Fan-out to multiple subscribers<br/>✅ Message filtering<br/>✅ 100,000+ topics per account<br/>✅ 12.5M subscriptions per topic<br/>💰 $0.50 per million requests"]
+    Features["Features:<br/>Pub/Sub pattern<br/>Fan-out to multiple subscribers<br/>Message filtering<br/>100,000+ topics per account<br/>12.5M subscriptions per topic<br/>$0.50 per million requests"]
     
     classDef style1 fill:#FF9900
     class Topic style1
@@ -223,7 +223,7 @@ graph TB
     Lambda2 --> Output2["S3<br/>Watermarked"]
     Lambda3 --> Output3["DynamoDB<br/>Metadata"]
     
-    Benefits["Benefits:<br/>✅ Process once, deliver to many<br/>✅ Independent processing<br/>✅ Guaranteed delivery to SQS<br/>✅ Retry logic with DLQ<br/>✅ Decouple services"]
+    Benefits["Benefits:<br/>Process once, deliver to many<br/>Independent processing<br/>Guaranteed delivery to SQS<br/>Retry logic with DLQ<br/>Decouple services"]
     
     classDef style1 fill:#FF9900
     class SNS style1
@@ -374,7 +374,7 @@ graph TB
     
     CWE -.Evolved into.-> EB
     
-    Recommendation["Recommendation:<br/>✅ Use EventBridge for new applications<br/>✅ CloudWatch Events still works (same API)<br/>✅ EventBridge is superset of CW Events"]
+    Recommendation["Recommendation:<br/>Use EventBridge for new applications<br/>CloudWatch Events still works (same API)<br/>EventBridge is superset of CW Events"]
     
     classDef style1 fill:#FF9900
     class EB style1
@@ -471,21 +471,21 @@ mindmap
 graph TB
     subgraph AWS_Step_Functions_Group["AWS Step Functions"]
         SF[Step Functions]
-        SF_Features["Features:<br/>✅ Workflow orchestration<br/>✅ Visual workflow designer<br/>✅ State management<br/>✅ Error handling & retry<br/>✅ Long-running processes up to 1 year<br/>💰 Pay per state transition"]
+        SF_Features["Features:<br/>Workflow orchestration<br/>Visual workflow designer<br/>State management<br/>Error handling & retry<br/>Long-running processes up to 1 year<br/>Pay per state transition"]
         
         SF_Use["Use Cases:<br/>• Complex workflows<br/>• Order processing<br/>• ETL pipelines<br/>• Microservice orchestration<br/>• Human approval steps"]
     end
     
     subgraph Amazon_SQS_Group["Amazon SQS"]
         SQS[SQS Queues]
-        SQS_Features["Features:<br/>✅ Message queuing<br/>✅ Decouple components<br/>✅ Simple processing<br/>✅ Buffer messages<br/>✅ Retention up to 14 days<br/>💰 Pay per million requests"]
+        SQS_Features["Features:<br/>Message queuing<br/>Decouple components<br/>Simple processing<br/>Buffer messages<br/>Retention up to 14 days<br/>Pay per million requests"]
         
         SQS_Use["Use Cases:<br/>• Simple task queue<br/>• Decouple services<br/>• Buffer workloads<br/>• Asynchronous processing<br/>• Job queues"]
     end
     
     subgraph Amazon_SNS_Group["Amazon SNS"]
         SNS[SNS Topics]
-        SNS_Features["Features:<br/>✅ Pub/Sub messaging<br/>✅ Fan-out pattern<br/>✅ Multiple subscribers<br/>✅ Message filtering<br/>✅ Real-time notifications<br/>💰 Pay per million publishes"]
+        SNS_Features["Features:<br/>Pub/Sub messaging<br/>Fan-out pattern<br/>Multiple subscribers<br/>Message filtering<br/>Real-time notifications<br/>Pay per million publishes"]
         
         SNS_Use["Use Cases:<br/>• Notifications<br/>• Fan-out to multiple targets<br/>• Event-driven architecture<br/>• Mobile push<br/>• Email/SMS alerts"]
     end
@@ -537,7 +537,7 @@ graph TB
     
     VsSQS["Amazon MQ vs SQS/SNS:<br/><br/>Use Amazon MQ when:<br/>• Migrating from on-premises<br/>• Need specific protocols<br/>• Need traditional message broker<br/><br/>Use SQS/SNS when:<br/>• New cloud-native applications<br/>• Serverless integration<br/>• Unlimited scalability needed<br/>• Lower cost"]
     
-    Features["Features:<br/>✅ Managed service<br/>✅ Multi-AZ for HA<br/>✅ Automatic failover<br/>✅ EFS storage for persistence<br/>💰 Pay for instance hours"]
+    Features["Features:<br/>Managed service<br/>Multi-AZ for HA<br/>Automatic failover<br/>EFS storage for persistence<br/>Pay for instance hours"]
     
     classDef style1 fill:#FF9900
     class MQ style1
@@ -578,7 +578,7 @@ graph TB
     end
     
     subgraph Features_Group["Key Features"]
-        Features["✅ GraphQL queries, mutations, subscriptions<br/>✅ Real-time data sync<br/>✅ Offline support<br/>✅ Built-in caching<br/>✅ Fine-grained access control<br/>💰 Pay per query + data transfer"]
+        Features["GraphQL queries, mutations, subscriptions<br/>Real-time data sync<br/>Offline support<br/>Built-in caching<br/>Fine-grained access control<br/>Pay per query + data transfer"]
     end
     
     Web --> AppSync

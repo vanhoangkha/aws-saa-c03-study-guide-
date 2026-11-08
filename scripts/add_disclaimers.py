@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 
 DISCLAIMER = """
-> **⚠️ DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
+> **DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
 
 """
 
@@ -18,8 +18,8 @@ def add_disclaimer_to_file(file_path):
             content = f.read()
 
         # Check if disclaimer already exists
-        if '⚠️ DISCLAIMER:' in content or 'DISCLAIMER' in content[:500]:
-            print(f"✓ Disclaimer already exists in {file_path}")
+        if 'DISCLAIMER:' in content or 'DISCLAIMER' in content[:500]:
+            print(f"Disclaimer already exists in {file_path}")
             return False
 
         # Find the first heading and add disclaimer after it
@@ -39,14 +39,14 @@ def add_disclaimer_to_file(file_path):
         if disclaimer_added:
             with open(file_path, 'w', encoding='utf-8') as f:
                 f.write('\n'.join(new_lines))
-            print(f"✓ Added disclaimer to {file_path}")
+            print(f"Added disclaimer to {file_path}")
             return True
         else:
-            print(f"⚠ Could not find suitable location in {file_path}")
+            print(f"Could not find suitable location in {file_path}")
             return False
 
     except Exception as e:
-        print(f"✗ Error processing {file_path}: {e}")
+        print(f"Error processing {file_path}: {e}")
         return False
 
 def main():
@@ -63,8 +63,8 @@ def main():
         if add_disclaimer_to_file(file_path):
             modified_count += 1
 
-    print(f"\n✓ Modified {modified_count} files")
-    print(f"✓ Skipped {len(practice_files) - modified_count} files (already have disclaimer)")
+    print(f"\nModified {modified_count} files")
+    print(f"Skipped {len(practice_files) - modified_count} files (already have disclaimer)")
 
 if __name__ == '__main__':
     main()

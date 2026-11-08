@@ -1,16 +1,16 @@
 # Practice Test 5 Review - Quick Reference
 
-**Date:** Mar 2, 2026 | **Score:** 42/65 (65%) ❌ FAILED | **Time:** 130 min
+**Date:** Mar 2, 2026 | **Score:** 42/65 (65%) FAILED | **Time:** 130 min
 
 ## Domain Scores
 | Domain | Score | Status |
 |--------|-------|--------|
-| Cost-Optimized | 3/3 (100%) | ✅ Perfect |
-| Secure | 14/18 (78%) | ⚠️ Review |
-| Resilient | 15/21 (71%) | ⚠️ Review |
-| High-Performing | 10/23 (43%) | ❌ CATASTROPHIC |
+| Cost-Optimized | 3/3 (100%) | Perfect |
+| Secure | 14/18 (78%) | Review |
+| Resilient | 15/21 (71%) | Review |
+| High-Performing | 10/23 (43%) | CATASTROPHIC |
 
-**Trend:** Test 3: 80% → Test 4: 75% → Test 5: 65% ❌ (Major regression)
+**Trend:** Test 3: 80% → Test 4: 75% → Test 5: 65% (Major regression)
 
 **Pattern:** 39 questions marked for review (60% uncertainty)
 
@@ -261,8 +261,8 @@
 - **Low latency caching:** ElastiCache (Redis for HA)
 
 ## Critical Actions
-⚠️ **URGENT:** Re-study High-Performing domain (dropped 34 points)
-⚠️ **URGENT:** Complete hands-on labs for CloudWatch, ECS, S3 optimization
-⚠️ Review FSx types and Kinesis services
-⚠️ Practice analytics services workflow
+ **URGENT:** Re-study High-Performing domain (dropped 34 points)
+ **URGENT:** Complete hands-on labs for CloudWatch, ECS, S3 optimization
+ Review FSx types and Kinesis services
+ Practice analytics services workflow
 

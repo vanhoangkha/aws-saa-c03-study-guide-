@@ -1,4 +1,4 @@
-# 04: Storage Services - Ultra Fast Learning 🚀
+# 04: Storage Services - Ultra Fast Learning
 
 ## S3 Storage Classes
 | Class | Use Case | Retrieval | Min Storage | Availability |

@@ -7,32 +7,32 @@ assignees: ''
 
 ---
 
-## 💡 Feature Description
+## Feature Description
 <!-- A clear and concise description of the feature you'd like to see -->
 
-## 🎯 Motivation
+## Motivation
 <!-- Why is this feature important? How would it help you or other learners? -->
 
-## 📋 Proposed Content
+## Proposed Content
 <!-- If applicable, describe what content you'd like to see added -->
 - **Module/Section**: 
 - **Topic**: 
 - **Content type**: (e.g., tutorial, diagram, practice questions, code example)
 
-## 📚 Additional Context
+## Additional Context
 <!-- Any other context, examples, or screenshots about the feature request -->
 
-## 🔗 References
+## References
 <!-- Optional: Links to AWS documentation or resources that relate to this feature -->
 - 
 
-## ✅ Acceptance Criteria
+## Acceptance Criteria
 <!-- What would make this feature complete? -->
 - [ ] 
 - [ ] 
 - [ ] 
 
-## 🤝 Contribution
+## Contribution
 <!-- Are you willing to contribute this feature yourself? -->
 - [ ] I'd like to work on this
 - [ ] I can help review

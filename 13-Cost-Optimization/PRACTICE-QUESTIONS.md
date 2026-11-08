@@ -1,6 +1,6 @@
 # Cost Optimization - Practice Questions
 
-> **⚠️ DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
+> **DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
 
 ## Exam-Standard Questions (SAA-C03)
 
@@ -560,16 +560,16 @@ D. Manual scaling with CloudWatch alarms
 10. **Instance Scheduler**: Stopping resources outside business hours
 
 ### Exam Tips:
-- ✅ Steady 24/7 workloads → Reserved Instances or Savings Plans (up to 72% savings)
-- ✅ Fault-tolerant batch processing → Spot Instances (up to 90% savings)
-- ✅ Unpredictable/mixed workloads → Compute Savings Plans (most flexible)
-- ✅ Dev/test environments → Instance Scheduler (stop outside hours)
-- ✅ Infrequent access after 30 days → S3 Glacier Deep Archive
-- ✅ Unknown access patterns → S3 Intelligent-Tiering
-- ✅ Cost tracking by department → Cost Allocation Tags
-- ✅ Identify underutilized resources → Cost Explorer Right-Sizing + Trusted Advisor
-- ✅ Budget alerts → AWS Budgets
-- ✅ Standard RI (72%) vs Convertible RI (54%) discount
-- ✅ CloudFront reduces data transfer costs
-- ✅ 3-year All Upfront provides maximum RI discount
+- Steady 24/7 workloads → Reserved Instances or Savings Plans (up to 72% savings)
+- Fault-tolerant batch processing → Spot Instances (up to 90% savings)
+- Unpredictable/mixed workloads → Compute Savings Plans (most flexible)
+- Dev/test environments → Instance Scheduler (stop outside hours)
+- Infrequent access after 30 days → S3 Glacier Deep Archive
+- Unknown access patterns → S3 Intelligent-Tiering
+- Cost tracking by department → Cost Allocation Tags
+- Identify underutilized resources → Cost Explorer Right-Sizing + Trusted Advisor
+- Budget alerts → AWS Budgets
+- Standard RI (72%) vs Convertible RI (54%) discount
+- CloudFront reduces data transfer costs
+- 3-year All Upfront provides maximum RI discount
 

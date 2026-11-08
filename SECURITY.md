@@ -50,16 +50,16 @@ When contributing to this repository:
 
 This security policy covers:
 
-- ✅ Documentation content accuracy (especially security-related topics)
-- ✅ Code examples and scripts
-- ✅ Links to external resources
-- ✅ Configuration examples
+- Documentation content accuracy (especially security-related topics)
+- Code examples and scripts
+- Links to external resources
+- Configuration examples
 
 This policy does NOT cover:
 
-- ❌ AWS platform security (report to AWS directly)
-- ❌ Third-party resources linked from this guide
-- ❌ Security of individual user AWS accounts
+- AWS platform security (report to AWS directly)
+- Third-party resources linked from this guide
+- Security of individual user AWS accounts
 
 ## Acknowledgments
 

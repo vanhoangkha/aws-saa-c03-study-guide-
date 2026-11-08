@@ -3,7 +3,7 @@
 
 ---
 
-## 🚨 CRITICAL: High-Performing Architectures
+## CRITICAL: High-Performing Architectures
 
 ### ECS Deployment & Networking
 
@@ -16,12 +16,12 @@
 │ ├── Control over instances             │
 │ ├── Pick instance family/size          │
 │ ├── Persistent storage options         │
-│ └── ✅ Standard for AWS Outposts       │
+│ └── Standard for AWS Outposts          │
 │                                         │
 │ Fargate Launch Type                    │
 │ ├── Serverless container compute       │
 │ ├── No instance management             │
-│ └── ❌ Limited Outposts support        │
+│ └── Limited Outposts support           │
 └─────────────────────────────────────────┘
 ```
 
@@ -31,18 +31,18 @@
 │ Host Mode                                            │
 │ ├── Container shares host network namespace         │
 │ ├── Port conflicts possible                         │
-│ └── ❌ No task-level security groups                │
+│ └── No task-level security groups                   │
 ├──────────────────────────────────────────────────────┤
 │ Bridge Mode (default)                               │
 │ ├── Docker bridge network                           │
 │ ├── Port mapping (container:host)                   │
-│ └── ❌ No per-task ENI or security groups          │
+│ └── No per-task ENI or security groups             │
 ├──────────────────────────────────────────────────────┤
-│ awsvpc Mode ⭐                                       │
+│ awsvpc Mode                                          │
 │ ├── Each task gets own ENI                          │
 │ ├── Task-level security groups                      │
 │ ├── VPC Flow Logs per task                          │
-│ └── ✅ Required for task-level network controls     │
+│ └── Required for task-level network controls        │
 └──────────────────────────────────────────────────────┘
 ```
 
@@ -53,13 +53,13 @@ Requirement: Multiple tasks per instance
 ┌────────────────────────────────────┐
 │ Load Balancer Support              │
 ├────────────────────────────────────┤
-│ ✅ Application Load Balancer       │
+│ Application Load Balancer          │
 │    └── HTTP/HTTPS, Layer 7         │
 │                                    │
-│ ✅ Network Load Balancer           │
+│ Network Load Balancer              │
 │    └── TCP/UDP, Layer 4            │
 │                                    │
-│ ❌ Classic Load Balancer           │
+│ Classic Load Balancer              │
 │    └── No dynamic port support     │
 └────────────────────────────────────┘
 
@@ -99,14 +99,14 @@ Configuration:
 │ Feature              │ ALB          │ NLB          │
 ├──────────────────────┼──────────────┼──────────────┤
 │ OSI Layer            │ 7 (HTTP)     │ 4 (TCP/UDP)  │
-│ Static IP            │ ❌           │ ✅           │
-│ Elastic IP           │ ❌           │ ✅           │
-│ Host-based routing   │ ✅           │ ❌           │
-│ Path-based routing   │ ✅           │ ❌           │
-│ WebSocket            │ ✅           │ ✅           │
-│ Dynamic port mapping │ ✅           │ ✅           │
+│ Static IP            │            │                │
+│ Elastic IP           │            │                │
+│ Host-based routing   │            │                │
+│ Path-based routing   │            │                │
+│ WebSocket            │            │                │
+│ Dynamic port mapping │            │                │
 │ Ultra-low latency    │ Good         │ Best         │
-│ TLS termination      │ ✅           │ ✅           │
+│ TLS termination      │            │                │
 │ Preserve source IP   │ Via header   │ Native       │
 └──────────────────────┴──────────────┴──────────────┘
 ```
@@ -145,11 +145,11 @@ Configuration:
 
 #### Read Performance & LIST Operations (20% bottleneck)
 ```
-❌ WRONG: Scale LIST operations
+ WRONG: Scale LIST operations
    └── More LIST calls = more overhead
    └── Doesn't solve root problem
 
-✅ RIGHT: Build Catalog Index
+ RIGHT: Build Catalog Index
 
 ┌─────────────────────────────────────────┐
 │ Option 1: DynamoDB Catalog              │
@@ -200,7 +200,7 @@ Configuration:
 │    └── Cache policy: CachingOptimized       │
 └──────────────────────────────────────────────┘
 
-⚠️ COMMON MISTAKE:
+ COMMON MISTAKE:
 "Upload error pages directly to CloudFront"
 └── CloudFront is CDN, not storage!
     All content must be at an origin (S3/HTTP)
@@ -213,7 +213,7 @@ Configuration:
 #### When to Use Each
 ```
 ┌────────────────────────────────────────────────┐
-│ AWS GLOBAL ACCELERATOR ⭐                      │
+│ AWS GLOBAL ACCELERATOR                         │
 ├────────────────────────────────────────────────┤
 │ Provides:                                      │
 │ ├── 2 static anycast IPv4 addresses           │
@@ -245,7 +245,7 @@ Configuration:
 │ ├── HTTP/HTTPS only                           │
 │ └── Standard web applications                 │
 │                                                │
-│ ⚠️ Does NOT provide:                          │
+│ Does NOT provide:                            │
 │ └── Static anycast IPs                        │
 │ └── PrivateLink endpoint (doesn't exist!)    │
 └────────────────────────────────────────────────┘
@@ -258,7 +258,7 @@ Configuration:
 #### Scaling Policy Comparison
 ```
 ┌─────────────────────────────────────────────────┐
-│ SIMPLE SCALING ❌                               │
+│ SIMPLE SCALING                                  │
 │ ├── Fixed adjustment (e.g., +1 instance)       │
 │ ├── Cooldown period after each action          │
 │ └── Can oscillate/slow to respond              │
@@ -268,7 +268,7 @@ Configuration:
 │ ├── Faster than simple scaling                 │
 │ └── Still reactive to current state            │
 ├─────────────────────────────────────────────────┤
-│ TARGET TRACKING ⭐ (RECOMMENDED)                │
+│ TARGET TRACKING (RECOMMENDED)                   │
 │ ├── Specify target metric value                │
 │ ├── ASG adjusts to maintain target             │
 │ ├── Handles both scale-out and scale-in        │
@@ -314,7 +314,7 @@ Problem: Hot spot in one AZ after scaling
 ┌─────────────────────────────────────────────┐
 │ EBS-BACKED INSTANCES                        │
 ├─────────────────────────────────────────────┤
-│ Can be: STOPPED and STARTED ✅              │
+│ Can be: STOPPED and STARTED                 │
 │                                             │
 │ On STOP:                                    │
 │ ├── Private IP: PRESERVED                  │
@@ -329,7 +329,7 @@ Problem: Hot spot in one AZ after scaling
 │ └── IAM Role: PRESERVED                    │
 └─────────────────────────────────────────────┘
 
-🔧 FIX for SSH Issues:
+ FIX for SSH Issues:
    1. Use Elastic IP (static public IP)
    2. Or use private IP via VPN/DirectConnect
    3. Or update SSH config with new public IP
@@ -337,14 +337,14 @@ Problem: Hot spot in one AZ after scaling
 
 ---
 
-## ⚠️ IMPORTANT: Secure Architectures
+## IMPORTANT: Secure Architectures
 
 ### RDS Scaling Patterns
 
 #### Multi-AZ vs Read Replicas
 ```
 ┌─────────────────────────────────────────────┐
-│ MULTI-AZ ❌ FOR READ SCALING                │
+│ MULTI-AZ FOR READ SCALING                   │
 ├─────────────────────────────────────────────┤
 │ Purpose: High Availability                  │
 │ ├── Synchronous replication                │
@@ -359,7 +359,7 @@ Problem: Hot spot in one AZ after scaling
 └─────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────┐
-│ READ REPLICAS ✅ FOR READ SCALING           │
+│ READ REPLICAS FOR READ SCALING              │
 ├─────────────────────────────────────────────┤
 │ Purpose: Read Performance                   │
 │ ├── Asynchronous replication               │
@@ -375,7 +375,7 @@ Problem: Hot spot in one AZ after scaling
 └─────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────┐
-│ ELASTICACHE ⭐ BEST FOR READ-HEAVY          │
+│ ELASTICACHE BEST FOR READ-HEAVY             │
 ├─────────────────────────────────────────────┤
 │ Purpose: Extreme Read Performance           │
 │ ├── In-memory data store                   │
@@ -397,7 +397,7 @@ Problem: Hot spot in one AZ after scaling
 
 #### S3 Bucket Access Control
 ```
-❌ AVOID: Explicit Deny Lists
+ AVOID: Explicit Deny Lists
 ┌────────────────────────────────────────┐
 │ Bucket Policy:                         │
 │ {                                      │
@@ -416,7 +416,7 @@ Problem: Hot spot in one AZ after scaling
 │ }                                      │
 └────────────────────────────────────────┘
 
-✅ PREFER: Role-Based Access
+ PREFER: Role-Based Access
 ┌────────────────────────────────────────┐
 │ Bucket Policy:                         │
 │ {                                      │
@@ -455,13 +455,13 @@ Problem: Hot spot in one AZ after scaling
 │ ├── Application-specific rules                │
 │ └── Dynamic IP groups                         │
 │                                                │
-│ ❌ Cannot:                                     │
+│ Cannot:                                        │
 │ └── Explicitly DENY traffic                   │
 │ └── Block specific IPs at subnet level        │
 └────────────────────────────────────────────────┘
 
 ┌────────────────────────────────────────────────┐
-│ NETWORK ACLs (Subnet-level) ⭐ for DoS         │
+│ NETWORK ACLs (Subnet-level) for DoS            │
 ├────────────────────────────────────────────────┤
 │ Stateless: Must allow return traffic           │
 │ Rules: ALLOW and DENY                          │
@@ -473,7 +473,7 @@ Problem: Hot spot in one AZ after scaling
 │ ├── Block IP ranges                           │
 │ └── Compliance requirements                   │
 │                                                │
-│ ✅ Can:                                        │
+│ Can:                                           │
 │ ├── Explicitly DENY traffic                   │
 │ └── Block before reaching instances           │
 └────────────────────────────────────────────────┘
@@ -492,7 +492,7 @@ Rule # | Type   | Protocol | Port | Source      | Allow/Deny
 #### Secrets Manager vs Parameter Store
 ```
 ┌─────────────────────────────────────────────┐
-│ SECRETS MANAGER ⭐                          │
+│ SECRETS MANAGER                             │
 ├─────────────────────────────────────────────┤
 │ Features:                                   │
 │ ├── Automatic rotation                     │
@@ -530,7 +530,7 @@ Rule # | Type   | Protocol | Port | Source      | Allow/Deny
 │ ├── Non-rotating secrets                   │
 │ └── Cost-sensitive applications            │
 │                                             │
-│ ❌ Does NOT support:                        │
+│ Does NOT support:                           │
 │ └── Automatic credential rotation          │
 └─────────────────────────────────────────────┘
 ```
@@ -574,7 +574,7 @@ def lambda_handler(event, context):
 #### CloudTrail vs Config vs CloudWatch
 ```
 ┌─────────────────────────────────────────────┐
-│ CLOUDTRAIL ⭐ for "Who did what?"           │
+│ CLOUDTRAIL for "Who did what?"              │
 ├─────────────────────────────────────────────┤
 │ Tracks:                                     │
 │ ├── API calls (management events)          │
@@ -609,7 +609,7 @@ def lambda_handler(event, context):
 │ ├── Change management                      │
 │ └── Security analysis                      │
 │                                             │
-│ ❌ NOT for:                                 │
+│ NOT for:                                    │
 │ └── API call logging                       │
 │ └── Administrator activity                 │
 └─────────────────────────────────────────────┘
@@ -638,7 +638,7 @@ def lambda_handler(event, context):
 #### Gateway Type Selection
 ```
 ┌─────────────────────────────────────────────┐
-│ FILE GATEWAY ⭐                             │
+│ FILE GATEWAY                                │
 ├─────────────────────────────────────────────┤
 │ Protocol: SMB, NFS                          │
 │ Backend: S3 bucket (as objects)             │
@@ -648,7 +648,7 @@ def lambda_handler(event, context):
 │ ├── Admin needs S3 console access          │
 │ └── Cloud backup/archival                  │
 │                                             │
-│ ✅ Admins can:                              │
+│ Admins can:                                 │
 │ ├── Browse objects in S3 console           │
 │ ├── Use S3 APIs directly                   │
 │ └── Set S3 lifecycle policies              │
@@ -664,7 +664,7 @@ def lambda_handler(event, context):
 │ ├── Disaster recovery                      │
 │ └── Migration to AWS                       │
 │                                             │
-│ ❌ Data NOT accessible as:                  │
+│ Data NOT accessible as:                     │
 │ └── Normal S3 objects in console           │
 │ └── Must restore from snapshot             │
 └─────────────────────────────────────────────┘
@@ -679,7 +679,7 @@ def lambda_handler(event, context):
 │ ├── Tape library replacement               │
 │ └── Long-term archival                     │
 │                                             │
-│ ❌ NOT for:                                 │
+│ NOT for:                                    │
 │ └── Operational file storage               │
 │ └── Real-time object access                │
 └─────────────────────────────────────────────┘
@@ -687,7 +687,7 @@ def lambda_handler(event, context):
 
 ---
 
-## 🎯 Quick Decision Trees
+## Quick Decision Trees
 
 ### "Which load balancer?"
 ```
@@ -717,7 +717,7 @@ Read-heavy database?
 ```
 Need to DENY traffic?
 ├── Instance-level? → Security Group (can't deny!)
-└── Subnet-level? → Network ACL ✅
+└── Subnet-level? → Network ACL
 
 Facing DoS attack?
 └── Network ACL with DENY rules
@@ -735,48 +735,48 @@ Need automatic rotation?
 
 ---
 
-## 🔄 Common Mistake Patterns
+## Common Mistake Patterns
 
 ### Mistake #1: Confusing HA with Read Scaling
 ```
-❌ Multi-AZ is for reads
-✅ Multi-AZ is for availability only
+No: Multi-AZ is for reads
+Yes: Multi-AZ is for availability only
    Read Replicas are for read scaling
    ElastiCache is BEST for read-heavy
 ```
 
 ### Mistake #2: Storage Gateway Confusion
 ```
-❌ "Tape Gateway for file storage"
-✅ File Gateway = Files as S3 objects
+No: "Tape Gateway for file storage"
+Yes: File Gateway = Files as S3 objects
    Volume Gateway = Block storage/snapshots
    Tape Gateway = VTL/archive only
 ```
 
 ### Mistake #3: Security Group Capabilities
 ```
-❌ "Use Security Group to DENY IP"
-✅ Security Groups can't DENY
+No: "Use Security Group to DENY IP"
+Yes: Security Groups can't DENY
    Use Network ACL for explicit DENY
 ```
 
 ### Mistake #4: CloudFront Storage
 ```
-❌ "Upload content directly to CloudFront"
-✅ CloudFront is CDN, not storage
+No: "Upload content directly to CloudFront"
+Yes: CloudFront is CDN, not storage
    Content must be at origin (S3/HTTP)
 ```
 
 ### Mistake #5: ECS Launch Types
 ```
-❌ "Fargate on Outposts for standard workloads"
-✅ EC2 launch type is standard for Outposts
+No: "Fargate on Outposts for standard workloads"
+Yes: EC2 launch type is standard for Outposts
    Fargate on Outposts is limited
 ```
 
 ---
 
-## 📚 Must-Memorize Facts
+## Must-Memorize Facts
 
 ### ECS
 - awsvpc = task-level ENI + security groups
@@ -786,7 +786,7 @@ Need automatic rotation?
 ### Load Balancers
 - ALB = Layer 7, host/path routing, no static IP
 - NLB = Layer 4, static IP/EIP, ultra-low latency
-- Dynamic ports = ALB + NLB ✅, CLB ❌
+- Dynamic ports = ALB + NLB , CLB
 
 ### S3 Performance
 - Write bottleneck = Multipart + Parallelization
@@ -817,8 +817,8 @@ Need automatic rotation?
 ### Security
 - Security Groups = allow only (no deny)
 - Network ACL = allow + DENY (use for DoS)
-- Secrets Manager = rotation ✅
-- Parameter Store = NO rotation ❌
+- Secrets Manager = rotation
+- Parameter Store = NO rotation
 
 ### Monitoring
 - CloudTrail = API calls (who did what)
@@ -832,7 +832,7 @@ Need automatic rotation?
 
 ---
 
-## ⚡ Last-Minute Checklist
+## Last-Minute Checklist
 
 Before next attempt, ensure you can answer:
 
@@ -857,5 +857,5 @@ If you can't immediately answer these, review the relevant sections above!
 **Recommended Practice:** 2 more practice tests focusing on these areas  
 **Target Score:** 80%+ on next attempt
 
-Good luck! 🚀
+Good luck!
 

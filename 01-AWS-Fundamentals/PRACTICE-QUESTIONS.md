@@ -1,6 +1,6 @@
 # AWS Fundamentals - Practice Questions
 
-> **⚠️ DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
+> **DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
 
 ## Exam-Standard Questions (SAA-C03)
 
@@ -610,11 +610,11 @@ D. SCPs can only be applied to individual accounts, not OUs
 - Effective permissions = IAM policy AND SCP
 
 **Key SCP Rules:**
-- ❌ Don't grant permissions
-- ❌ Don't affect management account
-- ✅ Set maximum permission boundaries
-- ✅ Can be applied to OUs
-- ✅ Inherited down the hierarchy
+- Don't grant permissions
+- Don't affect management account
+- Yes: Set maximum permission boundaries
+- Yes: Can be applied to OUs
+- Yes: Inherited down the hierarchy
 
 **References:** Service Control Policies, Permission Boundaries
 </details>
@@ -645,11 +645,11 @@ D. AWS Service Catalog
 - Service Catalog (D) is for self-service IT resources
 
 **Control Tower Features:**
-- ✅ Automated setup (minutes vs days)
-- ✅ Pre-built guardrails
-- ✅ Account Factory
-- ✅ Compliance dashboard
-- ✅ Integrated with Organizations, IAM Identity Center, CloudTrail
+- Automated setup (minutes vs days)
+- Pre-built guardrails
+- Account Factory
+- Compliance dashboard
+- Integrated with Organizations, IAM Identity Center, CloudTrail
 
 **When to Use:**
 - Quick setup with best practices
@@ -689,11 +689,11 @@ D. AWS PrivateLink
 - PrivateLink (D) is for service-to-VPC connectivity
 
 **Benefits of Subnet Sharing with RAM:**
-- ✅ Centralized network management
-- ✅ Reduced VPC sprawl
-- ✅ Efficient IP address usage
-- ✅ Simplified network architecture
-- ✅ Lower operational overhead
+- Centralized network management
+- Reduced VPC sprawl
+- Efficient IP address usage
+- Simplified network architecture
+- Lower operational overhead
 
 **Other Shareable Resources via RAM:**
 - VPC Subnets (most common)
@@ -731,11 +731,11 @@ D. SCPs enable cost savings automatically
 - SCPs are for permissions, not costs (D)
 
 **Consolidated Billing Benefits:**
-- ✅ Volume discounts across accounts
-- ✅ Single payment method
-- ✅ Easier cost tracking
-- ✅ Cost allocation tags across org
-- ✅ Reserved Instance sharing
+- Volume discounts across accounts
+- Single payment method
+- Easier cost tracking
+- Cost allocation tags across org
+- Reserved Instance sharing
 
 **References:** AWS Organizations, Consolidated Billing, Volume Pricing
 </details>
@@ -800,16 +800,16 @@ D. Organizational Lock
 - Service Categories and Cloud Models
 
 **Exam Tips**:
-1. ✅ Understand the difference between Regions, AZs, Edge Locations, Local Zones, and Wavelength
-2. ✅ Memorize the 6 pillars of Well-Architected Framework
-3. ✅ Know what AWS vs Customer manages in Shared Responsibility Model
-4. ✅ **CRITICAL**: Understand SCPs - they DON'T grant permissions, only restrict
-5. ✅ **CRITICAL**: SCPs do NOT affect the management account
-6. ✅ Know when to use Control Tower vs manual Organizations setup
-7. ✅ Understand RAM for VPC subnet sharing (common exam scenario)
-8. ✅ Consolidated billing enables volume discounts across accounts
-9. ✅ Understand when to use each cost management tool
-10. ✅ Know AWS Organizations for multi-account management
+1. Understand the difference between Regions, AZs, Edge Locations, Local Zones, and Wavelength
+2. Memorize the 6 pillars of Well-Architected Framework
+3. Know what AWS vs Customer manages in Shared Responsibility Model
+4. **CRITICAL**: Understand SCPs - they DON'T grant permissions, only restrict
+5. **CRITICAL**: SCPs do NOT affect the management account
+6. Know when to use Control Tower vs manual Organizations setup
+7. Understand RAM for VPC subnet sharing (common exam scenario)
+8. Consolidated billing enables volume discounts across accounts
+9. Understand when to use each cost management tool
+10. Know AWS Organizations for multi-account management
 
 **Key Exam Concepts - AWS Organizations:**
 - **Management Account**: Cannot be restricted by SCPs, pays all bills

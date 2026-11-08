@@ -1,6 +1,6 @@
 # Migration & Transfer Services - Practice Questions
 
-> **⚠️ DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
+> **DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
 
 ## Exam-Standard Questions (SAA-C03)
 
@@ -548,13 +548,13 @@ D. Repurchase
 7. **Migration Strategies**: When to use each approach
 
 ### Exam Tips:
-- ✅ Rehost (Lift and Shift) is fastest migration
-- ✅ Heterogeneous migrations require SCT + DMS
-- ✅ Homogeneous migrations use DMS only
-- ✅ Use Snowball when data > 10 TB or bandwidth limited
-- ✅ DataSync for ongoing/scheduled transfers over network
-- ✅ DMS supports continuous replication with CDC
-- ✅ Full Load + CDC is most common DMS task type
-- ✅ Migration Hub tracks multi-account/multi-region migrations
-- ✅ DataSync supports NFS, SMB, HDFS, and S3
+- Rehost (Lift and Shift) is fastest migration
+- Heterogeneous migrations require SCT + DMS
+- Homogeneous migrations use DMS only
+- Use Snowball when data > 10 TB or bandwidth limited
+- DataSync for ongoing/scheduled transfers over network
+- DMS supports continuous replication with CDC
+- Full Load + CDC is most common DMS task type
+- Migration Hub tracks multi-account/multi-region migrations
+- DataSync supports NFS, SMB, HDFS, and S3
 

@@ -1,22 +1,22 @@
-# 📁 Exam Reviews - Complete Folder Structure
+# Exam Reviews - Complete Folder Structure
 
 **Visual guide to the organized folder structure**
 
 ---
 
-## 🎯 Overview
+## Overview
 
 The exam-reviews folder is now organized into **5 category folders** with **25 total files** for efficient study.
 
 ---
 
-## 📂 Complete Folder Structure
+## Complete Folder Structure
 
 ```
 exam-reviews/
 │
-├── 📁 navigation/ (10 files)
-│   ├── 00-CATEGORIZATION-INDEX.md           ⭐⭐⭐ Master guide (START HERE)
+├── navigation/ (10 files)
+│   ├── 00-CATEGORIZATION-INDEX.md            Master guide (START HERE)
 │   ├── 00-CATEGORIZATION-COMPLETE.md        Completion report
 │   ├── CATEGORY-QUICK-REFERENCE.md          Quick lookup (2 min)
 │   ├── DOCUMENT-SELECTION-MATRIX.md         Decision tool
@@ -27,36 +27,36 @@ exam-reviews/
 │   ├── QUICK-NAVIGATION.md                  Jump links
 │   └── CONDENSED-REVIEWS-README.md          Explains condensed docs
 │
-├── 📁 quick-reference/ (2 files)
+├── quick-reference/ (2 files)
 │   ├── ULTRA-QUICK-REFERENCE-CARD.md        Must-know rules (15 min)
 │   └── MEMORY-CARDS.md                      Visual mnemonics (20 min)
 │
-├── 📁 master-guides/ (2 files)
+├── master-guides/ (2 files)
 │   ├── COMPLETE-EXAM-REVIEW.md              Overall analysis (45 min)
 │   └── ALL-TESTS-MASTER-QUICK-REFERENCE.md  Top 135+ concepts (90 min)
 │
-├── 📁 complete-reviews/ (5 files)
-│   ├── Practice-Test-1-Review.md            52% ❌ (4 hrs)
-│   ├── Practice-Test-2-Review.md            75% ⚠️ (2.5 hrs)
-│   ├── Practice-Test-3-Review.md            80% ✅ (2 hrs)
-│   ├── Practice-Test-4-Review.md            75% ⚠️ (3 hrs)
-│   └── Practice-Test-5-Review.md            65% ❌ (2.5 hrs)
+├── complete-reviews/ (5 files)
+│   ├── Practice-Test-1-Review.md            52% (4 hrs)
+│   ├── Practice-Test-2-Review.md            75% (2.5 hrs)
+│   ├── Practice-Test-3-Review.md            80% (2 hrs)
+│   ├── Practice-Test-4-Review.md            75% (3 hrs)
+│   └── Practice-Test-5-Review.md            65% (2.5 hrs)
 │
-├── 📁 condensed-reviews/ (5 files)
-│   ├── Practice-Test-1-Review-Condensed.md  52% ❌ (40 min)
-│   ├── Practice-Test-2-Review-Condensed.md  75% ⚠️ (25 min)
-│   ├── Practice-Test-3-Review-Condensed.md  80% ✅ (20 min)
-│   ├── Practice-Test-4-Review-Condensed.md  75% ⚠️ (30 min)
-│   └── Practice-Test-5-Review-Condensed.md  65% ❌ (25 min)
+├── condensed-reviews/ (5 files)
+│   ├── Practice-Test-1-Review-Condensed.md 52%  (40 min)
+│   ├── Practice-Test-2-Review-Condensed.md 75%  (25 min)
+│   ├── Practice-Test-3-Review-Condensed.md 80%  (20 min)
+│   ├── Practice-Test-4-Review-Condensed.md 75%  (30 min)
+│   └── Practice-Test-5-Review-Condensed.md 65%  (25 min)
 │
 └── README.md                                Main folder introduction
 ```
 
 ---
 
-## 🎨 Folder Categories Explained
+## Folder Categories Explained
 
-### 📁 navigation/ - Your Starting Point
+### navigation/ - Your Starting Point
 **Purpose:** Help you navigate and understand all study materials  
 **When to use:** First visit, finding documents, making decisions  
 **Total files:** 10  
@@ -70,7 +70,7 @@ exam-reviews/
 
 ---
 
-### 📁 quick-reference/ - Exam Day Essentials
+### quick-reference/ - Exam Day Essentials
 **Purpose:** Last-minute review and memorization  
 **When to use:** Night before exam, morning of exam, quick refreshers  
 **Total files:** 2  
@@ -82,7 +82,7 @@ exam-reviews/
 
 ---
 
-### 📁 master-guides/ - Big Picture Overview
+### master-guides/ - Big Picture Overview
 **Purpose:** Understand overall progress and learn key concepts  
 **When to use:** Beginning study, understanding status, learning patterns  
 **Total files:** 2  
@@ -94,7 +94,7 @@ exam-reviews/
 
 ---
 
-### 📁 complete-reviews/ - Deep Learning
+### complete-reviews/ - Deep Learning
 **Purpose:** Detailed analysis of each practice test  
 **When to use:** First review after taking a test, deep learning sessions  
 **Total files:** 5 (one per test)  
@@ -108,7 +108,7 @@ exam-reviews/
 
 ---
 
-### 📁 condensed-reviews/ - Fast Review
+### condensed-reviews/ - Fast Review
 **Purpose:** Quick refresher of key learnings  
 **When to use:** Second review, refreshers, time-constrained study  
 **Total files:** 5 (one per test)  
@@ -122,7 +122,7 @@ exam-reviews/
 
 ---
 
-## 📊 Folder Size & Content Distribution
+## Folder Size & Content Distribution
 
 ```
 Folder Distribution by File Count:
@@ -147,7 +147,7 @@ condensed-reviews/ ██         2.3 hrs   (11%)
 
 ---
 
-## 🗺️ Navigation Flow
+## Navigation Flow
 
 ```
 START
@@ -180,73 +180,73 @@ START
   │   └─→ navigation/DOCUMENT-SELECTION-MATRIX.md
   │       (Decision tool when unsure)
   │
-  └─→ EXAM DAY! 🎓
+  └─→ EXAM DAY!
 ```
 
 ---
 
-## 🎯 Quick Access Guide
+## Quick Access Guide
 
 ### "I want to..."
 
 **→ Understand the folder structure**
 ```
-📁 navigation/FOLDER-STRUCTURE.md (this file)
+ navigation/FOLDER-STRUCTURE.md (this file)
 ```
 
 **→ Get started with studying**
 ```
-📄 README.md
-📁 navigation/00-CATEGORIZATION-INDEX.md
-📁 master-guides/COMPLETE-EXAM-REVIEW.md
+ README.md
+ navigation/00-CATEGORIZATION-INDEX.md
+ master-guides/COMPLETE-EXAM-REVIEW.md
 ```
 
 **→ Learn key concepts**
 ```
-📁 master-guides/ALL-TESTS-MASTER-QUICK-REFERENCE.md
+ master-guides/ALL-TESTS-MASTER-QUICK-REFERENCE.md
 ```
 
 **→ Review a specific test (first time)**
 ```
-📁 complete-reviews/Practice-Test-[X]-Review.md
+ complete-reviews/Practice-Test-[X]-Review.md
 ```
 
 **→ Quick refresh of a test**
 ```
-📁 condensed-reviews/Practice-Test-[X]-Review-Condensed.md
+ condensed-reviews/Practice-Test-[X]-Review-Condensed.md
 ```
 
 **→ Prepare for exam tomorrow**
 ```
-📁 quick-reference/ULTRA-QUICK-REFERENCE-CARD.md
-📁 quick-reference/MEMORY-CARDS.md
+ quick-reference/ULTRA-QUICK-REFERENCE-CARD.md
+ quick-reference/MEMORY-CARDS.md
 ```
 
 **→ Find a specific topic**
 ```
-📁 navigation/QUICK-ACCESS-INDEX.md
+ navigation/QUICK-ACCESS-INDEX.md
 ```
 
 **→ Decide what to read**
 ```
-📁 navigation/DOCUMENT-SELECTION-MATRIX.md
+ navigation/DOCUMENT-SELECTION-MATRIX.md
 ```
 
 **→ Quick lookup**
 ```
-📁 navigation/CATEGORY-QUICK-REFERENCE.md
+ navigation/CATEGORY-QUICK-REFERENCE.md
 ```
 
 **→ Mobile reference**
 ```
-📁 navigation/POCKET-GUIDE.md
+ navigation/POCKET-GUIDE.md
 ```
 
 ---
 
-## 📋 File Organization Benefits
+## File Organization Benefits
 
-### ✅ Advantages of Folder Structure:
+### Advantages of Folder Structure:
 
 1. **Clearer Organization**
    - Files grouped by purpose
@@ -275,42 +275,42 @@ START
 
 ---
 
-## 🎓 Study Path by Folder
+## Study Path by Folder
 
 ### Week 1: Foundation
 ```
-📄 README.md (10 min)
-📁 navigation/ - Read key files (1 hr)
-📁 master-guides/ - Both files (2.25 hrs)
+ README.md (10 min)
+ navigation/ - Read key files (1 hr)
+ master-guides/ - Both files (2.25 hrs)
 ```
 
 ### Week 2: Deep Learning
 ```
-📁 complete-reviews/ - Test 1 & 2 (6.5 hrs)
-📁 condensed-reviews/ - Test 1 & 2 refresh (1 hr)
+ complete-reviews/ - Test 1 & 2 (6.5 hrs)
+ condensed-reviews/ - Test 1 & 2 refresh (1 hr)
 ```
 
 ### Week 3: Continue Learning
 ```
-📁 complete-reviews/ - Test 3, 4, 5 (7.5 hrs)
-📁 condensed-reviews/ - Test 3, 4, 5 refresh (1.3 hrs)
+ complete-reviews/ - Test 3, 4, 5 (7.5 hrs)
+ condensed-reviews/ - Test 3, 4, 5 refresh (1.3 hrs)
 ```
 
 ### Week 4: Final Prep
 ```
-📁 condensed-reviews/ - Review all (2.3 hrs)
-📁 quick-reference/ - Both files daily (35 min/day)
-📁 master-guides/ - Quick skim (1 hr)
+ condensed-reviews/ - Review all (2.3 hrs)
+ quick-reference/ - Both files daily (35 min/day)
+ master-guides/ - Quick skim (1 hr)
 ```
 
 ### Exam Day
 ```
-📁 quick-reference/ULTRA-QUICK-REFERENCE-CARD.md (15 min)
+ quick-reference/ULTRA-QUICK-REFERENCE-CARD.md (15 min)
 ```
 
 ---
 
-## 💡 Folder Navigation Tips
+## Folder Navigation Tips
 
 ### Tip 1: Bookmark These Locations
 - `exam-reviews/` - Root folder
@@ -339,7 +339,7 @@ START
 
 ---
 
-## 📊 Folder Statistics
+## Folder Statistics
 
 | Folder | Files | Avg File Size | Total Read Time | % of Content |
 |--------|-------|---------------|-----------------|--------------|
@@ -352,7 +352,7 @@ START
 
 ---
 
-## 🔍 Finding Files Quickly
+## Finding Files Quickly
 
 ### By File Name Pattern:
 - `00-*` files → Important navigation files
@@ -370,11 +370,11 @@ START
 
 ---
 
-## 🎨 Visual Folder Map
+## Visual Folder Map
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                   📁 exam-reviews/                      │
+│                    exam-reviews/                        │
 │                   (Root - 25 files)                     │
 └────────────┬────────────────────────────────────────────┘
              │
@@ -408,7 +408,7 @@ START
 
 ---
 
-## ✅ Folder Structure Checklist
+## Folder Structure Checklist
 
 Verify your understanding:
 
@@ -422,9 +422,9 @@ Verify your understanding:
 
 ---
 
-## 🚀 Next Steps
+## Next Steps
 
-1. **Understand the structure** ✅ (You're reading this!)
+1. **Understand the structure** (You're reading this!)
 2. **Read the master guide** → `navigation/00-CATEGORIZATION-INDEX.md`
 3. **Check your status** → `master-guides/COMPLETE-EXAM-REVIEW.md`
 4. **Start studying** → Follow recommended paths
@@ -433,6 +433,6 @@ Verify your understanding:
 
 **Last Updated:** March 2, 2026  
 **Structure:** 5 folders, 25 files  
-**Status:** Fully organized and ready to use ✅
+**Status:** Fully organized and ready to use
 
 

@@ -1,14 +1,14 @@
 # Practice Test 1 Review - Quick Reference
 
-**Date:** Feb 22, 2026 | **Score:** 34/65 (52%) ❌ FAILED | **Pass:** 72% | **Gap:** Need 13 more
+**Date:** Feb 22, 2026 | **Score:** 34/65 (52%) FAILED | **Pass:** 72% | **Gap:** Need 13 more
 
 ## Domain Scores
 | Domain | Score | Status |
 |--------|-------|--------|
-| Resilient Architectures | 8/19 (42%) | ❌ CRITICAL |
-| High-Performing | 8/17 (47%) | ❌ CRITICAL |
-| Secure Architectures | 12/19 (63%) | ⚠️ Review |
-| Cost-Optimized | 6/10 (60%) | ⚠️ Review |
+| Resilient Architectures | 8/19 (42%) | CRITICAL |
+| High-Performing | 8/17 (47%) | CRITICAL |
+| Secure Architectures | 12/19 (63%) | Review |
+| Cost-Optimized | 6/10 (60%) | Review |
 
 ---
 

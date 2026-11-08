@@ -1,6 +1,6 @@
 # Module 04: Storage Services
 
-## 📚 Overview
+## Overview
 
 AWS storage services for SAA-C03 exam: S3, EBS, EFS, Storage Gateway, and Snow Family.
 
@@ -8,7 +8,7 @@ AWS storage services for SAA-C03 exam: S3, EBS, EFS, Storage Gateway, and Snow F
 
 ---
 
-## 🎯 Key Services
+## Key Services
 
 1. **Amazon S3** - Object storage
 2. **Amazon EBS** - Block storage for EC2
@@ -287,7 +287,7 @@ AWS storage services for SAA-C03 exam: S3, EBS, EFS, Storage Gateway, and Snow F
 
 ---
 
-## 🎯 Storage Decision Matrix
+## Storage Decision Matrix
 
 ```
 Need storage?
@@ -302,7 +302,7 @@ Need storage?
 
 ---
 
-## 📊 Storage Comparison
+## Storage Comparison
 
 | Feature | S3 | EBS | EFS | FSx Windows |
 |---------|----|----|-----|-------------|
@@ -317,7 +317,7 @@ Need storage?
 
 ---
 
-## 🎯 Exam Tips
+## Exam Tips
 
 ### Common Scenarios
 
@@ -392,7 +392,7 @@ Need storage?
 
 ---
 
-## 📝 Practice Questions
+## Practice Questions
 
 ### Question 1
 **A company needs to store 500 TB of archival data that is accessed once per year. Cost is the primary concern. Which storage solution should they use?**
@@ -444,7 +444,7 @@ At 10 Mbps, transferring 50 TB would take approximately 46 days. AWS Snowball Ed
 
 ---
 
-## 🔗 Additional Resources
+## Additional Resources
 
 - [S3 User Guide](https://docs.aws.amazon.com/s3/)
 - [EBS User Guide](https://docs.aws.amazon.com/ebs/)
@@ -454,7 +454,7 @@ At 10 Mbps, transferring 50 TB would take approximately 46 days. AWS Snowball Ed
 ---
 
 **Estimated Study Time**: 6-8 hours  
-**Difficulty**: ⭐⭐⭐
+**Difficulty**: 3/3
 
-[⬅️ Previous: Compute](../03-Compute/README.md) | [Next: Database ➡️](../05-Database/README.md) | [📚 Main](../README.md)
+[Previous: Compute](../03-Compute/README.md) | [Next: Database ](../05-Database/README.md) | [Main](../README.md)
 

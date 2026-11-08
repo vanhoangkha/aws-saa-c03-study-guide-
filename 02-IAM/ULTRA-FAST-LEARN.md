@@ -1,4 +1,4 @@
-# 02: IAM - Ultra Fast Learning 🚀
+# 02: IAM - Ultra Fast Learning
 
 ## IAM Basics
 - **Free service**, global (not regional)
@@ -52,14 +52,14 @@
 - Order: Explicit Deny > Explicit Allow > Implicit Deny
 
 ## Security Best Practices
-- ✅ Enable **MFA** on root account
-- ✅ **Never use root** for daily tasks
-- ✅ Create **individual IAM users** (not shared)
-- ✅ Use **groups** to assign permissions
-- ✅ **Least privilege** principle
-- ✅ **Rotate credentials** regularly
-- ✅ Use **roles** for EC2 instances (not access keys)
-- ✅ Enable **CloudTrail** for audit logging
+- Enable **MFA** on root account
+- **Never use root** for daily tasks
+- Create **individual IAM users** (not shared)
+- Use **groups** to assign permissions
+- **Least privilege** principle
+- **Rotate credentials** regularly
+- Use **roles** for EC2 instances (not access keys)
+- Enable **CloudTrail** for audit logging
 
 ## MFA Options
 - **Virtual MFA**: Google Authenticator, Authy

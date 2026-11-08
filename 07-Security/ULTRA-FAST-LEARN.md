@@ -1,4 +1,4 @@
-# 07: Security & Compliance - Ultra Fast Learning 🚀
+# 07: Security & Compliance - Ultra Fast Learning
 
 ## KMS (Key Management Service)
 
@@ -39,8 +39,8 @@
 ### Secrets Manager vs Parameter Store
 | Feature | Secrets Manager | Parameter Store |
 |---------|-----------------|-----------------|
-| Auto-rotation | ✅ | ❌ |
-| RDS integration | ✅ | ❌ |
+| Auto-rotation | Yes | No |
+| RDS integration | Yes | No |
 | Cost | $0.40/secret | Free (standard) |
 | Max size | 65 KB | 4 KB (standard), 8 KB (advanced) |
 | Use case | Secrets with rotation | Config, parameters |

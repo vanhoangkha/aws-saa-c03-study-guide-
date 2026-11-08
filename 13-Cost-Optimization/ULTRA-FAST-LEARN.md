@@ -1,4 +1,4 @@
-# 13: Cost Optimization - Ultra Fast Learning 🚀
+# 13: Cost Optimization - Ultra Fast Learning
 
 ## AWS Pricing Fundamentals
 

@@ -4,34 +4,34 @@ This document outlines the content policies for this repository to ensure compli
 
 ---
 
-## ✅ What This Repository Contains
+## What This Repository Contains
 
 This repository contains **ONLY original content** created by contributors:
 
-- ✅ **Original study materials** - Written from scratch by contributors
-- ✅ **Self-created practice questions** - Based on AWS documentation and general knowledge
-- ✅ **Original diagrams** - Created specifically for this project
-- ✅ **Personal study notes** - From contributors' own learning experiences
-- ✅ **Publicly available information** - From official AWS documentation
-- ✅ **General exam preparation strategies** - Not specific to any proprietary test
+- **Original study materials** - Written from scratch by contributors
+- **Self-created practice questions** - Based on AWS documentation and general knowledge
+- **Original diagrams** - Created specifically for this project
+- **Personal study notes** - From contributors' own learning experiences
+- **Publicly available information** - From official AWS documentation
+- **General exam preparation strategies** - Not specific to any proprietary test
 
 ---
 
-## ❌ What This Repository Does NOT Contain
+## What This Repository Does NOT Contain
 
 To maintain compliance with AWS policies and copyright laws:
 
-- ❌ **No actual exam questions** - No questions from the official AWS certification exam
-- ❌ **No exam dumps** - No memorized questions from any testing session
-- ❌ **No brain dumps** - No violation of exam NDAs
-- ❌ **No proprietary content** - No copyrighted material from paid courses or books
-- ❌ **No leaked materials** - No confidential or restricted AWS content
-- ❌ **No practice test answers** - No solutions to copyrighted practice exams
-- ❌ **No copyrighted PDFs** - No unauthorized distribution of paid materials
+- **No actual exam questions** - No questions from the official AWS certification exam
+- **No exam dumps** - No memorized questions from any testing session
+- **No brain dumps** - No violation of exam NDAs
+- **No proprietary content** - No copyrighted material from paid courses or books
+- **No leaked materials** - No confidential or restricted AWS content
+- **No practice test answers** - No solutions to copyrighted practice exams
+- **No copyrighted PDFs** - No unauthorized distribution of paid materials
 
 ---
 
-## 📋 AWS Certification Program Agreement Compliance
+## AWS Certification Program Agreement Compliance
 
 All contributors and users must comply with the [AWS Certification Program Agreement](https://aws.amazon.com/certification/certification-agreement/), which includes:
 
@@ -44,15 +44,15 @@ All contributors and users must comply with the [AWS Certification Program Agree
 
 ### Permitted Activities
 
-- ✅ Studying AWS official documentation
-- ✅ Creating original practice questions based on AWS services
-- ✅ Discussing general exam topics and preparation strategies
-- ✅ Sharing personal study methods and tips
-- ✅ Creating original educational content
+- Studying AWS official documentation
+- Creating original practice questions based on AWS services
+- Discussing general exam topics and preparation strategies
+- Sharing personal study methods and tips
+- Creating original educational content
 
 ---
 
-## 📚 Source Attribution
+## Source Attribution
 
 All content in this repository is either:
 
@@ -70,7 +70,7 @@ When referencing AWS documentation, we:
 
 ---
 
-## 🚫 Prohibited Content
+## Prohibited Content
 
 The following types of content are **strictly prohibited**:
 
@@ -98,7 +98,7 @@ The following types of content are **strictly prohibited**:
 
 ---
 
-## ✅ Acceptable Content
+## Acceptable Content
 
 ### Practice Questions
 
@@ -133,7 +133,7 @@ Always use AWS official example credentials:
 
 ---
 
-## 🔍 Content Review Process
+## Content Review Process
 
 All contributions are reviewed for:
 
@@ -145,7 +145,7 @@ All contributions are reviewed for:
 
 ---
 
-## 📧 Reporting Violations
+## Reporting Violations
 
 If you discover content that violates these policies:
 
@@ -156,26 +156,26 @@ If you discover content that violates these policies:
 
 ---
 
-## 🎓 Ethical Exam Preparation
+## Ethical Exam Preparation
 
 ### We Encourage:
-- ✅ Studying official AWS documentation
-- ✅ Hands-on practice with AWS services
-- ✅ Taking official AWS practice exams
-- ✅ Using AWS whitepapers and FAQs
-- ✅ Participating in AWS training programs
-- ✅ Building real-world projects
+- Studying official AWS documentation
+- Hands-on practice with AWS services
+- Taking official AWS practice exams
+- Using AWS whitepapers and FAQs
+- Participating in AWS training programs
+- Building real-world projects
 
 ### We Discourage:
-- ❌ Using exam dumps or brain dumps
-- ❌ Memorizing questions instead of learning concepts
-- ❌ Violating exam NDAs
-- ❌ Seeking shortcuts to certification
-- ❌ Using prohibited materials during exams
+- Using exam dumps or brain dumps
+- Memorizing questions instead of learning concepts
+- Violating exam NDAs
+- Seeking shortcuts to certification
+- Using prohibited materials during exams
 
 ---
 
-## 📜 License Implications
+## License Implications
 
 By contributing to this repository, you:
 
@@ -186,7 +186,7 @@ By contributing to this repository, you:
 
 ---
 
-## 🔄 Updates to This Policy
+## Updates to This Policy
 
 This policy may be updated to:
 - Reflect changes in AWS certification policies
@@ -198,7 +198,7 @@ This policy may be updated to:
 
 ---
 
-## 📚 Additional Resources
+## Additional Resources
 
 ### Official AWS Resources
 - [AWS Certification](https://aws.amazon.com/certification/)
@@ -212,7 +212,7 @@ This policy may be updated to:
 
 ---
 
-## ⚖️ Legal Disclaimer
+## Legal Disclaimer
 
 This repository is an independent, open-source project and is not affiliated with, endorsed by, or sponsored by Amazon Web Services (AWS). All AWS service names, logos, and related marks are trademarks of Amazon.com, Inc. or its affiliates.
 

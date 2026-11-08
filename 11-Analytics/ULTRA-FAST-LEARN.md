@@ -1,4 +1,4 @@
-# 11: Analytics Services - Ultra Fast Learning 🚀
+# 11: Analytics Services - Ultra Fast Learning
 
 ## Amazon Athena
 - **Serverless** SQL queries on S3

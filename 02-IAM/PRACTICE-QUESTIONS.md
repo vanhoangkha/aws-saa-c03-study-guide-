@@ -1,6 +1,6 @@
 # IAM - Practice Questions
 
-> **⚠️ DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
+> **DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
 
 ## Exam-Standard Questions (SAA-C03)
 
@@ -850,12 +850,12 @@ E. Viewing billing information
 - Some actions like changing account settings require root + MFA
 
 **Root Account Best Practices**:
-1. ✅ Enable MFA on root account
-2. ✅ Don't use root for everyday tasks
-3. ✅ Delete root access keys (use IAM users instead)
-4. ✅ Create IAM users for administrative tasks
-5. ✅ Use root only for tasks requiring root
-6. ✅ Secure root credentials (password manager)
+1. Enable MFA on root account
+2. Don't use root for everyday tasks
+3. Delete root access keys (use IAM users instead)
+4. Create IAM users for administrative tasks
+5. Use root only for tasks requiring root
+6. Secure root credentials (password manager)
 
 **Tasks Requiring Root Account**:
 - Change account settings

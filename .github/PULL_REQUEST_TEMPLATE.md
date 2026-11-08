@@ -1,26 +1,26 @@
 # Pull Request
 
-## 📝 Description
+## Description
 <!-- Describe your changes in detail -->
 
-## 🎯 Type of Change
+## Type of Change
 <!-- Mark the relevant option with an 'x' -->
-- [ ] 📝 Documentation update (typo, clarification, additional content)
-- [ ] ✨ New content (new section, module, or guide)
-- [ ] 🐛 Bug fix (correction of incorrect information)
-- [ ] 🎨 Visual improvement (diagrams, formatting)
-- [ ] 💻 Code example (scripts, CloudFormation, etc.)
-- [ ] 📚 Practice questions
-- [ ] 🌍 Translation
-- [ ] 🔧 Other (please describe):
+- [] Documentation update (typo, clarification, additional content)
+- [] New content (new section, module, or guide)
+- [] Bug fix (correction of incorrect information)
+- [] Visual improvement (diagrams, formatting)
+- [] Code example (scripts, CloudFormation, etc.)
+- [] Practice questions
+- [] Translation
+- [] Other (please describe):
 
-## 📍 Changes Made
+## Changes Made
 <!-- List the specific changes you made -->
 - 
 - 
 - 
 
-## ✅ Checklist
+## Checklist
 <!-- Mark completed items with an 'x' -->
 - [ ] I have read the [CONTRIBUTING.md](../CONTRIBUTING.md) guidelines
 - [ ] My changes follow the style guide of this project
@@ -30,15 +30,15 @@
 - [ ] I have updated the table of contents (if applicable)
 - [ ] My changes are focused and don't include unrelated modifications
 
-## 🔗 Related Issues
+## Related Issues
 <!-- Link any related issues here -->
 Fixes #
 Related to #
 
-## 📸 Screenshots
+## Screenshots
 <!-- If applicable, add screenshots to help explain your changes -->
 
-## 🧪 Testing
+## Testing
 <!-- How did you verify your changes? -->
 - [ ] Reviewed content for accuracy
 - [ ] Tested code examples
@@ -46,15 +46,15 @@ Related to #
 - [ ] Validated formatting
 - [ ] Other: 
 
-## 📚 References
+## References
 <!-- Links to AWS documentation or other authoritative sources -->
 - 
 - 
 
-## 💬 Additional Notes
+## Additional Notes
 <!-- Any other information reviewers should know -->
 
 ---
 
-**Thank you for contributing to help others pass their AWS certification! 🎉**
+**Thank you for contributing to help others pass their AWS certification! **
 

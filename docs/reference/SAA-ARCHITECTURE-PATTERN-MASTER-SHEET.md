@@ -1,8 +1,8 @@
-# 🧠 AWS SAA – COMPLETE SYLLABUS ARCHITECTURE PATTERN MASTER SHEET (300+)
+# AWS SAA – COMPLETE SYLLABUS ARCHITECTURE PATTERN MASTER SHEET (300+)
 
 ---
 
-# 🆕 0. RECENT & EMERGING SERVICES (SAA-C03 2024–2026)
+# 0. RECENT & EMERGING SERVICES (SAA-C03 2024–2026)
 
 ## Security & Governance
 
@@ -46,7 +46,7 @@
 
 ---
 
-# 🌍 1. DESIGN SECURE ARCHITECTURES
+# 1. DESIGN SECURE ARCHITECTURES
 
 ## IAM & Identity
 
@@ -93,7 +93,7 @@
 
 ---
 
-# 🏗️ 2. DESIGN RESILIENT ARCHITECTURES
+# 2. DESIGN RESILIENT ARCHITECTURES
 
 ## Multi-AZ patterns
 
@@ -132,7 +132,7 @@
 
 ---
 
-# ⚡ 3. DESIGN HIGH-PERFORMING ARCHITECTURES
+# 3. DESIGN HIGH-PERFORMING ARCHITECTURES
 
 ## Compute selection
 
@@ -175,7 +175,7 @@
 
 ---
 
-# 💰 4. DESIGN COST-OPTIMIZED ARCHITECTURES
+# 4. DESIGN COST-OPTIMIZED ARCHITECTURES
 
 ## Compute cost
 
@@ -212,7 +212,7 @@
 
 ---
 
-# 🌐 5. NETWORK DESIGN
+# 5. NETWORK DESIGN
 
 ## Connectivity
 
@@ -235,7 +235,7 @@
 
 ---
 
-# 🛢️ 6. STORAGE SERVICES USE CASES
+# 6. STORAGE SERVICES USE CASES
 
 100. Data lake → S3 + Athena + Glue
 101. Static site → S3 + CloudFront
@@ -250,7 +250,7 @@
 
 ---
 
-# 🧠 7. DATABASE SERVICE DECISIONS
+# 7. DATABASE SERVICE DECISIONS
 
 110. OLTP → RDS
 111. Global relational → Aurora global
@@ -266,7 +266,7 @@
 
 ---
 
-# 🔄 8. INTEGRATION & MESSAGING
+# 8. INTEGRATION & MESSAGING
 
 121. Queue → SQS
 122. Ordered queue → SQS FIFO
@@ -281,7 +281,7 @@
 
 ---
 
-# 📊 9. OBSERVABILITY
+# 9. OBSERVABILITY
 
 131. Metrics → CloudWatch
 132. Logs → CloudWatch logs
@@ -296,7 +296,7 @@
 
 ---
 
-# 🧪 10. DEPLOYMENT & MIGRATION
+# 10. DEPLOYMENT & MIGRATION
 
 141. Lift & shift → MGN
 142. DB migration → DMS
@@ -311,7 +311,7 @@
 
 ---
 
-# 🧩 11. SERVERLESS ARCHITECTURES
+# 11. SERVERLESS ARCHITECTURES
 
 151. REST API → API Gateway + Lambda
 152. Async event → S3 → Lambda
@@ -326,7 +326,7 @@
 
 ---
 
-# 🏆 12. EXAM SUPER-TRIGGERS
+# 12. EXAM SUPER-TRIGGERS
 
 161. Decouple → SQS
 162. Fan-out → SNS
@@ -341,7 +341,7 @@
 
 ---
 
-# 🔥 EXTRA REAL EXAM EDGE PATTERNS
+# EXTRA REAL EXAM EDGE PATTERNS
 
 171. Bastionless SSH → SSM Session Manager
 172. Private EC2 patching → SSM + endpoints

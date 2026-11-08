@@ -1,7 +1,7 @@
 # Practice Test 4 (SAA-C03) - Exam Review
 
 **Date:** March 1, 2026  
-**Score:** 49/65 (75.38%) - ⚠️ **BORDERLINE PASS**  
+**Score:** 49/65 (75.38%) - **BORDERLINE PASS**
 **Time Taken:** 98 minutes 56 seconds  
 **Status:** Above passing threshold but needs improvement  
 **Passing Score:** 72% (need 47/65 correct)
@@ -10,67 +10,67 @@
 
 ---
 
-## 📊 Performance Summary
+## Performance Summary
 
 | Metric | Result |
 |--------|--------|
 | **Total Questions** | 65 |
 | **Correct Answers** | 49 (75.38%) |
 | **Incorrect Answers** | 16 (24.62%) |
-| **Pass/Fail** | **BORDERLINE PASS** ⚠️ |
+| **Pass/Fail** | **BORDERLINE PASS**  |
 | **Passing Score** | 72% |
 | **Gap from Test 3** | -4.62% (3 fewer correct) |
 
 ### Performance Trend
 ```
-Test 1: 42/65 (64.62%) ❌ FAIL
-Test 2: 49/65 (75.38%) ⚠️ BORDERLINE
-Test 3: 52/65 (80.00%) ✅ PASS
-Test 4: 49/65 (75.38%) ⚠️ BORDERLINE (-4.62%)
+Test 1: 42/65 (64.62%) FAIL
+Test 2: 49/65 (75.38%) BORDERLINE
+Test 3: 52/65 (80.00%) PASS
+Test 4: 49/65 (75.38%) BORDERLINE (-4.62%)
 ─────────────────────────────────────────────
-Trend: ⚠️ Slight regression from Test 3
+Trend: Slight regression from Test 3
 ```
 
 ---
 
-## 📈 Domain Performance Analysis
+## Domain Performance Analysis
 
 | Domain | Total | Correct | Incorrect | Score | Status |
 |--------|-------|---------|-----------|-------|--------|
-| **Design Secure Architectures** | 13 | 11 | 2 | 84.62% | ✅ Strong |
-| **Design High-Performing Architectures** | 22 | 17 | 5 | 77.27% | ⚠️ Needs Review |
-| **Design Resilient Architectures** | 19 | 14 | 5 | 73.68% | ⚠️ Needs Review |
-| **Design Secure Applications** | 1 | 1 | 0 | 100.00% | ✅ Perfect |
-| **Design Cost-Optimized Architectures** | 10 | 6 | 4 | 60.00% | ❌ **CRITICAL** |
+| **Design Secure Architectures** | 13 | 11 | 2 | 84.62% | Strong |
+| **Design High-Performing Architectures** | 22 | 17 | 5 | 77.27% | Needs Review |
+| **Design Resilient Architectures** | 19 | 14 | 5 | 73.68% | Needs Review |
+| **Design Secure Applications** | 1 | 1 | 0 | 100.00% | Perfect |
+| **Design Cost-Optimized Architectures** | 10 | 6 | 4 | 60.00% | **CRITICAL** |
 
 ### Domain Analysis
 
-#### ✅ Strengths
+#### Strengths
 - **Design Secure Architectures (84.62%)** - Strong understanding of security controls
 - **Design High-Performing Architectures (77.27%)** - Good grasp of performance optimization
 
-#### ⚠️ Areas Needing Improvement
+#### Areas Needing Improvement
 - **Design Resilient Architectures (73.68%)** - Focus on fault tolerance and disaster recovery
 
-#### ❌ Critical Weaknesses
+#### Critical Weaknesses
 - **Design Cost-Optimized Architectures (60.00%)** - **CRITICAL AREA**
   - EC2 pricing models (Reserved Instances, Savings Plans, Spot)
 
 ---
 
-## ❌ Incorrect Questions - Detailed Review
+## Incorrect Questions - Detailed Review
    - Storage lifecycle policies
    - Cost allocation and billing
 
 ---
 
-## ❌ Incorrect Questions - Detailed Review
+## Incorrect Questions - Detailed Review
 
 ---
 
-### ❌ Question 7: Auto Scaling Metrics - Default vs Custom
+### Question 7: Auto Scaling Metrics - Default vs Custom
 
-**📋 COMPLETE QUESTION:**
+**COMPLETE QUESTION:**
 A solutions architect is configuring an Auto Scaling group for a memory-intensive application. The application's performance degrades when memory utilization exceeds 80%. The architect wants to use target tracking scaling policy to maintain memory utilization around 70%. Which metric should be used?
 
 **Options:**
@@ -80,10 +80,10 @@ C. Network Out (predefined metric)
 D. Memory Utilization (custom metric)
 
 **Topic:** Design Resilient Architectures  
-**Your Answer:** ❌ C. Network Out  
-**Correct Answer:** ✅ **D. Memory Utilization (custom metric - requires CloudWatch agent)**
+**Your Answer:** C. Network Out
+**Correct Answer:** **D. Memory Utilization (custom metric - requires CloudWatch agent)**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **EC2 Default vs Custom Metrics:**
 
@@ -92,7 +92,7 @@ D. Memory Utilization (custom metric)
 │         EC2 METRICS: DEFAULT vs CUSTOM                 │
 ├────────────────────────────────────────────────────────┤
 │                                                         │
-│  DEFAULT METRICS (No Agent Required) ✅                │
+│ DEFAULT METRICS (No Agent Required)                    │
 │  ┌──────────────────────────────────────┐              │
 │  │  Automatically sent to CloudWatch:   │              │
 │  │  ├─ CPU Utilization %                │              │
@@ -106,16 +106,16 @@ D. Memory Utilization (custom metric)
 │  │  ├─ Disk Write Bytes                 │              │
 │  │  └─ Status Check Failed              │              │
 │  │                                       │              │
-│  │  ❌ NOT included:                     │              │
+│ │   NOT included:                     │                 │
 │  │     - Memory Utilization              │              │
 │  │     - Disk Space Utilization          │              │
 │  │     - Swap Usage                      │              │
 │  └──────────────────────────────────────┘              │
 │                                                         │
-│  CUSTOM METRICS (Agent Required) ⚙️                    │
+│ CUSTOM METRICS (Agent Required)                       │
 │  ┌──────────────────────────────────────┐              │
 │  │  Install CloudWatch Agent to send:   │              │
-│  │  ├─ Memory Utilization % ✅          │              │
+│ │  ├─ Memory Utilization %           │                 │
 │  │  ├─ Memory Used (MB)                 │              │
 │  │  ├─ Memory Available (MB)            │              │
 │  │  ├─ Disk Space % Used                │              │
@@ -145,17 +145,17 @@ D. Memory Utilization (custom metric)
 │  │   └─────────────────────────────┘ │  │
 │  │                                   │  │
 │  │   OS reports memory to itself    │  │
-│  │   ❌ AWS hypervisor cannot see    │  │
+│ │    AWS hypervisor cannot see    │     │
 │  │      inside guest OS memory       │  │
 │  └───────────────────────────────────┘  │
 │                                          │
 │  AWS Hypervisor View:                   │
 │  ┌───────────────────────────────────┐  │
 │  │  Can see:                         │  │
-│  │  ✅ CPU usage                      │  │
-│  │  ✅ Network traffic                │  │
-│  │  ✅ Disk I/O                       │  │
-│  │  ❌ Memory usage (inside guest)    │  │
+│ │   CPU usage                      │     │
+│ │   Network traffic                │     │
+│ │   Disk I/O                       │     │
+│ │   Memory usage (inside guest)    │     │
 │  └───────────────────────────────────┘  │
 │                                          │
 │  Solution: CloudWatch Agent             │
@@ -296,12 +296,12 @@ D. Memory Utilization (custom metric)
 
 | Metric | Type | Agent Required? | Use Case |
 |--------|------|----------------|----------|
-| **ASGAverageCPUUtilization** | Predefined | ❌ No | CPU-intensive apps |
-| **ASGAverageNetworkIn** | Predefined | ❌ No | Network receive bottleneck |
-| **ASGAverageNetworkOut** | Predefined | ❌ No | Network send bottleneck |
-| **ALBRequestCountPerTarget** | Predefined | ❌ No | Web applications |
-| **Memory Utilization** | Custom | ✅ YES | Memory-intensive apps |
-| **Disk Utilization** | Custom | ✅ YES | Storage-intensive apps |
+| **ASGAverageCPUUtilization** | Predefined | No | CPU-intensive apps |
+| **ASGAverageNetworkIn** | Predefined | No | Network receive bottleneck |
+| **ASGAverageNetworkOut** | Predefined | No | Network send bottleneck |
+| **ALBRequestCountPerTarget** | Predefined | No | Web applications |
+| **Memory Utilization** | Custom | YES | Memory-intensive apps |
+| **Disk Utilization** | Custom | YES | Storage-intensive apps |
 
 **Installation Commands:**
 
@@ -371,7 +371,7 @@ Time: 11:00 AM (traffic spike)
 ├─ Instance 1: 75% memory (3.0 GB used)
 ├─ Instance 2: 80% memory (3.2 GB used)
 ├─ Average: 77.5%
-└─ Action: Scale OUT - launch instance 3 ✅
+└─ Action: Scale OUT - launch instance 3
 
 Time: 11:05 AM (instance 3 launching)
 ├─ Instance 1: 75% memory
@@ -384,32 +384,32 @@ Time: 11:10 AM (traffic distributed)
 ├─ Instance 2: 60% memory
 ├─ Instance 3: 50% memory
 ├─ Average: 55%
-└─ Action: None (below 70% target) ✅
+└─ Action: None (below 70% target)
 
 Time: 3:00 PM (traffic decreased)
 ├─ Instance 1: 40% memory
 ├─ Instance 2: 45% memory
 ├─ Instance 3: 35% memory
 ├─ Average: 40%
-└─ Action: Scale IN - terminate 1 instance ✅
+└─ Action: Scale IN - terminate 1 instance
 ```
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ **Memory Utilization is NOT a predefined EC2 metric**
-- ✅ Must install CloudWatch Agent to collect memory metrics
-- ✅ Agent reads OS-level memory stats and sends to CloudWatch
-- ✅ Default metrics: CPU, Network, Disk I/O (no agent needed)
-- ✅ Custom metrics: Memory, Disk space, Swap (agent required)
-- ✅ IAM role needed: CloudWatchAgentServerPolicy
-- ❌ Cannot use memory for target tracking without agent
+**KEY TAKEAWAYS:**
+- Yes: **Memory Utilization is NOT a predefined EC2 metric**
+- Yes: Must install CloudWatch Agent to collect memory metrics
+- Yes: Agent reads OS-level memory stats and sends to CloudWatch
+- Yes: Default metrics: CPU, Network, Disk I/O (no agent needed)
+- Yes: Custom metrics: Memory, Disk space, Swap (agent required)
+- Yes: IAM role needed: CloudWatchAgentServerPolicy
+- Cannot use memory for target tracking without agent
 
-**💡 MEMORY AID:** "MDS = Memory, Disk, Swap (need Agent), CPU/Network = Built-in"
+**MEMORY AID:** "MDS = Memory, Disk, Swap (need Agent), CPU/Network = Built-in"
 
 ---
 
-### ❌ Question 13: Redshift Snapshot Costs
+### Question 13: Redshift Snapshot Costs
 
-**📋 COMPLETE QUESTION:**
+**COMPLETE QUESTION:**
 A data analytics company uses Amazon Redshift for their data warehouse. The monthly AWS bill shows unexpected high storage costs for Redshift snapshots. The company has:
 - Automated daily snapshots (retention: 7 days)
 - 50+ manual snapshots from the past 2 years
@@ -424,10 +424,10 @@ C. Enable cross-region snapshot copy for disaster recovery
 D. Upgrade to a larger Redshift cluster for better performance
 
 **Topic:** Design Cost-Optimized Architectures  
-**Your Answer:** ❌ A. Increase automated snapshot retention to 35 days  
-**Correct Answer:** ✅ **B. Delete unneeded manual snapshots**
+**Your Answer:** A. Increase automated snapshot retention to 35 days
+**Correct Answer:** **B. Delete unneeded manual snapshots**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **Redshift Snapshot Types:**
 
@@ -436,11 +436,11 @@ D. Upgrade to a larger Redshift cluster for better performance
 │           REDSHIFT SNAPSHOT TYPES                      │
 ├────────────────────────────────────────────────────────┤
 │                                                         │
-│  AUTOMATED SNAPSHOTS ⏰                                │
+│ AUTOMATED SNAPSHOTS                                    │
 │  ┌──────────────────────────────────────┐              │
 │  │  Retention: 1-35 days (configurable) │              │
 │  │  Frequency: 8 hours OR 5 GB changed  │              │
-│  │  Auto-deleted: YES ✅                 │              │
+│ │  Auto-deleted: YES                  │                 │
 │  │  Cost: Included (1x cluster size)    │              │
 │  │  Lifecycle: Automatic management     │              │
 │  │                                      │              │
@@ -449,14 +449,14 @@ D. Upgrade to a larger Redshift cluster for better performance
 │  │  Day 3: Snapshot-auto-2024-03-03    │              │
 │  │  ...                                 │              │
 │  │  Day 7: Snapshot-auto-2024-03-07    │              │
-│  │  Day 8: Delete Day 1 snapshot ✅     │              │
+│ │  Day 8: Delete Day 1 snapshot      │                 │
 │  └──────────────────────────────────────┘              │
 │                                                         │
-│  MANUAL SNAPSHOTS 🔧                                   │
+│ MANUAL SNAPSHOTS                                       │
 │  ┌──────────────────────────────────────┐              │
-│  │  Retention: INDEFINITE ⚠️            │              │
+│ │  Retention: INDEFINITE             │                │
 │  │  Frequency: On-demand (user trigger) │              │
-│  │  Auto-deleted: NO ❌                  │              │
+│ │  Auto-deleted: NO                   │                 │
 │  │  Cost: $0.024/GB/month               │              │
 │  │  Lifecycle: Manual management        │              │
 │  │                                      │              │
@@ -465,8 +465,8 @@ D. Upgrade to a larger Redshift cluster for better performance
 │  │  Snapshot-before-upgrade-2024-03    │              │
 │  │  ...                                 │              │
 │  │  Snapshot-before-upgrade-2026-03    │              │
-│  │  ⚠️ All 50 retained FOREVER          │              │
-│  │  ⚠️ Accumulating costs               │              │
+│ │   All 50 retained FOREVER          │                │
+│ │   Accumulating costs               │                │
 │  └──────────────────────────────────────┘              │
 │                                                         │
 └────────────────────────────────────────────────────────┘
@@ -495,7 +495,7 @@ D. Upgrade to a larger Redshift cluster for better performance
 │  ├─ Cost: $0.024/GB/month                          │
 │  └─ Monthly cost: 30,000 GB × $0.024 = $720/month  │
 │                                                      │
-│  TOTAL SNAPSHOT COST: $720/month ⚠️                 │
+│ TOTAL SNAPSHOT COST: $720/month                    │
 │                                                      │
 └─────────────────────────────────────────────────────┘
 ```
@@ -515,15 +515,15 @@ D. Upgrade to a larger Redshift cluster for better performance
 │  ├─ Cost: $0.024/GB/month                          │
 │  └─ Monthly cost: 7,000 GB × $0.024 = $168/month   │
 │                                                      │
-│  TOTAL SNAPSHOT COST: $168/month ✅                 │
-│  SAVINGS: $552/month ($6,624/year) 💰              │
+│ TOTAL SNAPSHOT COST: $168/month                     │
+│ SAVINGS: $552/month ($6,624/year)                  │
 │                                                      │
 └─────────────────────────────────────────────────────┘
 ```
 
 **Why Other Options Are Wrong:**
 
-**❌ Option A: Increase retention to 35 days**
+**Option A: Increase retention to 35 days**
 ```
 Current automated retention: 7 days → FREE
 Increased retention: 35 days
@@ -535,13 +535,13 @@ Impact:
 │   But beyond 1x, charged $0.024/GB
 ├─ Beyond 5 TB: (25 TB - 5 TB) × 1024 × $0.024
 │   = 20,480 GB × $0.024 = $491/month additional
-└─ Result: INCREASES cost, doesn't reduce ❌
+└─ Result: INCREASES cost, doesn't reduce
 
 Note: First 100% of cluster size in automated 
 snapshots is FREE. Additional storage is charged.
 ```
 
-**❌ Option C: Cross-region snapshot copy**
+**Option C: Cross-region snapshot copy**
 ```
 Enable cross-region copy:
 
@@ -553,10 +553,10 @@ Impact:
 ├─ For 30 TB snapshots:
 │   Transfer: 30,000 GB × $0.02 = $600 (one-time)
 │   Storage: 30,000 GB × $0.024 = $720/month ongoing
-└─ Result: DOUBLES cost ($1,440/month) ❌
+└─ Result: DOUBLES cost ($1,440/month)
 ```
 
-**❌ Option D: Upgrade cluster**
+**Option D: Upgrade cluster**
 ```
 Upgrade cluster size: 5 TB → 10 TB
 
@@ -564,7 +564,7 @@ Impact:
 ├─ Cluster cost increases (2x nodes or larger nodes)
 ├─ Snapshot storage unchanged
 ├─ Does not address snapshot retention issue
-└─ Result: Increases costs, doesn't help snapshots ❌
+└─ Result: Increases costs, doesn't help snapshots
 ```
 
 **Snapshot Management Best Practices:**
@@ -580,9 +580,9 @@ Impact:
 │     └─ Use for short-term recovery                 │
 │                                                     │
 │  2. Manual Snapshots (Special Events)              │
-│     ├─ Before major upgrades ✅                     │
-│     ├─ Before schema changes ✅                     │
-│     ├─ Month-end/quarter-end for compliance ✅     │
+│     ├─ Before major upgrades                        │
+│     ├─ Before schema changes                        │
+│     ├─ Month-end/quarter-end for compliance        │
 │     └─ Delete after event + grace period           │
 │                                                     │
 │  3. Audit and Cleanup                              │
@@ -680,28 +680,28 @@ RedshiftSnapshotPolicy:
     Purpose: Disaster recovery only
 ```
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ **Manual snapshots are retained INDEFINITELY** until explicitly deleted
-- ✅ Automated snapshots auto-delete after retention period (FREE up to 1x cluster size)
-- ✅ Deleting old manual snapshots is the FASTEST way to reduce costs
-- ✅ Redshift snapshot storage: $0.024/GB/month
-- ✅ Review and delete manual snapshots regularly (monthly audit)
-- ❌ Increasing automated retention beyond cluster size INCREASES cost
-- ❌ Cross-region copy DOUBLES snapshot storage costs
-- ❌ Cluster upgrades don't reduce snapshot costs
+**KEY TAKEAWAYS:**
+- Yes: **Manual snapshots are retained INDEFINITELY** until explicitly deleted
+- Yes: Automated snapshots auto-delete after retention period (FREE up to 1x cluster size)
+- Yes: Deleting old manual snapshots is the FASTEST way to reduce costs
+- Yes: Redshift snapshot storage: $0.024/GB/month
+- Yes: Review and delete manual snapshots regularly (monthly audit)
+- No: Increasing automated retention beyond cluster size INCREASES cost
+- No: Cross-region copy DOUBLES snapshot storage costs
+- Cluster upgrades don't reduce snapshot costs
 
-**💡 MEMORY AID:** "Manual = Must-delete (never auto-deletes), Auto = Auto-expires"
+**MEMORY AID:** "Manual = Must-delete (never auto-deletes), Auto = Auto-expires"
 
 **Exam Keywords:**
-- "Reduce Redshift snapshot costs" → Delete old manual snapshots ✅
-- "Manual snapshots accumulating" → Indefinite retention issue ✅
-- "Unexpected snapshot charges" → Review manual snapshot count ✅
+- "Reduce Redshift snapshot costs" → Delete old manual snapshots
+- "Manual snapshots accumulating" → Indefinite retention issue
+- "Unexpected snapshot charges" → Review manual snapshot count
 
 ---
 
-### ❌ Question 17: S3 Glacier Flexible Retrieval Tiers
+### Question 17: S3 Glacier Flexible Retrieval Tiers
 
-**📋 COMPLETE QUESTION:**
+**COMPLETE QUESTION:**
 A company archives compliance documents to S3 Glacier Flexible Retrieval. The legal team occasionally needs to retrieve documents, typically requiring access within 4 hours. The company wants to minimize retrieval costs while meeting the 4-hour SLA. Which retrieval tier should be used?
 
 **Options:**
@@ -711,10 +711,10 @@ C. Bulk retrieval (5-12 hours)
 D. Instant retrieval (milliseconds)
 
 **Topic:** Design Cost-Optimized Architectures  
-**Your Answer:** ❌ A. Expedited retrieval
-**Correct Answer:** ✅ **B. Standard retrieval (3-5 hours)**
+**Your Answer:** A. Expedited retrieval
+**Correct Answer:** **B. Standard retrieval (3-5 hours)**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **S3 Glacier Flexible Retrieval Tier Comparison:**
 
@@ -723,7 +723,7 @@ D. Instant retrieval (milliseconds)
 │     GLACIER FLEXIBLE RETRIEVAL TIER DETAILS                 │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  1️⃣  EXPEDITED (1-5 minutes) - FASTEST                      │
+│  1  EXPEDITED (1-5 minutes) - FASTEST                      │
 │     ┌──────────────────────────────────────┐               │
 │     │ Retrieval Time: 1-5 minutes          │               │
 │     │ Cost: $0.03/GB + $0.01/request       │ ← EXPENSIVE   │
@@ -735,19 +735,19 @@ D. Instant retrieval (milliseconds)
 │     │ Example: Legal discovery, audits     │               │
 │     └──────────────────────────────────────┘               │
 │                                                              │
-│  2️⃣  STANDARD (3-5 hours) - BALANCED ✅                     │
+│ 2  STANDARD (3-5 hours) - BALANCED                         │
 │     ┌──────────────────────────────────────┐               │
 │     │ Retrieval Time: 3-5 hours            │ ← MEETS SLA   │
 │     │ Cost: $0.01/GB + $0.03/1000 requests │ ← COST-OPT    │
 │     │ Reliability: Consistent timing       │               │
 │     │ No size limit                        │               │
 │     │ Use Case: Planned retrieval          │               │
-│     │ Example: ✅ YOUR SCENARIO            │               │
+│     │ Example: YOUR SCENARIO            │                  │
 │     │   - 4-hour SLA requirement           │               │
 │     │   - Cost-optimized                   │               │
 │     └──────────────────────────────────────┘               │
 │                                                              │
-│  3️⃣  BULK (5-12 hours) - CHEAPEST                          │
+│  3  BULK (5-12 hours) - CHEAPEST                          │
 │     ┌──────────────────────────────────────┐               │
 │     │ Retrieval Time: 5-12 hours           │ ← TOO SLOW    │
 │     │ Cost: FREE (first 10 GB/month)       │               │
@@ -755,7 +755,7 @@ D. Instant retrieval (milliseconds)
 │     │ Large datasets: Petabytes OK         │               │
 │     │ Use Case: Non-urgent, bulk restore   │               │
 │     │ Example: Year-end compliance export  │               │
-│     │ ❌ Doesn't meet 4-hour SLA           │               │
+│     │ Doesn't meet 4-hour SLA           │                  │
 │     └──────────────────────────────────────┘               │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
@@ -766,7 +766,7 @@ D. Instant retrieval (milliseconds)
 ```
 Scenario: Retrieve 100 GB compliance documents
 
-Option A: Expedited (1-5 minutes) ❌
+Option A: Expedited (1-5 minutes)
 ┌────────────────────────────────────────────────────────────┐
 │  Retrieval Cost:                                           │
 │    100 GB × $0.03/GB = $3.00                               │
@@ -776,14 +776,14 @@ Option A: Expedited (1-5 minutes) ❌
 │  Retrieval Time: 1-5 minutes                               │
 │                                                             │
 │  Analysis:                                                 │
-│    ✅ Fastest retrieval                                     │
-│    ❌ 3x more expensive than Standard                      │
-│    ❌ Unnecessary - SLA allows 4 hours                     │
-│    ❌ Over-engineering for requirements                    │
+│     Fastest retrieval                                       │
+│     3x more expensive than Standard                        │
+│     Unnecessary - SLA allows 4 hours                       │
+│     Over-engineering for requirements                      │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
-Option B: Standard (3-5 hours) ✅
+Option B: Standard (3-5 hours)
 ┌────────────────────────────────────────────────────────────┐
 │  Retrieval Cost:                                           │
 │    100 GB × $0.01/GB = $1.00                               │
@@ -793,17 +793,17 @@ Option B: Standard (3-5 hours) ✅
 │  Retrieval Time: 3-5 hours (within 4-hour SLA)            │
 │                                                             │
 │  Analysis:                                                 │
-│    ✅ Meets 4-hour SLA requirement                         │
-│    ✅ Cost-optimized (67% cheaper than Expedited)          │
-│    ✅ Reliable, predictable timing                         │
-│    ✅ BEST CHOICE for this scenario                        │
+│     Meets 4-hour SLA requirement                           │
+│     Cost-optimized (67% cheaper than Expedited)            │
+│     Reliable, predictable timing                           │
+│     BEST CHOICE for this scenario                          │
 │                                                             │
 │  Savings: $2.01 per 100 GB vs Expedited                    │
 │  Annual (12 retrievals): $24.12 savings                    │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
-Option C: Bulk (5-12 hours) ❌
+Option C: Bulk (5-12 hours)
 ┌────────────────────────────────────────────────────────────┐
 │  Retrieval Cost:                                           │
 │    First 10 GB: FREE                                       │
@@ -813,15 +813,15 @@ Option C: Bulk (5-12 hours) ❌
 │  Retrieval Time: 5-12 hours                                │
 │                                                             │
 │  Analysis:                                                 │
-│    ✅ Cheapest option (78% cheaper than Standard)          │
-│    ❌ May not meet 4-hour SLA (can take up to 12 hours)   │
-│    ❌ Unpredictable timing (5-12 hour range)               │
-│    ❌ Risk of SLA violation                                │
+│     Cheapest option (78% cheaper than Standard)            │
+│     May not meet 4-hour SLA (can take up to 12 hours)     │
+│     Unpredictable timing (5-12 hour range)                 │
+│     Risk of SLA violation                                  │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
-💡 RECOMMENDATION: Standard Retrieval
-   - Meets SLA: 3-5 hours < 4 hours ✅
+ RECOMMENDATION: Standard Retrieval
+   - Meets SLA: 3-5 hours < 4 hours
    - Cost-optimized: $1.00 vs $3.01 (Expedited)
    - Reliable: Consistent retrieval time
 ```
@@ -945,14 +945,14 @@ Option C: Bulk (5-12 hours) ❌
 │  └──────────────────────────────────────┘                 │
 │                                                             │
 │  When to use:                                              │
-│    ✅ Mission-critical rapid retrieval needed              │
-│    ✅ Cannot tolerate Expedited throttling                 │
-│    ✅ Frequent Expedited retrievals (cost-effective)       │
+│     Mission-critical rapid retrieval needed                │
+│     Cannot tolerate Expedited throttling                   │
+│     Frequent Expedited retrievals (cost-effective)         │
 │                                                             │
 │  When NOT to use:                                          │
-│    ❌ Occasional retrievals (Standard is cheaper)          │
-│    ❌ Can tolerate 3-5 hour wait                           │
-│    ❌ Cost-optimization is priority                        │
+│     Occasional retrievals (Standard is cheaper)            │
+│     Can tolerate 3-5 hour wait                             │
+│     Cost-optimization is priority                          │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -993,15 +993,15 @@ while True:
     restore_status = response['Restore']
     
     if 'ongoing-request="false"' in restore_status:
-        print(f"✅ Restore complete! Available until: {restore_status}")
+        print(f" Restore complete! Available until: {restore_status}")
         break
     else:
-        print("⏳ Restore in progress...")
+        print("Restore in progress...")
         time.sleep(300)  # Check every 5 minutes
 
 # Download restored object
 s3.download_file(bucket, key, './restored-doc.pdf')
-print("✅ Download complete!")
+print("Download complete!")
 ```
 
 **Cost Comparison (Annual, 100 retrievals of 50 GB each):**
@@ -1015,7 +1015,7 @@ Annual Cost Comparison (5 TB total retrieved):
 │    100 requests × $0.01 = $1.00                            │
 │    Total: $151.00/year                                     │
 │                                                             │
-│  Standard (3-5 hr): ✅ BEST CHOICE                         │
+│ Standard (3-5 hr):  BEST CHOICE                            │
 │    5,000 GB × $0.01/GB = $50.00                            │
 │    100 requests × $0.03/1000 = $0.003                      │
 │    Total: $50.00/year                                      │
@@ -1025,7 +1025,7 @@ Annual Cost Comparison (5 TB total retrieved):
 │    FREE: 10 GB/month × 12 months = 120 GB                  │
 │    Paid: (5,000 - 120) GB × $0.0025 = $12.20              │
 │    Total: $12.20/year                                      │
-│    ❌ But: Doesn't meet 4-hour SLA                         │
+│     But: Doesn't meet 4-hour SLA                           │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -1034,12 +1034,12 @@ Annual Cost Comparison (5 TB total retrieved):
 
 ```
 Trap 1: "Faster is always better"
-  ❌ WRONG: Expedited for cost optimization questions
-  ✅ RIGHT: Standard meets SLA AND is cost-optimized
+  WRONG: Expedited for cost optimization questions
+  RIGHT: Standard meets SLA AND is cost-optimized
 
 Trap 2: "Cheapest option wins"
-  ❌ WRONG: Bulk when SLA requires 4 hours (5-12 hr range risky)
-  ✅ RIGHT: Standard balances cost + SLA compliance
+  WRONG: Bulk when SLA requires 4 hours (5-12 hr range risky)
+  RIGHT: Standard balances cost + SLA compliance
 
 Trap 3: "Confusing retrieval tier with storage class"
   Retrieval Tier: Expedited/Standard/Bulk (how fast to retrieve)
@@ -1050,18 +1050,18 @@ Trap 4: "Forgetting the restore expiration"
   Plan retrieval timing accordingly
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Expedited** = 1-5 minutes, $0.03/GB (emergency only)
-- **Standard** = 3-5 hours, $0.01/GB (✅ best for most scenarios)
+- **Standard** = 3-5 hours, $0.01/GB ( best for most scenarios)
 - **Bulk** = 5-12 hours, $0.0025/GB + 10 GB/month FREE (bulk exports)
 - **Choose based on:** SLA requirement vs cost trade-off
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 When question mentions "cost-optimized" + "within X hours," calculate if Standard (3-5 hr) meets the requirement. If yes, choose Standard. Only choose Expedited if SLA is < 3 hours.
 
 ---
 
-### Question 18: Backend Security Group ❌
+### Question 18: Backend Security Group
 **Topic:** Design Resilient Architectures  
 **Your Answer:** Use the launch configuration as the source  
 **Correct Answer:** Use the frontend security group ID as the source  
@@ -1072,13 +1072,13 @@ When question mentions "cost-optimized" + "within X hours," calculate if Standar
 - SG-to-SG references automatically handle IP changes
 
 **Key Takeaway:**
-> 🔒 **Security groups can reference other security groups. This provides automatic, scalable access control.**
+> **Security groups can reference other security groups. This provides automatic, scalable access control.**
 
 ---
 
-### ❌ Question 19: Multi-Tier Savings Plans Strategy
+### Question 19: Multi-Tier Savings Plans Strategy
 
-**📋 COMPLETE QUESTION:**
+**COMPLETE QUESTION:**
 A company runs a 3-tier application on AWS:
 - **Web tier:** Uses mixed instance types (m5, c5, t3) that frequently change based on workload
 - **App tier:** Uses consistent m5.2xlarge instances (stable workload)
@@ -1093,10 +1093,10 @@ C. Compute SP for web; EC2 Instance SP for app and DB
 D. Compute SP for web; EC2 Instance SP for app; RDS RI for DB
 
 **Topic:** Design Cost-Optimized Architectures  
-**Your Answer:** ❌ C. EC2 Instance SP for web; Compute SP for app and DB  
-**Correct Answer:** ✅ **D. Compute SP for web; EC2 Instance SP for app; RDS RI for DB**
+**Your Answer:** C. EC2 Instance SP for web; Compute SP for app and DB
+**Correct Answer:** **D. Compute SP for web; EC2 Instance SP for app; RDS RI for DB**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **Multi-Tier Pricing Strategy Architecture:**
 
@@ -1111,7 +1111,7 @@ D. Compute SP for web; EC2 Instance SP for app; RDS RI for DB
 │  │ Workload: Changes frequently       │                    │
 │  │ Next month: May use r5, i3, etc.   │                    │
 │  │                                     │                    │
-│  │ ✅ BEST: Compute Savings Plan      │                    │
+│ │  BEST: Compute Savings Plan      │                       │
 │  │   - Covers ANY instance family      │                    │
 │  │   - Covers ANY region               │                    │
 │  │   - Covers Lambda, Fargate too      │                    │
@@ -1126,7 +1126,7 @@ D. Compute SP for web; EC2 Instance SP for app; RDS RI for DB
 │  │ Future: May scale to m5.4xlarge    │                    │
 │  │         (same family)               │                    │
 │  │                                     │                    │
-│  │ ✅ BEST: EC2 Instance Savings Plan │                    │
+│ │  BEST: EC2 Instance Savings Plan │                       │
 │  │   - Highest discount (up to 72%)   │                    │
 │  │   - Flexible within family (m5.*)  │                    │
 │  │   - Any size: m5.large → m5.24xl   │                    │
@@ -1138,7 +1138,7 @@ D. Compute SP for web; EC2 Instance SP for app; RDS RI for DB
 │  │ Current: RDS MySQL db.r5.2xlarge   │                    │
 │  │ Workload: Production database      │                    │
 │  │                                     │                    │
-│  │ ✅ BEST: RDS Reserved Instance     │                    │
+│ │  BEST: RDS Reserved Instance     │                       │
 │  │   - RDS NOT covered by EC2 SP      │ ← CRITICAL!       │
 │  │   - Separate RDS RI required       │                    │
 │  │   - Discount: Up to 69%             │                    │
@@ -1151,7 +1151,7 @@ D. Compute SP for web; EC2 Instance SP for app; RDS RI for DB
 **Why Option D is Correct:**
 
 ```
-Option D Analysis: ✅ OPTIMAL STRATEGY
+Option D Analysis: OPTIMAL STRATEGY
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
 │  Web Tier: Compute Savings Plan                            │
@@ -1159,7 +1159,7 @@ Option D Analysis: ✅ OPTIMAL STRATEGY
 │  │ Commitment: $50/hour             │                     │
 │  │ Covers: m5, c5, t3, r5, etc.     │                     │
 │  │ Discount: 66%                    │                     │
-│  │ Flexibility: Full ✅              │                     │
+│ │ Flexibility: Full               │                        │
 │  │ Cost: $438,000/year              │                     │
 │  │ Savings: $434,400 vs On-Demand   │                     │
 │  └──────────────────────────────────┘                     │
@@ -1192,22 +1192,22 @@ Option D Analysis: ✅ OPTIMAL STRATEGY
 
 **Why Other Options Are Wrong:**
 
-**❌ Option A: Compute SP for all tiers**
+**Option A: Compute SP for all tiers**
 ```
 Problem with using Compute SP everywhere:
 ┌────────────────────────────────────────────────────────────┐
 │  Web Tier: Compute SP                                      │
-│    ✅ Correct - needs flexibility                          │
+│     Correct - needs flexibility                            │
 │    Discount: 66%                                           │
 │                                                             │
 │  App Tier: Compute SP                                      │
-│    ❌ Wrong - stable workload, should use EC2 Instance SP  │
+│     Wrong - stable workload, should use EC2 Instance SP    │
 │    Discount: 66%                                           │
 │    Lost savings: 6% (72% - 66%)                            │
 │    Extra cost: ~$52,500/year vs EC2 Instance SP            │
 │                                                             │
 │  DB Tier: Compute SP                                       │
-│    ❌ FATAL ERROR - Compute SP doesn't cover RDS!          │
+│     FATAL ERROR - Compute SP doesn't cover RDS!            │
 │    RDS charges: Full On-Demand rates                       │
 │    Lost savings: 69% discount not applied                  │
 │    Extra cost: ~$26,280/year vs RDS RI                     │
@@ -1217,25 +1217,25 @@ Problem with using Compute SP everywhere:
 └────────────────────────────────────────────────────────────┘
 ```
 
-**❌ Option B: EC2 Instance SP for all tiers**
+**Option B: EC2 Instance SP for all tiers**
 ```
 Problem with using EC2 Instance SP everywhere:
 ┌────────────────────────────────────────────────────────────┐
 │  Web Tier: EC2 Instance SP                                 │
-│    ❌ Wrong - locks to specific family                     │
+│     Wrong - locks to specific family                       │
 │    Problem: Can't change from m5 to c5 or t3              │
 │    Scenario:                                               │
-│      Month 1: m5 instances (covered ✅)                    │
-│      Month 2: Switch to c5 for compute (NOT covered ❌)    │
+│      Month 1: m5 instances (covered )                      │
+│      Month 2: Switch to c5 for compute (NOT covered )      │
 │      Result: Pay On-Demand for c5 instances               │
 │    Risk: Loss of flexibility                               │
 │                                                             │
 │  App Tier: EC2 Instance SP                                 │
-│    ✅ Correct - stable m5 family                           │
+│     Correct - stable m5 family                             │
 │    Discount: 72%                                           │
 │                                                             │
 │  DB Tier: EC2 Instance SP                                  │
-│    ❌ FATAL ERROR - EC2 SP doesn't cover RDS!              │
+│     FATAL ERROR - EC2 SP doesn't cover RDS!                │
 │    RDS charges: Full On-Demand rates                       │
 │    Lost savings: 69% discount not applied                  │
 │    Extra cost: ~$26,280/year vs RDS RI                     │
@@ -1248,26 +1248,26 @@ Problem with using EC2 Instance SP everywhere:
 └────────────────────────────────────────────────────────────┘
 ```
 
-**❌ Option C: EC2 Instance SP for web; Compute SP for app and DB**
+**Option C: EC2 Instance SP for web; Compute SP for app and DB**
 ```
 Your Answer - Multiple Problems:
 ┌────────────────────────────────────────────────────────────┐
 │  Web Tier: EC2 Instance SP                                 │
-│    ❌ Wrong - needs flexibility across families            │
+│     Wrong - needs flexibility across families              │
 │    Locks to one family (e.g., m5)                          │
 │    Can't switch to c5, t3, r5 without losing discount     │
 │    Scenario:                                               │
 │      Committed to m5 family                                │
 │      Traffic spike needs c5 (compute-optimized)            │
-│      Result: Pay On-Demand for c5 ❌                       │
+│      Result: Pay On-Demand for c5                          │
 │                                                             │
 │  App Tier: Compute SP                                      │
-│    ❌ Wrong - stable workload should use higher discount   │
+│     Wrong - stable workload should use higher discount     │
 │    Gets 66% vs 72% with EC2 Instance SP                    │
 │    Lost savings: 6% = ~$52,500/year                        │
 │                                                             │
 │  DB Tier: Compute SP                                       │
-│    ❌ FATAL ERROR - Compute SP doesn't cover RDS!          │
+│     FATAL ERROR - Compute SP doesn't cover RDS!            │
 │    RDS charges: Full On-Demand rates                       │
 │    Lost savings: 69% discount not applied                  │
 │    Extra cost: ~$26,280/year                               │
@@ -1288,23 +1288,23 @@ Your Answer - Multiple Problems:
 │     COMPUTE SP vs EC2 INSTANCE SP vs RDS RI                 │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  1️⃣  COMPUTE SAVINGS PLAN                                   │
+│  1  COMPUTE SAVINGS PLAN                                   │
 │     ┌──────────────────────────────────────┐               │
 │     │ Commitment: $/hour compute spend     │               │
 │     │ Discount: Up to 66%                  │               │
 │     │ Applies to:                          │               │
-│     │   ✅ EC2 (any instance type)         │               │
-│     │   ✅ Lambda                            │               │
-│     │   ✅ Fargate                           │               │
-│     │   ❌ RDS (NOT covered)                │               │
-│     │   ❌ ElastiCache (NOT covered)        │               │
-│     │   ❌ Redshift (NOT covered)           │               │
+│     │    EC2 (any instance type)         │                 │
+│     │    Lambda                            │                 │
+│     │    Fargate                           │                 │
+│     │    RDS (NOT covered)                │                 │
+│     │    ElastiCache (NOT covered)        │                 │
+│     │    Redshift (NOT covered)           │                 │
 │     │                                       │               │
 │     │ Flexibility:                         │               │
-│     │   ✅ Any instance family (m5, c5, t3)│               │
-│     │   ✅ Any region                       │               │
-│     │   ✅ Any OS, tenancy                  │               │
-│     │   ✅ Can switch anytime               │               │
+│     │    Any instance family (m5, c5, t3)│                 │
+│     │    Any region                       │                 │
+│     │    Any OS, tenancy                  │                 │
+│     │    Can switch anytime               │                 │
 │     │                                       │               │
 │     │ Use Case:                            │               │
 │     │   • Variable workloads               │               │
@@ -1312,21 +1312,21 @@ Your Answer - Multiple Problems:
 │     │   • Unknown future requirements      │               │
 │     └──────────────────────────────────────┘               │
 │                                                              │
-│  2️⃣  EC2 INSTANCE SAVINGS PLAN                              │
+│  2  EC2 INSTANCE SAVINGS PLAN                              │
 │     ┌──────────────────────────────────────┐               │
 │     │ Commitment: $/hour EC2 spend         │               │
 │     │ Discount: Up to 72% ← HIGHEST        │               │
 │     │ Applies to:                          │               │
-│     │   ✅ EC2 only (specified family)     │               │
-│     │   ❌ Lambda (NOT covered)             │               │
-│     │   ❌ Fargate (NOT covered)            │               │
-│     │   ❌ RDS (NOT covered)                │               │
+│     │    EC2 only (specified family)     │                 │
+│     │    Lambda (NOT covered)             │                 │
+│     │    Fargate (NOT covered)            │                 │
+│     │    RDS (NOT covered)                │                 │
 │     │                                       │               │
 │     │ Flexibility:                         │               │
-│     │   🔒 Locked to instance family (m5)  │               │
-│     │   ✅ Any size (m5.large → m5.24xl)   │               │
-│     │   ✅ Any region                       │               │
-│     │   ✅ Any OS, tenancy                  │               │
+│     │    Locked to instance family (m5) │                  │
+│     │    Any size (m5.large → m5.24xl)   │                 │
+│     │    Any region                       │                 │
+│     │    Any OS, tenancy                  │                 │
 │     │                                       │               │
 │     │ Use Case:                            │               │
 │     │   • Stable instance family           │               │
@@ -1334,21 +1334,21 @@ Your Answer - Multiple Problems:
 │     │   • Maximum discount priority        │               │
 │     └──────────────────────────────────────┘               │
 │                                                              │
-│  3️⃣  RDS RESERVED INSTANCES                                 │
+│  3  RDS RESERVED INSTANCES                                 │
 │     ┌──────────────────────────────────────┐               │
 │     │ Purchase: Specific DB instance       │               │
 │     │ Discount: Up to 69%                  │               │
 │     │ Applies to:                          │               │
-│     │   ✅ RDS only (MySQL, PostgreSQL...) │               │
-│     │   ❌ EC2 (NOT covered)                │               │
-│     │   ❌ Compute/Lambda (NOT covered)     │               │
+│     │    RDS only (MySQL, PostgreSQL...) │                 │
+│     │    EC2 (NOT covered)                │                 │
+│     │    Compute/Lambda (NOT covered)     │                 │
 │     │                                       │               │
 │     │ Flexibility:                         │               │
-│     │   🔒 Locked to DB engine (MySQL)     │               │
-│     │   ✅ Can change size within family   │               │
-│     │   ✅ Can change from Single-AZ to    │               │
+│     │    Locked to DB engine (MySQL)     │                 │
+│     │    Can change size within family   │                 │
+│     │    Can change from Single-AZ to    │                 │
 │     │      Multi-AZ (size class must match)│               │
-│     │   🔒 Region locked                    │               │
+│     │    Region locked                    │                 │
 │     │                                       │               │
 │     │ Use Case:                            │               │
 │     │   • Production databases             │               │
@@ -1455,23 +1455,23 @@ Your Answer - Multiple Problems:
 **Common Mistakes to Avoid:**
 
 ```
-❌ Mistake 1: Using Compute SP for stable workloads
+ Mistake 1: Using Compute SP for stable workloads
    Problem: Lower discount (66% vs 72%)
    Fix: Use EC2 Instance SP for predictable instance families
 
-❌ Mistake 2: Trying to cover RDS with EC2/Compute SP
+ Mistake 2: Trying to cover RDS with EC2/Compute SP
    Problem: RDS is NOT covered by EC2 Savings Plans
    Fix: Always use separate RDS Reserved Instances
 
-❌ Mistake 3: Using EC2 Instance SP for variable workloads
+ Mistake 3: Using EC2 Instance SP for variable workloads
    Problem: Locked to one instance family
    Fix: Use Compute SP for flexibility across families
 
-❌ Mistake 4: Not mixing strategies
+ Mistake 4: Not mixing strategies
    Problem: One-size-fits-all approach loses savings
    Fix: Match pricing model to each tier's characteristics
 
-❌ Mistake 5: Forgetting ElastiCache/Redshift
+ Mistake 5: Forgetting ElastiCache/Redshift
    Problem: These services need their own RIs
    Fix: Separate RIs for ElastiCache, Redshift, OpenSearch
 ```
@@ -1500,13 +1500,13 @@ aws ce get-savings-plans-utilization \
 # Means you over-committed or workload decreased
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Variable workloads** = Compute Savings Plan (flexibility)
 - **Stable EC2 workloads** = EC2 Instance Savings Plan (highest discount)
 - **RDS databases** = RDS Reserved Instances (ALWAYS separate)
 - **Strategy** = Mix and match for each tier's needs
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 - If question has **RDS** in any tier → Must use **RDS RI** (EC2 SP doesn't cover RDS)
 - If EC2 tier has **mixed families** → Use **Compute SP**
 - If EC2 tier is **stable family** → Use **EC2 Instance SP** for maximum discount
@@ -1514,7 +1514,7 @@ aws ce get-savings-plans-utilization \
 
 ---
 
-### Question 25: CloudTrail Log Integrity ❌
+### Question 25: CloudTrail Log Integrity
 **Topic:** Design Secure Architectures  
 **Your Answer:** Use SSE-KMS encryption for the CloudTrail logs  
 **Correct Answer:** Enable CloudTrail log file integrity validation  
@@ -1525,11 +1525,11 @@ aws ce get-savings-plans-utilization \
 - Provides cryptographic proof logs weren't tampered with
 
 **Key Takeaway:**
-> 🔐 **CloudTrail log file integrity validation = tamper detection. Encryption = confidentiality.**
+> **CloudTrail log file integrity validation = tamper detection. Encryption = confidentiality.**
 
 ---
 
-### Question 28: Auto Scaling Lifecycle ❌
+### Question 28: Auto Scaling Lifecycle
 **Topic:** Design High-Performing Architectures  
 **Your Answer:** Customize the termination policy to copy data  
 **Correct Answer:** Add lifecycle hooks to the Auto Scaling group  
@@ -1540,13 +1540,13 @@ aws ce get-savings-plans-utilization \
 - Hooks provide wait state for cleanup scripts/data copy
 
 **Key Takeaway:**
-> ⏸️ **Lifecycle hooks = pause before termination. Termination policies = choose which instance.**
+> **Lifecycle hooks = pause before termination. Termination policies = choose which instance.**
 
 ---
 
-### ❌ Question 34: Mixed Instance Auto Scaling Policy for Cost Optimization
+### Question 34: Mixed Instance Auto Scaling Policy for Cost Optimization
 
-**📋 COMPLETE QUESTION:**
+**COMPLETE QUESTION:**
 A company runs a web application on Auto Scaling with 10 m5.large instances as the base capacity. During peak hours, the application scales up to 50 instances. The application can tolerate instance interruptions for the burst capacity but needs the base capacity to remain stable. How should the company optimize costs?
 
 **Options:**
@@ -1556,10 +1556,10 @@ C. Use Reserved Instances for all 50 instances
 D. Use mixed instances policy: On-Demand base = 10; above base use 20% On-Demand / 80% Spot
 
 **Topic:** Design Cost-Optimized Architectures  
-**Your Answer:** ❌ A. Use all t2.micro On-Demand instances  
-**Correct Answer:** ✅ **D. Mixed instances policy: On-Demand base = 10; above base use 20% On-Demand / 80% Spot**
+**Your Answer:** A. Use all t2.micro On-Demand instances
+**Correct Answer:** **D. Mixed instances policy: On-Demand base = 10; above base use 20% On-Demand / 80% Spot**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **Mixed Instances Policy Architecture:**
 
@@ -1573,7 +1573,7 @@ D. Use mixed instances policy: On-Demand base = 10; above base use 20% On-Demand
 │  │ On-Demand Base: 10 instances       │                    │
 │  │ ├─ m5.large × 10                   │                    │
 │  │ ├─ Cost: $0.096/hr × 10 = $0.96/hr│                    │
-│  │ ├─ Interruptions: NEVER ✅          │                    │
+│ │ ├─ Interruptions: NEVER           │                       │
 │  │ └─ Purpose: Handle minimum load    │                    │
 │  └────────────────────────────────────┘                    │
 │           ↓ Always running                                  │
@@ -1622,12 +1622,12 @@ D. Use mixed instances policy: On-Demand base = 10; above base use 20% On-Demand
 **Why Option D is Correct:**
 
 ```
-✅ OPTIMAL: Mixed Instances Policy
+ OPTIMAL: Mixed Instances Policy
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
 │  Strategy Breakdown:                                       │
 │                                                             │
-│  1️⃣  On-Demand Base Capacity = 10                          │
+│  1  On-Demand Base Capacity = 10                          │
 │     ┌──────────────────────────────────┐                  │
 │     │ Always maintained                │                  │
 │     │ Never interrupted                │                  │
@@ -1636,7 +1636,7 @@ D. Use mixed instances policy: On-Demand base = 10; above base use 20% On-Demand
 │     │ Instances: m5.large              │                  │
 │     └──────────────────────────────────┘                  │
 │                                                             │
-│  2️⃣  Above Base: 20% On-Demand / 80% Spot                 │
+│  2  Above Base: 20% On-Demand / 80% Spot                 │
 │     ┌──────────────────────────────────┐                  │
 │     │ When scaling from 10 → 50:       │                  │
 │     │                                   │                  │
@@ -1654,11 +1654,11 @@ D. Use mixed instances policy: On-Demand base = 10; above base use 20% On-Demand
 │     └──────────────────────────────────┘                  │
 │                                                             │
 │  Benefits:                                                 │
-│    ✅ Base capacity always stable                          │
-│    ✅ 80% of burst uses cheap Spot                         │
-│    ✅ 20% On-Demand buffer for resilience                  │
-│    ✅ Can tolerate Spot interruptions                      │
-│    ✅ Massive cost savings (45%)                           │
+│     Base capacity always stable                            │
+│     80% of burst uses cheap Spot                           │
+│     20% On-Demand buffer for resilience                    │
+│     Can tolerate Spot interruptions                        │
+│     Massive cost savings (45%)                             │
 │                                                             │
 │  Cost at Peak (50 instances):                             │
 │    Base: 10 On-Demand = $0.96/hr                          │
@@ -1670,7 +1670,7 @@ D. Use mixed instances policy: On-Demand base = 10; above base use 20% On-Demand
 
 **Why Other Options Are Wrong:**
 
-**❌ Option A: Downgrade to t2.micro**
+**Option A: Downgrade to t2.micro**
 ```
 Problem with t2.micro approach:
 ┌────────────────────────────────────────────────────────────┐
@@ -1678,27 +1678,27 @@ Problem with t2.micro approach:
 │  Proposed: t2.micro (1 vCPU, 1 GB RAM)                     │
 │                                                             │
 │  Issues:                                                   │
-│    1️⃣  Performance Degradation:                            │
+│    1  Performance Degradation:                            │
 │       • 8x less memory (8 GB → 1 GB)                       │
 │       • 2x less CPU (2 vCPU → 1 vCPU)                      │
 │       • Burstable instance (credits deplete)               │
 │       • Application may not function properly              │
 │                                                             │
-│    2️⃣  CPU Credit Exhaustion:                              │
+│    2  CPU Credit Exhaustion:                              │
 │       • t2.micro earns 6 credits/hour                      │
 │       • Baseline: 10% CPU utilization                      │
 │       • Above 10%: Consumes credits                        │
 │       • Credits depleted = throttled to 10% CPU            │
 │       • Web app performance: UNACCEPTABLE                  │
 │                                                             │
-│    3️⃣  Need More Instances:                                │
+│    3  Need More Instances:                                │
 │       • To match m5.large capacity                         │
 │       • Need ~8x more t2.micro instances                   │
 │       • 10 m5.large → 80 t2.micro                          │
 │       • Management overhead increases                      │
 │       • Target group limits (1000 max)                     │
 │                                                             │
-│    4️⃣  Cost Reality:                                       │
+│    4  Cost Reality:                                       │
 │       • t2.micro: $0.0116/hr                               │
 │       • Need 80 to match 10 m5.large                       │
 │       • 80 × $0.0116 = $0.928/hr                           │
@@ -1706,12 +1706,12 @@ Problem with t2.micro approach:
 │       • Savings: Only $0.032/hr ($23/month)                │
 │       • NOT worth the performance loss                     │
 │                                                             │
-│  Verdict: ❌ Poor performance for minimal savings          │
+│ Verdict:  Poor performance for minimal savings             │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
 
-**❌ Option B: All Spot Instances**
+**Option B: All Spot Instances**
 ```
 Problem with 100% Spot:
 ┌────────────────────────────────────────────────────────────┐
@@ -1731,11 +1731,11 @@ Problem with 100% Spot:
 │  │   Traffic: Still requires 50         │                 │
 │  │                                       │                 │
 │  │ Result:                              │                 │
-│  │   ❌ 60% capacity loss               │                 │
-│  │   ❌ Application overloaded          │                 │
-│  │   ❌ User requests failing           │                 │
-│  │   ❌ Downtime / degraded service     │                 │
-│  │   ❌ No On-Demand buffer to absorb   │                 │
+│ │    60% capacity loss               │                    │
+│ │    Application overloaded          │                    │
+│ │    User requests failing           │                    │
+│ │    Downtime / degraded service     │                    │
+│ │    No On-Demand buffer to absorb   │                    │
 │  └──────────────────────────────────────┘                 │
 │                                                             │
 │  Issues:                                                   │
@@ -1750,12 +1750,12 @@ Problem with 100% Spot:
 │    • Session management disrupted                          │
 │    • Database connection pool exhausted                    │
 │                                                             │
-│  Verdict: ❌ Unacceptable availability risk                │
+│ Verdict:  Unacceptable availability risk                   │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
 
-**❌ Option C: Reserved Instances for all 50**
+**Option C: Reserved Instances for all 50**
 ```
 Problem with RIs for peak capacity:
 ┌────────────────────────────────────────────────────────────┐
@@ -1798,7 +1798,7 @@ Problem with RIs for peak capacity:
 │    Average: $0.827/hr = $604/month                         │
 │    Savings: $1,383/month vs Option C                       │
 │                                                             │
-│  Verdict: ❌ Over-provisioning, wasted commitment          │
+│ Verdict:  Over-provisioning, wasted commitment             │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 ```
@@ -1863,7 +1863,7 @@ Real-World Scaling Scenario:
 │  ┌──────────────────────────────────────┐                 │
 │  │ Desired Capacity: 10                 │                 │
 │  │ Running:                             │                 │
-│  │   • 10 On-Demand m5.large ✅          │                 │
+│ │   • 10 On-Demand m5.large           │                    │
 │  │   • 0 Spot                           │                 │
 │  │ Cost: $0.96/hr                       │                 │
 │  └──────────────────────────────────────┘                 │
@@ -1872,9 +1872,9 @@ Real-World Scaling Scenario:
 │  ┌──────────────────────────────────────┐                 │
 │  │ Desired Capacity: 30                 │                 │
 │  │ Running:                             │                 │
-│  │   • 10 On-Demand (base) ✅            │                 │
-│  │   • 4 On-Demand (20% of 20) ✅        │                 │
-│  │   • 16 Spot (80% of 20) ✅            │                 │
+│ │   • 10 On-Demand (base)             │                    │
+│ │   • 4 On-Demand (20% of 20)         │                    │
+│ │   • 16 Spot (80% of 20)             │                    │
 │  │ Cost: $1.808/hr                      │                 │
 │  └──────────────────────────────────────┘                 │
 │           ↓                                                 │
@@ -1882,9 +1882,9 @@ Real-World Scaling Scenario:
 │  ┌──────────────────────────────────────┐                 │
 │  │ Desired Capacity: 50                 │                 │
 │  │ Running:                             │                 │
-│  │   • 10 On-Demand (base) ✅            │                 │
-│  │   • 8 On-Demand (20% of 40) ✅        │                 │
-│  │   • 32 Spot (80% of 40) ✅            │                 │
+│ │   • 10 On-Demand (base)             │                    │
+│ │   • 8 On-Demand (20% of 40)         │                    │
+│ │   • 32 Spot (80% of 40)             │                    │
 │  │ Cost: $2.656/hr                      │                 │
 │  └──────────────────────────────────────┘                 │
 │           ↓                                                 │
@@ -1892,15 +1892,15 @@ Real-World Scaling Scenario:
 │  ┌──────────────────────────────────────┐                 │
 │  │ Interrupted: 10 Spot instances       │                 │
 │  │ Remaining:                           │                 │
-│  │   • 18 On-Demand ✅ (still stable)    │                 │
-│  │   • 22 Spot ✅                        │                 │
+│ │   • 18 On-Demand  (still stable)    │                    │
+│ │   • 22 Spot                         │                    │
 │  │   Total: 40 instances                │                 │
 │  │                                       │                 │
 │  │ Auto Scaling Action:                 │                 │
 │  │   • Detects capacity below 50        │                 │
 │  │   • Launches 10 new Spot instances   │                 │
 │  │   • May use different instance types │                 │
-│  │   • Returns to 50 total ✅            │                 │
+│ │   • Returns to 50 total             │                    │
 │  │                                       │                 │
 │  │ Impact: Minimal (8 OD buffer absorbed spike)           │
 │  └──────────────────────────────────────┘                 │
@@ -1912,9 +1912,9 @@ Real-World Scaling Scenario:
 │  │   • Terminate Spot first (cheaper)   │                 │
 │  │   • Keep On-Demand base              │                 │
 │  │ Running:                             │                 │
-│  │   • 10 On-Demand (base) ✅            │                 │
-│  │   • 2 On-Demand ✅                    │                 │
-│  │   • 8 Spot ✅                         │                 │
+│ │   • 10 On-Demand (base)             │                    │
+│ │   • 2 On-Demand                     │                    │
+│ │   • 8 Spot                          │                    │
 │  │ Cost: $1.424/hr                      │                 │
 │  └──────────────────────────────────────┘                 │
 │                                                             │
@@ -1927,25 +1927,25 @@ Real-World Scaling Scenario:
 Monthly Cost Comparison (Average: 30 instances, Peak 4hr/day: 50):
 ┌────────────────────────────────────────────────────────────┐
 │                                                             │
-│  Option A: All t2.micro On-Demand ❌                        │
+│ Option A: All t2.micro On-Demand                            │
 │    240 t2.micro × $0.0116/hr = $2.784/hr = $2,032/month    │
 │    Performance: POOR                                       │
 │    Availability: Good                                      │
 │                                                             │
-│  Option B: All Spot ❌                                      │
+│ Option B: All Spot                                          │
 │    50 Spot × $0.029/hr × 4hr/day = $5.80/day              │
 │    30 Spot × $0.029/hr × 20hr/day = $17.40/day            │
 │    Total: $23.20/day = $696/month                          │
 │    Performance: Good (when available)                      │
 │    Availability: POOR (frequent interruptions)             │
 │                                                             │
-│  Option C: All 50 Reserved ❌                               │
+│ Option C: All 50 Reserved                                   │
 │    50 RI × $0.0544/hr = $2.72/hr = $1,987/month           │
 │    Performance: Good                                       │
 │    Availability: Excellent                                 │
 │    Waste: High (40 RIs unused 83% of time)                │
 │                                                             │
-│  Option D: Mixed Instances Policy ✅ BEST                   │
+│ Option D: Mixed Instances Policy  BEST                      │
 │    Base (24/7): 10 OD × $0.096/hr = $0.96/hr = $701/month │
 │    Peak (4hr/day): 8 OD + 32 Spot = $1.696/hr             │
 │    Peak cost: $1.696/hr × 4hr × 30 days = $203/month      │
@@ -1960,7 +1960,7 @@ Monthly Cost Comparison (Average: 30 instances, Peak 4hr/day: 50):
 **Best Practices for Mixed Instances:**
 
 ```
-✅ Do's:
+ Do's:
   1. Set On-Demand base = minimum required capacity
   2. Use 20-40% On-Demand above base (buffer for Spot loss)
   3. Diversify instance types (4-5 types minimum)
@@ -1969,7 +1969,7 @@ Monthly Cost Comparison (Average: 30 instances, Peak 4hr/day: 50):
   6. Use instance weighting for different sizes
   7. Monitor Spot interruption rates per AZ
 
-❌ Don'ts:
+ Don'ts:
   • Don't use 100% Spot (no base stability)
   • Don't use only 1 instance type (Spot availability risk)
   • Don't set Spot max price (limits flexibility)
@@ -2015,18 +2015,18 @@ def lambda_handler(event, context):
         print(f"Prepared {instance_id} for Spot interruption")
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **On-Demand Base** = Stable, critical capacity (never interrupted)
 - **20% On-Demand above base** = Buffer for Spot interruptions
 - **80% Spot above base** = Maximum cost savings for burst
 - **Result** = 45-60% cost savings with high availability
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 When question mentions "base capacity stable" + "burst can tolerate interruptions" → **Mixed Instances Policy** with On-Demand base + Spot for burst. Never 100% Spot for production workloads!
 
 ---
 
-### Question 36: CloudFormation Drift Detection ❌
+### Question 36: CloudFormation Drift Detection
 **Topic:** Design High-Performing Architectures  
 **Your Answer:** Grant additional Read permissions to drift detection  
 **Correct Answer:** Explicitly set the property values in the template  
@@ -2037,11 +2037,11 @@ When question mentions "base capacity stable" + "burst can tolerate interruption
 - Must declare all properties to detect drift
 
 **Key Takeaway:**
-> 📝 **CloudFormation drift detection: if not in template, it's not tracked. Declare defaults explicitly.**
+> **CloudFormation drift detection: if not in template, it's not tracked. Declare defaults explicitly.**
 
 ---
 
-### Question 38: Multi-Account ALB Access ❌
+### Question 38: Multi-Account ALB Access
 **Topic:** Design High-Performing Architectures  
 **Your Answer:** B and D (missing C)  
 **Correct Answer:** B and C  
@@ -2051,11 +2051,11 @@ When question mentions "base capacity stable" + "burst can tolerate interruption
 - Missed the critical step of allowing public reads via bucket policy
 
 **Key Takeaway:**
-> 🌐 **S3 public website: (1) Disable Block Public Access + (2) Bucket policy for public reads**
+> **S3 public website: (1) Disable Block Public Access + (2) Bucket policy for public reads**
 
 ---
 
-### Question 45: Session Storage ❌
+### Question 45: Session Storage
 **Topic:** Design High-Performing Architectures  
 **Your Answer:** C and D (ELB + ElastiCache)  
 **Correct Answer:** B and D (DynamoDB + ElastiCache)  
@@ -2066,11 +2066,11 @@ When question mentions "base capacity stable" + "burst can tolerate interruption
 - ElastiCache is correct for in-memory caching
 
 **Key Takeaway:**
-> 💾 **Session stores: DynamoDB (durable, TTL) + ElastiCache (fast, in-memory)**
+> **Session stores: DynamoDB (durable, TTL) + ElastiCache (fast, in-memory)**
 
 ---
 
-### Question 48: ALB Access Logging ❌
+### Question 48: ALB Access Logging
 **Topic:** Design Secure Architectures  
 **Your Answer:** AWS CloudTrail data events for the ALB  
 **Correct Answer:** ALB access logs to Amazon S3  
@@ -2081,11 +2081,11 @@ When question mentions "base capacity stable" + "burst can tolerate interruption
 - Access logs are designed for forensics and compliance
 
 **Key Takeaway:**
-> 📊 **CloudTrail = control plane (API calls). ALB access logs = data plane (requests).**
+> **CloudTrail = control plane (API calls). ALB access logs = data plane (requests).**
 
 ---
 
-### Question 56: EBS Cross-Region ❌
+### Question 56: EBS Cross-Region
 **Topic:** Design Resilient Architectures  
 **Your Answer:** Enable Amazon S3 CRR on the snapshot storage bucket  
 **Correct Answer:** Copy the EBS snapshot from us-east-1 to ap-south-1  
@@ -2096,11 +2096,11 @@ When question mentions "base capacity stable" + "burst can tolerate interruption
 - Can copy across regions with optional encryption changes
 
 **Key Takeaway:**
-> 📸 **EBS snapshots: use snapshot copy API, not S3 replication**
+> **EBS snapshots: use snapshot copy API, not S3 replication**
 
 ---
 
-### Question 58: Restore S3 Versioned Object ❌
+### Question 58: Restore S3 Versioned Object
 **Topic:** Design Resilient Architectures  
 **Your Answer:** Option D (partial understanding)  
 **Correct Answer:** Delete the delete marker  
@@ -2111,13 +2111,13 @@ When question mentions "base capacity stable" + "burst can tolerate interruption
 - Simply retrieving version ID doesn't restore normal access
 
 **Key Takeaway:**
-> 🗑️ **S3 versioning: delete = add marker. Restore = delete the marker.**
+> **S3 versioning: delete = add marker. Restore = delete the marker.**
 
 ---
 
 ---
 
-## 📚 Study Recommendations
+## Study Recommendations
 
 ### Priority 1: Cost Optimization (60% - CRITICAL)
 **Time:** 3-4 hours
@@ -2174,7 +2174,7 @@ When question mentions "base capacity stable" + "burst can tolerate interruption
 
 ---
 
-## 🎯 Quick Reference Cards
+## Quick Reference Cards
 
 ### Cost Optimization Cheat Sheet
 
@@ -2194,7 +2194,7 @@ GLACIER RETRIEVAL:
 
 REDSHIFT SNAPSHOTS:
 ├─ Automated: Retained per policy, auto-deleted
-└─ Manual: Persist forever, must delete manually ⚠️
+└─ Manual: Persist forever, must delete manually
 ```
 
 ### Security & Logging
@@ -2222,7 +2222,7 @@ SECURITY GROUP RULES:
 ```
 AUTO SCALING METRICS:
 ├─ Predefined: CPU, Network In/Out, ALB RequestCount
-└─ Custom: Memory, Disk (needs CloudWatch agent) ⚠️
+└─ Custom: Memory, Disk (needs CloudWatch agent)
 
 LIFECYCLE HOOKS:
 ├─ Purpose: Run custom actions before termination
@@ -2232,12 +2232,12 @@ LIFECYCLE HOOKS:
 TERMINATION POLICIES:
 ├─ Purpose: Choose WHICH instance to terminate
 ├─ Types: OldestInstance, NewestInstance, ClosestToNextInstanceHour
-└─ Not for: Running custom cleanup scripts ⚠️
+└─ Not for: Running custom cleanup scripts
 ```
 
 ---
 
-## 📊 Progress Tracking
+## Progress Tracking
 
 ### Test Comparison
 
@@ -2254,40 +2254,40 @@ TERMINATION POLICIES:
 - Test 1: 100% (only 3 questions)
 - Test 2: 86%
 - Test 3: 63%
-- Test 4: 60% ⚠️ **Getting worse!**
+- Test 4: 60% **Getting worse!**
 
 **Action:** Dedicate focused study session to cost optimization concepts.
 
 ---
 
-## 🎯 Action Plan for Test 5
+## Action Plan for Test 5
 
 ### Before Next Test (Target: 85%+)
 
-1. ✅ **Complete cost optimization module** (4 hours)
+1. **Complete cost optimization module** (4 hours)
    - [ ] Review pricing models
    - [ ] Practice cost calculator
    - [ ] Understand Glacier tiers
 
-2. ✅ **Review auto scaling deep dive** (2 hours)
+2. **Review auto scaling deep dive** (2 hours)
    - [ ] Lifecycle hooks vs termination policies
    - [ ] Custom metrics setup
 
-3. ✅ **CloudFormation drift detection** (1 hour)
+3. **CloudFormation drift detection** (1 hour)
    - [ ] Template best practices
 
-4. ✅ **Take focused quiz on weak areas** (14-Practice folder)
+4. **Take focused quiz on weak areas** (14-Practice folder)
 
 ### During Test 5
 
-- ⏰ Time management: ~2 minutes per question
-- 🔍 Read EVERY word carefully (especially "MOST", "LEAST")
-- 📌 Flag uncertain questions for review
-- ✅ Focus on eliminating wrong answers first
+- Time management: ~2 minutes per question
+- Read EVERY word carefully (especially "MOST", "LEAST")
+- Flag uncertain questions for review
+- Focus on eliminating wrong answers first
 
 ---
 
-## 📝 Notes
+## Notes
 
 ### Patterns Observed
 1. **Cost questions consistently missed** - Need dedicated review
@@ -2307,7 +2307,7 @@ TERMINATION POLICIES:
 3. Take focused practice questions on weak domains
 4. Schedule Test 5 after completing review (target: 1 week)
 
-**Target for Test 5:** 55+/65 (85%+) ✅
+**Target for Test 5:** 55+/65 (85%+)
 
 ---
 

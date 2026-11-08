@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - Storage Services
+# Fast Learning - Storage Services
 
 > **Time to Complete**: 60-75 minutes | **Exam Weight**: ~15-20%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### Storage Service Selector (The SEFI Rule)
 ```
@@ -14,7 +14,7 @@ ARCHIVAL? → S3 Glacier (long-term backup)
 
 **Memory Aid**: "SEF-I store data" = S3, EBS, EFS/FSx, Ice (Glacier)
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### S3 Storage Classes (Critical for Exam!)
 | Class | Retrieval | Availability | Min Duration | Use Case | Cost |
@@ -32,16 +32,16 @@ ARCHIVAL? → S3 Glacier (long-term backup)
 ### EBS Volume Types (GISP)
 | Type | Name | IOPS | Throughput | Use Case | Boot? |
 |------|------|------|------------|----------|-------|
-| **gp3** | General SSD | 16,000 | 1,000 MB/s | Most workloads | ✅ |
-| **gp2** | General SSD | 16,000 | 250 MB/s | Legacy general | ✅ |
-| **io2** | Provisioned SSD | 64,000+ | 1,000 MB/s | Mission-critical DB | ✅ |
-| **io1** | Provisioned SSD | 64,000 | 1,000 MB/s | Legacy high perf | ✅ |
-| **st1** | Throughput HDD | 500 | 500 MB/s | Big data, logs | ❌ |
-| **sc1** | Cold HDD | 250 | 250 MB/s | Infrequent access | ❌ |
+| **gp3** | General SSD | 16,000 | 1,000 MB/s | Most workloads | Yes |
+| **gp2** | General SSD | 16,000 | 250 MB/s | Legacy general | Yes |
+| **io2** | Provisioned SSD | 64,000+ | 1,000 MB/s | Mission-critical DB | Yes |
+| **io1** | Provisioned SSD | 64,000 | 1,000 MB/s | Legacy high perf | Yes |
+| **st1** | Throughput HDD | 500 | 500 MB/s | Big data, logs | No |
+| **sc1** | Cold HDD | 250 | 250 MB/s | Infrequent access | No |
 
 **Memory Aid**: "GP = General Purpose, IO = Input/Output intensive, ST = Streaming Throughput, SC = Slow/Cold"
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. S3 Features Quick Matrix
 | Feature | Purpose | Exam Scenario |
@@ -94,7 +94,7 @@ Client-Side Encryption
 
 ### 4. S3 Consistency Model
 ```
-✅ STRONG READ-AFTER-WRITE CONSISTENCY
+ STRONG READ-AFTER-WRITE CONSISTENCY
 └── PUT new object → Immediately readable
 └── DELETE object → Immediately gone
 └── UPDATE object → Immediately reflects new version
@@ -102,37 +102,37 @@ Client-Side Encryption
 ALL OPERATIONS: Consistent since Dec 2020
 ```
 
-## 💡 Common Exam Scenarios
+## Common Exam Scenarios
 
 ### Scenario 1: Cost Optimization for Old Data
 **Q**: Data accessed frequently first 30 days, rarely after 90 days
-**✅ ANSWER**: Lifecycle policy: Standard → Standard-IA (30 days) → Glacier (90 days)
+**ANSWER**: Lifecycle policy: Standard → Standard-IA (30 days) → Glacier (90 days)
 
 ### Scenario 2: Protect Critical S3 Data
 **Q**: Prevent accidental deletion of critical files
-**✅ ANSWER**: Enable versioning + MFA Delete + Bucket policy with explicit deny
+**ANSWER**: Enable versioning + MFA Delete + Bucket policy with explicit deny
 
 ### Scenario 3: Share Files Across EC2 Instances
 **Q**: Multiple EC2 instances need read/write to same files
-**✅ ANSWER**: EFS (not EBS - only mounts to one instance)
+**ANSWER**: EFS (not EBS - only mounts to one instance)
 
 ### Scenario 4: Database Volume Performance
 **Q**: Database needs 50,000 IOPS
-**✅ ANSWER**: io2 EBS volume (up to 64,000+ IOPS)
+**ANSWER**: io2 EBS volume (up to 64,000+ IOPS)
 
 ### Scenario 5: Fast Global Uploads to S3
 **Q**: Users worldwide uploading to S3, need speed
-**✅ ANSWER**: S3 Transfer Acceleration
+**ANSWER**: S3 Transfer Acceleration
 
 ### Scenario 6: Compliance - Keep 7 Years
 **Q**: Regulatory requirement to store 7 years, rarely accessed
-**✅ ANSWER**: S3 Glacier Deep Archive (cheapest for long-term)
+**ANSWER**: S3 Glacier Deep Archive (cheapest for long-term)
 
 ### Scenario 7: Temporary High-Speed Storage
 **Q**: EC2 needs very fast temporary storage for processing
-**✅ ANSWER**: Instance Store (ephemeral, fastest)
+**ANSWER**: Instance Store (ephemeral, fastest)
 
-## 🎓 Speed Learning Tips
+## Speed Learning Tips
 
 ### S3 Bucket Naming Rules
 - 3-63 characters
@@ -171,7 +171,7 @@ SRR (Same-Region Replication)
 
 **Requirements**: Versioning enabled on both buckets
 
-## 📝 Rapid-Fire Facts
+## Rapid-Fire Facts
 
 ### S3 Limits
 - Max object size: **5 TB**
@@ -203,7 +203,7 @@ SRR (Same-Region Replication)
 | **FSx for NetApp ONTAP** | Any | NFS/SMB | Multi-protocol |
 | **FSx for OpenZFS** | Linux | NFS | Linux workloads |
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### Storage Decision Tree
 ```
@@ -243,16 +243,16 @@ Delete incomplete multipart uploads after 7 days
 ```
 
 ### Common Mistakes to Avoid
-❌ Using EBS for shared storage (use EFS)
-❌ Forgetting EBS is single AZ
-❌ Not using lifecycle policies for cost savings
-❌ Choosing wrong S3 storage class
-❌ Forgetting to enable versioning before replication
-❌ Using Standard for infrequently accessed data
-❌ Instance Store for persistent data (it's ephemeral!)
-❌ Not encrypting sensitive data
+ Using EBS for shared storage (use EFS)
+ Forgetting EBS is single AZ
+ Not using lifecycle policies for cost savings
+ Choosing wrong S3 storage class
+ Forgetting to enable versioning before replication
+ Using Standard for infrequently accessed data
+ Instance Store for persistent data (it's ephemeral!)
+ Not encrypting sensitive data
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Quick Questions** (Answers at bottom)
 
@@ -286,7 +286,7 @@ Delete incomplete multipart uploads after 7 days
 - SNS topics
 - EventBridge
 
-## 🔒 S3 Security Layers
+## S3 Security Layers
 ```
 1. IAM Policies (user/role permissions)
 2. Bucket Policies (resource-based)
@@ -297,7 +297,7 @@ Delete incomplete multipart uploads after 7 days
 7. Block Public Access (account level)
 ```
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~60-75 min
 - Practice: Create S3 bucket, lifecycle rules, EBS volume
 - Ready for: Storage practice questions

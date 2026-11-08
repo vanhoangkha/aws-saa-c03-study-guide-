@@ -106,7 +106,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2026-01-02
 
-### 🎉 Initial Public Release
+### Initial Public Release
 
 This is the first public release of the AWS Solutions Architect Associate Study Guide.
 
@@ -228,7 +228,7 @@ git pull origin main
 ## Stay Updated
 
 - **Watch** this repository for notifications
-- **Star** ⭐ to bookmark
+- **Star** to bookmark
 - Check **[Releases](../../releases)** for new versions
 - Follow **[Discussions](../../discussions)** for announcements
 

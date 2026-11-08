@@ -2,7 +2,7 @@
 
 > Consolidated study notes for weak areas and exam remediation
 
-## 📚 Table of Contents
+## Table of Contents
 - [Key Concepts to Review](#key-concepts-to-review)
 - [Service-Specific Notes](#service-specific-notes)
 - [Common Mistakes & Corrections](#common-mistakes--corrections)
@@ -62,17 +62,17 @@
 
 ## Common Mistakes & Corrections
 
-### ❌ Wrong: Using Multi-AZ replicas for read traffic
-### ✅ Correct: Use Read Replicas for read scaling; Multi-AZ is for HA only
+### Wrong: Using Multi-AZ replicas for read traffic
+### Correct: Use Read Replicas for read scaling; Multi-AZ is for HA only
 
-### ❌ Wrong: Assuming eventual consistency for S3
-### ✅ Correct: S3 provides strong read-after-write consistency
+### Wrong: Assuming eventual consistency for S3
+### Correct: S3 provides strong read-after-write consistency
 
-### ❌ Wrong: Trying to attach EBS volumes across AZs
-### ✅ Correct: Snapshot → Restore in target AZ
+### Wrong: Trying to attach EBS volumes across AZs
+### Correct: Snapshot → Restore in target AZ
 
-### ❌ Wrong: Using Security Groups for explicit deny rules
-### ✅ Correct: Use Network ACLs for deny rules; SGs only allow
+### Wrong: Using Security Groups for explicit deny rules
+### Correct: Use Network ACLs for deny rules; SGs only allow
 
 ---
 

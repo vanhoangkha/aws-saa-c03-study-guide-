@@ -1,4 +1,4 @@
-# 05: Database Services - Ultra Fast Learning 🚀
+# 05: Database Services - Ultra Fast Learning
 
 ## RDS (Relational Database Service)
 
@@ -98,12 +98,12 @@
 ### Redis vs Memcached
 | Feature | Redis | Memcached |
 |---------|-------|-----------|
-| Persistence | ✅ | ❌ |
-| Backup | ✅ | ❌ |
-| Multi-AZ | ✅ | ❌ |
-| Read Replicas | ✅ | ❌ |
-| Pub/Sub | ✅ | ❌ |
-| Multi-threaded | ❌ | ✅ |
+| Persistence | Yes | No |
+| Backup | Yes | No |
+| Multi-AZ | Yes | No |
+| Read Replicas | Yes | No |
+| Pub/Sub | Yes | No |
+| Multi-threaded | No | Yes |
 
 ## Redshift
 - **Data warehouse** (OLAP, analytics)

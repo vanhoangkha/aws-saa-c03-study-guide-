@@ -1,6 +1,6 @@
 # AWS Solutions Architect - Quick Reference Guide
 
-## 📚 Quick Learning Resources ✨
+## Quick Learning Resources
 
 **For Enhanced Learning, Also See:**
 - **[QUICK-STUDY-NOTES.md](./QUICK-STUDY-NOTES.md)** - Mnemonics, memory aids, exam tips
@@ -9,7 +9,7 @@
 
 ---
 
-## 🚀 Service Quick Reference
+## Service Quick Reference
 
 ### Compute
 
@@ -78,7 +78,7 @@
 
 ---
 
-## 🎯 Common Exam Patterns
+## Common Exam Patterns
 
 ### High Availability
 **Pattern**: Multi-AZ + Auto Scaling + Load Balancer
@@ -106,7 +106,7 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 
 ---
 
-## 📊 Service Limits (Important)
+## Service Limits (Important)
 
 | Service | Limit | Notes |
 |---------|-------|-------|
@@ -123,7 +123,7 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 
 ---
 
-## 🔄 Service Comparisons
+## Service Comparisons
 
 ### Storage
 
@@ -158,27 +158,27 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 
 ---
 
-## 🛡️ Security Best Practices
+## Security Best Practices
 
 ### Data Protection
-✅ **At Rest**: KMS encryption for S3, EBS, RDS  
-✅ **In Transit**: HTTPS/TLS, VPN, Direct Connect  
-✅ **Backup**: Automated backups, Cross-Region Replication  
+ **At Rest**: KMS encryption for S3, EBS, RDS
+ **In Transit**: HTTPS/TLS, VPN, Direct Connect
+ **Backup**: Automated backups, Cross-Region Replication
 
 ### Access Control
-✅ **IAM**: Least privilege, roles over users  
-✅ **MFA**: Root and privileged users  
-✅ **Network**: Private subnets, Security Groups, NACLs  
+ **IAM**: Least privilege, roles over users
+ **MFA**: Root and privileged users
+ **Network**: Private subnets, Security Groups, NACLs
 
 ### Monitoring
-✅ **CloudTrail**: All API calls, all regions  
-✅ **Config**: Resource configuration tracking  
-✅ **GuardDuty**: Threat detection  
-✅ **CloudWatch**: Metrics, logs, alarms  
+ **CloudTrail**: All API calls, all regions
+ **Config**: Resource configuration tracking
+ **GuardDuty**: Threat detection
+ **CloudWatch**: Metrics, logs, alarms
 
 ---
 
-## 💰 Cost Optimization Strategies
+## Cost Optimization Strategies
 
 ### Compute
 - **Reserved** for steady workloads (up to 72% off)
@@ -205,7 +205,7 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 
 ---
 
-## 🎓 Exam Day Checklist
+## Exam Day Checklist
 
 ### Before the Exam
 - [ ] Schedule exam at optimal time (morning, alert)
@@ -223,14 +223,14 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 - [ ] Review flagged questions if time permits
 
 ### Common Traps
-- ❌ Don't overthink - choose simplest solution
-- ❌ Watch for "MOST cost-effective" vs "BEST performance"
-- ❌ "Least operational overhead" = managed services
-- ❌ Read all options before selecting
+- Don't overthink - choose simplest solution
+- Watch for "MOST cost-effective" vs "BEST performance"
+- "Least operational overhead" = managed services
+- Read all options before selecting
 
 ---
 
-## 📝 Mental Cheat Sheet
+## Mental Cheat Sheet
 
 ### When You See...
 
@@ -266,7 +266,7 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 
 ---
 
-## 🔑 Key Acronyms
+## Key Acronyms
 
 - **AZ**: Availability Zone
 - **ALB**: Application Load Balancer
@@ -293,7 +293,7 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 
 ---
 
-## 🎯 Final Tips
+## Final Tips
 
 1. **Trust your preparation** - you've studied hard!
 2. **Stay calm** - take deep breaths if stressed
@@ -304,11 +304,11 @@ CloudFront + S3 → API Gateway → Lambda → DynamoDB
 7. **Flag and return** - don't get stuck on one question
 8. **Think AWS-native** - prefer AWS managed services
 9. **Well-Architected** - think of the 6 pillars
-10. **You got this!** 💪
+10. **You got this!**
 
 ---
 
-**Good luck with your AWS Solutions Architect Associate certification!** 🚀
+**Good luck with your AWS Solutions Architect Associate certification!**
 
 ---
 

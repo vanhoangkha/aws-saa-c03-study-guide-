@@ -634,7 +634,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• SCPs define maximum permissions - they act as guardrails\n• SCPs do NOT grant permissions (A is wrong)\n• They only restrict what is possible\n• SCPs do NOT affect the management account (B is wrong)\n• SCPs can be applied to Organization root, OUs, or accounts (D is wrong)\n• Effective permissions = IAM policy AND SCP\nKey SCP Rules:\n• ❌ Don't grant permissions\n• ❌ Don't affect management account\n• ✅ Set maximum permission boundaries\n• ✅ Can be applied to OUs\n• ✅ Inherited down the hierarchy",
+  "explanation": "• SCPs define maximum permissions - they act as guardrails\n• SCPs do NOT grant permissions (A is wrong)\n• They only restrict what is possible\n• SCPs do NOT affect the management account (B is wrong)\n• SCPs can be applied to Organization root, OUs, or accounts (D is wrong)\n• Effective permissions = IAM policy AND SCP\nKey SCP Rules:\n• Don't grant permissions\n• Don't affect management account\n• Set maximum permission boundaries\n• Can be applied to OUs\n• Inherited down the hierarchy",
   "module": "AWS Fundamentals",
   "multi": false,
   "why": [
@@ -644,11 +644,11 @@ window.QUESTIONS = [
    "SCPs can be applied to Organization root, OUs, or accounts (D is wrong)",
    "Effective permissions = IAM policy AND SCP.",
    "Key SCP Rules:.",
-   "❌ Don't grant permissions.",
-   "❌ Don't affect management account.",
-   "✅ Set maximum permission boundaries.",
-   "✅ Can be applied to OUs.",
-   "✅ Inherited down the hierarchy."
+   "Don't grant permissions.",
+   "Don't affect management account.",
+   "Set maximum permission boundaries.",
+   "Can be applied to OUs.",
+   "Inherited down the hierarchy."
   ],
   "others": []
  },
@@ -664,7 +664,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• AWS Control Tower provides automated multi-account setup\n• Includes Landing Zone (well-architected baseline)\n• Pre-configured guardrails (preventive and detective)\n• Account Factory for automated provisioning\n• Built on top of AWS Organizations\n• AWS Organizations (A) requires manual setup\n• CloudFormation StackSets (C) deploys templates, not governance\n• Service Catalog (D) is for self-service IT resources\nControl Tower Features:\n• ✅ Automated setup (minutes vs days)\n• ✅ Pre-built guardrails\n• ✅ Account Factory\n• ✅ Compliance dashboard\n• ✅ Integrated with Organizations, IAM Identity Center, CloudTrail\nWhen to Use:\n• Quick setup with best practices\n• Less AWS expertise required\n• Want pre-built governance\nWhen to Use Organizations Directly:\n• Need maximum flexibility\n• Have custom requirements\n• Experienced AWS team",
+  "explanation": "• AWS Control Tower provides automated multi-account setup\n• Includes Landing Zone (well-architected baseline)\n• Pre-configured guardrails (preventive and detective)\n• Account Factory for automated provisioning\n• Built on top of AWS Organizations\n• AWS Organizations (A) requires manual setup\n• CloudFormation StackSets (C) deploys templates, not governance\n• Service Catalog (D) is for self-service IT resources\nControl Tower Features:\n• Automated setup (minutes vs days)\n• Pre-built guardrails\n• Account Factory\n• Compliance dashboard\n• Integrated with Organizations, IAM Identity Center, CloudTrail\nWhen to Use:\n• Quick setup with best practices\n• Less AWS expertise required\n• Want pre-built governance\nWhen to Use Organizations Directly:\n• Need maximum flexibility\n• Have custom requirements\n• Experienced AWS team",
   "module": "AWS Fundamentals",
   "multi": false,
   "why": [
@@ -673,11 +673,11 @@ window.QUESTIONS = [
    "Account Factory for automated provisioning.",
    "Built on top of AWS Organizations.",
    "Control Tower Features:.",
-   "✅ Automated setup (minutes vs days)",
-   "✅ Pre-built guardrails.",
-   "✅ Account Factory.",
-   "✅ Compliance dashboard.",
-   "✅ Integrated with Organizations, IAM Identity Center, CloudTrail.",
+   "Automated setup (minutes vs days)",
+   "Pre-built guardrails.",
+   "Account Factory.",
+   "Compliance dashboard.",
+   "Integrated with Organizations, IAM Identity Center, CloudTrail.",
    "When to Use:.",
    "Quick setup with best practices.",
    "Less AWS expertise required.",
@@ -720,7 +720,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• AWS Resource Access Manager (RAM) allows sharing resources across accounts\n• Can share VPC subnets between accounts\n• Resources remain in owner account, but accessible to shared accounts\n• No need to duplicate VPCs\n• VPC Peering (A) connects VPCs but doesn't share subnets\n• Transit Gateway (B) connects networks but doesn't share subnets\n• PrivateLink (D) is for service-to-VPC connectivity\nBenefits of Subnet Sharing with RAM:\n• ✅ Centralized network management\n• ✅ Reduced VPC sprawl\n• ✅ Efficient IP address usage\n• ✅ Simplified network architecture\n• ✅ Lower operational overhead\nOther Shareable Resources via RAM:\n• VPC Subnets (most common)\n• Transit Gateway attachments\n• Route 53 Resolver rules\n• License Manager configurations\n• Aurora DB clusters\n• Prefix lists",
+  "explanation": "• AWS Resource Access Manager (RAM) allows sharing resources across accounts\n• Can share VPC subnets between accounts\n• Resources remain in owner account, but accessible to shared accounts\n• No need to duplicate VPCs\n• VPC Peering (A) connects VPCs but doesn't share subnets\n• Transit Gateway (B) connects networks but doesn't share subnets\n• PrivateLink (D) is for service-to-VPC connectivity\nBenefits of Subnet Sharing with RAM:\n• Centralized network management\n• Reduced VPC sprawl\n• Efficient IP address usage\n• Simplified network architecture\n• Lower operational overhead\nOther Shareable Resources via RAM:\n• VPC Subnets (most common)\n• Transit Gateway attachments\n• Route 53 Resolver rules\n• License Manager configurations\n• Aurora DB clusters\n• Prefix lists",
   "module": "AWS Fundamentals",
   "multi": false,
   "why": [
@@ -728,11 +728,11 @@ window.QUESTIONS = [
    "Resources remain in owner account, but accessible to shared accounts.",
    "No need to duplicate VPCs.",
    "Benefits of Subnet Sharing with RAM:.",
-   "✅ Centralized network management.",
-   "✅ Reduced VPC sprawl.",
-   "✅ Efficient IP address usage.",
-   "✅ Simplified network architecture.",
-   "✅ Lower operational overhead.",
+   "Centralized network management.",
+   "Reduced VPC sprawl.",
+   "Efficient IP address usage.",
+   "Simplified network architecture.",
+   "Lower operational overhead.",
    "Other Shareable Resources via RAM:.",
    "VPC Subnets (most common)",
    "Transit Gateway attachments.",
@@ -774,7 +774,7 @@ window.QUESTIONS = [
   "answer": [
    "B"
   ],
-  "explanation": "• Consolidated billing combines usage across all accounts\n• AWS treats the entire organization as a single billing entity\n• Volume discounts apply to combined usage\n• Example: 3 accounts with 500GB each = 1500GB total → higher tier pricing\n• Not automatic discounts (A), just usage aggregation\n• All accounts benefit, not just management account (C)\n• SCPs are for permissions, not costs (D)\nConsolidated Billing Benefits:\n• ✅ Volume discounts across accounts\n• ✅ Single payment method\n• ✅ Easier cost tracking\n• ✅ Cost allocation tags across org\n• ✅ Reserved Instance sharing",
+  "explanation": "• Consolidated billing combines usage across all accounts\n• AWS treats the entire organization as a single billing entity\n• Volume discounts apply to combined usage\n• Example: 3 accounts with 500GB each = 1500GB total → higher tier pricing\n• Not automatic discounts (A), just usage aggregation\n• All accounts benefit, not just management account (C)\n• SCPs are for permissions, not costs (D)\nConsolidated Billing Benefits:\n• Volume discounts across accounts\n• Single payment method\n• Easier cost tracking\n• Cost allocation tags across org\n• Reserved Instance sharing",
   "module": "AWS Fundamentals",
   "multi": false,
   "why": [
@@ -782,11 +782,11 @@ window.QUESTIONS = [
    "Volume discounts apply to combined usage.",
    "Example: 3 accounts with 500GB each = 1500GB total → higher tier pricing.",
    "Consolidated Billing Benefits:.",
-   "✅ Volume discounts across accounts.",
-   "✅ Single payment method.",
-   "✅ Easier cost tracking.",
-   "✅ Cost allocation tags across org.",
-   "✅ Reserved Instance sharing."
+   "Volume discounts across accounts.",
+   "Single payment method.",
+   "Easier cost tracking.",
+   "Cost allocation tags across org.",
+   "Reserved Instance sharing."
   ],
   "others": [
    {
@@ -1513,7 +1513,7 @@ window.QUESTIONS = [
    "A",
    "B"
   ],
-  "explanation": "• AWS best practices: Enable MFA on root account immediately\n• Root account should be protected with MFA\n• MFA required for sensitive operations\n• Some actions like changing account settings require root + MFA\nRoot Account Best Practices:\n1. ✅ Enable MFA on root account\n2. ✅ Don't use root for everyday tasks\n3. ✅ Delete root access keys (use IAM users instead)\n4. ✅ Create IAM users for administrative tasks\n5. ✅ Use root only for tasks requiring root\n6. ✅ Secure root credentials (password manager)\nTasks Requiring Root Account:\n• Change account settings\n• Close AWS account\n• Change AWS Support plan\n• Restore IAM user permissions\n• Register as seller in Reserved Instance Marketplace\n• Configure S3 bucket for MFA Delete\n• Sign up for GovCloud",
+  "explanation": "• AWS best practices: Enable MFA on root account immediately\n• Root account should be protected with MFA\n• MFA required for sensitive operations\n• Some actions like changing account settings require root + MFA\nRoot Account Best Practices:\n1. Enable MFA on root account\n2. Don't use root for everyday tasks\n3. Delete root access keys (use IAM users instead)\n4. Create IAM users for administrative tasks\n5. Use root only for tasks requiring root\n6. Secure root credentials (password manager)\nTasks Requiring Root Account:\n• Change account settings\n• Close AWS account\n• Change AWS Support plan\n• Restore IAM user permissions\n• Register as seller in Reserved Instance Marketplace\n• Configure S3 bucket for MFA Delete\n• Sign up for GovCloud",
   "module": "IAM",
   "multi": true,
   "why": [
@@ -1522,12 +1522,12 @@ window.QUESTIONS = [
    "MFA required for sensitive operations.",
    "Some actions like changing account settings require root + MFA.",
    "Root Account Best Practices:.",
-   "1. ✅ Enable MFA on root account.",
-   "2. ✅ Don't use root for everyday tasks.",
-   "3. ✅ Delete root access keys (use IAM users instead)",
-   "4. ✅ Create IAM users for administrative tasks.",
-   "5. ✅ Use root only for tasks requiring root.",
-   "6. ✅ Secure root credentials (password manager)",
+   "1. Enable MFA on root account.",
+   "2. Don't use root for everyday tasks.",
+   "3. Delete root access keys (use IAM users instead)",
+   "4. Create IAM users for administrative tasks.",
+   "5. Use root only for tasks requiring root.",
+   "6. Secure root credentials (password manager)",
    "Tasks Requiring Root Account:.",
    "Change account settings.",
    "Close AWS account.",
@@ -2251,7 +2251,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• External session storage (ElastiCache/DynamoDB) is best practice\n• Sessions accessible from any instance\n• Survives instance failures\n• True stateless architecture\nSession Management Options:\n| Option | Pros | Cons |\n|--------|------|------|\n| ElastiCache/DynamoDB | Stateless, scalable, resilient | Additional service |\n| Sticky Sessions | Simple | Uneven load, not resilient |\n| Local Storage | Fast | Lost on instance failure |\nWhy ElastiCache/DynamoDB is Better:\n• ✅ Any instance can serve any request\n• ✅ Auto Scaling works properly\n• ✅ Instance failure doesn't lose sessions\n• ✅ Better load distribution\nSticky Sessions Issues:\n• Uneven instance utilization\n• New instances get no traffic initially\n• Instance failure = lost sessions\n• Use only if refactoring is not possible",
+  "explanation": "• External session storage (ElastiCache/DynamoDB) is best practice\n• Sessions accessible from any instance\n• Survives instance failures\n• True stateless architecture\nSession Management Options:\n| Option | Pros | Cons |\n|--------|------|------|\n| ElastiCache/DynamoDB | Stateless, scalable, resilient | Additional service |\n| Sticky Sessions | Simple | Uneven load, not resilient |\n| Local Storage | Fast | Lost on instance failure |\nWhy ElastiCache/DynamoDB is Better:\n• Any instance can serve any request\n• Auto Scaling works properly\n• Instance failure doesn't lose sessions\n• Better load distribution\nSticky Sessions Issues:\n• Uneven instance utilization\n• New instances get no traffic initially\n• Instance failure = lost sessions\n• Use only if refactoring is not possible",
   "module": "Compute",
   "multi": false,
   "why": [
@@ -2266,10 +2266,10 @@ window.QUESTIONS = [
    "| Sticky Sessions | Simple | Uneven load, not resilient |.",
    "| Local Storage | Fast | Lost on instance failure |.",
    "Why ElastiCache/DynamoDB is Better:.",
-   "✅ Any instance can serve any request.",
-   "✅ Auto Scaling works properly.",
-   "✅ Instance failure doesn't lose sessions.",
-   "✅ Better load distribution.",
+   "Any instance can serve any request.",
+   "Auto Scaling works properly.",
+   "Instance failure doesn't lose sessions.",
+   "Better load distribution.",
    "Sticky Sessions Issues:.",
    "Uneven instance utilization.",
    "New instances get no traffic initially.",
@@ -5336,7 +5336,7 @@ window.QUESTIONS = [
   "answer": [
    "C"
   ],
-  "explanation": "• Cross-account IAM roles with External ID provide secure temporary access\n• No long-term credentials needed\n• External ID prevents confused deputy problem\n• Fine-grained permissions with session duration limits\nCross-Account Access Architecture:\n1. Trust Policy (in your account):\n2. Permissions Policy:\nExternal ID - Confused Deputy Prevention:\nThe Problem:\n• Vendor uses same role name for all customers\n• Attacker could trick vendor into accessing your resources\nThe Solution:\n• Unique External ID per customer\n• Vendor must provide correct External ID to assume role\n• Prevents unauthorized access\nImplementation Steps:\nYour Account:\n1. Create IAM role for vendor\n2. Set trust policy with vendor's account ID\n3. Add External ID condition (vendor provides this)\n4. Attach permissions policy (least privilege)\n5. Configure session duration (1-12 hours)\nVendor Account:\n1. Configure to assume role\n2. Provide External ID when assuming\n3. Receive temporary credentials\n4. Credentials auto-expire after session duration\nAssumeRole Example (vendor side):\nBenefits:\n• ✅ No long-term credentials\n• ✅ Automatic credential rotation\n• ✅ Auditable (CloudTrail)\n• ✅ Time-limited access\n• ✅ Revocable (delete role)\n• ✅ Prevents confused deputy\nBest Practices:\n1. Always use External ID\n2. Principle of least privilege\n3. Short session durations (1-2 hours)\n4. Monitor with CloudTrail\n5. Review permissions regularly\n6. Use MFA for sensitive roles",
+  "explanation": "• Cross-account IAM roles with External ID provide secure temporary access\n• No long-term credentials needed\n• External ID prevents confused deputy problem\n• Fine-grained permissions with session duration limits\nCross-Account Access Architecture:\n1. Trust Policy (in your account):\n2. Permissions Policy:\nExternal ID - Confused Deputy Prevention:\nThe Problem:\n• Vendor uses same role name for all customers\n• Attacker could trick vendor into accessing your resources\nThe Solution:\n• Unique External ID per customer\n• Vendor must provide correct External ID to assume role\n• Prevents unauthorized access\nImplementation Steps:\nYour Account:\n1. Create IAM role for vendor\n2. Set trust policy with vendor's account ID\n3. Add External ID condition (vendor provides this)\n4. Attach permissions policy (least privilege)\n5. Configure session duration (1-12 hours)\nVendor Account:\n1. Configure to assume role\n2. Provide External ID when assuming\n3. Receive temporary credentials\n4. Credentials auto-expire after session duration\nAssumeRole Example (vendor side):\nBenefits:\n• No long-term credentials\n• Automatic credential rotation\n• Auditable (CloudTrail)\n• Time-limited access\n• Revocable (delete role)\n• Prevents confused deputy\nBest Practices:\n1. Always use External ID\n2. Principle of least privilege\n3. Short session durations (1-2 hours)\n4. Monitor with CloudTrail\n5. Review permissions regularly\n6. Use MFA for sensitive roles",
   "module": "Security",
   "multi": false,
   "why": [
@@ -5380,12 +5380,12 @@ window.QUESTIONS = [
    "Credentials auto-expire after session duration.",
    "AssumeRole Example (vendor side):.",
    "Benefits:.",
-   "✅ No long-term credentials.",
-   "✅ Automatic credential rotation.",
-   "✅ Auditable (CloudTrail)",
-   "✅ Time-limited access.",
-   "✅ Revocable (delete role)",
-   "✅ Prevents confused deputy.",
+   "No long-term credentials.",
+   "Automatic credential rotation.",
+   "Auditable (CloudTrail)",
+   "Time-limited access.",
+   "Revocable (delete role)",
+   "Prevents confused deputy.",
    "Best Practices:.",
    "1.",
    "Always use External ID.",

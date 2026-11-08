@@ -4,7 +4,7 @@ This folder contains utility scripts for maintaining the AWS Solution Architect 
 
 ## Available Scripts
 
-### 🔍 `validate_mermaid.py`
+### `validate_mermaid.py`
 
 Validates all Mermaid diagrams in the repository for syntax issues and rendering problems.
 
@@ -30,7 +30,7 @@ python3 scripts/validate_mermaid.py
 
 ---
 
-### 🔧 `fix_mermaid.py`
+### `fix_mermaid.py`
 
 Automatically fixes common Mermaid diagram syntax issues.
 
@@ -51,7 +51,7 @@ python3 scripts/fix_mermaid.py
 
 ---
 
-### 📋 `fix_diagrams.py`
+### `fix_diagrams.py`
 
 Legacy script for diagram fixes (superseded by `fix_mermaid.py`).
 

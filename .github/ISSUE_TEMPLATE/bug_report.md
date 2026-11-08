@@ -7,34 +7,34 @@ assignees: ''
 
 ---
 
-## 🐛 Bug Description
+## Bug Description
 <!-- A clear and concise description of what the bug is -->
 
-## 📍 Location
+## Location
 <!-- Where did you find this issue? -->
 - **File**: 
 - **Section**: 
 - **Line number** (if applicable): 
 
-## 📝 Current Content
+## Current Content
 <!-- What does the documentation currently say? -->
 ```
 [Paste the incorrect or problematic content here]
 ```
 
-## ✅ Expected Content
+## Expected Content
 <!-- What should it say instead? -->
 ```
 [Describe the correct content or paste the corrected version]
 ```
 
-## 🔗 References
+## References
 <!-- Optional: Links to AWS documentation or other sources that support your correction -->
 - 
 
-## 📸 Screenshots
+## Screenshots
 <!-- Optional: Add screenshots to help explain the issue -->
 
-## 🏷️ Additional Context
+## Additional Context
 <!-- Any other context about the problem -->
 

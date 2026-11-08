@@ -8,18 +8,18 @@
 graph TB
     S3["Amazon S3 Storage Classes"]
     
-    S3 --> Standard["S3 Standard<br/>💰 Most Expensive<br/>⚡ Frequent Access<br/>📊 99.99% Availability<br/>🛡️ 11 9's Durability"]
+    S3 --> Standard["S3 Standard<br/>Most Expensive<br/>Frequent Access<br/>99.99% Availability<br/>11 9's Durability"]
     
-    S3 --> Intelligent["S3 Intelligent-Tiering<br/>🤖 Auto-optimization<br/>📊 Unknown access patterns<br/>💰 Small monitoring fee"]
+    S3 --> Intelligent["S3 Intelligent-Tiering<br/>Auto-optimization<br/>Unknown access patterns<br/>Small monitoring fee"]
     
     S3 --> IA[Infrequent Access Tier]
-    IA --> StandardIA["S3 Standard-IA<br/>💰 Lower cost<br/>⏱️ Min 30 days<br/>📊 99.9% Availability"]
-    IA --> OneZoneIA["S3 One Zone-IA<br/>💰 20% cheaper than Standard-IA<br/>⚠️ Single AZ<br/>📊 99.5% Availability"]
+    IA --> StandardIA["S3 Standard-IA<br/>Lower cost<br/>Min 30 days<br/>99.9% Availability"]
+    IA --> OneZoneIA["S3 One Zone-IA<br/>20% cheaper than Standard-IA<br/>Single AZ<br/>99.5% Availability"]
     
     S3 --> Glacier[Archive Tier]
-    Glacier --> GlacierInstant["S3 Glacier Instant Retrieval<br/>⏱️ Millisecond retrieval<br/>💰 Archive pricing<br/>📅 Min 90 days"]
-    Glacier --> GlacierFlexible["S3 Glacier Flexible Retrieval<br/>⏱️ Minutes to hours<br/>💰 Very low cost<br/>📅 Min 90 days"]
-    Glacier --> GlacierDeep["S3 Glacier Deep Archive<br/>⏱️ 12-48 hours<br/>💰 Lowest cost<br/>📅 Min 180 days"]
+    Glacier --> GlacierInstant["S3 Glacier Instant Retrieval<br/>Millisecond retrieval<br/>Archive pricing<br/>Min 90 days"]
+    Glacier --> GlacierFlexible["S3 Glacier Flexible Retrieval<br/>Minutes to hours<br/>Very low cost<br/>Min 90 days"]
+    Glacier --> GlacierDeep["S3 Glacier Deep Archive<br/>12-48 hours<br/>Lowest cost<br/>Min 180 days"]
     
     classDef style1 fill:#FF9900
     class Standard style1
@@ -164,14 +164,14 @@ graph LR
     
     SourceBucket -->|Cross-Region Replication<br/>CRR| DestBucket
     
-    Requirements["Requirements:<br/>✅ Versioning enabled on both<br/>✅ IAM role for replication<br/>✅ Different regions (CRR)<br/>✅ Same region (SRR)"]
+    Requirements["Requirements:<br/>Versioning enabled on both<br/>IAM role for replication<br/>Different regions (CRR)<br/>Same region (SRR)"]
     
     UseCases["Use Cases:<br/>• Compliance<br/>• Lower latency<br/>• Disaster recovery<br/>• Replication across accounts"]
     
     SourceBucket -.Requires.-> Requirements
     DestBucket -.Use Cases.-> UseCases
     
-    Note1["📝 Only new objects replicated<br/>📝 Delete markers optional<br/>📝 No chaining"]
+    Note1["Only new objects replicated<br/>Delete markers optional<br/>No chaining"]
     
     classDef style1 fill:#FF9900
     class SourceBucket style1
@@ -188,11 +188,11 @@ graph TB
     S3Encryption --> ServerSide["Server-Side Encryption<br/>Encrypted at rest"]
     S3Encryption --> ClientSide["Client-Side Encryption<br/>Encrypted before upload"]
     
-    ServerSide --> SSE_S3["SSE-S3<br/>🔑 AWS Managed Keys<br/>🔒 AES-256<br/>✅ Default option<br/>Header: x-amz-server-side-encryption: AES256"]
+    ServerSide --> SSE_S3["SSE-S3<br/>AWS Managed Keys<br/>AES-256<br/>Default option<br/>Header: x-amz-server-side-encryption: AES256"]
     
-    ServerSide --> SSE_KMS["SSE-KMS<br/>🔑 AWS KMS Keys<br/>✅ Audit trail via CloudTrail<br/>✅ User control<br/>⚠️ KMS quota limits<br/>Header: x-amz-server-side-encryption: aws:kms"]
+    ServerSide --> SSE_KMS["SSE-KMS<br/>AWS KMS Keys<br/>Audit trail via CloudTrail<br/>User control<br/>KMS quota limits<br/>Header: x-amz-server-side-encryption: aws:kms"]
     
-    ServerSide --> SSE_C["SSE-C<br/>🔑 Customer-Provided Keys<br/>✅ Full control<br/>⚠️ HTTPS required<br/>⚠️ Keys not stored by AWS"]
+    ServerSide --> SSE_C["SSE-C<br/>Customer-Provided Keys<br/>Full control<br/>HTTPS required<br/>Keys not stored by AWS"]
     
     ClientSide --> ClientLib["Encrypt using client libraries<br/>Upload encrypted data<br/>Decrypt on download<br/>Full client control"]
     
@@ -274,21 +274,21 @@ graph TB
 ```mermaid
 graph TB
     subgraph Upload_Optimization_Group["Upload Optimization"]
-        Multipart["Multipart Upload<br/>📦 &gt; 100 MB recommended<br/>📦 Required for &gt; 5 GB<br/>✅ Parallel uploads<br/>✅ Resume capability"]
+        Multipart["Multipart Upload<br/>&gt; 100 MB recommended<br/>Required for &gt; 5 GB<br/>Parallel uploads<br/>Resume capability"]
         
-        TransferAcc["S3 Transfer Acceleration<br/>🌐 Use CloudFront Edge<br/>⚡ 50-500% faster<br/>💰 Additional cost"]
+        TransferAcc["S3 Transfer Acceleration<br/>Use CloudFront Edge<br/>50-500% faster<br/>Additional cost"]
     end
     
     subgraph Download_Optimization_Group["Download Optimization"]
-        ByteRange["Byte-Range Fetches<br/>📥 Parallel downloads<br/>✅ Resilient to failures<br/>✅ Partial file retrieval"]
+        ByteRange["Byte-Range Fetches<br/>Parallel downloads<br/>Resilient to failures<br/>Partial file retrieval"]
         
-        S3Select["S3 Select<br/>📊 SQL on S3 objects<br/>⚡ 400% faster<br/>💰 80% cheaper<br/>✅ Filter server-side"]
+        S3Select["S3 Select<br/>SQL on S3 objects<br/>400% faster<br/>80% cheaper<br/>Filter server-side"]
     end
     
     subgraph Request_Optimization_Group["Request Optimization"]
         Prefixes["Use Prefixes<br/>3,500 PUT/s per prefix<br/>5,500 GET/s per prefix<br/>Spread across prefixes"]
         
-        CloudFront["CloudFront Caching<br/>🌐 Edge caching<br/>⚡ Low latency<br/>✅ Reduce S3 load"]
+        CloudFront["CloudFront Caching<br/>Edge caching<br/>Low latency<br/>Reduce S3 load"]
     end
     
     LargeFile[Large File Upload] --> Multipart
@@ -319,17 +319,17 @@ graph TB
     EBS --> SSD["SSD-backed<br/>Small random I/O"]
     EBS --> HDD["HDD-backed<br/>Large sequential I/O"]
     
-    SSD --> GP3["gp3 - General Purpose SSD<br/>💰 20% cheaper than gp2<br/>📊 3,000-16,000 IOPS<br/>💾 125-1,000 MB/s<br/>✅ Predictable performance<br/>Use: Boot volumes, dev/test"]
+    SSD --> GP3["gp3 - General Purpose SSD<br/>20% cheaper than gp2<br/>3,000-16,000 IOPS<br/>125-1,000 MB/s<br/>Predictable performance<br/>Use: Boot volumes, dev/test"]
     
-    SSD --> GP2["gp2 - General Purpose SSD<br/>📊 3 IOPS per GB<br/>💾 Max 16,000 IOPS<br/>⚡ Burst to 3,000 IOPS<br/>Use: Boot volumes"]
+    SSD --> GP2["gp2 - General Purpose SSD<br/>3 IOPS per GB<br/>Max 16,000 IOPS<br/>Burst to 3,000 IOPS<br/>Use: Boot volumes"]
     
-    SSD --> IO2["io2/io2 Block Express - Provisioned IOPS SSD<br/>📊 Up to 256,000 IOPS<br/>💾 Up to 4,000 MB/s<br/>🛡️ 99.999% durability<br/>Use: Critical databases, high performance"]
+    SSD --> IO2["io2/io2 Block Express - Provisioned IOPS SSD<br/>Up to 256,000 IOPS<br/>Up to 4,000 MB/s<br/>99.999% durability<br/>Use: Critical databases, high performance"]
     
-    SSD --> IO1["io1 - Provisioned IOPS SSD<br/>📊 Up to 64,000 IOPS<br/>💾 Up to 1,000 MB/s<br/>Use: Databases"]
+    SSD --> IO1["io1 - Provisioned IOPS SSD<br/>Up to 64,000 IOPS<br/>Up to 1,000 MB/s<br/>Use: Databases"]
     
-    HDD --> ST1["st1 - Throughput Optimized HDD<br/>💾 Up to 500 MB/s<br/>💰 Low cost<br/>🚫 Cannot be boot volume<br/>Use: Big data, data warehouses, log processing"]
+    HDD --> ST1["st1 - Throughput Optimized HDD<br/>Up to 500 MB/s<br/>Low cost<br/>Cannot be boot volume<br/>Use: Big data, data warehouses, log processing"]
     
-    HDD --> SC1["sc1 - Cold HDD<br/>💾 Up to 250 MB/s<br/>💰 Lowest cost<br/>🚫 Cannot be boot volume<br/>Use: Infrequently accessed data"]
+    HDD --> SC1["sc1 - Cold HDD<br/>Up to 250 MB/s<br/>Lowest cost<br/>Cannot be boot volume<br/>Use: Infrequently accessed data"]
     
     classDef style1 fill:#569A31
     class GP3 style1
@@ -399,7 +399,7 @@ graph TB
         EC2_2[New EC2 Instance] --> NewEBS
     end
     
-    Features["Features:<br/>✅ Incremental backups<br/>✅ Copy across regions<br/>✅ Create AMI from snapshot<br/>✅ Fast snapshot restore<br/>💰 Pay for stored data only"]
+    Features["Features:<br/>Incremental backups<br/>Copy across regions<br/>Create AMI from snapshot<br/>Fast snapshot restore<br/>Pay for stored data only"]
     
     classDef style1 fill:#FF9900
     class EBS1 style1
@@ -425,7 +425,7 @@ graph TB
         EC2_3 -.Read/Write.-> EBS
     end
     
-    Limitations["Limitations:<br/>⚠️ Same AZ only<br/>⚠️ io1/io2 only<br/>⚠️ Cluster-aware file system<br/>⚠️ Up to 16 instances"]
+    Limitations["Limitations:<br/>Same AZ only<br/>io1/io2 only<br/>Cluster-aware file system<br/>Up to 16 instances"]
     
     UseCases["Use Cases:<br/>• Teradata<br/>• Clustered databases<br/>• Applications requiring higher availability<br/>• Must manage concurrent writes"]
     
@@ -476,7 +476,7 @@ graph TB
     
     OnPrem["On-Premises<br/>via VPN/Direct Connect"] -.NFSv4.-> MT1
     
-    Features["Features:<br/>✅ Multi-AZ by default<br/>✅ Automatic scaling<br/>✅ Pay for what you use<br/>✅ 1000s concurrent connections<br/>✅ POSIX-compliant<br/>✅ Linux only"]
+    Features["Features:<br/>Multi-AZ by default<br/>Automatic scaling<br/>Pay for what you use<br/>1000s concurrent connections<br/>POSIX-compliant<br/>Linux only"]
     
     classDef style1 fill:#569A31
     class EFS style1
@@ -490,13 +490,13 @@ graph TB
 graph TB
     EFS[EFS File System]
     
-    EFS --> Standard["Standard Storage Class<br/>⚡ Frequent access<br/>💰 Higher cost<br/>📊 Multi-AZ"]
+    EFS --> Standard["Standard Storage Class<br/>Frequent access<br/>Higher cost<br/>Multi-AZ"]
     
-    EFS --> IA["EFS Infrequent Access<br/>💰 92% lower cost<br/>⏱️ Lower throughput<br/>📊 Multi-AZ"]
+    EFS --> IA["EFS Infrequent Access<br/>92% lower cost<br/>Lower throughput<br/>Multi-AZ"]
     
-    EFS --> OneZone["EFS One Zone<br/>💰 47% cheaper than Standard<br/>⚠️ Single AZ<br/>⚡ Frequent access"]
+    EFS --> OneZone["EFS One Zone<br/>47% cheaper than Standard<br/>Single AZ<br/>Frequent access"]
     
-    EFS --> OneZoneIA["EFS One Zone-IA<br/>💰 Lowest cost<br/>⚠️ Single AZ<br/>⏱️ Infrequent access"]
+    EFS --> OneZoneIA["EFS One Zone-IA<br/>Lowest cost<br/>Single AZ<br/>Infrequent access"]
     
     Lifecycle["Lifecycle Management<br/>Auto-move files to IA<br/>Based on access pattern<br/>7, 14, 30, 60, 90 days"]
     
@@ -519,17 +519,17 @@ graph TB
 ```mermaid
 graph TB
     subgraph Performance_Modes_Group["Performance Modes"]
-        General["General Purpose<br/>⚡ Low latency<br/>📊 Up to 7,000 files ops/sec<br/>✅ Default choice<br/>Use: Web servers, CMS"]
+        General["General Purpose<br/>Low latency<br/>Up to 7,000 files ops/sec<br/>Default choice<br/>Use: Web servers, CMS"]
         
-        MaxIO["Max I/O<br/>📊 Higher latency<br/>📈 &gt; 7,000 files ops/sec<br/>📊 Highly parallel<br/>Use: Big data, media processing"]
+        MaxIO["Max I/O<br/>Higher latency<br/>&gt; 7,000 files ops/sec<br/>Highly parallel<br/>Use: Big data, media processing"]
     end
     
     subgraph Throughput_Modes_Group["Throughput Modes"]
-        Bursting["Bursting Throughput<br/>📊 Scales with size<br/>50 MB/s per TB<br/>⚡ Burst to 100 MB/s"]
+        Bursting["Bursting Throughput<br/>Scales with size<br/>50 MB/s per TB<br/>Burst to 100 MB/s"]
         
-        Provisioned["Provisioned Throughput<br/>📊 Set throughput independent of size<br/>💰 Additional cost<br/>Use: High throughput to storage ratio"]
+        Provisioned["Provisioned Throughput<br/>Set throughput independent of size<br/>Additional cost<br/>Use: High throughput to storage ratio"]
         
-        Elastic["Elastic Throughput<br/>🤖 Auto-scales<br/>📊 Up to 3 GB/s reads, 1 GB/s writes<br/>💰 Pay for what you use<br/>✅ Recommended"]
+        Elastic["Elastic Throughput<br/>Auto-scales<br/>Up to 3 GB/s reads, 1 GB/s writes<br/>Pay for what you use<br/>Recommended"]
     end
     
     WebApp[Web Application] --> General
@@ -554,17 +554,17 @@ graph TB
     
     OnPrem --> Gateway{Storage Gateway}
     
-    Gateway --> S3File["S3 File Gateway<br/>📁 NFS/SMB protocol<br/>☁️ Store as S3 objects<br/>💾 Local cache<br/>Use: File shares, backups"]
+    Gateway --> S3File["S3 File Gateway<br/>NFS/SMB protocol<br/>Store as S3 objects<br/>Local cache<br/>Use: File shares, backups"]
     
-    Gateway --> FSx["FSx File Gateway<br/>📁 SMB protocol<br/>☁️ Amazon FSx for Windows<br/>💾 Local cache<br/>Use: Windows file shares"]
+    Gateway --> FSx["FSx File Gateway<br/>SMB protocol<br/>Amazon FSx for Windows<br/>Local cache<br/>Use: Windows file shares"]
     
-    Gateway --> Volume["Volume Gateway<br/>💾 iSCSI protocol<br/>Block storage"]
+    Gateway --> Volume["Volume Gateway<br/>iSCSI protocol<br/>Block storage"]
     
-    Volume --> Cached["Cached Volumes<br/>💾 Primary data in S3<br/>🔄 Frequently accessed cached<br/>📦 Up to 32 volumes<br/>📊 32 TiB each"]
+    Volume --> Cached["Cached Volumes<br/>Primary data in S3<br/>Frequently accessed cached<br/>Up to 32 volumes<br/>32 TiB each"]
     
-    Volume --> Stored["Stored Volumes<br/>💾 Primary data on-premises<br/>☁️ Async backup to S3<br/>📦 Up to 32 volumes<br/>📊 16 TiB each"]
+    Volume --> Stored["Stored Volumes<br/>Primary data on-premises<br/>Async backup to S3<br/>Up to 32 volumes<br/>16 TiB each"]
     
-    Gateway --> Tape["Tape Gateway<br/>📼 Virtual Tape Library (VTL)<br/>☁️ Backup to S3 & Glacier<br/>✅ Works with backup software<br/>Use: Backup & archive"]
+    Gateway --> Tape["Tape Gateway<br/>Virtual Tape Library (VTL)<br/>Backup to S3 & Glacier<br/>Works with backup software<br/>Use: Backup & archive"]
     
     S3File --> S3[Amazon S3]
     FSx --> FSxService[Amazon FSx]
@@ -607,7 +607,7 @@ graph TB
     
     Lifecycle[Lifecycle Policies] -.Auto-archive.-> Glacier
     
-    Benefits["Benefits:<br/>✅ Low-latency local access<br/>✅ Durable cloud storage<br/>✅ Seamless migration<br/>✅ Disaster recovery<br/>✅ Reduced on-prem storage costs"]
+    Benefits["Benefits:<br/>Low-latency local access<br/>Durable cloud storage<br/>Seamless migration<br/>Disaster recovery<br/>Reduced on-prem storage costs"]
     
     classDef style1 fill:#FF9900
     class Gateway style1
@@ -623,15 +623,15 @@ graph TB
 graph TB
     SnowFamily["AWS Snow Family<br/>Physical Data Transfer & Edge Computing"]
     
-    SnowFamily --> Snowcone["Snowcone<br/>📦 Smallest device<br/>💾 8-14 TB usable<br/>⚡ 2 CPUs, 4 GB RAM<br/>🔋 Battery powered<br/>Use: Edge computing, IoT, remote locations"]
+    SnowFamily --> Snowcone["Snowcone<br/>Smallest device<br/>8-14 TB usable<br/>2 CPUs, 4 GB RAM<br/>Battery powered<br/>Use: Edge computing, IoT, remote locations"]
     
     SnowFamily --> Snowball[Snowball Edge]
     
-    Snowball --> SnowballStorage["Snowball Edge Storage Optimized<br/>💾 80 TB usable<br/>💪 40 vCPUs, 80 GB RAM<br/>📊 1 TB SSD for block volumes<br/>Use: Large data migrations, local storage"]
+    Snowball --> SnowballStorage["Snowball Edge Storage Optimized<br/>80 TB usable<br/>40 vCPUs, 80 GB RAM<br/>1 TB SSD for block volumes<br/>Use: Large data migrations, local storage"]
     
-    Snowball --> SnowballCompute["Snowball Edge Compute Optimized<br/>💾 42-28 TB usable<br/>💪 52 vCPUs, 208 GB RAM<br/>📊 Optional GPU<br/>Use: ML, video processing, analytics"]
+    Snowball --> SnowballCompute["Snowball Edge Compute Optimized<br/>42-28 TB usable<br/>52 vCPUs, 208 GB RAM<br/>Optional GPU<br/>Use: ML, video processing, analytics"]
     
-    SnowFamily --> Snowmobile["Snowmobile<br/>🚛 Shipping container<br/>💾 100 PB capacity<br/>🔒 GPS tracking, security<br/>Use: Exabyte-scale migration"]
+    SnowFamily --> Snowmobile["Snowmobile<br/>Shipping container<br/>100 PB capacity<br/>GPS tracking, security<br/>Use: Exabyte-scale migration"]
     
     subgraph Use_Cases_Group["Use Cases"]
         Snowcone --> UC1["Remote locations<br/>Harsh environments<br/>Drones"]
@@ -681,13 +681,13 @@ sequenceDiagram
 graph TB
     FSx["Amazon FSx<br/>Managed File Systems"]
     
-    FSx --> Windows["FSx for Windows File Server<br/>🪟 Windows-native<br/>📁 SMB protocol<br/>✅ Active Directory integration<br/>✅ DFS Namespaces<br/>📊 SSD & HDD options<br/>Use: Windows apps, SQL Server, SharePoint"]
+    FSx --> Windows["FSx for Windows File Server<br/>Windows-native<br/>SMB protocol<br/>Active Directory integration<br/>DFS Namespaces<br/>SSD & HDD options<br/>Use: Windows apps, SQL Server, SharePoint"]
     
-    FSx --> Lustre["FSx for Lustre<br/>⚡ High-performance computing<br/>📊 100+ GB/s, millions IOPS<br/>🔗 S3 integration<br/>⚙️ Sub-millisecond latencies<br/>Use: ML, HPC, video processing, financial modeling"]
+    FSx --> Lustre["FSx for Lustre<br/>High-performance computing<br/>100+ GB/s, millions IOPS<br/>S3 integration<br/>Sub-millisecond latencies<br/>Use: ML, HPC, video processing, financial modeling"]
     
-    FSx --> NetApp["FSx for NetApp ONTAP<br/>🔧 NetApp ONTAP features<br/>📁 NFS, SMB, iSCSI<br/>✅ Multi-protocol access<br/>📸 Snapshots, replication<br/>Use: Enterprise apps, multi-protocol access"]
+    FSx --> NetApp["FSx for NetApp ONTAP<br/>NetApp ONTAP features<br/>NFS, SMB, iSCSI<br/>Multi-protocol access<br/>Snapshots, replication<br/>Use: Enterprise apps, multi-protocol access"]
     
-    FSx --> OpenZFS["FSx for OpenZFS<br/>🐧 Linux workloads<br/>📁 NFS protocol<br/>⚡ Up to 1 million IOPS<br/>📸 Point-in-time snapshots<br/>Use: Linux apps, data analytics"]
+    FSx --> OpenZFS["FSx for OpenZFS<br/>Linux workloads<br/>NFS protocol<br/>Up to 1 million IOPS<br/>Point-in-time snapshots<br/>Use: Linux apps, data analytics"]
     
     subgraph Key_Differences_Group["Key Differences"]
         Windows --> WinNote["Windows environment<br/>SMB shares<br/>AD integration"]

@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - Application Integration
+# Fast Learning - Application Integration
 
 > **Time to Complete**: 45-60 minutes | **Exam Weight**: ~10-15%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### Integration Service Selector (SSKE-AS)
 ```
@@ -17,7 +17,7 @@ APP WORKFLOW? → SWF (legacy, use Step Functions)
 
 **Memory Aid**: "SQS Sends, SNS Notifies, Kinesis Streams, EventBridge Acts, Step functions Sequence"
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### SQS vs SNS vs EventBridge
 | Feature | SQS | SNS | EventBridge |
@@ -40,7 +40,7 @@ APP WORKFLOW? → SWF (legacy, use Step Functions)
 
 **Memory Aid**: "FIFO = First In First Out, ordered, Fewer messages"
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. SQS Deep Dive
 ```
@@ -101,10 +101,10 @@ USE CASES:
  [App1] [App2] [App3]
 
 BENEFITS:
-✅ Fully decoupled
-✅ No data loss
-✅ Parallel asynchronous processing
-✅ Add subscribers easily
+ Fully decoupled
+ No data loss
+ Parallel asynchronous processing
+ Add subscribers easily
 ```
 
 ### 4. Kinesis Family
@@ -117,41 +117,41 @@ BENEFITS:
 
 **Memory Aid**: "DFAV" = Data streams (raw), Firehose (load), Analytics (analyze), Video
 
-## 💡 Common Exam Scenarios
+## Common Exam Scenarios
 
 ### Scenario 1: Decouple Application Tiers
 **Q**: Web tier and processing tier need to be independent
-**✅ ANSWER**: SQS queue between tiers
+**ANSWER**: SQS queue between tiers
 
 ### Scenario 2: Send Same Message to Multiple Services
 **Q**: One event needs to trigger 3 different Lambda functions
-**✅ ANSWER**: SNS topic with 3 Lambda subscriptions
+**ANSWER**: SNS topic with 3 Lambda subscriptions
 
 ### Scenario 3: Process Messages in Order
 **Q**: Orders must be processed in exact sequence
-**✅ ANSWER**: SQS FIFO queue (not Standard)
+**ANSWER**: SQS FIFO queue (not Standard)
 
 ### Scenario 4: Handle Traffic Spikes
 **Q**: Application receives 10,000 requests in 1 minute, process over 1 hour
-**✅ ANSWER**: SQS Standard queue + Auto Scaling based on queue depth
+**ANSWER**: SQS Standard queue + Auto Scaling based on queue depth
 
 ### Scenario 5: Real-Time Log Processing
 **Q**: Process millions of log records per second in real-time
-**✅ ANSWER**: Kinesis Data Streams
+**ANSWER**: Kinesis Data Streams
 
 ### Scenario 6: Send to S3 and Multiple SQS Queues
 **Q**: S3 upload event needs to trigger 3 different processing workflows
-**✅ ANSWER**: S3 → SNS → 3 SQS queues (fan-out pattern)
+**ANSWER**: S3 → SNS → 3 SQS queues (fan-out pattern)
 
 ### Scenario 7: Coordinate Microservices
 **Q**: Multi-step workflow with error handling and retries
-**✅ ANSWER**: AWS Step Functions (state machine)
+**ANSWER**: AWS Step Functions (state machine)
 
 ### Scenario 8: Route Events to Different Targets
 **Q**: Different EC2 state changes go to different Lambda functions
-**✅ ANSWER**: EventBridge with rules
+**ANSWER**: EventBridge with rules
 
-## 🎓 Speed Learning Tips
+## Speed Learning Tips
 
 ### API Gateway Quick Facts
 ```
@@ -226,7 +226,7 @@ VS CloudWatch Events:
 └── EventBridge = CloudWatch Events + SaaS + custom apps
 ```
 
-## 📝 Rapid-Fire Facts
+## Rapid-Fire Facts
 
 ### SQS Important Settings
 ```
@@ -252,18 +252,18 @@ DELAY QUEUES
 ### SNS vs SQS Decision
 ```
 Use SNS when:
-✅ Multiple subscribers
-✅ Push-based delivery
-✅ Real-time notifications
-✅ Mobile push
-✅ Email/SMS needed
+ Multiple subscribers
+ Push-based delivery
+ Real-time notifications
+ Mobile push
+ Email/SMS needed
 
 Use SQS when:
-✅ Decouple applications
-✅ Buffer requests
-✅ Pull-based processing
-✅ Persist messages
-✅ Control processing rate
+ Decouple applications
+ Buffer requests
+ Pull-based processing
+ Persist messages
+ Control processing rate
 ```
 
 ### Kinesis Data Streams
@@ -280,7 +280,7 @@ Use SQS when:
 - **Buffering**: By size (1-128 MB) or time (60-900s)
 - **Use**: Load streaming data to storage
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### Integration Decision Tree
 ```
@@ -326,16 +326,16 @@ Use SQS when:
 ```
 
 ### Common Mistakes to Avoid
-❌ Using SNS when you need message persistence (use SQS)
-❌ Not setting appropriate visibility timeout (messages reprocess)
-❌ Using SQS Standard when order matters (use FIFO)
-❌ Forgetting to enable long polling (higher costs)
-❌ Not using Dead Letter Queue for failed messages
-❌ Polling empty SQS queues frequently (use long polling)
-❌ Not implementing exponential backoff for retries
-❌ Using Step Functions for simple tasks (use Lambda)
+ Using SNS when you need message persistence (use SQS)
+ Not setting appropriate visibility timeout (messages reprocess)
+ Using SQS Standard when order matters (use FIFO)
+ Forgetting to enable long polling (higher costs)
+ Not using Dead Letter Queue for failed messages
+ Polling empty SQS queues frequently (use long polling)
+ Not implementing exponential backoff for retries
+ Using Step Functions for simple tasks (use Lambda)
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Quick Questions** (Answers at bottom)
 
@@ -377,15 +377,15 @@ PROTOCOLS: AMQP, MQTT, OpenWire, STOMP, WebSocket
 ENGINES: ActiveMQ, RabbitMQ
 
 WHEN TO USE:
-✅ Migrating from on-premises message brokers
-✅ Need industry-standard protocols
-✅ Existing applications using JMS, AMQP
+ Migrating from on-premises message brokers
+ Need industry-standard protocols
+ Existing applications using JMS, AMQP
 
 WHEN NOT TO USE:
-❌ New cloud-native apps (use SQS/SNS)
+ New cloud-native apps (use SQS/SNS)
 ```
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~45-60 min
 - Practice: Create SQS queue, SNS topic, fan-out pattern
 - Ready for: Application Integration practice questions

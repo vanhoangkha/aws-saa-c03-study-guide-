@@ -121,7 +121,7 @@ graph TB
     subgraph Security_Groups_Group["Security Groups"]
         SG["Security Group<br/>Instance Level<br/>Stateful"]
         
-        SGRules["Rules:<br/>✅ Allow rules only<br/>✅ Can reference other SGs<br/>✅ Return traffic automatic<br/>✅ Evaluate all rules<br/>Default: Deny all inbound"]
+        SGRules["Rules:<br/>Allow rules only<br/>Can reference other SGs<br/>Return traffic automatic<br/>Evaluate all rules<br/>Default: Deny all inbound"]
         
         SGExample["Example:<br/>Inbound: SSH from 10.0.0.0/16<br/>Inbound: HTTP from 0.0.0.0/0<br/>Outbound: All traffic allowed"]
     end
@@ -129,7 +129,7 @@ graph TB
     subgraph Network_ACLs_Group["Network ACLs"]
         NACL["Network ACL<br/>Subnet Level<br/>Stateless"]
         
-        NACLRules["Rules:<br/>✅ Allow and Deny rules<br/>✅ Process in number order<br/>❌ Return traffic must be explicitly allowed<br/>✅ First match wins<br/>Default: Allow all"]
+        NACLRules["Rules:<br/>Allow and Deny rules<br/>Process in number order<br/>Return traffic must be explicitly allowed<br/>First match wins<br/>Default: Allow all"]
         
         NACLExample["Example:<br/>100: Allow HTTP from 0.0.0.0/0<br/>200: Allow HTTPS from 0.0.0.0/0<br/>300: Deny all from 10.0.5.0/24<br/>*: Deny all"]
     end
@@ -208,7 +208,7 @@ graph TB
     VPC_A <-.Peering Connection.-> VPC_B
     VPC_A <-.Peering Connection.-> VPC_C
     
-    Limitations["Limitations:<br/>❌ No transitive peering<br/>VPC C cannot access VPC B through VPC A<br/>❌ CIDR must not overlap<br/>✅ Cross-region supported<br/>✅ Cross-account supported"]
+    Limitations["Limitations:<br/>No transitive peering<br/>VPC C cannot access VPC B through VPC A<br/>CIDR must not overlap<br/>Cross-region supported<br/>Cross-account supported"]
     
     classDef style1 fill:#FF9900
     class VPC_A style1
@@ -241,7 +241,7 @@ graph TB
     
     TGW_Peer["Transit Gateway<br/>Another Region"] <-.Peering.-> TGW
     
-    Benefits["Benefits:<br/>✅ Transitive routing<br/>✅ Hub and spoke topology<br/>✅ Works with VPN & Direct Connect<br/>✅ Cross-region peering<br/>✅ Single gateway for thousands of VPCs<br/>💰 Pay per attachment per hour"]
+    Benefits["Benefits:<br/>Transitive routing<br/>Hub and spoke topology<br/>Works with VPN & Direct Connect<br/>Cross-region peering<br/>Single gateway for thousands of VPCs<br/>Pay per attachment per hour"]
     
     classDef style1 fill:#FF9900
     class TGW style1
@@ -282,7 +282,7 @@ graph TB
     GatewayEP -.Free.-> S3
     GatewayEP -.Free.-> DynamoDB
     
-    Comparison["Gateway Endpoint:<br/>✅ S3 and DynamoDB only<br/>✅ Free<br/>✅ Route table entry<br/><br/>Interface Endpoint:<br/>✅ Most AWS services<br/>💰 Pay per hour + data<br/>✅ ENI in subnet<br/>✅ Security groups apply"]
+    Comparison["Gateway Endpoint:<br/>S3 and DynamoDB only<br/>Free<br/>Route table entry<br/><br/>Interface Endpoint:<br/>Most AWS services<br/>Pay per hour + data<br/>ENI in subnet<br/>Security groups apply"]
     
     classDef style1 fill:#FF9900
     class InterfaceEP style1
@@ -404,7 +404,7 @@ graph TB
     
     OAI["Origin Access Identity<br/>Restrict S3 to CloudFront only"] -.Secures.-> S3
     
-    Features["Features:<br/>✅ Global CDN with 400+ edge locations<br/>✅ DDoS protection<br/>✅ SSL/TLS support<br/>✅ Geo-restriction<br/>✅ Caching at edge<br/>✅ Compress objects automatically"]
+    Features["Features:<br/>Global CDN with 400+ edge locations<br/>DDoS protection<br/>SSL/TLS support<br/>Geo-restriction<br/>Caching at edge<br/>Compress objects automatically"]
     
     classDef style1 fill:#146EB4
     class Edge1 style1
@@ -492,7 +492,7 @@ graph TB
     CGW <-.VPN Tunnel 2<br/>IPSec encrypted.-> Internet
     Internet <-.VPN Tunnels.-> VGW
     
-    Features["Features:<br/>✅ Encrypted connection<br/>✅ Goes over internet<br/>✅ Quick to setup<br/>✅ Two tunnels for HA<br/>⚠️ Bandwidth limited by internet<br/>⚠️ Variable latency"]
+    Features["Features:<br/>Encrypted connection<br/>Goes over internet<br/>Quick to setup<br/>Two tunnels for HA<br/>Bandwidth limited by internet<br/>Variable latency"]
     
     classDef style1 fill:#FF9900
     class VGW style1
@@ -534,7 +534,7 @@ graph TB
     PublicVIF["Public VIF<br/>Access public AWS services<br/>S3, DynamoDB"] -.-> DXRouter
     PrivateVIF["Private VIF<br/>Access VPC resources"] -.-> VGW
     
-    Features["Features:<br/>✅ Dedicated network connection<br/>✅ Consistent network performance<br/>✅ Reduced bandwidth costs<br/>✅ 1 Gbps or 10 Gbps<br/>⚠️ Takes weeks/months to set up<br/>💰 More expensive than VPN"]
+    Features["Features:<br/>Dedicated network connection<br/>Consistent network performance<br/>Reduced bandwidth costs<br/>1 Gbps or 10 Gbps<br/>Takes weeks/months to set up<br/>More expensive than VPN"]
     
     Backup["Backup VPN Connection<br/>over Internet"] -.Failover.-> VGW
     
@@ -591,7 +591,7 @@ graph TB
     HealthCheck["Health Checks<br/>Automatic failover"] -.Monitor.-> ALB1
     HealthCheck -.Monitor.-> ALB2
     
-    Features["Features:<br/>✅ 2 static anycast IPs<br/>✅ Uses AWS global network<br/>✅ Faster than internet<br/>✅ Health checks & failover<br/>✅ DDoS protection with Shield<br/>Use: Gaming, IoT, VoIP, non-HTTP"]
+    Features["Features:<br/>2 static anycast IPs<br/>Uses AWS global network<br/>Faster than internet<br/>Health checks & failover<br/>DDoS protection with Shield<br/>Use: Gaming, IoT, VoIP, non-HTTP"]
     
     VsCloudFront["vs CloudFront:<br/>CloudFront: Cacheable content, HTTP<br/>Global Accelerator: TCP/UDP, static IPs, global performance"]
     
@@ -612,7 +612,7 @@ graph TB
     EC2 --> ENA["Elastic Network Adapter ENA<br/>Up to 100 Gbps"]
     EC2 --> IntelVF["Intel 82599 VF<br/>Up to 10 Gbps<br/>Legacy"]
     
-    ENA --> Features["Features:<br/>✅ Higher bandwidth<br/>✅ Higher PPS (packets per second[<br/>✅ Lower latency<br/>✅ Lower jitter<br/>✅ No additional cost"]
+    ENA --> Features["Features:<br/>Higher bandwidth<br/>Higher PPS (packets per second[<br/>Lower latency<br/>Lower jitter<br/>No additional cost"]
     
     ENA --> UseWith["Supported:<br/>• Most current gen instances<br/>• Some previous gen<br/>• Enabled by default on modern AMIs"]
     

@@ -1,14 +1,14 @@
 # Practice Test 4 Review - Quick Reference
 
-**Date:** Mar 1, 2026 | **Score:** 49/65 (75%) ⚠️ BORDERLINE | **Time:** 99 min
+**Date:** Mar 1, 2026 | **Score:** 49/65 (75%) BORDERLINE | **Time:** 99 min
 
 ## Domain Scores
 | Domain | Score | Status |
 |--------|-------|--------|
-| Secure Architectures | 11/13 (85%) | ✅ Strong |
-| High-Performing | 17/22 (77%) | ⚠️ Review |
-| Resilient | 14/19 (74%) | ⚠️ Review |
-| Cost-Optimized | 6/10 (60%) | ❌ CRITICAL |
+| Secure Architectures | 11/13 (85%) | Strong |
+| High-Performing | 17/22 (77%) | Review |
+| Resilient | 14/19 (74%) | Review |
+| Cost-Optimized | 6/10 (60%) | CRITICAL |
 
 **Trend:** Test 3: 80% → Test 4: 75% (-5%, slight regression)
 

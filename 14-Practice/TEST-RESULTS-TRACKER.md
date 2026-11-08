@@ -10,16 +10,16 @@ Use this template to track your practice test results and identify weak areas th
 **Date**: ___________  
 **Score**: _____ / 65 (____ %)  
 **Time Taken**: _____ minutes  
-**Status**: ☐ Pass (≥720) ☐ Fail (<720)
+**Status**: [] Pass (≥720) [] Fail (<720)
 
 ### Domain Breakdown
 
 | Domain | Questions | Correct | Wrong | Score % | Status |
 |--------|-----------|---------|-------|---------|--------|
-| Design Secure Architectures (30%) | ~20 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
-| Design Resilient Architectures (26%) | ~17 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
-| Design High-Performing Architectures (24%) | ~16 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
-| Design Cost-Optimized Architectures (20%) | ~13 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
+| Design Secure Architectures (30%) | ~20 | ___ | ___ | ___% | [] Strong [] Weak |
+| Design Resilient Architectures (26%) | ~17 | ___ | ___ | ___% | [] Strong [] Weak |
+| Design High-Performing Architectures (24%) | ~16 | ___ | ___ | ___% | [] Strong [] Weak |
+| Design Cost-Optimized Architectures (20%) | ~13 | ___ | ___ | ___% | [] Strong [] Weak |
 
 ### Weak Topics Identified
 
@@ -152,16 +152,16 @@ Mark the topics where you got questions wrong:
 **Date**: ___________  
 **Score**: _____ / 65 (____ %)  
 **Time Taken**: _____ minutes  
-**Status**: ☐ Pass (≥720) ☐ Fail (<720)
+**Status**: [] Pass (≥720) [] Fail (<720)
 
 ### Domain Breakdown
 
 | Domain | Questions | Correct | Wrong | Score % | Status |
 |--------|-----------|---------|-------|---------|--------|
-| Design Secure Architectures (30%) | ~20 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
-| Design Resilient Architectures (26%) | ~17 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
-| Design High-Performing Architectures (24%) | ~16 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
-| Design Cost-Optimized Architectures (20%) | ~13 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
+| Design Secure Architectures (30%) | ~20 | ___ | ___ | ___% | [] Strong [] Weak |
+| Design Resilient Architectures (26%) | ~17 | ___ | ___ | ___% | [] Strong [] Weak |
+| Design High-Performing Architectures (24%) | ~16 | ___ | ___ | ___% | [] Strong [] Weak |
+| Design Cost-Optimized Architectures (20%) | ~13 | ___ | ___ | ___% | [] Strong [] Weak |
 
 ### Weak Topics Identified
 *(Use the same checklist above)*
@@ -173,16 +173,16 @@ Mark the topics where you got questions wrong:
 **Date**: ___________  
 **Score**: _____ / 65 (____ %)  
 **Time Taken**: _____ minutes  
-**Status**: ☐ Pass (≥720) ☐ Fail (<720)
+**Status**: [] Pass (≥720) [] Fail (<720)
 
 ### Domain Breakdown
 
 | Domain | Questions | Correct | Wrong | Score % | Status |
 |--------|-----------|---------|-------|---------|--------|
-| Design Secure Architectures (30%) | ~20 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
-| Design Resilient Architectures (26%) | ~17 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
-| Design High-Performing Architectures (24%) | ~16 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
-| Design Cost-Optimized Architectures (20%) | ~13 | ___ | ___ | ___% | ☐ Strong ☐ Weak |
+| Design Secure Architectures (30%) | ~20 | ___ | ___ | ___% | [] Strong [] Weak |
+| Design Resilient Architectures (26%) | ~17 | ___ | ___ | ___% | [] Strong [] Weak |
+| Design High-Performing Architectures (24%) | ~16 | ___ | ___ | ___% | [] Strong [] Weak |
+| Design Cost-Optimized Architectures (20%) | ~13 | ___ | ___ | ___% | [] Strong [] Weak |
 
 ---
 

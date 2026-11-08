@@ -47,7 +47,7 @@ graph TB
 
 ```mermaid
 graph TB
-    Root["AWS Account Root User<br/>⚠️ Complete Access"]
+    Root["AWS Account Root User<br/>Complete Access"]
     
     Root --> AdminGroup[Administrators Group]
     Root --> DevGroup[Developers Group]
@@ -343,7 +343,7 @@ flowchart TD
     Start([API Request]) --> Default{Default Deny}
     
     Default --> Explicit{"Explicit Deny<br/>Exists?"}
-    Explicit -->|Yes| Deny(["❌ DENY"])
+    Explicit -->|Yes| Deny(["DENY"])
     Explicit -->|No| SCP{"SCP<br/>Allows?"}
     
     SCP -->|No| Deny
@@ -353,7 +353,7 @@ flowchart TD
     Boundary -->|Yes| Identity{"Identity Policy<br/>Allows?"}
     
     Identity -->|No| Resource{"Resource Policy<br/>Allows?"}
-    Identity -->|Yes| Allow(["✅ ALLOW"])
+    Identity -->|Yes| Allow(["ALLOW"])
     
     Resource -->|Yes| Allow
     Resource -->|No| Deny
@@ -418,7 +418,7 @@ sequenceDiagram
     User->>AWS: Enter MFA Code
     AWS->>IAM: Validate MFA Token
     IAM->>AWS: MFA Valid
-    AWS->>User: Access Granted ✅
+    AWS->>User: Access Granted
     
 ```
 
@@ -574,7 +574,7 @@ graph TB
 
 ```mermaid
 flowchart TD
-    Start([IAM Best Practices]) --> Root["🔐 Secure Root Account"]
+    Start([IAM Best Practices]) --> Root["Secure Root Account"]
     
     Root --> RootMFA[Enable MFA on Root]
     Root --> RootNoUse[Don't use Root for daily tasks]
@@ -593,7 +593,7 @@ flowchart TD
     
     Conditions --> Roles[Use Roles for Applications]
     Roles --> Monitor[Monitor with CloudTrail]
-    Monitor --> End(["Secure IAM Setup ✅"])
+    Monitor --> End(["Secure IAM Setup"])
     
     classDef style1 fill:#232F3E
     class Start style1
@@ -623,7 +623,7 @@ graph TB
         
         UserPolicy["User Policy:&lt;&lt;&lt;BRTAG&gt;&gt;&gt;• Allow: EC2:*&lt;&lt;&lt;BRTAG&gt;&gt;&gt;• Allow: S3:*&lt;&lt;&lt;BRTAG&gt;&gt;&gt;• Allow: Lambda:*&lt;&lt;&lt;BRTAG&gt;&gt;&gt;• All Regions"]
         
-        Result["Effective Permission:&lt;&lt;&lt;BRTAG&gt;&gt;&gt;• Allow: EC2:* (us-east-1)&lt;&lt;&lt;BRTAG&gt;&gt;&gt;• Allow: S3:* (us-east-1)&lt;&lt;&lt;BRTAG&gt;&gt;&gt;❌ No RDS (not in user policy)&lt;&lt;&lt;BRTAG&gt;&gt;&gt;❌ No Lambda (not in boundary)"]
+        Result["Effective Permission:&lt;&lt;&lt;BRTAG&gt;&gt;&gt;• Allow: EC2:* (us-east-1)&lt;&lt;&lt;BRTAG&gt;&gt;&gt;• Allow: S3:* (us-east-1)&lt;&lt;&lt;BRTAG&gt;&gt;&gt; No RDS (not in user policy)&lt;&lt;&lt;BRTAG&gt;&gt;&gt; No Lambda (not in boundary)"]
     end
     
     Boundary -.AND.-> Result

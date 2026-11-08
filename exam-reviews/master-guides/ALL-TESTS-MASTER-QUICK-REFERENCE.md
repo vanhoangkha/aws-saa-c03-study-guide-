@@ -8,11 +8,11 @@
 
 | Test | Score | Status | Key Weakness |
 |------|-------|--------|--------------|
-| Test 1 | 34/65 (52%) | ❌ FAIL | Resilient (42%), High-Perf (47%) |
-| Test 2 | 49/65 (75%) | ⚠️ PASS | Secure (56%) |
-| Test 3 | 52/65 (80%) | ✅ PASS | Cost-Opt (63%) |
-| Test 4 | 49/65 (75%) | ⚠️ PASS | Cost-Opt (60%) |
-| Test 5 | 42/65 (65%) | ❌ FAIL | High-Perf (43%) - CATASTROPHIC |
+| Test 1 | 34/65 (52%) | FAIL | Resilient (42%), High-Perf (47%) |
+| Test 2 | 49/65 (75%) | PASS | Secure (56%) |
+| Test 3 | 52/65 (80%) | PASS | Cost-Opt (63%) |
+| Test 4 | 49/65 (75%) | PASS | Cost-Opt (60%) |
+| Test 5 | 42/65 (65%) | FAIL | High-Perf (43%) - CATASTROPHIC |
 
 **Pattern:** Inconsistent performance, High-Performing architecture is major weakness
 
@@ -272,16 +272,16 @@
 
 ## COMMON MISTAKES TO AVOID
 
-1. ❌ **CloudFront certs in wrong region** → ✅ MUST be us-east-1
-2. ❌ **Memory is default metric** → ✅ Need CloudWatch agent
-3. ❌ **Bucket default changes existing objects** → ✅ Only affects new uploads
-4. ❌ **Can transition out of Glacier directly** → ✅ Must restore first
-5. ❌ **Read replicas for HA** → ✅ Multi-AZ for HA, replicas for scaling
-6. ❌ **VPC peering auto DNS** → ✅ Must enable DNS settings in BOTH VPCs
-7. ❌ **SSE-C = AWS manages keys** → ✅ YOU manage keys, provide every request
-8. ❌ **Instance store persists** → ✅ Lost on stop/terminate
-9. ❌ **CloudWatch logs expire in 7 days** → ✅ Indefinite by default
-10. ❌ **IAM allow overrides deny** → ✅ Deny ALWAYS wins
+1. **CloudFront certs in wrong region** → MUST be us-east-1
+2. **Memory is default metric** → Need CloudWatch agent
+3. **Bucket default changes existing objects** → Only affects new uploads
+4. **Can transition out of Glacier directly** → Must restore first
+5. **Read replicas for HA** → Multi-AZ for HA, replicas for scaling
+6. **VPC peering auto DNS** → Must enable DNS settings in BOTH VPCs
+7. **SSE-C = AWS manages keys** → YOU manage keys, provide every request
+8. **Instance store persists** → Lost on stop/terminate
+9. **CloudWatch logs expire in 7 days** → Indefinite by default
+10. **IAM allow overrides deny** → Deny ALWAYS wins
 
 ---
 
@@ -340,15 +340,15 @@
 
 ## Study Priority for Next Attempt
 
-### 🔴 CRITICAL (Most Failures)
+### CRITICAL (Most Failures)
 1. **High-Performing Architectures** - CloudWatch, ECS, S3 perf, caching, analytics
 2. **Cost-Optimized Architectures** - Storage classes, RIs/Savings Plans, Glacier
 
-### ⚠️ REVIEW (Some Failures)
+### REVIEW (Some Failures)
 3. **Resilient Architectures** - FSx variants, Auto Scaling, CloudFront, Kinesis
 4. **Secure Architectures** - KMS, IAM, S3 security, VPC security
 
-### ✅ MAINTAIN (Generally Strong)
+### MAINTAIN (Generally Strong)
 5. Keep reviewing all domains - consistency is key
 
 ---
@@ -363,5 +363,5 @@
 - Day 7: Cost optimization (RIs, Savings Plans, storage)
 - Repeat cycle
 
-**Good luck! You've got this! 🚀**
+**Good luck! You've got this! **
 

@@ -160,7 +160,7 @@ graph TB
     DynamoDB["DynamoDB Global Tables<br/>Multi-region, multi-active"] --> ASG1
     DynamoDB --> ASG2
     
-    Benefits["Benefits:<br/>✅ Low latency globally<br/>✅ High availability<br/>✅ Disaster recovery<br/>✅ Read/write in any region<br/>⚠️ Increased cost"]
+    Benefits["Benefits:<br/>Low latency globally<br/>High availability<br/>Disaster recovery<br/>Read/write in any region<br/>Increased cost"]
     
     classDef style1 fill:#8C4FFF
     class Route53 style1
@@ -177,25 +177,25 @@ graph TB
 ```mermaid
 graph TB
     subgraph Backup_Restore_Group["Backup & Restore"]
-        BR["Backup & Restore<br/>💰 Lowest cost<br/>⏱️ RTO: Hours-Days<br/>⏱️ RPO: Hours"]
+        BR["Backup & Restore<br/>Lowest cost<br/>RTO: Hours-Days<br/>RPO: Hours"]
         
         BR_Desc["• Data backed up to S3<br/>• Restore when needed<br/>• AMIs, DB snapshots<br/>• Manual or automated<br/>Use: Non-critical systems"]
     end
     
     subgraph Pilot_Light_Group["Pilot Light"]
-        PL["Pilot Light<br/>💰 Low cost<br/>⏱️ RTO: Minutes-Hours<br/>⏱️ RPO: Minutes"]
+        PL["Pilot Light<br/>Low cost<br/>RTO: Minutes-Hours<br/>RPO: Minutes"]
         
         PL_Desc["• Core services always running<br/>• Database replication<br/>• Scale up when needed<br/>• Critical data ready<br/>Use: Core business systems"]
     end
     
     subgraph Warm_Standby_Group["Warm Standby"]
-        WS["Warm Standby<br/>💰 Medium cost<br/>⏱️ RTO: Minutes<br/>⏱️ RPO: Seconds"]
+        WS["Warm Standby<br/>Medium cost<br/>RTO: Minutes<br/>RPO: Seconds"]
         
         WS_Desc["• Scaled-down version running<br/>• All services active<br/>• Scale up for failover<br/>• DNS failover<br/>Use: Business-critical apps"]
     end
     
     subgraph Multi_Site_Active_Active_Group["Multi-Site Active/Active"]
-        MS["Multi-Site<br/>💰 Highest cost<br/>⏱️ RTO: Real-time<br/>⏱️ RPO: Near-zero"]
+        MS["Multi-Site<br/>Highest cost<br/>RTO: Real-time<br/>RPO: Near-zero"]
         
         MS_Desc["• Full production in multiple regions<br/>• Active-active traffic<br/>• Instant failover<br/>• Route 53 routing<br/>Use: Mission-critical systems"]
     end
@@ -235,7 +235,7 @@ graph TB
     subgraph DR_Region_us_west_2_Group["DR Region: us-west-2"]
         DR["DR Environment<br/>Pilot Light"]
         
-        DRCore["Core Services:<br/>✅ Database running<br/>✅ Data replication active<br/>❌ App servers stopped<br/>❌ Minimal compute"]
+        DRCore["Core Services:<br/>Database running<br/>Data replication active<br/>App servers stopped<br/>Minimal compute"]
         
         DRDB["RDS Replica<br/>Read-only replica<br/>Can be promoted"]
         DRS3["S3 Bucket<br/>Cross-region replication"]
@@ -296,7 +296,7 @@ graph TB
     CloudWatch["CloudWatch<br/>Logs & Metrics"] -.Monitor.-> Lambda
     XRay["X-Ray<br/>Distributed tracing"] -.Trace.-> Lambda
     
-    Benefits["Benefits:<br/>✅ No servers to manage<br/>✅ Auto-scaling<br/>✅ Pay per use<br/>✅ High availability built-in<br/>✅ Fast development"]
+    Benefits["Benefits:<br/>No servers to manage<br/>Auto-scaling<br/>Pay per use<br/>High availability built-in<br/>Fast development"]
     
     classDef style1 fill:#FF9900
     class API style1
@@ -649,7 +649,7 @@ graph TB
     AppServer --> CF
     CF --> User
     
-    Strategies["Caching Strategies:<br/><br/>CloudFront: Static content, API responses<br/>ElastiCache: Session data, computed results<br/>RDS: Query results<br/>Application: Business logic results<br/><br/>Benefits:<br/>✅ Reduced latency<br/>✅ Lower database load<br/>✅ Cost savings<br/>✅ Better user experience"]
+    Strategies["Caching Strategies:<br/><br/>CloudFront: Static content, API responses<br/>ElastiCache: Session data, computed results<br/>RDS: Query results<br/>Application: Business logic results<br/><br/>Benefits:<br/>Reduced latency<br/>Lower database load<br/>Cost savings<br/>Better user experience"]
     
     classDef style1 fill:#146EB4
     class CF style1

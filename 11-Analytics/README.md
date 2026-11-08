@@ -53,8 +53,8 @@ AWS provides a comprehensive suite of analytics services for collecting, process
 ### Supported Data Formats
 - **CSV**
 - **JSON**
-- **Apache Parquet** ⭐ (Columnar, best performance)
-- **Apache ORC** ⭐ (Columnar, optimized)
+- **Apache Parquet** (Columnar, best performance)
+- **Apache ORC** (Columnar, optimized)
 - **Apache Avro**
 - **TSV**
 - **Text files with custom delimiters**
@@ -224,15 +224,15 @@ WHERE year='2024' AND month='01';
 - Cancelled queries charged based on data scanned
 
 ### Exam Tips
-✅ **Serverless and SQL-based**: No infrastructure, standard SQL queries
+ **Serverless and SQL-based**: No infrastructure, standard SQL queries
 
-✅ **Pay per TB scanned**: Optimize with partitioning, compression, columnar formats
+ **Pay per TB scanned**: Optimize with partitioning, compression, columnar formats
 
-✅ **S3 data source**: Queries data directly in S3
+ **S3 data source**: Queries data directly in S3
 
-✅ **Integration with Glue**: Use Glue Catalog for metadata
+ **Integration with Glue**: Use Glue Catalog for metadata
 
-✅ **Supported formats**: CSV, JSON, Parquet, ORC, Avro
+ **Supported formats**: CSV, JSON, Parquet, ORC, Avro
 
 ---
 
@@ -732,15 +732,15 @@ GROUP BY
 - **Data transfer**: Standard rates
 
 ### Exam Tips
-✅ **Managed Hadoop**: Use EMR for big data frameworks (Spark, Hadoop)
+ **Managed Hadoop**: Use EMR for big data frameworks (Spark, Hadoop)
 
-✅ **Node types**: Master (manage), Core (HDFS + compute), Task (compute only)
+ **Node types**: Master (manage), Core (HDFS + compute), Task (compute only)
 
-✅ **Spot Instances**: Use for Task nodes to reduce costs
+ **Spot Instances**: Use for Task nodes to reduce costs
 
-✅ **EMRFS**: Store data in S3 for persistence
+ **EMRFS**: Store data in S3 for persistence
 
-✅ **Transient clusters**: Terminate after job completion to save costs
+ **Transient clusters**: Terminate after job completion to save costs
 
 ---
 
@@ -992,15 +992,15 @@ Crawler (S3) → Trigger → ETL Job 1 → Trigger → ETL Job 2 → Trigger →
 - **Development Endpoint**: $0.44 per DPU-hour
 
 ### Exam Tips
-✅ **Serverless ETL**: No infrastructure management
+ **Serverless ETL**: No infrastructure management
 
-✅ **Data Catalog**: Shared metadata for Athena, EMR, Redshift Spectrum
+ **Data Catalog**: Shared metadata for Athena, EMR, Redshift Spectrum
 
-✅ **Crawlers**: Automatic schema discovery
+ **Crawlers**: Automatic schema discovery
 
-✅ **Job Bookmarks**: Track processed data, prevent duplicates
+ **Job Bookmarks**: Track processed data, prevent duplicates
 
-✅ **Glue vs EMR**: Glue for simple ETL, EMR for complex big data processing
+ **Glue vs EMR**: Glue for simple ETL, EMR for complex big data processing
 
 ---
 
@@ -1221,15 +1221,15 @@ Dashboard shows only relevant region data per user
 5. **Data exploration**: Interactive visualizations
 
 ### Exam Tips
-✅ **Serverless BI**: No infrastructure, pay-per-session
+ **Serverless BI**: No infrastructure, pay-per-session
 
-✅ **SPICE engine**: In-memory for fast performance
+ **SPICE engine**: In-memory for fast performance
 
-✅ **ML Insights**: Anomaly detection, forecasting
+ **ML Insights**: Anomaly detection, forecasting
 
-✅ **Data sources**: Connect to RDS, Redshift, Athena, S3
+ **Data sources**: Connect to RDS, Redshift, Athena, S3
 
-✅ **Embedded**: Embed dashboards in applications
+ **Embedded**: Embed dashboards in applications
 
 ---
 
@@ -1340,40 +1340,40 @@ Dashboard shows only relevant region data per user
 
 ### Key Concepts
 
-✅ **Athena**
+ **Athena**
 - Serverless SQL queries on S3
 - Pay per TB scanned
 - Use Parquet/ORC and partitioning for cost savings
 - Integrates with Glue Data Catalog
 
-✅ **Kinesis Data Streams**
+ **Kinesis Data Streams**
 - Real-time streaming, custom processing
 - Shards for capacity (1 MB/sec write, 2 MB/sec read per shard)
 - Retention: 24 hours to 365 days
 
-✅ **Kinesis Firehose**
+ **Kinesis Firehose**
 - Fully managed, near real-time delivery
 - No code, automatic scaling
 - Destinations: S3, Redshift, OpenSearch, Splunk
 - 60-second minimum latency
 
-✅ **Kinesis Data Analytics**
+ **Kinesis Data Analytics**
 - Real-time analytics with SQL or Flink
 - Streaming data processing
 
-✅ **EMR**
+ **EMR**
 - Managed Hadoop/Spark clusters
 - Node types: Master, Core (HDFS + compute), Task (compute only)
 - Use Spot Instances for Task nodes
 - Store data in S3 (EMRFS) for persistence
 
-✅ **Glue**
+ **Glue**
 - Serverless ETL
 - Data Catalog for metadata
 - Crawlers for schema discovery
 - Job Bookmarks to track processed data
 
-✅ **QuickSight**
+ **QuickSight**
 - Serverless BI and dashboards
 - SPICE in-memory engine
 - Pay-per-session pricing

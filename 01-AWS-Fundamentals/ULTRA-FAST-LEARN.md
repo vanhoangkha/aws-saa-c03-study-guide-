@@ -1,4 +1,4 @@
-# 01: AWS Fundamentals - Ultra Fast Learning 🚀
+# 01: AWS Fundamentals - Ultra Fast Learning
 
 ## AWS Global Infrastructure
 - **Regions**: Geographic areas, 30+ worldwide, data stays unless you move it
@@ -39,11 +39,11 @@
 - **Consolidated Billing**: Volume discounts, single payment, RI sharing
 
 ### SCPs (Service Control Policies) - EXAM CRITICAL
-- ❌ **DON'T** grant permissions (only restrict)
-- ❌ **DON'T** affect management account
-- ✅ **DO** set maximum permissions
-- ✅ **DO** override IAM in member accounts
-- ✅ **Formula**: Effective = IAM AND SCP
+- **DON'T** grant permissions (only restrict)
+- **DON'T** affect management account
+- **DO** set maximum permissions
+- **DO** override IAM in member accounts
+- Yes: **Formula**: Effective = IAM AND SCP
 
 **Common Uses:**
 - Restrict regions: Deny actions outside allowed regions

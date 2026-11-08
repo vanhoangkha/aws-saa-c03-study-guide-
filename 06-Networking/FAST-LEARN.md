@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - Networking & Content Delivery
+# Fast Learning - Networking & Content Delivery
 
 > **Time to Complete**: 75-90 minutes | **Exam Weight**: ~20-25%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### Networking Foundation (VPC-SING)
 ```
@@ -17,7 +17,7 @@ NACLs → Subnet-level firewall (stateless)
 
 **Memory Aid**: "VPC Secures Internet Networks Globally"
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### VPC Components Quick Matrix
 | Component | Level | State | Default | Allow/Deny |
@@ -40,7 +40,7 @@ NACLs → Subnet-level firewall (stateless)
 
 **Memory Aid**: "SG = Stateful Good guy (allow only), NACL = Stateless Number rules (allow/deny)"
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. VPC CIDR Blocks
 ```
@@ -102,24 +102,24 @@ PRIVATE SUBNET
 | **Geoproximity** | Traffic flow based on geography | Distance + bias |
 | **Multi-value** | Multiple IPs with health checks | Returns multiple values |
 
-## 💡 Common Exam Scenarios
+## Common Exam Scenarios
 
 ### Scenario 1: EC2 Can't Access Internet
 **Checklist**:
-1. ✅ Is subnet public? (route to IGW)
-2. ✅ Does instance have public IP?
-3. ✅ Security group allows outbound?
-4. ✅ NACL allows outbound + inbound return?
-5. ✅ Route table has 0.0.0.0/0 → IGW?
+1. Is subnet public? (route to IGW)
+2. Does instance have public IP?
+3. Security group allows outbound?
+4. NACL allows outbound + inbound return?
+5. Route table has 0.0.0.0/0 → IGW?
 
 ### Scenario 2: Private Subnet Needs Internet Access
 **Q**: Database in private subnet needs to download patches
-**✅ ANSWER**: Deploy NAT Gateway in public subnet + route 0.0.0.0/0 → NAT
+**ANSWER**: Deploy NAT Gateway in public subnet + route 0.0.0.0/0 → NAT
 
 ### Scenario 3: Connect Multiple VPCs
 **Q**: 3 VPCs need to communicate
-**❌ WRONG**: 3 separate VPC peering (doesn't scale)
-**✅ CORRECT**: AWS Transit Gateway (hub and spoke)
+**WRONG**: 3 separate VPC peering (doesn't scale)
+**CORRECT**: AWS Transit Gateway (hub and spoke)
 
 ### Scenario 4: On-Premises to AWS
 **Q**: Need secure connection from data center to VPC
@@ -129,18 +129,18 @@ PRIVATE SUBNET
 
 ### Scenario 5: Block Specific IP Address
 **Q**: Need to block malicious IP from accessing resources
-**❌ WRONG**: Security Group (can't deny)
-**✅ CORRECT**: NACL (supports deny rules) or AWS WAF
+**WRONG**: Security Group (can't deny)
+**CORRECT**: NACL (supports deny rules) or AWS WAF
 
 ### Scenario 6: Route Based on User Location
 **Q**: EU users → EU resources, US users → US resources
-**✅ ANSWER**: Route 53 Geolocation routing policy
+**ANSWER**: Route 53 Geolocation routing policy
 
 ### Scenario 7: Expose Service to Other AWS Accounts
 **Q**: Provide private access to your service for customers
-**✅ ANSWER**: AWS PrivateLink (VPC Endpoint Service)
+**ANSWER**: AWS PrivateLink (VPC Endpoint Service)
 
-## 🎓 Speed Learning Tips
+## Speed Learning Tips
 
 ### VPC Flow Logs
 ```
@@ -150,19 +150,19 @@ LEVELS: VPC, Subnet, or ENI
 USE: Troubleshooting, security analysis
 
 Does NOT capture:
-❌ Metadata (169.254.169.254)
-❌ DHCP
-❌ AWS DNS
-❌ Windows license activation
+ Metadata (169.254.169.254)
+ DHCP
+ AWS DNS
+ Windows license activation
 ```
 
 ### VPC Peering Rules
-✅ Can peer across regions
-✅ Can peer across accounts
-✅ No transitive peering (A-B-C: A can't reach C)
-✅ CIDR blocks can't overlap
-❌ No overlapping CIDR
-❌ No edge-to-edge routing
+Yes: Can peer across regions
+Yes: Can peer across accounts
+Yes: No transitive peering (A-B-C: A can't reach C)
+Yes: CIDR blocks can't overlap
+No overlapping CIDR
+No edge-to-edge routing
 
 ### CloudFront Key Concepts
 ```
@@ -188,7 +188,7 @@ SECURITY:
 └── WAF - Web application firewall
 ```
 
-## 📝 Rapid-Fire Facts
+## Rapid-Fire Facts
 
 ### Subnet CIDR Size Guide
 | CIDR | Total IPs | Usable IPs | Common Use |
@@ -210,7 +210,7 @@ SECURITY:
 | **Cost** | Higher | Lower |
 | **Security Group** | N/A | Yes (manage yourself) |
 | **Bastion** | No | Can use as bastion |
-| **Preferred** | ✅ Yes | ❌ Legacy |
+| **Preferred** | Yes | Legacy |
 
 ### VPC Endpoint Types
 ```
@@ -236,7 +236,7 @@ GATEWAY ENDPOINT
 - **Use Case**: Consistent, high-throughput
 - **Virtual Interfaces**: Public VIF, Private VIF, Transit VIF
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### Networking Decision Tree
 ```
@@ -264,26 +264,26 @@ GATEWAY ENDPOINT
 ```
 
 ### Security Best Practices
-✅ Use private subnets for databases
-✅ Use security groups as primary firewall
-✅ Use NACLs as additional layer
-✅ Enable VPC Flow Logs
-✅ Use VPC endpoints for AWS services
-✅ Never put databases in public subnet
-✅ Use NAT Gateway (not NAT Instance)
-✅ Implement defense in depth
+ Use private subnets for databases
+ Use security groups as primary firewall
+ Use NACLs as additional layer
+ Enable VPC Flow Logs
+ Use VPC endpoints for AWS services
+ Never put databases in public subnet
+ Use NAT Gateway (not NAT Instance)
+ Implement defense in depth
 
 ### Common Mistakes to Avoid
-❌ Forgetting 5 reserved IPs per subnet
-❌ Using NAT Instance instead of NAT Gateway
-❌ Putting NAT Gateway in private subnet
-❌ Thinking VPC peering is transitive (it's not!)
-❌ Overlapping CIDR blocks for peering
-❌ Only outbound rules in NACL (it's stateless!)
-❌ Using Security Groups to deny (use NACL)
-❌ Not using VPC endpoints for S3/DynamoDB (costs!)
+ Forgetting 5 reserved IPs per subnet
+ Using NAT Instance instead of NAT Gateway
+ Putting NAT Gateway in private subnet
+ Thinking VPC peering is transitive (it's not!)
+ Overlapping CIDR blocks for peering
+ Only outbound rules in NACL (it's stateless!)
+ Using Security Groups to deny (use NACL)
+ Not using VPC endpoints for S3/DynamoDB (costs!)
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Quick Questions** (Answers at bottom)
 
@@ -315,7 +315,7 @@ GATEWAY ENDPOINT
 - Charged if not attached to running instance
 - Free if attached to running instance
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~75-90 min
 - Practice: Create VPC, subnets, route tables, security groups
 - Ready for: Networking practice questions

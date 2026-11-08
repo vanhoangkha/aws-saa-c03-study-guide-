@@ -1,12 +1,12 @@
 # Contributors
 
-Thank you to all the amazing people who have contributed to making this AWS Solutions Architect study guide better! 🎉
+Thank you to all the amazing people who have contributed to making this AWS Solutions Architect study guide better!
 
-## 🌟 Project Creator
+## Project Creator
 
 - **Your Name** - Initial work and comprehensive content creation
 
-## 💡 Contributors
+## Contributors
 
 This project exists thanks to all the people who contribute. We welcome contributions of all kinds!
 
@@ -33,18 +33,18 @@ Format: - **[GitHub Username](https://github.com/username)** - Brief description
 
 ---
 
-## 🏆 Special Thanks
+## Special Thanks
 
 Special thanks to:
 
 - **AWS Community** - For comprehensive documentation and resources
 - **AWS re:Invent speakers** - For sharing knowledge
 - **Study groups and forums** - For collaborative learning
-- **Everyone who starred this repo** ⭐ - Your support motivates us!
+- **Everyone who starred this repo** - Your support motivates us!
 
 ---
 
-## 🤝 How to Become a Contributor
+## How to Become a Contributor
 
 We'd love to have you as a contributor! Here's how:
 
@@ -52,28 +52,28 @@ We'd love to have you as a contributor! Here's how:
 2. Fork this repository
 3. Make your improvements
 4. Submit a pull request
-5. Get added to this list! 🎉
+5. Get added to this list!
 
 ### Types of Contributions We Value
 
-- 📝 **Documentation improvements** - Fix typos, clarify concepts, add examples
-- 🎨 **Visual content** - Diagrams, charts, infographics
-- 💻 **Code examples** - Working examples, scripts, CloudFormation templates
-- 🧪 **Hands-on labs** - Step-by-step practical exercises
-- 📚 **Practice questions** - Exam-style questions with explanations
-- 🌍 **Translations** - Make this guide accessible globally
-- 🐛 **Bug reports** - Found an error? Let us know!
-- 💡 **Feature requests** - Ideas for improvement
+- **Documentation improvements** - Fix typos, clarify concepts, add examples
+- **Visual content** - Diagrams, charts, infographics
+- **Code examples** - Working examples, scripts, CloudFormation templates
+- **Hands-on labs** - Step-by-step practical exercises
+- **Practice questions** - Exam-style questions with explanations
+- **Translations** - Make this guide accessible globally
+- **Bug reports** - Found an error? Let us know!
+- **Feature requests** - Ideas for improvement
 
 ---
 
-## 📊 Contribution Stats
+## Contribution Stats
 
 ![GitHub contributors](https://img.shields.io/github/contributors/yourusername/AWS-Solution-Architect?style=for-the-badge)
 
 ---
 
-## 💬 Community Recognition
+## Community Recognition
 
 ### Top Contributors (by commits)
 <!-- Will be updated periodically -->
@@ -85,6 +85,6 @@ We'd love to have you as a contributor! Here's how:
 
 <div align="center">
 
-**Thank you for helping thousands of people achieve their AWS certification! 🚀**
+**Thank you for helping thousands of people achieve their AWS certification! **
 
 </div>

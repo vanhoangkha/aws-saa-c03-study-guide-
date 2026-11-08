@@ -1,6 +1,6 @@
 # Architecture Patterns - Practice Questions
 
-> **⚠️ DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
+> **DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
 
 ## Exam-Standard Questions (SAA-C03)
 
@@ -561,14 +561,14 @@ D. Use Spot Instances
 10. **Global Architecture**: Multi-region, CloudFront, Route 53
 
 ### Exam Tips:
-- ✅ Multi-AZ for high availability within a region
-- ✅ Multi-Region for disaster recovery and global performance
-- ✅ Serverless minimizes operational overhead and costs
-- ✅ Use SQS to decouple components and handle traffic spikes
-- ✅ Caching at multiple layers reduces load and latency
-- ✅ Spot Instances save up to 90% for fault-tolerant workloads
-- ✅ Defense-in-depth requires multiple security layers
-- ✅ Pilot Light for medium RPO/RTO at reasonable cost
-- ✅ EventBridge for event routing, Step Functions for orchestration
-- ✅ Private subnets for application and database tiers
+- Multi-AZ for high availability within a region
+- Multi-Region for disaster recovery and global performance
+- Serverless minimizes operational overhead and costs
+- Use SQS to decouple components and handle traffic spikes
+- Caching at multiple layers reduces load and latency
+- Spot Instances save up to 90% for fault-tolerant workloads
+- Defense-in-depth requires multiple security layers
+- Pilot Light for medium RPO/RTO at reasonable cost
+- EventBridge for event routing, Step Functions for orchestration
+- Private subnets for application and database tiers
 

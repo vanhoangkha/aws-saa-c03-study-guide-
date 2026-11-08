@@ -1,7 +1,7 @@
 # Practice Test 3 (SAA-C03) - Exam Review
 
 **Date:** March 1, 2026  
-**Score:** 52/65 (80.00%) - ✅ **PASS**  
+**Score:** 52/65 (80.00%) - **PASS**
 **Time Taken:** 97 minutes 17 seconds  
 **Status:** Solid pass, consistent improvement  
 **Passing Score:** 72% (need 47/65 correct)
@@ -10,51 +10,51 @@
 
 ---
 
-## 📊 Performance Summary
+## Performance Summary
 
 | Metric | Result |
 |--------|--------|
 | **Total Questions** | 65 |
 | **Correct Answers** | 52 (80.00%) |
 | **Incorrect Answers** | 13 (20.00%) |
-| **Pass/Fail** | **PASS** ✅ |
+| **Pass/Fail** | **PASS**  |
 | **Passing Score** | 72% |
 | **Questions Marked for Review** | 22 |
 
 ### Progress from Previous Tests
-- **Test 1:** 42/65 (64.62%) ❌
-- **Test 2:** 49/65 (75.38%) ⚠️
-- **Test 3:** 52/65 (80.00%) ✅
-- **Improvement:** +3 questions (+4.62%) 📈
+- **Test 1:** 42/65 (64.62%)
+- **Test 2:** 49/65 (75.38%)
+- **Test 3:** 52/65 (80.00%)
+- **Improvement:** +3 questions (+4.62%)
 
 ---
 
-## 📈 Domain Performance Analysis
+## Domain Performance Analysis
 
 | Domain | Total | Correct | Incorrect | Score | Status |
 |--------|-------|---------|-----------|-------|--------|
-| **Design High-Performing Architectures** | 17 | 15 | 2 | 88.24% | ✅ Strong |
-| **Design Resilient Architectures** | 16 | 13 | 3 | 81.25% | ⚠️ Needs Review |
-| **Design Secure Architectures** | 23 | 18 | 5 | 78.26% | ⚠️ Needs Review |
-| **Design Secure Applications and Architectures** | 1 | 1 | 0 | 100% | ✅ Perfect |
-| **Design Cost-Optimized Architectures** | 8 | 5 | 3 | 62.50% | ❌ Weak Area |
+| **Design High-Performing Architectures** | 17 | 15 | 2 | 88.24% | Strong |
+| **Design Resilient Architectures** | 16 | 13 | 3 | 81.25% | Needs Review |
+| **Design Secure Architectures** | 23 | 18 | 5 | 78.26% | Needs Review |
+| **Design Secure Applications and Architectures** | 1 | 1 | 0 | 100% | Perfect |
+| **Design Cost-Optimized Architectures** | 8 | 5 | 3 | 62.50% | Weak Area |
 
 ---
 
-## ❌ Incorrect Questions - Detailed Review
+## Incorrect Questions - Detailed Review
 
 ---
 
-### ❌ Question 4: S3 Glacier to Intelligent-Tiering Migration
+### Question 4: S3 Glacier to Intelligent-Tiering Migration
 
-**📋 COMPLETE QUESTION:**
+**COMPLETE QUESTION:**
 A media company has 500 TB of archived video files in S3 Glacier Deep Archive that were uploaded 2 years ago. The marketing team now needs to frequently access these videos for a new campaign. The company wants to move these files to S3 Intelligent-Tiering for automatic cost optimization based on access patterns. What is the correct migration approach?
 
 **Domain:** Design Cost-Optimized Architectures  
-**Your Answer:** ❌ Change the bucket's default storage class to Intelligent-Tiering so existing objects are automatically migrated
-**Correct Answer:** ✅ **Restore objects from Glacier Deep Archive, copy them to Intelligent-Tiering while restoration is active, then delete archived versions**
+**Your Answer:** Change the bucket's default storage class to Intelligent-Tiering so existing objects are automatically migrated
+**Correct Answer:** **Restore objects from Glacier Deep Archive, copy them to Intelligent-Tiering while restoration is active, then delete archived versions**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **Why Your Answer Was Wrong:**
 
@@ -72,7 +72,7 @@ MISCONCEPTION: Changing bucket default storage class affects existing objects
 │  │  NEW uploads after this change       │          │
 │  └──────────────────────────────────────┘          │
 │                                                     │
-│  ❌ Does NOT affect:                                │
+│   Does NOT affect:                                  │
 │  ┌──────────────────────────────────────┐          │
 │  │  Existing objects in Glacier         │          │
 │  │  (Remain in Glacier Deep Archive)    │          │
@@ -87,11 +87,11 @@ MISCONCEPTION: Changing bucket default storage class affects existing objects
 │       S3 STORAGE CLASS TRANSITION RULES              │
 ├──────────────────────────────────────────────────────┤
 │                                                       │
-│  Standard → Intelligent-Tiering ✅ Direct            │
-│  Standard → Standard-IA ✅ Direct (30 days min)      │
-│  Standard → Glacier ✅ Direct (30 days min)          │
+│ Standard → Intelligent-Tiering  Direct               │
+│ Standard → Standard-IA  Direct (30 days min)         │
+│ Standard → Glacier  Direct (30 days min)             │
 │                                                       │
-│  Glacier Deep Archive → Other classes ❌ BLOCKED     │
+│ Glacier Deep Archive → Other classes  BLOCKED        │
 │                 │                                     │
 │                 │ MUST restore first                  │
 │                 ▼                                     │
@@ -123,7 +123,7 @@ MISCONCEPTION: Changing bucket default storage class affects existing objects
 │  │  └─ video1.mp4 (accessible 1-365 days) │             │
 │  │  └─ video2.mp4 (accessible 1-365 days) │             │
 │  │                                          │             │
-│  │  Original still in Glacier ✓            │             │
+│ │  Original still in Glacier             │               │
 │  └──────────────┬──────────────────────────┘             │
 │                 │ Copy to new storage class               │
 │                 ▼                                         │
@@ -177,7 +177,7 @@ MISCONCEPTION: Changing bucket default storage class affects existing objects
    ├─ Select restored objects
    ├─ Actions → "Copy"
    ├─ Destination bucket: Same or different
-   ├─ Storage class: Intelligent-Tiering ✅
+   ├─ Storage class: Intelligent-Tiering
    └─ Click "Copy"
 
 6. Delete Glacier Versions (Optional)
@@ -274,7 +274,7 @@ aws s3 rm s3://media-archive/videos/video1.mp4
 
 **Alternative Methods (NOT Recommended):**
 
-**❌ Method 1: Lifecycle Policy**
+**Method 1: Lifecycle Policy**
 ```yaml
 # This WON'T work for Glacier → Intelligent-Tiering
 LifecycleRule:
@@ -283,21 +283,21 @@ LifecycleRule:
     - StorageClass: INTELLIGENT_TIERING
       Days: 0
       
-# ❌ Lifecycle can't transition FROM Glacier
-# ✅ Only transitions TO Glacier-class storage
+# Lifecycle can't transition FROM Glacier
+# Only transitions TO Glacier-class storage
 ```
 
-**❌ Method 2: S3 Batch Operations WITHOUT Restore**
+**Method 2: S3 Batch Operations WITHOUT Restore**
 ```
 # This will FAIL - must restore first
 S3 Batch Operations:
   Operation: Copy
   StorageClass: INTELLIGENT_TIERING
   
-# ❌ Cannot copy Glacier objects without restoration
+# Cannot copy Glacier objects without restoration
 ```
 
-**✅ Method 3: S3 Batch Operations WITH Restore (VALID):**
+**Method 3: S3 Batch Operations WITH Restore (VALID):**
 ```
 Step 1: S3 Batch Operations - Restore from Glacier
   └─ Restore all objects (12-48 hours)
@@ -325,31 +325,31 @@ Step 3: S3 Batch Operations - Delete (optional)
 ```
 Need to migrate from Glacier Deep Archive?
 │
-├─ To Glacier Flexible? ──► Direct transition ✅ (lifecycle policy)
+├─ To Glacier Flexible? ──► Direct transition (lifecycle policy)
 │
 ├─ To Standard/IA/Intelligent-Tiering?
-│   └─► Must restore → copy → delete ✅
+│   └─► Must restore → copy → delete
 │
-└─ Want automatic migration? ──► NOT POSSIBLE ❌
+└─ Want automatic migration? ──► NOT POSSIBLE
     └─ Glacier requires manual restore process
 ```
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ Glacier Deep Archive objects MUST be restored before changing storage class
-- ✅ Restoration creates temporary copy (1-365 days accessible)
-- ✅ Copy restored objects to target storage class, then delete Glacier version
-- ✅ Restoration takes 12-48 hours for Deep Archive
-- ❌ Changing bucket default storage class does NOT affect existing objects
-- ❌ Lifecycle policies cannot transition FROM Glacier classes
-- ❌ Cannot directly change storage class of archived objects
+**KEY TAKEAWAYS:**
+- Yes: Glacier Deep Archive objects MUST be restored before changing storage class
+- Yes: Restoration creates temporary copy (1-365 days accessible)
+- Yes: Copy restored objects to target storage class, then delete Glacier version
+- Yes: Restoration takes 12-48 hours for Deep Archive
+- Changing bucket default storage class does NOT affect existing objects
+- Lifecycle policies cannot transition FROM Glacier classes
+- Cannot directly change storage class of archived objects
 
-**💡 MEMORY AID:** "GDR = Glacier Definitely Requires (restore before moving)"
+**MEMORY AID:** "GDR = Glacier Definitely Requires (restore before moving)"
 
 ---
 
-### ❌ Question 7: S3 Storage for Multi-Tenant Transcription Platform
+### Question 7: S3 Storage for Multi-Tenant Transcription Platform
 
-**📋 COMPLETE QUESTION:**
+**COMPLETE QUESTION:**
 A company is building a multi-tenant transcription platform. Customers upload audio files, and the platform stores both the audio and generated transcripts. Files need to be:
 - Highly durable (99.999999999%)
 - Frequently accessed by customers
@@ -359,26 +359,26 @@ A company is building a multi-tenant transcription platform. Customers upload au
 What is the most appropriate storage solution?
 
 **Domain:** Design Cost-Optimized Architectures  
-**Your Answer:** ❌ Archive files in S3 Glacier vault to minimize storage cost
-**Correct Answer:** ✅ **Store audio and text files as objects in Amazon S3 Standard**
+**Your Answer:** Archive files in S3 Glacier vault to minimize storage cost
+**Correct Answer:** **Store audio and text files as objects in Amazon S3 Standard**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **Why Your Answer Was Wrong:**
 
 ```
-❌ Glacier is for ARCHIVAL (infrequent access)
+ Glacier is for ARCHIVAL (infrequent access)
 ┌────────────────────────────────────────┐
 │  S3 Glacier                            │
-│  ├─ Access time: 1-12 hours retrieval │  ⚠️ NOT immediate
-│  ├─ Cost: $0.004/GB/month              │  ✅ Cheap storage
-│  ├─ Retrieval cost: $0.02-0.03/GB     │  ⚠️ Expensive to access
-│  └─ Use case: Long-term archive       │  ❌ Not frequent access
+│ ├─ Access time: 1-12 hours retrieval │   NOT immediate
+│ ├─ Cost: $0.004/GB/month              │   Cheap storage
+│ ├─ Retrieval cost: $0.02-0.03/GB     │   Expensive to access
+│ └─ Use case: Long-term archive       │   Not frequent access
 └────────────────────────────────────────┘
 
 Requirement: "Frequently access"
 Glacier retrieval: Minutes to hours
-Result: Poor user experience ❌
+Result: Poor user experience
 ```
 
 **Storage Class Selection Based on Access Pattern:**
@@ -390,7 +390,7 @@ Result: Poor user experience ❌
 │                                                         │
 │  How often will data be accessed?                      │
 │                                                         │
-│  ├─ Multiple times per week ─────► S3 Standard ✅      │
+│ ├─ Multiple times per week ─────► S3 Standard          │
 │  │   • Immediate access                                │
 │  │   • No retrieval fees                               │
 │  │   • Best for frequent access                        │
@@ -426,12 +426,12 @@ Result: Poor user experience ❌
 
 | Requirement | S3 Standard | S3 Glacier | Winner |
 |-------------|-------------|------------|--------|
-| **Durability** | 99.999999999% (11 nines) | 99.999999999% (11 nines) | ✅ Tie |
-| **Frequent Access** | Immediate, no wait | 1-12 hours retrieval | ✅ S3 Standard |
-| **Scalability** | Unlimited objects | Unlimited objects | ✅ Tie |
-| **Access Cost** | FREE retrieval | $0.02-0.03/GB retrieval | ✅ S3 Standard |
-| **User Experience** | Instant download | Wait hours for restore | ✅ S3 Standard |
-| **Storage Cost** | $0.023/GB/month | $0.004/GB/month | ✅ Glacier |
+| **Durability** | 99.999999999% (11 nines) | 99.999999999% (11 nines) | Tie |
+| **Frequent Access** | Immediate, no wait | 1-12 hours retrieval | S3 Standard |
+| **Scalability** | Unlimited objects | Unlimited objects | Tie |
+| **Access Cost** | FREE retrieval | $0.02-0.03/GB retrieval | S3 Standard |
+| **User Experience** | Instant download | Wait hours for restore | S3 Standard |
+| **Storage Cost** | $0.023/GB/month | $0.004/GB/month | Glacier |
 
 **Decision:** S3 Standard wins 4 out of 6 criteria (frequent access requirement is KEY)
 
@@ -467,11 +467,11 @@ Result: Poor user experience ❌
 │  │                                     │             │
 │  │  /tenant-123/                       │             │
 │  │    /audio/                          │             │
-│  │      meeting-001.mp3 ✅             │             │
-│  │      interview-045.wav ✅           │             │
+│ │      meeting-001.mp3              │                │
+│ │      interview-045.wav            │                │
 │  │    /transcripts/                    │             │
-│  │      meeting-001.txt ✅             │             │
-│  │      interview-045.txt ✅           │             │
+│ │      meeting-001.txt              │                │
+│ │      interview-045.txt            │                │
 │  │                                     │             │
 │  │  /tenant-456/                       │             │
 │  │    /audio/...                       │             │
@@ -599,20 +599,20 @@ Year 1+:
 
 **For Frequent Access:** S3 Standard is most cost-effective (no retrieval fees!)
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ **S3 Standard** = Frequent access, immediate retrieval, NO retrieval fees
-- ✅ "Frequently accessed" keyword = Use S3 Standard
-- ✅ S3 provides 99.999999999% durability (same as Glacier)
-- ✅ Use lifecycle policies to transition old files to cheaper storage
-- ❌ **Glacier** = Archive/infrequent access (minutes to hours retrieval delay)
-- ❌ Glacier has retrieval costs that add up with frequent access
-- ❌ Don't optimize for storage cost when access cost is higher
+**KEY TAKEAWAYS:**
+- Yes: **S3 Standard** = Frequent access, immediate retrieval, NO retrieval fees
+- "Frequently accessed" keyword = Use S3 Standard
+- Yes: S3 provides 99.999999999% durability (same as Glacier)
+- Use lifecycle policies to transition old files to cheaper storage
+- No: **Glacier** = Archive/infrequent access (minutes to hours retrieval delay)
+- No: Glacier has retrieval costs that add up with frequent access
+- Don't optimize for storage cost when access cost is higher
 
-**💡 MEMORY AID:** "Frequent Access = Standard Storage (FAST)"
+**MEMORY AID:** "Frequent Access = Standard Storage (FAST)"
 
 **Exam Keywords to Watch:**
-- "Frequently accessed" → S3 Standard ✅
-- "Immediate access required" → S3 Standard ✅  
+- "Frequently accessed" → S3 Standard
+- "Immediate access required" → S3 Standard
 - "Infrequently accessed" → S3 Standard-IA
 - "Archival" → S3 Glacier
 - "Long-term backup" → S3 Glacier Deep Archive
@@ -621,7 +621,7 @@ Year 1+:
 
 ### 3. Question 9: Database Migration - SQL Server to MySQL
 **Domain:** Design Secure Architectures  
-**Status:** ❌ Incorrect (Marked for Review)
+**Status:** Incorrect (Marked for Review)
 
 **Question Summary:**
 Migrate mission-critical SQL Server to MySQL with minimal downtime and real-time monitoring.
@@ -637,9 +637,9 @@ Migrate mission-critical SQL Server to MySQL with minimal downtime and real-time
 - Migration Hub provides centralized tracking and monitoring for DMS tasks
 
 **Key Learning Points:**
-- 🔄 AWS DMS = Database migration (homogeneous & heterogeneous)
-- 🔄 AWS Migration Hub = Centralized migration tracking and monitoring
-- 🔄 AWS MGN = Server/VM lift-and-shift, not for DB monitoring
+- AWS DMS = Database migration (homogeneous & heterogeneous)
+- AWS Migration Hub = Centralized migration tracking and monitoring
+- AWS MGN = Server/VM lift-and-shift, not for DB monitoring
 
 **Study Resources:**
 - [Module 10: Migration - DMS vs Migration Hub](../10-Migration/README.md)
@@ -649,7 +649,7 @@ Migrate mission-critical SQL Server to MySQL with minimal downtime and real-time
 
 ### 4. Question 14: AWS WAF for PHP Application Protection
 **Domain:** Design Secure Architectures  
-**Status:** ❌ Incorrect
+**Status:** Incorrect
 
 **Question Summary:**
 Block PHP vulnerability patterns with minimal operational overhead.
@@ -665,9 +665,9 @@ Block PHP vulnerability patterns with minimal operational overhead.
 - AWS WAF = Application layer (Layer 7) web application firewall
 
 **Key Learning Points:**
-- 🛡️ AWS WAF = Layer 7 (application) protection, managed rule sets
-- 🛡️ AWS Shield = DDoS protection (Layer 3/4)
-- 🛡️ Managed rule sets available for common vulnerabilities (PHP, SQL injection, etc.)
+- AWS WAF = Layer 7 (application) protection, managed rule sets
+- AWS Shield = DDoS protection (Layer 3/4)
+- Managed rule sets available for common vulnerabilities (PHP, SQL injection, etc.)
 
 **Study Resources:**
 - [Module 07: Security - WAF vs Shield](../07-Security/README.md)
@@ -677,7 +677,7 @@ Block PHP vulnerability patterns with minimal operational overhead.
 
 ### 5. Question 16: Service Control Policies (SCPs) in AWS Organizations
 **Domain:** Design Secure Architectures  
-**Status:** ❌ Incorrect
+**Status:** Incorrect
 
 **Question Summary:**
 Project_OU denies ec2:DeleteFlowLogs, but Dev_OU (child) allows it. Can users delete flow logs?
@@ -693,9 +693,9 @@ Project_OU denies ec2:DeleteFlowLogs, but Dev_OU (child) allows it. Can users de
 - Parent OU deny cannot be overridden by child OU allow
 
 **Key Learning Points:**
-- ⚠️ SCPs: Explicit DENY > Allow (always)
-- ⚠️ Parent OU policies apply to ALL child OUs
-- ⚠️ SCPs define maximum permissions, not grant them
+- SCPs: Explicit DENY > Allow (always)
+- Parent OU policies apply to ALL child OUs
+- SCPs define maximum permissions, not grant them
 
 **Study Resources:**
 - [Module 02: IAM - Organizations and SCPs](../02-IAM/README.md)
@@ -705,7 +705,7 @@ Project_OU denies ec2:DeleteFlowLogs, but Dev_OU (child) allows it. Can users de
 
 ### 6. Question 20: CloudWatch and SNS for RDS Monitoring
 **Domain:** Design High-Performing Architectures  
-**Status:** ❌ Incorrect (Partially correct)
+**Status:** Incorrect (Partially correct)
 
 **Question Summary:**
 Monitor RDS CPU/memory and send email notifications when exceeding threshold.
@@ -724,9 +724,9 @@ Monitor RDS CPU/memory and send email notifications when exceeding threshold.
 - SNS = pub/sub notification service, integrates directly with CloudWatch alarms
 
 **Key Learning Points:**
-- 📧 CloudWatch Alarms → SNS → Email/SMS/Lambda
-- 📧 SES = bulk/transactional emails, not monitoring
-- 📧 SNS = notification service for alarms and events
+- CloudWatch Alarms → SNS → Email/SMS/Lambda
+- SES = bulk/transactional emails, not monitoring
+- SNS = notification service for alarms and events
 
 **Study Resources:**
 - [Module 09: Monitoring - CloudWatch Alarms](../09-Monitoring/README.md)
@@ -736,7 +736,7 @@ Monitor RDS CPU/memory and send email notifications when exceeding threshold.
 
 ### 7. Question 31: HPC Networking - EFA vs ENA
 **Domain:** Design High-Performing Architectures  
-**Status:** ❌ Incorrect (Marked for Review)
+**Status:** Incorrect (Marked for Review)
 
 **Question Summary:**
 HPC cluster requiring extremely low latency and high bandwidth for inter-node communication.
@@ -752,9 +752,9 @@ HPC cluster requiring extremely low latency and high bandwidth for inter-node co
 - EFA = specialized for HPC with OS-bypass capabilities
 
 **Key Learning Points:**
-- 🚀 EFA = HPC workloads, ultra-low latency, OS-bypass, MPI support
-- 🚀 ENA = general enhanced networking, good but not HPC-specific
-- 🚀 HPC keyword → think EFA
+- EFA = HPC workloads, ultra-low latency, OS-bypass, MPI support
+- ENA = general enhanced networking, good but not HPC-specific
+- HPC keyword → think EFA
 
 **Study Resources:**
 - [Module 03: Compute - HPC and Networking](../03-Compute/README.md)
@@ -764,7 +764,7 @@ HPC cluster requiring extremely low latency and high bandwidth for inter-node co
 
 ### 8. Question 35: ECS Auto Scaling Based on SQS Queue Depth
 **Domain:** Design Resilient Architectures  
-**Status:** ❌ Incorrect (Marked for Review)
+**Status:** Incorrect (Marked for Review)
 
 **Question Summary:**
 Photo-processing pipeline with SQS queue - which metric should drive ECS task auto-scaling?
@@ -780,9 +780,9 @@ Photo-processing pipeline with SQS queue - which metric should drive ECS task au
 - SQS queue depth = direct indicator of pending work
 
 **Key Learning Points:**
-- 📊 SQS queue depth (ApproximateNumberOfMessagesVisible) = best metric for queue-based scaling
-- 📊 Memory/CPU = resource metrics, not workload indicators
-- 📊 Scale based on work pending, not resource consumption
+- SQS queue depth (ApproximateNumberOfMessagesVisible) = best metric for queue-based scaling
+- Memory/CPU = resource metrics, not workload indicators
+- Scale based on work pending, not resource consumption
 
 **Study Resources:**
 - [Module 08: Application Integration - SQS Scaling Patterns](../08-Application-Integration/README.md)
@@ -792,29 +792,29 @@ Photo-processing pipeline with SQS queue - which metric should drive ECS task au
 
 ### 9. Question 40: RDS Automated Backups and Point-in-Time Recovery
 **Domain:** Design Resilient Architectures  
-**Status:** ❌ Incorrect (Marked for Review - Partially correct)
+**Status:** Incorrect (Marked for Review - Partially correct)
 
 **Question Summary:**
 How do RDS automated backups work for point-in-time recovery?
 
 **Your Answer (Selected 2 of 3 correct):**
-- ❌ (Missing) Amazon RDS creates storage volume snapshot once per day. Transaction logs uploaded to S3 every 5 minutes
-- ✅ Amazon RDS automated backups allow PITR by combining daily snapshot with continuous transaction logs
-- ✅ (Incorrect selection) You must manually enable transaction log backups for PITR
+- No: (Missing) Amazon RDS creates storage volume snapshot once per day. Transaction logs uploaded to S3 every 5 minutes
+- Yes: Amazon RDS automated backups allow PITR by combining daily snapshot with continuous transaction logs
+- Yes: (Incorrect selection) You must manually enable transaction log backups for PITR
 
 **Correct Answers:**
-- ✅ Daily snapshot + transaction logs every 5 minutes
-- ✅ PITR combines snapshot + transaction logs
-- ❌ Transaction logs are AUTOMATIC, not manual
+- Yes: Daily snapshot + transaction logs every 5 minutes
+- Yes: PITR combines snapshot + transaction logs
+- Transaction logs are AUTOMATIC, not manual
 
 **Why You Got It Wrong:**
 - Didn't select the snapshot frequency answer
 - Incorrectly thought transaction logs needed manual enablement
 
 **Key Learning Points:**
-- 💾 RDS Automated Backups = Daily snapshot + transaction logs every 5 minutes
-- 💾 PITR = Snapshot + transaction logs (automatic)
-- 💾 No manual intervention needed for transaction logs
+- RDS Automated Backups = Daily snapshot + transaction logs every 5 minutes
+- PITR = Snapshot + transaction logs (automatic)
+- No manual intervention needed for transaction logs
 
 **Study Resources:**
 - [Module 05: Database - RDS Backups](../05-Database/README.md)
@@ -824,30 +824,30 @@ How do RDS automated backups work for point-in-time recovery?
 
 ### 10. Question 52: AWS Organizations - Moving Management Account
 **Domain:** Design Resilient Architectures  
-**Status:** ❌ Incorrect (Marked for Review - Partially correct)
+**Status:** Incorrect (Marked for Review - Partially correct)
 
 **Question Summary:**
 Move management account from Company A's organization to Company B's organization (select 3).
 
 **Your Answer (Selected 2 of 3 correct):**
-- ✅ Sign in as root and remove all member accounts
-- ❌ (Missing) Delete Company A's organization to make it standalone
-- ✅ Accept invitation from Company B's organization
-- ✅ (Incorrect) Enable all features in Company B before sending invitation
+- Yes: Sign in as root and remove all member accounts
+- No: (Missing) Delete Company A's organization to make it standalone
+- Yes: Accept invitation from Company B's organization
+- Yes: (Incorrect) Enable all features in Company B before sending invitation
 
 **Correct Answers:**
-- ✅ Remove all member accounts from Company A
-- ✅ Delete Company A's organization (makes account standalone)
-- ✅ Accept invitation from Company B
+- Remove all member accounts from Company A
+- Delete Company A's organization (makes account standalone)
+- Accept invitation from Company B
 
 **Why You Got It Wrong:**
 - Forgot the critical step: DELETE organization to convert to standalone account
 - Incorrectly thought "all features" was required (it's not mandatory for invitation)
 
 **Key Learning Points:**
-- 🏢 Management account cannot move while organization exists
-- 🏢 Must DELETE organization to become standalone
-- 🏢 Then accept invitation from target organization
+- Management account cannot move while organization exists
+- Must DELETE organization to become standalone
+- Then accept invitation from target organization
 
 **Study Resources:**
 - [Module 02: IAM - AWS Organizations](../02-IAM/README.md)
@@ -857,7 +857,7 @@ Move management account from Company A's organization to Company B's organizatio
 
 ### 11. Question 53: Amazon Cognito - IAM Roles for Mobile App
 **Domain:** Design Secure Architectures  
-**Status:** ❌ Incorrect
+**Status:** Incorrect
 
 **Question Summary:**
 Mobile app users authenticate via Google/Facebook, need temporary AWS credentials for DynamoDB.
@@ -873,9 +873,9 @@ Mobile app users authenticate via Google/Facebook, need temporary AWS credential
 - Cognito Identity Pools = credential provisioning for federated users
 
 **Key Learning Points:**
-- 🔐 Cognito Identity Pools = temporary AWS credentials for federated users
-- 🔐 IAM Role + Trust Policy + Cognito = proper architecture
-- 🔐 CloudTrail/GuardDuty = monitoring, not authentication
+- Cognito Identity Pools = temporary AWS credentials for federated users
+- IAM Role + Trust Policy + Cognito = proper architecture
+- CloudTrail/GuardDuty = monitoring, not authentication
 
 **Study Resources:**
 - [Module 02: IAM - Cognito Identity Pools](../02-IAM/README.md)
@@ -885,7 +885,7 @@ Mobile app users authenticate via Google/Facebook, need temporary AWS credential
 
 ### 12. Question 62: S3 Transfer Acceleration vs CloudFront
 **Domain:** Design Cost-Optimized Architectures  
-**Status:** ❌ Incorrect
+**Status:** Incorrect
 
 **Question Summary:**
 Media streaming company - users in remote regions reporting slow load times for videos from S3.
@@ -901,9 +901,9 @@ Media streaming company - users in remote regions reporting slow load times for 
 - CloudFront = caching at edge locations for content delivery (better for streaming)
 
 **Key Learning Points:**
-- 🌐 CloudFront = content delivery, caching at edge (best for streaming)
-- 🌐 S3 Transfer Acceleration = faster uploads/downloads via S3 API
-- 🌐 Static website + remote users = CloudFront
+- CloudFront = content delivery, caching at edge (best for streaming)
+- S3 Transfer Acceleration = faster uploads/downloads via S3 API
+- Static website + remote users = CloudFront
 
 **Study Resources:**
 - [Module 04: Storage - CloudFront vs Transfer Acceleration](../04-Storage/README.md)
@@ -913,7 +913,7 @@ Media streaming company - users in remote regions reporting slow load times for 
 
 ### 13. Question 64: AWS Site-to-Site VPN vs Direct Connect
 **Domain:** Design Secure Architectures  
-**Status:** ❌ Incorrect
+**Status:** Incorrect
 
 **Question Summary:**
 Start-up needs FAST and COST-EFFECTIVE connectivity from on-premises to VPC for testing.
@@ -930,9 +930,9 @@ Start-up needs FAST and COST-EFFECTIVE connectivity from on-premises to VPC for 
 - Keyword: "fast" and "cost-effective" = VPN, not Direct Connect
 
 **Key Learning Points:**
-- ⚡ Site-to-Site VPN = fast setup (minutes), cost-effective
-- ⚡ Direct Connect = weeks to provision, expensive, but high performance
-- ⚡ Keywords matter: fast + cost-effective = VPN
+- Site-to-Site VPN = fast setup (minutes), cost-effective
+- Direct Connect = weeks to provision, expensive, but high performance
+- Keywords matter: fast + cost-effective = VPN
 
 **Study Resources:**
 - [Module 06: Networking - VPN vs Direct Connect](../06-Networking/README.md)
@@ -940,9 +940,9 @@ Start-up needs FAST and COST-EFFECTIVE connectivity from on-premises to VPC for 
 
 ---
 
-## 📚 Study Recommendations
+## Study Recommendations
 
-### 🔴 Priority 1: Critical Weak Areas (< 70%)
+### Priority 1: Critical Weak Areas (< 70%)
 
 #### Design Cost-Optimized Architectures (62.50%)
 **Focus Topics:**
@@ -958,7 +958,7 @@ Start-up needs FAST and COST-EFFECTIVE connectivity from on-premises to VPC for 
 
 ---
 
-### 🟡 Priority 2: Need Improvement (70-85%)
+### Priority 2: Need Improvement (70-85%)
 
 #### Design Resilient Architectures (81.25%)
 **Focus Topics:**
@@ -985,21 +985,21 @@ Start-up needs FAST and COST-EFFECTIVE connectivity from on-premises to VPC for 
 
 ---
 
-### 🟢 Priority 3: Strong Areas (> 85%)
+### Priority 3: Strong Areas (> 85%)
 
-#### Design High-Performing Architectures (88.24%) ✅
+#### Design High-Performing Architectures (88.24%)
 **Minor gaps:**
 - EFA vs ENA for HPC workloads
 
 **Quick Review:**
 - [Module 03: Compute - HPC Networking](../03-Compute/README.md)
 
-#### Design Secure Applications and Architectures (100%) ✅
+#### Design Secure Applications and Architectures (100%)
 **Perfect score - maintain with periodic review**
 
 ---
 
-## 🎯 Action Plan for Next 7 Days
+## Action Plan for Next 7 Days
 
 ### Day 1-2: Cost Optimization Deep Dive
 - [ ] Re-read Module 13 completely
@@ -1027,23 +1027,23 @@ Start-up needs FAST and COST-EFFECTIVE connectivity from on-premises to VPC for 
 
 ---
 
-## 📊 Key Exam Patterns Observed
+## Key Exam Patterns Observed
 
 ### Common Pitfalls to Avoid
-1. ⚠️ **Reading too quickly** - Missing keywords like "fast", "cost-effective", "frequent access"
-2. ⚠️ **Confusing similar services** - WAF vs Shield, EFA vs ENA, SNS vs SES
-3. ⚠️ **Forgetting hierarchy rules** - SCPs explicit deny, parent > child
-4. ⚠️ **Overlooking operational steps** - Glacier restore before migration, delete org before move
+1. **Reading too quickly** - Missing keywords like "fast", "cost-effective", "frequent access"
+2. **Confusing similar services** - WAF vs Shield, EFA vs ENA, SNS vs SES
+3. **Forgetting hierarchy rules** - SCPs explicit deny, parent > child
+4. **Overlooking operational steps** - Glacier restore before migration, delete org before move
 
 ### Exam Success Patterns
-1. ✅ **Read all options carefully** before selecting
-2. ✅ **Identify keywords** in questions (fast, cost-effective, high-performance)
-3. ✅ **Eliminate wrong answers** first, then choose best remaining
-4. ✅ **Watch for "most", "least", "best"** qualifiers
+1. **Read all options carefully** before selecting
+2. **Identify keywords** in questions (fast, cost-effective, high-performance)
+3. **Eliminate wrong answers** first, then choose best remaining
+4. **Watch for "most", "least", "best"** qualifiers
 
 ---
 
-## 📝 Quick Reference Cards
+## Quick Reference Cards
 
 ### S3 Storage Class Decision
 ```
@@ -1081,7 +1081,7 @@ DDoS Protection (L3/L4) → AWS Shield
 
 ---
 
-## 🎓 Next Steps
+## Next Steps
 
 1. **Immediate Actions (Next 24 Hours):**
    - [ ] Review all 13 incorrect questions
@@ -1100,9 +1100,9 @@ DDoS Protection (L3/L4) → AWS Shield
 
 ---
 
-## 💪 Motivational Note
+## Motivational Note
 
-**Great job on passing with 80%!** 🎉
+**Great job on passing with 80%!**
 
 You're well on your way to certification success. Your strong performance in high-performing architectures (88%) shows solid understanding. Focus on cost optimization (62%) and security patterns, and you'll be ready for the real exam.
 
@@ -1110,7 +1110,7 @@ You're well on your way to certification success. Your strong performance in hig
 - 80% on practice = you're in good shape
 - Focus on the 13 incorrect questions patterns
 - Don't just memorize - understand WHY each answer is correct
-- You've got this! 💪
+- You've got this!
 
 ---
 

@@ -1,4 +1,4 @@
-# 🎯 Practice Test 4 - Incorrect Areas Study Guide
+# Practice Test 4 - Incorrect Areas Study Guide
 
 **Test Performance**: 49/65 (75.38%) - FAIL  
 **Date**: March 1, 2026  
@@ -6,21 +6,21 @@
 
 ---
 
-## 📊 Domain Performance Analysis
+## Domain Performance Analysis
 
 | Domain | Total | Correct | Incorrect | % Correct |
 |--------|-------|---------|-----------|-----------|
 | Design Resilient Architectures | 19 | 14 | **5** | 73.7% |
 | Design High-Performing Architectures | 22 | 17 | **5** | 77.3% |
-| Design Cost-Optimized Architectures | 10 | 6 | **4** | 60.0% ❌ |
-| Design Secure Architectures | 13 | 11 | **2** | 84.6% ✅ |
-| Design Secure Applications | 1 | 1 | 0 | 100% ✅ |
+| Design Cost-Optimized Architectures | 10 | 6 | **4** | 60.0%  |
+| Design Secure Architectures | 13 | 11 | **2** | 84.6%  |
+| Design Secure Applications | 1 | 1 | 0 | 100%  |
 
 **Total Incorrect: 16 questions**
 
 ---
 
-## 🚨 Critical Weakness Areas
+## Critical Weakness Areas
 
 ### 1. **Design Cost-Optimized Architectures** (60% - NEEDS FOCUS)
 - EC2 Auto Scaling memory metrics
@@ -45,17 +45,17 @@
 
 ---
 
-## 📚 Flashcards for Incorrect Questions
+## Flashcards for Incorrect Questions
 
 ### Question 7: EC2 Auto Scaling Predefined Metrics
 
-**❓ QUESTION:**  
+**QUESTION:**
 Which metric is NOT available as a predefined option for EC2 Auto Scaling target tracking?
 
-**❌ YOUR ANSWER:** Network Out  
-**✅ CORRECT ANSWER:** Memory Utilization
+**No: YOUR ANSWER:** Network Out  
+**CORRECT ANSWER:** Memory Utilization
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 - EC2 does not publish memory usage as a native CloudWatch metric
 - **Predefined metrics include:**
   - ASGAverageCPUUtilization
@@ -63,31 +63,31 @@ Which metric is NOT available as a predefined option for EC2 Auto Scaling target
   - ASGAverageNetworkOut
   - ALBRequestCountPerTarget
 
-**💡 TO SCALE ON MEMORY:**
+**TO SCALE ON MEMORY:**
 1. Install CloudWatch agent on instances
 2. Push custom memory metric
 3. Create target tracking policy on custom metric
 
-**🔗 Reference:** [Target Tracking Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html)
+**Reference:** [Target Tracking Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html)
 
 ---
 
 ### Question 13: Redshift Snapshot Cost Optimization
 
-**❓ QUESTION:**  
+**QUESTION:**
 How to reduce rising snapshot-related costs for Redshift without affecting availability?
 
-**❌ YOUR ANSWER:** Increase automated snapshot retention to 35 days  
-**✅ CORRECT ANSWER:** Delete unneeded manual snapshots
+**No: YOUR ANSWER:** Increase automated snapshot retention to 35 days  
+**CORRECT ANSWER:** Delete unneeded manual snapshots
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 - **Manual snapshots** persist indefinitely until deleted (incur ongoing charges)
 - **Automated snapshots** expire per retention setting
 - First action: Audit and delete old manual snapshots
 
-**⚠️ PITFALL:** Increasing retention INCREASES cost, doesn't reduce it
+**PITFALL:** Increasing retention INCREASES cost, doesn't reduce it
 
-**💡 BEST PRACTICE:**
+**BEST PRACTICE:**
 ```
 1. List all manual snapshots
 2. Identify snapshots older than retention policy
@@ -95,19 +95,19 @@ How to reduce rising snapshot-related costs for Redshift without affecting avail
 4. Set up lifecycle policies for future automation
 ```
 
-**🔗 Reference:** [Redshift Snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html)
+**Reference:** [Redshift Snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html)
 
 ---
 
 ### Question 17: S3 Glacier Flexible Retrieval
 
-**❓ QUESTION:**  
+**QUESTION:**
 Management requires archived data retrievable within 3-5 hours. Which retrieval tier?
 
-**❌ YOUR ANSWER:** Expedited  
-**✅ CORRECT ANSWER:** Standard
+**No: YOUR ANSWER:** Expedited  
+**CORRECT ANSWER:** Standard
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 
 | Tier | Retrieval Time | Use Case | Cost |
 |------|---------------|----------|------|
@@ -115,31 +115,31 @@ Management requires archived data retrievable within 3-5 hours. Which retrieval 
 | **Standard** | 3-5 hours | Planned retrieval | $$ |
 | **Bulk** | 5-12 hours | Large datasets | $ |
 
-**⚠️ COST TRAP:** Expedited meets requirement but unnecessarily expensive
+**COST TRAP:** Expedited meets requirement but unnecessarily expensive
 
-**💡 DECISION MATRIX:**
+**DECISION MATRIX:**
 - Requirement: 3-5 hours → Standard (perfect match)
 - Requirement: < 1 hour → Expedited
 - Requirement: 12+ hours okay → Bulk
 
-**🔗 Reference:** [S3 Glacier Retrieval](https://docs.aws.amazon.com/AmazonS3/latest/userguide/restoring-objects-retrieval-options.html)
+**Reference:** [S3 Glacier Retrieval](https://docs.aws.amazon.com/AmazonS3/latest/userguide/restoring-objects-retrieval-options.html)
 
 ---
 
 ### Question 18: VPC Security Group References
 
-**❓ QUESTION:**  
+**QUESTION:**
 Backend instances must only accept traffic from frontend on custom port. How configure backend SG?
 
-**❌ YOUR ANSWER:** Use the launch configuration as the source  
-**✅ CORRECT ANSWER:** Use the frontend security group ID as source
+**No: YOUR ANSWER:** Use the launch configuration as the source  
+**CORRECT ANSWER:** Use the frontend security group ID as source
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 - SG rules can reference other SGs by ID
 - Automatically handles instance scale and IP changes
 - Tightly couples access to SG membership
 
-**✅ CORRECT CONFIGURATION:**
+**CORRECT CONFIGURATION:**
 ```
 Backend Security Group Inbound Rule:
 - Type: Custom TCP
@@ -147,26 +147,26 @@ Backend Security Group Inbound Rule:
 - Source: sg-frontend123 (frontend SG ID)
 ```
 
-**❌ WRONG APPROACHES:**
+**WRONG APPROACHES:**
 - Public subnet CIDR → Allows ANY instance in subnet
 - ASG ARN → Not supported as source
 - Launch config → Cannot be used in SG rules
 
-**💡 KEY CONCEPT:** SG-to-SG references = dynamic, auto-scaling access control
+**KEY CONCEPT:** SG-to-SG references = dynamic, auto-scaling access control
 
-**🔗 Reference:** [Security Group Rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html)
+**Reference:** [Security Group Rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html)
 
 ---
 
 ### Question 19: Cost Optimization - Savings Plans Mix
 
-**❓ QUESTION:**  
+**QUESTION:**
 Best savings mix for: diverse web tier, stable app tier, RDS databases?
 
-**❌ YOUR ANSWER:** EC2 Instance SP (web) + Compute SP (app and DB)  
-**✅ CORRECT ANSWER:** Compute SP (web) + EC2 Instance SP (app) + RDS RI (DB)
+**No: YOUR ANSWER:** EC2 Instance SP (web) + Compute SP (app and DB)  
+**CORRECT ANSWER:** Compute SP (web) + EC2 Instance SP (app) + RDS RI (DB)
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 
 | Tier | Characteristics | Best Option | Why |
 |------|----------------|-------------|-----|
@@ -174,87 +174,87 @@ Best savings mix for: diverse web tier, stable app tier, RDS databases?
 | **App** | Stable instance family | EC2 Instance Savings Plans | Highest discount for commitment |
 | **DB** | Managed RDS | RDS Reserved Instances | Separate from EC2 plans |
 
-**⚠️ CRITICAL:** RDS is NOT covered by EC2 Savings Plans - needs RDS RI
+**CRITICAL:** RDS is NOT covered by EC2 Savings Plans - needs RDS RI
 
-**💡 SAVINGS HIERARCHY:**
+**SAVINGS HIERARCHY:**
 1. Most flexible: Compute Savings Plans
 2. Most savings: EC2 Instance Savings Plans (same family)
 3. RDS specific: RDS Reserved Instances
 
-**🔗 Reference:** [Savings Plans](https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-ris.html)
+**Reference:** [Savings Plans](https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-ris.html)
 
 ---
 
 ### Question 34: Mixed Instance Policy for Auto Scaling
 
-**❓ QUESTION:**  
+**QUESTION:**
 How to reduce cost for ASG (min 2, max 12) without risking performance?
 
-**❌ YOUR ANSWER:** Use all t2.micro On-Demand instances  
-**✅ CORRECT ANSWER:** On-Demand base=2; above that 20% On-Demand / 80% Spot
+**No: YOUR ANSWER:** Use all t2.micro On-Demand instances  
+**CORRECT ANSWER:** On-Demand base=2; above that 20% On-Demand / 80% Spot
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 - **Baseline (2)**: On-Demand for reliability
 - **Burst (3-12)**: Mix of 20% On-Demand + 80% Spot for cost savings
 
-**💰 COST COMPARISON:**
+**COST COMPARISON:**
 ```
 All On-Demand @ 12 instances = 12x cost
 All Spot @ 12 instances = ~1.2x cost (but risky)
 Mixed (2 OD + 8 Spot @ 80%) = ~4x cost (balanced)
 ```
 
-**⚠️ AVOID:**
+**AVOID:**
 - All Spot: Interruptions hurt availability
 - All On-Demand: No cost savings
 - Too small instances: Performance degradation
 
-**💡 BEST PRACTICE:** Protect baseline with On-Demand, optimize burst with Spot
+**BEST PRACTICE:** Protect baseline with On-Demand, optimize burst with Spot
 
-**🔗 Reference:** [Mixed Instance Policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html)
+**Reference:** [Mixed Instance Policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html)
 
 ---
 
 ### Question 25: CloudTrail Log File Integrity
 
-**❓ QUESTION:**  
+**QUESTION:**
 How to cryptographically verify CloudTrail logs haven't been tampered with?
 
-**❌ YOUR ANSWER:** Use SSE-KMS encryption for the CloudTrail logs  
-**✅ CORRECT ANSWER:** Enable CloudTrail log file integrity validation
+**No: YOUR ANSWER:** Use SSE-KMS encryption for the CloudTrail logs  
+**CORRECT ANSWER:** Enable CloudTrail log file integrity validation
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 
 | Feature | Purpose | Provides Integrity? |
 |---------|---------|-------------------|
-| **SSE-S3** | Encryption at rest | ❌ No |
-| **SSE-KMS** | Key management + encryption | ❌ No |
-| **Bucket Policy** | Access control | ❌ No |
-| **Log File Integrity** | Tamper detection | ✅ YES |
+| **SSE-S3** | Encryption at rest | No |
+| **SSE-KMS** | Key management + encryption | No |
+| **Bucket Policy** | Access control | No |
+| **Log File Integrity** | Tamper detection | YES |
 
-**✅ HOW IT WORKS:**
+**HOW IT WORKS:**
 1. Generates digest files with SHA-256 hashes
 2. Signed with RSA private key
 3. Auditors verify with public key
 4. Detects modifications, deletions, or tampering
 
-**⚠️ COMMON MISTAKE:** Encryption ≠ Integrity validation
+**COMMON MISTAKE:** Encryption ≠ Integrity validation
 
-**💡 COMPLIANCE USE:** Required for PCI, HIPAA, SOC 2 audits
+**COMPLIANCE USE:** Required for PCI, HIPAA, SOC 2 audits
 
-**🔗 Reference:** [Log File Integrity](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html)
+**Reference:** [Log File Integrity](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html)
 
 ---
 
 ### Question 28: Auto Scaling Lifecycle Hooks
 
-**❓ QUESTION:**  
+**QUESTION:**
 How to run cleanup scripts before instances terminate during scale-in?
 
-**❌ YOUR ANSWER:** Customize the termination policy to copy data before termination  
-**✅ CORRECT ANSWER:** Add lifecycle hooks to the Auto Scaling group
+**No: YOUR ANSWER:** Customize the termination policy to copy data before termination  
+**CORRECT ANSWER:** Add lifecycle hooks to the Auto Scaling group
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 
 **Lifecycle Hook Flow:**
 ```
@@ -269,35 +269,35 @@ Complete lifecycle action
 Instance terminates
 ```
 
-**⚠️ WRONG APPROACHES:**
+**WRONG APPROACHES:**
 - **Cooldown period**: Controls time between scale actions (not pre-termination)
 - **Termination policy**: Chooses WHICH instance (not HOW to terminate)
 - **Suspend Terminate**: Blocks ALL scale-in (breaks elasticity)
 
-**💡 USE CASES:**
+**USE CASES:**
 - Copy logs to S3
 - Drain connections
 - Snapshot volumes
 - Deregister from external services
 
-**🔗 Reference:** [Lifecycle Hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks-overview.html)
+**Reference:** [Lifecycle Hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks-overview.html)
 
 ---
 
 ### Question 36: CloudFormation Drift Detection
 
-**❓ QUESTION:**  
+**QUESTION:**
 Why aren't some property changes detected as drift?
 
-**❌ YOUR ANSWER:** Grant additional Read permissions to drift detection  
-**✅ CORRECT ANSWER:** Explicitly set property values (even if defaults) in template
+**No: YOUR ANSWER:** Grant additional Read permissions to drift detection  
+**CORRECT ANSWER:** Explicitly set property values (even if defaults) in template
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 - Drift detection compares **declared** properties vs **actual** resources
 - **Implicit defaults** are not tracked
 - Must explicitly define values to monitor them
 
-**❌ BEFORE (Won't detect drift):**
+**BEFORE (Won't detect drift):**
 ```yaml
 MyInstance:
   Type: AWS::EC2::Instance
@@ -307,7 +307,7 @@ MyInstance:
     # Monitoring: defaults to false (not tracked)
 ```
 
-**✅ AFTER (Will detect drift):**
+**AFTER (Will detect drift):**
 ```yaml
 MyInstance:
   Type: AWS::EC2::Instance
@@ -317,30 +317,30 @@ MyInstance:
     Monitoring: false  # Now explicitly tracked
 ```
 
-**💡 BEST PRACTICE:** Explicitly declare ALL properties you want monitored
+**BEST PRACTICE:** Explicitly declare ALL properties you want monitored
 
-**🔗 Reference:** [Drift Detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html)
+**Reference:** [Drift Detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html)
 
 ---
 
 ### Question 48: ALB Access Logs for Client IPs
 
-**❓ QUESTION:**  
+**QUESTION:**
 How to identify actual client IPs and request details for forensics?
 
-**❌ YOUR ANSWER:** AWS CloudTrail data events for the ALB  
-**✅ CORRECT ANSWER:** ALB access logs to Amazon S3
+**No: YOUR ANSWER:** AWS CloudTrail data events for the ALB  
+**CORRECT ANSWER:** ALB access logs to Amazon S3
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 
 | Log Type | Captures | Client IP? | URL Path? | User Agent? |
 |----------|---------|------------|-----------|-------------|
-| **ALB Access Logs** | HTTP requests | ✅ Yes | ✅ Yes | ✅ Yes |
-| **VPC Flow Logs** | Network flows | ✅ Yes | ❌ No | ❌ No |
-| **CloudWatch Metrics** | Aggregated stats | ❌ No | ❌ No | ❌ No |
-| **CloudTrail** | API calls | ❌ No | ❌ No | ❌ No |
+| **ALB Access Logs** | HTTP requests | Yes | Yes | Yes |
+| **VPC Flow Logs** | Network flows | Yes | No | No |
+| **CloudWatch Metrics** | Aggregated stats | No | No | No |
+| **CloudTrail** | API calls | No | No | No |
 
-**✅ ALB ACCESS LOG FIELDS:**
+**ALB ACCESS LOG FIELDS:**
 - Client IP (x-forwarded-for)
 - Request URL and method
 - User agent
@@ -348,26 +348,26 @@ How to identify actual client IPs and request details for forensics?
 - Processing times
 - Backend target
 
-**💡 ANALYSIS:** Query logs with Amazon Athena for forensics
+**ANALYSIS:** Query logs with Amazon Athena for forensics
 
-**🔗 Reference:** [ALB Access Logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html)
+**Reference:** [ALB Access Logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html)
 
 ---
 
 ### Question 56: EBS Snapshot Cross-Region Copy
 
-**❓ QUESTION:**  
+**QUESTION:**
 How to maintain snapshot copy in another region for compliance?
 
-**❌ YOUR ANSWER:** Enable S3 Cross-Region Replication on the snapshot storage bucket  
-**✅ CORRECT ANSWER:** Copy the EBS snapshot from us-east-1 to ap-south-1
+**No: YOUR ANSWER:** Enable S3 Cross-Region Replication on the snapshot storage bucket  
+**CORRECT ANSWER:** Copy the EBS snapshot from us-east-1 to ap-south-1
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 - EBS snapshots are **Regional resources**
 - Use native **snapshot copy** feature
 - Can re-encrypt during copy (with different CMK)
 
-**✅ CORRECT PROCESS:**
+**CORRECT PROCESS:**
 ```
 1. Select snapshot in source region
 2. Actions → Copy
@@ -376,26 +376,26 @@ How to maintain snapshot copy in another region for compliance?
 5. Copy completes → Independent snapshot in new region
 ```
 
-**❌ WRONG APPROACHES:**
+**WRONG APPROACHES:**
 - S3 CRR: Snapshot storage is AWS-managed (can't configure)
 - Direct creation: Can't snapshot into different region
 - Launch & re-snapshot: Costly and unnecessary
 
-**💡 AUTOMATION:** Use AWS Backup or Lambda + EventBridge
+**AUTOMATION:** Use AWS Backup or Lambda + EventBridge
 
-**🔗 Reference:** [Copy Snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html)
+**Reference:** [Copy Snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html)
 
 ---
 
 ### Question 58: S3 Versioning Delete Marker Recovery
 
-**❓ QUESTION:**  
+**QUESTION:**
 How to recover accidentally deleted object in versioned bucket?
 
-**❌ YOUR ANSWER:** In a version-enabled bucket, a Delete request only hides the latest version  
-**✅ CORRECT ANSWER:** Delete the delete marker that was applied to the object
+**No: YOUR ANSWER:** In a version-enabled bucket, a Delete request only hides the latest version  
+**CORRECT ANSWER:** Delete the delete marker that was applied to the object
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 
 **What Happens on Delete:**
 ```
@@ -413,23 +413,23 @@ Object.pdf (delete marker) ← Makes object appear gone
 4. Object becomes visible again
 ```
 
-**⚠️ CONFUSION:** "Restore" option is for Glacier, not versioning
+**CONFUSION:** "Restore" option is for Glacier, not versioning
 
-**💡 PREVENTION:** Enable MFA Delete for protection
+**PREVENTION:** Enable MFA Delete for protection
 
-**🔗 Reference:** [Versioning Delete](https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectVersions.html)
+**Reference:** [Versioning Delete](https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectVersions.html)
 
 ---
 
 ### Question 38: VPC NACLs with Transit Gateway
 
-**❓ QUESTION:**  
+**QUESTION:**
 How are NACL rules evaluated for traffic between instances and TGW in different subnets?
 
-**❌ YOUR ANSWER:** When instances and TGW are in different subnets, only inbound rules are evaluated  
-**✅ CORRECT ANSWER:** Outbound rules use destination IP; inbound rules use source IP
+**No: YOUR ANSWER:** When instances and TGW are in different subnets, only inbound rules are evaluated  
+**CORRECT ANSWER:** Outbound rules use destination IP; inbound rules use source IP
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 
 **NACLs are STATELESS** - Must check both directions:
 
@@ -441,7 +441,7 @@ How are NACL rules evaluated for traffic between instances and TGW in different 
 - **Outbound NACL** of TGW subnet: Checks destination (instance subnet)
 - **Inbound NACL** of instance subnet: Checks source (TGW subnet)
 
-**✅ REQUIRED RULES:**
+**REQUIRED RULES:**
 ```
 Instance Subnet NACL:
 - Outbound: Allow to TGW subnet
@@ -452,31 +452,31 @@ TGW Subnet NACL:
 - Outbound: Allow to instance subnet
 ```
 
-**💡 KEY CONCEPT:** Stateless = explicit allow in BOTH directions
+**KEY CONCEPT:** Stateless = explicit allow in BOTH directions
 
-**🔗 Reference:** [TGW NACLs](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-nacls.html)
+**Reference:** [TGW NACLs](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-nacls.html)
 
 ---
 
 ### Question 45: Session Storage Services
 
-**❓ QUESTION:**  
+**QUESTION:**
 Which services are most appropriate for scalable session storage?
 
-**❌ YOUR ANSWER:** Elastic Load Balancing + Amazon ElastiCache  
-**✅ CORRECT ANSWER:** Amazon DynamoDB + Amazon ElastiCache
+**No: YOUR ANSWER:** Elastic Load Balancing + Amazon ElastiCache  
+**CORRECT ANSWER:** Amazon DynamoDB + Amazon ElastiCache
 
-**📖 EXPLANATION:**
+**EXPLANATION:**
 
 | Service | Purpose | Session Storage? |
 |---------|---------|-----------------|
-| **DynamoDB** | Persistent NoSQL | ✅ Excellent (TTL, auto-scale) |
-| **ElastiCache** | In-memory cache | ✅ Excellent (microsecond latency) |
-| **ELB** | Load balancing | ❌ No (routing only) |
-| **CloudWatch** | Monitoring | ❌ No |
-| **Storage Gateway** | Hybrid storage | ❌ No |
+| **DynamoDB** | Persistent NoSQL | Excellent (TTL, auto-scale) |
+| **ElastiCache** | In-memory cache | Excellent (microsecond latency) |
+| **ELB** | Load balancing | No (routing only) |
+| **CloudWatch** | Monitoring | No |
+| **Storage Gateway** | Hybrid storage | No |
 
-**💡 SESSION PATTERN:**
+**SESSION PATTERN:**
 ```
 User Request
     ↓
@@ -492,23 +492,23 @@ Return session data
 - **DynamoDB**: Durable storage + TTL for expiration
 - **Together**: Speed + reliability
 
-**🔗 Reference:** [Session Management](https://aws.amazon.com/caching/session-management/)
+**Reference:** [Session Management](https://aws.amazon.com/caching/session-management/)
 
 ---
 
-## 📝 Practice Questions - Incorrect Areas Only
+## Practice Questions - Incorrect Areas Only
 
 ### Question 1: EC2 Memory-Based Auto Scaling
 
 A web application experiences memory pressure during peak times. The solutions architect wants to configure Auto Scaling to add instances when average memory utilization exceeds 75%. What is required?
 
 **A.** Configure a target tracking policy on the ASGAverageMemoryUtilization predefined metric  
-**B.** Install CloudWatch agent, publish custom memory metric, create target tracking policy on custom metric ✅  
+**B.** Install CloudWatch agent, publish custom memory metric, create target tracking policy on custom metric (correct)
 **C.** Use step scaling with CPU utilization as a proxy for memory usage  
 **D.** Enable detailed monitoring on EC2 instances to expose memory metrics
 
 <details>
-<summary>📖 Explanation</summary>
+<summary> Explanation</summary>
 
 **Correct Answer: B**
 
@@ -536,12 +536,12 @@ A web application experiences memory pressure during peak times. The solutions a
 A company's Redshift cluster has automated snapshots with 7-day retention and several manual snapshots from past migrations. Snapshot storage costs have increased significantly. What is the FIRST action to reduce costs?
 
 **A.** Reduce automated snapshot retention to 1 day  
-**B.** Delete unnecessary manual snapshots ✅  
+**B.** Delete unnecessary manual snapshots (correct)
 **C.** Enable snapshot compression  
 **D.** Move snapshots to S3 Glacier
 
 <details>
-<summary>📖 Explanation</summary>
+<summary> Explanation</summary>
 
 **Correct Answer: B**
 
@@ -576,13 +576,13 @@ Manual snapshots (50 old): $X/snapshot × 50 = $50X
 
 An application archives logs to S3 Glacier Flexible Retrieval. For compliance, logs must be retrievable within 4 hours. The team currently uses Expedited retrieval. How can they reduce costs?
 
-**A.** Switch to Standard retrieval ✅  
+**A.** Switch to Standard retrieval (correct)
 **B.** Use Bulk retrieval with parallel requests  
 **C.** Keep Expedited but reduce request frequency  
 **D.** Move to S3 Glacier Instant Retrieval
 
 <details>
-<summary>📖 Explanation</summary>
+<summary> Explanation</summary>
 
 **Correct Answer: A**
 
@@ -620,12 +620,12 @@ Savings: ~66% on retrieval costs
 A three-tier application has web servers in public subnets and app servers in private subnets. App servers must only accept traffic from web servers on port 8080. Both tiers scale with Auto Scaling. What is the MOST maintainable solution?
 
 **A.** Configure app server SG to allow port 8080 from the public subnet CIDR  
-**B.** Configure app server SG to allow port 8080 from web server SG ID ✅  
+**B.** Configure app server SG to allow port 8080 from web server SG ID (correct)
 **C.** Use Network ACLs to restrict port 8080 access  
 **D.** Assign Elastic IPs to web servers and whitelist them
 
 <details>
-<summary>📖 Explanation</summary>
+<summary> Explanation</summary>
 
 **Correct Answer: B**
 
@@ -639,10 +639,10 @@ Inbound Rule:
 ```
 
 **Why SG-to-SG References:**
-- ✅ Automatically adjusts as instances scale
-- ✅ Works regardless of IP addresses
-- ✅ No need to update rules when instances change
-- ✅ Tightly couples access to SG membership
+- Automatically adjusts as instances scale
+- Works regardless of IP addresses
+- No need to update rules when instances change
+- Tightly couples access to SG membership
 
 **Why Not Others:**
 - **A:** Allows ANY instance in public subnet (not just web servers)
@@ -666,11 +666,11 @@ What is the MOST cost-effective commitment strategy?
 
 **A.** Compute Savings Plans for all workloads  
 **B.** EC2 Instance Savings Plans for all workloads  
-**C.** Compute SP (web) + EC2 Instance SP (app) + RDS RI (DB) ✅  
+**C.** Compute SP (web) + EC2 Instance SP (app) + RDS RI (DB) (correct)
 **D.** EC2 Instance SP (all EC2) + Compute SP (RDS)
 
 <details>
-<summary>📖 Explanation</summary>
+<summary> Explanation</summary>
 
 **Correct Answer: C**
 
@@ -718,11 +718,11 @@ An e-commerce application uses Auto Scaling (min=2, max=15). The architect wants
 
 **A.** 100% Spot instances (lowest cost)  
 **B.** 100% On-Demand instances (highest reliability)  
-**C.** On-Demand base=2, above that 80% Spot / 20% On-Demand ✅  
+**C.** On-Demand base=2, above that 80% Spot / 20% On-Demand (correct)
 **D.** On-Demand base=0, 50% Spot / 50% On-Demand
 
 <details>
-<summary>📖 Explanation</summary>
+<summary> Explanation</summary>
 
 **Correct Answer: C**
 
@@ -747,10 +747,10 @@ Mixed (4 OD + 6 Spot): $400 OD + $180 Spot = $580 (42% savings)
 ```
 
 **Why This Works:**
-- ✅ Guarantees 2 instances always available (On-Demand base)
-- ✅ Achieves significant cost savings with Spot
-- ✅ Maintains reliability buffer with 20% On-Demand in burst
-- ✅ Can handle Spot interruptions gracefully
+- Guarantees 2 instances always available (On-Demand base)
+- Achieves significant cost savings with Spot
+- Maintains reliability buffer with 20% On-Demand in burst
+- Can handle Spot interruptions gracefully
 
 **Why Not Others:**
 - **A:** Spot interruptions can affect entire fleet (no baseline protection)
@@ -766,7 +766,7 @@ Mixed (4 OD + 6 Spot): $400 OD + $180 Spot = $580 (42% savings)
 
 ---
 
-## 🎯 Study Action Plan
+## Study Action Plan
 
 ### Immediate Focus (Next 3 Days)
 
@@ -802,7 +802,7 @@ Mixed (4 OD + 6 Spot): $400 OD + $180 Spot = $580 (42% savings)
 
 ---
 
-## 📚 Additional Resources
+## Additional Resources
 
 ### AWS Documentation Links
 1. [EC2 Auto Scaling Policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html)

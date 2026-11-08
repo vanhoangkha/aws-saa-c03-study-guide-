@@ -1,10 +1,10 @@
 # Contributing to AWS Solutions Architect Study Guide
 
-First off, thank you for considering contributing to this project! 🎉
+First off, thank you for considering contributing to this project!
 
 This guide helps thousands of people prepare for their AWS certification. Your contribution, no matter how small, makes a difference.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
 - [How Can I Contribute?](#how-can-i-contribute)
@@ -15,7 +15,7 @@ This guide helps thousands of people prepare for their AWS certification. Your c
 
 ---
 
-## 📜 Code of Conduct
+## Code of Conduct
 
 ### Our Pledge
 
@@ -31,32 +31,32 @@ We are committed to making participation in this project a harassment-free exper
 
 **Examples of behavior that contributes to a positive environment:**
 
-- ✅ Using welcoming and inclusive language
-- ✅ Being respectful of differing viewpoints
-- ✅ Gracefully accepting constructive criticism
-- ✅ Focusing on what is best for the community
-- ✅ Showing empathy towards others
+- Using welcoming and inclusive language
+- Being respectful of differing viewpoints
+- Gracefully accepting constructive criticism
+- Focusing on what is best for the community
+- Showing empathy towards others
 
 **Examples of unacceptable behavior:**
 
-- ❌ Trolling, insulting/derogatory comments
-- ❌ Public or private harassment
-- ❌ Publishing others' private information
-- ❌ Other conduct which could reasonably be considered inappropriate
+- Trolling, insulting/derogatory comments
+- Public or private harassment
+- Publishing others' private information
+- Other conduct which could reasonably be considered inappropriate
 
 ---
 
-## 🤝 How Can I Contribute?
+## How Can I Contribute?
 
 ### 1. Reporting Issues
 
 Found a bug, error, or outdated information? [Open an issue](../../issues/new)!
 
 **Before submitting:**
-- ✓ Check if the issue already exists
-- ✓ Use a clear and descriptive title
-- ✓ Provide specific examples
-- ✓ Include module/section references
+- Check if the issue already exists
+- Use a clear and descriptive title
+- Provide specific examples
+- Include module/section references
 
 **Issue Template:**
 
@@ -83,29 +83,29 @@ Found a bug, error, or outdated information? [Open an issue](../../issues/new)!
 Have ideas to make this guide better? We'd love to hear them!
 
 **Good enhancement suggestions:**
-- ✓ Additional practice questions
-- ✓ More visual diagrams
-- ✓ New mnemonics or memory aids
-- ✓ Hands-on lab scripts
-- ✓ Real-world examples
-- ✓ Clarifications on complex topics
+- Additional practice questions
+- More visual diagrams
+- New mnemonics or memory aids
+- Hands-on lab scripts
+- Real-world examples
+- Clarifications on complex topics
 
 ### 3. Adding Content
 
 Want to contribute content? Here's what we need:
 
 **High Priority:**
-- ✍️ Practice questions with detailed explanations
-- 🎨 Architecture diagrams (ASCII or image)
-- 🧪 Hands-on lab scripts and walkthroughs
-- 📝 Real exam scenarios and solutions
-- 💡 Additional mnemonics and memory techniques
+- Practice questions with detailed explanations
+- Architecture diagrams (ASCII or image)
+- Hands-on lab scripts and walkthroughs
+- Real exam scenarios and solutions
+- Additional mnemonics and memory techniques
 
 **Medium Priority:**
-- 📊 Comparison tables
-- 🔍 Service deep-dives
-- ⚡ Quick tips and shortcuts
-- 🎯 Common pitfalls and mistakes
+- Comparison tables
+- Service deep-dives
+- Quick tips and shortcuts
+- Common pitfalls and mistakes
 
 ### 4. Improving Documentation
 
@@ -121,7 +121,7 @@ Interested in translating this guide to other languages? [Let us know](../../dis
 
 ---
 
-## 📝 Contribution Guidelines
+## Contribution Guidelines
 
 ### Getting Started
 
@@ -198,11 +198,11 @@ Interested in translating this guide to other languages? [Let us know](../../dis
 ### Pull Request Process
 
 1. **Ensure your PR:**
-   - ✓ Has a clear description
-   - ✓ References any related issues
-   - ✓ Follows the style guide
-   - ✓ Doesn't break existing content
-   - ✓ Adds value to the guide
+   - Has a clear description
+   - References any related issues
+   - Follows the style guide
+   - Doesn't break existing content
+   - Adds value to the guide
 
 2. **PR will be reviewed for:**
    - Accuracy of technical content
@@ -219,7 +219,7 @@ Interested in translating this guide to other languages? [Let us know](../../dis
 
 ---
 
-## 🎨 Style Guide
+## Style Guide
 
 ### Markdown Formatting
 
@@ -287,7 +287,7 @@ s3 = boto3.client('s3')
 - Explain why something is right/wrong
 
 **Exam Tips:**
-- Clearly marked with ✅ or 🎯
+- Clearly marked with or
 - Concise and actionable
 - Based on actual exam patterns
 
@@ -331,8 +331,8 @@ Each module should follow this structure:
 [Cost considerations]
 
 ### Exam Tips
-✅ [Tip 1]
-✅ [Tip 2]
+ [Tip 1]
+ [Tip 2]
 
 ---
 
@@ -350,7 +350,7 @@ Each module should follow this structure:
 
 ---
 
-## 💬 Commit Message Guidelines
+## Commit Message Guidelines
 
 ### Format
 
@@ -396,7 +396,7 @@ updated stuff
 
 ---
 
-## 🔍 Review Process
+## Review Process
 
 ### Timeline
 
@@ -407,29 +407,29 @@ updated stuff
 ### Review Criteria
 
 **Technical Accuracy:**
-- ✓ Information is correct and current
-- ✓ Aligned with AWS best practices
-- ✓ References official AWS documentation
+- Information is correct and current
+- Aligned with AWS best practices
+- References official AWS documentation
 
 **Exam Relevance:**
-- ✓ Directly relevant to SAA-C03 exam
-- ✓ Focuses on testable knowledge
-- ✓ Includes practical applications
+- Directly relevant to SAA-C03 exam
+- Focuses on testable knowledge
+- Includes practical applications
 
 **Quality:**
-- ✓ Well-written and clear
-- ✓ Free of typos and errors
-- ✓ Properly formatted
-- ✓ Follows style guide
+- Well-written and clear
+- Free of typos and errors
+- Properly formatted
+- Follows style guide
 
 **Value:**
-- ✓ Adds new information
-- ✓ Improves existing content
-- ✓ Helps learners understand better
+- Adds new information
+- Improves existing content
+- Helps learners understand better
 
 ---
 
-## 🎯 Content Priorities
+## Content Priorities
 
 ### High Priority Contributions
 
@@ -469,34 +469,34 @@ updated stuff
 
 ---
 
-## 🏆 Recognition
+## Recognition
 
 Contributors will be:
 
-- ✨ Listed in [CONTRIBUTORS.md](CONTRIBUTORS.md)
-- 🎖️ Credited in release notes
-- 🙏 Acknowledged in the main README
-- ⭐ Given public thanks for significant contributions
+- Listed in [CONTRIBUTORS.md](CONTRIBUTORS.md)
+- Credited in release notes
+- Acknowledged in the main README
+- Given public thanks for significant contributions
 
 ---
 
-## 📧 Getting Help
+## Getting Help
 
 Need help contributing?
 
-- 💬 [Start a Discussion](../../discussions)
-- 📖 [Read the Documentation](README.md)
-- 🐛 [Report an Issue](../../issues)
+- [Start a Discussion](../../discussions)
+- [Read the Documentation](README.md)
+- [Report an Issue](../../issues)
 
 ---
 
-## 📜 License
+## License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
 
 ---
 
-## 🙏 Thank You!
+## Thank You!
 
 Every contribution helps make this guide better for everyone. Whether you:
 
@@ -505,7 +505,7 @@ Every contribution helps make this guide better for everyone. Whether you:
 - Improved an explanation
 - Shared feedback
 
-**Thank you for being part of this community!** 🎉
+**Thank you for being part of this community!**
 
 ---
 
@@ -513,7 +513,7 @@ Every contribution helps make this guide better for everyone. Whether you:
 
 **[Start Contributing Now →](../../pulls)**
 
-Made with ❤️ by contributors like you
+Made with by contributors like you
 
 </div>
 

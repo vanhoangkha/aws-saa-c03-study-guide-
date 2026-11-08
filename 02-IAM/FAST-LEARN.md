@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - IAM (Identity & Access Management)
+# Fast Learning - IAM (Identity & Access Management)
 
 > **Time to Complete**: 45-60 minutes | **Exam Weight**: ~15-20%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### The IAM Trinity (UPGR)
 ```
@@ -19,7 +19,7 @@ People   Collections   Permissions   Services
 4. **Policies** = JSON documents defining permissions
 5. **Groups** = Organize users, apply policies
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### IAM Components at a Glance
 | Component | Who/What | Credentials | Best For |
@@ -38,7 +38,7 @@ People   Collections   Permissions   Services
 | **I**dentity-based | Users/Groups/Roles | Who can do what |
 | **R**esource-based | Resources (S3, etc) | Who can access this |
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. IAM Policy Structure (VESPARC)
 ```json
@@ -76,20 +76,20 @@ Account A                    Account B
 
 **Steps**: Create role in Account B → Add trust policy → User assumes role
 
-## 💡 Common Exam Scenarios
+## Common Exam Scenarios
 
 ### Scenario 1: Grant EC2 Access to S3
 **Question**: EC2 instance needs to access S3 bucket
-**❌ WRONG**: Store credentials on EC2
-**✅ CORRECT**: Create IAM role, attach to EC2 instance
+**WRONG**: Store credentials on EC2
+**CORRECT**: Create IAM role, attach to EC2 instance
 
 ### Scenario 2: Temporary Access for Third Party
 **Question**: External auditor needs temporary access
-**✅ CORRECT**: Use IAM role with trust policy, provide temporary credentials
+**CORRECT**: Use IAM role with trust policy, provide temporary credentials
 
 ### Scenario 3: Restrict by IP Address
 **Question**: Allow S3 access only from office IP
-**✅ CORRECT**: Use Condition with `aws:SourceIp`
+**CORRECT**: Use Condition with `aws:SourceIp`
 
 ```json
 "Condition": {
@@ -101,9 +101,9 @@ Account A                    Account B
 
 ### Scenario 4: MFA for Sensitive Operations
 **Question**: Require MFA to delete S3 objects
-**✅ CORRECT**: Use Condition with `aws:MultiFactorAuthPresent`
+**CORRECT**: Use Condition with `aws:MultiFactorAuthPresent`
 
-## 🎓 Speed Learning Tips
+## Speed Learning Tips
 
 ### 1-Minute Drill
 - **Users** = Long-term credentials
@@ -129,19 +129,19 @@ Account A                    Account B
    └── Access Key ID + Secret Access Key
 ```
 
-## 📝 Rapid-Fire Facts
+## Rapid-Fire Facts
 
 ### IAM Best Practices (Top 10)
-1. ✅ Enable MFA for root account
-2. ✅ Never use root for daily tasks
-3. ✅ Create individual IAM users
-4. ✅ Use groups to assign permissions
-5. ✅ Grant least privilege
-6. ✅ Use roles for EC2/Lambda
-7. ✅ Rotate credentials regularly
-8. ✅ Use strong password policy
-9. ✅ Monitor with CloudTrail
-10. ✅ Remove unnecessary credentials
+1. Enable MFA for root account
+2. Never use root for daily tasks
+3. Create individual IAM users
+4. Use groups to assign permissions
+5. Grant least privilege
+6. Use roles for EC2/Lambda
+7. Rotate credentials regularly
+8. Use strong password policy
+9. Monitor with CloudTrail
+10. Remove unnecessary credentials
 
 ### Important Limits
 - Max **5,000 users** per account
@@ -159,7 +159,7 @@ Account A                    Account B
 5. No ALLOW? → DENY
 ```
 
-## 🔐 Security Features Quick Guide
+## Security Features Quick Guide
 
 ### Password Policy Components
 - Minimum length
@@ -176,7 +176,7 @@ Account A                    Account B
 - Delete if not used
 - Use IAM roles instead when possible
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### The IAM Cheat Sheet
 1. **Users**: Permanent credentials, max 2 access keys
@@ -188,15 +188,15 @@ Account A                    Account B
 7. **Best Practice**: Least privilege always
 
 ### Common Mistakes to Avoid
-❌ Using root account for daily tasks
-❌ Embedding credentials in code
-❌ Creating access keys when role would work
-❌ Granting broad permissions (use least privilege)
-❌ Forgetting to rotate credentials
-❌ Not enabling MFA on privileged accounts
-❌ Thinking groups can contain groups (they can't!)
+ Using root account for daily tasks
+ Embedding credentials in code
+ Creating access keys when role would work
+ Granting broad permissions (use least privilege)
+ Forgetting to rotate credentials
+ Not enabling MFA on privileged accounts
+ Thinking groups can contain groups (they can't!)
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Policy Decision Questions** (Answers at bottom)
 
@@ -219,7 +219,7 @@ Account A                    Account B
 | `aws:SecureTransport` | Force HTTPS | Secure connections |
 | `aws:userid` | Specific user | User-specific access |
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~45-60 min
 - Practice: Write sample policies
 - Ready for: IAM practice questions

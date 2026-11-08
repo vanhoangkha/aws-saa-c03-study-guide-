@@ -1,6 +1,6 @@
 # Module 02: Identity and Access Management (IAM)
 
-## 📚 Overview
+## Overview
 
 AWS Identity and Access Management (IAM) is a critical service for securely controlling access to AWS resources. This module covers IAM users, groups, roles, policies, and security best practices essential for the SAA-C03 exam.
 
@@ -8,21 +8,21 @@ AWS Identity and Access Management (IAM) is a critical service for securely cont
 
 ---
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 By the end of this module, you will be able to:
 
-- ✅ Create and manage IAM users, groups, and roles
-- ✅ Write and apply IAM policies using JSON
-- ✅ Implement Multi-Factor Authentication (MFA)
-- ✅ Understand IAM best practices and security principles
-- ✅ Configure cross-account access
-- ✅ Implement identity federation
-- ✅ Use IAM roles for EC2 instances and services
+- Create and manage IAM users, groups, and roles
+- Write and apply IAM policies using JSON
+- Implement Multi-Factor Authentication (MFA)
+- Understand IAM best practices and security principles
+- Configure cross-account access
+- Implement identity federation
+- Use IAM roles for EC2 instances and services
 
 ---
 
-## 📖 Table of Contents
+## Table of Contents
 
 1. [IAM Overview](#1-iam-overview)
 2. [IAM Users](#2-iam-users)
@@ -32,8 +32,8 @@ By the end of this module, you will be able to:
 6. [Multi-Factor Authentication (MFA)](#6-multi-factor-authentication-mfa)
 7. [IAM Best Practices](#7-iam-best-practices)
 8. [Identity Federation](#8-identity-federation)
-9. [Exam Tips](#-exam-tips)
-10. [Practice Questions](#-practice-questions)
+9. [Exam Tips](#exam-tips)
+10. [Practice Questions](#practice-questions)
 
 ---
 
@@ -71,7 +71,7 @@ By the end of this module, you will be able to:
 - **Identity Federation**: Integrate with corporate directories
 - **Free**: No additional cost
 
-**Exam Tip**: 🎯 IAM is a global service - changes apply to all regions instantly.
+**Exam Tip**: IAM is a global service - changes apply to all regions instantly.
 
 ---
 
@@ -125,7 +125,7 @@ Default output format: json
 - Never embed in code or commit to version control
 - Use IAM roles instead when possible
 
-**Exam Tip**: 🎯 NEVER share access keys. Use roles for EC2 instead of embedding keys.
+**Exam Tip**: NEVER share access keys. Use roles for EC2 instead of embedding keys.
 
 ---
 
@@ -161,12 +161,12 @@ Organization Structure:
 
 ### 3.3 Best Practices
 
-- ✅ Assign permissions to groups, not individual users
-- ✅ Use descriptive group names (e.g., "S3-Admins", "EC2-ReadOnly")
-- ✅ Review group memberships regularly
-- ❌ Don't create groups for each individual user
+- Yes: Assign permissions to groups, not individual users
+- Use descriptive group names (e.g., "S3-Admins", "EC2-ReadOnly")
+- Yes: Review group memberships regularly
+- Don't create groups for each individual user
 
-**Exam Tip**: 🎯 Groups are for organizing users, not nesting other groups.
+**Exam Tip**: Groups are for organizing users, not nesting other groups.
 
 ---
 
@@ -247,7 +247,7 @@ Access AWS services securely
 
 **Best Practice**: Always use IAM roles for EC2 instead of embedding access keys.
 
-**Exam Tip**: 🎯 Roles provide temporary credentials. Perfect for EC2 and Lambda.
+**Exam Tip**: Roles provide temporary credentials. Perfect for EC2 and Lambda.
 
 ---
 
@@ -342,7 +342,7 @@ Decision Flow:
 4. If no explicit ALLOW → DENY (implicit)
 ```
 
-**Key Rule**: 🔴 **Explicit DENY always wins!**
+**Key Rule**: **Explicit DENY always wins!**
 
 ### 5.5 Policy Variables
 
@@ -362,7 +362,7 @@ Use variables for dynamic permissions:
 - `${aws:PrincipalAccount}` - Account ID
 - `${aws:CurrentTime}` - Current date/time
 
-**Exam Tip**: 🎯 Explicit DENY overrides all ALLOW statements.
+**Exam Tip**: Explicit DENY overrides all ALLOW statements.
 
 ---
 
@@ -394,9 +394,9 @@ Additional layer of security beyond password.
 ### 6.3 When to Use MFA
 
 **Required for:**
-- ✅ Root account (always!)
-- ✅ IAM users with administrative access
-- ✅ IAM users accessing sensitive data
+- Root account (always!)
+- IAM users with administrative access
+- IAM users accessing sensitive data
 
 **Best Practice:**
 - Enable MFA for all users with console access
@@ -413,7 +413,7 @@ aws sts get-session-token \
 # Returns temporary credentials valid for 12 hours
 ```
 
-**Exam Tip**: 🎯 Always enable MFA on root account. It's a critical security best practice.
+**Exam Tip**: Always enable MFA on root account. It's a critical security best practice.
 
 ---
 
@@ -471,7 +471,7 @@ aws sts get-session-token \
 
 ### 7.3 Principle of Least Privilege
 
-**Bad Example** ❌:
+**Bad Example** :
 ```json
 {
   "Effect": "Allow",
@@ -480,7 +480,7 @@ aws sts get-session-token \
 }
 ```
 
-**Good Example** ✅:
+**Good Example** :
 ```json
 {
   "Effect": "Allow",
@@ -492,7 +492,7 @@ aws sts get-session-token \
 }
 ```
 
-**Exam Tip**: 🎯 Least privilege = minimum permissions needed to do the job.
+**Exam Tip**: Least privilege = minimum permissions needed to do the job.
 
 ---
 
@@ -559,11 +559,11 @@ aws sts assume-role \
 - `GetSessionToken` - MFA authentication
 - `GetFederationToken` - For identity broker
 
-**Exam Tip**: 🎯 Federation = external identities accessing AWS. Always uses STS for temporary credentials.
+**Exam Tip**: Federation = external identities accessing AWS. Always uses STS for temporary credentials.
 
 ---
 
-## 🎯 Exam Tips
+## Exam Tips
 
 ### Must Know for Exam
 
@@ -624,7 +624,7 @@ aws sts assume-role \
 
 ---
 
-## 📝 Practice Questions
+## Practice Questions
 
 ### Question 1
 **An application running on an EC2 instance needs to access objects in an S3 bucket. What is the MOST secure way to grant access?**
@@ -724,7 +724,7 @@ D) Share the AWS account password
 
 ---
 
-## 🔗 Additional Resources
+## Additional Resources
 
 ### AWS Official Documentation
 - [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)
@@ -740,17 +740,17 @@ D) Share the AWS account password
 5. **Cross-Account Access**: Set up role assumption between two accounts
 
 ### Next Steps
-- ✅ Complete this module
-- ➡️ **Next**: [Module 03: Compute Services](../03-Compute/README.md)
-- ⬅️ **Previous**: [Module 01: AWS Fundamentals](../01-AWS-Fundamentals/README.md)
+- Complete this module
+- **Next**: [Module 03: Compute Services](../03-Compute/README.md)
+- **Previous**: [Module 01: AWS Fundamentals](../01-AWS-Fundamentals/README.md)
 
 ---
 
-**Module Progress**: 🎯 IAM Mastered  
+**Module Progress**: IAM Mastered
 **Estimated Study Time**: 6-8 hours  
-**Difficulty**: ⭐⭐ Intermediate
+**Difficulty**: 2/3 Intermediate
 
 ---
 
-[⬅️ Back to Main README](../README.md) | [Next Module: Compute ➡️](../03-Compute/README.md)
+[Back to Main README](../README.md) | [Next Module: Compute ](../03-Compute/README.md)
 

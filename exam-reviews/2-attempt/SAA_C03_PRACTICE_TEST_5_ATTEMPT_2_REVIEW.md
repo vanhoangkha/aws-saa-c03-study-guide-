@@ -3,7 +3,7 @@
 
 ---
 
-## 📊 Executive Summary
+## Executive Summary
 
 **Test Date:** March 5, 2026  
 **Attempt Number:** 2nd Attempt  
@@ -14,31 +14,31 @@
 
 ---
 
-## 🎯 Performance by Domain
+## Performance by Domain
 
 ### Domain 1: Design Resilient Architectures (21 questions)
-- **Score:** 18/21 (85.71%) ✅
+- **Score:** 18/21 (85.71%)
 - **Correct:** 18
 - **Incorrect:** 3
 - **Review Marked:** 1
 - **Status:** STRONG - Exceeds passing standard
 
 ### Domain 2: Design High-Performing Architectures (23 questions)
-- **Score:** 14/23 (60.87%) ❌
+- **Score:** 14/23 (60.87%)
 - **Correct:** 14
 - **Incorrect:** 9
 - **Review Marked:** 7
 - **Status:** CRITICAL - Major weakness
 
 ### Domain 3: Design Secure Architectures (18 questions)
-- **Score:** 12/18 (66.67%) ⚠️
+- **Score:** 12/18 (66.67%)
 - **Correct:** 12
 - **Incorrect:** 6
 - **Review Marked:** 4
 - **Status:** BELOW STANDARD - Needs improvement
 
 ### Domain 4: Design Cost-Optimized Architectures (3 questions)
-- **Score:** 3/3 (100%) ✅
+- **Score:** 3/3 (100%)
 - **Correct:** 3
 - **Incorrect:** 0
 - **Review Marked:** 0
@@ -46,7 +46,7 @@
 
 ---
 
-## 🚨 Critical Areas for Improvement
+## Critical Areas for Improvement
 
 ### Priority 1: Design High-Performing Architectures (39% failure rate)
 **Impact:** This domain accounts for 35% of the exam and you're scoring 15% below passing.
@@ -81,11 +81,11 @@
 
 ---
 
-## 📝 Detailed Question Analysis
+## Detailed Question Analysis
 
 ### INCORRECT ANSWERS - HIGH-PERFORMING ARCHITECTURES
 
-#### Question 8: ECS Deployment Location ❌
+#### Question 8: ECS Deployment Location
 **Your Answer:** A - ECS Fargate on AWS Outposts  
 **Correct Answer:** D - ECS EC2 launch type on AWS Outposts
 
@@ -97,11 +97,11 @@
 **Key Learning:**
 ```
 Outposts Deployment:
-├── ECS EC2 Launch Type ✅
+├── ECS EC2 Launch Type
 │   ├── Full control over instance types
 │   ├── Consistent CPU/RAM sizing
 │   └── Standard for Outposts
-└── ECS Fargate ❌
+└── ECS Fargate
     └── Limited/no Outposts support
 ```
 
@@ -112,7 +112,7 @@ Outposts Deployment:
 
 ---
 
-#### Question 16: IoT Static IP Architecture ❌
+#### Question 16: IoT Static IP Architecture
 **Your Answer:** A - Route 53 geolocation + PrivateLink  
 **Correct Answer:** B - Global Accelerator (2 anycast static IPs)
 
@@ -124,11 +124,11 @@ Outposts Deployment:
 **Key Learning:**
 ```
 Static IP Requirements:
-├── AWS Global Accelerator ✅
+├── AWS Global Accelerator
 │   ├── 2 anycast static IPv4 addresses
 │   ├── Traffic on AWS backbone
 │   └── Health-based routing
-└── Route 53 ❌
+└── Route 53
     ├── DNS-based (not static IPs)
     └── Client IP caching issues
 ```
@@ -137,7 +137,7 @@ Static IP Requirements:
 
 ---
 
-#### Question 19: S3 Performance Optimization (Multi-select) ❌
+#### Question 19: S3 Performance Optimization (Multi-select)
 **Your Answer:** B (correct) + C (wrong)  
 **Correct Answer:** B + D
 
@@ -152,14 +152,14 @@ Static IP Requirements:
 **Key Learning:**
 ```
 S3 Performance Optimization:
-├── Write Bottleneck (80%) ✅
+├── Write Bottleneck (80%)
 │   ├── Multipart Upload
 │   ├── Parallelization
 │   ├── Transfer Acceleration
 │   └── Well-designed prefixes
 └── LIST Bottleneck (20%)
-    ├── ❌ More LIST calls (makes worse)
-    └── ✅ Catalog index
+    ├── More LIST calls (makes worse)
+    └── Catalog index
         ├── DynamoDB table
         ├── S3 Inventory + Athena
         └── OpenSearch Service
@@ -167,7 +167,7 @@ S3 Performance Optimization:
 
 ---
 
-#### Question 24: CloudFront Custom Error Pages ❌
+#### Question 24: CloudFront Custom Error Pages
 **Your Answer:** D - Upload directly into CloudFront  
 **Correct Answer:** C - S3 + Custom Error Responses
 
@@ -189,7 +189,7 @@ CloudFront Error Handling:
 
 ---
 
-#### Question 26: Load Balancer Routing ❌
+#### Question 26: Load Balancer Routing
 **Your Answer:** C - ALB with path-based rules  
 **Correct Answer:** D - ALB with host-based routing rules
 
@@ -201,7 +201,7 @@ CloudFront Error Handling:
 **Key Learning:**
 ```
 ALB Routing Rules (Layer 7):
-├── Host-Based Routing ✅
+├── Host-Based Routing
 │   ├── Based on Host header
 │   ├── Example: api.example.com vs www.example.com
 │   └── Route to different target groups
@@ -212,7 +212,7 @@ ALB Routing Rules (Layer 7):
 
 ---
 
-#### Question 27: ECS Dynamic Port Mapping ❌
+#### Question 27: ECS Dynamic Port Mapping
 **Your Answer:** C - Network Load Balancer only  
 **Correct Answer:** A - Application Load Balancer OR Network Load Balancer
 
@@ -224,9 +224,9 @@ ALB Routing Rules (Layer 7):
 **Key Learning:**
 ```
 Dynamic Port Mapping Support:
-├── ✅ Application Load Balancer
-├── ✅ Network Load Balancer
-└── ❌ Classic Load Balancer
+├── Application Load Balancer
+├── Network Load Balancer
+└── Classic Load Balancer
 
 Requirement: Multiple ECS tasks on single instance
 Solution: Host port = 0 (ephemeral port range)
@@ -234,7 +234,7 @@ Solution: Host port = 0 (ephemeral port range)
 
 ---
 
-#### Question 32: RDS Read-Heavy Scaling ❌
+#### Question 32: RDS Read-Heavy Scaling
 **Your Answer:** B - Configure Multi-AZ replicas for read traffic  
 **Correct Answer:** A - Use Amazon ElastiCache
 
@@ -246,13 +246,13 @@ Solution: Host port = 0 (ephemeral port range)
 **Key Learning:**
 ```
 RDS Scaling Patterns:
-├── Multi-AZ ❌ for reads
+├── Multi-AZ for reads
 │   ├── Synchronous standby
 │   ├── Only for HA/failover
 │   └── NOT for read traffic
-├── Read Replicas ✅ for reads
+├── Read Replicas for reads
 │   └── Asynchronous replication
-└── ElastiCache ✅ BEST for read-heavy
+└── ElastiCache BEST for read-heavy
     ├── Sub-millisecond latency
     ├── Removes DB pressure
     └── Redis/Memcached
@@ -260,7 +260,7 @@ RDS Scaling Patterns:
 
 ---
 
-#### Question 50: EC2 Public IP Behavior ❌
+#### Question 50: EC2 Public IP Behavior
 **Your Answer:** D - EBS-backed instances can't be stopped  
 **Correct Answer:** C - Public IPv4 changed on restart
 
@@ -272,12 +272,12 @@ RDS Scaling Patterns:
 **Key Learning:**
 ```
 EC2 Stop/Start Behavior:
-├── EBS-Backed Instances ✅
+├── EBS-Backed Instances
 │   ├── CAN be stopped and started
 │   ├── Private IP: PRESERVED
 │   ├── Public IP: CHANGES (unless EIP)
 │   └── Issue: SSH configs have old IP
-└── Instance-Store Backed ❌
+└── Instance-Store Backed
     └── CANNOT be stopped (only terminated)
 
 Solution: Use Elastic IP for persistent public IP
@@ -285,7 +285,7 @@ Solution: Use Elastic IP for persistent public IP
 
 ---
 
-#### Question 64: Auto Scaling AZ Rebalancing ❌
+#### Question 64: Auto Scaling AZ Rebalancing
 **Your Answer:** B - Step scaling + predictive scaling  
 **Correct Answer:** C - Target tracking + AZ capacity rebalancing
 
@@ -297,11 +297,11 @@ Solution: Use Elastic IP for persistent public IP
 **Key Learning:**
 ```
 Auto Scaling Strategies:
-├── Simple Scaling ❌
+├── Simple Scaling
 │   └── Fixed steps, can oscillate
-├── Step Scaling ❌
+├── Step Scaling
 │   └── Multiple steps, still reactive
-├── Target Tracking ✅
+├── Target Tracking
 │   ├── Converges to metric target
 │   ├── + AZ Rebalancing
 │   └── Removes hot spots automatically
@@ -313,7 +313,7 @@ Auto Scaling Strategies:
 
 ### INCORRECT ANSWERS - SECURE ARCHITECTURES
 
-#### Question 7: ECS Task-Level Security ❌
+#### Question 7: ECS Task-Level Security
 **Your Answer:** D - Bridge networking mode  
 **Correct Answer:** C - awsvpc networking mode
 
@@ -325,13 +325,13 @@ Auto Scaling Strategies:
 **Key Learning:**
 ```
 ECS Networking Modes (EC2 Launch Type):
-├── Host ❌
+├── Host
 │   └── Shares instance network namespace
-├── Bridge ❌
+├── Bridge
 │   ├── Docker bridge
 │   ├── NATed ports
 │   └── No per-task SGs
-└── awsvpc ✅
+└── awsvpc
     ├── Each task gets own ENI
     ├── Task-level security groups
     ├── VPC flow log visibility
@@ -340,7 +340,7 @@ ECS Networking Modes (EC2 Launch Type):
 
 ---
 
-#### Question 11: S3 Bucket Access Control ❌
+#### Question 11: S3 Bucket Access Control
 **Your Answer:** B - Explicit deny for all users except listed  
 **Correct Answer:** C - Bucket policy allows specific role; HR assumes role
 
@@ -352,11 +352,11 @@ ECS Networking Modes (EC2 Launch Type):
 **Key Learning:**
 ```
 S3 Access Control Patterns:
-├── Explicit Deny Lists ❌
+├── Explicit Deny Lists
 │   ├── High maintenance
 │   ├── Brittle as users rotate
 │   └── Hard-coded user ARNs
-└── Role-Based Access ✅
+└── Role-Based Access
     ├── Policy allows specific role
     ├── HR users assume role
     ├── Can add MFA
@@ -365,7 +365,7 @@ S3 Access Control Patterns:
 
 ---
 
-#### Question 28: Secrets Manager Key Rotation ❌
+#### Question 28: Secrets Manager Key Rotation
 **Your Answer:** A - Use Parameter Store  
 **Correct Answer:** C - Customize rotation Lambda
 
@@ -381,7 +381,7 @@ Secrets Manager Rotation:
 │   ├── RDS/Aurora
 │   ├── DocumentDB
 │   └── Redshift
-└── Custom Rotation ✅
+└── Custom Rotation
     ├── Custom Lambda function
     ├── Create/validate/set new key
     ├── Update secret
@@ -390,7 +390,7 @@ Secrets Manager Rotation:
 
 ---
 
-#### Question 32: Organization Monitoring ❌
+#### Question 32: Organization Monitoring
 **Your Answer:** B - AWS Config Resources  
 **Correct Answer:** C - AWS CloudTrail
 
@@ -402,12 +402,12 @@ Secrets Manager Rotation:
 **Key Learning:**
 ```
 AWS Monitoring Services:
-├── CloudTrail ✅
+├── CloudTrail
 │   ├── API call logging
 │   ├── Management events
 │   ├── Organization-level trails
 │   └── Admin activity tracking
-└── Config ❌
+└── Config
     ├── Configuration state
     ├── Compliance rules
     └── Not for API activity
@@ -415,7 +415,7 @@ AWS Monitoring Services:
 
 ---
 
-#### Question 47: Network Protection ❌
+#### Question 47: Network Protection
 **Your Answer:** A - Security Group inbound rules  
 **Correct Answer:** C - Network ACL inbound deny rules
 
@@ -427,11 +427,11 @@ AWS Monitoring Services:
 **Key Learning:**
 ```
 Network Security:
-├── Security Groups ❌
+├── Security Groups
 │   ├── Stateful
 │   ├── Allow rules only
 │   └── Instance-level
-└── Network ACLs ✅
+└── Network ACLs
     ├── Stateless
     ├── Allow AND Deny rules
     ├── Subnet-level
@@ -440,7 +440,7 @@ Network Security:
 
 ---
 
-#### Question 61: Storage Gateway Selection ❌
+#### Question 61: Storage Gateway Selection
 **Your Answer:** D - Tape Gateway  
 **Correct Answer:** C - File Gateway
 
@@ -452,15 +452,15 @@ Network Security:
 **Key Learning:**
 ```
 Storage Gateway Types:
-├── File Gateway ✅
+├── File Gateway
 │   ├── SMB/NFS share on-prem
 │   ├── Data stored as S3 objects
 │   ├── Admin can access via S3 console
 │   └── Native S3 object access
-├── Volume Gateway (Cached/Stored) ❌
+├── Volume Gateway (Cached/Stored)
 │   ├── iSCSI block storage
 │   └── Data NOT as browsable S3 objects
-└── Tape Gateway ❌
+└── Tape Gateway
     ├── VTL emulation
     └── For backup workflows
 ```
@@ -469,36 +469,36 @@ Storage Gateway Types:
 
 ### REVIEW MARKED QUESTIONS (Got Correct but Flagged)
 
-#### Question 10: S3 CORS Configuration ✅ (Marked for review)
+#### Question 10: S3 CORS Configuration (Marked for review)
 - Correctly answered but had uncertainty
 - Review: CORS Access-Control-Request-Method = GET (JSON format)
 
-#### Question 12: Redshift Monitoring ✅ (Marked for review)
+#### Question 12: Redshift Monitoring (Marked for review)
 - Correctly answered
 - Affirm: Redshift console provides query monitoring, not CloudWatch alone
 
-#### Question 13: ALB Internet Gateway Routing ✅ (Marked for review)
+#### Question 13: ALB Internet Gateway Routing (Marked for review)
 - Correctly answered
 - Key: Internet-facing ALB needs route to IGW in subnet route table
 
-#### Question 16: Global Accelerator ❌ (Marked for review - AND got wrong)
+#### Question 16: Global Accelerator (Marked for review - AND got wrong)
 - Already covered above in Priority 1
 
-#### Question 22: Cluster Placement Groups ✅ (Marked for review)
+#### Question 22: Cluster Placement Groups (Marked for review)
 - Correctly answered
 - Key: Cluster PG in single AZ, can move instances between groups (not merge)
 
-#### Question 23: Kinesis Video Streams ✅ (Marked for review)
+#### Question 23: Kinesis Video Streams (Marked for review)
 - Correctly answered
 - Use case: Real-time surveillance camera footage ingestion
 
-#### Question 34: CloudHSM Backup Keys ✅ (Marked for review)
+#### Question 34: CloudHSM Backup Keys (Marked for review)
 - Correctly answered
 - EBK encrypts data, PBK encrypts EBK, stored in S3 same region
 
 ---
 
-## 🎓 Study Recommendations
+## Study Recommendations
 
 ### Week 1: High-Performing Architectures Deep Dive
 **Focus:** Close the 39% failure rate gap
@@ -593,7 +593,7 @@ Storage Gateway Types:
 
 ---
 
-## 🧪 Practice Labs Needed
+## Practice Labs Needed
 
 ### High Priority Labs
 
@@ -653,7 +653,7 @@ Storage Gateway Types:
 
 ---
 
-## 📊 Statistical Analysis
+## Statistical Analysis
 
 ### Question Difficulty Analysis
 ```
@@ -693,32 +693,32 @@ Of marked questions:
 
 ---
 
-## 🎯 Next Steps Action Plan
+## Next Steps Action Plan
 
 ### Immediate (This Week)
-1. ✅ Review all 18 incorrect answers in detail
-2. ✅ Complete 5 high-priority labs listed above
-3. ✅ Create flashcards for missed concepts
-4. ✅ Re-watch videos on ECS, Load Balancing, S3 performance
+1. Review all 18 incorrect answers in detail
+2. Complete 5 high-priority labs listed above
+3. Create flashcards for missed concepts
+4. Re-watch videos on ECS, Load Balancing, S3 performance
 
 ### Short Term (Weeks 2-3)
-1. ✅ Complete Week 1-3 study plan
-2. ✅ Take section quizzes on weak domains
-3. ✅ Build mind maps for architecture decision trees
-4. ✅ Join study group/forum discussions on weak topics
+1. Complete Week 1-3 study plan
+2. Take section quizzes on weak domains
+3. Build mind maps for architecture decision trees
+4. Join study group/forum discussions on weak topics
 
 ### Before Next Attempt
-1. ✅ Score 80%+ on Domain 2 section quiz
-2. ✅ Score 75%+ on Domain 3 section quiz
-3. ✅ Complete all recommended labs
-4. ✅ Review AWS whitepapers:
+1. Score 80%+ on Domain 2 section quiz
+2. Score 75%+ on Domain 3 section quiz
+3. Complete all recommended labs
+4. Review AWS whitepapers:
    - Performance Efficiency Pillar
    - Security Pillar
    - High-Performance Computing Lens
 
 ---
 
-## 📚 Key Resources
+## Key Resources
 
 ### AWS Documentation
 - [ECS Networking Modes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
@@ -741,7 +741,7 @@ Of marked questions:
 
 ---
 
-## 💪 Motivation
+## Motivation
 
 **Progress from Attempt 1 to 2:** 
 - If this was your first attempt at 72%, you're close!
@@ -750,10 +750,10 @@ Of marked questions:
 - With targeted study, you can pass in 2-3 weeks
 
 **Your Strengths:**
-- ✅ Perfect score in Cost Optimization
-- ✅ Strong Resilient Architectures (86%)
-- ✅ Good test-taking pace
-- ✅ Marking questions for review (good self-awareness)
+- Perfect score in Cost Optimization
+- Strong Resilient Architectures (86%)
+- Good test-taking pace
+- Marking questions for review (good self-awareness)
 
 **Remember:**
 - Most candidates need 2-3 attempts
@@ -766,5 +766,5 @@ Of marked questions:
 **Next Exam Date Target:** 3-4 weeks from now  
 **Realistic Pass Probability:** 85% with recommended study plan
 
-Good luck! 🚀
+Good luck!
 

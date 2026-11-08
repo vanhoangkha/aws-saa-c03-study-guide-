@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - Architecture Patterns
+# Fast Learning - Architecture Patterns
 
 > **Time to Complete**: 60-75 minutes | **Exam Weight**: ~25-30%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### Architecture Pattern Selector (WMSEDCS)
 ```
@@ -32,7 +32,7 @@ SECURITY?                → Defense in depth (WAF > SG/NACL > IAM > KMS)
 4. Pick the MOST managed option that still meets the requirement
 ```
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### Six Pillars of the Well-Architected Framework
 | Pillar | Core Idea | Key Services |
@@ -73,7 +73,7 @@ SECURITY?                → Defense in depth (WAF > SG/NACL > IAM > KMS)
 | **EventBridge** | Event bus with rules | Many targets, filters | AWS / SaaS / custom events, automation |
 | **Kinesis** | Stream | Many consumers re-reading same data | Real-time, ordered per shard/partition |
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. Classic 3-Tier Architecture
 ```
@@ -265,45 +265,45 @@ PRINCIPLES:
 └── Automate response: EventBridge + Lambda
 ```
 
-## 💡 Common Exam Scenarios
+## Common Exam Scenarios
 
 ### Scenario 1: Global Static Website
 **Q**: Low-latency static site for worldwide users, minimal ops
-**✅ ANSWER**: S3 static hosting + CloudFront
+**ANSWER**: S3 static hosting + CloudFront
 
 ### Scenario 2: Unpredictable API Traffic
 **Q**: Spiky API traffic, pay only for usage, no servers
-**✅ ANSWER**: API Gateway + Lambda + DynamoDB
+**ANSWER**: API Gateway + Lambda + DynamoDB
 
 ### Scenario 3: Absorb Traffic Spikes
 **Q**: Web tier overwhelms the order-processing tier during sales
-**✅ ANSWER**: Put an SQS queue between tiers; Auto Scaling consumers scale on queue depth
+**ANSWER**: Put an SQS queue between tiers; Auto Scaling consumers scale on queue depth
 
 ### Scenario 4: Notify Many Systems
 **Q**: One order event must trigger billing, shipping and analytics independently
-**✅ ANSWER**: SNS topic fanning out to SQS queues (or Lambda) per consumer
+**ANSWER**: SNS topic fanning out to SQS queues (or Lambda) per consumer
 
 ### Scenario 5: Survive an AZ Outage
 **Q**: Web app must stay up if one Availability Zone fails
-**✅ ANSWER**: ALB + Auto Scaling group across 2+ AZs + RDS Multi-AZ
+**ANSWER**: ALB + Auto Scaling group across 2+ AZs + RDS Multi-AZ
 
 ### Scenario 6: Cheap DR
 **Q**: Non-critical app, DR must be as cheap as possible, hours of downtime OK
-**✅ ANSWER**: Backup and Restore (backups to S3, restore on demand)
+**ANSWER**: Backup and Restore (backups to S3, restore on demand)
 
 ### Scenario 7: Near-Zero Downtime DR
 **Q**: Mission-critical, RTO and RPO near zero
-**✅ ANSWER**: Multi-Site active-active (Route 53 + Aurora Global / DynamoDB Global Tables)
+**ANSWER**: Multi-Site active-active (Route 53 + Aurora Global / DynamoDB Global Tables)
 
 ### Scenario 8: DynamoDB Read Latency
 **Q**: Read-heavy DynamoDB table needs microsecond latency
-**✅ ANSWER**: DynamoDB Accelerator (DAX)
+**ANSWER**: DynamoDB Accelerator (DAX)
 
 ### Scenario 9: Cheap Overnight Batch
 **Q**: Fault-tolerant overnight data processing, minimize cost
-**✅ ANSWER**: Spot Instances (up to 90% savings), S3 storage, Step Functions for workflow
+**ANSWER**: Spot Instances (up to 90% savings), S3 storage, Step Functions for workflow
 
-## 🎓 Speed Learning Tips
+## Speed Learning Tips
 
 ### Decision Tree: Which Architecture?
 ```
@@ -346,7 +346,7 @@ RDS READ REPLICA:
 └── Can be cross-Region
 ```
 
-## 📝 Rapid-Fire Facts
+## Rapid-Fire Facts
 
 ### Well-Architected Design Principles
 ```
@@ -384,7 +384,7 @@ DAX latency:                microseconds
 | Video streaming | S3 + CloudFront + MediaConvert + Cognito | Signed URLs restrict access |
 | E-commerce | CloudFront/S3, API Gateway/Lambda, DynamoDB + RDS, OpenSearch, ElastiCache | Right DB per job |
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### The 6 Things to Remember
 ```
@@ -399,16 +399,16 @@ DAX latency:                microseconds
 ```
 
 ### Common Mistakes to Avoid
-❌ Choosing Multi-AZ when the question needs Multi-Region (or the reverse)
-❌ Using Read Replicas for high availability (that is Multi-AZ)
-❌ Picking Multi-Site DR when "cost-effective" is the requirement
-❌ Putting EC2 or databases in public subnets
-❌ Tightly coupling tiers instead of using a queue
-❌ Using ElastiCache when the question says DynamoDB and microsecond (DAX)
-❌ Running Lambda for jobs that exceed 15 minutes
-❌ Ignoring the words "least operational overhead" (choose managed/serverless)
+ Choosing Multi-AZ when the question needs Multi-Region (or the reverse)
+ Using Read Replicas for high availability (that is Multi-AZ)
+ Picking Multi-Site DR when "cost-effective" is the requirement
+ Putting EC2 or databases in public subnets
+ Tightly coupling tiers instead of using a queue
+ Using ElastiCache when the question says DynamoDB and microsecond (DAX)
+ Running Lambda for jobs that exceed 15 minutes
+ Ignoring the words "least operational overhead" (choose managed/serverless)
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Quick Questions** (Answers at bottom)
 
@@ -423,7 +423,7 @@ DAX latency:                microseconds
 9. Tool for service discovery between microservices? __
 10. Database offering < 1 second cross-Region replication lag? __
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~60-75 min
 - Practice: Sketch a 3-tier and a serverless design from memory, then label the DR ladder
 - Ready for: [Architecture Patterns practice questions](./PRACTICE-QUESTIONS.md)

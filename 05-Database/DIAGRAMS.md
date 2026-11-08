@@ -86,7 +86,7 @@ graph TB
     DNS -.Update.-> Standby
     Standby -.Promoted to.-> NewPrimary[New Primary]
     
-    Features["Features:<br/>✅ High Availability<br/>✅ Automatic failover<br/>✅ No manual intervention<br/>✅ Same DNS endpoint<br/>⚠️ Standby not for reads<br/>💰 ~2x cost"]
+    Features["Features:<br/>High Availability<br/>Automatic failover<br/>No manual intervention<br/>Same DNS endpoint<br/>Standby not for reads<br/>~2x cost"]
     
     classDef style1 fill:#569A31
     class Primary style1
@@ -136,7 +136,7 @@ graph TB
     
     Replica1 -.Can Promote to.-> Independent[Independent Database]
     
-    Features["Features:<br/>✅ Scale read workloads<br/>✅ Up to 15 read replicas<br/>✅ Cross-AZ, Cross-Region<br/>✅ Async replication<br/>✅ Can be promoted<br/>💰 Replication cost for cross-region"]
+    Features["Features:<br/>Scale read workloads<br/>Up to 15 read replicas<br/>Cross-AZ, Cross-Region<br/>Async replication<br/>Can be promoted<br/>Replication cost for cross-region"]
     
     classDef style1 fill:#569A31
     class Primary style1
@@ -219,7 +219,7 @@ graph TB
     
     Proxy -.Failover<br/>66% faster.-> Standby
     
-    Benefits["Benefits:<br/>✅ Connection pooling<br/>✅ 66% faster failover<br/>✅ Enforce IAM auth<br/>✅ Never publicly accessible<br/>✅ Reduce DB stress<br/>Use: Lambda, frequent connections"]
+    Benefits["Benefits:<br/>Connection pooling<br/>66% faster failover<br/>Enforce IAM auth<br/>Never publicly accessible<br/>Reduce DB stress<br/>Use: Lambda, frequent connections"]
     
     classDef style1 fill:#FF9900
     class Proxy style1
@@ -272,7 +272,7 @@ graph TB
     
     Writer -.Failover<br/>< 30 sec.-> R1
     
-    Features["Features:<br/>✅ 5x faster than MySQL<br/>✅ 3x faster than PostgreSQL<br/>✅ 15 read replicas<br/>✅ &lt; 30 sec failover<br/>✅ Auto-scaling storage<br/>✅ 6 copies of data"]
+    Features["Features:<br/>5x faster than MySQL<br/>3x faster than PostgreSQL<br/>15 read replicas<br/>&lt; 30 sec failover<br/>Auto-scaling storage<br/>6 copies of data"]
     
     classDef style1 fill:#569A31
     class Writer style1
@@ -331,7 +331,7 @@ graph TB
     
     SecondaryCluster -.Can Promote<br/>< 1 minute RTO.-> NewPrimary[New Primary Region]
     
-    UseCases["Use Cases:<br/>✅ Disaster Recovery (RPO &lt; 1 sec, RTO &lt; 1 min[<br/>✅ Global read scaling<br/>✅ Low latency for global users<br/>📊 Up to 10 secondary regions (2025)<br/>📊 16 read replicas total (secondary)"]
+    UseCases["Use Cases:<br/>Disaster Recovery (RPO &lt; 1 sec, RTO &lt; 1 min[<br/>Global read scaling<br/>Low latency for global users<br/>Up to 10 secondary regions (2025)<br/>16 read replicas total (secondary)"]
     
     classDef style1 fill:#569A31
     class PrimaryCluster style1
@@ -370,9 +370,9 @@ graph TB
     
     Scaling["Auto-scaling based on:<br/>• CPU utilization<br/>• Connections<br/>• Min/Max ACU settings"]
     
-    UseCases["Use Cases:<br/>✅ Infrequent workloads<br/>✅ Unpredictable workloads<br/>✅ Development/Test<br/>✅ Multi-tenant apps<br/>💰 Pay per second<br/>⏸️ Auto-pause when inactive"]
+    UseCases["Use Cases:<br/>Infrequent workloads<br/>Unpredictable workloads<br/>Development/Test<br/>Multi-tenant apps<br/>Pay per second<br/>Auto-pause when inactive"]
     
-    V1vsV2["Aurora Serverless v2:<br/>✅ Instant scaling (fraction of second)<br/>✅ Finer granularity (0.5 ACU)<br/>✅ More features supported"]
+    V1vsV2["Aurora Serverless v2:<br/>Instant scaling (fraction of second)<br/>Finer granularity (0.5 ACU)<br/>More features supported"]
     
     classDef style1 fill:#FF9900
     class Proxy style1
@@ -415,7 +415,7 @@ graph TB
     
     SDK --> API
     
-    Features["Features:<br/>✅ Fully managed NoSQL<br/>✅ Single-digit millisecond latency<br/>✅ Auto-scaling<br/>✅ Serverless<br/>✅ ACID transactions<br/>✅ Built-in security"]
+    Features["Features:<br/>Fully managed NoSQL<br/>Single-digit millisecond latency<br/>Auto-scaling<br/>Serverless<br/>ACID transactions<br/>Built-in security"]
     
     classDef style1 fill:#FF9900
     class API style1
@@ -429,19 +429,19 @@ graph TB
 graph TB
     DynamoDB[DynamoDB Table]
     
-    DynamoDB --> Provisioned["Provisioned Mode<br/>🎯 Predictable workloads"]
-    DynamoDB --> OnDemand["On-Demand Mode<br/>🔄 Unpredictable workloads"]
+    DynamoDB --> Provisioned["Provisioned Mode<br/>Predictable workloads"]
+    DynamoDB --> OnDemand["On-Demand Mode<br/>Unpredictable workloads"]
     
     subgraph Provisioned_Capacity_Group["Provisioned Capacity"]
         Provisioned --> RCU["Read Capacity Units RCU<br/>1 RCU = 1 strongly consistent read/sec<br/>1 RCU = 2 eventually consistent reads/sec<br/>For items up to 4 KB"]
         
         Provisioned --> WCU["Write Capacity Units WCU<br/>1 WCU = 1 write/sec<br/>For items up to 1 KB"]
         
-        Provisioned --> AutoScale["Auto Scaling<br/>✅ Set min/max capacity<br/>✅ Target utilization<br/>💰 Cost-effective"]
+        Provisioned --> AutoScale["Auto Scaling<br/>Set min/max capacity<br/>Target utilization<br/>Cost-effective"]
     end
     
     subgraph On_Demand_Capacity_Group["On-Demand Capacity"]
-        OnDemand --> PayPerRequest["Pay per Request<br/>💰 $1.25 per million write units<br/>💰 $0.25 per million read units<br/>✅ No capacity planning<br/>⚡ Instant scaling"]
+        OnDemand --> PayPerRequest["Pay per Request<br/>$1.25 per million write units<br/>$0.25 per million read units<br/>No capacity planning<br/>Instant scaling"]
         
         OnDemand --> UseCase["Use Cases:<br/>• New tables<br/>• Unpredictable workloads<br/>• Spiky traffic<br/>• Pay for what you use"]
     end
@@ -484,7 +484,7 @@ graph TB
     Table2 <-.Bi-directional<br/>Async Replication.-> Table3
     Table3 <-.Bi-directional<br/>Async Replication.-> Table1
     
-    Features["Features:<br/>✅ Multi-region, multi-active<br/>✅ Read/Write in any region<br/>✅ Sub-second replication<br/>✅ Last writer wins conflict resolution<br/>✅ Disaster recovery<br/>Requirement: DynamoDB Streams enabled"]
+    Features["Features:<br/>Multi-region, multi-active<br/>Read/Write in any region<br/>Sub-second replication<br/>Last writer wins conflict resolution<br/>Disaster recovery<br/>Requirement: DynamoDB Streams enabled"]
     
     classDef style1 fill:#569A31
     class Table1 style1
@@ -561,7 +561,7 @@ graph TB
     Node1 <-.Replication.-> Node2
     Node1 <-.Replication.-> Node3
     
-    Features["Features:<br/>✅ Microsecond read latency<br/>✅ No application changes needed<br/>✅ Compatible with DynamoDB API<br/>✅ Multi-AZ ([3 nodes minimum[<br/>⚠️ Not suitable for strongly consistent reads<br/>💰 Pay for cluster nodes"]
+    Features["Features:<br/>Microsecond read latency<br/>No application changes needed<br/>Compatible with DynamoDB API<br/>Multi-AZ ([3 nodes minimum[<br/>Not suitable for strongly consistent reads<br/>Pay for cluster nodes"]
     
     Comparison["DAX vs ElastiCache:<br/>• DAX: DynamoDB-specific, no code change<br/>• ElastiCache: General purpose, requires code changes"]
     
@@ -583,25 +583,25 @@ graph TB
     ElastiCache --> Memcached[ElastiCache for Memcached]
     
     subgraph Redis_Features_Group["Redis Features"]
-        Redis --> RedisF1["✅ Data Persistence"]
-        Redis --> RedisF2["✅ Backup & Restore"]
-        Redis --> RedisF3["✅ Multi-AZ with failover"]
-        Redis --> RedisF4["✅ Read Replicas"]
-        Redis --> RedisF5["✅ Data structures: sets, sorted sets, lists"]
-        Redis --> RedisF6["✅ Pub/Sub capability"]
-        Redis --> RedisF7["✅ Geospatial support"]
-        Redis --> RedisF8["✅ Transactions"]
-        Redis --> RedisF9["⚠️ Single-threaded"]
+        Redis --> RedisF1["Data Persistence"]
+        Redis --> RedisF2["Backup & Restore"]
+        Redis --> RedisF3["Multi-AZ with failover"]
+        Redis --> RedisF4["Read Replicas"]
+        Redis --> RedisF5["Data structures: sets, sorted sets, lists"]
+        Redis --> RedisF6["Pub/Sub capability"]
+        Redis --> RedisF7["Geospatial support"]
+        Redis --> RedisF8["Transactions"]
+        Redis --> RedisF9["Single-threaded"]
     end
     
     subgraph Memcached_Features_Group["Memcached Features"]
-        Memcached --> MemF1["✅ Multi-threaded"]
-        Memcached --> MemF2["✅ Horizontal scaling sharding"]
-        Memcached --> MemF3["✅ Simple data types"]
-        Memcached --> MemF4["❌ No persistence"]
-        Memcached --> MemF5["❌ No backup/restore"]
-        Memcached --> MemF6["❌ No replication"]
-        Memcached --> MemF7["❌ No Multi-AZ"]
+        Memcached --> MemF1["Multi-threaded"]
+        Memcached --> MemF2["Horizontal scaling sharding"]
+        Memcached --> MemF3["Simple data types"]
+        Memcached --> MemF4["No persistence"]
+        Memcached --> MemF5["No backup/restore"]
+        Memcached --> MemF6["No replication"]
+        Memcached --> MemF7["No Multi-AZ"]
     end
     
     subgraph Use_Cases_Group["Use Cases"]
@@ -645,9 +645,9 @@ graph TB
     App2 --> Shard2
     App2 --> Shard3
     
-    Features["Cluster Mode Disabled:<br/>✅ Single shard<br/>✅ Up to 5 replicas<br/>✅ Multi-AZ failover<br/>⚠️ All data in one shard"]
+    Features["Cluster Mode Disabled:<br/>Single shard<br/>Up to 5 replicas<br/>Multi-AZ failover<br/>All data in one shard"]
     
-    ClusterFeatures["Cluster Mode Enabled:<br/>✅ Data partitioned<br/>✅ Up to 500 nodes<br/>✅ Up to 250 shards<br/>✅ Better write scaling"]
+    ClusterFeatures["Cluster Mode Enabled:<br/>Data partitioned<br/>Up to 500 nodes<br/>Up to 250 shards<br/>Better write scaling"]
     
     classDef style1 fill:#C00
     class Primary style1
@@ -667,7 +667,7 @@ graph TB
         DB1 -->|4. Return Data| App1
         App1 -->|5. Write to Cache| Cache1
         
-        Lazy["Pros:<br/>✅ Only requested data cached<br/>✅ Node failures not fatal<br/>Cons:<br/>❌ Cache miss penalty<br/>❌ Stale data possible"]
+        Lazy["Pros:<br/>Only requested data cached<br/>Node failures not fatal<br/>Cons:<br/>Cache miss penalty<br/>Stale data possible"]
     end
     
     subgraph Write_Through_Group["Write-Through"]
@@ -676,7 +676,7 @@ graph TB
         Cache2 -->|2. Write to DB| DB2[(Database)]
         DB2 -->|3. Confirm| App2
         
-        WriteThrough["Pros:<br/>✅ Data never stale<br/>✅ Cache always updated<br/>Cons:<br/>❌ Write penalty<br/>❌ Missing data until added<br/>❌ Cache churn"]
+        WriteThrough["Pros:<br/>Data never stale<br/>Cache always updated<br/>Cons:<br/>Write penalty<br/>Missing data until added<br/>Cache churn"]
     end
     
     subgraph Cache_Invalidation_Group["Cache Invalidation"]
@@ -736,7 +736,7 @@ graph TB
     Node2 --> S3
     Node3 --> S3
     
-    Features["Features:<br/>✅ Columnar storage<br/>✅ Massively parallel processing<br/>✅ Petabyte scale<br/>✅ 10x faster than traditional databases<br/>💰 Cost-effective for analytics<br/>📊 OLAP workloads"]
+    Features["Features:<br/>Columnar storage<br/>Massively parallel processing<br/>Petabyte scale<br/>10x faster than traditional databases<br/>Cost-effective for analytics<br/>OLAP workloads"]
     
     classDef style1 fill:#FF9900
     class Leader style1
@@ -783,7 +783,7 @@ graph TB
     
     Join --> Result[Query Result]
     
-    Benefits["Benefits:<br/>✅ Query exabytes in S3<br/>✅ No loading/ETL required<br/>✅ Separate storage/compute<br/>✅ Auto-scaling<br/>💰 Pay per query<br/>Use: Historical data, data lake queries"]
+    Benefits["Benefits:<br/>Query exabytes in S3<br/>No loading/ETL required<br/>Separate storage/compute<br/>Auto-scaling<br/>Pay per query<br/>Use: Historical data, data lake queries"]
     
     classDef style1 fill:#FF9900
     class Spectrum style1
@@ -872,7 +872,7 @@ graph LR
     DMS --> DocumentDB
     DMS --> DynamoDBTarget
     
-    Features["DMS Features:<br/>✅ Minimal downtime<br/>✅ Continuous replication<br/>✅ Supports most databases<br/>✅ Consolidate databases<br/>✅ Homogeneous & heterogeneous"]
+    Features["DMS Features:<br/>Minimal downtime<br/>Continuous replication<br/>Supports most databases<br/>Consolidate databases<br/>Homogeneous & heterogeneous"]
     
     classDef style1 fill:#FF9900
     class DMS style1

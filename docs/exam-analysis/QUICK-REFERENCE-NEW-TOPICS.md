@@ -4,7 +4,7 @@ This document provides a quick reference for the critical topics that were added
 
 ---
 
-## 🔥 AWS Organizations & SCPs (CRITICAL)
+## AWS Organizations & SCPs (CRITICAL)
 
 ### Key Facts
 - **Management Account**: Cannot be restricted by SCPs, pays all bills
@@ -48,7 +48,7 @@ This document provides a quick reference for the critical topics that were added
 
 ---
 
-## 🏗️ AWS Control Tower
+## AWS Control Tower
 
 ### When to Use
 | Control Tower | Manual Organizations |
@@ -70,7 +70,7 @@ This document provides a quick reference for the critical topics that were added
 
 ---
 
-## 🔗 AWS Resource Access Manager (RAM)
+## AWS Resource Access Manager (RAM)
 
 ### Most Common Use Case: VPC Subnet Sharing
 ```
@@ -82,10 +82,10 @@ Application Accounts (Consumers)
 ```
 
 ### Benefits
-- ✅ Centralized networking
-- ✅ No VPC duplication
-- ✅ Efficient IP usage
-- ✅ Simplified architecture
+- Centralized networking
+- No VPC duplication
+- Efficient IP usage
+- Simplified architecture
 
 ### Shareable Resources (Know for Exam)
 - **VPC Subnets** ← Most tested
@@ -101,7 +101,7 @@ Application Accounts (Consumers)
 
 ---
 
-## 💾 AWS Backup
+## AWS Backup
 
 ### Key Features
 - **Centralized**: Single dashboard for all backups
@@ -139,7 +139,7 @@ Application Accounts (Consumers)
 
 ---
 
-## 🔄 Disaster Recovery Strategies
+## Disaster Recovery Strategies
 
 ### RTO vs RPO
 - **RTO** (Recovery Time Objective): How quickly to recover
@@ -154,10 +154,10 @@ Last Backup → Disaster → Recovery Complete
 
 | Strategy | RTO | RPO | Cost | When to Use |
 |----------|-----|-----|------|-------------|
-| **Backup & Restore** | Hours-Days | Hours | 💰 | Non-critical, cost-sensitive |
-| **Pilot Light** | 10min-Hours | Minutes | 💰💰 | Important, some downtime OK |
-| **Warm Standby** | Minutes | Seconds | 💰💰💰 | Business-critical |
-| **Multi-Site** | Real-time | Near-zero | 💰💰💰💰 | Mission-critical, zero downtime |
+| **Backup & Restore** | Hours-Days | Hours |  | Non-critical, cost-sensitive |
+| **Pilot Light** | 10min-Hours | Minutes |  | Important, some downtime OK |
+| **Warm Standby** | Minutes | Seconds |  | Business-critical |
+| **Multi-Site** | Real-time | Near-zero |  | Mission-critical, zero downtime |
 
 ### Quick Decision Matrix
 
@@ -203,42 +203,42 @@ Last Backup → Disaster → Recovery Complete
 
 ---
 
-## 📝 Exam Cheat Sheet
+## Exam Cheat Sheet
 
 ### High-Frequency Topics (Must Know)
 
 #### AWS Organizations
-- ❌ SCPs don't grant permissions
-- ❌ SCPs don't affect management account
-- ✅ Consolidated billing = volume discounts
-- ✅ Effective permissions = IAM AND SCP
+- SCPs don't grant permissions
+- SCPs don't affect management account
+- Yes: Consolidated billing = volume discounts
+- Yes: Effective permissions = IAM AND SCP
 
 #### AWS Backup
-- ✅ Centralized backup for 15+ services
-- ✅ Cross-region copy for DR
-- ✅ Vault Lock for compliance (WORM)
-- ✅ Lifecycle: warm → cold → delete
+- Centralized backup for 15+ services
+- Cross-region copy for DR
+- Vault Lock for compliance (WORM)
+- Lifecycle: warm → cold → delete
 
 #### Disaster Recovery
-- ✅ RTO = Time to recover
-- ✅ RPO = Data loss acceptable
-- ✅ 4 strategies: Backup < Pilot < Warm < Multi-Site
-- ✅ Cost increases with lower RTO/RPO
+- RTO = Time to recover
+- RPO = Data loss acceptable
+- 4 strategies: Backup < Pilot < Warm < Multi-Site
+- Cost increases with lower RTO/RPO
 
 #### AWS RAM
-- ✅ Share VPC subnets (most common)
-- ✅ Share Transit Gateway
-- ✅ Centralized networking
+- Share VPC subnets (most common)
+- Share Transit Gateway
+- Centralized networking
 
 #### Control Tower
-- ✅ Quick multi-account setup
-- ✅ Landing Zone + Account Factory
-- ✅ Pre-built guardrails
-- ✅ Use when: fast setup, less experience
+- Quick multi-account setup
+- Landing Zone + Account Factory
+- Pre-built guardrails
+- Use when: fast setup, less experience
 
 ---
 
-## 🎯 Practice Questions - Quick Fire
+## Practice Questions - Quick Fire
 
 ### Q1: How to prevent all member accounts from using services in unauthorized regions?
 **A**: Service Control Policy (SCP) with region restriction
@@ -272,7 +272,7 @@ Last Backup → Disaster → Recovery Complete
 
 ---
 
-## 📚 Where to Study
+## Where to Study
 
 ### Module 01: AWS Fundamentals
 - Section 5.2: AWS Organizations
@@ -293,7 +293,7 @@ Last Backup → Disaster → Recovery Complete
 
 ---
 
-## ⏱️ Time Allocation for Study
+## Time Allocation for Study
 
 - **AWS Organizations + SCPs**: 45 minutes
 - **Control Tower + RAM**: 30 minutes

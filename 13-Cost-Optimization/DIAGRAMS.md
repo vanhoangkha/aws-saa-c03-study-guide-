@@ -41,7 +41,7 @@ mindmap
 ```mermaid
 graph TB
     subgraph On_Demand_Instances_Group["On-Demand Instances"]
-        OD["On-Demand<br/>💰 Full price<br/>⏱️ No commitment<br/>📊 Flexible"]
+        OD["On-Demand<br/>Full price<br/>No commitment<br/>Flexible"]
         
         OD_Use["Use Cases:<br/>• Unpredictable workloads<br/>• Development/testing<br/>• Short-term spikes<br/>• New applications"]
         
@@ -49,7 +49,7 @@ graph TB
     end
     
     subgraph Reserved_Instances_Group["Reserved Instances"]
-        RI["Reserved Instances<br/>💰 Up to 72% discount<br/>⏱️ 1 or 3 years<br/>📊 Predictable"]
+        RI["Reserved Instances<br/>Up to 72% discount<br/>1 or 3 years<br/>Predictable"]
         
         RI_Types["Types:<br/>• Standard RI 72% off<br/>• Convertible RI 54% off<br/>• Scheduled RI specific times"]
         
@@ -59,7 +59,7 @@ graph TB
     end
     
     subgraph Savings_Plans_Group["Savings Plans"]
-        SP["Savings Plans<br/>💰 Up to 66% discount<br/>⏱️ 1 or 3 years<br/>📊 More flexible"]
+        SP["Savings Plans<br/>Up to 66% discount<br/>1 or 3 years<br/>More flexible"]
         
         SP_Types["Types:<br/>• Compute SP 66% off any instance<br/>• EC2 Instance SP 72% off specific<br/>• SageMaker SP ML workloads"]
         
@@ -67,7 +67,7 @@ graph TB
     end
     
     subgraph Spot_Instances_Group["Spot Instances"]
-        Spot["Spot Instances<br/>💰 Up to 90% discount<br/>⏱️ Can be interrupted<br/>📊 Fault-tolerant"]
+        Spot["Spot Instances<br/>Up to 90% discount<br/>Can be interrupted<br/>Fault-tolerant"]
         
         Spot_Use["Use Cases:<br/>• Batch processing<br/>• Big data analysis<br/>• CI/CD pipelines<br/>• Containerized workloads<br/>• Fault-tolerant apps"]
         
@@ -90,24 +90,24 @@ graph TB
 graph TB
     RI[Reserved Instances]
     
-    RI --> Standard["Standard RI<br/>💰 Up to 72% discount<br/>📊 Cannot change instance family<br/>✅ Best for steady workloads"]
+    RI --> Standard["Standard RI<br/>Up to 72% discount<br/>Cannot change instance family<br/>Best for steady workloads"]
     
-    RI --> Convertible["Convertible RI<br/>💰 Up to 54% discount<br/>🔄 Change instance family<br/>🔄 Change OS, tenancy<br/>✅ Flexibility with savings"]
+    RI --> Convertible["Convertible RI<br/>Up to 54% discount<br/>Change instance family<br/>Change OS, tenancy<br/>Flexibility with savings"]
     
     RI --> Scheduled["Scheduled RI<br/>Deprecated<br/>Use Savings Plans instead"]
     
     subgraph Payment_Options_Group["Payment Options"]
-        Standard --> AllUpfront["All Upfront<br/>💰 Maximum discount<br/>Pay 100% upfront"]
+        Standard --> AllUpfront["All Upfront<br/>Maximum discount<br/>Pay 100% upfront"]
         
-        Standard --> PartialUpfront["Partial Upfront<br/>💰 Good discount<br/>Pay ~50% upfront<br/>Monthly payments"]
+        Standard --> PartialUpfront["Partial Upfront<br/>Good discount<br/>Pay ~50% upfront<br/>Monthly payments"]
         
-        Standard --> NoUpfront["No Upfront<br/>💰 Lower discount<br/>Monthly payments only"]
+        Standard --> NoUpfront["No Upfront<br/>Lower discount<br/>Monthly payments only"]
     end
     
     subgraph Scope_Group["Scope"]
-        Regional["Regional RI<br/>✅ AZ flexibility<br/>✅ Instance size flexibility<br/>Linux only<br/>Recommended"]
+        Regional["Regional RI<br/>AZ flexibility<br/>Instance size flexibility<br/>Linux only<br/>Recommended"]
         
-        Zonal["Zonal RI<br/>✅ Capacity reservation<br/>❌ No flexibility<br/>Specific AZ"]
+        Zonal["Zonal RI<br/>Capacity reservation<br/>No flexibility<br/>Specific AZ"]
     end
     
     Marketplace["RI Marketplace<br/>Buy/Sell unused RIs"] -.Trade.-> Standard
@@ -133,13 +133,13 @@ graph TB
     end
     
     subgraph Use_Cases_Group["Use Cases"]
-        Batch["Batch Processing<br/>✅ Divisible workloads<br/>✅ Can pause/resume<br/>e.g., Video encoding"]
+        Batch["Batch Processing<br/>Divisible workloads<br/>Can pause/resume<br/>e.g., Video encoding"]
         
-        BigData["Big Data Analytics<br/>✅ EMR with Spot<br/>✅ Task nodes on Spot<br/>Core nodes on On-Demand"]
+        BigData["Big Data Analytics<br/>EMR with Spot<br/>Task nodes on Spot<br/>Core nodes on On-Demand"]
         
-        CI_CD["CI/CD Pipelines<br/>✅ Build servers<br/>✅ Test environments<br/>✅ Ephemeral workloads"]
+        CI_CD["CI/CD Pipelines<br/>Build servers<br/>Test environments<br/>Ephemeral workloads"]
         
-        Containers["Container Workloads<br/>✅ ECS/EKS with Spot<br/>✅ Stateless services<br/>✅ Auto-scaling groups"]
+        Containers["Container Workloads<br/>ECS/EKS with Spot<br/>Stateless services<br/>Auto-scaling groups"]
     end
     
     subgraph Spot_Fleet_Strategy_Group["Spot Fleet Strategy"]
@@ -172,23 +172,23 @@ graph TB
 graph TB
     Data[Your Data] --> Decision{Access Pattern?}
     
-    Decision -->|Frequent| Standard["S3 Standard<br/>💰 $0.023/GB/month<br/>📊 99.99% availability<br/>⚡ Millisecond access"]
+    Decision -->|Frequent| Standard["S3 Standard<br/>$0.023/GB/month<br/>99.99% availability<br/>Millisecond access"]
     
-    Decision -->|Unknown| Intelligent["S3 Intelligent-Tiering<br/>💰 $0.0025 monitoring<br/>🤖 Auto-moves between tiers<br/>💡 No retrieval fees"]
+    Decision -->|Unknown| Intelligent["S3 Intelligent-Tiering<br/>$0.0025 monitoring<br/>Auto-moves between tiers<br/>No retrieval fees"]
     
     Decision -->|Infrequent| IA_Decision{Critical?}
     
-    IA_Decision -->|Yes| StandardIA["S3 Standard-IA<br/>💰 $0.0125/GB/month<br/>💰 $0.01/GB retrieval<br/>📊 99.9% availability<br/>⏱️ 30 day minimum"]
+    IA_Decision -->|Yes| StandardIA["S3 Standard-IA<br/>$0.0125/GB/month<br/>$0.01/GB retrieval<br/>99.9% availability<br/>30 day minimum"]
     
-    IA_Decision -->|No| OneZoneIA["S3 One Zone-IA<br/>💰 $0.01/GB/month<br/>💰 $0.01/GB retrieval<br/>📊 99.5% availability<br/>⚠️ Single AZ"]
+    IA_Decision -->|No| OneZoneIA["S3 One Zone-IA<br/>$0.01/GB/month<br/>$0.01/GB retrieval<br/>99.5% availability<br/>Single AZ"]
     
     Decision -->|Archive| Archive_Decision{Speed needed?}
     
-    Archive_Decision -->|Instant| GlacierInstant["S3 Glacier Instant<br/>💰 $0.004/GB/month<br/>💰 $0.03/GB retrieval<br/>⚡ Millisecond access<br/>⏱️ 90 day minimum"]
+    Archive_Decision -->|Instant| GlacierInstant["S3 Glacier Instant<br/>$0.004/GB/month<br/>$0.03/GB retrieval<br/>Millisecond access<br/>90 day minimum"]
     
-    Archive_Decision -->|Minutes-Hours| GlacierFlexible["S3 Glacier Flexible<br/>💰 $0.0036/GB/month<br/>💰 $0.02/GB retrieval<br/>⏱️ 1-5 min or 3-5 hrs<br/>⏱️ 90 day minimum"]
+    Archive_Decision -->|Minutes-Hours| GlacierFlexible["S3 Glacier Flexible<br/>$0.0036/GB/month<br/>$0.02/GB retrieval<br/>1-5 min or 3-5 hrs<br/>90 day minimum"]
     
-    Archive_Decision -->|12-48 Hours| GlacierDeep["S3 Glacier Deep Archive<br/>💰 $0.00099/GB/month<br/>💰 $0.02/GB retrieval<br/>⏱️ 12-48 hours<br/>⏱️ 180 day minimum<br/>💡 Lowest cost"]
+    Archive_Decision -->|12-48 Hours| GlacierDeep["S3 Glacier Deep Archive<br/>$0.00099/GB/month<br/>$0.02/GB retrieval<br/>12-48 hours<br/>180 day minimum<br/>Lowest cost"]
     
     Example["Example 1 TB/month:<br/>Standard: $23.55<br/>Standard-IA: $12.80<br/>Glacier Instant: $4.10<br/>Glacier Flexible: $3.69<br/>Glacier Deep: $1.01"]
     
@@ -237,19 +237,19 @@ stateDiagram-v2
 ```mermaid
 graph TB
     subgraph EBS_Volume_Types_by_Cost_Group["EBS Volume Types by Cost"]
-        GP3["gp3 General Purpose SSD<br/>💰 $0.08/GB/month<br/>📊 3,000-16,000 IOPS<br/>💾 125-1,000 MB/s<br/>✅ 20% cheaper than gp2<br/>Recommended"]
+        GP3["gp3 General Purpose SSD<br/>$0.08/GB/month<br/>3,000-16,000 IOPS<br/>125-1,000 MB/s<br/>20% cheaper than gp2<br/>Recommended"]
         
-        GP2["gp2 General Purpose SSD<br/>💰 $0.10/GB/month<br/>📊 3 IOPS/GB baseline<br/>💾 Max 250 MB/s<br/>Legacy option"]
+        GP2["gp2 General Purpose SSD<br/>$0.10/GB/month<br/>3 IOPS/GB baseline<br/>Max 250 MB/s<br/>Legacy option"]
         
-        ST1["st1 Throughput Optimized HDD<br/>💰 $0.045/GB/month<br/>💾 Max 500 MB/s<br/>✅ 55% cheaper than gp3<br/>Use: Big data, logs"]
+        ST1["st1 Throughput Optimized HDD<br/>$0.045/GB/month<br/>Max 500 MB/s<br/>55% cheaper than gp3<br/>Use: Big data, logs"]
         
-        SC1["sc1 Cold HDD<br/>💰 $0.015/GB/month<br/>💾 Max 250 MB/s<br/>✅ 81% cheaper than gp3<br/>Use: Infrequent access"]
+        SC1["sc1 Cold HDD<br/>$0.015/GB/month<br/>Max 250 MB/s<br/>81% cheaper than gp3<br/>Use: Infrequent access"]
         
-        IO2["io2 Provisioned IOPS SSD<br/>💰 $0.125/GB/month<br/>💰 $0.065/IOPS/month<br/>📊 Up to 64,000 IOPS<br/>Use: Critical databases"]
+        IO2["io2 Provisioned IOPS SSD<br/>$0.125/GB/month<br/>$0.065/IOPS/month<br/>Up to 64,000 IOPS<br/>Use: Critical databases"]
     end
     
     subgraph Optimization_Strategies_Group["Optimization Strategies"]
-        Snapshot["Delete Old Snapshots<br/>💰 $0.05/GB/month<br/>Keep only needed<br/>Automated cleanup"]
+        Snapshot["Delete Old Snapshots<br/>$0.05/GB/month<br/>Keep only needed<br/>Automated cleanup"]
         
         DeleteUnused["Delete Unattached Volumes<br/>Find with Trusted Advisor<br/>Stop paying for unused"]
         
@@ -275,15 +275,15 @@ graph TB
 ```mermaid
 graph TB
     subgraph RDS_Pricing_Options_Group["RDS Pricing Options"]
-        OnDemand["On-Demand<br/>💰 Full price<br/>Pay per hour<br/>No commitment"]
+        OnDemand["On-Demand<br/>Full price<br/>Pay per hour<br/>No commitment"]
         
-        RI["Reserved Instances<br/>💰 Up to 69% discount<br/>1 or 3 years<br/>All/Partial/No upfront"]
+        RI["Reserved Instances<br/>Up to 69% discount<br/>1 or 3 years<br/>All/Partial/No upfront"]
         
-        Aurora["Aurora Serverless<br/>💰 Pay per ACU-hour<br/>Auto-pause when idle<br/>Good for variable workloads"]
+        Aurora["Aurora Serverless<br/>Pay per ACU-hour<br/>Auto-pause when idle<br/>Good for variable workloads"]
     end
     
     subgraph Storage_Optimization_Group["Storage Optimization"]
-        GP3Storage["Use gp3 Storage<br/>💰 Cheaper than gp2<br/>Better performance<br/>20% cost reduction"]
+        GP3Storage["Use gp3 Storage<br/>Cheaper than gp2<br/>Better performance<br/>20% cost reduction"]
         
         BackupRetention["Optimize Backups<br/>Reduce retention period<br/>7 days vs 35 days<br/>Snapshot cleanup"]
         
@@ -321,25 +321,25 @@ graph TB
 ```mermaid
 graph TB
     subgraph Data_Transfer_IN_Group["Data Transfer IN"]
-        Internet_In["From Internet to AWS<br/>💰 FREE<br/>All regions<br/>All services"]
+        Internet_In["From Internet to AWS<br/>FREE<br/>All regions<br/>All services"]
         
-        S3_In["To S3 from Internet<br/>💰 FREE<br/>Upload data<br/>No charge"]
+        S3_In["To S3 from Internet<br/>FREE<br/>Upload data<br/>No charge"]
     end
     
     subgraph Data_Transfer_OUT_Group["Data Transfer OUT"]
-        First_GB["First 1 GB/month<br/>💰 FREE<br/>All services"]
+        First_GB["First 1 GB/month<br/>FREE<br/>All services"]
         
-        To_Internet["To Internet<br/>💰 $0.09/GB first 10 TB<br/>💰 $0.085/GB next 40 TB<br/>💰 $0.07/GB next 100 TB<br/>💰 $0.05/GB over 150 TB"]
+        To_Internet["To Internet<br/>$0.09/GB first 10 TB<br/>$0.085/GB next 40 TB<br/>$0.07/GB next 100 TB<br/>$0.05/GB over 150 TB"]
         
-        CloudFront_Out["Via CloudFront<br/>💰 $0.085/GB<br/>💡 Cheaper + global<br/>+ caching benefits"]
+        CloudFront_Out["Via CloudFront<br/>$0.085/GB<br/>Cheaper + global<br/>+ caching benefits"]
     end
     
     subgraph AWS_Internal_Transfer_Group["AWS Internal Transfer"]
-        Same_AZ["Same AZ<br/>💰 FREE<br/>Using private IP"]
+        Same_AZ["Same AZ<br/>FREE<br/>Using private IP"]
         
-        Cross_AZ["Cross-AZ same region<br/>💰 $0.01/GB in<br/>💰 $0.01/GB out<br/>Both directions charged"]
+        Cross_AZ["Cross-AZ same region<br/>$0.01/GB in<br/>$0.01/GB out<br/>Both directions charged"]
         
-        Cross_Region["Cross-Region<br/>💰 $0.02/GB<br/>Between regions"]
+        Cross_Region["Cross-Region<br/>$0.02/GB<br/>Between regions"]
     end
     
     subgraph Cost_Optimization_Group["Cost Optimization"]
@@ -502,40 +502,40 @@ flowchart TD
 mindmap
     root((Cost<br/>Optimization<br/>Checklist))
         Compute
-            ✅ Right-size instances
-            ✅ Use Savings Plans
-            ✅ Leverage Spot for batch
-            ✅ Auto Scaling enabled
-            ✅ Graviton instances
-            ✅ Serverless where possible
+             Right-size instances
+             Use Savings Plans
+             Leverage Spot for batch
+             Auto Scaling enabled
+             Graviton instances
+             Serverless where possible
         Storage
-            ✅ S3 Lifecycle policies
-            ✅ Delete old snapshots
-            ✅ Use gp3 over gp2
-            ✅ Intelligent-Tiering
-            ✅ Delete unattached EBS
-            ✅ Optimize backup retention
+             S3 Lifecycle policies
+             Delete old snapshots
+             Use gp3 over gp2
+             Intelligent-Tiering
+             Delete unattached EBS
+             Optimize backup retention
         Database
-            ✅ RDS Reserved Instances
-            ✅ Right-size DB instances
-            ✅ Aurora Serverless for variable
-            ✅ Delete unused read replicas
-            ✅ Use gp3 storage
-            ✅ Optimize backup retention
+             RDS Reserved Instances
+             Right-size DB instances
+             Aurora Serverless for variable
+             Delete unused read replicas
+             Use gp3 storage
+             Optimize backup retention
         Networking
-            ✅ Use VPC endpoints
-            ✅ CloudFront for static
-            ✅ Private IPs same AZ
-            ✅ Minimize cross-region
-            ✅ Delete idle load balancers
-            ✅ Use NAT instances not gateways
+             Use VPC endpoints
+             CloudFront for static
+             Private IPs same AZ
+             Minimize cross-region
+             Delete idle load balancers
+             Use NAT instances not gateways
         Monitoring
-            ✅ Cost allocation tags
-            ✅ AWS Budgets set
-            ✅ Anomaly detection on
-            ✅ Monthly reviews
-            ✅ Trusted Advisor checks
-            ✅ Compute Optimizer enabled
+             Cost allocation tags
+             AWS Budgets set
+             Anomaly detection on
+             Monthly reviews
+             Trusted Advisor checks
+             Compute Optimizer enabled
 ```
 
 ### Potential Savings Summary
@@ -566,7 +566,7 @@ graph LR
         N3["Delete Idle LB: 100%<br/>$2K -&gt; $0"]
     end
     
-    Total["Total Potential Savings:<br/>Before: $412K/year<br/>After: $164K/year<br/>💰 Savings: $248K 60%"]
+    Total["Total Potential Savings:<br/>Before: $412K/year<br/>After: $164K/year<br/>Savings: $248K 60%"]
     
     C1 --> Total
     C2 --> Total

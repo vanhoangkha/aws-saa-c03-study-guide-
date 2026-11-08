@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - Security & Compliance
+# Fast Learning - Security & Compliance
 
 > **Time to Complete**: 60-75 minutes | **Exam Weight**: ~20-25%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### Security Service Selector (KSS-WCGI)
 ```
@@ -18,7 +18,7 @@ DETECTION? → GuardDuty, Macie, Detective
 
 **Memory Aid**: "Keys Secure Secrets, While Controlling Guarding Identity"
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### Encryption Services Matrix
 | Service | Type | Use Case | Key Management |
@@ -38,7 +38,7 @@ DETECTION? → GuardDuty, Macie, Detective
 | **Detective** | Security investigation | Root cause analysis | GB ingested |
 | **Security Hub** | Central dashboard | Aggregates findings | Checks run |
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. KMS Key Types (Critical!)
 ```
@@ -108,15 +108,15 @@ ENCRYPTION IN TRANSIT
 
 **Memory Aid**: "Trail = Trail of actions, Config = Configuration compliance"
 
-## 💡 Common Exam Scenarios
+## Common Exam Scenarios
 
 ### Scenario 1: Encrypt Existing Unencrypted EBS
 **Q**: Need to encrypt unencrypted EBS volume
-**✅ ANSWER**: Create snapshot → Copy with encryption → Create volume from encrypted snapshot
+**ANSWER**: Create snapshot → Copy with encryption → Create volume from encrypted snapshot
 
 ### Scenario 2: Rotate Database Credentials
 **Q**: Automate database password rotation every 30 days
-**✅ ANSWER**: AWS Secrets Manager with automatic rotation (not Parameter Store)
+**ANSWER**: AWS Secrets Manager with automatic rotation (not Parameter Store)
 
 ### Scenario 3: Protect Against DDoS
 **Q**: Web application needs DDoS protection
@@ -125,25 +125,25 @@ ENCRYPTION IN TRANSIT
 
 ### Scenario 4: Detect Unauthorized Access
 **Q**: Get alerts on suspicious activity in AWS account
-**✅ ANSWER**: Enable GuardDuty (threat detection)
+**ANSWER**: Enable GuardDuty (threat detection)
 
 ### Scenario 5: Find Sensitive Data in S3
 **Q**: Discover S3 buckets containing credit card numbers or PII
-**✅ ANSWER**: Amazon Macie
+**ANSWER**: Amazon Macie
 
 ### Scenario 6: Audit API Calls
 **Q**: Track who deleted an S3 object
-**✅ ANSWER**: CloudTrail (logs all API calls)
+**ANSWER**: CloudTrail (logs all API calls)
 
 ### Scenario 7: Ensure Compliance
 **Q**: Verify all S3 buckets are encrypted and private
-**✅ ANSWER**: AWS Config with compliance rules
+**ANSWER**: AWS Config with compliance rules
 
 ### Scenario 8: Cross-Account Access Securely
 **Q**: Account A needs to access resources in Account B
-**✅ ANSWER**: IAM roles with trust policy (not sharing credentials)
+**ANSWER**: IAM roles with trust policy (not sharing credentials)
 
-## 🎓 Speed Learning Tips
+## Speed Learning Tips
 
 ### KMS Envelope Encryption
 ```
@@ -174,7 +174,7 @@ WHY:
 ### Secrets Manager vs Parameter Store
 | Feature | Secrets Manager | Parameter Store |
 |---------|----------------|-----------------|
-| **Rotation** | ✅ Automatic (RDS, etc.) | ❌ Manual |
+| **Rotation** | Automatic (RDS, etc.) | Manual |
 | **Cost** | $$$  ($0.40/secret/month) | Free (standard), $ (advanced) |
 | **Integration** | RDS, Redshift, DocumentDB | Any service |
 | **Cross-region** | Replicate secrets | Must copy manually |
@@ -182,7 +182,7 @@ WHY:
 
 **Decision**: Need rotation? → Secrets Manager, Otherwise → Parameter Store
 
-## 📝 Rapid-Fire Facts
+## Rapid-Fire Facts
 
 ### KMS Important Limits
 - **Max request rate**: 5,500/10,000/30,000 (depends on key type)
@@ -192,13 +192,13 @@ WHY:
 - **Regions**: Multi-region keys available
 
 ### CloudTrail Best Practices
-✅ Enable in all regions
-✅ Enable log file validation (integrity)
-✅ Encrypt logs with KMS
-✅ Store in S3 with lifecycle policy
-✅ Monitor with CloudWatch Logs
-✅ Use Organizations trail (multi-account)
-✅ Enable for management + data events
+ Enable in all regions
+ Enable log file validation (integrity)
+ Encrypt logs with KMS
+ Store in S3 with lifecycle policy
+ Monitor with CloudWatch Logs
+ Use Organizations trail (multi-account)
+ Enable for management + data events
 
 ### GuardDuty Data Sources
 - VPC Flow Logs
@@ -218,16 +218,16 @@ WHY:
 - **FedRAMP** - US government
 - **GDPR** - EU data protection
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### Security Best Practices Checklist
-✅ **Identity**: MFA on root + all users
-✅ **Access**: Least privilege, use roles
-✅ **Detection**: GuardDuty, CloudTrail, Config
-✅ **Infrastructure**: Security groups, NACLs
-✅ **Data**: Encrypt at rest + in transit
-✅ **Incident**: CloudTrail, backup, playbooks
-✅ **Compliance**: Config rules, automated checks
+ **Identity**: MFA on root + all users
+ **Access**: Least privilege, use roles
+ **Detection**: GuardDuty, CloudTrail, Config
+ **Infrastructure**: Security groups, NACLs
+ **Data**: Encrypt at rest + in transit
+ **Incident**: CloudTrail, backup, playbooks
+ **Compliance**: Config rules, automated checks
 
 ### Encryption Decision Tree
 ```
@@ -264,18 +264,18 @@ IMPORT CERTIFICATES
 ```
 
 ### Common Mistakes to Avoid
-❌ Not enabling MFA on root account
-❌ Using root account for daily tasks
-❌ Sharing IAM credentials
-❌ Forgetting CloudTrail in all regions
-❌ Not encrypting sensitive data
-❌ Public S3 buckets with sensitive data
-❌ Using Parameter Store when rotation needed
-❌ Not enabling GuardDuty for threat detection
-❌ Storing secrets in code or environment variables
-❌ Not using Shield Standard (it's free!)
+ Not enabling MFA on root account
+ Using root account for daily tasks
+ Sharing IAM credentials
+ Forgetting CloudTrail in all regions
+ Not encrypting sensitive data
+ Public S3 buckets with sensitive data
+ Using Parameter Store when rotation needed
+ Not enabling GuardDuty for threat detection
+ Storing secrets in code or environment variables
+ Not using Shield Standard (it's free!)
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Quick Questions** (Answers at bottom)
 
@@ -324,7 +324,7 @@ CUSTOMER RESPONSIBILITY (Security IN the cloud)
 - **No bastion host**: Direct access via console/CLI
 - **Port 22**: Not required (uses port 443)
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~60-75 min
 - Practice: Enable GuardDuty, create KMS key, CloudTrail
 - Ready for: Security practice questions

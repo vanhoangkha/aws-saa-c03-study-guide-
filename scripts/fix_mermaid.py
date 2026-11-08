@@ -141,7 +141,7 @@ def fix_mermaid_diagrams(filepath):
 
     # Fix 5: Quote nodes with special characters (emojis, bullets, etc.)
     # This regex finds node definitions and wraps content in quotes if it contains special chars
-    special_chars = r'[⚠️💰⚡📊🛡️✅❌🔑🔒📦💾📁🪟📏🎯🔐🔋📡☁️💪🔄•→@/]'
+    special_chars = r'[•→@/]'
 
     # Fix regular nodes: Node[text...]
     def quote_node_if_needed(match):

@@ -1,4 +1,4 @@
-# 09: Monitoring & Management - Ultra Fast Learning 🚀
+# 09: Monitoring & Management - Ultra Fast Learning
 
 ## CloudWatch
 

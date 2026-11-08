@@ -3,7 +3,7 @@
 ## Overview
 This module is where you turn what you learned in Modules 1-13 into exam readiness. It collects the exam format, practice questions, flashcards, study notes, a results tracker and the final-week cheat sheets in one place, and points you to the full practice-test reviews and the online exam simulator.
 
-> **⚠️ Disclaimer:** All questions in this repository are **original practice questions** written for study purposes. They are **not** real exam questions. Exam details below come from this repo's own notes, so confirm them on the [official AWS exam page](https://aws.amazon.com/certification/certified-solutions-architect-associate/) before you book.
+> **Disclaimer:** All questions in this repository are **original practice questions** written for study purposes. They are **not** real exam questions. Exam details below come from this repo's own notes, so confirm them on the [official AWS exam page](https://aws.amazon.com/certification/certified-solutions-architect-associate/) before you book.
 
 ## Learning Objectives
 - Know the SAA-C03 exam format, domains and question types

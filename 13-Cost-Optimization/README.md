@@ -1321,36 +1321,36 @@ Total: $608.50/month
 
 ### Key Concepts
 
-✅ **EC2 Pricing Models**
+ **EC2 Pricing Models**
 - **On-Demand**: No commitment, short-term
 - **Reserved**: 1-3 year commitment, up to 72% savings
 - **Savings Plans**: Flexible, $/hour commitment
 - **Spot**: Up to 90% savings, can be interrupted
 - **Dedicated Hosts**: BYOL, compliance
 
-✅ **Cost Explorer**
+ **Cost Explorer**
 - Visualize and analyze costs
 - Forecasting
 - Right-sizing and RI recommendations
 - Filter and group by tags, service, region
 
-✅ **AWS Budgets**
+ **AWS Budgets**
 - Set cost and usage budgets
 - Actual and forecasted alerts
 - 4 types: Cost, Usage, Savings Plans, Reservation
 - Budget Actions for automation
 
-✅ **Cost Allocation Tags**
+ **Cost Allocation Tags**
 - Track costs by project, team, environment
 - Must be activated in Billing Console
 - Appear in Cost Explorer and CUR after 24 hours
 
-✅ **Consolidated Billing**
+ **Consolidated Billing**
 - Single bill for all accounts in Organization
 - Volume discounts across accounts
 - RI and Savings Plans sharing
 
-✅ **Optimization Strategies**
+ **Optimization Strategies**
 - Right-sizing (match instance to workload)
 - Use RIs/Savings Plans for steady workloads
 - Spot for fault-tolerant workloads

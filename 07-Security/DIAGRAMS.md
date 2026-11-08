@@ -80,15 +80,15 @@ graph TB
     
     Request --> KeyPolicy{"Key Policy<br/>Allows?"}
     
-    KeyPolicy -->|No| Deny1["❌ DENY"]
+    KeyPolicy -->|No| Deny1["DENY"]
     KeyPolicy -->|Yes| IAMPolicy{"IAM Policy<br/>Allows?"}
     
-    IAMPolicy -->|No| Deny2["❌ DENY"]
+    IAMPolicy -->|No| Deny2["DENY"]
     IAMPolicy -->|Yes| Grant{"Grant<br/>Allows?"}
     
-    Grant -->|Not Required| Allow["✅ ALLOW"]
+    Grant -->|Not Required| Allow["ALLOW"]
     Grant -->|Yes| Allow
-    Grant -->|No| Deny3["❌ DENY"]
+    Grant -->|No| Deny3["DENY"]
     
     DefaultPolicy["Default Key Policy:<br/>Gives root user full access<br/>Enables IAM policies"]
     
@@ -145,7 +145,7 @@ graph TB
 graph TB
     subgraph AWS_Secrets_Manager_Group["AWS Secrets Manager"]
         SM[Secrets Manager]
-        SM_Features["Features:<br/>💰 $0.40/secret/month + API calls<br/>🔄 Automatic rotation<br/>🔐 Encrypt with KMS<br/>🎯 RDS integration<br/>📊 Cross-account access<br/>⏱️ Rotation: Lambda function"]
+        SM_Features["Features:<br/>$0.40/secret/month + API calls<br/>Automatic rotation<br/>Encrypt with KMS<br/>RDS integration<br/>Cross-account access<br/>Rotation: Lambda function"]
         
         SM_Use["Use Cases:<br/>• Database credentials<br/>• API keys requiring rotation<br/>• OAuth tokens<br/>• RDS password rotation"]
     end
@@ -153,9 +153,9 @@ graph TB
     subgraph Systems_Manager_Parameter_Store_Group["Systems Manager Parameter Store"]
         PS[Parameter Store]
         
-        Standard["Standard Parameters<br/>✅ Free<br/>📏 4 KB limit<br/>📊 10,000 parameters<br/>⚠️ No rotation"]
+        Standard["Standard Parameters<br/>Free<br/>4 KB limit<br/>10,000 parameters<br/>No rotation"]
         
-        Advanced["Advanced Parameters<br/>💰 $0.05/parameter/month<br/>📏 8 KB limit<br/>📊 100,000 parameters<br/>📋 Parameter policies<br/>⏱️ Manual rotation"]
+        Advanced["Advanced Parameters<br/>$0.05/parameter/month<br/>8 KB limit<br/>100,000 parameters<br/>Parameter policies<br/>Manual rotation"]
         
         PS --> Standard
         PS --> Advanced
@@ -163,7 +163,7 @@ graph TB
         PS_Use["Use Cases:<br/>• Configuration data<br/>• License keys<br/>• AMI IDs<br/>• Application parameters<br/>• Cost-sensitive scenarios"]
     end
     
-    Both["Both Support:<br/>✅ KMS encryption<br/>✅ CloudFormation<br/>✅ IAM permissions<br/>✅ CloudWatch Events"]
+    Both["Both Support:<br/>KMS encryption<br/>CloudFormation<br/>IAM permissions<br/>CloudWatch Events"]
     
     SM -.Features.-> SM_Features
     SM -.Use.-> SM_Use
@@ -239,7 +239,7 @@ graph TB
     Rules -->|Allow| ALB
     Rules -->|Allow| API
     Rules -->|Allow| AppSync
-    Rules -->|Block| Blocked["❌ Blocked Traffic"]
+    Rules -->|Block| Blocked["Blocked Traffic"]
     
     ManagedRules["AWS Managed Rules<br/>Pre-configured rule sets<br/>OWASP Top 10"]
     
@@ -257,9 +257,9 @@ graph TB
 graph TB
     Shield["AWS Shield<br/>DDoS Protection"]
     
-    Shield --> Standard["Shield Standard<br/>✅ FREE<br/>✅ Automatic<br/>✅ Layer 3/4 protection<br/>✅ All AWS customers"]
+    Shield --> Standard["Shield Standard<br/>FREE<br/>Automatic<br/>Layer 3/4 protection<br/>All AWS customers"]
     
-    Shield --> Advanced["Shield Advanced<br/>💰 $3,000/month<br/>✅ Layer 3/4/7 protection<br/>✅ 24/7 DDoS Response Team<br/>✅ Cost protection<br/>✅ Real-time notifications"]
+    Shield --> Advanced["Shield Advanced<br/>$3,000/month<br/>Layer 3/4/7 protection<br/>24/7 DDoS Response Team<br/>Cost protection<br/>Real-time notifications"]
     
     subgraph Standard_Protection_Group["Standard Protection"]
         Standard --> S_Features["• SYN/UDP floods<br/>• Reflection attacks<br/>• Network layer DDoS<br/>• Automatic detection"]
@@ -335,7 +335,7 @@ graph TB
     EventBridge --> Lambda
     EventBridge --> SecurityHub
     
-    Features["Features:<br/>✅ 30-day free trial<br/>✅ Continuous monitoring<br/>✅ No agents required<br/>✅ Low overhead<br/>💰 Pay per million events analyzed"]
+    Features["Features:<br/>30-day free trial<br/>Continuous monitoring<br/>No agents required<br/>Low overhead<br/>Pay per million events analyzed"]
     
     classDef style1 fill:#FF9900
     class GD style1
@@ -386,7 +386,7 @@ graph TB
     end
     
     subgraph Features_Group["Key Features"]
-        Features["✅ Continuous scanning<br/>✅ Risk scoring<br/>✅ Remediation guidance<br/>✅ Integration with CI/CD<br/>💰 Pay per assessment"]
+        Features["Continuous scanning<br/>Risk scoring<br/>Remediation guidance<br/>Integration with CI/CD<br/>Pay per assessment"]
     end
     
     EC2 --> Inspector
@@ -541,9 +541,9 @@ graph TB
     end
     
     subgraph Certificate_Types_Group["Certificate Types"]
-        Public["Public Certificates<br/>✅ Free<br/>✅ Auto-renewal<br/>✅ CA-signed"]
+        Public["Public Certificates<br/>Free<br/>Auto-renewal<br/>CA-signed"]
         
-        Private["Private Certificates<br/>💰 $400/month for CA<br/>✅ Internal use<br/>✅ AWS Private CA"]
+        Private["Private Certificates<br/>$400/month for CA<br/>Internal use<br/>AWS Private CA"]
     end
     
     ACM --> Public

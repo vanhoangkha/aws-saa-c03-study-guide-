@@ -1,6 +1,6 @@
 # Analytics Services - Practice Questions
 
-> **⚠️ DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
+> **DISCLAIMER:** These are **original practice questions** created for educational purposes based on AWS documentation. They are **NOT actual exam questions** from the AWS certification exam.
 
 ## Exam-Standard Questions (SAA-C03)
 
@@ -663,13 +663,13 @@ D. AWS Glue Streaming
 11. **Amazon MSK**: Managed Apache Kafka service
 
 ### Exam Tips:
-- ✅ Athena charges $5 per TB scanned - optimize with Parquet and partitions
-- ✅ Each Kinesis shard: 1 MB/s or 1,000 records/s write, 2 MB/s read
-- ✅ Use Firehose for simple loading to S3/Redshift/OpenSearch
-- ✅ Use Data Streams for custom processing with ordering guarantees
-- ✅ Partition key determines shard (same key = same shard = ordering)
-- ✅ Glue Crawlers automatically discover schemas
-- ✅ EMR for Apache Spark/Hadoop workloads
-- ✅ QuickSight for dashboards and BI
-- ✅ Parquet/ORC formats reduce costs 30-90% vs CSV/JSON
+- Athena charges $5 per TB scanned - optimize with Parquet and partitions
+- Each Kinesis shard: 1 MB/s or 1,000 records/s write, 2 MB/s read
+- Use Firehose for simple loading to S3/Redshift/OpenSearch
+- Use Data Streams for custom processing with ordering guarantees
+- Partition key determines shard (same key = same shard = ordering)
+- Glue Crawlers automatically discover schemas
+- EMR for Apache Spark/Hadoop workloads
+- QuickSight for dashboards and BI
+- Parquet/ORC formats reduce costs 30-90% vs CSV/JSON
 

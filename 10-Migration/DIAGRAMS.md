@@ -154,13 +154,13 @@ graph TB
     subgraph Agentless_Discovery_Group["Agentless Discovery"]
         Agentless["AWS Agentless<br/>Discovery Connector<br/>VMware vCenter"]
         
-        Agentless_Data["Collects:<br/>• VM inventory<br/>• Configuration<br/>• Performance metrics<br/>• Network connections<br/>⚠️ VMware only"]
+        Agentless_Data["Collects:<br/>• VM inventory<br/>• Configuration<br/>• Performance metrics<br/>• Network connections<br/>VMware only"]
     end
     
     subgraph Agent_based_Discovery_Group["Agent-based Discovery"]
         Agent["AWS Discovery Agent<br/>Install on each server"]
         
-        Agent_Data["Collects:<br/>• System config<br/>• Performance<br/>• Running processes<br/>• Network connections<br/>• Dependencies<br/>✅ Works on any server"]
+        Agent_Data["Collects:<br/>• System config<br/>• Performance<br/>• Running processes<br/>• Network connections<br/>• Dependencies<br/>Works on any server"]
     end
     
     subgraph Data_Analysis_Group["Data Analysis"]
@@ -258,13 +258,13 @@ graph LR
     subgraph Full_Load_Group["Full Load"]
         FL["Full Load Migration<br/>One-time migration<br/>Snapshot of data"]
         
-        FL_Steps["1. Stop writes to source<br/>2. Migrate all data<br/>3. Switch to target<br/>⚠️ Downtime required"]
+        FL_Steps["1. Stop writes to source<br/>2. Migrate all data<br/>3. Switch to target<br/>Downtime required"]
     end
     
     subgraph Full_Load_CDC_Group["Full Load + CDC"]
         FLCDC["Full Load + CDC<br/>Minimal downtime<br/>Recommended approach"]
         
-        FLCDC_Steps["1. Full load starts<br/>2. CDC captures changes<br/>3. Apply cached changes<br/>4. Ongoing replication<br/>✅ Minimal downtime"]
+        FLCDC_Steps["1. Full load starts<br/>2. CDC captures changes<br/>3. Apply cached changes<br/>4. Ongoing replication<br/>Minimal downtime"]
     end
     
     subgraph CDC_Only_Group["CDC Only"]
@@ -361,7 +361,7 @@ graph TB
     
     Cutover["Cutover Process:<br/>1. Stop replication agent<br/>2. Launch target instances<br/>3. Switch DNS/network<br/>4. Application running on AWS<br/>Downtime: Minutes"]
     
-    Features["Features:<br/>✅ Continuous replication<br/>✅ Non-disruptive testing<br/>✅ Automated conversion<br/>✅ Minimal downtime &lt;1 hour<br/>✅ Any source to AWS"]
+    Features["Features:<br/>Continuous replication<br/>Non-disruptive testing<br/>Automated conversion<br/>Minimal downtime &lt;1 hour<br/>Any source to AWS"]
     
     classDef style1 fill:#FF9900
     class MGN style1
@@ -412,7 +412,7 @@ graph TB
     DataSync --> EFS
     DataSync --> FSx
     
-    Features["Features:<br/>✅ 10x faster than open-source tools<br/>✅ Bandwidth throttling<br/>✅ Data encryption in-transit<br/>✅ Data integrity validation<br/>✅ Pay per GB transferred<br/>✅ Incremental transfers"]
+    Features["Features:<br/>10x faster than open-source tools<br/>Bandwidth throttling<br/>Data encryption in-transit<br/>Data integrity validation<br/>Pay per GB transferred<br/>Incremental transfers"]
     
     VsSnowball["DataSync vs Snowball:<br/>DataSync: Online transfer, recurring<br/>Snowball: Offline, one-time large migration"]
     
@@ -505,7 +505,7 @@ graph TB
     SFTP -.Deploy.-> Public
     SFTP -.Use.-> DNS
     
-    UseCase["Use Cases:<br/>• Legacy application migration<br/>• B2B file exchange<br/>• Data lake ingestion<br/>• Replace on-prem FTP servers<br/>💰 Pay per hour + data transferred"]
+    UseCase["Use Cases:<br/>• Legacy application migration<br/>• B2B file exchange<br/>• Data lake ingestion<br/>• Replace on-prem FTP servers<br/>Pay per hour + data transferred"]
     
     classDef style1 fill:#FF9900
     class SFTP style1
@@ -519,12 +519,12 @@ graph TB
 
 ```mermaid
 graph TB
-    Decision["📊 Choose Your Device:<br/>• &lt; 10 TB → Snowcone<br/>• 10-80 TB → Snowball<br/>• &gt; 10 PB → Snowmobile"]
+    Decision["Choose Your Device:<br/>• &lt; 10 TB → Snowcone<br/>• 10-80 TB → Snowball<br/>• &gt; 10 PB → Snowmobile"]
     
     subgraph Snowcone_Group["Snowcone"]
         Snowcone["AWS Snowcone<br/>Smallest device"]
         
-        Snowcone_Specs["Specs:<br/>💾 8-14 TB usable<br/>💪 2 vCPUs, 4 GB RAM<br/>📦 4.5 lbs / 2 kg<br/>🔋 Battery optional<br/>📡 Wi-Fi optional"]
+        Snowcone_Specs["Specs:<br/>8-14 TB usable<br/>2 vCPUs, 4 GB RAM<br/>4.5 lbs / 2 kg<br/>Battery optional<br/>Wi-Fi optional"]
         
         Snowcone_Use["Use Cases:<br/>• Edge computing<br/>• IoT<br/>• Remote locations<br/>• Drones<br/>• Vehicles"]
         
@@ -535,9 +535,9 @@ graph TB
     subgraph Snowball_Group["Snowball Edge"]
         Snowball["AWS Snowball Edge"]
         
-        Storage["Storage Optimized<br/>💾 80 TB usable<br/>💪 40 vCPUs, 80 GB RAM<br/>📦 50 lbs"]
+        Storage["Storage Optimized<br/>80 TB usable<br/>40 vCPUs, 80 GB RAM<br/>50 lbs"]
         
-        Compute["Compute Optimized<br/>💾 42-28 TB usable<br/>💪 52 vCPUs, 208 GB RAM<br/>🎮 Optional GPU"]
+        Compute["Compute Optimized<br/>42-28 TB usable<br/>52 vCPUs, 208 GB RAM<br/>Optional GPU"]
         
         Snowball_Use["Use Cases:<br/>• Data center migration<br/>• Disaster recovery<br/>• Content distribution<br/>• Local processing"]
         
@@ -550,7 +550,7 @@ graph TB
     subgraph Snowmobile_Group["Snowmobile"]
         Snowmobile["AWS Snowmobile<br/>Shipping container"]
         
-        Snowmobile_Specs["Specs:<br/>💾 100 PB capacity<br/>🚛 45-foot container<br/>🔒 GPS tracking<br/>👮 Security escort<br/>📹 Video surveillance"]
+        Snowmobile_Specs["Specs:<br/>100 PB capacity<br/>45-foot container<br/>GPS tracking<br/>Security escort<br/>Video surveillance"]
         
         Snowmobile_Use["Use Cases:<br/>• Exabyte-scale migration<br/>• Complete datacenter<br/>• Video libraries<br/>• Massive datasets"]
         

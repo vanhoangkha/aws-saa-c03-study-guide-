@@ -1,4 +1,4 @@
-# 🎯 Reinforcement Practice Questions - All 7 Tests Incorrect Areas
+# Reinforcement Practice Questions - All 7 Tests Incorrect Areas
 
 **Purpose:** Practice questions similar to ALL incorrect questions from Practice Tests 1-7  
 **Total Questions:** 65+ questions covering all weak areas  
@@ -7,7 +7,7 @@
 
 ---
 
-## 📊 Question Coverage by Test
+## Question Coverage by Test
 
 | Test | Incorrect Count | Topics Covered |
 |------|----------------|----------------|
@@ -21,7 +21,7 @@
 
 ---
 
-## 📋 Instructions
+## Instructions
 
 1. **Cover the answers section** while attempting questions
 2. **Write down your answer** for each question
@@ -32,7 +32,7 @@
 
 ---
 
-## 🔴 SECTION 1: PRACTICE TEST 1 TOPICS
+## SECTION 1: PRACTICE TEST 1 TOPICS
 
 ### Question 1: ECS Task Components (Similar to PT1-Q2)
 
@@ -51,7 +51,7 @@ Which AWS component should the architect create to define these container specif
 **D.** ECS Container Instance with user data script
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -83,7 +83,7 @@ What is the correct Route 53 configuration?
 **D.** Create calculated health checks combining both sites, use weighted routing 50/50
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -101,7 +101,7 @@ Primary Record:
 - Type: A
 - Value: 1.2.3.4 (us-east-1 IP)
 - Routing: Failover - Primary
-- Health Check: HC-123 ✅
+- Health Check: HC-123
 
 Secondary Record:
 - Name: www.example.com
@@ -133,7 +133,7 @@ Which VPC endpoint configuration should the architect implement?
 **D.** NAT Gateway with private routes to S3 and SQS
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -143,8 +143,8 @@ Which VPC endpoint configuration should the architect implement?
 
 | Service | Endpoint Type | Cost | Why |
 |---------|---------------|------|-----|
-| **S3** | Gateway ✅ | FREE | Supported by gateway endpoints |
-| **DynamoDB** | Gateway ✅ | FREE | Supported by gateway endpoints |
+| **S3** | Gateway  | FREE | Supported by gateway endpoints |
+| **DynamoDB** | Gateway  | FREE | Supported by gateway endpoints |
 | **SQS** | Interface | $0.01/hour/AZ | Only interface endpoints available |
 | **SNS** | Interface | $0.01/hour/AZ | Only interface endpoints available |
 | **Most other AWS services** | Interface | $0.01/hour/AZ | - |
@@ -184,7 +184,7 @@ How should the architect enable the application stack to reference the subnet ID
 **D.** Use nested stacks with the network stack as parent
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -248,7 +248,7 @@ Which solution provides increased bandwidth while maintaining redundancy?
 **D.** Use VPN CloudHub for multi-site connectivity
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -269,7 +269,7 @@ On-Premises Office
                     ├── VPN Connection 2: 1.25 Gbps
                     ├── VPN Connection 3: 1.25 Gbps
                     └── VPN Connection 4: 1.25 Gbps
-                    Total: 5 Gbps aggregate ✅
+                    Total: 5 Gbps aggregate
                             │
                 ┌───────────┴───────────┬───────────┐
                 ▼                       ▼           ▼
@@ -297,7 +297,7 @@ On-Premises Office
 
 ---
 
-## 🟠 SECTION 2: PRACTICE TEST 2 TOPICS
+## SECTION 2: PRACTICE TEST 2 TOPICS
 
 ### Question 6: CloudFront ACM Certificate Region (Similar to PT2)
 
@@ -311,7 +311,7 @@ In which AWS region must the ACM certificate be requested?
 **D.** The region closest to the majority of users
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -324,8 +324,8 @@ In which AWS region must the ACM certificate be requested?
 ║  CloudFront + ACM Certificate                  ║
 ║  MUST be in us-east-1 (N. Virginia) ONLY      ║
 ║                                                ║
-║  ✅ us-east-1 (ONLY this region works)        ║
-║  ❌ Any other region = WILL NOT WORK          ║
+║   us-east-1 (ONLY this region works)          ║
+║   Any other region = WILL NOT WORK            ║
 ╚════════════════════════════════════════════════╝
 ```
 
@@ -338,16 +338,16 @@ In which AWS region must the ACM certificate be requested?
 
 | Service | Type | Certificate Region |
 |---------|------|-------------------|
-| **CloudFront** | Global | ✅ us-east-1 ONLY |
-| **API Gateway (Edge-Optimized)** | Global | ✅ us-east-1 ONLY |
-| **Application Load Balancer** | Regional | ✅ Same region as ALB |
-| **API Gateway (Regional)** | Regional | ✅ Same region as API |
+| **CloudFront** | Global | us-east-1 ONLY |
+| **API Gateway (Edge-Optimized)** | Global | us-east-1 ONLY |
+| **Application Load Balancer** | Regional | Same region as ALB |
+| **API Gateway (Regional)** | Regional | Same region as API |
 
 **Complete Setup:**
 ```bash
 # Step 1: Request certificate in us-east-1
 aws acm request-certificate \
-  --region us-east-1 \              # ✅ MUST be us-east-1
+  --region us-east-1 \              # MUST be us-east-1
   --domain-name app.company.com \
   --validation-method DNS
 
@@ -382,7 +382,7 @@ How should the architect configure the ALB target group to properly detect unhea
 **D.** Configure health check on port 443 with SSL certificate verification
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -394,7 +394,7 @@ How should the architect configure the ALB target group to properly detect unhea
 Health Check Settings:
   Protocol: HTTP                    # or HTTPS
   Port: 80                          # Application port
-  Path: /health                     # ✅ Custom health endpoint
+  Path: /health                     # Custom health endpoint
   Interval: 30 seconds              # How often to check
   Timeout: 5 seconds                # Max time for response
   Healthy Threshold: 2              # Consecutive successes to mark healthy
@@ -407,13 +407,13 @@ Health Check Settings:
 ```
 ALB Target Group
 ├── Target 1 (i-001): 10.0.1.10
-│   ├── Check 1: GET /health → 200 OK ✅
-│   ├── Check 2: GET /health → 200 OK ✅
+│   ├── Check 1: GET /health → 200 OK
+│   ├── Check 2: GET /health → 200 OK
 │   └── Status: Healthy (2 consecutive successes)
 │
 ├── Target 2 (i-002): 10.0.1.11
-│   ├── Check 1: GET /health → 503 Error ❌
-│   ├── Check 2: GET /health → 503 Error ❌
+│   ├── Check 1: GET /health → 503 Error
+│   ├── Check 2: GET /health → 503 Error
 │   └── Status: Unhealthy (2 consecutive failures)
 │       └── ALB stops sending traffic to this target
 ```
@@ -451,7 +451,7 @@ Which AWS service should be implemented?
 **D.** Amazon Inspector for vulnerability scanning
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -462,10 +462,10 @@ Which AWS service should be implemented?
 ```
 AWS GuardDuty - Intelligent Threat Detection
 ├── Data Sources (Automatic)
-│   ├── VPC Flow Logs ✅
-│   ├── CloudTrail Events ✅
-│   ├── DNS Logs ✅
-│   └── Kubernetes Audit Logs ✅
+│   ├── VPC Flow Logs
+│   ├── CloudTrail Events
+│   ├── DNS Logs
+│   └── Kubernetes Audit Logs
 │
 ├── Threat Intelligence
 │   ├── AWS threat intelligence
@@ -479,16 +479,16 @@ AWS GuardDuty - Intelligent Threat Detection
 │   └── Baseline learning (7-14 days)
 │
 └── Findings (Severity levels)
-    ├── HIGH: Cryptocurrency mining ⛏️
-    ├── MEDIUM: Unusual API calls 🔑
-    └── LOW: Port scanning 🔍
+    ├── HIGH: Cryptocurrency mining
+    ├── MEDIUM: Unusual API calls
+    └── LOW: Port scanning
 ```
 
 **Key Advantages:**
-- ✅ **No agent installation** - analyzes existing AWS logs
-- ✅ **No infrastructure management** - fully managed service
-- ✅ **Continuous monitoring** - real-time threat detection
-- ✅ **Minimal setup** - enable with one click
+- **No agent installation** - analyzes existing AWS logs
+- **No infrastructure management** - fully managed service
+- **Continuous monitoring** - real-time threat detection
+- **Minimal setup** - enable with one click
 
 **Example Findings:**
 1. **CryptoCurrency:EC2/BitcoinTool.B!DNS**
@@ -513,7 +513,7 @@ AWS GuardDuty - Intelligent Threat Detection
 
 ---
 
-## 🟡 SECTION 3: PRACTICE TEST 3 TOPICS
+## SECTION 3: PRACTICE TEST 3 TOPICS
 
 ### Question 9: S3 Glacier Retrieval and Migration (Similar to PT3-Q4)
 
@@ -527,7 +527,7 @@ What is the correct migration approach?
 **D.** Use AWS DataSync to transfer files from Glacier to Intelligent-Tiering
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -537,13 +537,13 @@ What is the correct migration approach?
 
 ```
 Allowed Direct Transitions:
-├── Standard → Standard-IA ✅
-├── Standard → Intelligent-Tiering ✅
-├── Standard → Glacier Instant Retrieval ✅
-├── Standard → Glacier Flexible Retrieval ✅
-├── Standard → Glacier Deep Archive ✅
+├── Standard → Standard-IA
+├── Standard → Intelligent-Tiering
+├── Standard → Glacier Instant Retrieval
+├── Standard → Glacier Flexible Retrieval
+├── Standard → Glacier Deep Archive
 │
-└── Glacier Deep Archive → Other classes ❌ BLOCKED
+└── Glacier Deep Archive → Other classes BLOCKED
     │
     │ Must restore first!
     └── Glacier Deep Archive → Temporary Restore → Copy to new class
@@ -555,7 +555,7 @@ Allowed Direct Transitions:
 Step 1: Restore from Glacier Deep Archive
 ├── Retrieval Options:
 │   ├── Standard: 12-48 hours ($0.02/GB)
-│   └── Bulk: 48 hours ($0.0025/GB) ✅ Cost-effective
+│   └── Bulk: 48 hours ($0.0025/GB) Cost-effective
 ├── Specify days accessible: 1-365 days
 └── Objects remain in Glacier + temporary accessible copy created
 
@@ -618,7 +618,7 @@ What should the architect implement?
 **D.** Enable S3 Transfer Acceleration for faster uploads
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -628,12 +628,12 @@ What should the architect implement?
 
 ```
 Single Large File: 500 GB
-├── Standard Upload ❌
+├── Standard Upload
 │   ├── Single HTTP PUT request
 │   ├── If fails at 99%, restart entire upload
 │   └── Maximum file size: 5 GB (API limit)
 │
-└── Multipart Upload ✅
+└── Multipart Upload
     ├── Split into parts: 5,000 parts × 100 MB = 500 GB
     ├── Upload parts independently and in parallel
     ├── If part fails, retry only that part
@@ -648,12 +648,12 @@ Single Large File: 500 GB
    └── Receive Upload ID: abc123
 
 2. Upload Parts (parallel)
-   ├── Part 1: 0-99 MB → ETag: "etag1" ✅
-   ├── Part 2: 100-199 MB → ETag: "etag2" ✅
-   ├── Part 3: 200-299 MB → Failed ❌
-   │   └── Retry Part 3 → ETag: "etag3" ✅
-   ├── Part 4: 300-399 MB → ETag: "etag4" ✅
-   └── Part 5000: 499.9-500 GB → ETag: "etag5000" ✅
+   ├── Part 1: 0-99 MB → ETag: "etag1"
+   ├── Part 2: 100-199 MB → ETag: "etag2"
+   ├── Part 3: 200-299 MB → Failed
+   │   └── Retry Part 3 → ETag: "etag3"
+   ├── Part 4: 300-399 MB → ETag: "etag4"
+   └── Part 5000: 499.9-500 GB → ETag: "etag5000"
 
 3. Complete Multipart Upload
    └── S3 assembles parts into final object
@@ -727,7 +727,7 @@ s3.upload_file(
 
 ---
 
-## 🔵 SECTION 4: PRACTICE TEST 4 TOPICS
+## SECTION 4: PRACTICE TEST 4 TOPICS
 
 ### Question 11: CloudWatch Custom Metrics with Auto Scaling (Similar to PT4-Q7)
 
@@ -741,7 +741,7 @@ What is the correct solution?
 **D.** Create Lambda function to query memory from EC2 instances; send metrics to CloudWatch
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -751,17 +751,17 @@ What is the correct solution?
 
 ```
 Default EC2 Metrics (No agent required):
-├── CPU Utilization % ✅
-├── Network In/Out (bytes) ✅
-├── Disk Read/Write operations ✅
-├── Disk Read/Write bytes ✅
-└── Status Check Failed ✅
+├── CPU Utilization %
+├── Network In/Out (bytes)
+├── Disk Read/Write operations
+├── Disk Read/Write bytes
+└── Status Check Failed
 
 NOT Included (Requires CloudWatch Agent):
-├── Memory Utilization % ❌
-├── Memory Used/Available ❌
-├── Disk Space % Used ❌
-└── Swap Utilization ❌
+├── Memory Utilization %
+├── Memory Used/Available
+├── Disk Space % Used
+└── Swap Utilization
 ```
 
 **Why Memory is NOT a Default Metric:**
@@ -885,7 +885,7 @@ Which pricing strategy should be used?
 **D.** On-Demand for web tier; Spot Instances for app tier; RDS Reserved Instances for database tier
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -896,21 +896,21 @@ Which pricing strategy should be used?
 ```
 EC2 Instance Savings Plan:
 ├── Savings: Up to 72% off On-Demand
-├── Flexibility: ❌ Locked to instance family (e.g., c5)
+├── Flexibility: Locked to instance family (e.g., c5)
 ├── Can change: Size, OS, tenancy
 ├── Cannot change: Family, region
 └── Use case: Stable, predictable instance family
 
 Compute Savings Plan:
 ├── Savings: Up to 66% off On-Demand
-├── Flexibility: ✅ Any instance family, size, region, OS
+├── Flexibility: Any instance family, size, region, OS
 ├── Applies to: EC2, Fargate, Lambda
-├── Cannot apply to: RDS, Redshift, ElastiCache ❌
+├── Cannot apply to: RDS, Redshift, ElastiCache
 └── Use case: Flexible workloads that may change families
 
 RDS Reserved Instances:
 ├── Savings: Up to 69% off On-Demand
-├── Flexibility: ❌ Locked to DB engine, instance class
+├── Flexibility: Locked to DB engine, instance class
 ├── Applies to: RDS only
 └── Use case: Steady database workloads
 ```
@@ -919,19 +919,19 @@ RDS Reserved Instances:
 
 ```
 Web Tier (20 t3.large, may change to t3a.xlarge):
-├── Use: Compute Savings Plan ✅
+├── Use: Compute Savings Plan
 ├── Why: Flexibility to change families (t3 → t3a)
 ├── Commitment: Cover baseline 20 instances
 └── Savings: ~66% off On-Demand
 
 Application Tier (10-30 c5.xlarge, spiky):
-├── Use: Compute Savings Plan ✅
+├── Use: Compute Savings Plan
 ├── Why: Variable usage, may need different families
 ├── Commitment: Cover baseline 10 instances
 └── Above baseline: On-Demand for spikes
 
 Database Tier (5 r5.2xlarge RDS, steady):
-├── Use: RDS Reserved Instances ✅
+├── Use: RDS Reserved Instances
 ├── Why: Highest savings for steady RDS workload
 ├── Commitment: All 5 instances
 ├── Term: 3-year All Upfront
@@ -951,7 +951,7 @@ Scenario 2: Correct Strategy (Answer C)
 ├── Web: 20 × $0.0832 × 730 × 0.34 (66% savings) = $413
 ├── App: 10 × $0.17 × 730 × 0.34 + 10 × $0.17 × 730 = $1,240 + $1,241 = $2,481
 ├── DB: 5 × $0.636 × 730 × 0.31 (69% savings) = $719
-└── Total: $3,613/month (40% overall savings) ✅
+└── Total: $3,613/month (40% overall savings)
 
 Savings: $2,405/month = $28,860/year
 ```
@@ -978,7 +978,7 @@ Which solution reduces costs while meeting compliance requirements?
 **D.** Reduce automated snapshots to 7 days; copy manual snapshots to S3 Glacier immediately after creation
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: D**
 
@@ -1002,13 +1002,13 @@ Redshift Snapshot Storage Pricing:
 
 ```
 Daily Automated Snapshots:
-├── Retention: 7 days (operational recovery) ✅
+├── Retention: 7 days (operational recovery)
 ├── Cost: Within free tier (if <100% cluster size)
 └── Use case: Quick recovery from recent issues
 
 Monthly Manual Snapshots:
 ├── Created: 1st of every month
-├── Immediately export to S3 Glacier Deep Archive ✅
+├── Immediately export to S3 Glacier Deep Archive
 ├── Delete from Redshift after export
 ├── Retention: 7 years in Glacier
 └── Cost: $0.00099/GB/month (96% cheaper than Redshift storage)
@@ -1021,12 +1021,12 @@ Scenario 1: Keep all in Redshift
 ├── Daily snapshots (7 days): 2 TB × 7 = 14 TB
 ├── Monthly snapshots (84 months): 2 TB × 84 = 168 TB
 ├── Total: 182 TB
-├── Cost: (182 TB - 2 TB free) × $24/TB = $4,320/month ❌
+├── Cost: (182 TB - 2 TB free) × $24/TB = $4,320/month
 
 Scenario 2: Optimal (Answer D)
-├── Daily snapshots (7 days): 2 TB × 7 = 14 TB (free tier ✅)
+├── Daily snapshots (7 days): 2 TB × 7 = 14 TB (free tier )
 ├── Monthly in S3 Glacier: 2 TB × 84 = 168 TB
-├── Cost: 168 TB × $0.99/TB = $166/month ✅
+├── Cost: 168 TB × $0.99/TB = $166/month
 
 Savings: $4,154/month = $49,848/year
 ```
@@ -1084,7 +1084,7 @@ aws redshift delete-cluster-snapshot \
 
 ---
 
-## 🟣 SECTION 5: PRACTICE TEST 5 TOPICS
+## SECTION 5: PRACTICE TEST 5 TOPICS
 
 ### Question 14: ECS Deployment on AWS Outposts (Similar to PT5-Q8)
 
@@ -1098,7 +1098,7 @@ Which ECS deployment option should be used?
 **D.** ECS Anywhere with external instances
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -1108,13 +1108,13 @@ Which ECS deployment option should be used?
 
 ```
 AWS Outposts (AWS infrastructure on-premises):
-├── Supported: ECS on EC2 ✅
+├── Supported: ECS on EC2
 │   ├── EC2 instances run on Outpost rack
 │   ├── Control plane in AWS region
 │   ├── Data plane (containers) on-premises
 │   └── Sub-millisecond latency to local devices
 │
-├── Not Supported: ECS on Fargate ❌
+├── Not Supported: ECS on Fargate
 │   └── Fargate not available on Outposts
 │
 └── AWS Services Available:
@@ -1122,7 +1122,7 @@ AWS Outposts (AWS infrastructure on-premises):
     └── RDS, ElastiCache (select services)
 
 ECS Anywhere (Non-AWS infrastructure):
-├── Supported: Customer-managed servers ✅
+├── Supported: Customer-managed servers
 │   ├── On-premises servers (not Outposts)
 │   ├── Other cloud providers
 │   └── Edge locations
@@ -1130,8 +1130,8 @@ ECS Anywhere (Non-AWS infrastructure):
 └── Requires: SSM agent installation
 
 Local Zones (AWS infrastructure in metro areas):
-├── Supported: ECS on EC2 ✅
-├── Supported: ECS on Fargate ✅
+├── Supported: ECS on EC2
+├── Supported: ECS on Fargate
 ├── Latency: Single-digit milliseconds
 └── Use case: Ultra-low latency to users in specific cities
 ```
@@ -1148,7 +1148,7 @@ On-Premises Data Center
 │   └── S3 on Outposts (local object storage)
 │
 ├── IoT Sensors
-│   └── < 5ms latency to containers ✅
+│   └── < 5ms latency to containers
 │
 └── Network Connection to AWS Region
     ├── ECS Control Plane (managed in region)
@@ -1178,7 +1178,7 @@ Which ElastiCache configuration provides Multi-AZ automatic failover?
 **D.** ElastiCache for Redis with Cluster Mode enabled (multiple shards)
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -1190,17 +1190,17 @@ Which ElastiCache configuration provides Multi-AZ automatic failover?
 ElastiCache for Memcached:
 ├── Architecture: Distributed caching
 ├── Multi-node: Yes (sharding)
-├── High Availability: ❌ NO automatic failover
-├── Data Persistence: ❌ No (in-memory only)
-├── Replication: ❌ No
+├── High Availability: NO automatic failover
+├── Data Persistence: No (in-memory only)
+├── Replication: No
 ├── Use case: Simple caching, partition data across nodes
 └── Failure: If node fails, data lost; app handles retry
 
 ElastiCache for Redis:
 ├── Architecture: Master-replica replication
-├── Multi-AZ Failover: ✅ YES (automatic)
-├── Data Persistence: ✅ YES (snapshots, AOF)
-├── Replication: ✅ YES (0-5 read replicas)
+├── Multi-AZ Failover: YES (automatic)
+├── Data Persistence: YES (snapshots, AOF)
+├── Replication: YES (0-5 read replicas)
 ├── Use case: Session store, leaderboards, pub/sub
 └── Failure: Automatic failover to replica (30-60 seconds)
 ```
@@ -1217,13 +1217,13 @@ AZ-1 (us-east-1a):
 AZ-2 (us-east-1b):
 ├── Replica Node (Read-only)
 │   ├── Async replication from primary
-│   ├── Promoted to primary on failover ✅
+│   ├── Promoted to primary on failover
 │   └── IP: 10.0.2.50
 
 Failure Scenario:
-├── Primary node fails in AZ-1 ❌
+├── Primary node fails in AZ-1
 ├── ElastiCache detects failure (30 seconds)
-├── Promotes replica in AZ-2 to primary ✅
+├── Promotes replica in AZ-2 to primary
 ├── DNS endpoint updated (automatic)
 ├── Application connections redirect to new primary
 └── Downtime: 30-60 seconds
@@ -1236,14 +1236,14 @@ Failure Scenario:
    ├── Cluster Mode: Disabled
    ├── Node type: cache.r6g.large
    ├── Number of replicas: 1-5
-   └── Multi-AZ: Enabled ✅
+   └── Multi-AZ: Enabled
 
 2. Subnet Group
    ├── Include subnets from multiple AZs
    └── Example: us-east-1a, us-east-1b
 
 3. Automatic Failover
-   └── Enabled ✅ (only available with replicas)
+   └── Enabled (only available with replicas)
 ```
 
 **Application Connection (Python):**
@@ -1295,7 +1295,7 @@ Which solution meets these requirements cost-effectively?
 **D.** Instance store volumes with AWS DataSync to S3
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -1312,7 +1312,7 @@ FSx for Lustre Features:
 │   └── Use case: HPC, ML training, video processing
 │
 ├── S3 Integration:
-│   ├── Link to S3 bucket at creation ✅
+│   ├── Link to S3 bucket at creation
 │   ├── Lazy load: Read from S3 on first access
 │   ├── Data repository tasks: Export to S3
 │   └── Bidirectional sync with S3
@@ -1342,7 +1342,7 @@ Genomic Analysis Workflow:
       ├── /genomic-data/ (imported from S3)
       │   └── 20 TB datasets cached locally
       ├── EC2 Compute Cluster
-      │   └── Analysis jobs read/write at sub-ms latency ✅
+      │   └── Analysis jobs read/write at sub-ms latency
       └── /results/ (processed data)
            │
            │ Export to S3 (data repository task)
@@ -1432,7 +1432,7 @@ Cost: $672/month (vs $1,392 for persistent)
 
 ---
 
-## 🟢 SECTION 6: PRACTICE TEST 6 TOPICS
+## SECTION 6: PRACTICE TEST 6 TOPICS
 
 ### Question 17: Site-to-Site VPN Prerequisites (Similar to PT6-Q5)
 
@@ -1447,7 +1447,7 @@ Which components are mandatory for establishing the VPN connection? (Choose TWO)
 **E.** Internet Gateway for outbound traffic
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answers: B and C**
 
@@ -1458,17 +1458,17 @@ Which components are mandatory for establishing the VPN connection? (Choose TWO)
 ```
 On-Premises Data Center:
 ├── VPN Device (Firewall/Router)
-│   ├── Public IP: 203.0.113.5 ✅
+│   ├── Public IP: 203.0.113.5
 │   ├── Supports IPsec
 │   └── BGP capable (for dynamic routing)
 │
 └── Customer Gateway (AWS resource)
     ├── Logical representation of on-premises device
-    ├── Public IP: 203.0.113.5 ✅
+    ├── Public IP: 203.0.113.5
     └── BGP ASN: 65000
 
 AWS Cloud:
-├── Virtual Private Gateway (VGW) ✅
+├── Virtual Private Gateway (VGW)
 │   ├── AWS-side VPN endpoint
 │   ├── Attached to VPC
 │   ├── Two tunnels (redundancy)
@@ -1483,12 +1483,12 @@ AWS Cloud:
 
 ```
 Step 1: Create Customer Gateway
-├── Public IP of on-premises device: 203.0.113.5 ✅
+├── Public IP of on-premises device: 203.0.113.5
 ├── Routing: Static or Dynamic (BGP)
 └── BGP ASN: 65000 (if dynamic routing)
 
 Step 2: Create Virtual Private Gateway
-├── Attach to VPC ✅
+├── Attach to VPC
 └── Type: VPN
 
 Step 3: Create VPN Connection
@@ -1508,12 +1508,12 @@ Step 4: Configure On-Premises Device
 ```
 VPC Route Table (after VPN established):
 ├── Local: 10.0.0.0/16 → local
-├── On-premises: 10.1.0.0/16 → vgw-67890 ✅ (propagated)
+├── On-premises: 10.1.0.0/16 → vgw-67890 (propagated)
 └── Internet: 0.0.0.0/0 → igw-12345 (if needed)
 
 On-Premises Route Table:
 ├── Local: 10.1.0.0/16 → local
-└── AWS VPC: 10.0.0.0/16 → VPN tunnel ✅
+└── AWS VPC: 10.0.0.0/16 → VPN tunnel
 ```
 
 **Why others are NOT required:**
@@ -1550,7 +1550,7 @@ Which solution captures DynamoDB changes with minimal latency?
 **D.** Use CloudWatch Events to monitor DynamoDB API calls
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -1628,10 +1628,10 @@ Lambda Function (Process Changes):
 
 | View Type | OLD_IMAGE | NEW_IMAGE | Use Case |
 |-----------|-----------|-----------|----------|
-| **KEYS_ONLY** | ❌ | ❌ | Minimal data; trigger only |
-| **NEW_IMAGE** | ❌ | ✅ | See new values after change |
-| **OLD_IMAGE** | ✅ | ❌ | See values before change |
-| **NEW_AND_OLD_IMAGES** | ✅ | ✅ | Compare before/after (recommended) |
+| **KEYS_ONLY** | No | No | Minimal data; trigger only |
+| **NEW_IMAGE** | No | Yes | See new values after change |
+| **OLD_IMAGE** | Yes | No | See values before change |
+| **NEW_AND_OLD_IMAGES** | Yes | Yes | Compare before/after (recommended) |
 
 **Implementation:**
 
@@ -1689,7 +1689,7 @@ aws lambda create-event-source-mapping \
 Latency:
 ├── DynamoDB write → Stream: < 1 second
 ├── Stream → Lambda trigger: < 1 second
-└── Total: 1-2 seconds (near real-time) ✅
+└── Total: 1-2 seconds (near real-time)
 
 Throughput:
 ├── Shard capacity: 1,000 records/second
@@ -1707,7 +1707,7 @@ Throughput:
 
 ---
 
-## 🔴 SECTION 7: PRACTICE TEST 7 TOPICS
+## SECTION 7: PRACTICE TEST 7 TOPICS
 
 ### Question 19: Direct Connect BGP Community Tags (Similar to PT7-Q1)
 
@@ -1721,7 +1721,7 @@ Which BGP configuration should be applied?
 **D.** Configure BGP community tag 7224:9300 (global preference)
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -1731,7 +1731,7 @@ Which BGP configuration should be applied?
 
 ```
 AWS BGP Community Tags (Public VIF only):
-├── 7224:9100 → Local AWS region only ✅
+├── 7224:9100 → Local AWS region only
 │   └── Use case: Keep traffic in same region as Direct Connect
 │
 ├── 7224:9200 → All regions in same continent
@@ -1750,13 +1750,13 @@ AWS BGP Community Tags (Public VIF only):
 On-Premises Data Center (Virginia):
 ├── Direct Connect Location (us-east-1)
 │   └── Public Virtual Interface
-│       ├── BGP community: 7224:9100 ✅
+│       ├── BGP community: 7224:9100
 │       └── VLAN: 100
 │
 └── Traffic Flow with 7224:9100:
-    ├── S3 us-east-1: Uses local region ✅ (lowest latency)
-    ├── S3 us-west-2: ❌ NOT advertised (must use internet)
-    └── DynamoDB us-east-1: Uses local region ✅
+    ├── S3 us-east-1: Uses local region (lowest latency)
+    ├── S3 us-west-2: NOT advertised (must use internet)
+    └── DynamoDB us-east-1: Uses local region
 
 Without 7224:9100 (default 7224:9300):
     ├── S3 us-east-1: Uses local region
@@ -1792,10 +1792,10 @@ Scenario 1: Without 7224:9100 (default global)
 ├── Direct Connect to S3 us-west-2:
 │   ├── Data Transfer Out: $0.02/GB
 │   ├── Cross-region transfer: $0.02/GB
-│   └── Total: $0.04/GB ❌ (expensive)
+│   └── Total: $0.04/GB (expensive)
 
 Scenario 2: With 7224:9100 (local region)
-├── Direct Connect to S3 us-east-1: $0.02/GB ✅
+├── Direct Connect to S3 us-east-1: $0.02/GB
 ├── Direct Connect to S3 us-west-2: Uses internet instead
 │   └── May use VPN or public internet (application decides)
 ```
@@ -1804,7 +1804,7 @@ Scenario 2: With 7224:9100 (local region)
 
 | VIF Type | Supports BGP Community Tags | Use Case |
 |----------|---------------------------|----------|
-| **Public VIF** | 7224:9100, 7224:9200, 7224:9300, NO_EXPORT ✅ | AWS public services (S3, DynamoDB) |
+| **Public VIF** | 7224:9100, 7224:9200, 7224:9300, NO_EXPORT  | AWS public services (S3, DynamoDB) |
 | **Private VIF** | Local preference (NOT 7224:xxxx) | VPC resources |
 | **Transit VIF** | Local preference (NOT 7224:xxxx) | Transit Gateway |
 
@@ -1830,7 +1830,7 @@ Which solution is most appropriate?
 **D.** Write custom script using rsync over VPN between regions
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -1841,7 +1841,7 @@ Which solution is most appropriate?
 ```
 AWS DataSync Features:
 ├── Supports:
-│   ├── EFS → EFS (same/cross-region) ✅
+│   ├── EFS → EFS (same/cross-region)
 │   ├── EFS → S3
 │   ├── S3 → EFS
 │   ├── On-premises → AWS
@@ -1869,7 +1869,7 @@ Source Region (us-west-1):
 └── DataSync Task
     ├── Source Location: EFS fs-abc123
     ├── Destination Location: EFS fs-xyz789 (eu-west-2)
-    ├── Transfer over AWS private network ✅
+    ├── Transfer over AWS private network
     └── No internet traversal
 
 Destination Region (eu-west-2):
@@ -1991,7 +1991,7 @@ Which solution reduces data transfer costs while maintaining internet access?
 **D.** Deploy a private NAT Gateway in each AZ's public subnet
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -2003,19 +2003,19 @@ Which solution reduces data transfer costs while maintaining internet access?
 VPC (10.0.0.0/16):
 ├── AZ-A (us-east-1a):
 │   ├── Public Subnet
-│   │   └── NAT Gateway (nat-abc123) ✅
+│   │   └── NAT Gateway (nat-abc123)
 │   └── Private Subnet
-│       └── EC2 instances → NAT in AZ-A (same AZ) ✅
+│       └── EC2 instances → NAT in AZ-A (same AZ)
 │
 ├── AZ-B (us-east-1b):
 │   ├── Public Subnet (no NAT Gateway)
 │   └── Private Subnet
-│       └── EC2 instances → NAT in AZ-A ❌ (cross-AZ traffic)
+│       └── EC2 instances → NAT in AZ-A (cross-AZ traffic)
 │
 └── AZ-C (us-east-1c):
     ├── Public Subnet (no NAT Gateway)
     └── Private Subnet
-        └── EC2 instances → NAT in AZ-A ❌ (cross-AZ traffic)
+        └── EC2 instances → NAT in AZ-A (cross-AZ traffic)
 
 Cost Issue:
 └── Cross-AZ data transfer: $0.01/GB (AZ-B → AZ-A, AZ-C → AZ-A)
@@ -2030,21 +2030,21 @@ VPC (10.0.0.0/16):
 │   │   └── NAT Gateway-A (nat-123)
 │   └── Private Subnet
 │       ├── EC2 instances
-│       └── Route: 0.0.0.0/0 → nat-123 ✅ (same AZ)
+│       └── Route: 0.0.0.0/0 → nat-123 (same AZ)
 │
 ├── AZ-B (us-east-1b):
 │   ├── Public Subnet
-│   │   └── NAT Gateway-B (nat-456) ✅ (added)
+│   │   └── NAT Gateway-B (nat-456) (added)
 │   └── Private Subnet
 │       ├── EC2 instances
-│       └── Route: 0.0.0.0/0 → nat-456 ✅ (same AZ)
+│       └── Route: 0.0.0.0/0 → nat-456 (same AZ)
 │
 └── AZ-C (us-east-1c):
     ├── Public Subnet
-    │   └── NAT Gateway-C (nat-789) ✅ (added)
+    │   └── NAT Gateway-C (nat-789) (added)
     └── Private Subnet
         ├── EC2 instances
-        └── Route: 0.0.0.0/0 → nat-789 ✅ (same AZ)
+        └── Route: 0.0.0.0/0 → nat-789 (same AZ)
 
 Cost Savings:
 └── Eliminated cross-AZ data transfer charges
@@ -2055,15 +2055,15 @@ Cost Savings:
 ```
 Private Subnet Route Table (AZ-A):
 ├── 10.0.0.0/16 → local
-└── 0.0.0.0/0 → nat-123 (NAT in AZ-A) ✅
+└── 0.0.0.0/0 → nat-123 (NAT in AZ-A)
 
 Private Subnet Route Table (AZ-B):
 ├── 10.0.0.0/16 → local
-└── 0.0.0.0/0 → nat-456 (NAT in AZ-B) ✅
+└── 0.0.0.0/0 → nat-456 (NAT in AZ-B)
 
 Private Subnet Route Table (AZ-C):
 ├── 10.0.0.0/16 → local
-└── 0.0.0.0/0 → nat-789 (NAT in AZ-C) ✅
+└── 0.0.0.0/0 → nat-789 (NAT in AZ-C)
 ```
 
 **Cost Analysis:**
@@ -2080,8 +2080,8 @@ Scenario 1: Single NAT Gateway (Current)
 │   └── Data processing: $0.045/GB × 3,000 GB = $135/month
 ├── Cross-AZ data transfer:
 │   ├── AZ-A: 1,000 GB (no cross-AZ charge)
-│   ├── AZ-B: 1,000 GB × $0.01/GB = $10 (cross-AZ) ❌
-│   └── AZ-C: 1,000 GB × $0.01/GB = $10 (cross-AZ) ❌
+│   ├── AZ-B: 1,000 GB × $0.01/GB = $10 (cross-AZ)
+│   └── AZ-C: 1,000 GB × $0.01/GB = $10 (cross-AZ)
 └── Total: $187.85/month
 
 Scenario 2: NAT Gateway per AZ (Optimized)
@@ -2089,7 +2089,7 @@ Scenario 2: NAT Gateway per AZ (Optimized)
 │   ├── 3 gateways × $0.045/hr × 730 hrs = $98.55/month
 │   └── Data processing: $0.045/GB × 3,000 GB = $135/month
 ├── Cross-AZ data transfer:
-│   └── $0 (all traffic stays in same AZ) ✅
+│   └── $0 (all traffic stays in same AZ)
 └── Total: $233.55/month
 
 Wait, this is MORE expensive!
@@ -2103,19 +2103,19 @@ Break-even analysis:
 ├── Cross-AZ savings: $0.01/GB
 └── Need: $65.70 ÷ $0.01 = 6,570 GB/month cross-AZ traffic
 
-If cross-AZ traffic > 6,570 GB/month → Per-AZ NAT is cheaper ✅
+If cross-AZ traffic > 6,570 GB/month → Per-AZ NAT is cheaper
 If cross-AZ traffic < 6,570 GB/month → Single NAT is cheaper
 
 High-traffic scenario (100 instances, 1 TB/month each):
 ├── Single NAT: $32.85 + $4,500 + $666 (cross-AZ) = $5,198.85
-├── Per-AZ NAT: $98.55 + $4,500 = $4,598.55 ✅
+├── Per-AZ NAT: $98.55 + $4,500 = $4,598.55
 └── Savings: $600/month
 ```
 
 **NAT Gateway Types:**
 
 ```
-Public NAT Gateway: ✅
+Public NAT Gateway:
 ├── Deployed in public subnet
 ├── Requires Elastic IP
 ├── Routes: 0.0.0.0/0 → Internet Gateway
@@ -2150,7 +2150,7 @@ Which solution enables encryption on the existing cluster?
 **D.** Use AWS Database Migration Service to migrate to new encrypted cluster
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: A**
 
@@ -2159,7 +2159,7 @@ Which solution enables encryption on the existing cluster?
 **Redshift Encryption Changes (2019+):**
 
 ```
-Legacy Approach (Pre-2019): ❌
+Legacy Approach (Pre-2019):
 ├── Cannot enable encryption on existing cluster
 ├── Required steps:
 │   ├── 1. Create new encrypted cluster
@@ -2169,8 +2169,8 @@ Legacy Approach (Pre-2019): ❌
 │   └── 5. Delete old cluster
 └── Downtime: Several hours for 5 TB
 
-Modern Approach (2019+): ✅
-├── Enable encryption on existing cluster ✅
+Modern Approach (2019+):
+├── Enable encryption on existing cluster
 ├── Redshift automatically migrates data
 ├── Process:
 │   ├── 1. Modify cluster → Enable encryption
@@ -2190,7 +2190,7 @@ Modern Approach (2019+): ✅
 2. Select cluster: my-cluster
 3. Actions → Modify cluster
 4. Database configuration:
-   ├── Encryption: Enable ✅
+   ├── Encryption: Enable
    ├── KMS key: aws/redshift (default) or custom key
    └── Click "Modify cluster"
 5. Redshift migration process:
@@ -2226,7 +2226,7 @@ Phase 1: Snapshot Creation
 
 Phase 2: Data Migration (Background)
 ├── Redshift copies data to encrypted storage
-├── Cluster remains AVAILABLE for queries ✅
+├── Cluster remains AVAILABLE for queries
 ├── Performance may be slightly reduced
 └── Duration: 2-4 hours for 5 TB
 
@@ -2235,13 +2235,13 @@ Phase 3: Final Cutover
 ├── Switches to encrypted storage
 └── Cluster returns to AVAILABLE status
 
-Total Downtime: ~10 minutes (minimal) ✅
+Total Downtime: ~10 minutes (minimal)
 ```
 
 **Encryption Options:**
 
 ```
-AWS KMS (Recommended): ✅
+AWS KMS (Recommended):
 ├── AWS-managed key: aws/redshift (default)
 ├── Customer-managed key: Custom KMS key
 ├── Benefits:
@@ -2264,15 +2264,15 @@ AWS CloudHSM:
 
 ```
 Redshift Encrypted Cluster:
-├── Cluster data blocks ✅
-├── System tables ✅
-├── All snapshots (automated & manual) ✅
-├── Backups ✅
-└── In-transit data between nodes ✅
+├── Cluster data blocks
+├── System tables
+├── All snapshots (automated & manual)
+├── Backups
+└── In-transit data between nodes
 
 NOT Encrypted (Without additional configuration):
-├── Connection to cluster (use SSL) ⚠️
-└── Query results downloaded to client ⚠️
+├── Connection to cluster (use SSL)
+└── Query results downloaded to client
 ```
 
 **Verification:**
@@ -2302,7 +2302,7 @@ WHERE datname = current_database();
 ---
 
 
-## 🟤 ADDITIONAL REINFORCEMENT QUESTIONS
+## ADDITIONAL REINFORCEMENT QUESTIONS
 
 ### Question 23: RDS Multi-AZ vs Read Replicas (Similar to PT1)
 
@@ -2316,7 +2316,7 @@ Which solution provides both read scaling AND high availability?
 **D.** Use Amazon Aurora with single instance
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -2326,16 +2326,16 @@ Which solution provides both read scaling AND high availability?
 
 ```
 Multi-AZ Deployment:
-├── Purpose: High availability (HA) only ✅
-├── Standby: NOT accessible for reads ❌
+├── Purpose: High availability (HA) only
+├── Standby: NOT accessible for reads
 └── Use case: HA/DR, not performance scaling
 
 Read Replicas:
-├── Purpose: Read scaling ✅
-├── Replicas: Accessible for read queries ✅
+├── Purpose: Read scaling
+├── Replicas: Accessible for read queries
 └── Use case: Scale read-heavy workloads
 
-Combined Solution: Multi-AZ + Read Replicas ✅
+Combined Solution: Multi-AZ + Read Replicas
 ├── Multi-AZ: Primary + Standby (HA)
 ├── Read Replicas: 3 replicas for read scaling
 └── Benefits: HA + Read scaling
@@ -2356,7 +2356,7 @@ A Lambda function executes successfully but no logs appear in CloudWatch Logs. W
 **D.** Lambda function not using console.log() statements
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -2396,7 +2396,7 @@ An Auto Scaling group scales out from 4 to 6 instances at 10:00 AM due to high C
 **D.** Target tracking policies don't support multiple scale events
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -2406,15 +2406,15 @@ An Auto Scaling group scales out from 4 to 6 instances at 10:00 AM due to high C
 
 ```
 10:00 AM: Scale out (4 → 6 instances)
-├── Cooldown starts: 300 seconds ⏱️
-├── During cooldown: No additional scaling ❌
+├── Cooldown starts: 300 seconds
+├── During cooldown: No additional scaling
 └── After 5 minutes: Resume normal evaluation
 
 10:02 AM: Still high CPU
 └── No action: Still in cooldown (120/300 seconds)
 
 10:05 AM: Cooldown expires
-└── Resume scaling if still needed ✅
+└── Resume scaling if still needed
 ```
 
 **Key Concept:** Cooldown prevents rapid successive scaling to allow metric stabilization
@@ -2432,7 +2432,7 @@ A website uses CloudFront with S3 origin. When files are missing (404), display 
 **D.** CloudFront default error pages
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -2444,7 +2444,7 @@ A website uses CloudFront with S3 origin. When files are missing (404), display 
 Configuration:
 ├── Error Code: 404
 ├── Response Page: /error.html
-├── Response Code: 200 (not 404) ✅
+├── Response Code: 200 (not 404)
 └── Cache TTL: 300 seconds
 ```
 
@@ -2469,7 +2469,7 @@ Database requires 20,000 IOPS consistent performance. Which EBS volume type?
 **D.** st1 for high throughput
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -2478,11 +2478,11 @@ Database requires 20,000 IOPS consistent performance. Which EBS volume type?
 **EBS Volume Limits:**
 
 ```
-gp3: Up to 16,000 IOPS max ❌
+gp3: Up to 16,000 IOPS max
 ├── Cannot provision 20,000 IOPS
 └── Need io2 instead
 
-io2: Up to 64,000 IOPS ✅
+io2: Up to 64,000 IOPS
 ├── Can provision 20,000 IOPS
 ├── Sub-millisecond latency
 └── Cost: Higher than gp3
@@ -2508,7 +2508,7 @@ To establish Site-to-Site VPN between on-premises and AWS VPC, which components 
 **E.** Transit Gateway
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answers: B and C**
 
@@ -2518,10 +2518,10 @@ To establish Site-to-Site VPN between on-premises and AWS VPC, which components 
 
 ```
 On-Premises:
-└── Customer Gateway (public IP) ✅
+└── Customer Gateway (public IP)
 
 AWS:
-└── Virtual Private Gateway (attached to VPC) ✅
+└── Virtual Private Gateway (attached to VPC)
 
 Optional:
 ├── Transit Gateway (alternative to VGW)
@@ -2544,7 +2544,7 @@ Capture real-time changes (inserts, updates, deletes) from DynamoDB table. Which
 **D.** CloudWatch Events for DynamoDB API calls
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -2555,7 +2555,7 @@ Capture real-time changes (inserts, updates, deletes) from DynamoDB table. Which
 ```
 Features:
 ├── Captures: INSERT, MODIFY, DELETE
-├── Latency: Milliseconds (near real-time) ✅
+├── Latency: Milliseconds (near real-time)
 ├── Retention: 24 hours
 └── Consumer: Lambda, Kinesis, custom apps
 
@@ -2583,7 +2583,7 @@ Direct Connect public VIF to S3. Traffic should stay in local region only (us-ea
 **D.** BGP community 7224:9300 (global)
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -2592,7 +2592,7 @@ Direct Connect public VIF to S3. Traffic should stay in local region only (us-ea
 **AWS BGP Community Tags (Public VIF):**
 
 ```
-7224:9100 → Local region only ✅
+7224:9100 → Local region only
 ├── Traffic stays in same region
 └── Use case: Cost optimization
 
@@ -2603,14 +2603,14 @@ NO_EXPORT → Don't advertise beyond AS
 
 **Cost Impact:**
 - Without tag: May route cross-region ($0.02/GB extra)
-- With 7224:9100: Stays local (saves money) ✅
+- With 7224:9100: Stays local (saves money)
 
 **Key Concept:** Public VIF + 7224:9100 = Local region routing (cost savings)
 </details>
 
 ---
 
-## 📚 Additional Study Resources
+## Additional Study Resources
 
 After completing these questions, review:
 - AWS Documentation for services you got wrong
@@ -2630,7 +2630,7 @@ A serverless application receives client requests in XML format but the backend 
 **D.** Lambda proxy integration
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -2681,7 +2681,7 @@ An Auto Scaling group has instances from multiple launch templates. During scale
 **D.** Default termination policy
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -2696,7 +2696,7 @@ OldestInstance:
 OldestLaunchConfiguration:
 └── Terminates instances with oldest launch config
 
-OldestLaunchTemplate: ✅
+OldestLaunchTemplate:
 └── Terminates instances with oldest launch template version
 └── Use case: Rolling updates to new template versions
 
@@ -2733,7 +2733,7 @@ A CloudFormation template needs to generate a unique database password and store
 **D.** CloudFormation intrinsic function
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -2798,7 +2798,7 @@ A company has Amazon EFS in us-east-1 and needs to access it from EC2 instances 
 **D.** VPN connection between regions
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -2812,7 +2812,7 @@ us-east-1 VPC (10.0.0.0/16)
 ├── EFS Mount Targets (AZ-a, AZ-b)
 └── Security Group: Allow NFS (2049) from 10.1.0.0/16
 
-        ↕ (Inter-Region VPC Peering) ✅
+        ↕ (Inter-Region VPC Peering)
 
 eu-west-1 VPC (10.1.0.0/16)
 ├── EC2 Instances
@@ -2866,7 +2866,7 @@ A data analytics team has a 100 TB Redshift cluster with slow query performance 
 **D.** Short Query Acceleration
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -2879,7 +2879,7 @@ Without AQUA:
 S3 (Redshift Managed Storage) → Network → Compute Nodes → Query Result
 └── All data travels to compute
 
-With AQUA: ✅
+With AQUA:
 S3 → AQUA Cache (near storage) → Pre-filtered data → Compute → Result
 └── 10x faster for scan-heavy queries
 ```
@@ -2897,7 +2897,7 @@ Traditional Redshift:
 
 With AQUA:
 ├── AQUA reads 100 TB from S3
-├── AQUA filters WHERE year = 2025 (near storage) ✅
+├── AQUA filters WHERE year = 2025 (near storage)
 ├── Transfer only 5 TB to compute
 └── Result: 5 TB (95% less data movement)
 ```
@@ -2928,7 +2928,7 @@ A company planning AWS migration needs to discover on-premises application depen
 **D.** CloudWatch agent
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: A**
 
@@ -2937,10 +2937,10 @@ A company planning AWS migration needs to discover on-premises application depen
 **AWS Application Discovery Service:**
 
 ```
-Agentless (VMware): ✅
+Agentless (VMware):
 ├── Deploy: OVA appliance in vCenter
 ├── Discovers: VMs, CPU, memory, network, dependencies
-├── No agent installation on VMs ✅
+├── No agent installation on VMs
 └── Limitations: VMware only, less detailed metrics
 
 Agent-based:
@@ -2954,7 +2954,7 @@ Agent-based:
 
 ```
 Use Agentless when:
-├── VMware environment ✅
+├── VMware environment
 ├── Cannot install agents (security policy)
 ├── Quick initial discovery
 └── Proof of concept
@@ -2981,7 +2981,7 @@ An application queries DynamoDB table by user_id (partition key) and needs to qu
 **D.** Add email to sort key
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -2993,11 +2993,11 @@ An application queries DynamoDB table by user_id (partition key) and needs to qu
 Local Secondary Index (LSI):
 ├── Same partition key as base table
 ├── Different sort key
-├── Created at table creation (cannot add later) ❌
+├── Created at table creation (cannot add later)
 └── Limit: 5 LSIs per table
 
-Global Secondary Index (GSI): ✅
-├── Different partition key (email) ✅
+Global Secondary Index (GSI):
+├── Different partition key (email)
 ├── Can be created anytime (even after table exists)
 ├── Has its own RCU/WCU capacity
 └── Limit: 20 GSIs per table
@@ -3011,7 +3011,7 @@ Base Table:
 └── Attributes: email, name, created_at
 
 GSI (EmailIndex):
-├── Partition Key: email ✅
+├── Partition Key: email
 ├── Projected attributes: user_id, name
 └── Query by email now efficient
 ```
@@ -3022,13 +3022,13 @@ GSI (EmailIndex):
 # Without GSI (SLOW - requires Scan)
 response = table.scan(
     FilterExpression=Attr('email').eq('user@example.com')
-)  # Reads entire table ❌
+) # Reads entire table
 
 # With GSI (FAST - direct query)
 response = table.query(
     IndexName='EmailIndex',
     KeyConditionExpression=Key('email').eq('user@example.com')
-)  # Reads only matching items ✅
+) # Reads only matching items
 ```
 
 **Why others wrong:**
@@ -3051,7 +3051,7 @@ A Lambda function needs to access RDS database credentials that rotate every 30 
 **D.** Store credentials in S3 with versioning
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -3060,7 +3060,7 @@ A Lambda function needs to access RDS database credentials that rotate every 30 
 **Secrets Manager vs Parameter Store:**
 
 ```
-Secrets Manager: ✅
+Secrets Manager:
 ├── Automatic rotation (Lambda function)
 ├── RDS/DocumentDB/Redshift integration
 ├── Cross-region replication
@@ -3068,7 +3068,7 @@ Secrets Manager: ✅
 └── Use case: Database credentials, API keys
 
 Parameter Store:
-├── Rotation: Manual only ❌
+├── Rotation: Manual only
 ├── Free tier: Standard parameters
 ├── Advanced: Rotation with custom Lambda
 └── Use case: Configuration data, SSM integration
@@ -3086,7 +3086,7 @@ Day 30 (Rotation triggered):
 ├── Lambda creates new password: password456
 ├── Lambda updates RDS password: password456
 ├── Lambda updates Secrets Manager: password456
-└── Lambda tests new credentials ✅
+└── Lambda tests new credentials
 
 Application:
 └── Always calls GetSecretValue (gets current password)
@@ -3107,7 +3107,7 @@ def lambda_handler(event, context):
     password = response['SecretString']
     
     # Connect to database with current password
-    # No code changes needed during rotation ✅
+    # No code changes needed during rotation
 ```
 
 **Why others wrong:**
@@ -3130,7 +3130,7 @@ A company stores millions of files in S3 with unpredictable access patterns. Som
 **D.** S3 Glacier with lifecycle policies
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -3141,26 +3141,26 @@ A company stores millions of files in S3 with unpredictable access patterns. Som
 ```
 Automatic Tier Movement:
 ├── Frequent Access: Objects accessed in last 30 days
-├── Infrequent Access: Not accessed 30 days (moves automatically) ✅
+├── Infrequent Access: Not accessed 30 days (moves automatically)
 ├── Archive Instant Access: Not accessed 90 days (optional)
 ├── Archive Access: Not accessed 90-270 days (optional)
 └── Deep Archive Access: Not accessed 180-730 days (optional)
 
 Cost:
 ├── Monitoring: $0.0025 per 1,000 objects
-├── No retrieval fees ✅
+├── No retrieval fees
 └── Automatic savings: 40-95% vs S3 Standard
 ```
 
 **Comparison:**
 
 ```
-S3 Standard + Lifecycle: ❌
+S3 Standard + Lifecycle:
 ├── Fixed transition rules (e.g., 30 days → IA)
 ├── All objects transition regardless of access
 └── May move frequently accessed objects (wrong)
 
-S3 Intelligent-Tiering: ✅
+S3 Intelligent-Tiering:
 ├── Per-object monitoring
 ├── Moves only non-accessed objects
 └── Keeps frequently accessed in Standard tier
@@ -3170,7 +3170,7 @@ S3 Intelligent-Tiering: ✅
 
 ```
 Good for Intelligent-Tiering:
-├── Unpredictable access patterns ✅
+├── Unpredictable access patterns
 ├── Mix of hot and cold data
 ├── Want automatic optimization
 └── Avoid lifecycle management complexity
@@ -3196,7 +3196,7 @@ A compliance team needs to retrieve 100 GB of archived data from S3 Glacier Flex
 **D.** Glacier Instant Retrieval
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -3215,7 +3215,7 @@ Standard (3-5 hours):
 ├── 100 GB cost: 100 × $0.01 + $0.05 = $1.05 (MEDIUM)
 └── Use: Most common, balanced cost/speed
 
-Bulk (5-12 hours): ✅
+Bulk (5-12 hours):
 ├── Cost: $0.0025/GB + $0.025 per 1,000 requests
 ├── 100 GB cost: 100 × $0.0025 + $0.025 = $0.275 (LOWEST)
 └── Use: Large datasets, non-urgent (meets 12-hour requirement)
@@ -3227,7 +3227,7 @@ Bulk (5-12 hours): ✅
 100 GB Retrieval:
 ├── Expedited: $13.00 (overkill for 12-hour SLA)
 ├── Standard: $1.05 (faster than needed)
-└── Bulk: $0.275 ✅ (meets 12-hour requirement at lowest cost)
+└── Bulk: $0.275 (meets 12-hour requirement at lowest cost)
 
 Savings: $13.00 - $0.275 = $12.725 (98% cheaper than Expedited)
 ```
@@ -3252,7 +3252,7 @@ A high-frequency trading application requires single-digit millisecond latency b
 **D.** Default VPC placement
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: A**
 
@@ -3261,11 +3261,11 @@ A high-frequency trading application requires single-digit millisecond latency b
 **Placement Group Types:**
 
 ```
-Cluster: ✅
+Cluster:
 ├── Packs instances close together in single AZ
 ├── Latency: <1ms (single-digit microseconds)
 ├── Network: 10-25 Gbps between instances
-├── Use: HPC, low-latency applications ✅
+├── Use: HPC, low-latency applications
 └── Risk: Single AZ failure affects all instances
 
 Spread:
@@ -3292,7 +3292,7 @@ Availability Zone 1:
     └── Instance 4 ─┘
     
 Ideal for:
-├── High-frequency trading ✅
+├── High-frequency trading
 ├── Distributed ML training
 └── Tightly coupled HPC workloads
 ```
@@ -3312,7 +3312,7 @@ A simple webhook needs to trigger a Lambda function via HTTPS. The function does
 **D.** Application Load Balancer
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -3321,7 +3321,7 @@ A simple webhook needs to trigger a Lambda function via HTTPS. The function does
 **Lambda Invocation Options:**
 
 ```
-Lambda Function URL: ✅
+Lambda Function URL:
 ├── Cost: FREE (only pay for Lambda execution)
 ├── Features: Basic HTTPS endpoint, IAM/no auth
 ├── Use case: Simple webhooks, public endpoints
@@ -3347,7 +3347,7 @@ Application Load Balancer:
 
 ```
 Lambda Function URL:
-└── $0.00 (free) + Lambda execution cost ✅
+└── $0.00 (free) + Lambda execution cost
 
 API Gateway HTTP API:
 └── $1.00 + Lambda execution cost
@@ -3363,7 +3363,7 @@ ALB:
 
 ```
 Good for:
-├── Simple webhooks ✅
+├── Simple webhooks
 ├── Public endpoints (no complex auth)
 ├── Direct Lambda invocation
 └── Cost optimization
@@ -3391,7 +3391,7 @@ A multi-step order processing workflow needs to coordinate Lambda functions with
 **D.** SNS topic with Lambda subscriptions
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -3400,7 +3400,7 @@ A multi-step order processing workflow needs to coordinate Lambda functions with
 **Step Functions vs SQS:**
 
 ```
-Step Functions: ✅
+Step Functions:
 ├── Visual workflow orchestration
 ├── Built-in error handling, retries
 ├── Conditional branching (if/else)
@@ -3447,7 +3447,7 @@ Order Processing Workflow:
 
 ```
 Step Functions provides:
-├── Visual designer ✅
+├── Visual designer
 ├── Automatic retries with backoff
 ├── Error handling (catch states)
 ├── State persistence
@@ -3475,7 +3475,7 @@ An organization has EC2, RDS, DynamoDB, and EFS across multiple accounts and nee
 **D.** Third-party backup software
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -3489,7 +3489,7 @@ Centralized Management:
 ├── Backup vaults (encrypted storage)
 ├── Cross-region copy
 ├── Cross-account backup
-└── Compliance policies (vault lock) ✅
+└── Compliance policies (vault lock)
 
 Supported Services:
 ├── EC2 (EBS volumes)
@@ -3547,7 +3547,7 @@ A serverless application has 1,000 concurrent Lambda functions connecting to RDS
 **D.** Read replicas
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -3556,11 +3556,11 @@ A serverless application has 1,000 concurrent Lambda functions connecting to RDS
 **RDS Proxy:**
 
 ```
-Without RDS Proxy: ❌
+Without RDS Proxy:
 Lambda (1,000 concurrent) → RDS (max 150 connections)
 └── Error: "Too many connections"
 
-With RDS Proxy: ✅
+With RDS Proxy:
 Lambda (1,000 concurrent) → RDS Proxy → RDS (50 connections)
 └── Proxy pools and reuses connections
 ```
@@ -3572,7 +3572,7 @@ Connection Pooling:
 ├── Maintains pool of DB connections
 ├── Lambda functions share connections
 ├── Reduces connection overhead
-└── Prevents max_connections errors ✅
+└── Prevents max_connections errors
 
 Additional Benefits:
 ├── IAM authentication
@@ -3622,7 +3622,7 @@ A DevOps team needs to query CloudWatch Logs to find all ERROR messages in the l
 **D.** Elasticsearch (OpenSearch)
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: A**
 
@@ -3635,7 +3635,7 @@ Purpose: Interactive log analytics
 ├── Query language: SQL-like syntax
 ├── Speed: Seconds (not minutes)
 ├── Cost: $0.005 per GB scanned
-└── Use: Real-time troubleshooting ✅
+└── Use: Real-time troubleshooting
 
 Example Query:
 fields @timestamp, @message
@@ -3648,7 +3648,7 @@ fields @timestamp, @message
 **Comparison:**
 
 ```
-CloudWatch Logs Insights: ✅
+CloudWatch Logs Insights:
 ├── Real-time queries (seconds)
 ├── No setup required
 ├── SQL-like query language
@@ -3685,7 +3685,7 @@ An ECS cluster runs tasks that should be evenly distributed across all EC2 insta
 **D.** distinctInstance
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -3700,10 +3700,10 @@ binpack:
 ├── Use: Cost optimization (fewer instances needed)
 └── Example: Fill instance1 before using instance2
 
-spread: ✅
+spread:
 ├── Distribute tasks evenly
 ├── Field: instanceId, AZ, custom attribute
-├── Use: High availability, even distribution ✅
+├── Use: High availability, even distribution
 └── Example: 12 tasks → 3 per instance (4 instances)
 
 random:
@@ -3723,7 +3723,7 @@ binpack strategy:
 └── Instance 4: 0 tasks
 └── Result: Uses only 2 instances (cost-efficient)
 
-spread (instanceId) strategy: ✅
+spread (instanceId) strategy:
 ├── Instance 1: 3 tasks
 ├── Instance 2: 3 tasks
 ├── Instance 3: 3 tasks
@@ -3759,7 +3759,7 @@ A global application needs to upload large files (5 GB) to S3 from users worldwi
 **D.** S3 Cross-Region Replication
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: A**
 
@@ -3771,7 +3771,7 @@ A global application needs to upload large files (5 GB) to S3 from users worldwi
 Without Transfer Acceleration:
 User (Sydney) → Direct S3 (us-east-1) → 250ms+ latency
 
-With Transfer Acceleration: ✅
+With Transfer Acceleration:
 User (Sydney) → CloudFront Edge (Sydney) → AWS Network → S3 (us-east-1)
 └── 50-500% faster uploads via edge locations
 ```
@@ -3789,13 +3789,13 @@ Cost: $0.04/GB (US/EU), $0.08/GB (other regions)
 **Comparison:**
 
 ```
-S3 Transfer Acceleration: ✅
+S3 Transfer Acceleration:
 ├── Optimizes: Uploads to S3
 ├── Method: Edge locations + AWS backbone
 └── Use: Global uploads, large files
 
 CloudFront:
-├── Optimizes: Downloads from S3 ❌
+├── Optimizes: Downloads from S3
 ├── Method: Edge caching
 └── Use: Content delivery, not uploads
 
@@ -3837,7 +3837,7 @@ An application needs protection against SQL injection and cross-site scripting a
 **D.** Use AWS Shield Advanced
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -3846,13 +3846,13 @@ An application needs protection against SQL injection and cross-site scripting a
 **AWS WAF Managed Rules:**
 
 ```
-AWS Managed Rules: ✅
+AWS Managed Rules:
 ├── Pre-configured rule groups
 ├── Maintained by AWS security team
 ├── Free (included with WAF pricing)
 ├── Rules:
-│   ├── SQL injection ✅
-│   ├── Cross-site scripting (XSS) ✅
+│   ├── SQL injection
+│   ├── Cross-site scripting (XSS)
 │   ├── Known bad inputs
 │   └── IP reputation lists
 └── Setup: 5 minutes (add to web ACL)
@@ -3935,7 +3935,7 @@ A global application uses Aurora Global Database with primary in us-east-1 and s
 **D.** Wait for us-east-1 to recover
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -3950,7 +3950,7 @@ us-east-1 (Primary) → Replicates → eu-west-1 (Secondary, read-only)
 └── RPO: <1 second, RTO: <1 minute
 
 Regional Failure:
-us-east-1 fails ❌
+us-east-1 fails
 
 Manual Promotion Required:
 ├── 1. Detach eu-west-1 from global database
@@ -3963,14 +3963,14 @@ Manual Promotion Required:
 
 ```
 Aurora Global Database:
-├── Cross-region DR ✅
-├── Automatic failover: ❌ NO (manual promotion required)
+├── Cross-region DR
+├── Automatic failover: NO (manual promotion required)
 ├── Reason: Protects against accidental region promotion
 └── RPO: ~1 second, RTO: <1 minute (manual)
 
 Aurora Multi-AZ (same region):
-├── Within-region HA ✅
-├── Automatic failover: ✅ YES (<30 seconds)
+├── Within-region HA
+├── Automatic failover: YES (<30 seconds)
 └── RPO: 0 (synchronous), RTO: 30 seconds
 ```
 
@@ -4004,7 +4004,7 @@ A security team wants to access EC2 instances for troubleshooting without openin
 **D.** Systems Manager Run Command
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -4013,9 +4013,9 @@ A security team wants to access EC2 instances for troubleshooting without openin
 **Session Manager Benefits:**
 
 ```
-Session Manager: ✅
-├── No open inbound ports (no port 22) ✅
-├── No SSH keys to manage ✅
+Session Manager:
+├── No open inbound ports (no port 22)
+├── No SSH keys to manage
 ├── IAM-based access control
 ├── Session logging to S3/CloudWatch
 ├── Works via AWS API (SSM agent)
@@ -4029,7 +4029,7 @@ No Session Manager:
 User → Internet → Security Group (port 22) → EC2
 └── Requires: Open port, SSH key, public IP
 
-With Session Manager: ✅
+With Session Manager:
 User → IAM Auth → SSM Service → SSM Agent → EC2
 └── Requires: SSM agent, IAM role, no open ports
 ```
@@ -4038,7 +4038,7 @@ User → IAM Auth → SSM Service → SSM Agent → EC2
 
 ```
 No inbound rules needed:
-├── Port 22: CLOSED ✅
+├── Port 22: CLOSED
 ├── Port 3389: CLOSED (RDP)
 └── All traffic blocked
 
@@ -4088,7 +4088,7 @@ An application stores millions of small objects in S3 with SSE-KMS encryption. K
 **D.** Reduce KMS key rotation frequency
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -4102,7 +4102,7 @@ Each object → Separate KMS API call → $0.03 per 10K requests
 ├── 1 million objects = 1M KMS requests
 └── Cost: 1M ÷ 10K × $0.03 = $3.00
 
-With Bucket Keys: ✅
+With Bucket Keys:
 S3 requests bucket key from KMS → Uses bucket key for all objects
 ├── 1 million objects = ~1 KMS request (reused key)
 └── Cost: ~$0.00003 (99% reduction!)
@@ -4115,7 +4115,7 @@ Traditional SSE-KMS:
 Object 1 → KMS API call (generate data key) → Encrypt → S3
 Object 2 → KMS API call (generate data key) → Encrypt → S3
 Object 3 → KMS API call (generate data key) → Encrypt → S3
-└── N objects = N KMS calls ❌
+└── N objects = N KMS calls
 
 With S3 Bucket Keys:
 Step 1: S3 calls KMS once → Get bucket key
@@ -4123,7 +4123,7 @@ Step 2: S3 generates data keys from bucket key (no KMS)
 Object 1 → Encrypt with bucket key-derived key → S3
 Object 2 → Encrypt with bucket key-derived key → S3
 Object 3 → Encrypt with bucket key-derived key → S3
-└── N objects = 1 KMS call ✅
+└── N objects = 1 KMS call
 ```
 
 **Cost Comparison:**
@@ -4135,7 +4135,7 @@ Without Bucket Keys:
 ├── Cost: 100 × $0.03 = $3.00/day
 └── Monthly: $90
 
-With Bucket Keys: ✅
+With Bucket Keys:
 ├── KMS requests: ~1 (bucket key cached)
 ├── Cost: ~$0.00003/day
 └── Monthly: ~$0.001
@@ -4181,7 +4181,7 @@ aws s3api put-bucket-encryption \
 
 ```
 Benefits:
-├── 99% reduction in KMS costs ✅
+├── 99% reduction in KMS costs
 ├── Reduced KMS throttling risk
 ├── No application changes needed
 └── Works with existing buckets
@@ -4212,7 +4212,7 @@ A data processing application takes 10 minutes to load a 16 GB dataset into memo
 **D.** Instance store persistence
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -4222,15 +4222,15 @@ A data processing application takes 10 minutes to load a 16 GB dataset into memo
 
 ```
 Stop/Start:
-├── Stops instance → Clears RAM ❌
+├── Stops instance → Clears RAM
 ├── Start → Boot OS → Load application → Load dataset (10 min)
 └── RAM lost, full reload required
 
-Hibernate: ✅
+Hibernate:
 ├── Saves RAM contents to EBS root volume
 ├── Stops instance (no compute charges)
 ├── Start → Restores RAM from EBS → Resume instantly
-└── Dataset stays in memory ✅ (no 10-min reload)
+└── Dataset stays in memory (no 10-min reload)
 ```
 
 **Use Cases:**
@@ -4310,7 +4310,7 @@ An ECS cluster on EC2 launch type needs to scale both the number of tasks and th
 **D.** Kubernetes HPA
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -4322,14 +4322,14 @@ An ECS cluster on EC2 launch type needs to scale both the number of tasks and th
 Layer 1: ECS Service Auto Scaling
 ├── Scales: Number of tasks
 ├── Based on: CPU, memory, ALB request count
-└── Problem: May not have enough EC2 capacity ❌
+└── Problem: May not have enough EC2 capacity
 
 Layer 2: EC2 Auto Scaling (Capacity Provider)
 ├── Scales: EC2 instances in cluster
 ├── Based on: Task pending, CPU reservation
-└── Provides capacity for tasks ✅
+└── Provides capacity for tasks
 
-Both Required: ✅
+Both Required:
 └── Service scales tasks → Capacity Provider scales EC2 instances
 ```
 
@@ -4342,7 +4342,7 @@ High Load:
 ├── 3. Tasks pending (not enough EC2 capacity)
 ├── 4. Capacity Provider detects pending tasks
 ├── 5. EC2 Auto Scaling adds instances
-└── 6. Tasks launched on new instances ✅
+└── 6. Tasks launched on new instances
 ```
 
 **Configuration:**
@@ -4409,7 +4409,7 @@ A company has a Direct Connect connection and needs to access both VPCs (private
 **D.** Transit VIF
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -4419,13 +4419,13 @@ A company has a Direct Connect connection and needs to access both VPCs (private
 
 ```
 Private VIF:
-├── Access: VPC private subnets via VGW/Transit Gateway ✅
+├── Access: VPC private subnets via VGW/Transit Gateway
 ├── IP range: Private (RFC 1918)
 ├── Use: EC2, RDS, internal resources
 └── Example: 10.0.0.0/16
 
 Public VIF:
-├── Access: AWS public services (S3, DynamoDB, etc.) ✅
+├── Access: AWS public services (S3, DynamoDB, etc.)
 ├── IP range: Public IPs
 ├── Use: S3, CloudFront, public endpoints
 └── Must use public IPs (not private)
@@ -4454,8 +4454,8 @@ On-Premises Data Center
 
 ```
 Requirement: Access VPC + S3
-├── VPC access: Requires Private VIF ✅
-└── S3 access: Requires Public VIF ✅
+├── VPC access: Requires Private VIF
+└── S3 access: Requires Public VIF
     └── S3 has public endpoints only
     └── Alternative: VPC endpoint (but still in VPC)
 
@@ -4506,7 +4506,7 @@ An application has deployments in us-east-1 (70% traffic) and us-west-2 (30% tra
 **D.** Geolocation routing
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -4515,7 +4515,7 @@ An application has deployments in us-east-1 (70% traffic) and us-west-2 (30% tra
 **Weighted Routing:**
 
 ```
-Purpose: Control traffic distribution by percentage ✅
+Purpose: Control traffic distribution by percentage
 ├── Use case: A/B testing, gradual migration, blue/green
 ├── Example: 70% to us-east-1, 30% to us-west-2
 └── User location doesn't matter
@@ -4529,7 +4529,7 @@ Configuration:
 **Comparison:**
 
 ```
-Weighted: ✅
+Weighted:
 ├── Control: Exact percentage (70/30)
 ├── Basis: Weight value
 ├── Use: A/B testing, gradual rollout
@@ -4605,7 +4605,7 @@ An application needs to store user session data with automatic failover. Which E
 **D.** Redis Cluster mode enabled
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -4614,14 +4614,14 @@ An application needs to store user session data with automatic failover. Which E
 **Redis vs Memcached for Sessions:**
 
 ```
-Redis with Multi-AZ: ✅
+Redis with Multi-AZ:
 ├── Replication: Master + replica(s)
 ├── Automatic failover: YES (30-60 seconds)
 ├── Data persistence: Snapshots, AOF
-├── Use: Session store with HA ✅
+├── Use: Session store with HA
 
 Memcached:
-├── Replication: NONE ❌
+├── Replication: NONE
 ├── Automatic failover: NO
 ├── Data persistence: NO
 └── Use: Simple caching, data loss acceptable
@@ -4631,13 +4631,13 @@ Memcached:
 
 ```
 Requirements:
-├── Persistence: Session data must survive node failure ✅
-├── Replication: Data replicated across AZs ✅
-├── Failover: Automatic promotion of replica ✅
-└── Solution: Redis Multi-AZ ✅
+├── Persistence: Session data must survive node failure
+├── Replication: Data replicated across AZs
+├── Failover: Automatic promotion of replica
+└── Solution: Redis Multi-AZ
 
 Why not Memcached:
-├── No replication (data lost if node fails) ❌
+├── No replication (data lost if node fails)
 ├── Multiple nodes = sharding (not replication)
 └── Auto-discovery finds nodes, doesn't replicate data
 ```
@@ -4672,7 +4672,7 @@ A financial company must retain audit logs for 7 years and prevent anyone (inclu
 **D.** IAM policy denying DeleteObject
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B** (or C if using Glacier)
 
@@ -4681,8 +4681,8 @@ A financial company must retain audit logs for 7 years and prevent anyone (inclu
 **S3 Object Lock:**
 
 ```
-Compliance Mode: ✅
-├── Objects cannot be deleted by ANYONE (even root) ✅
+Compliance Mode:
+├── Objects cannot be deleted by ANYONE (even root)
 ├── Retention period cannot be shortened
 ├── Use: SEC 17a-4, HIPAA, GDPR compliance
 └── Example: Retain 7 years, immutable
@@ -4701,12 +4701,12 @@ Legal Hold:
 **S3 Object Lock vs Glacier Vault Lock:**
 
 ```
-S3 Object Lock (Compliance): ✅
+S3 Object Lock (Compliance):
 ├── Storage class: Any S3 class
 ├── Granularity: Per-object or bucket default
 ├── Use: Flexible compliance, any S3 class
 
-Glacier Vault Lock: ✅
+Glacier Vault Lock:
 ├── Storage class: Glacier only
 ├── Granularity: Vault-level policy
 ├── Use: Long-term archives, vault-level immutability
@@ -4760,7 +4760,7 @@ A FinOps team needs detailed cost data for custom analysis and wants to query it
 **D.** AWS Organizations consolidated billing
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -4769,11 +4769,11 @@ A FinOps team needs detailed cost data for custom analysis and wants to query it
 **Cost and Usage Report (CUR):**
 
 ```
-CUR: ✅
+CUR:
 ├── Granularity: Hourly, daily, monthly
 ├── Format: CSV, Parquet (Athena-optimized)
 ├── Delivered to: S3 bucket
-├── Query with: Athena, QuickSight, custom tools ✅
+├── Query with: Athena, QuickSight, custom tools
 ├── Detail level: Line-item (most detailed)
 └── Use: Custom analysis, chargeback, detailed insights
 
@@ -4844,7 +4844,7 @@ A security team needs to analyze all network traffic to/from EC2 instances for c
 **D.** AWS Config
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -4854,11 +4854,11 @@ A security team needs to analyze all network traffic to/from EC2 instances for c
 
 ```
 Captures:
-├── Source/destination IP addresses ✅
+├── Source/destination IP addresses
 ├── Source/destination ports
 ├── Protocol (TCP/UDP/ICMP)
 ├── Bytes transferred
-├── Accept/Reject decisions ✅
+├── Accept/Reject decisions
 └── Does NOT capture: Packet contents, DNS queries
 
 Scope:
@@ -4890,7 +4890,7 @@ Fields:
 ├── Bytes: 5000
 ├── Start: 1620000000
 ├── End: 1620000300
-├── Action: ACCEPT ✅
+├── Action: ACCEPT
 └── Status: OK
 ```
 
@@ -4901,7 +4901,7 @@ Security:
 ├── Detect unauthorized access attempts (REJECT logs)
 ├── Identify port scans
 ├── Monitor outbound connections (data exfiltration)
-└── Compliance audits ✅
+└── Compliance audits
 
 Troubleshooting:
 ├── Network connectivity issues
@@ -4951,7 +4951,7 @@ A Lambda function needs database credentials that rotate monthly. What's the mos
 **D.** Pass as event parameter
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -4960,8 +4960,8 @@ A Lambda function needs database credentials that rotate monthly. What's the mos
 **Secrets Manager Integration:**
 
 ```
-Secrets Manager: ✅
-├── Automatic rotation (Lambda function) ✅
+Secrets Manager:
+├── Automatic rotation (Lambda function)
 ├── Encryption at rest (KMS)
 ├── Fine-grained IAM access control
 ├── Audit trail (CloudTrail)
@@ -4969,8 +4969,8 @@ Secrets Manager: ✅
 └── Versioning (AWSCURRENT, AWSPREVIOUS)
 
 Environment Variables:
-├── Encrypted at rest (KMS) ✅
-├── No automatic rotation ❌
+├── Encrypted at rest (KMS)
+├── No automatic rotation
 ├── Visible in Lambda console (encrypted)
 └── Use: Static config, not secrets that rotate
 ```
@@ -5002,7 +5002,7 @@ def lambda_handler(event, context):
     host = secret['host']
     
     # Connect to database with current credentials
-    # No code changes needed when credentials rotate ✅
+    # No code changes needed when credentials rotate
 ```
 
 **Comparison:**
@@ -5010,10 +5010,10 @@ def lambda_handler(event, context):
 ```
 Method                     Security  Rotation  Cost
 ───────────────────────────────────────────────────
-Hardcoded                  ❌ Low    ❌ No     Free
-Environment Variables      ⚠️ Medium ❌ No     Free
-Secrets Manager            ✅ High   ✅ Yes    $0.40/secret/month ✅
-Parameter Store Advanced   ✅ High   ⚠️ Custom $0.05/10K calls
+Hardcoded                   Low     No     Free
+Environment Variables       Medium No     Free
+Secrets Manager             High    Yes    $0.40/secret/month
+Parameter Store Advanced    High    Custom $0.05/10K calls
 ```
 
 **Key Concept:** Secrets Manager = Automatic rotation + secure retrieval for credentials
@@ -5031,7 +5031,7 @@ An organization wants to right-size EC2 instances based on actual utilization da
 **D.** CloudWatch metrics manual analysis
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -5040,10 +5040,10 @@ An organization wants to right-size EC2 instances based on actual utilization da
 **AWS Compute Optimizer:**
 
 ```
-Purpose: ML-driven rightsizing recommendations ✅
+Purpose: ML-driven rightsizing recommendations
 ├── Analyzes: 14 days of CloudWatch metrics
 ├── Recommendations for:
-│   ├── EC2 instances ✅
+│   ├── EC2 instances
 │   ├── Auto Scaling groups
 │   ├── EBS volumes
 │   └── Lambda functions
@@ -5066,7 +5066,7 @@ Current:
 ├── Utilization: 10% CPU, 15% memory (over-provisioned)
 └── Cost: $280/month
 
-Recommendation: ✅
+Recommendation:
 ├── Instance: m5.large (2 vCPU, 8 GB RAM)
 ├── Performance risk: Low
 ├── Projected cost: $70/month
@@ -5076,12 +5076,12 @@ Recommendation: ✅
 **Comparison:**
 
 ```
-Compute Optimizer: ✅
+Compute Optimizer:
 ├── ML-based recommendations
 ├── Analyzes actual usage patterns
 ├── Multiple resource types
 ├── Free
-└── Use: Right-sizing, cost optimization ✅
+└── Use: Right-sizing, cost optimization
 
 Cost Explorer:
 ├── Shows spending trends
@@ -5095,7 +5095,7 @@ Trusted Advisor:
 
 CloudWatch:
 ├── Provides metrics
-├── Manual analysis required ❌
+├── Manual analysis required
 └── Use: Monitoring, not recommendations
 ```
 
@@ -5134,7 +5134,7 @@ A DevOps team wants to proactively test API endpoint availability every 5 minute
 **D.** Lambda function with EventBridge schedule
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -5143,16 +5143,16 @@ A DevOps team wants to proactively test API endpoint availability every 5 minute
 **CloudWatch Synthetics:**
 
 ```
-Purpose: Automated endpoint testing (like user) ✅
+Purpose: Automated endpoint testing (like user)
 ├── Canaries: Scheduled scripts that monitor endpoints
 ├── Frequency: 1 minute to 1 hour
 ├── Protocols: HTTP/HTTPS, APIs, UI workflows
 ├── Runtime: Node.js, Python
 ├── Metrics: Availability, latency, screenshots
-└── Alerts: CloudWatch Alarms integration ✅
+└── Alerts: CloudWatch Alarms integration
 
 Use Cases:
-├── API endpoint monitoring ✅
+├── API endpoint monitoring
 ├── Website availability testing
 ├── Broken link checking
 ├── UI workflow testing (Puppeteer/Selenium)
@@ -5182,11 +5182,11 @@ exports.handler = async () => {
                     log.info(`Status Code: ${res.statusCode}`);
                     
                     if (res.statusCode !== 200) {
-                        reject(`Failed: ${res.statusCode}`);  // Triggers alarm ❌
+                        reject(`Failed: ${res.statusCode}`); // Triggers alarm
                     }
                     
                     res.on('data', (d) => {
-                        resolve(d);  // Success ✅
+                        resolve(d); // Success
                     });
                 });
                 
@@ -5241,11 +5241,11 @@ aws cloudwatch put-metric-alarm \
 **Comparison:**
 
 ```
-CloudWatch Synthetics: ✅
+CloudWatch Synthetics:
 ├── Purpose-built for endpoint testing
 ├── Scheduled automated checks
 ├── Rich metrics and screenshots
-└── Use: Proactive monitoring ✅
+└── Use: Proactive monitoring
 
 Route 53 Health Checks:
 ├── Basic HTTP/HTTPS/TCP checks
@@ -5277,7 +5277,7 @@ A development team has a database with highly variable workload (idle at night, 
 **D.** Aurora Global Database
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: C**
 
@@ -5286,17 +5286,17 @@ A development team has a database with highly variable workload (idle at night, 
 **Aurora Serverless v2:**
 
 ```
-Purpose: Automatically scales capacity based on load ✅
+Purpose: Automatically scales capacity based on load
 ├── Scaling: Sub-second granularity
 ├── Range: 0.5 ACU to 128 ACU
 ├── No downtime: Scales without interruption
-├── Cost: Pay only for ACU-hours used ✅
+├── Cost: Pay only for ACU-hours used
 └── Ideal: Variable, unpredictable workloads
 
 Aurora Provisioned:
 ├── Fixed instance size (e.g., db.r6g.xlarge)
 ├── Manual scaling (requires instance change + downtime)
-├── Cost: Pay for provisioned capacity (even if idle) ❌
+├── Cost: Pay for provisioned capacity (even if idle)
 └── Ideal: Steady, predictable workloads
 ```
 
@@ -5323,7 +5323,7 @@ Serverless v2 with scale-to-zero capability:
 ├── Idle: 0.5 ACU × 16 hrs = 8 ACU-hours
 ├── Cost: ~$16/day = $480/month
 
-Provisioned with scheduled stop (not possible with Aurora) ❌
+Provisioned with scheduled stop (not possible with Aurora)
 
 Real benefit: Variable workload
 ├── Serverless: Scales instantly to 128 ACU during spike
@@ -5333,8 +5333,8 @@ Real benefit: Variable workload
 **When to Use Each:**
 
 ```
-Aurora Serverless v2: ✅
-├── Variable workload (dev/test, infrequent apps) ✅
+Aurora Serverless v2:
+├── Variable workload (dev/test, infrequent apps)
 ├── Spiky traffic patterns
 ├── Multi-tenant applications
 └── Cost: ~$0.12 per ACU-hour
@@ -5384,7 +5384,7 @@ A partner company needs to upload files to S3 using SFTP protocol (their legacy 
 **D.** Storage Gateway File Gateway
 
 <details>
-<summary>✅ Click to reveal answer</summary>
+<summary> Click to reveal answer</summary>
 
 **Correct Answer: B**
 
@@ -5393,15 +5393,15 @@ A partner company needs to upload files to S3 using SFTP protocol (their legacy 
 **AWS Transfer Family:**
 
 ```
-Purpose: Managed SFTP/FTPS/FTP service for S3/EFS ✅
+Purpose: Managed SFTP/FTPS/FTP service for S3/EFS
 ├── Protocols: SFTP, FTPS, FTP, AS2
 ├── Storage: S3 or EFS backend
 ├── Authentication: Service-managed, custom (Lambda), IAM
-├── No code changes: Legacy systems work as-is ✅
+├── No code changes: Legacy systems work as-is
 └── High availability: Multi-AZ by default
 
 Use Cases:
-├── Legacy application file transfers ✅
+├── Legacy application file transfers
 ├── Partner file exchanges
 ├── Data lake ingestion
 └── Migration from on-premises FTP servers
@@ -5423,7 +5423,7 @@ AWS Transfer Family (SFTP Server)
         │ Automatically stored
         ▼
 S3 Bucket (s3://partner-uploads/)
-├── Files uploaded via SFTP appear in S3 ✅
+├── Files uploaded via SFTP appear in S3
 └── Can trigger Lambda, EventBridge, etc.
 ```
 
@@ -5449,7 +5449,7 @@ aws transfer create-user \
 # Partner connects (standard SFTP client)
 sftp partner-user@s-1234567890abcdef0.server.transfer.us-east-1.amazonaws.com
 sftp> put data-file.csv
-# File appears in s3://my-bucket/partner-uploads/data-file.csv ✅
+# File appears in s3://my-bucket/partner-uploads/data-file.csv
 ```
 
 **Pricing:**
@@ -5477,7 +5477,7 @@ Alternative (custom SFTP server on EC2):
 
 ---
 
-## 📚 Additional Study Resources
+## Additional Study Resources
 
 After completing these questions, review:
 - AWS Documentation for services you got wrong
@@ -5485,7 +5485,7 @@ After completing these questions, review:
 - Hands-on labs for weak areas
 - Original practice tests (retake after 2 weeks)
 
-**Total Questions Created:** 65 comprehensive reinforcement questions covering all 7 practice tests ✅
+**Total Questions Created:** 65 comprehensive reinforcement questions covering all 7 practice tests
 
-**Good luck with your AWS SAA-C03 exam preparation!** 🚀
+**Good luck with your AWS SAA-C03 exam preparation!**
 

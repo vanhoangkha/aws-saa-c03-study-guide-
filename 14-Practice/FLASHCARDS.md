@@ -2,7 +2,7 @@
 
 > Quick reference flashcards for key concepts and services
 
-## 🎯 How to Use
+## How to Use
 - Review regularly for spaced repetition
 - Focus on weak areas identified in practice tests
 - Use for last-minute review before exam

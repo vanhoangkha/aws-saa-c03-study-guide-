@@ -1,7 +1,7 @@
 # Practice Test 5 (SAA-C03) - Exam Review
 
 **Date:** March 2, 2026  
-**Score:** 42/65 (64.62%) - ❌ **FAILED**  
+**Score:** 42/65 (64.62%) - **FAILED**
 **Time Taken:** 130 minutes (2 hours 10 minutes)  
 **Status:** Significant regression from previous tests  
 **Passing Score:** 72% (need 47/65 correct)
@@ -10,56 +10,56 @@
 
 ---
 
-## 📊 Performance Summary
+## Performance Summary
 
 | Metric | Result |
 |--------|--------|
 | **Total Questions** | 65 |
 | **Correct Answers** | 42 (64.62%) |
 | **Incorrect Answers** | 23 (35.38%) |
-| **Pass/Fail** | **FAIL** ❌ |
+| **Pass/Fail** | **FAIL**  |
 | **Passing Score** | 72% |
 | **Gap to Pass** | -7.38% (need 5 more correct) |
 | **Questions Marked for Review** | 39 (60% of exam) |
 
 ### Performance Trend Analysis
 ```
-Test 1: 42/65 (64.62%) ❌ FAIL
-Test 2: 49/65 (75.38%) ⚠️ BORDERLINE (+10.76%)
-Test 3: 52/65 (80.00%) ✅ PASS (+4.62%)
-Test 4: 49/65 (75.38%) ⚠️ BORDERLINE (-4.62%)
-Test 5: 42/65 (64.62%) ❌ FAIL (-10.76%)
+Test 1: 42/65 (64.62%) FAIL
+Test 2: 49/65 (75.38%) BORDERLINE (+10.76%)
+Test 3: 52/65 (80.00%) PASS (+4.62%)
+Test 4: 49/65 (75.38%) BORDERLINE (-4.62%)
+Test 5: 42/65 (64.62%) FAIL (-10.76%)
 ─────────────────────────────────────────────
-Trend: ⚠️ Significant regression - back to Test 1 level
+Trend: Significant regression - back to Test 1 level
 Pattern: Inconsistent performance across tests
 ```
 
 ---
 
-## 📈 Domain Performance Analysis
+## Domain Performance Analysis
 
 | Domain | Total | Correct | Incorrect | Score | Status |
 |--------|-------|---------|-----------|-------|--------|
-| **Design Cost-Optimized Architectures** | 3 | 3 | 0 | 100.00% | ✅ Perfect |
-| **Design Secure Architectures** | 18 | 14 | 4 | 77.78% | ⚠️ Needs Review |
-| **Design Resilient Architectures** | 21 | 15 | 6 | 71.43% | ⚠️ Needs Review |
-| **Design High-Performing Architectures** | 23 | 10 | 13 | 43.48% | ❌ **CRITICAL** |
+| **Design Cost-Optimized Architectures** | 3 | 3 | 0 | 100.00% | Perfect |
+| **Design Secure Architectures** | 18 | 14 | 4 | 77.78% | Needs Review |
+| **Design Resilient Architectures** | 21 | 15 | 6 | 71.43% | Needs Review |
+| **Design High-Performing Architectures** | 23 | 10 | 13 | 43.48% | **CRITICAL** |
 
 ### Domain Analysis
 
-#### ✅ Strengths
+#### Strengths
 - **Design Cost-Optimized Architectures (100%)** - Perfect score, strong improvement
 
-#### ⚠️ Areas Needing Improvement
+#### Areas Needing Improvement
 - **Design Secure Architectures (77.78%)** - Good but can improve
 - **Design Resilient Architectures (71.43%)** - Just below passing threshold
 
-#### ❌ Critical Weaknesses
+#### Critical Weaknesses
 - **Design High-Performing Architectures (43.48%)** - **CATASTROPHIC** - dropped 34 percentage points from Test 4
 
 ---
 
-## ❌ Incorrect Questions - Detailed Review
+## Incorrect Questions - Detailed Review
 
 **Questions:** 10 correct out of 23 (13 incorrect)
 - **Review flagged:** 17 out of 23 (74% uncertainty)
@@ -78,14 +78,14 @@ Pattern: Inconsistent performance across tests
 10. **Auto Scaling** (Q64) - Target tracking vs step scaling, AZ rebalancing
 
 **Action Required:**
-- ⚠️ **URGENT:** Complete re-study of Module 03 (Compute) - Focus on CloudWatch, ECS, Auto Scaling
-- ⚠️ **URGENT:** Re-study Module 11 (Analytics) - QuickSight, Glue, Athena, Redshift
+- **URGENT:** Complete re-study of Module 03 (Compute) - Focus on CloudWatch, ECS, Auto Scaling
+- **URGENT:** Re-study Module 11 (Analytics) - QuickSight, Glue, Athena, Redshift
 - Review Module 04 (Storage) - S3 performance, ElastiCache, caching strategies
 - Practice questions on CloudWatch custom metrics and agent configuration
 
 ---
 
-#### ⚠️ NEEDS WORK: Design Resilient Architectures (71.43%)
+#### NEEDS WORK: Design Resilient Architectures (71.43%)
 **Status:** Below passing threshold (needs 72%+)
 
 **Questions:** 15 correct out of 21 (6 incorrect)
@@ -108,7 +108,7 @@ Pattern: Inconsistent performance across tests
 
 ---
 
-#### ⚠️ GOOD: Design Secure Architectures (77.78%)
+#### GOOD: Design Secure Architectures (77.78%)
 **Status:** Good, but still below 85% target
 
 **Questions:** 14 correct out of 18 (4 incorrect)
@@ -128,8 +128,8 @@ Pattern: Inconsistent performance across tests
 
 ---
 
-#### ✅ EXCELLENT: Design Cost-Optimized Architectures (100%)
-**Status:** PERFECT SCORE! 🎉
+#### EXCELLENT: Design Cost-Optimized Architectures (100%)
+**Status:** PERFECT SCORE!
 
 **Questions:** 3 correct out of 3 (0 incorrect)
 - **Review flagged:** 1 out of 3 (33% - good confidence)
@@ -144,11 +144,11 @@ Pattern: Inconsistent performance across tests
 
 ---
 
-## 🔴 Critical Questions Breakdown
+## Critical Questions Breakdown
 
-### ❌ Question 2: CloudWatch Agent Aggregation Dimensions
+### Question 2: CloudWatch Agent Aggregation Dimensions
 
-**📋 COMPLETE QUESTION:**
+**COMPLETE QUESTION:**
 A company runs a web application on an Auto Scaling group with 10-50 EC2 instances. The operations team wants to monitor custom application metrics (request latency, error rates) aggregated across all instances in the Auto Scaling group, not individual instances. What is the correct approach?
 
 **Options:**
@@ -158,10 +158,10 @@ C. Use CloudWatch Logs Insights to query application logs for aggregated metrics
 D. Create CloudWatch dashboard with math expressions to manually aggregate metrics
 
 **Topic:** Design High-Performing Architectures  
-**Your Answer:** ❌ A. Enable detailed monitoring; aggregation occurs by default
-**Correct Answer:** ✅ **B. Install CloudWatch agent with aggregation_dimensions parameter**
+**Your Answer:** A. Enable detailed monitoring; aggregation occurs by default
+**Correct Answer:** **B. Install CloudWatch agent with aggregation_dimensions parameter**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **Detailed Monitoring vs CloudWatch Agent:**
 
@@ -179,20 +179,20 @@ D. Create CloudWatch dashboard with math expressions to manually aggregate metri
 │  │  └─ Cost: $0.10/instance/month       │              │
 │  │                                      │              │
 │  │  What it DOESN'T do:                 │              │
-│  │  ❌ Custom application metrics        │              │
-│  │  ❌ Memory utilization                │              │
-│  │  ❌ ASG-level aggregation             │              │
-│  │  ❌ Application-specific metrics      │              │
+│ │   Custom application metrics        │                 │
+│ │   Memory utilization                │                 │
+│ │   ASG-level aggregation             │                 │
+│ │   Application-specific metrics      │                 │
 │  └──────────────────────────────────────┘              │
 │                                                         │
-│  CLOUDWATCH AGENT (Custom metrics + aggregation) ✅    │
+│ CLOUDWATCH AGENT (Custom metrics + aggregation)        │
 │  ┌──────────────────────────────────────┐              │
 │  │  What it does:                       │              │
-│  │  ✅ Custom application metrics        │              │
-│  │  ✅ Memory, disk space metrics        │              │
-│  │  ✅ ASG-level aggregation             │              │
-│  │  ✅ Multi-dimensional metrics         │              │
-│  │  ✅ Application logs → metrics        │              │
+│ │   Custom application metrics        │                 │
+│ │   Memory, disk space metrics        │                 │
+│ │   ASG-level aggregation             │                 │
+│ │   Multi-dimensional metrics         │                 │
+│ │   Application logs → metrics        │                 │
 │  │                                      │              │
 │  │  Configuration:                      │              │
 │  │  └─ aggregation_dimensions:          │              │
@@ -275,9 +275,9 @@ D. Create CloudWatch dashboard with math expressions to manually aggregate metri
       }
     },
     "aggregation_dimensions": [
-      ["AutoScalingGroupName"],                    // ✅ Aggregate by ASG
-      ["AutoScalingGroupName", "InstanceType"],    // ✅ Aggregate by ASG + Instance Type
-      ["InstanceId", "AutoScalingGroupName"]       // ✅ Per-instance + ASG context
+      ["AutoScalingGroupName"],                    // Aggregate by ASG
+      ["AutoScalingGroupName", "InstanceType"],    // Aggregate by ASG + Instance Type
+      ["InstanceId", "AutoScalingGroupName"]       // Per-instance + ASG context
     ]
   }
 }
@@ -499,22 +499,22 @@ def process_request():
 }
 ```
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ **aggregation_dimensions** = CloudWatch agent feature for ASG-level metrics
-- ✅ Detailed monitoring only changes frequency (5 min → 1 min), not metrics collected
-- ✅ Custom application metrics require CloudWatch agent
-- ✅ Agent can send both per-instance AND aggregated metrics simultaneously
-- ✅ Use `["AutoScalingGroupName"]` for ASG-wide monitoring
-- ❌ Detailed monitoring does NOT collect custom metrics
-- ❌ Detailed monitoring does NOT automatically aggregate by ASG
+**KEY TAKEAWAYS:**
+- Yes: **aggregation_dimensions** = CloudWatch agent feature for ASG-level metrics
+- Yes: Detailed monitoring only changes frequency (5 min → 1 min), not metrics collected
+- Yes: Custom application metrics require CloudWatch agent
+- Yes: Agent can send both per-instance AND aggregated metrics simultaneously
+- Use `["AutoScalingGroupName"]` for ASG-wide monitoring
+- Detailed monitoring does NOT collect custom metrics
+- Detailed monitoring does NOT automatically aggregate by ASG
 
-**💡 MEMORY AID:** "AD-ASG = Aggregation Dimensions for Auto Scaling Groups"
+**MEMORY AID:** "AD-ASG = Aggregation Dimensions for Auto Scaling Groups"
 
 ---
 
-### ❌ Question 8: ECS Deployment on AWS Outposts
+### Question 8: ECS Deployment on AWS Outposts
 
-**📋 COMPLETE QUESTION:**
+**COMPLETE QUESTION:**
 A company needs to run containerized applications on-premises in their data center for ultra-low latency requirements (sub-5ms to local equipment). They want to use AWS services while maintaining local compute. The company already has AWS Outposts installed. What is the correct ECS deployment model?
 
 **Options:**
@@ -524,10 +524,10 @@ C. Deploy EKS Anywhere with Fargate profiles
 D. Deploy ECS with EC2 launch type on AWS Outposts
 
 **Topic:** Design High-Performing Architectures  
-**Your Answer:** ❌ A. ECS Fargate on AWS Outposts
-**Correct Answer:** ✅ **D. ECS with EC2 launch type on AWS Outposts**
+**Your Answer:** A. ECS Fargate on AWS Outposts
+**Correct Answer:** **D. ECS with EC2 launch type on AWS Outposts**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **AWS Outposts ECS Support:**
 
@@ -552,7 +552,7 @@ D. Deploy ECS with EC2 launch type on AWS Outposts
 │  │  ┌──────────────────────────────────────────┐ │    │
 │  │  │  AWS Outposts Rack                       │ │    │
 │  │  │                                          │ │    │
-│  │  │  ✅ SUPPORTED: ECS EC2 Launch Type       │ │    │
+│ │  │   SUPPORTED: ECS EC2 Launch Type       │ │       │
 │  │  │  ┌────────────────────────────────────┐ │ │    │
 │  │  │  │  EC2 Instances                     │ │ │    │
 │  │  │  │  ├─ ECS Agent                      │ │ │    │
@@ -560,7 +560,7 @@ D. Deploy ECS with EC2 launch type on AWS Outposts
 │  │  │  │  └─ Local compute/storage          │ │ │    │
 │  │  │  └────────────────────────────────────┘ │ │    │
 │  │  │                                          │ │    │
-│  │  │  ❌ NOT SUPPORTED: ECS Fargate           │ │    │
+│ │  │   NOT SUPPORTED: ECS Fargate           │ │       │
 │  │  │  └─ Fargate requires AWS infrastructure │ │    │
 │  │  │  └─ Limited/no Outposts support         │ │    │
 │  │  └──────────────────────────────────────────┘ │    │
@@ -581,7 +581,7 @@ D. Deploy ECS with EC2 launch type on AWS Outposts
 | **Infrastructure Management** | You manage EC2 instances | AWS manages infrastructure |
 | **Pricing** | EC2 instance pricing | Per vCPU-second and memory |
 | **Control** | Full control over instances | Abstracted infrastructure |
-| **Outposts Support** | ✅ YES (fully supported) | ❌ NO (limited/not available) |
+| **Outposts Support** | YES (fully supported) | NO (limited/not available) |
 | **Customization** | Install custom AMIs, agents | Limited to task definition |
 | **Networking** | VPC, ENI, security groups | VPC, ENI (awsvpc mode) |
 | **Use Case** | Specialized hardware, Outposts | Serverless, no infrastructure management |
@@ -653,7 +653,7 @@ systemctl enable --now ecs
 ```json
 {
   "family": "outposts-app",
-  "requiresCompatibilities": ["EC2"],  // ✅ EC2 launch type
+  "requiresCompatibilities": ["EC2"], //  EC2 launch type
   "networkMode": "bridge",
   "containerDefinitions": [
     {
@@ -695,10 +695,10 @@ aws ecs create-service \
 
 | Service | Location | Latency | ECS Support | Use Case |
 |---------|----------|---------|-------------|----------|
-| **Outposts** | On-premises | Sub-5ms | EC2 launch type ✅ | Manufacturing, healthcare, local data residency |
-| **Local Zones** | Metro areas | Single-digit ms | EC2 and Fargate ✅ | Media, gaming, live video |
+| **Outposts** | On-premises | Sub-5ms | EC2 launch type  | Manufacturing, healthcare, local data residency |
+| **Local Zones** | Metro areas | Single-digit ms | EC2 and Fargate  | Media, gaming, live video |
 | **Wavelength** | 5G edge | Ultra-low (5G) | EC2 launch type | Mobile apps, AR/VR, connected vehicles |
-| **Regular Region** | AWS data centers | Variable | EC2 and Fargate ✅ | Standard applications |
+| **Regular Region** | AWS data centers | Variable | EC2 and Fargate  | Standard applications |
 
 **Decision Tree:**
 
@@ -706,20 +706,20 @@ aws ecs create-service \
 Need to run ECS containers?
 │
 ├─ On-premises (Outposts)?
-│   └─► ECS EC2 launch type ✅
+│   └─► ECS EC2 launch type
 │       (Fargate not supported)
 │
 ├─ Metro area low latency (Local Zones)?
-│   ├─► ECS EC2 launch type ✅
-│   └─► ECS Fargate ✅ (if supported in zone)
+│   ├─► ECS EC2 launch type
+│   └─► ECS Fargate (if supported in zone)
 │
 ├─ 5G edge (Wavelength)?
-│   └─► ECS EC2 launch type ✅
+│   └─► ECS EC2 launch type
 │       (Fargate not supported)
 │
 └─ Standard AWS Region?
-    ├─► ECS Fargate ✅ (serverless, recommended)
-    └─► ECS EC2 launch type ✅ (more control)
+    ├─► ECS Fargate (serverless, recommended)
+    └─► ECS EC2 launch type (more control)
 ```
 
 **Latency Requirements Guide:**
@@ -732,140 +732,140 @@ Need to run ECS containers?
 | < 50ms | Standard region with Direct Connect |
 | > 50ms | Standard region with internet |
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ **AWS Outposts supports ECS EC2 launch type ONLY**
-- ✅ Fargate is NOT available on Outposts (requires AWS-managed infrastructure)
-- ✅ Outposts = On-premises AWS hardware for ultra-low latency (< 5ms)
-- ✅ Control plane remains in AWS region, data plane on Outposts
-- ✅ Use placement constraints to keep tasks on Outposts instances
-- ❌ Fargate requires serverless infrastructure not available on Outposts
-- ❌ Don't confuse Outposts (on-premises) with Local Zones (metro areas)
+**KEY TAKEAWAYS:**
+- Yes: **AWS Outposts supports ECS EC2 launch type ONLY**
+- Yes: Fargate is NOT available on Outposts (requires AWS-managed infrastructure)
+- Yes: Outposts = On-premises AWS hardware for ultra-low latency (< 5ms)
+- Yes: Control plane remains in AWS region, data plane on Outposts
+- Use placement constraints to keep tasks on Outposts instances
+- Fargate requires serverless infrastructure not available on Outposts
+- Don't confuse Outposts (on-premises) with Local Zones (metro areas)
 
-**💡 MEMORY AID:** "Outposts = On-premises, EC2 Only (no Fargate)"
+**MEMORY AID:** "Outposts = On-premises, EC2 Only (no Fargate)"
 
 **Exam Keywords:**
-- "On-premises" + "ultra-low latency" → Outposts ✅
-- "Outposts" + "ECS" → EC2 launch type only ✅
-- "Sub-5ms latency" → Outposts (not Local Zones) ✅
-- "Fargate on Outposts" → NOT SUPPORTED ❌
+- "On-premises" + "ultra-low latency" → Outposts
+- "Outposts" + "ECS" → EC2 launch type only
+- "Sub-5ms latency" → Outposts (not Local Zones)
+- "Fargate on Outposts" → NOT SUPPORTED
 
 ---
 
 #### Design High-Performing Architectures (13 incorrect - 56.52% failure rate)
 
-**Q2 ❌ - CloudWatch Agent Aggregation**
+**Q2 (missed) - CloudWatch Agent Aggregation**
 - **Your answer:** A (Use detailed monitoring; aggregation occurs by default)
 - **Correct answer:** B (Install CloudWatch agent with aggregation_dimensions)
 - **Why wrong:** Detailed monitoring only increases metric frequency (1-min), doesn't collect custom app metrics or aggregate by ASG
 - **Key concept:** CloudWatch agent with `aggregation_dimensions` parameter aggregates custom metrics across ASG
 - **Study:** CloudWatch Agent configuration, custom metrics, aggregation patterns
 
-**Q3 ❌ - Auto Scaling Standby Mode**
+**Q3 (missed) - Auto Scaling Standby Mode**
 - **Your answer:** D (Use lifecycle hooks; after timers expire, it re-joins)
 - **Correct answer:** C (Put instance in Standby, upgrade, return to InService)
 - **Why wrong:** Lifecycle hooks trigger at launch/terminate, not for patching running instances
 - **Key concept:** Standby mode detaches instance from ELB traffic while keeping it in ASG
 - **Study:** Auto Scaling lifecycle states, Standby vs Terminate vs Detach
 
-**Q8 ❌ - ECS Deployment Models (Outposts vs Local Zones)**
+**Q8 (missed) - ECS Deployment Models (Outposts vs Local Zones)**
 - **Your answer:** A (ECS Fargate on AWS Outposts)
 - **Correct answer:** D (ECS EC2 launch type on AWS Outposts)
 - **Why wrong:** Fargate support on Outposts is limited/not broadly available
 - **Key concept:** AWS Outposts for on-premises low-latency; EC2 launch type is standard
 - **Study:** ECS deployment options, Outposts vs Local Zones
 
-**Q12 ❌ - Redshift Performance Monitoring**
+**Q12 (missed) - Redshift Performance Monitoring**
 - **Your answer:** C (Build custom queries and view in CloudTrail)
 - **Correct answer:** D (Build custom queries and view in Redshift console)
 - **Why wrong:** CloudTrail tracks API calls, not SQL workload performance
 - **Key concept:** Redshift console shows query monitoring (QMR), WLM queue stats, system tables
 - **Study:** Redshift monitoring tools, console features, STL/STV views
 
-**Q16 ❌ - IoT + Global Accelerator**
+**Q16 (missed) - IoT + Global Accelerator**
 - **Your answer:** A (Route 53 with PrivateLink for Route 53)
 - **Correct answer:** B (Global Accelerator provisions two anycast static IPs)
 - **Why wrong:** Route 53 has no PrivateLink; GA provides static IPs for consistent access
 - **Key concept:** Global Accelerator = 2 anycast IPs for improved availability/performance
 - **Study:** Global Accelerator vs Route 53, anycast IP addressing
 
-**Q17 ❌ - FSx for Lustre Integration (Partially Correct)**
-- **Your answers:** B (FSx integrates with S3) ✅ + D (Objects appear immediately) ❌
+**Q17 (missed) - FSx for Lustre Integration (Partially Correct)**
+- **Your answers:** B (FSx integrates with S3) + D (Objects appear immediately)
 - **Correct answers:** A (DataSync supports FSx for Lustre) + B (FSx integrates with S3)
 - **Why partially wrong:** Export to S3 is asynchronous via data repository tasks, not immediate
 - **Key concept:** DataSync for FSx ↔ S3 transfers; data repository tasks for async export
 - **Study:** FSx for Lustre data repository, DataSync integration
 
-**Q22 ❌ - Placement Groups (Partially Correct)**
-- **Your answers:** A (Cluster placement in single AZ) ✅ + D (Can migrate and merge) ❌
+**Q22 (missed) - Placement Groups (Partially Correct)**
+- **Your answers:** A (Cluster placement in single AZ) + D (Can migrate and merge)
 - **Correct answers:** A (Cluster placement in single AZ) + C (Can move but not merge)
 - **Why partially wrong:** No merge operation exists; must move instances to single target group
 - **Key concept:** Placement groups cannot be merged, only moved/relaunched
 - **Study:** Placement group types (cluster/spread/partition), limitations
 
-**Q26 ❌ - Shared Low-Latency Storage**
+**Q26 (missed) - Shared Low-Latency Storage**
 - **Your answer:** C (Use EBS with Multi-Attach)
 - **Correct answer:** D (Use S3 Standard storage)
 - **Why wrong:** EBS Multi-Attach is single-AZ, limited instances; not globally shared
 - **Key concept:** S3 Standard for shared, globally accessible, scalable storage
 - **Study:** S3 vs EBS vs EFS use cases, multi-team data sharing
 
-**Q27 ❌ - ECS Dynamic Port Mapping**
+**Q27 (missed) - ECS Dynamic Port Mapping**
 - **Your answer:** C (Network Load Balancer only)
 - **Correct answer:** A (ALB or NLB)
 - **Why wrong:** Both ALB and NLB support dynamic port mapping with target groups
 - **Key concept:** ALB and NLB integrate with ECS dynamic port mapping
 - **Study:** ECS load balancer types, dynamic port mapping support
 
-**Q32 ❌ - RDS Multi-AZ Caching**
+**Q32 (missed) - RDS Multi-AZ Caching**
 - **Your answer:** B (Configure Multi-AZ replicas to serve read traffic)
 - **Correct answer:** A (Use ElastiCache to cache data)
 - **Why wrong:** Multi-AZ standby is for HA, not for read traffic
 - **Key concept:** ElastiCache removes read pressure from database
 - **Study:** ElastiCache use cases, Multi-AZ vs Read Replicas
 
-**Q46 ❌ - Low-Latency Shared Storage**
+**Q46 (missed) - Low-Latency Shared Storage**
 - **Your answer:** C (Use EBS with Multi-Attach)
 - **Correct answer:** D (Use S3 Standard storage)
 - **Why wrong:** Same as Q26 - EBS Multi-Attach is AZ-specific, not global
 - **Key concept:** S3 for multi-team, multi-region shared access
 - **Duplicate weakness:** Review S3 vs EBS use cases again
 
-**Q50 ❌ - EC2 Public IP Change After Stop/Start**
+**Q50 (missed) - EC2 Public IP Change After Stop/Start**
 - **Your answer:** A (Elastic IP has changed)
 - **Correct answer:** C (Public IPv4 address has changed)
 - **Why wrong:** Elastic IPs don't change; ephemeral public IPs do change on stop/start
 - **Key concept:** Stop/start releases ephemeral public IP; use Elastic IP for stability
 - **Study:** EC2 IP addressing, Elastic IP vs ephemeral public IP
 
-**Q51 ❌ - S3 Delete Consistency**
+**Q51 (missed) - S3 Delete Consistency**
 - **Your answer:** D (Object is attached with deletion mark)
 - **Correct answer:** B (Object is deleted completely)
 - **Why wrong:** Without versioning, delete removes object completely (no delete marker)
 - **Key concept:** S3 strong read-after-write consistency; delete markers only with versioning
 - **Study:** S3 consistency model, versioning behavior
 
-**Q59 ❌ - S3 Upload Audit Trail**
+**Q59 (missed) - S3 Upload Audit Trail**
 - **Your answer:** D (Bucket policy + ETag for tracking)
 - **Correct answer:** B (Versioning + x-amz-version-id + x-amz-server-side-encryption headers)
 - **Why wrong:** ETag is not a version ID; need versioning enabled to get x-amz-version-id
 - **Key concept:** S3 response headers provide version ID and encryption algorithm
 - **Study:** S3 versioning, response headers, SSE-KMS
 
-**Q61 ❌ - Storage Gateway for On-Premises App**
+**Q61 (missed) - Storage Gateway for On-Premises App**
 - **Your answer:** D (Tape Gateway)
 - **Correct answer:** C (File Gateway)
 - **Why wrong:** Tape Gateway is for backup/archive (VTL), not operational file storage
 - **Key concept:** File Gateway exposes S3 as NFS/SMB shares for on-premises apps
 - **Study:** Storage Gateway types (File/Volume/Tape), use cases
 
-**Q63 ❌ - S3 Immediate Availability**
+**Q63 (missed) - S3 Immediate Availability**
 - **Your answer:** A (S3 not suitable - eventual consistency)
 - **Correct answer:** D (S3 suitable - strong read-after-write consistency)
 - **Why wrong:** S3 now provides strong consistency for all operations (as of Dec 2020)
 - **Key concept:** S3 strong read-after-write consistency for new and existing objects
 - **Study:** S3 consistency model update (Dec 2020), immediate availability
 
-**Q64 ❌ - Auto Scaling AZ Rebalancing**
+**Q64 (missed) - Auto Scaling AZ Rebalancing**
 - **Your answer:** B (Step scaling + predictive scaling)
 - **Correct answer:** C (Target tracking + AZ capacity rebalancing)
 - **Why wrong:** Target tracking + rebalancing naturally balances load across AZs
@@ -876,28 +876,28 @@ Need to run ECS containers?
 
 #### Design Resilient Architectures (6 incorrect - 28.57% failure rate)
 
-**Q21 ❌ - Auto Scaling Cooldown Period**
+**Q21 (missed) - Auto Scaling Cooldown Period**
 - **Your answer:** C (Minimum size of ASG is 0)
 - **Correct answer:** B (Auto Scaling group is in cooldown period)
 - **Why wrong:** Cooldown suppresses additional scaling actions after recent activity
 - **Key concept:** Cooldown period prevents thrashing during metric stabilization
 - **Study:** Auto Scaling cooldowns, default vs custom cooldown periods
 
-**Q44 ❌ - S3 Lifecycle Expiration**
+**Q44 (missed) - S3 Lifecycle Expiration**
 - **Your answer:** D (Use Glacier Deep Archive which auto-deletes after 1 year)
 - **Correct answer:** B (Configure lifecycle rule to expire objects after 365 days)
 - **Why wrong:** Deep Archive doesn't auto-delete; need explicit expiration rule
 - **Key concept:** S3 lifecycle expiration rules delete objects after specified time
 - **Study:** S3 lifecycle policies, expiration actions
 
-**Q47 ❌ - Network ACL Deny Rules**
+**Q47 (missed) - Network ACL Deny Rules**
 - **Your answer:** A (Change Security Group inbound rules)
 - **Correct answer:** C (Change Network ACL inbound rules to deny)
 - **Why wrong:** Security Groups don't support explicit deny; NACLs do
 - **Key concept:** NACLs are stateless and support explicit deny rules
 - **Study:** NACL vs Security Group, explicit deny capabilities
 
-**Q65 ❌ - Multi-Region RDS Failover**
+**Q65 (missed) - Multi-Region RDS Failover**
 - **Your answer:** D (Switch to Active-Active multi-master)
 - **Correct answer:** B (Update CNAME for read replica after promoting to standalone)
 - **Why wrong:** Active-Active multi-master is complex; promote replica is simpler
@@ -908,25 +908,25 @@ Need to run ECS containers?
 
 #### Design Secure Architectures (4 incorrect - 22.22% failure rate)
 
-**Q32 ❌ - AWS Organizations Monitoring**
+**Q32 (missed) - AWS Organizations Monitoring**
 - **Your answer:** B (AWS Config Resources)
 - **Correct answer:** C (AWS CloudTrail)
 - **Why wrong:** CloudTrail records API activity; Config tracks resource configuration
 - **Key concept:** CloudTrail for administrative action logging across Organizations
 - **Study:** CloudTrail vs Config, Organization-level logging
 
-**Q35 ❌ - CloudHSM Backup Encryption**
+**Q35 (missed) - CloudHSM Backup Encryption**
 - **Your answer:** C (EBK/PBK in different region)
 - **Correct answer:** A (EBK/PBK in same region)
 - **Why wrong:** CloudHSM backups stored in same region as cluster
 - **Key concept:** CloudHSM uses EBK (Ephemeral Backup Key) + PBK (Persistent Backup Key)
 - **Study:** CloudHSM backup process, encryption keys (not KMS)
 
-**Q47 ❌ - VPC DoS Protection (Duplicate)**
+**Q47 (missed) - VPC DoS Protection (Duplicate)**
 - Same as earlier analysis - NACL explicit deny rules
 
-**Q55 ❌ - Lambda CloudWatch Logs Permissions (Partially Correct)**
-- **Your answers:** A (CreateLogGroup) ✅ + C (CreateLogStream) ✅ + E (PutLogEvents) ✅ but also selected E (AWS Config) ❌
+**Q55 (missed) - Lambda CloudWatch Logs Permissions (Partially Correct)**
+- **Your answers:** A (CreateLogGroup) + C (CreateLogStream) + E (PutLogEvents) but also selected E (AWS Config)
 - **Correct answers:** A + C + E (all three CloudWatch Logs permissions)
 - **Why partially wrong:** Selected AWS Config which is irrelevant
 - **Key concept:** Lambda needs CreateLogGroup, CreateLogStream, PutLogEvents for logging
@@ -934,45 +934,45 @@ Need to run ECS containers?
 
 ---
 
-## 📝 Key Takeaways & Action Items
+## Key Takeaways & Action Items
 
-### 🚨 URGENT - Top 5 Critical Weaknesses
+### URGENT - Top 5 Critical Weaknesses
 
-1. **CloudWatch Agent & Custom Metrics** ⚠️ CRITICAL
+1. **CloudWatch Agent & Custom Metrics** CRITICAL
    - How to configure aggregation_dimensions for ASG-level metrics
    - Difference between detailed monitoring and custom metrics
    - When to use CloudWatch agent vs default metrics
    - **Action:** Lab practice on CloudWatch agent configuration
 
-2. **ECS Deployment & Networking** ⚠️ CRITICAL
+2. **ECS Deployment & Networking** CRITICAL
    - ECS on Outposts vs Local Zones
    - Dynamic port mapping with ALB/NLB
    - ECS networking modes (awsvpc, bridge, host)
    - **Action:** Complete ECS labs, focus on deployment models
 
-3. **S3 Performance & Optimization** ⚠️ CRITICAL
+3. **S3 Performance & Optimization** CRITICAL
    - Multipart upload with parallelization
    - Avoiding LIST operations with catalog indexes
    - S3 consistency model (strong read-after-write)
    - **Action:** Review S3 performance white paper
 
-4. **Auto Scaling Concepts** ⚠️ CRITICAL
+4. **Auto Scaling Concepts** CRITICAL
    - Standby mode vs lifecycle hooks
    - Cooldown periods and why scaling is suppressed
    - Target tracking vs step scaling
    - AZ rebalancing for even distribution
    - **Action:** Study Auto Scaling lifecycle and policies
 
-5. **Storage Solutions Selection** ⚠️ CRITICAL
+5. **Storage Solutions Selection** CRITICAL
    - When to use S3 vs EBS vs EFS
    - Storage Gateway types (File/Volume/Tape)
    - ElastiCache for database offloading
    - FSx for Lustre and Windows use cases
    - **Action:** Create decision tree for storage selection
 
-### 📚 Study Recommendations by Priority
+### Study Recommendations by Priority
 
-#### 🔴 HIGH PRIORITY (Must complete before next test)
+#### HIGH PRIORITY (Must complete before next test)
 
 1. **Module 03 - Compute (Chapters 1-5)**
    - EC2 Auto Scaling (lifecycle, policies, cooldowns)
@@ -1000,7 +1000,7 @@ Need to run ECS containers?
    - Redshift monitoring
    - **Time:** 3-4 hours
 
-#### 🟡 MEDIUM PRIORITY (Review before exam)
+#### MEDIUM PRIORITY (Review before exam)
 
 5. **Module 06 - Networking (Chapters 3-5)**
    - CloudFront custom error responses and invalidation
@@ -1019,28 +1019,28 @@ Need to run ECS containers?
    - Step Functions orchestration
    - **Time:** 2-3 hours
 
-#### 🟢 LOW PRIORITY (Quick review)
+#### LOW PRIORITY (Quick review)
 
 8. **Module 13 - Cost Optimization**
    - Already at 100% - maintain this!
    - Quick 30-minute review before exam
 
-### 🎯 Practice Question Focus Areas
+### Practice Question Focus Areas
 
 **Complete these practice question sets:**
-1. ✅ CloudWatch Agent & Metrics (10 questions)
-2. ✅ ECS Deployment & Networking (10 questions)
-3. ✅ S3 Performance & Optimization (10 questions)
-4. ✅ Auto Scaling Lifecycle (10 questions)
-5. ✅ Storage Solutions (S3/EBS/EFS/FSx) (15 questions)
-6. ✅ Analytics Services (QuickSight/Glue/Athena) (10 questions)
-7. ✅ CloudFront & Global Accelerator (8 questions)
+1. CloudWatch Agent & Metrics (10 questions)
+2. ECS Deployment & Networking (10 questions)
+3. S3 Performance & Optimization (10 questions)
+4. Auto Scaling Lifecycle (10 questions)
+5. Storage Solutions (S3/EBS/EFS/FSx) (15 questions)
+6. Analytics Services (QuickSight/Glue/Athena) (10 questions)
+7. CloudFront & Global Accelerator (8 questions)
 
 **Target:** Complete 75 focused practice questions before next test
 
 ---
 
-## 🎓 Concepts to Memorize
+## Concepts to Memorize
 
 ### CloudWatch Agent Essentials
 
@@ -1221,36 +1221,36 @@ Instance Metadata:
 
 ---
 
-## 🔄 Comparison with Previous Tests
+## Comparison with Previous Tests
 
 ### Score Progression
 ```
-Test 1: 42/65 (64.62%) ❌ FAIL
-Test 2: 49/65 (75.38%) ⚠️ BORDERLINE (+10.76%)
-Test 3: 52/65 (80.00%) ✅ PASS (+4.62%)
-Test 4: 49/65 (75.38%) ⚠️ BORDERLINE (-4.62%)
-Test 5: 42/65 (64.62%) ❌ FAIL (-10.76%)
+Test 1: 42/65 (64.62%) FAIL
+Test 2: 49/65 (75.38%) BORDERLINE (+10.76%)
+Test 3: 52/65 (80.00%) PASS (+4.62%)
+Test 4: 49/65 (75.38%) BORDERLINE (-4.62%)
+Test 5: 42/65 (64.62%) FAIL (-10.76%)
 ```
 
 ### Domain Comparison (Test 5 vs Test 4)
 
 | Domain | Test 4 | Test 5 | Change |
 |--------|--------|--------|--------|
-| High-Performing | 77.27% | **43.48%** | **-33.79%** ⚠️ |
+| High-Performing | 77.27% | **43.48%** | **-33.79%**  |
 | Resilient | 73.68% | 71.43% | -2.25% |
 | Secure | 84.62% | 77.78% | -6.84% |
-| Cost-Optimized | 60.00% | **100.00%** | **+40.00%** ✅ |
+| Cost-Optimized | 60.00% | **100.00%** | **+40.00%**  |
 
 ### Pattern Analysis
 
 **What Improved:**
-- ✅ **Cost Optimization** - From 60% to 100% (+40%)
-- ✅ Understanding of cost-effective solutions (Client VPN, Lambda pricing, X-Ray)
+- **Cost Optimization** - From 60% to 100% (+40%)
+- Understanding of cost-effective solutions (Client VPN, Lambda pricing, X-Ray)
 
 **What Got WORSE:**
-- ❌ **High-Performing Architecture** - From 77% to 43% (-34%)
-- ❌ **Secure Architecture** - From 85% to 78% (-7%)
-- ❌ **Overall confidence** - 60% of questions flagged for review
+- **High-Performing Architecture** - From 77% to 43% (-34%)
+- **Secure Architecture** - From 85% to 78% (-7%)
+- **Overall confidence** - 60% of questions flagged for review
 
 **Root Causes:**
 1. **Knowledge retention issues** - Concepts learned are not sticking
@@ -1258,11 +1258,11 @@ Test 5: 42/65 (64.62%) ❌ FAIL (-10.76%)
 3. **Core concept gaps** - CloudWatch, ECS, S3 performance not fully understood
 4. **Inconsistent study approach** - Need structured, focused review plan
 
-**⚠️ CRITICAL INSIGHT:** You are not learning from previous mistakes. Questions on similar topics (CloudWatch, ECS, Auto Scaling) are still being missed. This indicates a need for **deeper conceptual understanding**, not just memorizing answers.
+**CRITICAL INSIGHT:** You are not learning from previous mistakes. Questions on similar topics (CloudWatch, ECS, Auto Scaling) are still being missed. This indicates a need for **deeper conceptual understanding**, not just memorizing answers.
 
 ---
 
-## 💡 Study Strategy for Next 7 Days
+## Study Strategy for Next 7 Days
 
 ### Day 1-2: Deep Dive - High-Performing Architecture
 - [ ] Watch Module 03 (Compute) videos - Focus on CloudWatch, Auto Scaling, ECS
@@ -1299,12 +1299,12 @@ Test 5: 42/65 (64.62%) ❌ FAIL (-10.76%)
 
 ---
 
-## 🎯 Target Score Calculation
+## Target Score Calculation
 
 **Current Performance:**
 - Test 5: 42/65 (64.62%)
 - Average (last 3 tests): 47.67/65 (73.33%)
-- Trend: Declining ⚠️
+- Trend: Declining
 
 **To Pass Exam (72%):**
 - Need: 47/65 correct
@@ -1324,14 +1324,14 @@ Test 5: 42/65 (64.62%) ❌ FAIL (-10.76%)
 - **Total: 34-45 hours** before next test
 
 **Recommended Timeline:**
-- ⚠️ **DO NOT schedule exam yet**
+- **DO NOT schedule exam yet**
 - Complete 7-day intensive study plan above
 - Take 1-2 more practice tests
 - Only schedule when **consistently scoring 85%+**
 
 ---
 
-## 📌 Quick Reference Cards
+## Quick Reference Cards
 
 ### CloudWatch Agent Card
 ```
@@ -1401,37 +1401,37 @@ A: Volume Gateway (Cached or Stored)
 
 ---
 
-## 🚨 FINAL RECOMMENDATIONS
+## FINAL RECOMMENDATIONS
 
 ### Immediate Actions (Next 24 Hours)
-1. ✅ Read this entire review document carefully
-2. ✅ Watch Module 03 (Compute) - Chapters 1-3 (CloudWatch, Auto Scaling)
-3. ✅ Complete 2 CloudWatch Agent labs
-4. ✅ Review Q2, Q3, Q12 detailed explanations
-5. ✅ Create flashcards for top 10 missed concepts
+1. Read this entire review document carefully
+2. Watch Module 03 (Compute) - Chapters 1-3 (CloudWatch, Auto Scaling)
+3. Complete 2 CloudWatch Agent labs
+4. Review Q2, Q3, Q12 detailed explanations
+5. Create flashcards for top 10 missed concepts
 
 ### This Week (Days 2-7)
-1. ✅ Follow the 7-day study plan above
-2. ✅ Complete 75 targeted practice questions
-3. ✅ Take another full practice test
-4. ✅ Target: 85%+ with confidence
+1. Follow the 7-day study plan above
+2. Complete 75 targeted practice questions
+3. Take another full practice test
+4. Target: 85%+ with confidence
 
 ### Before Scheduling Exam
-- ⚠️ **DO NOT schedule until:**
+- **DO NOT schedule until:**
   - Consistent 85%+ scores on practice tests
   - Completed all recommended study hours
   - Can explain concepts from memory (not just recognize answers)
   - Review rate < 30% (currently 60%)
 
 ### If You Must Take Exam Soon
-- 🔴 **High Risk** - Current readiness: 64.62%
-- 🔴 **Focus on:**
+- **High Risk** - Current readiness: 64.62%
+- **Focus on:**
   1. CloudWatch Agent & Custom Metrics
   2. ECS Deployment Models
   3. S3 Performance Optimization
   4. Auto Scaling Lifecycle
   5. Storage Gateway Types
-- 🔴 **Quick wins:**
+- **Quick wins:**
   - Memorize CloudWatch agent config
   - ECS Outposts = EC2 launch type
   - S3 = strong consistency (not eventual)
@@ -1440,7 +1440,7 @@ A: Volume Gateway (Cached or Stored)
 
 ---
 
-**Good luck with your studies! Focus on understanding concepts deeply, not just memorizing answers. You can do this! 💪**
+**Good luck with your studies! Focus on understanding concepts deeply, not just memorizing answers. You can do this! **
 
 ---
 

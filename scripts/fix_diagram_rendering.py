@@ -116,10 +116,10 @@ def fix_diagram_rendering(filepath):
     if content != original_content:
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(content)
-        print(f"✅ Fixed: {filepath}")
+        print(f"Fixed: {filepath}")
         return True
     else:
-        print(f"ℹ️  No changes needed: {filepath}")
+        print(f"No changes needed: {filepath}")
         return False
 
 def main():

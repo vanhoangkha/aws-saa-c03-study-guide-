@@ -1,6 +1,6 @@
 # AWS Solution Architect - Quick Study Notes
 
-## 🎯 Memory Aids & Mnemonics
+## Memory Aids & Mnemonics
 
 ### The 6 R's of Migration (RRRRR-R)
 **"Real Robots Rarely Refactor, Retire, or Retain"**
@@ -71,7 +71,7 @@
 
 ---
 
-## ⚡ Quick Reference Tables
+## Quick Reference Tables
 
 ### Storage Decision Matrix
 
@@ -141,7 +141,7 @@
 
 ---
 
-## 🔥 High-Frequency Exam Topics
+## High-Frequency Exam Topics
 
 ### EC2 Pricing (Remember: ORSS-DC)
 - **O**n-Demand: No commitment, highest cost
@@ -190,7 +190,7 @@
 
 ---
 
-## 💡 Common Scenarios & Solutions
+## Common Scenarios & Solutions
 
 ### Scenario 1: High Availability
 **Problem**: Need fault-tolerant architecture
@@ -210,13 +210,13 @@
 
 ### Scenario 3: Cost Optimization
 **Checklist**:
-- ✅ Use Reserved Instances/Savings Plans (70% of usage)
-- ✅ Spot Instances for fault-tolerant workloads
-- ✅ Right-size instances (CloudWatch metrics)
-- ✅ Auto Scaling (scale down when idle)
-- ✅ S3 Lifecycle policies (move to cheaper tiers)
-- ✅ Delete unused resources (snapshots, volumes, IPs)
-- ✅ Use CloudFront (reduce data transfer costs)
+- Use Reserved Instances/Savings Plans (70% of usage)
+- Spot Instances for fault-tolerant workloads
+- Right-size instances (CloudWatch metrics)
+- Auto Scaling (scale down when idle)
+- S3 Lifecycle policies (move to cheaper tiers)
+- Delete unused resources (snapshots, volumes, IPs)
+- Use CloudFront (reduce data transfer costs)
 
 ### Scenario 4: Serverless Architecture
 **Stack**: "**ALARMS**"
@@ -253,7 +253,7 @@
 
 ---
 
-## 🎓 Study Tips by Service Category
+## Study Tips by Service Category
 
 ### Identity & Access (IAM)
 **Golden Rules**:
@@ -302,7 +302,7 @@
 
 ---
 
-## 🧠 Memory Techniques
+## Memory Techniques
 
 ### The Number Game
 
@@ -349,7 +349,7 @@
 
 ---
 
-## 📝 Cheat Sheet for Exam Day
+## Cheat Sheet for Exam Day
 
 ### Data Transfer Costs
 **"IN is free, OUT costs money, SAME REGION is free"**
@@ -412,21 +412,21 @@
 
 ---
 
-## ✅ Pre-Exam Checklist
+## Pre-Exam Checklist
 
 ### Must Know Cold:
-- ✅ S3 storage classes and when to use each
-- ✅ EC2 instance types and families
-- ✅ RDS vs DynamoDB vs Redshift
-- ✅ Security Groups vs NACLs
-- ✅ IAM policies, roles, and users
-- ✅ VPC components (subnets, IGW, NAT, route tables)
-- ✅ Load balancer types (ALB, NLB, CLB)
-- ✅ Auto Scaling policies
-- ✅ Well-Architected Framework pillars
-- ✅ CloudWatch vs CloudTrail vs Config
-- ✅ Lambda limitations and use cases
-- ✅ Route 53 routing policies
+- S3 storage classes and when to use each
+- EC2 instance types and families
+- RDS vs DynamoDB vs Redshift
+- Security Groups vs NACLs
+- IAM policies, roles, and users
+- VPC components (subnets, IGW, NAT, route tables)
+- Load balancer types (ALB, NLB, CLB)
+- Auto Scaling policies
+- Well-Architected Framework pillars
+- CloudWatch vs CloudTrail vs Config
+- Lambda limitations and use cases
+- Route 53 routing policies
 
 ### Common Trick Questions:
 1. **"Cheapest option"** → Usually serverless (Lambda, S3, DynamoDB On-Demand)
@@ -437,16 +437,16 @@
 6. **"Best practice"** → Managed services, least privilege, encryption
 
 ### Red Flags (Wrong Answers):
-- ❌ Using EC2 when serverless exists
-- ❌ Single AZ for production
-- ❌ Hardcoded credentials
-- ❌ Opening security group to 0.0.0.0/0 (except HTTP/HTTPS)
-- ❌ Not using encryption
-- ❌ Root user for daily tasks
+- Using EC2 when serverless exists
+- Single AZ for production
+- Hardcoded credentials
+- Opening security group to 0.0.0.0/0 (except HTTP/HTTPS)
+- Not using encryption
+- Root user for daily tasks
 
 ---
 
-## 🎯 Final Power Tips
+## Final Power Tips
 
 ### The 3-2-1 Rule for Exam
 - **3 minutes** per question average (65 questions / 130 minutes)
@@ -473,5 +473,5 @@
 
 **Last Tip**: If stuck between two answers, choose the **AWS-managed service** over self-managed. AWS loves recommending their managed services!
 
-Good luck! 🚀
+Good luck!
 

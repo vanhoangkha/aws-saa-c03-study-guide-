@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - Compute Services
+# Fast Learning - Compute Services
 
 > **Time to Complete**: 60-90 minutes | **Exam Weight**: ~20-25%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### Compute Service Selector
 ```
@@ -16,7 +16,7 @@ NEED LOAD BALANCE? → ALB/NLB/GWLB
 
 **Memory Aid**: "VeLoCiraptor Eats Lamb" = VM, Lambda, Containers, Elastic Beanstalk, Auto Scale, Load Balance
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### EC2 Instance Types (CRAM-FACTS-PIG)
 | Family | Name | Use Case | Example |
@@ -39,7 +39,7 @@ NEED LOAD BALANCE? → ALB/NLB/GWLB
 | **S**avings Plans | Up to 66% | 1-3 years | Flexible | No |
 | **D**edicated | 0% | None/1-3 yr | Compliance, licensing | No |
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. Load Balancer Selection (Critical!)
 | Type | Layer | Protocol | Use Case | Key Features |
@@ -89,37 +89,37 @@ CONCURRENT EXECUTIONS: 1,000 (default, can increase)
 
 **Pricing**: Pay per request + duration (GB-seconds)
 
-## 💡 Common Exam Scenarios
+## Common Exam Scenarios
 
 ### Scenario 1: Cost Optimization
 **Q**: Database runs 24/7, how to reduce cost?
-**✅ ANSWER**: Reserved Instances (1-3 year commitment)
+**ANSWER**: Reserved Instances (1-3 year commitment)
 
 ### Scenario 2: Handle Variable Traffic
 **Q**: Traffic spikes unpredictably, need to scale
-**✅ ANSWER**: Auto Scaling Group with Target Tracking policy
+**ANSWER**: Auto Scaling Group with Target Tracking policy
 
 ### Scenario 3: Extreme Performance Required
 **Q**: Need millions of requests/sec, static IP
-**✅ ANSWER**: Network Load Balancer (NLB)
+**ANSWER**: Network Load Balancer (NLB)
 
 ### Scenario 4: Microservices Routing
 **Q**: Route /api to API servers, /images to image servers
-**✅ ANSWER**: Application Load Balancer with path-based routing
+**ANSWER**: Application Load Balancer with path-based routing
 
 ### Scenario 5: Short Tasks, No Servers
 **Q**: Process images when uploaded, run < 5 min
-**✅ ANSWER**: Lambda triggered by S3 event
+**ANSWER**: Lambda triggered by S3 event
 
 ### Scenario 6: Batch Job Interruption OK
 **Q**: Batch processing, can restart if interrupted
-**✅ ANSWER**: Spot Instances (up to 90% cheaper)
+**ANSWER**: Spot Instances (up to 90% cheaper)
 
 ### Scenario 7: Low Latency HPC Cluster
 **Q**: High-performance computing, need lowest latency
-**✅ ANSWER**: Cluster Placement Group
+**ANSWER**: Cluster Placement Group
 
-## 🎓 Speed Learning Tips
+## Speed Learning Tips
 
 ### EC2 User Data vs Metadata
 ```
@@ -142,14 +142,14 @@ METADATA (Instance info)
 ### Load Balancer Features Matrix
 | Feature | ALB | NLB | GWLB |
 |---------|-----|-----|------|
-| Path routing | ✅ | ❌ | ❌ |
-| Host routing | ✅ | ❌ | ❌ |
-| Lambda targets | ✅ | ❌ | ❌ |
-| Static IP | ❌ | ✅ | ❌ |
-| PrivateLink | ❌ | ✅ | ✅ |
-| Cross-zone LB | ✅ (always) | ❌ (optional) | ✅ |
+| Path routing | Yes | No | No |
+| Host routing | Yes | No | No |
+| Lambda targets | Yes | No | No |
+| Static IP | No | Yes | No |
+| PrivateLink | No | Yes | Yes |
+| Cross-zone LB | (always) | (optional) | Yes |
 
-## 📝 Rapid-Fire Facts
+## Rapid-Fire Facts
 
 ### Reserved Instance Types
 1. **Standard**: 72% discount, can't change instance family
@@ -179,7 +179,7 @@ METADATA (Instance info)
 - SNS topics
 - ALB targets
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### The Compute Decision Tree
 ```
@@ -202,21 +202,21 @@ METADATA (Instance info)
 ```
 
 ### Auto Scaling Best Practices
-✅ Use Target Tracking (simplest)
-✅ Multi-AZ for high availability
-✅ Use ELB health checks (better than EC2)
-✅ Set appropriate cooldown period
-✅ Monitor with CloudWatch
+ Use Target Tracking (simplest)
+ Multi-AZ for high availability
+ Use ELB health checks (better than EC2)
+ Set appropriate cooldown period
+ Monitor with CloudWatch
 
 ### Common Mistakes to Avoid
-❌ Using On-Demand for steady workloads (use Reserved)
-❌ Not using Auto Scaling for variable loads
-❌ Single AZ deployment (no HA)
-❌ ALB for TCP/UDP (use NLB)
-❌ Forgetting Spot can be interrupted
-❌ Lambda for long-running tasks (15 min max)
+ Using On-Demand for steady workloads (use Reserved)
+ Not using Auto Scaling for variable loads
+ Single AZ deployment (no HA)
+ ALB for TCP/UDP (use NLB)
+ Forgetting Spot can be interrupted
+ Lambda for long-running tasks (15 min max)
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Quick Questions** (Answers at bottom)
 
@@ -254,7 +254,7 @@ EBS (Persistent)
 | st1 | 500 | 500 MB/s | Big data, logs |
 | sc1 | 250 | 250 MB/s | Cold data |
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~60-90 min
 - Practice: Launch EC2, create ASG, configure ALB
 - Ready for: Compute practice questions

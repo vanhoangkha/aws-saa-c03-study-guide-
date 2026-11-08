@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - Cost Optimization
+# Fast Learning - Cost Optimization
 
 > **Time to Complete**: 40-50 minutes | **Exam Weight**: ~10-15%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### Cost Optimization Selector (SCRAP-BCT)
 ```
@@ -34,7 +34,7 @@ BEST-PRACTICE CHECKS?        → Trusted Advisor
 7. WATCH   → Tags, Budgets, Cost Explorer, regular reviews
 ```
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### EC2 Purchasing Options
 | Option | Discount | Commitment | Best For |
@@ -79,7 +79,7 @@ BEST-PRACTICE CHECKS?        → Trusted Advisor
 | **Standard** | $0.023 | Frequent access |
 | **Intelligent-Tiering** | $0.023 tier + $0.0025 monitoring | Unknown / changing access |
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. Reserved Instances
 ```
@@ -305,7 +305,7 @@ LAMBDA BILLING: requests ($0.20 per 1M after free 1M)
                 + duration in GB-seconds (memory x time)
 ```
 
-## 🧠 Common Exam Scenarios
+## Common Exam Scenarios
 
 | Scenario | Answer |
 |----------|--------|
@@ -328,7 +328,7 @@ LAMBDA BILLING: requests ($0.20 per 1M after free 1M)
 | Global users downloading large objects, high egress | CloudFront |
 | Unpredictable DynamoDB traffic | On-Demand capacity mode |
 
-## 🚀 Speed Learning Tips
+## Speed Learning Tips
 
 ### Decision Tree: EC2 Pricing
 ```
@@ -354,7 +354,7 @@ Want to CUT waste on running things? → Compute Optimizer / Trusted Advisor
 Want to MERGE bills of many accounts?→ Consolidated Billing
 ```
 
-## ⚡ Rapid-Fire Facts
+## Rapid-Fire Facts
 
 - Spot: up to **90%**; RIs and EC2 Instance Savings Plans: up to **72%**; Compute Savings Plans: up to **66%**
 - Spot gives a **2-minute** interruption warning
@@ -373,7 +373,7 @@ Want to MERGE bills of many accounts?→ Consolidated Billing
 - Trusted Advisor full cost checks need **Business or Enterprise** Support
 - Delete unattached EBS volumes and unused Elastic IPs (idle ones cost money)
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### Common Cost Patterns
 ```
@@ -399,18 +399,18 @@ Want to MERGE bills of many accounts?→ Consolidated Billing
 ```
 
 ### Common Mistakes to Avoid
-❌ Buying 3-year commitments for workloads that may disappear
-❌ Using Spot for databases or non-restartable jobs
-❌ Forgetting to activate cost allocation tags
-❌ Expecting tags to apply to past spend
-❌ Confusing Budgets (alerts) with Cost Explorer (analysis)
-❌ Choosing EC2 Instance Savings Plans when flexibility across regions is required
-❌ Leaving unattached EBS volumes, old snapshots and idle Elastic IPs
-❌ Over-provisioning "just in case" instead of right-sizing and scaling
-❌ Moving data between regions/AZs unnecessarily
-❌ Using Capacity Reservations expecting a discount
+ Buying 3-year commitments for workloads that may disappear
+ Using Spot for databases or non-restartable jobs
+ Forgetting to activate cost allocation tags
+ Expecting tags to apply to past spend
+ Confusing Budgets (alerts) with Cost Explorer (analysis)
+ Choosing EC2 Instance Savings Plans when flexibility across regions is required
+ Leaving unattached EBS volumes, old snapshots and idle Elastic IPs
+ Over-provisioning "just in case" instead of right-sizing and scaling
+ Moving data between regions/AZs unnecessarily
+ Using Capacity Reservations expecting a discount
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Quick Questions** (Answers at bottom)
 
@@ -427,7 +427,7 @@ Want to MERGE bills of many accounts?→ Consolidated Billing
 
 ---
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~40-50 min
 - Practice: Memorize pricing-model use cases and the cost tool selector
 - Ready for: Cost optimization practice questions

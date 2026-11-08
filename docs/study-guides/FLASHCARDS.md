@@ -4,20 +4,20 @@
 
 ---
 
-## 🎯 **NEW: Focused Review Resources for Weak Areas**
+## **NEW: Focused Review Resources for Weak Areas**
 
 Having trouble with practice tests? Check out these targeted resources:
 
-### 📊 **Track Your Progress**
+### **Track Your Progress**
 - **[Test Results Tracker](/14-Practice/TEST-RESULTS-TRACKER.md)** - Log practice test scores and identify weak areas
 
-### 🎴 **Focused Flashcards**
+### **Focused Flashcards**
 - **[Focused Review Flashcards](/14-Practice/FOCUSED-REVIEW-FLASHCARDS.md)** - 35 cards covering the most commonly missed topics
 
-### 📚 **Deep Dive Study Notes**
+### **Deep Dive Study Notes**
 - **[Weak Areas Study Notes](/14-Practice/WEAK-AREAS-STUDY-NOTES.md)** - Comprehensive explanations of difficult concepts
 
-### 📝 **Targeted Practice**
+### **Targeted Practice**
 - **[Targeted Weak Area Questions](/14-Practice/TARGETED-WEAK-AREA-QUESTIONS.md)** - 30+ practice questions on commonly missed topics
 
 **Use these resources when you:**
@@ -28,7 +28,7 @@ Having trouble with practice tests? Check out these targeted resources:
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 1. [AWS Fundamentals](#1-aws-fundamentals)
 2. [Core Services Overview](#2-core-services-overview)
 3. [Compute Services](#3-compute-services)
@@ -61,20 +61,20 @@ Having trouble with practice tests? Check out these targeted resources:
 └──────────────────┴────────────────┴──────────────────┴─────────────────┘
 ```
 
-**💡 Memory Tip**: "**R**egions for **R**esidency, **A**Zs for **A**vailability, **E**dges for **E**xperience"
+**Memory Tip**: "**R**egions for **R**esidency, **A**Zs for **A**vailability, **E**dges for **E**xperience"
 
 ### 1.2 Well-Architected Framework (6 Pillars)
 
 ```
-1. 🎯 OPERATIONAL EXCELLENCE  → Automate, improve, monitor
-2. 🔒 SECURITY               → Protect data, systems, assets
-3. 🔄 RELIABILITY            → Recover from failures, meet demand
-4. ⚡ PERFORMANCE EFFICIENCY  → Use resources efficiently  
-5. 💰 COST OPTIMIZATION      → Eliminate unnecessary costs
-6. 🌱 SUSTAINABILITY         → Minimize environmental impact
+1. OPERATIONAL EXCELLENCE  → Automate, improve, monitor
+2. SECURITY               → Protect data, systems, assets
+3. RELIABILITY            → Recover from failures, meet demand
+4. PERFORMANCE EFFICIENCY  → Use resources efficiently
+5. COST OPTIMIZATION      → Eliminate unnecessary costs
+6. SUSTAINABILITY         → Minimize environmental impact
 ```
 
-**💡 Acronym**: "**O**wl **S**its **R**eally **P**eacefully **C**atching **S**almon" (OSRPCS)
+**Acronym**: "**O**wl **S**its **R**eally **P**eacefully **C**atching **S**almon" (OSRPCS)
 
 ### 1.3 Shared Responsibility Model
 
@@ -82,26 +82,26 @@ Having trouble with practice tests? Check out these targeted resources:
 ┌─────────────────────────────────────────────────────┐
 │          CUSTOMER: "Security IN the Cloud"          │
 ├─────────────────────────────────────────────────────┤
-│ ✓ Customer Data & Content                           │
-│ ✓ Platform, Applications, IAM, Access Management    │
-│ ✓ Operating System, Network & Firewall Config       │
-│ ✓ Client-side & Server-side Encryption              │
-│ ✓ Network Traffic Protection                        │
+│ Customer Data & Content                             │
+│ Platform, Applications, IAM, Access Management      │
+│ Operating System, Network & Firewall Config         │
+│ Client-side & Server-side Encryption                │
+│ Network Traffic Protection                          │
 └─────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────┐
 │           AWS: "Security OF the Cloud"              │
 ├─────────────────────────────────────────────────────┤
-│ ✓ Hardware & AWS Global Infrastructure              │
-│ ✓ Compute, Storage, Database, Networking Services   │
-│ ✓ Regions, Availability Zones, Edge Locations       │
-│ ✓ Physical security of data centers                 │
+│ Hardware & AWS Global Infrastructure                │
+│ Compute, Storage, Database, Networking Services     │
+│ Regions, Availability Zones, Edge Locations         │
+│ Physical security of data centers                   │
 └─────────────────────────────────────────────────────┘
 ```
 
-**💡 Memory Tip**: "AWS protects **OF** (infrastructure), You protect **IN** (configuration & data)"
+**Memory Tip**: "AWS protects **OF** (infrastructure), You protect **IN** (configuration & data)"
 
-### 📚 Learn More
+### Learn More
 - [AWS Fundamentals - Chapter Guide](./01-AWS-Fundamentals/README.md)
 - [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
@@ -255,7 +255,7 @@ Having trouble with practice tests? Check out these targeted resources:
 | Web application firewall | **WAF** |
 | Event-driven architecture | **EventBridge** |
 
-### 📚 Learn More
+### Learn More
 - [AWS Services Overview](https://aws.amazon.com/products/)
 - [AWS Service Categories](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html)
 - [AWS Free Tier](https://aws.amazon.com/free/)
@@ -284,7 +284,7 @@ X - Xtreme Memory     → SAP HANA, big data
 Z - High Frequency    → Gaming, high-performance computing
 ```
 
-**💡 Exam Focus**: T3 (burstable), M5 (general), C5 (compute), R5 (memory)
+**Exam Focus**: T3 (burstable), M5 (general), C5 (compute), R5 (memory)
 
 **Purchasing Options**
 ```
@@ -311,18 +311,18 @@ Z - High Frequency    → Gaming, high-performance computing
 
 **Key Limits to Memorize**
 ```
-⏱️  Max Execution Time: 15 minutes (900 seconds)
-💾 Memory: 128 MB - 10 GB
-📦 Deployment Package: 50 MB zipped, 250 MB unzipped
-💿 /tmp Storage: 512 MB - 10 GB
-🔢 Concurrent Executions: 1,000 (default)
-📊 Environment Variables: 4 KB total
+  Max Execution Time: 15 minutes (900 seconds)
+ Memory: 128 MB - 10 GB
+ Deployment Package: 50 MB zipped, 250 MB unzipped
+ /tmp Storage: 512 MB - 10 GB
+ Concurrent Executions: 1,000 (default)
+ Environment Variables: 4 KB total
 ```
 
 **Pricing**: Based on requests + duration (GB-seconds)
 **Free Tier**: 1M requests/month + 400,000 GB-seconds
 
-**💡 Use Cases**: Event-driven processing, APIs, data transformation, automation
+**Use Cases**: Event-driven processing, APIs, data transformation, automation
 
 ### 3.3 Container Services
 
@@ -351,7 +351,7 @@ Z - High Frequency    → Gaming, high-performance computing
 **AWS Manages**: Capacity, load balancing, auto-scaling, health monitoring
 **You Control**: Application code
 
-**💡 Use When**: You want to focus on code, not infrastructure
+**Use When**: You want to focus on code, not infrastructure
 
 ### 3.5 Auto Scaling
 
@@ -369,7 +369,7 @@ Z - High Frequency    → Gaming, high-performance computing
 - **Desired Capacity**: Target number of instances
 - **Min/Max**: Capacity boundaries
 
-### 📚 Learn More
+### Learn More
 - [Compute Services - Chapter Guide](./03-Compute/README.md)
 - [Amazon EC2 Documentation](https://docs.aws.amazon.com/ec2/)
 - [AWS Lambda Documentation](https://docs.aws.amazon.com/lambda/)
@@ -386,12 +386,12 @@ Z - High Frequency    → Gaming, high-performance computing
 
 **Key Concepts**
 ```
-📦 Object Size: 0 bytes to 5 TB
-🏷️  Bucket Names: 3-63 characters, globally unique
-📤 Single PUT: Max 5 GB (use multi-part for larger)
-💎 Durability: 99.999999999% (11 nines)
-✅ Availability: 99.99% (Standard)
-🔄 Requests/sec per prefix: 3,500 PUT/COPY/POST/DELETE, 5,500 GET/HEAD
+ Object Size: 0 bytes to 5 TB
+  Bucket Names: 3-63 characters, globally unique
+ Single PUT: Max 5 GB (use multi-part for larger)
+ Durability: 99.999999999% (11 nines)
+ Availability: 99.99% (Standard)
+ Requests/sec per prefix: 3,500 PUT/COPY/POST/DELETE, 5,500 GET/HEAD
 ```
 
 **Storage Classes Comparison**
@@ -408,10 +408,10 @@ Z - High Frequency    → Gaming, high-performance computing
 │ Glacier Deep       │99.99%│ ≥3  │  180    │ 12 hours  │LongArch │
 └────────────────────┴──────┴─────┴─────────┴───────────┴─────────┘
 
-💰 COST: Standard > IA > Glacier Instant > Flexible > Deep Archive
+ COST: Standard > IA > Glacier Instant > Flexible > Deep Archive
 ```
 
-**💡 Memory Tip**: "**S**tandard for **S**peed, **IA** for **I**nfrequent **A**ccess, **G**lacier for **G**oing to storage"
+**Memory Tip**: "**S**tandard for **S**peed, **IA** for **I**nfrequent **A**ccess, **G**lacier for **G**oing to storage"
 
 **Important S3 Features**
 
@@ -472,7 +472,7 @@ Client  → Encrypt before upload (client-side)
 └────────────┴─────────┴────────┴─────────────────────┘
 ```
 
-**💡 Choose**: **SSD** for random I/O (databases), **HDD** for sequential (big data, logs)
+**Choose**: **SSD** for random I/O (databases), **HDD** for sequential (big data, logs)
 
 **Key Features**
 - **Scope**: AZ-specific (not regional)
@@ -486,20 +486,20 @@ Client  → Encrypt before upload (client-side)
 
 **Key Features**
 ```
-✅ Regional service (Multi-AZ)
-✅ Shared across multiple EC2 instances
-✅ Elastic - grows/shrinks automatically
-✅ Pay for what you use
-✅ POSIX-compliant file system
-✅ Performance modes: General Purpose, Max I/O
-✅ Throughput modes: Bursting, Provisioned
+ Regional service (Multi-AZ)
+ Shared across multiple EC2 instances
+ Elastic - grows/shrinks automatically
+ Pay for what you use
+ POSIX-compliant file system
+ Performance modes: General Purpose, Max I/O
+ Throughput modes: Bursting, Provisioned
 ```
 
 **Storage Classes**
 - **Standard**: Frequent access
 - **Infrequent Access (IA)**: Cost-optimized, automatic lifecycle
 
-**💡 Use Case**: Shared file storage, content management, web serving, data analytics
+**Use Case**: Shared file storage, content management, web serving, data analytics
 
 ### 4.4 FSx Family
 
@@ -540,7 +540,7 @@ Client  → Encrypt before upload (client-side)
 └───────────────┴──────────┴────────────────────────┘
 ```
 
-**💡 Rule**: If transfer > 1 week over network → Use Snow Family
+**Rule**: If transfer > 1 week over network → Use Snow Family
 
 **OpsHub**: GUI software to manage Snow devices
 
@@ -563,14 +563,14 @@ Client  → Encrypt before upload (client-side)
 * EBS Multi-Attach available for io1/io2 only
 ```
 
-**💡 Decision Tree**:
+**Decision Tree**:
 - Object storage (images, backups) → **S3**
 - Boot disk for EC2 → **EBS**
 - Shared file system (Linux) → **EFS**
 - Shared file system (Windows) → **FSx for Windows**
 - HPC/ML workloads → **FSx for Lustre**
 
-### 📚 Learn More
+### Learn More
 - [Storage Services - Chapter Guide](./04-Storage/README.md)
 - [Amazon S3 Documentation](https://docs.aws.amazon.com/s3/)
 - [Amazon EBS Documentation](https://docs.aws.amazon.com/ebs/)
@@ -589,13 +589,13 @@ Client  → Encrypt before upload (client-side)
 
 **Key Features**
 ```
-✅ Automated backups (1-35 days retention, default 7)
-✅ Automated patching
-✅ Multi-AZ for high availability
-✅ Read Replicas for scalability
-✅ Storage auto-scaling
-✅ Encryption at rest (KMS)
-✅ Encryption in transit (SSL/TLS)
+ Automated backups (1-35 days retention, default 7)
+ Automated patching
+ Multi-AZ for high availability
+ Read Replicas for scalability
+ Storage auto-scaling
+ Encryption at rest (KMS)
+ Encryption in transit (SSL/TLS)
 ```
 
 **Multi-AZ vs Read Replicas**
@@ -615,7 +615,7 @@ Client  → Encrypt before upload (client-side)
 └─────────────────┴──────────────┴───────────────────┘
 ```
 
-**💡 Memory Tip**: "Multi-AZ = **A**vailability, Read Replicas = **R**eads"
+**Memory Tip**: "Multi-AZ = **A**vailability, Read Replicas = **R**eads"
 
 ### 5.2 Aurora
 
@@ -623,14 +623,14 @@ Client  → Encrypt before upload (client-side)
 
 **Key Facts**
 ```
-🚀 5x faster than MySQL, 3x faster than PostgreSQL
-💾 6 copies across 3 AZs (2 copies per AZ)
-🔄 Self-healing with peer-to-peer replication
-📖 Up to 15 Read Replicas (10ms lag)
-⚡ Automated failover (< 30 seconds)
-📈 Auto-scaling storage (10GB → 128TB)
-⏪ Backtrack: Restore to any point without backup
-🌐 Aurora Global: Cross-region (< 1 sec lag)
+ 5x faster than MySQL, 3x faster than PostgreSQL
+ 6 copies across 3 AZs (2 copies per AZ)
+ Self-healing with peer-to-peer replication
+ Up to 15 Read Replicas (10ms lag)
+ Automated failover (< 30 seconds)
+ Auto-scaling storage (10GB → 128TB)
+ Backtrack: Restore to any point without backup
+ Aurora Global: Cross-region (< 1 sec lag)
 ```
 
 **Aurora Serverless**
@@ -638,7 +638,7 @@ Client  → Encrypt before upload (client-side)
 - Pay per second for capacity used
 - Good for infrequent, intermittent, or unpredictable workloads
 
-**💡 When to use Aurora**: Need highest performance for relational DB
+**When to use Aurora**: Need highest performance for relational DB
 
 ### 5.3 DynamoDB
 
@@ -646,13 +646,13 @@ Client  → Encrypt before upload (client-side)
 
 **Key Concepts**
 ```
-📄 Item Size: Max 400 KB
-🔑 Partition Key: Required (hash key)
-📊 Sort Key: Optional (range key)
-🔍 GSI (Global Secondary Index): Max 20, create anytime
-📌 LSI (Local Secondary Index): Max 5, only at table creation
-⚡ Single-digit millisecond latency
-🌐 Global Tables: Multi-region, multi-active
+ Item Size: Max 400 KB
+ Partition Key: Required (hash key)
+ Sort Key: Optional (range key)
+ GSI (Global Secondary Index): Max 20, create anytime
+ LSI (Local Secondary Index): Max 5, only at table creation
+ Single-digit millisecond latency
+ Global Tables: Multi-region, multi-active
 ```
 
 **Capacity Modes**
@@ -674,7 +674,7 @@ Client  → Encrypt before upload (client-side)
 - **Point-in-Time Recovery**: Restore to any time (last 35 days)
 - **Global Tables**: Multi-region replication
 
-**💡 Use DynamoDB**: Web apps, gaming, IoT, mobile apps (key-value access)
+**Use DynamoDB**: Web apps, gaming, IoT, mobile apps (key-value access)
 
 ### 5.4 ElastiCache
 
@@ -697,7 +697,7 @@ Client  → Encrypt before upload (client-side)
 └────────────┴─────────────────────────────────────┘
 ```
 
-**💡 Choose**: **Redis** for HA/persistence/features, **Memcached** for simple distributed cache
+**Choose**: **Redis** for HA/persistence/features, **Memcached** for simple distributed cache
 
 ### 5.5 Redshift
 
@@ -705,18 +705,18 @@ Client  → Encrypt before upload (client-side)
 
 **Key Features**
 ```
-📊 Columnar storage
-🚀 MPP (Massively Parallel Processing)
-💰 10x better performance than other warehouses
-🔄 Automated snapshots to S3
-🌐 Cross-region snapshot copy
-📈 Concurrency Scaling (handle bursts)
-📁 Redshift Spectrum: Query S3 directly
+ Columnar storage
+ MPP (Massively Parallel Processing)
+ 10x better performance than other warehouses
+ Automated snapshots to S3
+ Cross-region snapshot copy
+ Concurrency Scaling (handle bursts)
+ Redshift Spectrum: Query S3 directly
 ```
 
 **Use Cases**: OLAP, Business Intelligence, reporting, analytics
 
-**💡 Not for**: OLTP (use RDS/Aurora instead)
+**Not for**: OLTP (use RDS/Aurora instead)
 
 ### 5.6 Database Selection Guide
 
@@ -764,9 +764,9 @@ Need a database?
 └─────────────┴──────────────┴──────────────┴──────────────┘
 ```
 
-**💡 Memory Tip**: "**R**DS = **R**elations, **D**ynamo = **D**ynamic, **R**edshift = **R**eports"
+**Memory Tip**: "**R**DS = **R**elations, **D**ynamo = **D**ynamic, **R**edshift = **R**eports"
 
-### 📚 Learn More
+### Learn More
 - [Database Services - Chapter Guide](./05-Database/README.md)
 - [Amazon RDS Documentation](https://docs.aws.amazon.com/rds/)
 - [Amazon DynamoDB Documentation](https://docs.aws.amazon.com/dynamodb/)
@@ -799,7 +799,7 @@ AWS Reserves 5 IPs per Subnet:
   x.x.x.255 → Broadcast (not used but reserved)
 ```
 
-**💡 Available IPs** = Total - 5 (e.g., /24 = 256 - 5 = 251 usable)
+**Available IPs** = Total - 5 (e.g., /24 = 256 - 5 = 251 usable)
 
 ### 6.2 VPC Components
 
@@ -824,7 +824,7 @@ AWS Reserves 5 IPs per Subnet:
 └─────────────┴──────────────┴──────────────┘
 ```
 
-**💡 Exam Tip**: NAT Gateway is preferred (managed, HA, scalable)
+**Exam Tip**: NAT Gateway is preferred (managed, HA, scalable)
 
 **VPC Peering**
 - Connect two VPCs privately
@@ -846,7 +846,7 @@ AWS Reserves 5 IPs per Subnet:
 └──────────────────┴────────────────────────────────┘
 ```
 
-**💡 Use**: Access AWS services without internet gateway
+**Use**: Access AWS services without internet gateway
 
 **Transit Gateway**
 - Central hub connecting VPCs, on-premises
@@ -871,11 +871,11 @@ AWS Reserves 5 IPs per Subnet:
 └──────────────┴───────────────┴──────────────┘
 ```
 
-**💡 Key Difference**: 
+**Key Difference**:
 - **Security Group** = Stateful (return traffic auto-allowed)
 - **NACL** = Stateless (must explicitly allow return traffic)
 
-**💡 Memory Tip**: "**SG** = **S**tateful at **G**ateway (instance), **NACL** = **N**eed **A**ll rules, **C**heck **L**ayer (subnet)"
+**Memory Tip**: "**SG** = **S**tateful at **G**ateway (instance), **NACL** = **N**eed **A**ll rules, **C**heck **L**ayer (subnet)"
 
 ### 6.4 Route 53
 
@@ -906,7 +906,7 @@ AWS Reserves 5 IPs per Subnet:
 - Can trigger CloudWatch alarms
 - Can monitor other health checks (calculated health checks)
 
-**💡 Use Cases**:
+**Use Cases**:
 - **Latency**: Best performance for global users
 - **Failover**: Disaster recovery
 - **Geolocation**: Content localization, compliance
@@ -918,12 +918,12 @@ AWS Reserves 5 IPs per Subnet:
 
 **Key Features**
 ```
-🌐 400+ Edge Locations worldwide
-⚡ Caches content close to users
-🔒 DDoS protection (AWS Shield Standard included)
-🛡️  Integrates with AWS WAF
-🔐 HTTPS support, custom SSL certificates
-📍 Geo-restriction capability
+ 400+ Edge Locations worldwide
+ Caches content close to users
+ DDoS protection (AWS Shield Standard included)
+  Integrates with AWS WAF
+ HTTPS support, custom SSL certificates
+ Geo-restriction capability
 ```
 
 **Origins**: S3, ALB, EC2, HTTP server, MediaStore
@@ -932,7 +932,7 @@ AWS Reserves 5 IPs per Subnet:
 
 **Signed URLs/Cookies**: Control access to private content
 
-**💡 Use CloudFront**: Global user base, static/dynamic content, video streaming
+**Use CloudFront**: Global user base, static/dynamic content, video streaming
 
 ### 6.6 Load Balancers
 
@@ -959,7 +959,7 @@ AWS Reserves 5 IPs per Subnet:
 └─────────┴─────┴─────────────┴────────────────────────┘
 ```
 
-**💡 Choose**:
+**Choose**:
 - **ALB**: HTTP/HTTPS, microservices, containers, Lambda
 - **NLB**: TCP/UDP, extreme performance, static IP needed
 - **GWLB**: Third-party virtual appliances
@@ -980,7 +980,7 @@ AWS Reserves 5 IPs per Subnet:
 └────────────────┴──────────────┴─────────────────┘
 ```
 
-**💡 Exam Tip**: VPN for quick/cheap, Direct Connect for consistent/high-bandwidth
+**Exam Tip**: VPN for quick/cheap, Direct Connect for consistent/high-bandwidth
 
 **Global Accelerator**
 - Uses AWS global network
@@ -989,7 +989,7 @@ AWS Reserves 5 IPs per Subnet:
 - Health checks, failover
 - Good for non-HTTP (gaming, IoT, VoIP)
 
-### 📚 Learn More
+### Learn More
 - [Networking Services - Chapter Guide](./06-Networking/README.md)
 - [Amazon VPC Documentation](https://docs.aws.amazon.com/vpc/)
 - [Amazon CloudFront Documentation](https://docs.aws.amazon.com/cloudfront/)
@@ -1033,23 +1033,23 @@ AWS Reserves 5 IPs per Subnet:
 3. Default → Implicit deny (no statement = denied)
 ```
 
-**💡 Memory Tip**: "**D**eny **A**lways **W**ins" (DAW)
+**Memory Tip**: "**D**eny **A**lways **W**ins" (DAW)
 
 **IAM Best Practices**
 ```
-✅ Enable MFA for root and privileged users
-✅ Create individual IAM users (never share)
-✅ Use groups to assign permissions
-✅ Grant least privilege
-✅ Use roles for EC2 (not access keys)
-✅ Rotate credentials regularly
-✅ Enable CloudTrail for audit logging
-✅ Use strong password policies
-✅ Remove unused credentials
+ Enable MFA for root and privileged users
+ Create individual IAM users (never share)
+ Use groups to assign permissions
+ Grant least privilege
+ Use roles for EC2 (not access keys)
+ Rotate credentials regularly
+ Enable CloudTrail for audit logging
+ Use strong password policies
+ Remove unused credentials
 
-❌ NEVER use root for daily tasks
-❌ NEVER share credentials
-❌ NEVER embed access keys in code
+ NEVER use root for daily tasks
+ NEVER share credentials
+ NEVER embed access keys in code
 ```
 
 **Identity Federation**
@@ -1062,7 +1062,7 @@ AWS Reserves 5 IPs per Subnet:
 └────────────────────┴──────────────────────────────┘
 ```
 
-**💡 Use Case**: SAML for enterprise, Cognito for customer apps
+**Use Case**: SAML for enterprise, Cognito for customer apps
 
 ### 7.2 KMS (Key Management Service)
 
@@ -1086,7 +1086,7 @@ AWS Owned      → Free, AWS controls, you don't see
 - **Encrypt/Decrypt**: Max 4 KB per call
 - **Envelope Encryption**: For > 4 KB data
 
-**💡 Important**: You never get the actual key, always call KMS API
+**Important**: You never get the actual key, always call KMS API
 
 ### 7.3 AWS Security Services
 
@@ -1147,7 +1147,7 @@ AWS Owned      → Free, AWS controls, you don't see
 └──────────────────┴────────────────┴──────────────────┘
 ```
 
-**💡 Choose**: Secrets Manager for database credentials, Parameter Store for app configuration
+**Choose**: Secrets Manager for database credentials, Parameter Store for app configuration
 
 ### 7.4 Encryption Summary
 
@@ -1162,7 +1162,7 @@ AWS Owned      → Free, AWS controls, you don't see
 - Enforce HTTPS on S3, CloudFront, API Gateway
 - VPN for site-to-site encryption
 
-### 📚 Learn More
+### Learn More
 - [Security Services - Chapter Guide](./07-Security/README.md)
 - [AWS IAM Documentation](https://docs.aws.amazon.com/iam/)
 - [AWS KMS Documentation](https://docs.aws.amazon.com/kms/)
@@ -1196,15 +1196,15 @@ AWS Owned      → Free, AWS controls, you don't see
 
 **Key Parameters**
 ```
-📦 Max Message Size: 256 KB
-⏱️  Message Retention: 1 minute to 14 days (default 4 days)
-👁️  Visibility Timeout: 0-12 hours (default 30 seconds)
-🔁 Long Polling: 1-20 seconds (reduces empty responses)
-⏲️  Delay Queue: 0-15 minutes (delay all messages)
-💀 Dead Letter Queue: Store failed messages
+ Max Message Size: 256 KB
+  Message Retention: 1 minute to 14 days (default 4 days)
+  Visibility Timeout: 0-12 hours (default 30 seconds)
+ Long Polling: 1-20 seconds (reduces empty responses)
+  Delay Queue: 0-15 minutes (delay all messages)
+ Dead Letter Queue: Store failed messages
 ```
 
-**💡 Use Case**: Decouple application components, async processing
+**Use Case**: Decouple application components, async processing
 
 ### 8.2 SNS (Simple Notification Service)
 
@@ -1227,7 +1227,7 @@ AWS Owned      → Free, AWS controls, you don't see
 - Message attributes
 - Delivery retries
 
-**💡 Use Case**: Send notifications to multiple subscribers, fan-out to SQS
+**Use Case**: Send notifications to multiple subscribers, fan-out to SQS
 
 ### 8.3 EventBridge (CloudWatch Events)
 
@@ -1249,7 +1249,7 @@ Event Bus → Rules → Targets
 - EC2, ECS, Batch
 - Systems Manager
 
-**💡 Use Case**: Event-driven architectures, scheduled tasks (cron), SaaS integration
+**Use Case**: Event-driven architectures, scheduled tasks (cron), SaaS integration
 
 ### 8.4 Step Functions
 
@@ -1275,7 +1275,7 @@ Event Bus → Rules → Targets
 - Wait states
 - Integration with 200+ AWS services
 
-**💡 Use Case**: Order processing, ETL jobs, multi-step workflows
+**Use Case**: Order processing, ETL jobs, multi-step workflows
 
 ### 8.5 API Gateway
 
@@ -1299,7 +1299,7 @@ Event Bus → Rules → Targets
 - Timeout: 29 seconds
 - Payload size: 10 MB
 
-**💡 Integrations**: Lambda, HTTP endpoints, AWS services
+**Integrations**: Lambda, HTTP endpoints, AWS services
 
 ### 8.6 Integration Patterns Comparison
 
@@ -1317,9 +1317,9 @@ Event Bus → Rules → Targets
 └─────────────┴──────────────┴──────────────┴──────────────┘
 ```
 
-**💡 Memory Tip**: "**SQS** = **Q**ueue, **SNS** = **N**otify **S**ubscribers, **EventBridge** = **E**vents **B**us"
+**Memory Tip**: "**SQS** = **Q**ueue, **SNS** = **N**otify **S**ubscribers, **EventBridge** = **E**vents **B**us"
 
-### 📚 Learn More
+### Learn More
 - [Application Integration - Chapter Guide](./08-Application-Integration/README.md)
 - [Amazon SQS Documentation](https://docs.aws.amazon.com/sqs/)
 - [Amazon SNS Documentation](https://docs.aws.amazon.com/sns/)
@@ -1337,15 +1337,15 @@ Event Bus → Rules → Targets
 **CloudWatch Metrics**
 ```
 Default EC2 Metrics (5 min, 1 min with detailed):
-  ✅ CPU Utilization
-  ✅ Network In/Out
-  ✅ Disk Read/Write
-  ✅ Status Checks
+   CPU Utilization
+   Network In/Out
+   Disk Read/Write
+   Status Checks
   
 Need CloudWatch Agent for:
-  ❌ Memory utilization
-  ❌ Disk space usage
-  ❌ Process-level metrics
+   Memory utilization
+   Disk space usage
+   Process-level metrics
 ```
 
 **Custom Metrics**
@@ -1384,12 +1384,12 @@ Sources:
 
 **Key Facts**
 ```
-📝 Logs ALL API calls in AWS account
-🕐 90 days event history (free, no trail needed)
-💾 Create trail to store in S3 indefinitely
-🔍 Integrate with CloudWatch Logs for alarms
-🌐 Multi-region trail option
-✅ Log file integrity validation
+ Logs ALL API calls in AWS account
+ 90 days event history (free, no trail needed)
+ Create trail to store in S3 indefinitely
+ Integrate with CloudWatch Logs for alarms
+ Multi-region trail option
+ Log file integrity validation
 ```
 
 **Use Cases**
@@ -1398,7 +1398,7 @@ Sources:
 - Troubleshooting
 - Track resource changes
 
-**💡 Answers**: "WHO did WHAT, WHEN, and WHERE"
+**Answers**: "WHO did WHAT, WHEN, and WHERE"
 
 ### 9.3 AWS Config
 
@@ -1406,11 +1406,11 @@ Sources:
 
 **Key Features**
 ```
-📸 Continuous recording of configurations
-📊 Configuration history and snapshots
-✅ Compliance checking with Config Rules
-🔔 Notifications on configuration changes
-📈 Configuration timeline
+ Continuous recording of configurations
+ Configuration history and snapshots
+ Compliance checking with Config Rules
+ Notifications on configuration changes
+ Configuration timeline
 ```
 
 **Config Rules**
@@ -1419,7 +1419,7 @@ Sources:
 - Evaluate compliance automatically
 - Trigger remediation actions
 
-**💡 Answers**: "What did my resources look like at time X?"
+**Answers**: "What did my resources look like at time X?"
 
 ### 9.4 Monitoring Services Comparison
 
@@ -1443,7 +1443,7 @@ Sources:
 └─────────────┴───────────────────────────────────┘
 ```
 
-**💡 Memory Tip**: "**Watch** performance, **Trail** actions, **Config** compliance, **X-Ray** traces"
+**Memory Tip**: "**Watch** performance, **Trail** actions, **Config** compliance, **X-Ray** traces"
 
 ### 9.5 Trusted Advisor
 
@@ -1468,18 +1468,18 @@ Sources:
 
 **Key Features**
 ```
-📋 Session Manager    → SSH without opening ports
-🔧 Run Command        → Execute commands at scale
-📦 Patch Manager      → Automate OS patching
-📊 Inventory          → Collect software inventory
-💾 Parameter Store    → Store config & secrets
-🔧 State Manager      → Maintain desired state
-📄 Documents          → Define actions to perform
+ Session Manager    → SSH without opening ports
+ Run Command        → Execute commands at scale
+ Patch Manager      → Automate OS patching
+ Inventory          → Collect software inventory
+ Parameter Store    → Store config & secrets
+ State Manager      → Maintain desired state
+ Documents          → Define actions to perform
 ```
 
-**💡 Session Manager**: Access EC2 without SSH keys or bastions (IAM-based)
+**Session Manager**: Access EC2 without SSH keys or bastions (IAM-based)
 
-### 📚 Learn More
+### Learn More
 - [Monitoring & Management - Chapter Guide](./09-Monitoring/README.md)
 - [Amazon CloudWatch Documentation](https://docs.aws.amazon.com/cloudwatch/)
 - [AWS CloudTrail Documentation](https://docs.aws.amazon.com/cloudtrail/)
@@ -1497,10 +1497,10 @@ Sources:
 
 **Key Facts**
 ```
-💰 Pricing: $5 per TB scanned
-📊 Query formats: CSV, JSON, Parquet, ORC, Avro
-🚀 Serverless (no infrastructure)
-📁 Uses AWS Glue Data Catalog for schemas
+ Pricing: $5 per TB scanned
+ Query formats: CSV, JSON, Parquet, ORC, Avro
+ Serverless (no infrastructure)
+ Uses AWS Glue Data Catalog for schemas
 ```
 
 **Performance Optimization**
@@ -1509,7 +1509,7 @@ Sources:
 - Partition data (reduce scan)
 - Use larger files (> 128 MB)
 
-**💡 Use Case**: Ad-hoc queries, log analysis, one-time reports
+**Use Case**: Ad-hoc queries, log analysis, one-time reports
 
 ### 10.2 Kinesis Services
 
@@ -1531,7 +1531,7 @@ Sources:
 └────────────────────┴─────────────────────────────┘
 ```
 
-**💡 Choose**: Streams for custom processing, Firehose for AWS destinations
+**Choose**: Streams for custom processing, Firehose for AWS destinations
 
 ### EMR (Elastic MapReduce)
 
@@ -1600,7 +1600,7 @@ Data Sources:
   • On-premises databases
 ```
 
-### 📚 Learn More
+### Learn More
 - [Analytics Services - Chapter Guide](./11-Analytics/README.md)
 - [Amazon Kinesis Documentation](https://docs.aws.amazon.com/kinesis/)
 - [Amazon Athena Documentation](https://docs.aws.amazon.com/athena/)
@@ -1648,7 +1648,7 @@ Features:
   • Scheduling
 ```
 
-**💡 Use Case**: One-time migration, ongoing replication to AWS
+**Use Case**: One-time migration, ongoing replication to AWS
 
 ### 11.3 Migration Strategies (6 R's)
 
@@ -1661,7 +1661,7 @@ Features:
 6. RETAIN      → Keep on-premises (for now)
 ```
 
-**💡 Most Common**: Rehost (70%) for quick wins, then optimize
+**Most Common**: Rehost (70%) for quick wins, then optimize
 
 ### 11.4 Transfer Family
 
@@ -1669,7 +1669,7 @@ Features:
 
 **Use Case**: Third parties upload files to S3 using FTP clients
 
-### 📚 Learn More
+### Learn More
 - [Migration Services - Chapter Guide](./10-Migration/README.md)
 - [AWS Database Migration Service](https://docs.aws.amazon.com/dms/)
 - [AWS Application Migration Service](https://docs.aws.amazon.com/mgn/)
@@ -1703,18 +1703,18 @@ Features:
 
 ---
 
-## 📊 Monitoring & Management (Module 09)
+## Monitoring & Management (Module 09)
 
 ### CloudWatch Metrics & Alarms
 
 ```
 Default EC2 Metrics (every 5 min, or 1 min detailed):
-  ✅ CPU Utilization
-  ✅ Network In/Out
-  ✅ Disk Read/Write
-  ✅ Status Checks
-  ❌ Memory (need CloudWatch Agent)
-  ❌ Disk Space (need CloudWatch Agent)
+  Yes: CPU Utilization
+  Yes: Network In/Out
+  Yes: Disk Read/Write
+  Yes: Status Checks
+  No: Memory (need CloudWatch Agent)
+  No: Disk Space (need CloudWatch Agent)
 
 Custom Metrics:
   • PutMetricData API
@@ -1778,7 +1778,7 @@ REMEMBER: Trail=Audit, Watch=Monitor, Config=Compliance
 
 ---
 
-## 🚚 Migration & Transfer (Module 10)
+## Migration & Transfer (Module 10)
 
 ### 6 R's Migration Strategy
 
@@ -1846,7 +1846,7 @@ OpsHub: GUI to manage Snow devices
 
 ---
 
-## 📈 Analytics Deep Dive (Module 11)
+## Analytics Deep Dive (Module 11)
 
 ### Athena
 
@@ -1956,7 +1956,7 @@ Data Sources:
 
 ---
 
-## 🏛️ Architecture Patterns (Module 12)
+## Architecture Patterns (Module 12)
 
 ### Serverless Architecture
 
@@ -1967,10 +1967,10 @@ Architecture:
                        S3 (for files)
 
 Benefits:
-  ✅ No server management
-  ✅ Auto-scaling
-  ✅ Pay per use
-  ✅ High availability built-in
+   No server management
+   Auto-scaling
+   Pay per use
+   High availability built-in
 
 Use Case: Web apps, APIs, real-time processing
 ```
@@ -1988,9 +1988,9 @@ Components:
   • Event Consumer: Lambda, Step Functions
   
 Benefits:
-  ✅ Loose coupling
-  ✅ Scalability
-  ✅ Flexibility
+   Loose coupling
+   Scalability
+   Flexibility
 ```
 
 ### Multi-Tier HA Architecture
@@ -2030,7 +2030,7 @@ RPO: Recovery Point Objective
 
 ---
 
-## 🔢 Critical Numbers & Limits (Must Memorize!)
+## Critical Numbers & Limits (Must Memorize!)
 
 ### Lambda Limits
 ```
@@ -2172,7 +2172,7 @@ RPO: Recovery Point Objective
 
 ---
 
-## 🔄 Service Comparisons (Know the Difference!)
+## Service Comparisons (Know the Difference!)
 
 ### Compute
 - **EC2**: Virtual servers you manage
@@ -2227,7 +2227,7 @@ RPO: Recovery Point Objective
 
 ---
 
-## 🧩 Pattern Recognition
+## Pattern Recognition
 
 ### Pattern 1: "Serverless Architecture"
 ```
@@ -2285,7 +2285,7 @@ Production (Region A)     Backup (Region B)
 
 ---
 
-## 📊 Decision Trees
+## Decision Trees
 
 ### Storage Decision Tree
 ```
@@ -2324,7 +2324,7 @@ Need compute?
     └─ Just deploy code? → Elastic Beanstalk
 ```
 
-### 📚 Learn More
+### Learn More
 - [Architecture Patterns - Chapter Guide](./12-Architecture-Patterns/README.md)
 - [AWS Architecture Center](https://aws.amazon.com/architecture/)
 - [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
@@ -2333,7 +2333,7 @@ Need compute?
 
 ---
 
-## 🔢 Numbers to Remember
+## Numbers to Remember
 
 ### S3
 - **Bucket names**: 3-63 characters, globally unique
@@ -2382,9 +2382,9 @@ Need compute?
 
 ---
 
-## 🎨 Color-Coded Priority
+## Color-Coded Priority
 
-### 🔴 MUST KNOW (High Priority)
+### MUST KNOW (High Priority)
 - S3 storage classes
 - EC2 instance types and purchasing options
 - Security Groups vs NACLs
@@ -2394,7 +2394,7 @@ Need compute?
 - Load balancer types (ALB, NLB)
 - Well-Architected Framework pillars
 
-### 🟡 SHOULD KNOW (Medium Priority)
+### SHOULD KNOW (Medium Priority)
 - Lambda limitations
 - DynamoDB (tables, indexes, streams)
 - Route 53 routing policies
@@ -2404,7 +2404,7 @@ Need compute?
 - EBS volume types
 - S3 encryption methods
 
-### 🟢 GOOD TO KNOW (Lower Priority)
+### GOOD TO KNOW (Lower Priority)
 - AWS Batch
 - Step Functions
 - AppSync
@@ -2416,7 +2416,7 @@ Need compute?
 
 ---
 
-## 💰 Cost Optimization (Module 13)
+## Cost Optimization (Module 13)
 
 ### AWS Pricing Models
 
@@ -2442,29 +2442,29 @@ REMEMBER: "On-Demand = No commitment, Reserved = Long commitment"
 ### Cost Optimization Strategies
 
 ```
-✅ Right-Sizing
+ Right-Sizing
    → Use the smallest instance type that meets requirements
    → Use Compute Optimizer for recommendations
 
-✅ Increase Elasticity
+ Increase Elasticity
    → Auto Scaling to match demand
    → Turn off non-production environments
 
-✅ Choose Right Pricing Model
+ Choose Right Pricing Model
    → Reserved for baseline, On-Demand for peaks
    → Spot for fault-tolerant workloads
 
-✅ Optimize Storage
+ Optimize Storage
    → S3 Lifecycle policies (move to cheaper classes)
    → Delete unused EBS volumes and snapshots
    → Use S3 Intelligent-Tiering
 
-✅ Monitor and Analyze
+ Monitor and Analyze
    → AWS Cost Explorer for trends
    → AWS Budgets for alerts
    → Cost Allocation Tags
 
-✅ Use Managed Services
+ Use Managed Services
    → Reduce operational overhead
    → Lambda instead of EC2 for sporadic tasks
 ```
@@ -2488,13 +2488,13 @@ Always Free:
 ### Data Transfer Cost Rules
 
 ```
-✅ FREE: Data IN to AWS (ingress)
-✅ FREE: Data between services in same region
-✅ FREE: Data to CloudFront
+ FREE: Data IN to AWS (ingress)
+ FREE: Data between services in same region
+ FREE: Data to CloudFront
 
-💰 PAID: Data OUT from AWS (egress)
-💰 PAID: Data between regions
-💰 PAID: Data to internet
+ PAID: Data OUT from AWS (egress)
+ PAID: Data between regions
+ PAID: Data to internet
 
 Cost Reduction Tips:
   → Use CloudFront CDN
@@ -2513,7 +2513,7 @@ Cost Reduction Tips:
 • Cost Allocation Tags → Track costs by project/team
 ```
 
-### 📚 Learn More
+### Learn More
 - [Cost Optimization - Chapter Guide](./13-Cost-Optimization/README.md)
 - [AWS Pricing](https://aws.amazon.com/pricing/)
 - [AWS Cost Management](https://aws.amazon.com/aws-cost-management/)
@@ -2523,7 +2523,7 @@ Cost Reduction Tips:
 
 ---
 
-## 💭 Think Like AWS
+## Think Like AWS
 
 ### When AWS Says... They Mean...
 - **"Highly available"** → Multi-AZ
@@ -2536,18 +2536,18 @@ Cost Reduction Tips:
 - **"Serverless"** → No server management, pay per use
 
 ### AWS Prefers...
-- ✅ Managed services over self-managed
-- ✅ Serverless over EC2 (when possible)
-- ✅ Multi-AZ over single AZ
-- ✅ IAM roles over access keys
-- ✅ Encryption enabled
-- ✅ Least privilege access
-- ✅ Auto Scaling over fixed capacity
-- ✅ CloudFormation for infrastructure as code
+- Managed services over self-managed
+- Serverless over EC2 (when possible)
+- Multi-AZ over single AZ
+- IAM roles over access keys
+- Encryption enabled
+- Least privilege access
+- Auto Scaling over fixed capacity
+- CloudFormation for infrastructure as code
 
 ---
 
-## 🎬 Scenario-Based Quick Answers
+## Scenario-Based Quick Answers
 
 ### "I need to..."
 
@@ -2598,7 +2598,7 @@ Cost Reduction Tips:
 
 ---
 
-## 🧪 Quick Self-Test
+## Quick Self-Test
 
 ### Question Format: "What service should you use when..."
 
@@ -2634,25 +2634,25 @@ Cost Reduction Tips:
 
 ---
 
-## 🏆 Exam Day Shortcuts
+## Exam Day Shortcuts
 
 ### Time-Saving Elimination Techniques
 
 **Eliminate if the answer suggests:**
-- ❌ Storing credentials in code
-- ❌ Single point of failure (no redundancy)
-- ❌ Opening port 22 (SSH) to 0.0.0.0/0
-- ❌ Using root user for applications
-- ❌ Not using encryption when security is mentioned
-- ❌ Complex custom solution when AWS service exists
+- Storing credentials in code
+- Single point of failure (no redundancy)
+- Opening port 22 (SSH) to 0.0.0.0/0
+- Using root user for applications
+- Not using encryption when security is mentioned
+- Complex custom solution when AWS service exists
 
 **Choose the answer that:**
-- ✅ Uses managed AWS services
-- ✅ Implements least privilege
-- ✅ Has Multi-AZ/redundancy
-- ✅ Uses encryption
-- ✅ Is cost-effective (serverless, right-sized)
-- ✅ Scales automatically
+- Uses managed AWS services
+- Implements least privilege
+- Has Multi-AZ/redundancy
+- Uses encryption
+- Is cost-effective (serverless, right-sized)
+- Scales automatically
 
 ### Keywords = Services Mapping
 
@@ -2672,7 +2672,7 @@ Cost Reduction Tips:
 | "DNS" | Route 53 |
 | "DDoS protection" | Shield, WAF |
 
-### 📚 Learn More - Additional Study Resources
+### Learn More - Additional Study Resources
 - [Practice Questions](./14-Practice/COMPREHENSIVE-PRACTICE-QUESTIONS.md)
 - [AWS Certified Solutions Architect Official Study Guide](https://aws.amazon.com/certification/certified-solutions-architect-associate/)
 - [AWS Whitepapers](https://aws.amazon.com/whitepapers/)
@@ -2682,7 +2682,7 @@ Cost Reduction Tips:
 
 ---
 
-## 📚 Final Memorization Tips
+## Final Memorization Tips
 
 ### The 3 P's of AWS Exam Success
 
@@ -2713,5 +2713,5 @@ Cost Reduction Tips:
 
 **Remember**: The exam tests your ability to choose the **right** service for the **right** scenario. Focus on understanding **when** and **why** to use each service, not just **what** they do.
 
-**You've got this! 🚀**
+**You've got this! **
 

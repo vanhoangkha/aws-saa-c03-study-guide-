@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - Database Services
+# Fast Learning - Database Services
 
 > **Time to Complete**: 60-75 minutes | **Exam Weight**: ~15-20%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### Database Service Selector (RANDI-NERD)
 ```
@@ -19,7 +19,7 @@ DOCUMENT? → DocumentDB (MongoDB compatible)
 
 **Memory Aid**: "RDS for Relational, Dynamo for Dynamic data"
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### RDS Database Engines
 | Engine | Type | Max Storage | Use Case |
@@ -42,7 +42,7 @@ DOCUMENT? → DocumentDB (MongoDB compatible)
 | **Maintenance** | Some required | Minimal | None |
 | **Cost** | $$ | $$$ | $ (pay per use) |
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. RDS Multi-AZ vs Read Replicas
 ```
@@ -110,41 +110,41 @@ AURORA SERVERLESS
 
 **Memory Aid**: "Redis = Rich features, Memcached = Memory only"
 
-## 💡 Common Exam Scenarios
+## Common Exam Scenarios
 
 ### Scenario 1: High Availability for RDS
 **Q**: Database must survive AZ failure with minimal downtime
-**✅ ANSWER**: Enable RDS Multi-AZ deployment (automatic failover)
+**ANSWER**: Enable RDS Multi-AZ deployment (automatic failover)
 
 ### Scenario 2: Read-Heavy Workload
 **Q**: Database experiencing heavy read traffic, writes are normal
-**✅ ANSWER**: Add RDS Read Replicas (up to 5 or 15 for Aurora)
+**ANSWER**: Add RDS Read Replicas (up to 5 or 15 for Aurora)
 
 ### Scenario 3: Global Low-Latency Reads
 **Q**: Users worldwide need fast read access to data
-**✅ ANSWER**: DynamoDB Global Tables (multi-region, active-active)
+**ANSWER**: DynamoDB Global Tables (multi-region, active-active)
 
 ### Scenario 4: Reduce Database Load
 **Q**: Same queries repeatedly hitting database
-**✅ ANSWER**: ElastiCache (Redis or Memcached) in front of database
+**ANSWER**: ElastiCache (Redis or Memcached) in front of database
 
 ### Scenario 5: Unpredictable Database Usage
 **Q**: Database usage varies greatly, sometimes idle
-**✅ ANSWER**: Aurora Serverless (auto-scales, pay per second)
+**ANSWER**: Aurora Serverless (auto-scales, pay per second)
 
 ### Scenario 6: Point-in-Time Recovery
 **Q**: Need to recover database to specific time yesterday
-**✅ ANSWER**: RDS automated backups (retention 1-35 days) + restore
+**ANSWER**: RDS automated backups (retention 1-35 days) + restore
 
 ### Scenario 7: NoSQL with Consistent Performance
 **Q**: Need single-digit millisecond latency at any scale
-**✅ ANSWER**: DynamoDB (fully managed NoSQL)
+**ANSWER**: DynamoDB (fully managed NoSQL)
 
 ### Scenario 8: Data Warehouse for Analytics
 **Q**: Run complex queries on petabytes of data
-**✅ ANSWER**: Amazon Redshift (columnar storage, MPP)
+**ANSWER**: Amazon Redshift (columnar storage, MPP)
 
-## 🎓 Speed Learning Tips
+## Speed Learning Tips
 
 ### RDS Backup Types
 ```
@@ -194,7 +194,7 @@ STORAGE SCALING
 └── Auto-scaling available
 ```
 
-## 📝 Rapid-Fire Facts
+## Rapid-Fire Facts
 
 ### RDS Important Limits
 - **Max Read Replicas**: 5 (regular RDS), 15 (Aurora)
@@ -223,7 +223,7 @@ STORAGE SCALING
 - **Single-AZ** (not Multi-AZ)
 - **Snapshots**: To S3, can copy to other regions
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### Database Decision Tree
 ```
@@ -247,35 +247,35 @@ STORAGE SCALING
 ```
 
 ### RDS Best Practices
-✅ Enable automated backups (1-35 days)
-✅ Use Multi-AZ for production
-✅ Encrypt databases with sensitive data
-✅ Use Read Replicas for read-heavy loads
-✅ Monitor with CloudWatch/Performance Insights
-✅ Regular maintenance windows
-✅ Use IAM database authentication
-✅ Enable deletion protection for production
+ Enable automated backups (1-35 days)
+ Use Multi-AZ for production
+ Encrypt databases with sensitive data
+ Use Read Replicas for read-heavy loads
+ Monitor with CloudWatch/Performance Insights
+ Regular maintenance windows
+ Use IAM database authentication
+ Enable deletion protection for production
 
 ### DynamoDB Best Practices
-✅ Choose good partition key (high cardinality)
-✅ Use GSI for alternate query patterns
-✅ Enable DynamoDB Streams for change tracking
-✅ Use DAX for read-heavy, cache-friendly workloads
-✅ Enable point-in-time recovery for critical tables
-✅ Use on-demand for unpredictable traffic
-✅ Enable encryption at rest
+ Choose good partition key (high cardinality)
+ Use GSI for alternate query patterns
+ Enable DynamoDB Streams for change tracking
+ Use DAX for read-heavy, cache-friendly workloads
+ Enable point-in-time recovery for critical tables
+ Use on-demand for unpredictable traffic
+ Enable encryption at rest
 
 ### Common Mistakes to Avoid
-❌ Using Multi-AZ for read scaling (use Read Replicas)
-❌ Not enabling automated backups
-❌ Choosing wrong DynamoDB partition key (hot partitions)
-❌ Using Redshift for OLTP (it's for OLAP)
-❌ Forgetting Aurora is MySQL/PostgreSQL compatible only
-❌ Not using ElastiCache for repeated queries
-❌ Thinking Multi-AZ standby is readable (it's not!)
-❌ Using provisioned capacity for unpredictable DynamoDB traffic
+ Using Multi-AZ for read scaling (use Read Replicas)
+ Not enabling automated backups
+ Choosing wrong DynamoDB partition key (hot partitions)
+ Using Redshift for OLTP (it's for OLAP)
+ Forgetting Aurora is MySQL/PostgreSQL compatible only
+ Not using ElastiCache for repeated queries
+ Thinking Multi-AZ standby is readable (it's not!)
+ Using provisioned capacity for unpredictable DynamoDB traffic
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Quick Questions** (Answers at bottom)
 
@@ -318,7 +318,7 @@ ENCRYPTION IN TRANSIT
 - **Read replicas**: 16 total across secondary regions
 - **Use Case**: Global applications, DR
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~60-75 min
 - Practice: Create RDS instance, DynamoDB table
 - Ready for: Database practice questions

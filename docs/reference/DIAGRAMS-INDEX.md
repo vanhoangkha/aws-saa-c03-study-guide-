@@ -1,10 +1,10 @@
 # AWS Solution Architect - Mermaid Diagrams Index
 
-## 📊 Overview
+## Overview
 
 This directory contains comprehensive Mermaid diagram documentation for the AWS Certified Solutions Architect - Associate (SAA-C03) exam preparation. Each module includes visual representations of AWS services, architectures, and concepts to enhance understanding and retention.
 
-## 📁 Diagram Files by Module
+## Diagram Files by Module
 
 ### 01. AWS Fundamentals
 **File:** [01-AWS-Fundamentals/DIAGRAMS.md](../../01-AWS-Fundamentals/DIAGRAMS.md)
@@ -241,7 +241,7 @@ This directory contains comprehensive Mermaid diagram documentation for the AWS 
 
 ---
 
-## 📚 Total Diagrams
+## Total Diagrams
 
 - **Total Modules:** 13
 - **Total Diagrams:** 150+ comprehensive Mermaid diagrams
@@ -255,19 +255,19 @@ This directory contains comprehensive Mermaid diagram documentation for the AWS 
   - Comparison matrices
   - Timeline diagrams
 
-## 🎨 Diagram Features
+## Diagram Features
 
 All diagrams include:
-- ✅ Color-coded components for easy identification
-- ✅ Clear relationships and data flows
-- ✅ Service interactions and integrations
-- ✅ Best practices and recommendations
-- ✅ Use cases and examples
-- ✅ Cost implications where relevant
-- ✅ Performance considerations
-- ✅ Security implications
+- Color-coded components for easy identification
+- Clear relationships and data flows
+- Service interactions and integrations
+- Best practices and recommendations
+- Use cases and examples
+- Cost implications where relevant
+- Performance considerations
+- Security implications
 
-## 🚀 How to Use
+## How to Use
 
 1. **Study by Module:** Follow the numbered sequence for structured learning
 2. **Visual Learning:** Use diagrams to understand complex concepts
@@ -275,7 +275,7 @@ All diagrams include:
 4. **Exam Preparation:** Review diagrams before the SAA-C03 exam
 5. **Practical Application:** Use as architecture reference for real projects
 
-## 💡 Tips for Maximum Benefit
+## Tips for Maximum Benefit
 
 - **Review Diagrams Multiple Times:** Visual repetition enhances memory
 - **Trace Data Flows:** Follow arrows to understand service interactions
@@ -283,7 +283,7 @@ All diagrams include:
 - **Practice Drawing:** Recreate diagrams from memory to test understanding
 - **Real-World Mapping:** Apply patterns to your own AWS projects
 
-## 🔄 Mermaid Rendering
+## Mermaid Rendering
 
 These diagrams use Mermaid syntax and can be rendered in:
 - **GitHub:** Native support for `.md` files
@@ -292,7 +292,7 @@ These diagrams use Mermaid syntax and can be rendered in:
 - **Online:** [Mermaid Live Editor](https://mermaid.live)
 - **Documentation Sites:** GitBook, Docusaurus, MkDocs
 
-## 📖 Study Approach
+## Study Approach
 
 ### Beginner Path
 1. Start with **01-AWS-Fundamentals** 
@@ -313,7 +313,7 @@ These diagrams use Mermaid syntax and can be rendered in:
 4. Understand **03-Compute**, **04-Storage**, **05-Database**
 5. Review **13-Cost-Optimization** for cost-related questions
 
-## 🎯 Exam Coverage
+## Exam Coverage
 
 These diagrams cover all domains of the SAA-C03 exam:
 - **Domain 1:** Design Secure Architectures (30%)
@@ -321,17 +321,17 @@ These diagrams cover all domains of the SAA-C03 exam:
 - **Domain 3:** Design High-Performing Architectures (24%)
 - **Domain 4:** Design Cost-Optimized Architectures (20%)
 
-## 📝 Notes
+## Notes
 
 - Diagrams are regularly updated to reflect AWS service changes
 - Color coding is consistent across all diagrams:
-  - 🟠 Orange: Primary services/components
-  - 🟢 Green: Recommended options/success paths
-  - 🔵 Blue: Alternative options/secondary components
-  - 🔴 Red: Warnings/deprecated/expensive options
-  - 🟣 Purple: Special services (Route 53, etc.)
+  - Orange: Primary services/components
+  - Green: Recommended options/success paths
+  - Blue: Alternative options/secondary components
+  - Red: Warnings/deprecated/expensive options
+  - Purple: Special services (Route 53, etc.)
 
-## 🤝 Contributing
+## Contributing
 
 To improve these diagrams:
 1. Identify outdated information
@@ -345,5 +345,5 @@ To improve these diagrams:
 
 **Exam Version:** AWS Certified Solutions Architect - Associate (SAA-C03)
 
-**Best of luck with your AWS certification journey! 🚀**
+**Best of luck with your AWS certification journey! **
 

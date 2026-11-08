@@ -1,4 +1,4 @@
-# 14: Practice & Exam Prep - Ultra Fast Learning 🚀
+# 14: Practice & Exam Prep - Ultra Fast Learning
 
 ## Exam Format (SAA-C03)
 
@@ -26,31 +26,31 @@
 ## Key Exam Topics
 
 ### Domain 1: Secure Architectures (30%)
-- ✅ **IAM**: Users, groups, roles, policies, MFA
-- ✅ **Encryption**: KMS, CloudHSM, SSL/TLS
-- ✅ **Network Security**: Security Groups, NACLs, WAF
-- ✅ **Data Protection**: S3 encryption, RDS encryption, versioning
-- ✅ **Compliance**: CloudTrail, Config, GuardDuty, Inspector
+- **IAM**: Users, groups, roles, policies, MFA
+- **Encryption**: KMS, CloudHSM, SSL/TLS
+- **Network Security**: Security Groups, NACLs, WAF
+- **Data Protection**: S3 encryption, RDS encryption, versioning
+- **Compliance**: CloudTrail, Config, GuardDuty, Inspector
 
 ### Domain 2: Resilient Architectures (26%)
-- ✅ **High Availability**: Multi-AZ, Auto Scaling, ELB
-- ✅ **Disaster Recovery**: Backup, RTO/RPO, failover
-- ✅ **Decoupling**: SQS, SNS, EventBridge
-- ✅ **Data Durability**: S3 (11 nines), RDS Multi-AZ, Aurora
+- **High Availability**: Multi-AZ, Auto Scaling, ELB
+- **Disaster Recovery**: Backup, RTO/RPO, failover
+- **Decoupling**: SQS, SNS, EventBridge
+- **Data Durability**: S3 (11 nines), RDS Multi-AZ, Aurora
 
 ### Domain 3: High-Performing Architectures (24%)
-- ✅ **Storage**: S3 classes, EBS types, EFS vs FSx
-- ✅ **Database**: RDS vs Aurora vs DynamoDB vs Redshift
-- ✅ **Caching**: CloudFront, ElastiCache, DAX
-- ✅ **Compute**: EC2 types, Lambda, containers
-- ✅ **Network**: VPC, Direct Connect, CloudFront, Global Accelerator
+- **Storage**: S3 classes, EBS types, EFS vs FSx
+- **Database**: RDS vs Aurora vs DynamoDB vs Redshift
+- **Caching**: CloudFront, ElastiCache, DAX
+- **Compute**: EC2 types, Lambda, containers
+- **Network**: VPC, Direct Connect, CloudFront, Global Accelerator
 
 ### Domain 4: Cost-Optimized Architectures (20%)
-- ✅ **EC2 Pricing**: On-Demand, Reserved, Savings Plans, Spot
-- ✅ **Storage Optimization**: S3 lifecycle, EBS gp3
-- ✅ **Cost Tools**: Cost Explorer, Budgets, Trusted Advisor
-- ✅ **Right-Sizing**: Compute Optimizer, CloudWatch metrics
-- ✅ **Serverless**: Lambda, DynamoDB On-Demand, Fargate
+- **EC2 Pricing**: On-Demand, Reserved, Savings Plans, Spot
+- **Storage Optimization**: S3 lifecycle, EBS gp3
+- **Cost Tools**: Cost Explorer, Budgets, Trusted Advisor
+- **Right-Sizing**: Compute Optimizer, CloudWatch metrics
+- **Serverless**: Lambda, DynamoDB On-Demand, Fargate
 
 ## Critical Services to Master
 
@@ -195,24 +195,24 @@
 ## Exam Day Tips
 
 ### Before the Exam
-- ✅ Review this ultra-fast guide
-- ✅ Take practice exams (score 80%+ consistently)
-- ✅ Sleep well (8 hours)
-- ✅ Arrive 30 min early (or test internet for online)
+- Review this ultra-fast guide
+- Take practice exams (score 80%+ consistently)
+- Sleep well (8 hours)
+- Arrive 30 min early (or test internet for online)
 
 ### During the Exam
-- ✅ **Read carefully**: Every word matters
-- ✅ **Flag for review**: Don't get stuck (2 min max per question)
-- ✅ **Eliminate wrong answers**: Usually 2 are obviously wrong
-- ✅ **Watch for keywords**: "most cost-effective", "least operational overhead", "highest availability"
-- ✅ **Time management**: 2 min per question = 130 min total
-- ✅ **Review flagged**: Use remaining time
+- **Read carefully**: Every word matters
+- **Flag for review**: Don't get stuck (2 min max per question)
+- **Eliminate wrong answers**: Usually 2 are obviously wrong
+- **Watch for keywords**: "most cost-effective", "least operational overhead", "highest availability"
+- **Time management**: 2 min per question = 130 min total
+- **Review flagged**: Use remaining time
 
 ### Common Traps
-- ❌ **Overthinking**: Usually first instinct is correct
-- ❌ **Ignoring keywords**: "cost-effective" ≠ "high-performance"
-- ❌ **Not reading all options**: Answer D might be better
-- ❌ **Assuming**: Stick to what question says
+- **Overthinking**: Usually first instinct is correct
+- **Ignoring keywords**: "cost-effective" ≠ "high-performance"
+- **Not reading all options**: Answer D might be better
+- **Assuming**: Stick to what question says
 
 ## Keywords to Watch
 
@@ -243,15 +243,15 @@
 - "**No infrastructure**" → Serverless (Lambda, Fargate, Aurora Serverless)
 
 ## Final Reminders
-- 🎯 **Read the question twice** before answering
-- 🎯 **Eliminate obviously wrong answers** first
-- 🎯 **Look for keywords** (cost, performance, security)
-- 🎯 **Don't overthink** - it's not a trick
-- 🎯 **AWS best practices** usually win
-- 🎯 **Managed > Self-managed** when in doubt
-- 🎯 **Multi-AZ > Single AZ** for production
-- 🎯 **Review flagged questions** at the end
+- **Read the question twice** before answering
+- **Eliminate obviously wrong answers** first
+- **Look for keywords** (cost, performance, security)
+- **Don't overthink** - it's not a trick
+- **AWS best practices** usually win
+- **Managed > Self-managed** when in doubt
+- **Multi-AZ > Single AZ** for production
+- **Review flagged questions** at the end
 
-## Good Luck! 🍀
-**You've got this!** Trust your preparation and stay calm. 💪
+## Good Luck!
+**You've got this!** Trust your preparation and stay calm.
 

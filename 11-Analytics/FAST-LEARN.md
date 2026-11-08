@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - Analytics Services
+# Fast Learning - Analytics Services
 
 > **Time to Complete**: 45-60 minutes | **Exam Weight**: ~8-12%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### Analytics Service Selector (AREKGLQ)
 ```
@@ -18,17 +18,17 @@ QUICK VIZ? → QuickSight (BI dashboards)
 
 **Memory Aid**: "Athena Asks, Redshift Reduces, EMR Executes, Kinesis Keeps streaming, Glue Glues, Lake Lakes, QuickSight Shows"
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### Analytics Services Matrix
 | Service | Type | Use Case | Query Language | Serverless |
 |---------|------|----------|----------------|------------|
-| **Athena** | Interactive query | Ad-hoc SQL on S3 | SQL | ✅ |
-| **Redshift** | Data warehouse | OLAP, BI | SQL | ❌ |
-| **EMR** | Big data framework | Hadoop/Spark jobs | Various | ❌ |
-| **Glue** | ETL | Data transformation | Python/Scala | ✅ |
-| **OpenSearch** | Search engine | Search, log analytics | Query DSL | ❌ |
-| **QuickSight** | BI tool | Dashboards, visualizations | N/A | ✅ |
+| **Athena** | Interactive query | Ad-hoc SQL on S3 | SQL | Yes |
+| **Redshift** | Data warehouse | OLAP, BI | SQL | No |
+| **EMR** | Big data framework | Hadoop/Spark jobs | Various | No |
+| **Glue** | ETL | Data transformation | Python/Scala | Yes |
+| **OpenSearch** | Search engine | Search, log analytics | Query DSL | No |
+| **QuickSight** | BI tool | Dashboards, visualizations | N/A | Yes |
 
 ### Redshift vs Athena vs RDS
 | Feature | Redshift | Athena | RDS |
@@ -40,7 +40,7 @@ QUICK VIZ? → QuickSight (BI dashboards)
 | **Loading** | Load data first | Query in place | N/A |
 | **Query** | SQL | SQL | SQL |
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. Amazon Athena
 ```
@@ -162,41 +162,41 @@ USE CASES:
 └── ETL at scale
 ```
 
-## 💡 Common Exam Scenarios
+## Common Exam Scenarios
 
 ### Scenario 1: Query S3 Logs with SQL
 **Q**: Analyze CloudTrail logs in S3 using SQL, no infrastructure
-**✅ ANSWER**: Amazon Athena
+**ANSWER**: Amazon Athena
 
 ### Scenario 2: Petabyte-Scale Analytics
 **Q**: Business intelligence on petabytes of structured data
-**✅ ANSWER**: Amazon Redshift (data warehouse)
+**ANSWER**: Amazon Redshift (data warehouse)
 
 ### Scenario 3: Reduce Athena Costs
 **Q**: Athena queries costing too much
-**✅ ANSWER**: Convert to Parquet/ORC format, compress, partition data
+**ANSWER**: Convert to Parquet/ORC format, compress, partition data
 
 ### Scenario 4: ETL Pipeline
 **Q**: Transform CSV data in S3, load to Redshift nightly
-**✅ ANSWER**: AWS Glue (serverless ETL with scheduler)
+**ANSWER**: AWS Glue (serverless ETL with scheduler)
 
 ### Scenario 5: Real-Time Log Search
 **Q**: Search application logs in real-time, need full-text search
-**✅ ANSWER**: Amazon OpenSearch (formerly Elasticsearch)
+**ANSWER**: Amazon OpenSearch (formerly Elasticsearch)
 
 ### Scenario 6: Interactive Dashboards
 **Q**: Create business dashboards from Athena/Redshift data
-**✅ ANSWER**: Amazon QuickSight
+**ANSWER**: Amazon QuickSight
 
 ### Scenario 7: Spark Processing
 **Q**: Run Apache Spark jobs on large datasets
-**✅ ANSWER**: Amazon EMR with Spark
+**ANSWER**: Amazon EMR with Spark
 
 ### Scenario 8: Query Both S3 and Redshift
 **Q**: Need to join data in S3 with data in Redshift
-**✅ ANSWER**: Redshift Spectrum
+**ANSWER**: Redshift Spectrum
 
-## 🎓 Speed Learning Tips
+## Speed Learning Tips
 
 ### Athena Partitioning
 ```
@@ -218,39 +218,39 @@ PARTITION PROJECTION:
 ```
 
 ### Redshift Best Practices
-✅ Use columnar storage (it's automatic)
-✅ Choose appropriate distribution key
-✅ Use sort keys for query performance
-✅ Enable compression (auto)
-✅ Use Redshift Spectrum for S3 data
-✅ Regular VACUUM and ANALYZE
-✅ Use Concurrency Scaling for bursts
-✅ Snapshot for backup/DR
+ Use columnar storage (it's automatic)
+ Choose appropriate distribution key
+ Use sort keys for query performance
+ Enable compression (auto)
+ Use Redshift Spectrum for S3 data
+ Regular VACUUM and ANALYZE
+ Use Concurrency Scaling for bursts
+ Snapshot for backup/DR
 
 ### Glue vs EMR vs Lambda
 ```
 USE GLUE WHEN:
-✅ Serverless ETL needed
-✅ Simple transformations
-✅ Metadata catalog
-✅ Python/Scala jobs
-✅ Don't want to manage infrastructure
+ Serverless ETL needed
+ Simple transformations
+ Metadata catalog
+ Python/Scala jobs
+ Don't want to manage infrastructure
 
 USE EMR WHEN:
-✅ Complex big data processing
-✅ Need specific Hadoop ecosystem tools
-✅ Custom configurations
-✅ Cost optimization (Spot instances)
-✅ Large-scale ML
+ Complex big data processing
+ Need specific Hadoop ecosystem tools
+ Custom configurations
+ Cost optimization (Spot instances)
+ Large-scale ML
 
 USE LAMBDA WHEN:
-✅ Simple transformations
-✅ < 15 minutes execution
-✅ Event-driven processing
-✅ Small data volumes
+ Simple transformations
+ < 15 minutes execution
+ Event-driven processing
+ Small data volumes
 ```
 
-## 📝 Rapid-Fire Facts
+## Rapid-Fire Facts
 
 ### Athena Query Optimization
 ```
@@ -314,11 +314,11 @@ FEATURES:
 └── Integrated with Kibana
 
 NOT A REPLACEMENT FOR:
-❌ Relational database (use RDS)
-❌ Data warehouse (use Redshift)
+ Relational database (use RDS)
+ Data warehouse (use Redshift)
 ```
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### Analytics Decision Tree
 ```
@@ -367,21 +367,21 @@ NOT A REPLACEMENT FOR:
 |--------|------|-------------|------------|-------------------|
 | **CSV** | Row | Fair | Yes | Slow, expensive |
 | **JSON** | Row | Fair | Yes | Slow, expensive |
-| **Parquet** | Columnar | Excellent | Yes | ⭐ Best |
-| **ORC** | Columnar | Excellent | Yes | ⭐ Best |
+| **Parquet** | Columnar | Excellent | Yes | Best |
+| **ORC** | Columnar | Excellent | Yes | Best |
 | **Avro** | Row | Good | Yes | Good |
 
 ### Common Mistakes to Avoid
-❌ Using Athena on uncompressed CSV (expensive!)
-❌ Not partitioning S3 data for Athena
-❌ Using Redshift for OLTP (use RDS)
-❌ SELECT * in Athena (scans all columns)
-❌ Not using Redshift Spectrum for S3 data
-❌ Running EMR long-term for simple ETL (use Glue)
-❌ Forgetting to terminate EMR clusters (cost!)
-❌ Not using SPICE in QuickSight (slow queries)
+ Using Athena on uncompressed CSV (expensive!)
+ Not partitioning S3 data for Athena
+ Using Redshift for OLTP (use RDS)
+ SELECT * in Athena (scans all columns)
+ Not using Redshift Spectrum for S3 data
+ Running EMR long-term for simple ETL (use Glue)
+ Forgetting to terminate EMR clusters (cost!)
+ Not using SPICE in QuickSight (slow queries)
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Quick Questions** (Answers at bottom)
 
@@ -438,7 +438,7 @@ OUTPUTS:
 └── S3 (via Firehose)
 ```
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~45-60 min
 - Practice: Run Athena query, understand Redshift
 - Ready for: Analytics practice questions

@@ -1,4 +1,4 @@
-# 12: Architecture Patterns - Ultra Fast Learning 🚀
+# 12: Architecture Patterns - Ultra Fast Learning
 
 ## Well-Architected Framework (6 Pillars)
 
@@ -63,10 +63,10 @@ RDS Multi-AZ (Private Subnet)
 - **Data**: RDS Multi-AZ (private subnets)
 
 **Features**:
-- ✅ High availability (Multi-AZ)
-- ✅ Scalability (Auto Scaling)
-- ✅ Security (Private subnets, SGs)
-- ✅ Performance (CloudFront CDN)
+- High availability (Multi-AZ)
+- Scalability (Auto Scaling)
+- Security (Private subnets, SGs)
+- Performance (CloudFront CDN)
 
 ## Serverless Architecture
 
@@ -82,10 +82,10 @@ DynamoDB
 ```
 
 **Benefits**:
-- ✅ No server management
-- ✅ Auto-scaling
-- ✅ Pay per use
-- ✅ High availability (built-in)
+- No server management
+- Auto-scaling
+- Pay per use
+- High availability (built-in)
 
 **Use cases**: Web apps, mobile backends, APIs
 

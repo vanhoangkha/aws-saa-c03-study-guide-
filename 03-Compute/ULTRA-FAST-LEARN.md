@@ -1,4 +1,4 @@
-# 03: Compute Services - Ultra Fast Learning 🚀
+# 03: Compute Services - Ultra Fast Learning
 
 ## EC2 Instance Types (CRAMFGPDI)
 - **C**: Compute optimized (CPU-intensive)

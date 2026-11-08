@@ -69,7 +69,7 @@ def validate_mermaid_file(filepath):
 
 
             # Check for unquoted nodes with special characters
-            special_chars = r'[⚠️💰⚡📊🛡️✅❌🔑🔒📦💾📁🪟📏🎯🔐🔋📡☁️💪🔄•→@]'
+            special_chars = r'[•→@]'
             if re.search(r'\w+\[[^\]"]*' + special_chars, line):
                 # Make sure it's properly quoted
                 if not re.search(r'\w+\["[^\]]*"\]', line):
@@ -156,13 +156,13 @@ def main():
         if issues:
             files_with_issues += 1
             total_issues += len(issues)
-            print(f"\n❌ {filepath}:")
+            print(f"\nINVALID {filepath}:")
             for issue in issues[:5]:  # Show first 5 issues per file
                 print(f"   {issue}")
             if len(issues) > 5:
                 print(f"   ... and {len(issues) - 5} more issues")
         else:
-            print(f"✅ {filepath}")
+            print(f"OK {filepath}")
 
     print(f"\n{'='*60}")
     print(f"Summary: {len(diagram_files) - files_with_issues}/{len(diagram_files)} files passed validation")
@@ -170,7 +170,7 @@ def main():
         print(f"Found {total_issues} issue(s) in {files_with_issues} file(s)")
         sys.exit(1)
     else:
-        print("All files are valid! 🎉")
+        print("All files are valid.")
         sys.exit(0)
 
 if __name__ == '__main__':

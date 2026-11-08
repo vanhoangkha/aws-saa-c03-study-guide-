@@ -44,7 +44,7 @@ graph TB
     Results --> QuickSight
     Results --> JDBC
     
-    Features["Features:<br/>✅ Serverless - no infrastructure<br/>✅ Pay per query $5 per TB scanned<br/>✅ Supports partitioning<br/>✅ Columnar formats for cost savings<br/>✅ Federated queries<br/>💡 Use Parquet for 90% cost reduction"]
+    Features["Features:<br/>Serverless - no infrastructure<br/>Pay per query $5 per TB scanned<br/>Supports partitioning<br/>Columnar formats for cost savings<br/>Federated queries<br/>Use Parquet for 90% cost reduction"]
     
     classDef style1 fill:#FF9900
     class Athena style1
@@ -252,7 +252,7 @@ graph LR
     Shard3 --> Firehose
     Shard1 --> Analytics
     
-    Features["Features:<br/>✅ Real-time 70ms-200ms<br/>✅ Replay capability<br/>✅ Retention: 1-365 days<br/>✅ Immutable records<br/>✅ Ordered per shard<br/>💰 Pay per shard-hour + PUT"]
+    Features["Features:<br/>Real-time 70ms-200ms<br/>Replay capability<br/>Retention: 1-365 days<br/>Immutable records<br/>Ordered per shard<br/>Pay per shard-hour + PUT"]
     
     classDef style1 fill:#FF9900
     class Stream style1
@@ -361,7 +361,7 @@ graph TB
     
     UseCases["Use Cases:<br/>• Real-time dashboards<br/>• Real-time metrics<br/>• Streaming ETL<br/>• Anomaly detection<br/>• IoT analytics"]
     
-    Features["Features:<br/>✅ Serverless<br/>✅ Auto-scaling<br/>✅ Pay for processing<br/>✅ IAM for access control<br/>✅ Schema discovery"]
+    Features["Features:<br/>Serverless<br/>Auto-scaling<br/>Pay for processing<br/>IAM for access control<br/>Schema discovery"]
     
     classDef style1 fill:#FF9900
     class Analytics style1
@@ -415,7 +415,7 @@ graph TB
     EMR[Amazon EMR] -.Use.-> Catalog
     Redshift2[Redshift Spectrum] -.Use.-> Catalog
     
-    Features["Features:<br/>✅ Serverless<br/>✅ Pay per second for ETL<br/>✅ Python or Scala<br/>✅ Built-in transformations<br/>✅ Job bookmarks<br/>✅ Development endpoints"]
+    Features["Features:<br/>Serverless<br/>Pay per second for ETL<br/>Python or Scala<br/>Built-in transformations<br/>Job bookmarks<br/>Development endpoints"]
     
     classDef style1 fill:#FF9900
     class Catalog style1
@@ -456,7 +456,7 @@ graph TB
     Tables --> EMR
     Tables --> Glue_ETL
     
-    Benefits["Benefits:<br/>✅ Single source of truth<br/>✅ Avoid data silos<br/>✅ Schema evolution<br/>✅ Partition discovery<br/>✅ Cross-service metadata<br/>💰 First million objects stored free"]
+    Benefits["Benefits:<br/>Single source of truth<br/>Avoid data silos<br/>Schema evolution<br/>Partition discovery<br/>Cross-service metadata<br/>First million objects stored free"]
     
     Hive["Hive Metastore Compatible<br/>Import existing Hive catalogs"] -.Compatible.-> Catalog
     
@@ -516,7 +516,7 @@ graph TB
     Dashboards --> Embedded
     Dashboards --> Enterprise
     
-    Pricing["Pricing:<br/>💰 Standard: $9/user/month<br/>💰 Enterprise: $18/user/month<br/>💰 SPICE: $0.25/GB/month<br/>💰 Readers: $0.30/session $5 max"]
+    Pricing["Pricing:<br/>Standard: $9/user/month<br/>Enterprise: $18/user/month<br/>SPICE: $0.25/GB/month<br/>Readers: $0.30/session $5 max"]
     
     classDef style1 fill:#FF9900
     class SPICE style1
@@ -575,7 +575,7 @@ graph TB
     Data1 --> API
     Data1 --> SQL
     
-    Features["Features:<br/>✅ Multi-AZ deployment<br/>✅ Built-in dashboards<br/>✅ Full-text search<br/>✅ Application monitoring<br/>✅ Log analytics<br/>💰 Pay per instance hour"]
+    Features["Features:<br/>Multi-AZ deployment<br/>Built-in dashboards<br/>Full-text search<br/>Application monitoring<br/>Log analytics<br/>Pay per instance hour"]
     
     UseCases["Use Cases:<br/>• Log analytics<br/>• Application monitoring<br/>• Security analytics<br/>• Full-text search<br/>• Clickstream analytics"]
     

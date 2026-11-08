@@ -1,4 +1,4 @@
-# 🎯 AWS SAA-C03 - ULTRA QUICK REFERENCE CARD (100% COVERAGE)
+# AWS SAA-C03 - ULTRA QUICK REFERENCE CARD (100% COVERAGE)
 
 **Complete edge-case coverage for exam day success - Print or save on your phone**
 
@@ -8,25 +8,25 @@
 
 ---
 
-## 📚 WHAT'S INCLUDED
+## WHAT'S INCLUDED
 
-✅ **15 Must-Memorize Critical Rules**  
-✅ **150+ Edge Cases & Traps** (commonly missed scenarios)  
-✅ **Advanced Exam Scenarios** (pattern recognition for complex questions)  
-✅ **Service Combinations** (what pairs with what)  
-✅ **Anti-Patterns** (what NOT to do - eliminates wrong answers)  
-✅ **Performance/Security/Cost Optimization Patterns**  
-✅ **30-Second Question Analysis Method** (time management)  
-✅ **Top 20 Gotcha Facts** (most commonly failed questions)  
-✅ **Numerical Values to Memorize** (limits that appear on exam)  
-✅ **Service Confusion Clarification** (similar services explained)  
-✅ **Exam Day Strategies** (before/during/after tactics)  
+ **15 Must-Memorize Critical Rules**
+ **150+ Edge Cases & Traps** (commonly missed scenarios)
+ **Advanced Exam Scenarios** (pattern recognition for complex questions)
+ **Service Combinations** (what pairs with what)
+ **Anti-Patterns** (what NOT to do - eliminates wrong answers)
+ **Performance/Security/Cost Optimization Patterns**
+ **30-Second Question Analysis Method** (time management)
+ **Top 20 Gotcha Facts** (most commonly failed questions)
+ **Numerical Values to Memorize** (limits that appear on exam)
+ **Service Confusion Clarification** (similar services explained)
+ **Exam Day Strategies** (before/during/after tactics)
 
 ---
 
 ## MUST MEMORIZE (15 Critical Rules)
 
-1. **CloudFront + ACM cert** = us-east-1 ONLY ⚠️
+1. **CloudFront + ACM cert** = us-east-1 ONLY
 2. **Memory metric** = Need CloudWatch agent (not default)
 3. **S3 IA/Glacier** = 30-day minimum charge
 4. **Multi-AZ** = HA (sync) | **Read Replica** = Scale (async)
@@ -36,7 +36,7 @@
 8. **VPC peering DNS** = Enable in BOTH VPCs
 9. **Glacier transitions** = Cannot go OUT without restore
 10. **Bucket default class** = Only NEW objects (not existing)
-11. **SCPs** = DON'T affect management account ⚠️
+11. **SCPs** = DON'T affect management account
 12. **File Gateway** = S3 objects (admins can access), Volume = blocks only
 13. **RDS IAM Auth** = Token 15 min, MySQL/PostgreSQL/Aurora only
 14. **SQS FIFO** = 300 msg/s (3000 batched), ends in `.fifo`
@@ -204,7 +204,7 @@
 
 ## STORAGE CLASSES (Cheapest → Most Expensive)
 
-1. S3 Glacier Deep Archive ($0.00099/GB) ⭐ CHEAPEST
+1. S3 Glacier Deep Archive ($0.00099/GB) CHEAPEST
 2. S3 Glacier Flexible ($0.004/GB)
 3. S3 Intelligent-Tiering ($0.0025-0.023/GB)
 4. S3 One Zone-IA ($0.01/GB)
@@ -585,10 +585,10 @@
 
 | Strategy | RTO | RPO | Cost | When to Use |
 |----------|-----|-----|------|-------------|
-| **Backup & Restore** | Hours-Days | Hours | 💰 | Non-critical, cost-sensitive |
-| **Pilot Light** | 10min-Hours | Minutes | 💰💰 | Important, some downtime OK |
-| **Warm Standby** | Minutes | Seconds | 💰💰💰 | Business-critical |
-| **Multi-Site** | Real-time | Near-zero | 💰💰💰💰 | Mission-critical, zero downtime |
+| **Backup & Restore** | Hours-Days | Hours |  | Non-critical, cost-sensitive |
+| **Pilot Light** | 10min-Hours | Minutes |  | Important, some downtime OK |
+| **Warm Standby** | Minutes | Seconds |  | Business-critical |
+| **Multi-Site** | Real-time | Near-zero |  | Mission-critical, zero downtime |
 
 ### Implementation Details
 - **Backup & Restore**: Daily backups to S3, deploy from scratch during disaster
@@ -610,451 +610,451 @@
 
 ---
 
-## 🚨 EDGE CASES & ADVANCED SCENARIOS (100% Coverage)
+## EDGE CASES & ADVANCED SCENARIOS (100% Coverage)
 
 ### VPC & Networking Edge Cases
 
-**❌ TRAP: VPC peering is transitive**
-- ✅ TRUTH: NOT transitive. A-B and B-C doesn't mean A-C
-- ✅ Solution: Use Transit Gateway for hub-spoke
+**No: TRAP: VPC peering is transitive**
+- Yes: TRUTH: NOT transitive. A-B and B-C doesn't mean A-C
+- Solution: Use Transit Gateway for hub-spoke
 
-**❌ TRAP: VPC peering works across different CIDR**
-- ✅ TRUTH: CIDRs cannot overlap
-- ✅ Example: 10.0.0.0/16 can peer with 172.31.0.0/16, NOT with 10.1.0.0/16
+**No: TRAP: VPC peering works across different CIDR**
+- Yes: TRUTH: CIDRs cannot overlap
+- Yes: Example: 10.0.0.0/16 can peer with 172.31.0.0/16, NOT with 10.1.0.0/16
 
-**❌ TRAP: Route table automatically updated with peering**
-- ✅ TRUTH: Must manually add routes in BOTH VPCs
-- ✅ Action: Add destination CIDR → peering connection target
+**No: TRAP: Route table automatically updated with peering**
+- Yes: TRUTH: Must manually add routes in BOTH VPCs
+- Yes: Action: Add destination CIDR → peering connection target
 
-**❌ TRAP: Security groups reference works cross-region**
-- ✅ TRUTH: Only works within same region
-- ✅ Cross-region: Must use CIDR blocks
+**No: TRAP: Security groups reference works cross-region**
+- Yes: TRUTH: Only works within same region
+- Cross-region: Must use CIDR blocks
 
-**❌ TRAP: NAT Gateway supports port forwarding**
-- ✅ TRUTH: Only supports outbound. Use bastion host for inbound
-- ✅ Bastion: EC2 in public subnet with SSH access
+**No: TRAP: NAT Gateway supports port forwarding**
+- TRUTH: Only supports outbound. Use bastion host for inbound
+- Yes: Bastion: EC2 in public subnet with SSH access
 
-**❌ TRAP: VPC Flow Logs capture packet contents**
-- ✅ TRUTH: Metadata only (IPs, ports, protocol). Use packet sniffer for content
-- ✅ Can't capture: DHCP, AWS DNS, metadata (169.254.169.254)
+**No: TRAP: VPC Flow Logs capture packet contents**
+- TRUTH: Metadata only (IPs, ports, protocol). Use packet sniffer for content
+- Yes: Can't capture: DHCP, AWS DNS, metadata (169.254.169.254)
 
-**❌ TRAP: Can attach multiple internet gateways to VPC**
-- ✅ TRUTH: Only ONE internet gateway per VPC
-- ✅ IGW scales automatically, highly available
+**No: TRAP: Can attach multiple internet gateways to VPC**
+- Yes: TRUTH: Only ONE internet gateway per VPC
+- Yes: IGW scales automatically, highly available
 
-**❌ TRAP: Private subnet can access internet via IGW**
-- ✅ TRUTH: Needs NAT Gateway/Instance in public subnet
-- ✅ Route: private subnet → NAT (in public) → IGW → internet
+**No: TRAP: Private subnet can access internet via IGW**
+- Yes: TRUTH: Needs NAT Gateway/Instance in public subnet
+- Yes: Route: private subnet → NAT (in public) → IGW → internet
 
-**❌ TRAP: Direct Connect provides encryption by default**
-- ✅ TRUTH: NOT encrypted. Use VPN over Direct Connect for encryption
-- ✅ Or: Application-level encryption (TLS/SSL)
+**No: TRAP: Direct Connect provides encryption by default**
+- TRUTH: NOT encrypted. Use VPN over Direct Connect for encryption
+- Yes: Or: Application-level encryption (TLS/SSL)
 
-**❌ TRAP: VPN connection limited to 1.25 Gbps cannot be increased**
-- ✅ TRUTH: Use ECMP with Transit Gateway for 2.5 Gbps (2 tunnels)
-- ✅ VPG: No ECMP support. TGW: Supports ECMP
+**TRAP: VPN connection limited to 1.25 Gbps cannot be increased**
+- TRUTH: Use ECMP with Transit Gateway for 2.5 Gbps (2 tunnels)
+- Yes: VPG: No ECMP support. TGW: Supports ECMP
 
 ### S3 Edge Cases
 
-**❌ TRAP: S3 versioning can be completely disabled**
-- ✅ TRUTH: Once enabled, can only SUSPEND (not disable)
-- ✅ Delete marker: Created when object deleted with versioning
+**No: TRAP: S3 versioning can be completely disabled**
+- Yes: TRUTH: Once enabled, can only SUSPEND (not disable)
+- Yes: Delete marker: Created when object deleted with versioning
 
-**❌ TRAP: S3 Standard-IA cheaper for all infrequent access**
-- ✅ TRUTH: Need >128KB objects accessed <1x/month
-- ✅ <128KB or frequent access: Standard is cheaper
+**No: TRAP: S3 Standard-IA cheaper for all infrequent access**
+- Yes: TRUTH: Need >128KB objects accessed <1x/month
+- Yes: <128KB or frequent access: Standard is cheaper
 
-**❌ TRAP: S3 lifecycle immediately transitions objects**
-- ✅ TRUTH: 30-day minimum before IA/Glacier transition
-- ✅ Can't go: Standard → Glacier Deep Archive directly (<90 days)
+**No: TRAP: S3 lifecycle immediately transitions objects**
+- Yes: TRUTH: 30-day minimum before IA/Glacier transition
+- Yes: Can't go: Standard → Glacier Deep Archive directly (<90 days)
 
-**❌ TRAP: Restored Glacier object stays in Standard**
-- ✅ TRUTH: Copy stays for specified days, then deletes
-- ✅ Original remains in Glacier. Must copy to keep in Standard
+**No: TRAP: Restored Glacier object stays in Standard**
+- Yes: TRUTH: Copy stays for specified days, then deletes
+- Yes: Original remains in Glacier. Must copy to keep in Standard
 
-**❌ TRAP: S3 Cross-Region Replication retroactive**
-- ✅ TRUTH: Only NEW objects after enabling
-- ✅ Existing: Use S3 Batch Replication
+**No: TRAP: S3 Cross-Region Replication retroactive**
+- Yes: TRUTH: Only NEW objects after enabling
+- Existing: Use S3 Batch Replication
 
-**❌ TRAP: S3 encryption can be changed without re-upload**
-- ✅ TRUTH: Must copy object in-place to change encryption
-- ✅ Command: aws s3 cp s3://bucket/key s3://bucket/key --sse...
+**TRAP: S3 encryption can be changed without re-upload**
+- Yes: TRUTH: Must copy object in-place to change encryption
+- Yes: Command: aws s3 cp s3://bucket/key s3://bucket/key --sse...
 
-**❌ TRAP: MFA Delete protects against all deletes**
-- ✅ TRUTH: Only protects version deletion + versioning suspension
-- ✅ Delete markers: Can be created without MFA
+**No: TRAP: MFA Delete protects against all deletes**
+- Yes: TRUTH: Only protects version deletion + versioning suspension
+- Yes: Delete markers: Can be created without MFA
 
-**❌ TRAP: S3 Select retrieves whole object then filters**
-- ✅ TRUTH: Filters at S3 level, retrieves only needed data (up to 400% faster)
-- ✅ Use for: CSV, JSON, Parquet queries
+**No: TRAP: S3 Select retrieves whole object then filters**
+- Yes: TRUTH: Filters at S3 level, retrieves only needed data (up to 400% faster)
+- Use for: CSV, JSON, Parquet queries
 
-**❌ TRAP: S3 Transfer Acceleration always faster**
-- ✅ TRUTH: Test first. May be slower for nearby regions
-- ✅ AWS provides speed comparison tool
+**No: TRAP: S3 Transfer Acceleration always faster**
+- Yes: TRUTH: Test first. May be slower for nearby regions
+- Yes: AWS provides speed comparison tool
 
-**❌ TRAP: Requester Pays works with anonymous requests**
-- ✅ TRUTH: Requires authenticated AWS account
-- ✅ Requester pays: Transfer + request costs. Owner pays: Storage
+**No: TRAP: Requester Pays works with anonymous requests**
+- Yes: TRUTH: Requires authenticated AWS account
+- Yes: Requester pays: Transfer + request costs. Owner pays: Storage
 
 ### RDS & Database Edge Cases
 
-**❌ TRAP: RDS Multi-AZ standby can be used for reads**
-- ✅ TRUTH: Standby NOT accessible. Use Read Replicas for reads
-- ✅ Multi-AZ: HA only. Read Replica: Read scaling
+**No: TRAP: RDS Multi-AZ standby can be used for reads**
+- TRUTH: Standby NOT accessible. Use Read Replicas for reads
+- Yes: Multi-AZ: HA only. Read Replica: Read scaling
 
-**❌ TRAP: RDS Multi-AZ automatic failover is instant**
-- ✅ TRUTH: 1-2 minutes failover time
-- ✅ DNS name stays same, endpoints automatically switch
+**No: TRAP: RDS Multi-AZ automatic failover is instant**
+- Yes: TRUTH: 1-2 minutes failover time
+- Yes: DNS name stays same, endpoints automatically switch
 
-**❌ TRAP: Read Replica promotion is instant**
-- ✅ TRUTH: Stops replication, creates independent database
-- ✅ Can take several minutes depending on data volume
+**No: TRAP: Read Replica promotion is instant**
+- Yes: TRUTH: Stops replication, creates independent database
+- Yes: Can take several minutes depending on data volume
 
-**❌ TRAP: RDS cross-region read replica requires Multi-AZ**
-- ✅ TRUTH: Can create from single-AZ source
-- ✅ Cross-region replica: Async replication, higher lag
+**No: TRAP: RDS cross-region read replica requires Multi-AZ**
+- Yes: TRUTH: Can create from single-AZ source
+- Yes: Cross-region replica: Async replication, higher lag
 
-**❌ TRAP: RDS encryption can be enabled on existing database**
-- ✅ TRUTH: Must create snapshot, copy encrypted, restore from encrypted
-- ✅ Or: Create read replica with encryption, promote
+**No: TRAP: RDS encryption can be enabled on existing database**
+- Yes: TRUTH: Must create snapshot, copy encrypted, restore from encrypted
+- Yes: Or: Create read replica with encryption, promote
 
-**❌ TRAP: RDS automated backups persist after deletion**
-- ✅ TRUTH: Deleted with instance (unless retain option set)
-- ✅ Manual snapshots: Persist until explicitly deleted
+**No: TRAP: RDS automated backups persist after deletion**
+- Yes: TRUTH: Deleted with instance (unless retain option set)
+- Yes: Manual snapshots: Persist until explicitly deleted
 
-**❌ TRAP: Aurora Global Database has zero replication lag**
-- ✅ TRUTH: <1 second lag (typically <1s, not zero)
-- ✅ Cross-region: Physical replication, not logical
+**No: TRAP: Aurora Global Database has zero replication lag**
+- Yes: TRUTH: <1 second lag (typically <1s, not zero)
+- Yes: Cross-region: Physical replication, not logical
 
-**❌ TRAP: Aurora Serverless scales instantly**
-- ✅ TRUTH: Scaling takes seconds (not instant)
-- ✅ During scaling: Connections preserved (no downtime)
+**No: TRAP: Aurora Serverless scales instantly**
+- Yes: TRUTH: Scaling takes seconds (not instant)
+- Yes: During scaling: Connections preserved (no downtime)
 
-**❌ TRAP: DynamoDB strongly consistent reads default**
-- ✅ TRUTH: Eventually consistent by default
-- ✅ Strong: Costs 2× RCU, specify in API call
+**No: TRAP: DynamoDB strongly consistent reads default**
+- Yes: TRUTH: Eventually consistent by default
+- Yes: Strong: Costs 2× RCU, specify in API call
 
-**❌ TRAP: DynamoDB LSI can be added after table creation**
-- ✅ TRUTH: LSI only at creation. GSI can be added anytime
-- ✅ LSI: Max 5. GSI: Max 20
+**No: TRAP: DynamoDB LSI can be added after table creation**
+- Yes: TRUTH: LSI only at creation. GSI can be added anytime
+- Yes: LSI: Max 5. GSI: Max 20
 
-**❌ TRAP: DynamoDB auto-scales instantly**
-- ✅ TRUTH: CloudWatch triggers scaling (few minutes delay)
-- ✅ On-Demand: Instant, but 2× cost of provisioned
+**No: TRAP: DynamoDB auto-scales instantly**
+- Yes: TRUTH: CloudWatch triggers scaling (few minutes delay)
+- Yes: On-Demand: Instant, but 2× cost of provisioned
 
-**❌ TRAP: DynamoDB Global Tables have eventual consistency**
-- ✅ TRUTH: Typically <1 second. Last writer wins for conflicts
-- ✅ All regions: Read and write capability
+**No: TRAP: DynamoDB Global Tables have eventual consistency**
+- Yes: TRUTH: Typically <1 second. Last writer wins for conflicts
+- Yes: All regions: Read and write capability
 
 ### EC2 & Compute Edge Cases
 
-**❌ TRAP: Stopped EC2 instance no longer charged**
-- ✅ TRUTH: EBS volumes still charged. Also: Elastic IPs charged when not attached
-- ✅ Terminate: Stops all charges (except snapshots)
+**TRAP: Stopped EC2 instance no longer charged**
+- Yes: TRUTH: EBS volumes still charged. Also: Elastic IPs charged when not attached
+- Yes: Terminate: Stops all charges (except snapshots)
 
-**❌ TRAP: Instance store backed AMI can be stopped**
-- ✅ TRUTH: Can only terminate (data lost)
-- ✅ EBS-backed: Can stop (EBS persists)
+**No: TRAP: Instance store backed AMI can be stopped**
+- Yes: TRUTH: Can only terminate (data lost)
+- Yes: EBS-backed: Can stop (EBS persists)
 
-**❌ TRAP: All EC2 instance types available in all AZs**
-- ✅ TRUTH: Some instance types limited to specific AZs
-- ✅ Check: AWS docs or try launching
+**No: TRAP: All EC2 instance types available in all AZs**
+- Yes: TRUTH: Some instance types limited to specific AZs
+- Yes: Check: AWS docs or try launching
 
-**❌ TRAP: Placement groups span across regions**
-- ✅ TRUTH: Single AZ only (cluster), or same region (spread/partition)
-- ✅ Cluster: Single AZ for 10 Gbps. Spread: 7/AZ max
+**No: TRAP: Placement groups span across regions**
+- Yes: TRUTH: Single AZ only (cluster), or same region (spread/partition)
+- Yes: Cluster: Single AZ for 10 Gbps. Spread: 7/AZ max
 
-**❌ TRAP: Enhanced networking enabled by default**
-- ✅ TRUTH: Requires specific AMI + instance type
-- ✅ Check: Instance type must support ENA or Intel 82599 VF
+**No: TRAP: Enhanced networking enabled by default**
+- Yes: TRUTH: Requires specific AMI + instance type
+- Yes: Check: Instance type must support ENA or Intel 82599 VF
 
-**❌ TRAP: EC2 IAM role can be changed without restart**
-- ✅ TRUTH: Can be changed without restart (added capability)
-- ✅ New credentials: Available within seconds
+**TRAP: EC2 IAM role can be changed without restart**
+- Yes: TRUTH: Can be changed without restart (added capability)
+- Yes: New credentials: Available within seconds
 
-**❌ TRAP: Spot instance interruption gives hours of notice**
-- ✅ TRUTH: Only 2 minutes warning via instance metadata
-- ✅ Poll: http://169.254.169.254/latest/meta-data/spot/termination-time
+**No: TRAP: Spot instance interruption gives hours of notice**
+- Yes: TRUTH: Only 2 minutes warning via instance metadata
+- Yes: Poll: http://169.254.169.254/latest/meta-data/spot/termination-time
 
-**❌ TRAP: Reserved Instance applied to stopped instances**
-- ✅ TRUTH: Only running instances. Stopped = waste RI benefit
-- ✅ Stop RI: Still paying for reservation
+**No: TRAP: Reserved Instance applied to stopped instances**
+- Yes: TRUTH: Only running instances. Stopped = waste RI benefit
+- Yes: Stop RI: Still paying for reservation
 
-**❌ TRAP: Convertible RI can change to different family freely**
-- ✅ TRUTH: Can change, but must be equal or greater value
-- ✅ Exchange fee: None, but discount reduces to 54% (vs 72%)
+**No: TRAP: Convertible RI can change to different family freely**
+- Yes: TRUTH: Can change, but must be equal or greater value
+- Yes: Exchange fee: None, but discount reduces to 54% (vs 72%)
 
 ### Lambda Edge Cases
 
-**❌ TRAP: Lambda can run indefinitely**
-- ✅ TRUTH: Max 15 minutes (900 seconds)
-- ✅ Long tasks: Step Functions, ECS, Batch
+**No: TRAP: Lambda can run indefinitely**
+- Yes: TRUTH: Max 15 minutes (900 seconds)
+- Yes: Long tasks: Step Functions, ECS, Batch
 
-**❌ TRAP: Lambda has unlimited concurrent executions**
-- ✅ TRUTH: 1,000 per region default (can request increase)
-- ✅ Reserved concurrency: Guarantees but limits max
+**No: TRAP: Lambda has unlimited concurrent executions**
+- Yes: TRUTH: 1,000 per region default (can request increase)
+- Yes: Reserved concurrency: Guarantees but limits max
 
-**❌ TRAP: Lambda VPC mode has same performance as non-VPC**
-- ✅ TRUTH: VPC cold starts slower (now improved with Hyperplane ENI)
-- ✅ VPC: Needed to access private resources (RDS, ElastiCache)
+**No: TRAP: Lambda VPC mode has same performance as non-VPC**
+- Yes: TRUTH: VPC cold starts slower (now improved with Hyperplane ENI)
+- Yes: VPC: Needed to access private resources (RDS, ElastiCache)
 
-**❌ TRAP: Lambda@Edge runs at all CloudFront events**
-- ✅ TRUTH: 4 events: viewer request/response, origin request/response
-- ✅ Viewer: Edge location. Origin: Regional edge cache
+**No: TRAP: Lambda@Edge runs at all CloudFront events**
+- Yes: TRUTH: 4 events: viewer request/response, origin request/response
+- Yes: Viewer: Edge location. Origin: Regional edge cache
 
-**❌ TRAP: Lambda automatically retries all failed invocations**
-- ✅ TRUTH: Async only (S3, SNS). Sync (API Gateway): Application must retry
-- ✅ DLQ: Configure for failed async invocations
+**No: TRAP: Lambda automatically retries all failed invocations**
+- Yes: TRUTH: Async only (S3, SNS). Sync (API Gateway): Application must retry
+- Yes: DLQ: Configure for failed async invocations
 
-**❌ TRAP: Lambda environment variables stored securely**
-- ✅ TRUTH: Encrypted at rest but visible in console
-- ✅ Sensitive: Encrypt with KMS, decrypt in code
+**No: TRAP: Lambda environment variables stored securely**
+- Yes: TRUTH: Encrypted at rest but visible in console
+- Yes: Sensitive: Encrypt with KMS, decrypt in code
 
 ### ECS & Container Edge Cases
 
-**❌ TRAP: ECS dynamic port mapping works with NLB**
-- ✅ TRUTH: ALB only. NLB requires static port mapping
-- ✅ Network mode: awsvpc or bridge (not host)
+**No: TRAP: ECS dynamic port mapping works with NLB**
+- Yes: TRUTH: ALB only. NLB requires static port mapping
+- Yes: Network mode: awsvpc or bridge (not host)
 
-**❌ TRAP: Fargate cheaper than EC2 launch type**
-- ✅ TRUTH: Usually 20-30% more expensive
-- ✅ Fargate: No instance management. EC2: Can use RIs/Spot
+**No: TRAP: Fargate cheaper than EC2 launch type**
+- Yes: TRUTH: Usually 20-30% more expensive
+- Fargate: No instance management. EC2: Can use RIs/Spot
 
-**❌ TRAP: ECS service auto-replaces failed tasks immediately**
-- ✅ TRUTH: Health check grace period (default 0, can set up to 7200s)
-- ✅ Before grace period: Won't mark unhealthy
+**No: TRAP: ECS service auto-replaces failed tasks immediately**
+- Yes: TRUTH: Health check grace period (default 0, can set up to 7200s)
+- Yes: Before grace period: Won't mark unhealthy
 
-**❌ TRAP: ECS task IAM role applies to all containers**
-- ✅ TRUTH: Task role = all containers. Can't set per-container
-- ✅ Multiple roles: Use separate task definitions
+**No: TRAP: ECS task IAM role applies to all containers**
+- Yes: TRUTH: Task role = all containers. Can't set per-container
+- Multiple roles: Use separate task definitions
 
 ### Auto Scaling Edge Cases
 
-**❌ TRAP: Auto Scaling launches instances immediately**
-- ✅ TRUTH: Cooldown period prevents rapid scaling (default 300s)
-- ✅ Simple scaling: Waits full cooldown. Target tracking: Smarter
+**No: TRAP: Auto Scaling launches instances immediately**
+- Yes: TRUTH: Cooldown period prevents rapid scaling (default 300s)
+- Yes: Simple scaling: Waits full cooldown. Target tracking: Smarter
 
-**❌ TRAP: Auto Scaling health checks immediate**
-- ✅ TRUTH: Grace period (default 300s). Won't terminate during grace
-- ✅ Set based on app startup time
+**No: TRAP: Auto Scaling health checks immediate**
+- Yes: TRUTH: Grace period (default 300s). Won't terminate during grace
+- Yes: Set based on app startup time
 
-**❌ TRAP: Termination policy random**
-- ✅ TRUTH: Follows policy: oldest launch config, closest to billing hour, etc.
-- ✅ Custom: Set termination policy in ASG settings
+**No: TRAP: Termination policy random**
+- Yes: TRUTH: Follows policy: oldest launch config, closest to billing hour, etc.
+- Yes: Custom: Set termination policy in ASG settings
 
-**❌ TRAP: ASG spans regions**
-- ✅ TRUTH: Single region only. Multiple AZs within region
-- ✅ Cross-region: Use CloudFormation StackSets
+**No: TRAP: ASG spans regions**
+- Yes: TRUTH: Single region only. Multiple AZs within region
+- Cross-region: Use CloudFormation StackSets
 
-**❌ TRAP: Standby instances count toward min capacity**
-- ✅ TRUTH: Don't count. ASG launches replacements
-- ✅ Use: Troubleshoot, upgrade, then return to InService
+**No: TRAP: Standby instances count toward min capacity**
+- Yes: TRUTH: Don't count. ASG launches replacements
+- Use: Troubleshoot, upgrade, then return to InService
 
 ### Load Balancer Edge Cases
 
-**❌ TRAP: ALB supports UDP traffic**
-- ✅ TRUTH: HTTP/HTTPS/gRPC only (Layer 7)
-- ✅ UDP: Use NLB (Layer 4)
+**No: TRAP: ALB supports UDP traffic**
+- Yes: TRUTH: HTTP/HTTPS/gRPC only (Layer 7)
+- UDP: Use NLB (Layer 4)
 
-**❌ TRAP: Cross-zone load balancing free for all LBs**
-- ✅ TRUTH: ALB = free. NLB = charged. CLB = optional (free if enabled)
-- ✅ Recommendation: Enable for even distribution
+**No: TRAP: Cross-zone load balancing free for all LBs**
+- Yes: TRUTH: ALB = free. NLB = charged. CLB = optional (free if enabled)
+- Yes: Recommendation: Enable for even distribution
 
-**❌ TRAP: Sticky sessions work with path-based routing**
-- ✅ TRUTH: Works, but session cookie applies to entire ALB
-- ✅ Better: Use external session store (ElastiCache, DynamoDB)
+**No: TRAP: Sticky sessions work with path-based routing**
+- Yes: TRUTH: Works, but session cookie applies to entire ALB
+- Better: Use external session store (ElastiCache, DynamoDB)
 
-**❌ TRAP: ALB can route to Lambda + EC2 in same target group**
-- ✅ TRUTH: Target group must be homogeneous (all Lambda OR all IP)
-- ✅ Different targets: Use multiple target groups + rules
+**No: TRAP: ALB can route to Lambda + EC2 in same target group**
+- Yes: TRUTH: Target group must be homogeneous (all Lambda OR all IP)
+- Different targets: Use multiple target groups + rules
 
-**❌ TRAP: NLB preserves source IP by default**
-- ✅ TRUTH: YES for targets by IP. NO for targets by instance ID (unless preserve enabled)
-- ✅ Instance targets: Enable preserve client IP attribute
+**No: TRAP: NLB preserves source IP by default**
+- TRUTH: YES for targets by IP. NO for targets by instance ID (unless preserve enabled)
+- Yes: Instance targets: Enable preserve client IP attribute
 
-**❌ TRAP: Load balancer security group allows outbound by default**
-- ✅ TRUTH: Must explicitly allow outbound to targets
-- ✅ Pattern: LB SG outbound → Target SG inbound from LB SG
+**No: TRAP: Load balancer security group allows outbound by default**
+- Yes: TRUTH: Must explicitly allow outbound to targets
+- Yes: Pattern: LB SG outbound → Target SG inbound from LB SG
 
 ### CloudFront & CDN Edge Cases
 
-**❌ TRAP: CloudFront caches everything**
-- ✅ TRUTH: Respects Cache-Control headers. Default TTL: 24 hours
-- ✅ Don't cache: Set Cache-Control: no-cache
+**No: TRAP: CloudFront caches everything**
+- Yes: TRUTH: Respects Cache-Control headers. Default TTL: 24 hours
+- Yes: Don't cache: Set Cache-Control: no-cache
 
-**❌ TRAP: CloudFront origin failover automatic**
-- ✅ TRUTH: Must configure origin group (primary + secondary)
-- ✅ Failover triggers: 5xx errors, timeouts (not 4xx)
+**No: TRAP: CloudFront origin failover automatic**
+- Yes: TRUTH: Must configure origin group (primary + secondary)
+- Yes: Failover triggers: 5xx errors, timeouts (not 4xx)
 
-**❌ TRAP: CloudFront signed URLs work indefinitely**
-- ✅ TRUTH: Must set expiration time
-- ✅ Canned policy: URL + expiration. Custom: URL + conditions + expiration
+**No: TRAP: CloudFront signed URLs work indefinitely**
+- Yes: TRUTH: Must set expiration time
+- Yes: Canned policy: URL + expiration. Custom: URL + conditions + expiration
 
-**❌ TRAP: CloudFront cache invalidation free**
-- ✅ TRUTH: First 1,000 paths/month free, then $0.005/path
-- ✅ Better: Use versioned file names (file-v2.js)
+**No: TRAP: CloudFront cache invalidation free**
+- Yes: TRUTH: First 1,000 paths/month free, then $0.005/path
+- Better: Use versioned file names (file-v2.js)
 
-**❌ TRAP: CloudFront serves from nearest edge**
-- ✅ TRUTH: Considers latency, not just distance
-- ✅ May route to farther edge if better performance
+**No: TRAP: CloudFront serves from nearest edge**
+- Yes: TRUTH: Considers latency, not just distance
+- Yes: May route to farther edge if better performance
 
-**❌ TRAP: Lambda@Edge can modify response body**
-- ✅ TRUTH: YES, but 1MB limit on body size
-- ✅ Viewer request/response: 40KB limit
+**No: TRAP: Lambda@Edge can modify response body**
+- TRUTH: YES, but 1MB limit on body size
+- Yes: Viewer request/response: 40KB limit
 
 ### Route 53 Edge Cases
 
-**❌ TRAP: Route 53 health checks free**
-- ✅ TRUTH: $0.50/month per health check
-- ✅ Fast interval (10s): $1.00/month
+**No: TRAP: Route 53 health checks free**
+- Yes: TRUTH: $0.50/month per health check
+- Yes: Fast interval (10s): $1.00/month
 
-**❌ TRAP: Alias records work with any AWS service**
-- ✅ TRUTH: Only specific services (ELB, CloudFront, S3 website, Elastic Beanstalk, API Gateway)
-- ✅ EC2: Must use A record with IP (not alias)
+**No: TRAP: Alias records work with any AWS service**
+- Yes: TRUTH: Only specific services (ELB, CloudFront, S3 website, Elastic Beanstalk, API Gateway)
+- EC2: Must use A record with IP (not alias)
 
-**❌ TRAP: Weighted routing splits traffic exactly**
-- ✅ TRUTH: Approximate. DNS caching affects precision
-- ✅ Better precision: Use ALB weighted target groups
+**No: TRAP: Weighted routing splits traffic exactly**
+- Yes: TRUTH: Approximate. DNS caching affects precision
+- Better precision: Use ALB weighted target groups
 
-**❌ TRAP: Geolocation routing uses IP geolocation**
-- ✅ TRUTH: Uses DNS resolver's location (may differ from user)
-- ✅ VPN/proxy: May route incorrectly
+**No: TRAP: Geolocation routing uses IP geolocation**
+- Yes: TRUTH: Uses DNS resolver's location (may differ from user)
+- Yes: VPN/proxy: May route incorrectly
 
-**❌ TRAP: Route 53 resolves private hosted zone from internet**
-- ✅ TRUTH: Only from associated VPCs
-- ✅ Hybrid: Use Route 53 Resolver for on-premises access
+**No: TRAP: Route 53 resolves private hosted zone from internet**
+- Yes: TRUTH: Only from associated VPCs
+- Hybrid: Use Route 53 Resolver for on-premises access
 
 ### IAM & Security Edge Cases
 
-**❌ TRAP: IAM user can have unlimited policies**
-- ✅ TRUTH: Max 10 managed policies per user/group/role
-- ✅ Workaround: Use groups, consolidate policies
+**No: TRAP: IAM user can have unlimited policies**
+- Yes: TRUTH: Max 10 managed policies per user/group/role
+- Workaround: Use groups, consolidate policies
 
-**❌ TRAP: IAM role session duration default 1 hour**
-- ✅ TRUTH: Default 1 hour, max 12 hours (can configure)
-- ✅ Federation: Max session duration set in trust policy
+**No: TRAP: IAM role session duration default 1 hour**
+- Yes: TRUTH: Default 1 hour, max 12 hours (can configure)
+- Yes: Federation: Max session duration set in trust policy
 
-**❌ TRAP: Resource-based policy trumps IAM policy**
-- ✅ TRUTH: IAM + resource policy = union (both allow works)
-- ✅ Except: Explicit deny always wins
+**No: TRAP: Resource-based policy trumps IAM policy**
+- Yes: TRUTH: IAM + resource policy = union (both allow works)
+- Except: Explicit deny always wins
 
-**❌ TRAP: MFA works for all API calls**
-- ✅ TRUTH: Only specific actions (e.g., delete). Check policy conditions
-- ✅ STS GetSessionToken: Can enforce MFA for temp credentials
+**No: TRAP: MFA works for all API calls**
+- Yes: TRUTH: Only specific actions (e.g., delete). Check policy conditions
+- Yes: STS GetSessionToken: Can enforce MFA for temp credentials
 
-**❌ TRAP: AWS Organizations SCP overrides IAM**
-- ✅ TRUTH: SCP + IAM = intersection (both must allow)
-- ✅ Management account: SCPs don't apply
+**No: TRAP: AWS Organizations SCP overrides IAM**
+- Yes: TRUTH: SCP + IAM = intersection (both must allow)
+- Yes: Management account: SCPs don't apply
 
-**❌ TRAP: S3 bucket policy allows all actions with s3:***
-- ✅ TRUTH: Yes, but can be dangerous. Use least privilege
-- ✅ Better: s3:GetObject, s3:PutObject specifically
+**No: TRAP: S3 bucket policy allows all actions with s3:***
+- TRUTH: Yes, but can be dangerous. Use least privilege
+- Yes: Better: s3:GetObject, s3:PutObject specifically
 
-**❌ TRAP: KMS CMK can be shared across accounts freely**
-- ✅ TRUTH: Must grant in key policy AND IAM policy in target account
-- ✅ Both required: Key policy allows, IAM policy uses
+**No: TRAP: KMS CMK can be shared across accounts freely**
+- Yes: TRUTH: Must grant in key policy AND IAM policy in target account
+- Yes: Both required: Key policy allows, IAM policy uses
 
-**❌ TRAP: SSM Parameter Store free for all parameters**
-- ✅ TRUTH: Standard = free (4KB max). Advanced = $0.05/param/month (8KB max)
-- ✅ Standard: No parameter policies. Advanced: Has policies
+**No: TRAP: SSM Parameter Store free for all parameters**
+- Yes: TRUTH: Standard = free (4KB max). Advanced = $0.05/param/month (8KB max)
+- Yes: Standard: No parameter policies. Advanced: Has policies
 
 ### Storage Gateway Edge Cases
 
-**❌ TRAP: File Gateway files immediately in S3**
-- ✅ TRUTH: Async upload. Local cache first, then S3
-- ✅ Notification: S3 event when upload complete
+**No: TRAP: File Gateway files immediately in S3**
+- Yes: TRUTH: Async upload. Local cache first, then S3
+- Yes: Notification: S3 event when upload complete
 
-**❌ TRAP: Volume Gateway can be accessed from S3 console**
-- ✅ TRUTH: Stored as EBS snapshots, not S3 objects
-- ✅ File Gateway: Objects visible in S3
+**No: TRAP: Volume Gateway can be accessed from S3 console**
+- Yes: TRUTH: Stored as EBS snapshots, not S3 objects
+- Yes: File Gateway: Objects visible in S3
 
-**❌ TRAP: Tape Gateway integrates with all backup software**
-- ✅ TRUTH: Must support iSCSI VTL (most enterprise software does)
-- ✅ Examples: Veeam, Commvault, Veritas
+**No: TRAP: Tape Gateway integrates with all backup software**
+- TRUTH: Must support iSCSI VTL (most enterprise software does)
+- Yes: Examples: Veeam, Commvault, Veritas
 
-**❌ TRAP: Storage Gateway needs dedicated EC2 instance**
-- ✅ TRUTH: Can run on-premises VM or EC2
-- ✅ On-prem: VMware, Hyper-V, KVM. Cloud: EC2
+**No: TRAP: Storage Gateway needs dedicated EC2 instance**
+- Yes: TRUTH: Can run on-premises VM or EC2
+- Yes: On-prem: VMware, Hyper-V, KVM. Cloud: EC2
 
 ### Kinesis Edge Cases
 
-**❌ TRAP: Kinesis Data Streams unlimited throughput**
-- ✅ TRUTH: 1MB/s or 1000 records/s per shard
-- ✅ Scale: Add more shards or use on-demand mode
+**No: TRAP: Kinesis Data Streams unlimited throughput**
+- Yes: TRUTH: 1MB/s or 1000 records/s per shard
+- Scale: Add more shards or use on-demand mode
 
-**❌ TRAP: Kinesis Firehose real-time**
-- ✅ TRUTH: Near real-time (60s min buffer)
-- ✅ Real-time: Use Data Streams
+**No: TRAP: Kinesis Firehose real-time**
+- Yes: TRUTH: Near real-time (60s min buffer)
+- Real-time: Use Data Streams
 
-**❌ TRAP: Kinesis Data Streams retains data indefinitely**
-- ✅ TRUTH: 1 day default, max 365 days
-- ✅ After retention: Data lost (not in S3 automatically)
+**No: TRAP: Kinesis Data Streams retains data indefinitely**
+- Yes: TRUTH: 1 day default, max 365 days
+- Yes: After retention: Data lost (not in S3 automatically)
 
-**❌ TRAP: Enhanced fan-out free**
-- ✅ TRUTH: $0.015/shard-hour + $0.013/GB
-- ✅ Standard: Shared 2MB/s. Enhanced: Dedicated 2MB/s per consumer
+**No: TRAP: Enhanced fan-out free**
+- Yes: TRUTH: $0.015/shard-hour + $0.013/GB
+- Yes: Standard: Shared 2MB/s. Enhanced: Dedicated 2MB/s per consumer
 
-**❌ TRAP: Kinesis automatically handles resharding**
-- ✅ TRUTH: Must manually split/merge shards (or use on-demand)
-- ✅ On-demand: Auto-scales (4 MB/s write per shard)
+**No: TRAP: Kinesis automatically handles resharding**
+- TRUTH: Must manually split/merge shards (or use on-demand)
+- Yes: On-demand: Auto-scales (4 MB/s write per shard)
 
 ### SQS Edge Cases
 
-**❌ TRAP: SQS guarantees ordering**
-- ✅ TRUTH: Standard = best-effort. FIFO = guaranteed
-- ✅ Standard: At-least-once delivery (duplicates possible)
+**No: TRAP: SQS guarantees ordering**
+- TRUTH: Standard = best-effort. FIFO = guaranteed
+- Yes: Standard: At-least-once delivery (duplicates possible)
 
-**❌ TRAP: SQS FIFO unlimited throughput**
-- ✅ TRUTH: 300 msg/s (3,000 with batching)
-- ✅ Need more: Use multiple FIFO queues with message groups
+**No: TRAP: SQS FIFO unlimited throughput**
+- Yes: TRUTH: 300 msg/s (3,000 with batching)
+- Need more: Use multiple FIFO queues with message groups
 
-**❌ TRAP: Long polling always better than short polling**
-- ✅ TRUTH: Long polling reduces costs but delays message delivery
-- ✅ Long: Wait up to 20s. Short: Returns immediately (even if empty)
+**No: TRAP: Long polling always better than short polling**
+- Yes: TRUTH: Long polling reduces costs but delays message delivery
+- Yes: Long: Wait up to 20s. Short: Returns immediately (even if empty)
 
-**❌ TRAP: Dead-letter queue works automatically**
-- ✅ TRUTH: Must configure redrive policy (max receives)
-- ✅ DLQ: Separate queue, must manually process or delete
+**No: TRAP: Dead-letter queue works automatically**
+- Yes: TRUTH: Must configure redrive policy (max receives)
+- Yes: DLQ: Separate queue, must manually process or delete
 
-**❌ TRAP: Visibility timeout applies per message**
-- ✅ TRUTH: YES, and can be changed per message (0s to 12 hours)
-- ✅ Default: 30 seconds. Max: 12 hours
+**No: TRAP: Visibility timeout applies per message**
+- TRUTH: YES, and can be changed per message (0s to 12 hours)
+- Yes: Default: 30 seconds. Max: 12 hours
 
 ### Migration & Transfer Edge Cases
 
-**❌ TRAP: DataSync works with any protocol**
-- ✅ TRUTH: NFS, SMB, or S3 API only
-- ✅ Other protocols: Use custom scripts or third-party tools
+**No: TRAP: DataSync works with any protocol**
+- Yes: TRUTH: NFS, SMB, or S3 API only
+- Other protocols: Use custom scripts or third-party tools
 
-**❌ TRAP: Snowball supports all AWS services**
-- ✅ TRUTH: S3 compatible, some EC2 AMI support
-- ✅ No: Direct EBS, RDS, or other service imports
+**No: TRAP: Snowball supports all AWS services**
+- Yes: TRUTH: S3 compatible, some EC2 AMI support
+- Yes: No: Direct EBS, RDS, or other service imports
 
-**❌ TRAP: DMS handles schema conversion automatically**
-- ✅ TRUTH: Use Schema Conversion Tool (SCT) for heterogeneous migrations
-- ✅ Homogeneous (MySQL→MySQL): DMS only. Heterogeneous (Oracle→PostgreSQL): SCT + DMS
+**No: TRAP: DMS handles schema conversion automatically**
+- TRUTH: Use Schema Conversion Tool (SCT) for heterogeneous migrations
+- Yes: Homogeneous (MySQL→MySQL): DMS only. Heterogeneous (Oracle→PostgreSQL): SCT + DMS
 
-**❌ TRAP: DMS migration is instant**
-- ✅ TRUTH: Full load + CDC (change data capture)
-- ✅ Phases: Full load → ongoing replication → cutover
+**No: TRAP: DMS migration is instant**
+- Yes: TRUTH: Full load + CDC (change data capture)
+- Yes: Phases: Full load → ongoing replication → cutover
 
 ### Well-Architected Edge Cases
 
-**❌ TRAP: Well-Architected has mandatory requirements**
-- ✅ TRUTH: Best practices framework (not compliance standard)
-- ✅ Use: Design guidance, not audit checklist
+**No: TRAP: Well-Architected has mandatory requirements**
+- TRUTH: Best practices framework (not compliance standard)
+- Use: Design guidance, not audit checklist
 
-**❌ TRAP: Cost optimization means cheapest always**
-- ✅ TRUTH: Balance cost with performance, security, reliability
-- ✅ Example: Multi-AZ costs more but provides HA
+**No: TRAP: Cost optimization means cheapest always**
+- Yes: TRUTH: Balance cost with performance, security, reliability
+- Yes: Example: Multi-AZ costs more but provides HA
 
-**❌ TRAP: Reliability means zero downtime**
-- ✅ TRUTH: Meet defined SLAs and graceful degradation
-- ✅ Design for failure, not for perfection
+**No: TRAP: Reliability means zero downtime**
+- Yes: TRUTH: Meet defined SLAs and graceful degradation
+- Yes: Design for failure, not for perfection
 
 ---
 
-## 🎯 ADVANCED EXAM SCENARIOS (Pattern Recognition)
+## ADVANCED EXAM SCENARIOS (Pattern Recognition)
 
 ### Scenario Pattern Recognition
 
@@ -1168,7 +1168,7 @@ Why NOT: Direct processing without error handling (data loss on failure)
 
 ---
 
-## 🔍 QUESTION TYPE IDENTIFIERS
+## QUESTION TYPE IDENTIFIERS
 
 ### Spot the Distractor Answers
 
@@ -1217,7 +1217,7 @@ Example: "Company needs to..."
 
 ---
 
-## 🎓 ADVANCED SERVICE COMBINATIONS
+## ADVANCED SERVICE COMBINATIONS
 
 ### Common Service Pairings
 
@@ -1245,25 +1245,25 @@ Example: "Company needs to..."
 
 ### Anti-Patterns (What NOT to Do)
 
-❌ **Using RDS for caching** → Use ElastiCache instead  
-❌ **Using S3 for frequent random I/O** → Use EBS or EFS  
-❌ **Using Lambda for long-running tasks** → Use ECS, Batch, or EC2  
-❌ **Using EC2 for simple cron jobs** → Use EventBridge + Lambda  
-❌ **Using EBS for shared file storage** → Use EFS instead  
-❌ **Using NAT Gateway for VPC endpoint traffic** → Use VPC endpoints (cheaper)  
-❌ **Using public S3 buckets** → Use pre-signed URLs or CloudFront OAI  
-❌ **Using IAM users for applications** → Use IAM roles  
-❌ **Using hardcoded credentials** → Use Secrets Manager or Parameter Store  
-❌ **Using single AZ for production** → Always Multi-AZ for HA  
-❌ **Using SQS Standard for strict ordering** → Use SQS FIFO  
-❌ **Using default VPC for production** → Create custom VPC  
-❌ **Using root account for operations** → Use IAM users/roles  
-❌ **Using unencrypted data at rest** → Enable encryption  
-❌ **Using public subnets for databases** → Always private subnets  
+ **Using RDS for caching** → Use ElastiCache instead
+ **Using S3 for frequent random I/O** → Use EBS or EFS
+ **Using Lambda for long-running tasks** → Use ECS, Batch, or EC2
+ **Using EC2 for simple cron jobs** → Use EventBridge + Lambda
+ **Using EBS for shared file storage** → Use EFS instead
+ **Using NAT Gateway for VPC endpoint traffic** → Use VPC endpoints (cheaper)
+ **Using public S3 buckets** → Use pre-signed URLs or CloudFront OAI
+ **Using IAM users for applications** → Use IAM roles
+ **Using hardcoded credentials** → Use Secrets Manager or Parameter Store
+ **Using single AZ for production** → Always Multi-AZ for HA
+ **Using SQS Standard for strict ordering** → Use SQS FIFO
+ **Using default VPC for production** → Create custom VPC
+ **Using root account for operations** → Use IAM users/roles
+ **Using unencrypted data at rest** → Enable encryption
+ **Using public subnets for databases** → Always private subnets
 
 ---
 
-## 🚀 PERFORMANCE OPTIMIZATION PATTERNS
+## PERFORMANCE OPTIMIZATION PATTERNS
 
 ### Database Performance Hierarchy
 
@@ -1326,7 +1326,7 @@ Example: "Company needs to..."
 
 ---
 
-## 🔐 SECURITY IN DEPTH PATTERNS
+## SECURITY IN DEPTH PATTERNS
 
 ### Defense in Depth Layers
 
@@ -1379,7 +1379,7 @@ CloudWatch (monitoring)
 
 ---
 
-## 🎯 EXAM DAY FINAL STRATEGIES
+## EXAM DAY FINAL STRATEGIES
 
 ### The 30-Second Question Analysis Method
 
@@ -1483,7 +1483,7 @@ CloudWatch (monitoring)
 
 ---
 
-## 🔥 ULTRA-CRITICAL "GOTCHA" LIST
+## ULTRA-CRITICAL "GOTCHA" LIST
 
 ### Top 20 Most Missed Exam Facts
 
@@ -1582,21 +1582,21 @@ CloudWatch (monitoring)
 
 ---
 
-## 🎓 FINAL PRE-EXAM CHECKLIST
+## FINAL PRE-EXAM CHECKLIST
 
 ### 30 Minutes Before Exam
 
 **Quick Review (10 min):**
-1. ✅ CloudFront certificate = us-east-1 ONLY
-2. ✅ Gateway endpoint = S3 + DynamoDB ONLY
-3. ✅ Multi-AZ standby = NOT readable
-4. ✅ VPC peering = NOT transitive
-5. ✅ Memory metric = Need CloudWatch agent
-6. ✅ S3 versioning = Cannot fully disable
-7. ✅ Lambda max = 15 minutes
-8. ✅ DynamoDB LSI = Table creation only
-9. ✅ Glacier = Must restore first
-10. ✅ SSE-C = Customer provides key every request
+1. CloudFront certificate = us-east-1 ONLY
+2. Gateway endpoint = S3 + DynamoDB ONLY
+3. Multi-AZ standby = NOT readable
+4. VPC peering = NOT transitive
+5. Memory metric = Need CloudWatch agent
+6. S3 versioning = Cannot fully disable
+7. Lambda max = 15 minutes
+8. DynamoDB LSI = Table creation only
+9. Glacier = Must restore first
+10. SSE-C = Customer provides key every request
 
 **Confidence Builders (10 min):**
 - Review your strongest domain (quick confidence boost)
@@ -1648,17 +1648,17 @@ CloudWatch (monitoring)
 
 ---
 
-## 🏆 SUCCESS AFFIRMATIONS
+## SUCCESS AFFIRMATIONS
 
 **You are ready when:**
-- ✅ Can explain differences between similar services
-- ✅ Know when to use each service
-- ✅ Understand the "why" not just "what"
-- ✅ Can identify trade-offs (cost vs performance vs security)
-- ✅ Scoring consistently 80%+ on practice tests
-- ✅ Weak domains now at least 70%+
-- ✅ Can answer questions in <2 minutes
-- ✅ Sleep well, eat well, stress managed
+- Can explain differences between similar services
+- Know when to use each service
+- Understand the "why" not just "what"
+- Can identify trade-offs (cost vs performance vs security)
+- Scoring consistently 80%+ on practice tests
+- Weak domains now at least 70%+
+- Can answer questions in <2 minutes
+- Sleep well, eat well, stress managed
 
 **Remember:**
 - This exam tests practical knowledge, not memorization
@@ -1706,36 +1706,36 @@ CloudWatch (monitoring)
 
 ## COMMON TRAPS TO AVOID
 
-❌ **Memory is default metric** → Need CloudWatch agent  
-❌ **CloudFront cert in any region** → Must be us-east-1  
-❌ **Bucket default affects existing** → Only new objects  
-❌ **Can transition from Glacier** → Must restore first  
-❌ **VPC peering auto DNS** → Must enable both sides  
-❌ **VPC peering is transitive** → NOT transitive (use TGW)  
-❌ **Read replica for HA** → Multi-AZ for HA  
-❌ **Multi-AZ standby readable** → NOT readable (only failover)  
-❌ **Instance store persists** → Lost on stop  
-❌ **SSE-C = AWS manages** → You manage keys  
-❌ **IAM allow > deny** → Deny ALWAYS wins  
-❌ **CloudWatch logs auto-expire** → Indefinite default  
-❌ **SCPs affect management account** → They DON'T  
-❌ **File Gateway = blocks** → Files as S3 objects  
-❌ **Volume Gateway = S3 console access** → Blocks only  
-❌ **Tape Gateway for file access** → For backup/archive only  
-❌ **DataSync = database migration** → Files only (use DMS for DBs)  
-❌ **Snowball for <10TB** → Use DataSync or direct upload  
-❌ **SQS FIFO unlimited throughput** → 300 msg/s (3000 batched)  
-❌ **EventBridge = SNS** → EB for event routing, SNS for pub/sub  
-❌ **Step Functions = Lambda** → Orchestration vs single function  
-❌ **S3 versioning disableable** → Once on, only SUSPEND  
-❌ **RDS encryption after creation** → Must snapshot, copy encrypted, restore  
-❌ **Lambda runs forever** → Max 15 minutes  
-❌ **Spot gives hours warning** → Only 2 minutes  
-❌ **ECS dynamic ports with NLB** → ALB only  
-❌ **Cross-zone LB always free** → ALB free, NLB charged  
-❌ **DynamoDB LSI add later** → Only at table creation  
-❌ **Kinesis Firehose real-time** → Near real-time (60s buffer)  
-❌ **Enhanced networking default** → Specific instance types only  
+ **Memory is default metric** → Need CloudWatch agent
+ **CloudFront cert in any region** → Must be us-east-1
+ **Bucket default affects existing** → Only new objects
+ **Can transition from Glacier** → Must restore first
+ **VPC peering auto DNS** → Must enable both sides
+ **VPC peering is transitive** → NOT transitive (use TGW)
+ **Read replica for HA** → Multi-AZ for HA
+ **Multi-AZ standby readable** → NOT readable (only failover)
+ **Instance store persists** → Lost on stop
+ **SSE-C = AWS manages** → You manage keys
+ **IAM allow > deny** → Deny ALWAYS wins
+ **CloudWatch logs auto-expire** → Indefinite default
+ **SCPs affect management account** → They DON'T
+ **File Gateway = blocks** → Files as S3 objects
+ **Volume Gateway = S3 console access** → Blocks only
+ **Tape Gateway for file access** → For backup/archive only
+ **DataSync = database migration** → Files only (use DMS for DBs)
+ **Snowball for <10TB** → Use DataSync or direct upload
+ **SQS FIFO unlimited throughput** → 300 msg/s (3000 batched)
+ **EventBridge = SNS** → EB for event routing, SNS for pub/sub
+ **Step Functions = Lambda** → Orchestration vs single function
+ **S3 versioning disableable** → Once on, only SUSPEND
+ **RDS encryption after creation** → Must snapshot, copy encrypted, restore
+ **Lambda runs forever** → Max 15 minutes
+ **Spot gives hours warning** → Only 2 minutes
+ **ECS dynamic ports with NLB** → ALB only
+ **Cross-zone LB always free** → ALB free, NLB charged
+ **DynamoDB LSI add later** → Only at table creation
+ **Kinesis Firehose real-time** → Near real-time (60s buffer)
+ **Enhanced networking default** → Specific instance types only
 
 ---
 
@@ -1795,10 +1795,10 @@ CloudWatch (monitoring)
 ## TEST-TAKING STRATEGIES
 
 ### Before the Exam
-1. ✅ Review this card 2-3 times
-2. ✅ Get good sleep (8 hours)
-3. ✅ Eat a light meal before exam
-4. ✅ Arrive 15 minutes early (or log in early for online)
+1. Review this card 2-3 times
+2. Get good sleep (8 hours)
+3. Eat a light meal before exam
+4. Arrive 15 minutes early (or log in early for online)
 
 ### During the Exam
 1. **Read Carefully**: Every word matters
@@ -1809,11 +1809,11 @@ CloudWatch (monitoring)
 6. **Consider All Requirements**: Cost AND performance AND security
 
 ### Common Traps
-- ❌ Services that work but aren't optimal
-- ❌ Missing required configurations (e.g., DNS for VPC peering)
-- ❌ Wrong region requirements (CloudFront cert = us-east-1)
-- ❌ Assuming default behaviors that don't exist
-- ❌ Confusing similar services (EBS types, storage classes)
+- Services that work but aren't optimal
+- Missing required configurations (e.g., DNS for VPC peering)
+- Wrong region requirements (CloudFront cert = us-east-1)
+- Assuming default behaviors that don't exist
+- Confusing similar services (EBS types, storage classes)
 
 ### If Unsure
 1. What is the PRIMARY requirement? (cost, performance, security?)
@@ -1860,13 +1860,13 @@ CloudWatch (monitoring)
 
 ## STAY CALM & CONFIDENT
 
-✅ You've studied hard  
-✅ You know the material  
-✅ Read questions carefully  
-✅ Eliminate wrong answers first  
-✅ Trust your preparation  
+ You've studied hard
+ You know the material
+ Read questions carefully
+ Eliminate wrong answers first
+ Trust your preparation
 
-**You've got this! 🚀**
+**You've got this! **
 
 ---
 

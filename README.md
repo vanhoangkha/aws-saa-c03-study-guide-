@@ -10,33 +10,33 @@
 
 **A comprehensive, free, and open-source study guide for the AWS Certified Solutions Architect – Associate (SAA-C03) certification exam.**
 
-[🎯 Exam Simulator](https://chathurangavkd.github.io/AWS-Certified-Solutions-Architect-Associate-SAA-C03/simulator/) • [🌐 Interactive Study Site](https://chathurangavkd.github.io/AWS-Certified-Solutions-Architect-Associate-SAA-C03/) • [🚀 Ultra-Fast (3–4 hrs)](docs/study-guides/ULTRA-FAST-LEARNING-INDEX.md) • [⚡ Fast-Learn (11–14 hrs)](docs/reference/QUICK-START.md) • [📊 Visual Diagrams](docs/reference/DIAGRAMS-INDEX.md) • [📚 Get Started](#-quick-start)
+[Exam Simulator](https://chathurangavkd.github.io/AWS-Certified-Solutions-Architect-Associate-SAA-C03/simulator/) • [Interactive Study Site](https://chathurangavkd.github.io/AWS-Certified-Solutions-Architect-Associate-SAA-C03/) • [Ultra-Fast (3–4 hrs)](docs/study-guides/ULTRA-FAST-LEARNING-INDEX.md) • [Fast-Learn (11–14 hrs)](docs/reference/QUICK-START.md) • [Visual Diagrams](docs/reference/DIAGRAMS-INDEX.md) • [Get Started](#quick-start)
 
 ---
 
-### 🎯 Exam Simulator
+### Exam Simulator
 
 > Take a timed 65-question exam (130 min) or drill one topic. **298 practice questions**, per-topic scores, answer explanations, and a results history kept in your own browser (no sign-up, no tracking).
 >
-> **👉 [Open the Exam Simulator →](https://chathurangavkd.github.io/AWS-Certified-Solutions-Architect-Associate-SAA-C03/simulator/)**
+> **[Open the Exam Simulator →](https://chathurangavkd.github.io/AWS-Certified-Solutions-Architect-Associate-SAA-C03/simulator/)**
 
 ---
 
-### 🌐 Interactive Study Site
+### Interactive Study Site
 
 > Browse all 14 modules with search, learning path cards, exam domain breakdown and score tracker — all in one place.
 >
-> **👉 [Open Interactive Study Site →](https://chathurangavkd.github.io/AWS-Certified-Solutions-Architect-Associate-SAA-C03/)**
+> **[Open Interactive Study Site →](https://chathurangavkd.github.io/AWS-Certified-Solutions-Architect-Associate-SAA-C03/)**
 >
 > `sidebar navigation` · `live search` · `learning path cards` · `exam domain breakdown` · `practice score tracker`
 
 ---
 
-### 🎯 Exam Day Cheat Sheet
+### Exam Day Cheat Sheet
 
 > Save this for your final 30-minute review before the exam:
 >
-> **👉 [ULTRA QUICK REFERENCE CARD — 150+ Edge Cases, Must-Memorize Rules & Exam Strategies](exam-reviews/quick-reference/ULTRA-QUICK-REFERENCE-CARD.md)**
+> **[ULTRA QUICK REFERENCE CARD — 150+ Edge Cases, Must-Memorize Rules & Exam Strategies](exam-reviews/quick-reference/ULTRA-QUICK-REFERENCE-CARD.md)**
 >
 > Covers: 15 critical rules · 150+ edge cases & traps · service selection guide · anti-patterns · numerical limits · exam day tactics
 
@@ -44,49 +44,49 @@
 
 ---
 
-## 🎯 About This Project
+## About This Project
 
 This repository provides a **complete, exam-focused study guide** for the AWS Certified Solutions Architect – Associate (SAA-C03) certification. Designed to help aspiring cloud architects pass the exam with confidence, this guide offers:
 
-- ✅ **14 comprehensive modules** covering all SAA-C03 exam domains
-- ✅ **3 learning speeds** — Ultra-Fast (3–4 hrs), Fast (11–14 hrs), Comprehensive (40–60 hrs)
-- ✅ **217+ interactive diagrams** using Mermaid visualizations
-- ✅ **276+ practice questions** with detailed explanations
-- ✅ **40+ hands-on lab suggestions** for real-world experience
-- ✅ **Mnemonics, flashcards, and visual aids** for multiple learning styles
-- ✅ **Full SAA-C03 exam coverage** kept up to date
+- **14 comprehensive modules** covering all SAA-C03 exam domains
+- **3 learning speeds** — Ultra-Fast (3–4 hrs), Fast (11–14 hrs), Comprehensive (40–60 hrs)
+- **217+ interactive diagrams** using Mermaid visualizations
+- **276+ practice questions** with detailed explanations
+- **40+ hands-on lab suggestions** for real-world experience
+- **Mnemonics, flashcards, and visual aids** for multiple learning styles
+- **Full SAA-C03 exam coverage** kept up to date
 
 ### Why This Guide?
 
 | Feature | Details |
 |---------|---------|
-| 🆓 **Completely Free** | No paywalls, no subscriptions — open-source forever |
-| ⚡ **Multiple Learning Speeds** | Ultra-Fast (3–4 hrs), Fast (11–14 hrs), or Comprehensive (40–60 hrs) |
-| 📚 **Comprehensive Coverage** | All exam topics covered in depth |
-| 🎓 **Exam-Focused** | Real scenarios, exam tips, and common pitfalls |
-| 🎨 **Multiple Learning Styles** | Text, diagrams, flashcards, and mnemonics |
-| 📊 **217+ Interactive Diagrams** | Mermaid diagrams for visual learners |
-| 🔄 **Actively Maintained** | Updated for the latest SAA-C03 exam |
-| 🌟 **Community-Driven** | Contributions welcome |
+| **Completely Free** | No paywalls, no subscriptions — open-source forever |
+| **Multiple Learning Speeds** | Ultra-Fast (3–4 hrs), Fast (11–14 hrs), or Comprehensive (40–60 hrs) |
+| **Comprehensive Coverage** | All exam topics covered in depth |
+| **Exam-Focused** | Real scenarios, exam tips, and common pitfalls |
+| **Multiple Learning Styles** | Text, diagrams, flashcards, and mnemonics |
+| **217+ Interactive Diagrams** | Mermaid diagrams for visual learners |
+| **Actively Maintained** | Updated for the latest SAA-C03 exam |
+| **Community-Driven** | Contributions welcome |
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
-- [Exam Overview](#-exam-overview)
-- [Quick Start](#-quick-start)
-- [Study Modules](#-study-modules)
-- [Learning Resources](#-learning-resources)
-- [Practice Test Performance](#-practice-test-performance-tracking)
-- [Project Structure](#-project-structure)
-- [8-Week Study Plan](#-8-week-study-plan)
-- [Study Tips & Resources](#-study-tips--resources)
-- [Contributing](#-contributing)
-- [License](#-license)
+- [Exam Overview](#exam-overview)
+- [Quick Start](#quick-start)
+- [Study Modules](#study-modules)
+- [Learning Resources](#learning-resources)
+- [Practice Test Performance](#practice-test-performance-tracking)
+- [Project Structure](#project-structure)
+- [8-Week Study Plan](#8-week-study-plan)
+- [Study Tips & Resources](#study-tips--resources)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## 📋 Exam Overview
+## Exam Overview
 
 | Detail | Information |
 |--------|-------------|
@@ -109,7 +109,7 @@ This repository provides a **complete, exam-focused study guide** for the AWS Ce
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 Choose the learning path that fits your available time and experience level.
 
@@ -145,75 +145,75 @@ Choose the learning path that fits your available time and experience level.
 1. **Morning** — [ULTRA-FAST-LEARN all modules](docs/study-guides/ULTRA-FAST-LEARNING-INDEX.md) (3–4 hours)
 2. **Afternoon** — Review [Module 14 — Exam Tips](14-Practice/ULTRA-FAST-LEARN.md)
 3. **Evening** — Light review of [Quick Study Notes](docs/study-guides/QUICK-STUDY-NOTES.md), then rest
-4. **Final 30 min** — Run through the [🎯 Exam Day Cheat Sheet](exam-reviews/quick-reference/ULTRA-QUICK-REFERENCE-CARD.md)
+4. **Final 30 min** — Run through the [Exam Day Cheat Sheet](exam-reviews/quick-reference/ULTRA-QUICK-REFERENCE-CARD.md)
 
 ---
 
-## 📖 Study Modules
+## Study Modules
 
 All 14 modules are complete with multiple learning formats:
 
-| # | Module | 🚀 Ultra (15 min) | ⚡ Fast (60 min) | 📄 Full (3 hr) | 📊 Diagrams | ❓ Practice |
+| # | Module | Ultra (15 min) | Fast (60 min) | Full (3 hr) | Diagrams | Practice |
 |---|--------|-------------------|-----------------|----------------|-------------|-------------|
-| 01 | [AWS Fundamentals](01-AWS-Fundamentals/README.md) | [🚀](01-AWS-Fundamentals/ULTRA-FAST-LEARN.md) | [⚡](01-AWS-Fundamentals/FAST-LEARN.md) | [📄](01-AWS-Fundamentals/README.md) | [📊](01-AWS-Fundamentals/DIAGRAMS.md) | [❓](01-AWS-Fundamentals/PRACTICE-QUESTIONS.md) |
-| 02 | [IAM](02-IAM/README.md) | [🚀](02-IAM/ULTRA-FAST-LEARN.md) | [⚡](02-IAM/FAST-LEARN.md) | [📄](02-IAM/README.md) | [📊](02-IAM/DIAGRAMS.md) | [❓](02-IAM/PRACTICE-QUESTIONS.md) |
-| 03 | [Compute (EC2, Lambda)](03-Compute/README.md) | [🚀](03-Compute/ULTRA-FAST-LEARN.md) | [⚡](03-Compute/FAST-LEARN.md) | [📄](03-Compute/README.md) | [📊](03-Compute/DIAGRAMS.md) | [❓](03-Compute/PRACTICE-QUESTIONS.md) |
-| 04 | [Storage (S3, EBS, EFS)](04-Storage/README.md) | [🚀](04-Storage/ULTRA-FAST-LEARN.md) | [⚡](04-Storage/FAST-LEARN.md) | [📄](04-Storage/README.md) | [📊](04-Storage/DIAGRAMS.md) | [❓](04-Storage/PRACTICE-QUESTIONS.md) |
-| 05 | [Databases](05-Database/README.md) | [🚀](05-Database/ULTRA-FAST-LEARN.md) | [⚡](05-Database/FAST-LEARN.md) | [📄](05-Database/README.md) | [📊](05-Database/DIAGRAMS.md) | [❓](05-Database/PRACTICE-QUESTIONS.md) |
-| 06 | [Networking (VPC)](06-Networking/README.md) | [🚀](06-Networking/ULTRA-FAST-LEARN.md) | [⚡](06-Networking/FAST-LEARN.md) | [📄](06-Networking/README.md) | [📊](06-Networking/DIAGRAMS.md) | [❓](06-Networking/PRACTICE-QUESTIONS.md) |
-| 07 | [Security](07-Security/README.md) | [🚀](07-Security/ULTRA-FAST-LEARN.md) | [⚡](07-Security/FAST-LEARN.md) | [📄](07-Security/README.md) | [📊](07-Security/DIAGRAMS.md) | [❓](07-Security/PRACTICE-QUESTIONS.md) |
-| 08 | [Application Integration](08-Application-Integration/README.md) | [🚀](08-Application-Integration/ULTRA-FAST-LEARN.md) | [⚡](08-Application-Integration/FAST-LEARN.md) | [📄](08-Application-Integration/README.md) | [📊](08-Application-Integration/DIAGRAMS.md) | [❓](08-Application-Integration/PRACTICE-QUESTIONS.md) |
-| 09 | [Monitoring](09-Monitoring/README.md) | [🚀](09-Monitoring/ULTRA-FAST-LEARN.md) | [⚡](09-Monitoring/FAST-LEARN.md) | [📄](09-Monitoring/README.md) | [📊](09-Monitoring/DIAGRAMS.md) | [❓](09-Monitoring/PRACTICE-QUESTIONS.md) |
-| 10 | [Migration & Transfer](10-Migration/README.md) | [🚀](10-Migration/ULTRA-FAST-LEARN.md) | [⚡](10-Migration/FAST-LEARN.md) | [📄](10-Migration/README.md) | [📊](10-Migration/DIAGRAMS.md) | [❓](10-Migration/PRACTICE-QUESTIONS.md) |
-| 11 | [Analytics](11-Analytics/README.md) | [🚀](11-Analytics/ULTRA-FAST-LEARN.md) | [⚡](11-Analytics/FAST-LEARN.md) | [📄](11-Analytics/README.md) | [📊](11-Analytics/DIAGRAMS.md) | [❓](11-Analytics/PRACTICE-QUESTIONS.md) |
-| 12 | [Architecture Patterns](12-Architecture-Patterns/README.md) | [🚀](12-Architecture-Patterns/ULTRA-FAST-LEARN.md) | [⚡](12-Architecture-Patterns/FAST-LEARN.md) | [📄](12-Architecture-Patterns/README.md) | [📊](12-Architecture-Patterns/DIAGRAMS.md) | [❓](12-Architecture-Patterns/PRACTICE-QUESTIONS.md) |
-| 13 | [Cost Optimization](13-Cost-Optimization/README.md) | [🚀](13-Cost-Optimization/ULTRA-FAST-LEARN.md) | [⚡](13-Cost-Optimization/FAST-LEARN.md) | [📄](13-Cost-Optimization/README.md) | [📊](13-Cost-Optimization/DIAGRAMS.md) | [❓](13-Cost-Optimization/PRACTICE-QUESTIONS.md) |
-| 14 | [Practice & Exam Prep](14-Practice/README.md) | [🚀](14-Practice/ULTRA-FAST-LEARN.md) | [⚡](14-Practice/FAST-LEARN.md) | [📄](14-Practice/README.md) | — | [❓](14-Practice/PRACTICE-QUESTIONS.md) |
+| 01 | [AWS Fundamentals](01-AWS-Fundamentals/README.md) | [](01-AWS-Fundamentals/ULTRA-FAST-LEARN.md) | [](01-AWS-Fundamentals/FAST-LEARN.md) | [](01-AWS-Fundamentals/README.md) | [](01-AWS-Fundamentals/DIAGRAMS.md) | [](01-AWS-Fundamentals/PRACTICE-QUESTIONS.md) |
+| 02 | [IAM](02-IAM/README.md) | [](02-IAM/ULTRA-FAST-LEARN.md) | [](02-IAM/FAST-LEARN.md) | [](02-IAM/README.md) | [](02-IAM/DIAGRAMS.md) | [](02-IAM/PRACTICE-QUESTIONS.md) |
+| 03 | [Compute (EC2, Lambda)](03-Compute/README.md) | [](03-Compute/ULTRA-FAST-LEARN.md) | [](03-Compute/FAST-LEARN.md) | [](03-Compute/README.md) | [](03-Compute/DIAGRAMS.md) | [](03-Compute/PRACTICE-QUESTIONS.md) |
+| 04 | [Storage (S3, EBS, EFS)](04-Storage/README.md) | [](04-Storage/ULTRA-FAST-LEARN.md) | [](04-Storage/FAST-LEARN.md) | [](04-Storage/README.md) | [](04-Storage/DIAGRAMS.md) | [](04-Storage/PRACTICE-QUESTIONS.md) |
+| 05 | [Databases](05-Database/README.md) | [](05-Database/ULTRA-FAST-LEARN.md) | [](05-Database/FAST-LEARN.md) | [](05-Database/README.md) | [](05-Database/DIAGRAMS.md) | [](05-Database/PRACTICE-QUESTIONS.md) |
+| 06 | [Networking (VPC)](06-Networking/README.md) | [](06-Networking/ULTRA-FAST-LEARN.md) | [](06-Networking/FAST-LEARN.md) | [](06-Networking/README.md) | [](06-Networking/DIAGRAMS.md) | [](06-Networking/PRACTICE-QUESTIONS.md) |
+| 07 | [Security](07-Security/README.md) | [](07-Security/ULTRA-FAST-LEARN.md) | [](07-Security/FAST-LEARN.md) | [](07-Security/README.md) | [](07-Security/DIAGRAMS.md) | [](07-Security/PRACTICE-QUESTIONS.md) |
+| 08 | [Application Integration](08-Application-Integration/README.md) | [](08-Application-Integration/ULTRA-FAST-LEARN.md) | [](08-Application-Integration/FAST-LEARN.md) | [](08-Application-Integration/README.md) | [](08-Application-Integration/DIAGRAMS.md) | [](08-Application-Integration/PRACTICE-QUESTIONS.md) |
+| 09 | [Monitoring](09-Monitoring/README.md) | [](09-Monitoring/ULTRA-FAST-LEARN.md) | [](09-Monitoring/FAST-LEARN.md) | [](09-Monitoring/README.md) | [](09-Monitoring/DIAGRAMS.md) | [](09-Monitoring/PRACTICE-QUESTIONS.md) |
+| 10 | [Migration & Transfer](10-Migration/README.md) | [](10-Migration/ULTRA-FAST-LEARN.md) | [](10-Migration/FAST-LEARN.md) | [](10-Migration/README.md) | [](10-Migration/DIAGRAMS.md) | [](10-Migration/PRACTICE-QUESTIONS.md) |
+| 11 | [Analytics](11-Analytics/README.md) | [](11-Analytics/ULTRA-FAST-LEARN.md) | [](11-Analytics/FAST-LEARN.md) | [](11-Analytics/README.md) | [](11-Analytics/DIAGRAMS.md) | [](11-Analytics/PRACTICE-QUESTIONS.md) |
+| 12 | [Architecture Patterns](12-Architecture-Patterns/README.md) | [](12-Architecture-Patterns/ULTRA-FAST-LEARN.md) | [](12-Architecture-Patterns/FAST-LEARN.md) | [](12-Architecture-Patterns/README.md) | [](12-Architecture-Patterns/DIAGRAMS.md) | [](12-Architecture-Patterns/PRACTICE-QUESTIONS.md) |
+| 13 | [Cost Optimization](13-Cost-Optimization/README.md) | [](13-Cost-Optimization/ULTRA-FAST-LEARN.md) | [](13-Cost-Optimization/FAST-LEARN.md) | [](13-Cost-Optimization/README.md) | [](13-Cost-Optimization/DIAGRAMS.md) | [](13-Cost-Optimization/PRACTICE-QUESTIONS.md) |
+| 14 | [Practice & Exam Prep](14-Practice/README.md) | [](14-Practice/ULTRA-FAST-LEARN.md) | [](14-Practice/FAST-LEARN.md) | [](14-Practice/README.md) | — | [](14-Practice/PRACTICE-QUESTIONS.md) |
 
 ---
 
-## 📚 Learning Resources
+## Learning Resources
 
 A curated set of resources to support every stage of your preparation:
 
 | Resource | Est. Time | Description | Best For |
 |----------|-----------|-------------|----------|
-| [🌐 Interactive Study Site](https://chathurangavkd.github.io/AWS-Certified-Solutions-Architect-Associate-SAA-C03/) | — | Web UI with search, module cards, navigation & score tracker | All learners |
-| [🎯 Exam Day Cheat Sheet](exam-reviews/quick-reference/ULTRA-QUICK-REFERENCE-CARD.md) | 30 min | 150+ edge cases, 15 critical rules, exam strategies | Final review / Exam day |
-| [🚀 Ultra-Fast Index](docs/study-guides/ULTRA-FAST-LEARNING-INDEX.md) | 3–4 hrs | Highly condensed bullet summaries | Last-minute cramming |
-| [⚡ Fast-Learn Guide](docs/study-guides/FAST-LEARN-GUIDE.md) | 11–14 hrs | Condensed essentials with decision trees | Quick preparation |
-| [📊 Diagrams Index](docs/reference/DIAGRAMS-INDEX.md) | 2–3 hrs | 217+ visual architecture diagrams | Visual learners |
-| [📝 Exam Reviews](exam-reviews/README.md) | Ongoing | 7 detailed practice test analyses | Track progress & weak areas |
-| [🎯 65 Reinforcement Questions](exam-reviews/REINFORCEMENT-QUESTIONS-ALL-TESTS.md) | 2–3 hrs | Exam-style questions based on weak areas | Mastering difficult topics |
-| [🧠 Quick Study Notes](docs/study-guides/QUICK-STUDY-NOTES.md) | 1–2 hrs | Mnemonics & shortcuts | Memory reinforcement |
-| [📇 Flashcards](docs/study-guides/FLASHCARDS.md) | 30–60 min | Quick review cards | Final review |
-| [🔍 Quick Reference](docs/reference/QUICK-REFERENCE.md) | 15 min | Service lookup table | Quick facts |
-| [📅 Study Roadmap](docs/study-guides/STUDY-ROADMAP.md) | — | Structured 8-week study plan | Long-term planning |
+| [Interactive Study Site](https://chathurangavkd.github.io/AWS-Certified-Solutions-Architect-Associate-SAA-C03/) | — | Web UI with search, module cards, navigation & score tracker | All learners |
+| [Exam Day Cheat Sheet](exam-reviews/quick-reference/ULTRA-QUICK-REFERENCE-CARD.md) | 30 min | 150+ edge cases, 15 critical rules, exam strategies | Final review / Exam day |
+| [Ultra-Fast Index](docs/study-guides/ULTRA-FAST-LEARNING-INDEX.md) | 3–4 hrs | Highly condensed bullet summaries | Last-minute cramming |
+| [Fast-Learn Guide](docs/study-guides/FAST-LEARN-GUIDE.md) | 11–14 hrs | Condensed essentials with decision trees | Quick preparation |
+| [Diagrams Index](docs/reference/DIAGRAMS-INDEX.md) | 2–3 hrs | 217+ visual architecture diagrams | Visual learners |
+| [Exam Reviews](exam-reviews/README.md) | Ongoing | 7 detailed practice test analyses | Track progress & weak areas |
+| [65 Reinforcement Questions](exam-reviews/REINFORCEMENT-QUESTIONS-ALL-TESTS.md) | 2–3 hrs | Exam-style questions based on weak areas | Mastering difficult topics |
+| [Quick Study Notes](docs/study-guides/QUICK-STUDY-NOTES.md) | 1–2 hrs | Mnemonics & shortcuts | Memory reinforcement |
+| [Flashcards](docs/study-guides/FLASHCARDS.md) | 30–60 min | Quick review cards | Final review |
+| [Quick Reference](docs/reference/QUICK-REFERENCE.md) | 15 min | Service lookup table | Quick facts |
+| [Study Roadmap](docs/study-guides/STUDY-ROADMAP.md) | — | Structured 8-week study plan | Long-term planning |
 
 ---
 
-## 📝 Practice Test Performance Tracking
+## Practice Test Performance Tracking
 
 The **[exam-reviews/](exam-reviews/)** folder contains detailed analyses of seven practice tests, helping you identify weak areas and measure improvement over time.
 
 > **Note:** All practice test results are from **[Whizlabs AWS SAA-C03 Practice Tests](https://www.whizlabs.com/)**.
 
-### 📊 Test Results Summary
+### Test Results Summary
 
 | Test | Date | Score | Status | Review |
 |------|------|-------|--------|--------|
-| Practice Test 1 | Mar 2026 | 34/65 (52.31%) | ❌ Fail | [View](exam-reviews/complete-reviews/Practice-Test-1-Review.md) |
-| Practice Test 2 | Mar 2026 | 49/65 (75.38%) | ⚠️ Borderline | [View](exam-reviews/complete-reviews/Practice-Test-2-Review.md) |
-| Practice Test 3 | Mar 2026 | 52/65 (80.00%) | ✅ Pass | [View](exam-reviews/complete-reviews/Practice-Test-3-Review.md) |
-| Practice Test 4 | Mar 2026 | 49/65 (75.38%) | ⚠️ Borderline | [View](exam-reviews/complete-reviews/Practice-Test-4-Review.md) |
-| Practice Test 5 | Mar 2026 | 42/65 (64.62%) | ❌ Fail | [View](exam-reviews/complete-reviews/Practice-Test-5-Review.md) |
-| Practice Test 6 | Mar 5, 2026 | 52/65 (80.00%) | ✅ Pass | [View](exam-reviews/complete-reviews/Practice-Test-6-Review.md) |
-| Practice Test 7 | Mar 6, 2026 | 48/65 (73.85%) | ⚠️ Borderline | [View](exam-reviews/complete-reviews/Practice-Test-7-Review.md) |
+| Practice Test 1 | Mar 2026 | 34/65 (52.31%) | Fail | [View](exam-reviews/complete-reviews/Practice-Test-1-Review.md) |
+| Practice Test 2 | Mar 2026 | 49/65 (75.38%) | Borderline | [View](exam-reviews/complete-reviews/Practice-Test-2-Review.md) |
+| Practice Test 3 | Mar 2026 | 52/65 (80.00%) | Pass | [View](exam-reviews/complete-reviews/Practice-Test-3-Review.md) |
+| Practice Test 4 | Mar 2026 | 49/65 (75.38%) | Borderline | [View](exam-reviews/complete-reviews/Practice-Test-4-Review.md) |
+| Practice Test 5 | Mar 2026 | 42/65 (64.62%) | Fail | [View](exam-reviews/complete-reviews/Practice-Test-5-Review.md) |
+| Practice Test 6 | Mar 5, 2026 | 52/65 (80.00%) | Pass | [View](exam-reviews/complete-reviews/Practice-Test-6-Review.md) |
+| Practice Test 7 | Mar 6, 2026 | 48/65 (73.85%) | Borderline | [View](exam-reviews/complete-reviews/Practice-Test-7-Review.md) |
 
 **Average Score:** 71.22% | **Target:** 85%+ for exam confidence
-**Performance Trend:** 📈 Overall improvement from 52% → 80% (Tests 1–6), with a slight dip in Test 7
+**Performance Trend:** Overall improvement from 52% → 80% (Tests 1–6), with a slight dip in Test 7
 
-### 📋 What Each Review Contains
+### What Each Review Contains
 
 Each practice test review includes:
 - **Overall Performance** — Score breakdown by exam domain
@@ -255,42 +255,42 @@ Based on all incorrect questions from Practice Tests 1–7, this set of **65 com
 
 > **Recommended external resource:** [Whizlabs AWS SAA-C03 Practice Tests](https://www.whizlabs.com/) provide excellent exam simulation and detailed explanations.
 
-📖 [View Exam Reviews Dashboard →](exam-reviews/README.md)
-📖 [Quick Start Guide →](exam-reviews/START-HERE.md)
-📖 [65 Reinforcement Questions →](exam-reviews/REINFORCEMENT-QUESTIONS-ALL-TESTS.md)
+ [View Exam Reviews Dashboard →](exam-reviews/README.md)
+ [Quick Start Guide →](exam-reviews/START-HERE.md)
+ [65 Reinforcement Questions →](exam-reviews/REINFORCEMENT-QUESTIONS-ALL-TESTS.md)
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 AWS-Certified-Solutions-Architect-Associate-SAA-C03/
 │
-├── 📚 01-14 Study Modules/
-│   ├── ULTRA-FAST-LEARN.md    # 🚀 15-min bullet summaries
-│   ├── FAST-LEARN.md          # ⚡ 60-min condensed content
-│   ├── README.md              # 📄 3-hr comprehensive content
-│   ├── DIAGRAMS.md            # 📊 Visual architecture diagrams
-│   └── PRACTICE-QUESTIONS.md  # ❓ Exam-style questions
+├── 01-14 Study Modules/
+│   ├── ULTRA-FAST-LEARN.md    # 15-min bullet summaries
+│   ├── FAST-LEARN.md          # 60-min condensed content
+│   ├── README.md              # 3-hr comprehensive content
+│   ├── DIAGRAMS.md            # Visual architecture diagrams
+│   └── PRACTICE-QUESTIONS.md #  Exam-style questions
 │
-├── 📝 exam-reviews/            # Practice test analysis & tracking
+├── exam-reviews/            # Practice test analysis & tracking
 │   ├── README.md              # Performance tracking dashboard
 │   ├── START-HERE.md          # Quick start guide
 │   ├── complete-reviews/      # 7 detailed test analyses
-│   │   ├── Practice-Test-1-Review.md  # 52%  ❌ Fail
-│   │   ├── Practice-Test-2-Review.md  # 75%  ⚠️ Borderline
-│   │   ├── Practice-Test-3-Review.md  # 80%  ✅ Pass
-│   │   ├── Practice-Test-4-Review.md  # 75%  ⚠️ Borderline
-│   │   ├── Practice-Test-5-Review.md  # 65%  ❌ Fail
-│   │   ├── Practice-Test-6-Review.md  # 80%  ✅ Pass
-│   │   └── Practice-Test-7-Review.md  # 74%  ⚠️ Borderline
+│   │   ├── Practice-Test-1-Review.md # 52%   Fail
+│   │   ├── Practice-Test-2-Review.md # 75%   Borderline
+│   │   ├── Practice-Test-3-Review.md # 80%   Pass
+│   │   ├── Practice-Test-4-Review.md # 75%   Borderline
+│   │   ├── Practice-Test-5-Review.md # 65%   Fail
+│   │   ├── Practice-Test-6-Review.md # 80%   Pass
+│   │   └── Practice-Test-7-Review.md # 74%   Borderline
 │   ├── condensed-reviews/     # Fast-learning versions
 │   ├── master-guides/         # Combined analysis & study plans
 │   ├── quick-reference/       # Exam day cards & memory aids
 │   ├── navigation/            # Study guides & navigation tools
 │   └── 2-attempt/             # Second-attempt reviews
 │
-├── 📂 docs/                    # Supplementary documentation
+├── docs/                    # Supplementary documentation
 │   ├── README.md              # Documentation index
 │   ├── study-guides/
 │   │   ├── ULTRA-FAST-LEARNING-INDEX.md  # Ultra-fast hub (3–4 hrs)
@@ -307,12 +307,12 @@ AWS-Certified-Solutions-Architect-Associate-SAA-C03/
 │       ├── EXAM-COVERAGE-ANALYSIS.md     # Topic coverage report
 │       └── QUICK-REFERENCE-NEW-TOPICS.md # New exam topics
 │
-├── 🔧 scripts/                 # Maintenance utilities
+├── scripts/                 # Maintenance utilities
 │   ├── validate_mermaid.py    # Validate Mermaid diagrams
 │   ├── fix_mermaid.py         # Auto-fix diagram syntax
 │   └── count_stats.py         # Repository statistics
 │
-└── 📄 Root Documentation
+└── Root Documentation
     ├── README.md              # This file
     ├── CONTRIBUTING.md        # Contribution guidelines
     ├── CODE_OF_CONDUCT.md     # Community standards
@@ -323,7 +323,7 @@ AWS-Certified-Solutions-Architect-Associate-SAA-C03/
 
 ---
 
-## 📅 8-Week Study Plan
+## 8-Week Study Plan
 
 | Week | Focus Area | Modules |
 |------|------------|---------|
@@ -333,11 +333,11 @@ AWS-Certified-Solutions-Architect-Associate-SAA-C03/
 | **7** | Advanced Topics | Migration, Cost Optimization, Monitoring |
 | **8** | Practice & Review | Mock exams, weak areas, final prep |
 
-📖 [View Complete Study Plan →](docs/study-guides/STUDY-ROADMAP.md)
+ [View Complete Study Plan →](docs/study-guides/STUDY-ROADMAP.md)
 
 ---
 
-## 💡 Study Tips & Resources
+## Study Tips & Resources
 
 ### Best Practices
 
@@ -368,7 +368,7 @@ AWS-Certified-Solutions-Architect-Associate-SAA-C03/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome and appreciated. To get started:
 
@@ -386,7 +386,7 @@ Thanks to everyone who has helped build this resource. See [CONTRIBUTORS.md](CON
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for full details.
 
@@ -398,7 +398,7 @@ Under this license you are free to:
 
 ---
 
-## ⚠️ Disclaimers
+## Disclaimers
 
 ### Legal & Compliance
 
@@ -423,7 +423,7 @@ This guide promotes legitimate study through AWS documentation, hands-on practic
 
 ---
 
-## 💬 Support & Feedback
+## Support & Feedback
 
 | Need | Action |
 |------|--------|
@@ -438,11 +438,11 @@ This guide promotes legitimate study through AWS documentation, hands-on practic
 
 ### Good luck on your certification journey!
 
-**Made with ❤️ by the community**
+**Made with by the community**
 
-If this guide has been helpful, please consider ⭐ **starring the repository** and sharing it with others.
+If this guide has been helpful, please consider **starring the repository** and sharing it with others.
 
-[⬆ Back to Top](#aws-certified-solutions-architect-associate--complete-study-guide)
+[Back to Top](#aws-certified-solutions-architect-associate--complete-study-guide)
 
 </div>
 

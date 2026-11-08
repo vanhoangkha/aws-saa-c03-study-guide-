@@ -7,23 +7,23 @@ assignees: ''
 
 ---
 
-## ❓ Your Question
+## Your Question
 <!-- Ask your question clearly and concisely -->
 
-## 📚 Context
+## Context
 <!-- Where are you in your study journey? What have you tried? -->
 - **Module/Topic**: 
 - **What I've tried**: 
 - **My current understanding**: 
 
-## 🎯 What I Need Help With
+## What I Need Help With
 <!-- Be specific about what you're struggling to understand -->
 
-## 🔗 Related Documentation
+## Related Documentation
 <!-- Have you checked the relevant module? Link to it here -->
 - 
 
-## 💭 Additional Notes
+## Additional Notes
 <!-- Any other information that might be helpful -->
 
 ---

@@ -1,8 +1,8 @@
-# ⚡ Fast Learning - Monitoring & Management
+# Fast Learning - Monitoring & Management
 
 > **Time to Complete**: 45-60 minutes | **Exam Weight**: ~10-15%
 
-## 🎯 Must-Know Concepts (5 Minutes)
+## Must-Know Concepts (5 Minutes)
 
 ### Monitoring Service Selector (CCTXE)
 ```
@@ -15,7 +15,7 @@ AUTOMATION? → Systems Manager, EventBridge
 
 **Memory Aid**: "CloudWatch Watches, CloudTrail Tracks, Config Checks, X-Ray eXamines"
 
-## 📊 Quick Reference Tables
+## Quick Reference Tables
 
 ### CloudWatch vs CloudTrail vs Config
 | Question | Service | What It Captures |
@@ -35,7 +35,7 @@ AUTOMATION? → Systems Manager, EventBridge
 | **Config** | Compliance | Config snapshots | Configurable |
 | **X-Ray** | Tracing | Request traces | 30 days |
 
-## 🔥 Exam Hot Topics
+## Exam Hot Topics
 
 ### 1. CloudWatch Core Concepts
 ```
@@ -70,16 +70,16 @@ EVENTS/EVENTBRIDGE (Automation)
 ### 2. CloudWatch Metrics - Important Facts
 ```
 DEFAULT EC2 METRICS (Every 5 min, free)
-✅ CPUUtilization
-✅ NetworkIn/Out
-✅ DiskReadOps/WriteOps
-✅ StatusCheckFailed
+ CPUUtilization
+ NetworkIn/Out
+ DiskReadOps/WriteOps
+ StatusCheckFailed
 
 NOT DEFAULT (Need custom metrics or CloudWatch agent)
-❌ Memory utilization
-❌ Disk space utilization
-❌ Swap usage
-❌ Process count
+ Memory utilization
+ Disk space utilization
+ Swap usage
+ Process count
 
 STANDARD RESOLUTION: 1 minute
 HIGH RESOLUTION: 1 second (custom metrics only)
@@ -128,41 +128,41 @@ REMEDIATION:
 └── Example: Auto-enable encryption
 ```
 
-## 💡 Common Exam Scenarios
+## Common Exam Scenarios
 
 ### Scenario 1: Monitor EC2 Memory
 **Q**: CloudWatch doesn't show EC2 memory usage
-**✅ ANSWER**: Install CloudWatch agent on EC2, push custom metrics
+**ANSWER**: Install CloudWatch agent on EC2, push custom metrics
 
 ### Scenario 2: Audit Who Deleted S3 Object
 **Q**: Need to know who deleted specific S3 object
-**✅ ANSWER**: CloudTrail with S3 data events enabled
+**ANSWER**: CloudTrail with S3 data events enabled
 
 ### Scenario 3: Auto-Scale Based on Custom Metric
 **Q**: Scale EC2 based on application queue depth
-**✅ ANSWER**: Publish custom metric to CloudWatch → CloudWatch Alarm → Auto Scaling
+**ANSWER**: Publish custom metric to CloudWatch → CloudWatch Alarm → Auto Scaling
 
 ### Scenario 4: Alert on High CPU
 **Q**: Get notified when EC2 CPU > 80% for 5 minutes
-**✅ ANSWER**: CloudWatch Alarm on CPUUtilization → SNS topic
+**ANSWER**: CloudWatch Alarm on CPUUtilization → SNS topic
 
 ### Scenario 5: Find Performance Bottleneck
 **Q**: Distributed app slow, need to find which service causing delay
-**✅ ANSWER**: AWS X-Ray (distributed tracing)
+**ANSWER**: AWS X-Ray (distributed tracing)
 
 ### Scenario 6: Ensure All S3 Buckets Encrypted
 **Q**: Continuously verify S3 bucket encryption compliance
-**✅ ANSWER**: AWS Config with s3-bucket-server-side-encryption-enabled rule
+**ANSWER**: AWS Config with s3-bucket-server-side-encryption-enabled rule
 
 ### Scenario 7: Automate Response to Security Event
 **Q**: Auto-revoke IAM key if exposed
-**✅ ANSWER**: GuardDuty → EventBridge → Lambda (revoke key)
+**ANSWER**: GuardDuty → EventBridge → Lambda (revoke key)
 
 ### Scenario 8: Centralize Logs from Multiple Accounts
 **Q**: Aggregate logs from 50 AWS accounts
-**✅ ANSWER**: CloudWatch Logs with cross-account subscriptions
+**ANSWER**: CloudWatch Logs with cross-account subscriptions
 
-## 🎓 Speed Learning Tips
+## Speed Learning Tips
 
 ### CloudWatch Alarm States
 ```
@@ -218,7 +218,7 @@ INVENTORY
 └── Collect metadata from instances
 ```
 
-## 📝 Rapid-Fire Facts
+## Rapid-Fire Facts
 
 ### CloudWatch Metrics Retention
 - **< 60 seconds** (high resolution): 3 hours
@@ -264,7 +264,7 @@ SAMPLING: Control cost (not every request)
 └── Default: First request/sec + 5% thereafter
 ```
 
-## 🚀 5-Minute Master Review
+## 5-Minute Master Review
 
 ### Monitoring Decision Tree
 ```
@@ -288,14 +288,14 @@ SAMPLING: Control cost (not every request)
 ```
 
 ### CloudWatch Best Practices
-✅ Use detailed monitoring for critical workloads
-✅ Set up alarms for key metrics
-✅ Aggregate logs in CloudWatch Logs
-✅ Use metric filters to extract metrics from logs
-✅ Set appropriate log retention periods
-✅ Use CloudWatch Insights for log analysis
-✅ Enable cross-region/account monitoring
-✅ Use dashboards for visualization
+ Use detailed monitoring for critical workloads
+ Set up alarms for key metrics
+ Aggregate logs in CloudWatch Logs
+ Use metric filters to extract metrics from logs
+ Set appropriate log retention periods
+ Use CloudWatch Insights for log analysis
+ Enable cross-region/account monitoring
+ Use dashboards for visualization
 
 ### Common Monitoring Patterns
 ```
@@ -316,16 +316,16 @@ SAMPLING: Control cost (not every request)
 ```
 
 ### Common Mistakes to Avoid
-❌ Expecting EC2 memory in default metrics (need agent)
-❌ Not enabling CloudTrail in all regions
-❌ Forgetting CloudTrail data events cost extra
-❌ Not setting log retention (unnecessary costs)
-❌ Using CloudWatch when you need audit trail (use CloudTrail)
-❌ Not using metric filters to extract data from logs
-❌ Creating too many high-resolution custom metrics (expensive)
-❌ Not configuring alarm actions properly
+ Expecting EC2 memory in default metrics (need agent)
+ Not enabling CloudTrail in all regions
+ Forgetting CloudTrail data events cost extra
+ Not setting log retention (unnecessary costs)
+ Using CloudWatch when you need audit trail (use CloudTrail)
+ Not using metric filters to extract data from logs
+ Creating too many high-resolution custom metrics (expensive)
+ Not configuring alarm actions properly
 
-## 🎯 Exam Practice Speedrun
+## Exam Practice Speedrun
 
 **Quick Questions** (Answers at bottom)
 
@@ -379,7 +379,7 @@ RULES: Filter events → Route to targets
   - Detailed remediation guidance
   - Integration with EventBridge
 
-## ⏱️ Next Steps
+## Next Steps
 - Time spent: ~45-60 min
 - Practice: Create CloudWatch alarm, enable CloudTrail, Config rule
 - Ready for: Monitoring practice questions

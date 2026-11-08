@@ -1,7 +1,7 @@
 # Practice Test 2 (SAA-C03) - Exam Review
 
 **Date:** March 2, 2026  
-**Score:** 49/65 (75.38%) - ⚠️ **BORDERLINE PASS**  
+**Score:** 49/65 (75.38%) - **BORDERLINE PASS**
 **Time Taken:** Not recorded  
 **Status:** Above passing threshold but needs improvement  
 **Passing Score:** 72% (need 47/65 correct)
@@ -10,72 +10,72 @@
 
 ---
 
-## 📊 Performance Summary
+## Performance Summary
 
 | Metric | Result |
 |--------|--------|
 | **Total Questions** | 65 |
 | **Correct Answers** | 49 (75.38%) |
 | **Incorrect Answers** | 16 (24.62%) |
-| **Pass/Fail** | **BORDERLINE PASS** ⚠️ |
+| **Pass/Fail** | **BORDERLINE PASS**  |
 | **Passing Score** | 72% |
 | **Questions Marked for Review** | 21 |
 
 ### Progress from Practice Test 1
 - **Previous Score:** 42/65 (64.62%)
 - **Current Score:** 49/65 (75.38%)
-- **Improvement:** +7 questions (+10.76%) 📈
+- **Improvement:** +7 questions (+10.76%)
 
 ---
 
-## 📈 Domain Performance Analysis
+## Domain Performance Analysis
 
 | Domain | Total | Correct | Incorrect | Score | Status |
 |--------|-------|---------|-----------|-------|--------|
-| **Design Resilient Architectures** | 15 | 13 | 2 | 86.67% | ✅ Strong |
-| **Design Cost-Optimized Architectures** | 14 | 12 | 2 | 85.71% | ✅ Strong |
-| **Design High-Performing Architectures** | 20 | 15 | 5 | 75.00% | ⚠️ Needs Review |
-| **Design Secure Architectures** | 16 | 9 | 7 | 56.25% | ❌ **CRITICAL** |
+| **Design Resilient Architectures** | 15 | 13 | 2 | 86.67% | Strong |
+| **Design Cost-Optimized Architectures** | 14 | 12 | 2 | 85.71% | Strong |
+| **Design High-Performing Architectures** | 20 | 15 | 5 | 75.00% | Needs Review |
+| **Design Secure Architectures** | 16 | 9 | 7 | 56.25% | **CRITICAL** |
 
 ### Performance Visualization
 ```
-Design Resilient:           ████████░░ 87% ✅ STRONG
-Design Cost-Optimized:      ████████░░ 86% ✅ STRONG  
-Design High-Performing:     ███████░░░ 75% ⚠️
-Design Secure:              █████░░░░░ 56% ❌ CRITICAL
+Design Resilient:           ████████░░ 87% STRONG
+Design Cost-Optimized:      ████████░░ 86% STRONG
+Design High-Performing:     ███████░░░ 75%
+Design Secure:              █████░░░░░ 56% CRITICAL
 ```
 
 ---
 
-## ❌ Incorrect Questions - Detailed Review
+## Incorrect Questions - Detailed Review
 
 ### Comparison with Practice Test 1
 ```
 Domain                        Test 1  →  Test 2  Change
 ──────────────────────────────────────────────────────────
-Design High-Performing         43%   →   75%    +32% 📈 HUGE
-Design Resilient               71%   →   87%    +16% 📈
-Design Secure                  78%   →   56%    -22% 📉 DROPPED
-Design Cost-Optimized         100%   →   86%    -14% 📉
+Design High-Performing         43%   →   75%    +32% HUGE
+Design Resilient               71%   →   87%    +16%
+Design Secure                  78%   →   56%    -22% DROPPED
+Design Cost-Optimized         100%   →   86%    -14%
 ```
 
 ---
 
-## 🔴 Critical Weak Areas (Detailed Analysis)
+## Critical Weak Areas (Detailed Analysis)
 
-### Priority 1: Design Secure Architectures (56% - 7 incorrect) 🚨
+### Priority 1: Design Secure Architectures (56% - 7 incorrect)
 
 ---
 
-#### ❌ CRITICAL: CloudFront + ACM Certificate Region Requirement
+#### CRITICAL: CloudFront + ACM Certificate Region Requirement
 
-**📋 QUESTION CONTEXT:**
+**QUESTION CONTEXT:**
 You want to use a custom domain (www.example.com) with CloudFront distribution using HTTPS. Where must the ACM certificate be located?
 
-**Your Answer:** ❌ Any region where CloudFront edge location exists
-**Correct Answer:** ✅ **us-east-1 (N. Virginia) ONLY**
+**Your Answer:** Any region where CloudFront edge location exists
+**Correct Answer:** **us-east-1 (N. Virginia) ONLY**
 
-**🔍 DETAILED EXPLANATION:**
+**DETAILED EXPLANATION:**
 
 **THE GOLDEN RULE (MEMORIZE THIS!):**
 
@@ -83,9 +83,9 @@ You want to use a custom domain (www.example.com) with CloudFront distribution u
 ╔══════════════════════════════════════════════════════╗
 ║  CloudFront + ACM Certificate MUST be in us-east-1  ║
 ║                                                      ║
-║  ✅ ONLY us-east-1 (N. Virginia)                    ║
-║  ❌ us-west-2, eu-west-1, ap-southeast-1           ║
-║  ❌ Any other region = WILL NOT WORK               ║
+║   ONLY us-east-1 (N. Virginia)                      ║
+║   us-west-2, eu-west-1, ap-southeast-1             ║
+║   Any other region = WILL NOT WORK                 ║
 ╚══════════════════════════════════════════════════════╝
 ```
 
@@ -120,10 +120,10 @@ You want to use a custom domain (www.example.com) with CloudFront distribution u
 
 | Service | Type | Certificate Region | Reason |
 |---------|------|-------------------|--------|
-| **CloudFront** | Global | ✅ us-east-1 ONLY | Control plane in us-east-1 |
-| **ALB** | Regional | ✅ Same region as ALB | Each region independent |
-| **API Gateway (Edge)** | Global | ✅ us-east-1 ONLY | Edge-optimized like CloudFront |
-| **API Gateway (Regional)** | Regional | ✅ Same region as API | Regional endpoint |
+| **CloudFront** | Global | us-east-1 ONLY | Control plane in us-east-1 |
+| **ALB** | Regional | Same region as ALB | Each region independent |
+| **API Gateway (Edge)** | Global | us-east-1 ONLY | Edge-optimized like CloudFront |
+| **API Gateway (Regional)** | Regional | Same region as API | Regional endpoint |
 
 **Complete Setup Architecture:**
 
@@ -132,7 +132,7 @@ You want to use a custom domain (www.example.com) with CloudFront distribution u
 │       CLOUDFRONT + CUSTOM DOMAIN SETUP                   │
 ├──────────────────────────────────────────────────────────┤
 │                                                           │
-│  Step 1: ACM Certificate (us-east-1) ✅                  │
+│ Step 1: ACM Certificate (us-east-1)                      │
 │  ┌─────────────────────────────────────┐                 │
 │  │  Region: us-east-1                  │                 │
 │  │  Domain: www.example.com            │                 │
@@ -175,7 +175,7 @@ You want to use a custom domain (www.example.com) with CloudFront distribution u
 ```bash
 # CRITICAL: Must be in us-east-1
 aws acm request-certificate \
-  --region us-east-1 \                    # ✅ MUST be us-east-1
+  --region us-east-1 \                    # MUST be us-east-1
   --domain-name www.example.com \
   --subject-alternative-names example.com \
   --validation-method DNS
@@ -183,7 +183,7 @@ aws acm request-certificate \
 
 **Console Steps:**
 ```
-1. Switch to us-east-1 region ✅ (CRITICAL!)
+1. Switch to us-east-1 region (CRITICAL!)
 2. ACM Console → Request Certificate
 3. Request a public certificate
 4. Domain names:
@@ -255,10 +255,10 @@ aws route53 change-resource-record-sets \
 **Common Mistake - Wrong Region:**
 
 ```
-❌ WRONG: Certificate in us-west-2
+ WRONG: Certificate in us-west-2
 
 ┌─────────────────────────────────┐
-│  Region: us-west-2 ❌           │
+│ Region: us-west-2               │
 │  ┌───────────────────────────┐  │
 │  │ ACM Certificate           │  │
 │  │ www.example.com           │  │
@@ -269,7 +269,7 @@ aws route53 change-resource-record-sets \
          ▼
 ┌─────────────────────────────────┐
 │  CloudFront Distribution        │
-│  ERROR: ❌                       │
+│ ERROR:                           │
 │  Certificate not found          │
 │  Must be in us-east-1           │
 └─────────────────────────────────┘
@@ -280,10 +280,10 @@ Result: Distribution creation fails or certificate not selectable
 **Correct Approach:**
 
 ```
-✅ CORRECT: Certificate in us-east-1
+ CORRECT: Certificate in us-east-1
 
 ┌─────────────────────────────────┐
-│  Region: us-east-1 ✅           │
+│ Region: us-east-1               │
 │  ┌───────────────────────────┐  │
 │  │ ACM Certificate           │  │
 │  │ www.example.com           │  │
@@ -295,7 +295,7 @@ Result: Distribution creation fails or certificate not selectable
          ▼
 ┌─────────────────────────────────┐
 │  CloudFront Distribution        │
-│  SUCCESS: ✅                     │
+│ SUCCESS:                         │
 │  - CNAME: www.example.com       │
 │  - Certificate: ACM us-east-1   │
 │  - HTTPS enabled                │
@@ -317,7 +317,7 @@ Result: Distribution creation fails or certificate not selectable
 │         MULTI-REGION WITH CLOUDFRONT                  │
 ├───────────────────────────────────────────────────────┤
 │                                                        │
-│  ACM Certificate (us-east-1) ✅                       │
+│ ACM Certificate (us-east-1)                           │
 │  ┌──────────────────────┐                             │
 │  │ www.example.com      │                             │
 │  └──────────┬───────────┘                             │
@@ -326,7 +326,7 @@ Result: Distribution creation fails or certificate not selectable
 │  CloudFront Distribution                              │
 │  ┌────────────────────────────────┐                   │
 │  │ CNAME: www.example.com         │                   │
-│  │ Certificate: ACM us-east-1 ✅  │                   │
+│ │ Certificate: ACM us-east-1   │                      │
 │  └────────────────────────────────┘                   │
 │       │                    │                          │
 │       │                    │                          │
@@ -337,7 +337,7 @@ Result: Distribution creation fails or certificate not selectable
 │  │ us-east-1    │    │ us-west-2    │                │
 │  │              │    │              │                │
 │  │ ACM cert:    │    │ ACM cert:    │                │
-│  │ us-east-1 ✅ │    │ us-west-2 ✅ │                │
+│ │ us-east-1  │    │ us-west-2  │                     │
 │  │ (Regional)   │    │ (Regional)   │                │
 │  └──────────────┘    └──────────────┘                │
 │                                                        │
@@ -365,29 +365,29 @@ Result: Distribution creation fails or certificate not selectable
 | HTTPS not working | Certificate not associated | Associate ACM certificate with distribution |
 | "Certificate pending validation" | DNS records not created | Add CNAME records for DNS validation |
 
-**🎯 KEY TAKEAWAYS:**
-- ✅ **CloudFront ACM certificate MUST be in us-east-1**
-- ✅ This is because CloudFront is a GLOBAL service with control plane in us-east-1
-- ✅ ALB certificates must be in the SAME region as the ALB
-- ✅ API Gateway Edge-optimized also requires us-east-1
-- ✅ Create certificate BEFORE creating CloudFront distribution
-- ❌ Cannot use certificates from any other region (us-west-2, eu-west-1, etc.)
-- ❌ Cannot change certificate region after creation
+**KEY TAKEAWAYS:**
+- Yes: **CloudFront ACM certificate MUST be in us-east-1**
+- Yes: This is because CloudFront is a GLOBAL service with control plane in us-east-1
+- Yes: ALB certificates must be in the SAME region as the ALB
+- Yes: API Gateway Edge-optimized also requires us-east-1
+- Yes: Create certificate BEFORE creating CloudFront distribution
+- Cannot use certificates from any other region (us-west-2, eu-west-1, etc.)
+- Cannot change certificate region after creation
 
-**💡 MEMORY AIDS:**
+**MEMORY AIDS:**
 - "CF-E1 = CloudFront needs East-1"
 - "GLOBAL service = us-EAST-1 (where AWS started)"
 - "CloudFront Certificate = California Friends Eat-1 (E1 = East-1)"
 
 **Exam Traps to Avoid:**
-1. ❌ "Use certificate in the region closest to users" - WRONG
-2. ❌ "Use certificate in the same region as origin" - WRONG
-3. ❌ "Create certificate in multiple regions for redundancy" - WRONG
-4. ✅ "Always use us-east-1 for CloudFront" - CORRECT
+1. "Use certificate in the region closest to users" - WRONG
+2. "Use certificate in the same region as origin" - WRONG
+3. "Create certificate in multiple regions for redundancy" - WRONG
+4. "Always use us-east-1 for CloudFront" - CORRECT
 
 ---
 
-##### 2. S3 Cross-Account Access - Bucket Policies ⚠️
+##### 2. S3 Cross-Account Access - Bucket Policies
 **Common Mistake:** Thinking SCPs grant cross-account access
 
 **CRITICAL CONCEPT:**
@@ -396,13 +396,13 @@ SCP (Service Control Policy):
   Purpose: RESTRICT permissions within YOUR organization
   Scope: AWS Organizations only
   Action: DENY certain actions
-  Cross-Account: ❌ CANNOT grant access to external accounts
+  Cross-Account: CANNOT grant access to external accounts
   
 Bucket Policy:
   Purpose: GRANT permissions to resources
   Scope: Specific S3 bucket
   Action: ALLOW or DENY
-  Cross-Account: ✅ CAN grant access to external accounts
+  Cross-Account: CAN grant access to external accounts
 
 Correct Cross-Account S3 Access:
   Method 1: Bucket Policy (BEST for S3)
@@ -447,7 +447,7 @@ Correct Cross-Account S3 Access:
 - [Module 04: Storage - S3 Policies](../04-Storage/README.md#bucket-policies)
 - [Module 07: Security - Cross-Account Access](../07-Security/README.md#cross-account)
 
-##### 3. VPN & Encryption ⚠️
+##### 3. VPN & Encryption
 **Topics to review:**
 - Site-to-Site VPN setup
 - VPN encryption (IPsec)
@@ -457,7 +457,7 @@ Correct Cross-Account S3 Access:
 **Study Resources:**
 - [Module 06: Networking - VPN](../06-Networking/README.md#vpn)
 
-##### 4. IAM Roles & Federation ⚠️
+##### 4. IAM Roles & Federation
 **Topics to review:**
 - IAM Roles vs IAM Users
 - Federated access (SAML, OIDC)
@@ -474,7 +474,7 @@ Correct Cross-Account S3 Access:
 
 #### Key Topics That Need Review:
 
-##### 1. S3 Performance Optimization ⚠️
+##### 1. S3 Performance Optimization
 **Topics to review:**
 - S3 Transfer Acceleration
 - Multipart upload
@@ -484,7 +484,7 @@ Correct Cross-Account S3 Access:
 **Study Resources:**
 - [Module 04: Storage - S3 Performance](../04-Storage/README.md#s3-performance)
 
-##### 2. Database Caching Strategies ⚠️
+##### 2. Database Caching Strategies
 **Topics to review:**
 - ElastiCache Redis vs Memcached
 - DAX (DynamoDB Accelerator)
@@ -494,7 +494,7 @@ Correct Cross-Account S3 Access:
 **Study Resources:**
 - [Module 05: Database - Caching](../05-Database/README.md#caching)
 
-##### 3. Network Performance ⚠️
+##### 3. Network Performance
 **Topics to review:**
 - Enhanced Networking (ENA vs SR-IOV)
 - Elastic Fabric Adapter (EFA)
@@ -510,7 +510,7 @@ Correct Cross-Account S3 Access:
 
 #### Key Topics That Need Review:
 
-##### 1. S3 Glacier Retrieval Costs ⚠️
+##### 1. S3 Glacier Retrieval Costs
 **Common Mistake:** Choosing Instant Retrieval for cost optimization
 
 **S3 Glacier Cost Comparison:**
@@ -519,11 +519,11 @@ Storage Class              | Retrieval Time | Cost Pattern
 ────────────────────────────────────────────────────────────
 Glacier Instant Retrieval  | Milliseconds   | High retrieval cost
                           |                | No free quota
-                          |                | ❌ Not cost-optimized
+                          |                | Not cost-optimized
 ────────────────────────────────────────────────────────────
 Glacier Flexible Retrieval | Minutes-Hours  | 10 GB/month FREE
                           |                | Low cost after quota
-                          |                | ✅ Best for occasional access
+                          |                | Best for occasional access
 ────────────────────────────────────────────────────────────
 Glacier Deep Archive      | 12-48 hours    | Lowest storage cost
                           |                | Bulk: $0.0025/GB retrieval
@@ -545,7 +545,7 @@ Glacier Deep Archive      | 12-48 hours    | Lowest storage cost
 
 #### Key Topics That Need Review:
 
-##### 1. S3 Glacier Retrieval Costs ⚠️
+##### 1. S3 Glacier Retrieval Costs
 **Common Mistake:** Choosing Instant Retrieval for cost optimization
 
 **S3 Glacier Cost Comparison:**
@@ -554,11 +554,11 @@ Storage Class              | Retrieval Time | Cost Pattern
 ────────────────────────────────────────────────────────────
 Glacier Instant Retrieval  | Milliseconds   | High retrieval cost
                           |                | No free quota
-                          |                | ❌ Not cost-optimized
+                          |                | Not cost-optimized
 ────────────────────────────────────────────────────────────
 Glacier Flexible Retrieval | Minutes-Hours  | 10 GB/month FREE
                           |                | Low cost after quota
-                          |                | ✅ Best for occasional access
+                          |                | Best for occasional access
 ────────────────────────────────────────────────────────────
 Glacier Deep Archive      | 12-48 hours    | Lowest storage cost
                           |                | Bulk: $0.0025/GB retrieval
@@ -572,19 +572,19 @@ Glacier Deep Archive      | 12-48 hours    | Lowest storage cost
 
 ---
 
-### 📖 DETAILED EXPLANATIONS FOR PRIORITY 3 WEAKNESSES
+### DETAILED EXPLANATIONS FOR PRIORITY 3 WEAKNESSES
 
 ---
 
-#### ❌ 1. S3 Glacier Retrieval Cost Optimization (Detailed Analysis)
+#### 1. S3 Glacier Retrieval Cost Optimization (Detailed Analysis)
 
-**📋 SCENARIO:**
+**SCENARIO:**
 Your company stores 100 TB of compliance logs in S3 that are accessed 5-10 times per year (unpredictable). Each retrieval is typically 50 GB. You need to minimize costs while meeting regulatory requirements for 24-hour retrieval time.
 
-**Common Wrong Answer:** ❌ S3 Glacier Instant Retrieval
-**Correct Answer:** ✅ **S3 Glacier Flexible Retrieval**
+**Common Wrong Answer:** S3 Glacier Instant Retrieval
+**Correct Answer:** **S3 Glacier Flexible Retrieval**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **Complete S3 Glacier Storage Classes:**
 
@@ -601,7 +601,7 @@ Your company stores 100 TB of compliance logs in S3 that are accessed 5-10 times
 │  │ Minimum: 128 KB object size            │                │
 │  │ Use Case: Rarely accessed, need instant│                │
 │  │ Example: Medical imaging archives      │                │
-│  │ ❌ NOT cost-optimized for unknown access│               │
+│ │  NOT cost-optimized for unknown access│                  │
 │  └────────────────────────────────────────┘                │
 │              ↓ More cost-effective                          │
 │  S3 Glacier Flexible Retrieval (formerly Glacier)          │
@@ -616,7 +616,7 @@ Your company stores 100 TB of compliance logs in S3 that are accessed 5-10 times
 │  │   - Standard: $0.01/GB + $0.03/1000 req│               │
 │  │   - Bulk: FREE first 10GB/month        │                │
 │  │ Minimum: 90 days storage               │                │
-│  │ Use Case: ✅ YOUR SCENARIO (unpredictable)│            │
+│ │ Use Case:  YOUR SCENARIO (unpredictable)│               │
 │  └────────────────────────────────────────┘                │
 │              ↓ Lowest cost                                  │
 │  S3 Glacier Deep Archive                                    │
@@ -641,7 +641,7 @@ Your company stores 100 TB of compliance logs in S3 that are accessed 5-10 times
 ```
 Scenario: 100 TB data, 5-10 retrievals/year, 50 GB each
 
-Option 1: S3 Glacier Instant Retrieval ❌
+Option 1: S3 Glacier Instant Retrieval
 ┌────────────────────────────────────────────────────────────┐
 │  Storage Cost:                                             │
 │    100 TB × 1024 GB/TB × $0.004/GB = $409.60/month        │
@@ -652,11 +652,11 @@ Option 1: S3 Glacier Instant Retrieval ❌
 │                                                             │
 │  Total Annual Cost: $4,915.20 + $15.00 = $4,930.20        │
 │                                                             │
-│  ❌ HIGH storage cost for infrequent access                │
+│   HIGH storage cost for infrequent access                  │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
-Option 2: S3 Glacier Flexible Retrieval ✅
+Option 2: S3 Glacier Flexible Retrieval
 ┌────────────────────────────────────────────────────────────┐
 │  Storage Cost:                                             │
 │    100 TB × 1024 GB/TB × $0.0036/GB = $368.64/month       │
@@ -670,8 +670,8 @@ Option 2: S3 Glacier Flexible Retrieval ✅
 │  Total Annual Cost: $4,423.68 + $5.00 = $4,428.68         │
 │  OR with Bulk FREE: $4,423.68                              │
 │                                                             │
-│  ✅ Savings: $501.52/year vs Instant Retrieval            │
-│  ✅ Meets 24-hour requirement (Standard: 3-5 hours)       │
+│   Savings: $501.52/year vs Instant Retrieval              │
+│   Meets 24-hour requirement (Standard: 3-5 hours)         │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
@@ -688,13 +688,13 @@ Option 3: S3 Glacier Deep Archive
 │                                                             │
 │  Total Annual Cost: $1,216.51 + $10.00 = $1,226.51        │
 │                                                             │
-│  ✅ CHEAPEST option                                        │
-│  ⚠️  But: 12-48 hour retrieval (slower than requirement)  │
+│   CHEAPEST option                                          │
+│    But: 12-48 hour retrieval (slower than requirement)   │
 │  Use if 24-hour SLA can extend to 48 hours                │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
-💡 RECOMMENDATION: Glacier Flexible Retrieval
+ RECOMMENDATION: Glacier Flexible Retrieval
    - Best balance of cost ($4,428/year) and retrieval time (3-5 hours)
    - Use Bulk retrieval tier for FREE 10 GB/month quota
    - Meets 24-hour regulatory requirement
@@ -707,7 +707,7 @@ Option 3: S3 Glacier Deep Archive
 │     GLACIER FLEXIBLE RETRIEVAL TIERS                        │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  1️⃣  Expedited (1-5 minutes):                               │
+│  1  Expedited (1-5 minutes):                               │
 │     ┌──────────────────────────────────┐                   │
 │     │ Cost: $0.03/GB + $0.01/request   │                   │
 │     │ Use: Emergency access needed     │                   │
@@ -715,7 +715,7 @@ Option 3: S3 Glacier Deep Archive
 │     │ Limit: 250 MB max object size    │                   │
 │     └──────────────────────────────────┘                   │
 │                                                              │
-│  2️⃣  Standard (3-5 hours):                                  │
+│  2  Standard (3-5 hours):                                  │
 │     ┌──────────────────────────────────┐                   │
 │     │ Cost: $0.01/GB + $0.03/1000 req  │                   │
 │     │ Use: Regular planned access      │ ← MOST COMMON     │
@@ -723,7 +723,7 @@ Option 3: S3 Glacier Deep Archive
 │     │ Reliable: Consistent timing      │                   │
 │     └──────────────────────────────────┘                   │
 │                                                              │
-│  3️⃣  Bulk (5-12 hours):                                     │
+│  3  Bulk (5-12 hours):                                     │
 │     ┌──────────────────────────────────┐                   │
 │     │ Cost: FREE first 10 GB/month     │ ← FREE TIER!      │
 │     │ Then: $0.0025/GB                 │                   │
@@ -773,12 +773,12 @@ Option 3: S3 Glacier Deep Archive
 
 ```
 Trap 1: "Instant = Better"
-  ❌ WRONG: Instant Retrieval is MORE expensive
-  ✅ RIGHT: Flexible Retrieval is MORE cost-optimized
+  WRONG: Instant Retrieval is MORE expensive
+  RIGHT: Flexible Retrieval is MORE cost-optimized
 
 Trap 2: "Need millisecond access"
-  ❌ WRONG: Choose Instant if requirement says "occasionally accessed"
-  ✅ RIGHT: Occasionally = Flexible Retrieval with Standard tier
+  WRONG: Choose Instant if requirement says "occasionally accessed"
+  RIGHT: Occasionally = Flexible Retrieval with Standard tier
 
 Trap 3: "Confusing Glacier options"
   Instant Retrieval ≠ Flexible Retrieval Expedited
@@ -786,8 +786,8 @@ Trap 3: "Confusing Glacier options"
   Expedited: Retrieval tier for Flexible (1-5 minutes)
 
 Trap 4: "Ignoring FREE tier"
-  ❌ WRONG: Overlooking Bulk's free 10 GB/month
-  ✅ RIGHT: Use Bulk tier for predictable cost savings
+  WRONG: Overlooking Bulk's free 10 GB/month
+  RIGHT: Use Bulk tier for predictable cost savings
 ```
 
 **Decision Tree:**
@@ -815,29 +815,29 @@ Trap 4: "Ignoring FREE tier"
 └────────────────────────────────────────────────────────────┘
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Glacier Instant Retrieval** = High cost, millisecond access (rarely cost-optimized)
 - **Glacier Flexible Retrieval** = BEST for unpredictable access patterns + FREE Bulk tier
 - **Glacier Deep Archive** = Cheapest storage, longest retrieval (12-48 hours)
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 When question says "cost-optimized" + "occasional/unpredictable access" + "can tolerate hours," always choose **Glacier Flexible Retrieval with Standard or Bulk tier**, NOT Instant Retrieval.
 
 ---
 
-#### ❌ 2. EC2 Pricing Models for Cost Optimization
+#### 2. EC2 Pricing Models for Cost Optimization
 
-**📋 SCENARIO:**
+**SCENARIO:**
 Your application runs 24/7 on m5.2xlarge instances. The workload is steady and predictable for the next 3 years. You want to minimize costs. Which pricing model should you use?
 
 **Common Wrong Answers:**
-- ❌ Compute Savings Plans (less flexible)
-- ❌ Spot Instances (not for 24/7 predictable workloads)
-- ❌ On-Demand (no commitment discount)
+- Compute Savings Plans (less flexible)
+- Spot Instances (not for 24/7 predictable workloads)
+- On-Demand (no commitment discount)
 
-**Correct Answer:** ✅ **EC2 Instance Savings Plans or Standard Reserved Instances**
+**Correct Answer:** **EC2 Instance Savings Plans or Standard Reserved Instances**
 
-**🔍 DEEP DIVE EXPLANATION:**
+**DEEP DIVE EXPLANATION:**
 
 **Complete EC2 Pricing Model Comparison:**
 
@@ -846,7 +846,7 @@ Your application runs 24/7 on m5.2xlarge instances. The workload is steady and p
 │         EC2 PRICING MODELS COMPARISON                       │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  1️⃣  On-Demand (Pay-as-you-go)                              │
+│  1  On-Demand (Pay-as-you-go)                              │
 │     ┌──────────────────────────────────────┐               │
 │     │ Cost: $0.384/hour (m5.2xlarge)       │               │
 │     │ Discount: 0% (baseline)              │               │
@@ -856,7 +856,7 @@ Your application runs 24/7 on m5.2xlarge instances. The workload is steady and p
 │     │ Annual: $3,364 (24/7/365)            │               │
 │     └──────────────────────────────────────┘               │
 │                                                              │
-│  2️⃣  Reserved Instances (1 or 3 year)                       │
+│  2  Reserved Instances (1 or 3 year)                       │
 │     ┌──────────────────────────────────────┐               │
 │     │ Standard RI (3-year, All Upfront):   │               │
 │     │   Discount: Up to 72%                │ ← BEST SAVINGS│
@@ -872,7 +872,7 @@ Your application runs 24/7 on m5.2xlarge instances. The workload is steady and p
 │     │   More flexible, less discount       │               │
 │     └──────────────────────────────────────┘               │
 │                                                              │
-│  3️⃣  Savings Plans (1 or 3 year)                            │
+│  3  Savings Plans (1 or 3 year)                            │
 │     ┌──────────────────────────────────────┐               │
 │     │ Compute Savings Plans:               │               │
 │     │   Discount: Up to 66%                │               │
@@ -886,18 +886,18 @@ Your application runs 24/7 on m5.2xlarge instances. The workload is steady and p
 │     │   Flexibility: Instance family +     │               │
 │     │                region (any size)      │               │
 │     │   Commitment: $/hour for EC2         │               │
-│     │   Use: ✅ YOUR SCENARIO (m5 family)  │               │
+│     │   Use: YOUR SCENARIO (m5 family)  │                  │
 │     └──────────────────────────────────────┘               │
 │                                                              │
-│  4️⃣  Spot Instances                                          │
+│  4  Spot Instances                                          │
 │     ┌──────────────────────────────────────┐               │
 │     │ Discount: Up to 90%                  │               │
 │     │ Risk: Can be interrupted (2-min warn)│               │
 │     │ Use: Fault-tolerant, stateless       │               │
-│     │ ❌ NOT for 24/7 critical workloads   │               │
+│     │ NOT for 24/7 critical workloads   │                  │
 │     └──────────────────────────────────────┘               │
 │                                                              │
-│  5️⃣  Dedicated Hosts                                         │
+│  5  Dedicated Hosts                                         │
 │     ┌──────────────────────────────────────┐               │
 │     │ Cost: Highest (full host)            │               │
 │     │ Use: Licensing, compliance           │               │
@@ -921,7 +921,7 @@ Pricing Model Comparison:
 │    Upfront: $2,814                                         │
 │    Hourly: $0 (paid upfront)                               │
 │    Total 3-year: $2,814                                    │
-│    Discount: 72% ✅                                        │
+│    Discount: 72%                                           │
 │    Savings: $7,281 vs On-Demand                            │
 │                                                             │
 │  EC2 Instance Savings Plan (3-year, All Upfront):         │
@@ -938,12 +938,12 @@ Pricing Model Comparison:
 │  Spot Instances:                                           │
 │    ~$0.115/hour (70% off, varies by AZ)                    │
 │    Total if no interruptions: ~$3,029                      │
-│    ❌ Risk: Frequent interruptions for 24/7 workload      │
-│    ❌ Not recommended for critical production              │
+│     Risk: Frequent interruptions for 24/7 workload        │
+│     Not recommended for critical production                │
 │                                                             │
 └────────────────────────────────────────────────────────────┘
 
-💡 BEST CHOICE: Standard RI or EC2 Instance Savings Plan
+ BEST CHOICE: Standard RI or EC2 Instance Savings Plan
    - Maximum discount (71-72%)
    - No interruption risk
    - Predictable costs
@@ -962,12 +962,12 @@ Pricing Model Comparison:
 │  │   Example: m5.2xlarge in us-east-1     │                │
 │  │                                          │                │
 │  │ Flexibility:                            │                │
-│  │   ✅ Can change AZ within region        │                │
-│  │   ✅ Can change instance size (m5.2xl→m5.4xl)            │
-│  │   ❌ Cannot change family (m5 → c5)     │                │
-│  │   ❌ Cannot change region               │                │
+│ │    Can change AZ within region        │                   │
+│ │    Can change instance size (m5.2xl→m5.4xl)               │
+│ │    Cannot change family (m5 → c5)     │                   │
+│ │    Cannot change region               │                   │
 │  │                                          │                │
-│  │ Marketplace: ✅ Can sell unused RIs     │                │
+│ │ Marketplace:  Can sell unused RIs     │                   │
 │  │ Best for: Specific known workload       │                │
 │  └────────────────────────────────────────┘                │
 │                                                              │
@@ -977,18 +977,18 @@ Pricing Model Comparison:
 │  │   Example: $10/hour for 3 years        │                │
 │  │                                          │                │
 │  │ EC2 Instance Savings Plans:             │                │
-│  │   ✅ Any size in instance family        │                │
-│  │   ✅ Any region                          │                │
-│  │   ✅ Any OS, tenancy                     │                │
-│  │   ❌ Must stay in same family (m5)      │                │
+│ │    Any size in instance family        │                   │
+│ │    Any region                          │                   │
+│ │    Any OS, tenancy                     │                   │
+│ │    Must stay in same family (m5)      │                   │
 │  │                                          │                │
 │  │ Compute Savings Plans:                  │                │
-│  │   ✅ ANY instance type (m5, c5, r5...)  │                │
-│  │   ✅ ANY region                          │                │
-│  │   ✅ Covers Lambda, Fargate too          │                │
-│  │   ❌ Lower discount than EC2 SP         │                │
+│ │    ANY instance type (m5, c5, r5...)  │                   │
+│ │    ANY region                          │                   │
+│ │    Covers Lambda, Fargate too          │                   │
+│ │    Lower discount than EC2 SP         │                   │
 │  │                                          │                │
-│  │ Marketplace: ❌ Cannot sell             │                │
+│ │ Marketplace:  Cannot sell             │                   │
 │  │ Best for: Flexible workloads            │                │
 │  └────────────────────────────────────────┘                │
 │                                                              │
@@ -999,18 +999,18 @@ Pricing Model Comparison:
 
 ```
 ┌────────────────────────────────────────────────────────────┐
-│  1️⃣  All Upfront (Maximum discount)                        │
+│  1  All Upfront (Maximum discount)                        │
 │     Pay everything at purchase                             │
 │     No hourly charges                                      │
 │     Example: $2,814 upfront, $0/hour                       │
 │     Discount: 72%                                          │
 │                                                             │
-│  2️⃣  Partial Upfront (Medium discount)                     │
+│  2  Partial Upfront (Medium discount)                     │
 │     Pay part upfront, rest monthly                         │
 │     Example: $1,500 upfront, $0.05/hour                    │
 │     Discount: ~65%                                         │
 │                                                             │
-│  3️⃣  No Upfront (Lowest discount)                          │
+│  3  No Upfront (Lowest discount)                          │
 │     Pay monthly only                                       │
 │     Example: $0 upfront, $0.107/hour                       │
 │     Discount: ~60%                                         │
@@ -1025,17 +1025,17 @@ Pricing Model Comparison:
 Spot Instances for Cost Optimization:
 ┌────────────────────────────────────────────────────────────┐
 │  When to Use Spot:                                         │
-│    ✅ Batch processing                                      │
-│    ✅ Data analysis                                         │
-│    ✅ CI/CD workers                                         │
-│    ✅ Stateless web servers (with Auto Scaling)            │
-│    ✅ ML training                                           │
+│     Batch processing                                        │
+│     Data analysis                                           │
+│     CI/CD workers                                           │
+│     Stateless web servers (with Auto Scaling)              │
+│     ML training                                             │
 │                                                             │
 │  When NOT to use Spot:                                     │
-│    ❌ Databases                                             │
-│    ❌ Critical production without redundancy                │
-│    ❌ Long-running stateful applications                    │
-│    ❌ Your 24/7 predictable workload scenario              │
+│     Databases                                               │
+│     Critical production without redundancy                  │
+│     Long-running stateful applications                      │
+│     Your 24/7 predictable workload scenario                │
 │                                                             │
 │  Spot Best Practices:                                      │
 │    1. Diversify instance types (EC2 Fleet)                │
@@ -1054,7 +1054,7 @@ Spot Instances for Cost Optimization:
 │  Choose pricing model based on workload:                   │
 │                                                             │
 │  Steady, predictable, 1-3 years:                           │
-│    → Reserved Instances or Savings Plans ✅                │
+│    → Reserved Instances or Savings Plans                   │
 │      (Your scenario)                                       │
 │                                                             │
 │  Flexible, may change instance types:                      │
@@ -1128,13 +1128,13 @@ On-Demand Capacity Reservations:
 └────────────────────────────────────────────────────────────┘
 ```
 
-**💡 KEY TAKEAWAY:**
+**KEY TAKEAWAY:**
 - **Steady 24/7 workloads** = Reserved Instances or Savings Plans (up to 72% savings)
 - **Flexible workloads** = Compute Savings Plans (66% savings, full flexibility)
 - **Interruptible workloads** = Spot Instances (90% savings, but can be terminated)
 - **Unpredictable** = On-Demand (0% savings, full flexibility)
 
-**📝 EXAM TIP:**
+**EXAM TIP:**
 When question mentions "steady," "predictable," and "3 years," always choose **Reserved Instances or EC2 Instance Savings Plans**, NOT On-Demand or Spot.
 
 ---
@@ -1147,7 +1147,7 @@ When question mentions "steady," "predictable," and "3 years," always choose **R
 
 ---
 
-## 📚 Recommended Study Plan
+## Recommended Study Plan
 
 ### Week 1: Fix Security Knowledge Gap (56% → 80%+)
 
@@ -1208,7 +1208,7 @@ When question mentions "steady," "predictable," and "3 years," always choose **R
 
 ---
 
-## 🎯 Quick Reference Cards
+## Quick Reference Cards
 
 ### Card 1: CloudFront + ACM (CRITICAL!)
 ```yaml
@@ -1238,7 +1238,7 @@ Method 2: IAM Role
   - External account assumes role
   - Good for temporary access
   
-❌ SCP CANNOT grant cross-account access
+ SCP CANNOT grant cross-account access
    SCPs only RESTRICT within YOUR org
 ```
 
@@ -1271,21 +1271,21 @@ Resource-Based (Bucket):
   - Attached to: Resources (S3, KMS)
   - Controls: Who can access resource
   - Example: Account 123 can read bucket
-  - ✅ Can grant cross-account access
+  - Can grant cross-account access
   
 SCP (Organizations):
   - Attached to: Accounts, OUs
   - Controls: Max permissions (DENY)
   - Example: Deny ec2:RunInstances
-  - ❌ CANNOT grant permissions
-  - ❌ CANNOT grant cross-account
+  - CANNOT grant permissions
+  - CANNOT grant cross-account
 ```
 
 ---
 
-## 📝 Key Takeaways
+## Key Takeaways
 
-### What Went Right? ✅
+### What Went Right?
 1. **Huge Improvement in High-Performing** (43% → 75%)
    - +32% improvement from Practice Test 1
    - Study efforts are paying off!
@@ -1297,7 +1297,7 @@ SCP (Organizations):
 3. **Good Cost Optimization** (86%)
    - Minor gaps but mostly solid
 
-### What Went Wrong? ❌
+### What Went Wrong?
 1. **Security Knowledge DROPPED** (78% → 56%)
    - Lost 22 percentage points
    - 7 incorrect questions (most in any domain)
@@ -1316,10 +1316,10 @@ SCP (Organizations):
 
 ---
 
-## 🎓 Next Steps
+## Next Steps
 
 ### Immediate Actions (Today)
-1. ✅ Review this document completely
+1. Review this document completely
 2. [ ] **MEMORIZE:** CloudFront certificates = us-east-1 ONLY
 3. [ ] **UNDERSTAND:** SCP vs Bucket Policy for cross-account
 4. [ ] Read [Module 07: Security - CloudFront](../07-Security/README.md#cloudfront-security)
@@ -1339,13 +1339,13 @@ SCP (Organizations):
 
 ---
 
-## 📊 Performance Tracking
+## Performance Tracking
 
 ### Overall Progress
 ```
-Practice Test 1: 42/65 (64.62%) ❌ FAIL
-Practice Test 2: 49/65 (75.38%) ⚠️ BORDERLINE
-Next Target:     52/65 (80.00%) ✅ STRONG PASS
+Practice Test 1: 42/65 (64.62%) FAIL
+Practice Test 2: 49/65 (75.38%) BORDERLINE
+Next Target:     52/65 (80.00%) STRONG PASS
 
 Gap to Close: +3 questions
 Study Focus: Security (critical)
@@ -1357,13 +1357,13 @@ Domain                    Test 1 → Test 2 → Target
 ────────────────────────────────────────────────────
 High-Performing           43%  →  75%  →  85%
 Resilient                 71%  →  87%  →  90%
-Secure                    78%  →  56%  →  85% ⚠️
+Secure                    78% →  56%  →  85%
 Cost-Optimized           100%  →  86%  →  90%
 ```
 
 ---
 
-## 📌 Important Exam Tips
+## Important Exam Tips
 
 ### Keywords to Watch For
 - **"Cost-effective"** → Look for cheapest option (Glacier, Spot, S3 IA)
@@ -1372,14 +1372,14 @@ Cost-Optimized           100%  →  86%  →  90%
 - **"Secure"** → Look for encryption, IAM, VPC (not public access)
 
 ### Common Traps in This Test
-1. ❌ CloudFront cert in wrong region → Always us-east-1
-2. ❌ Using SCP for cross-account → Use bucket policy instead
-3. ❌ Choosing expensive retrieval → Use Flexible with free quota
-4. ❌ Over-complicating solutions → Simple is usually right
+1. CloudFront cert in wrong region → Always us-east-1
+2. Using SCP for cross-account → Use bucket policy instead
+3. Choosing expensive retrieval → Use Flexible with free quota
+4. Over-complicating solutions → Simple is usually right
 
 ---
 
-## 🔗 Related Resources
+## Related Resources
 
 ### Study Materials
 - [Module 02: IAM](../02-IAM/README.md) - Identity & Access Management
@@ -1401,7 +1401,7 @@ Cost-Optimized           100%  →  86%  →  90%
 
 **Target for Practice Test 3:** ≥80% (52+ correct answers)
 
-Good luck! You're making progress! 🚀📈
+Good luck! You're making progress!
 
 ---
 

@@ -1,4 +1,4 @@
-# 10: Migration & Transfer - Ultra Fast Learning 🚀
+# 10: Migration & Transfer - Ultra Fast Learning
 - **Transfer Family**: SFTP/FTPS/FTP to S3/EFS
 - **DR**: Backup & Restore (cheapest) → Multi-Site (fastest)
 - **AWS Backup**: Centralized, cross-service backup

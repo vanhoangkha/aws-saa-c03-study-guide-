@@ -1,4 +1,4 @@
-# 🎯 Practice Questions - Incorrect Areas Only
+# Practice Questions - Incorrect Areas Only
 
 **Based on**: Practice Test 1 Performance Analysis
 **Focus**: 31 incorrect question topics
@@ -7,7 +7,7 @@
 
 ---
 
-## 📋 Instructions
+## Instructions
 
 - Answer each question without looking at the explanation
 - Mark your answers
@@ -44,8 +44,8 @@ F. Container definition with logConfiguration pointing to CloudWatch
   - **Task Role (B, D)**: Used by the application code itself
 
 For this scenario:
-- Application accessing Secrets Manager = Task Role ✅
-- CloudWatch Logs integration = logConfiguration in task definition ✅
+- Application accessing Secrets Manager = Task Role
+- CloudWatch Logs integration = logConfiguration in task definition
 - Pulling images/initial setup = Task Execution Role (not asked)
 
 ---
@@ -211,9 +211,9 @@ D. Create Alias records for both example.com and www.example.com pointing to the
 
 | Record Type | At Root Domain (apex) | For Subdomain | DNS Query Charges | Points to ALB |
 |-------------|---------------------|---------------|-------------------|---------------|
-| **CNAME** | ❌ NOT ALLOWED | ✅ Allowed | Yes | Yes |
-| **Alias** | ✅ Allowed | ✅ Allowed | No (free) | Yes |
-| **A** | ✅ Allowed | ✅ Allowed | No | No (needs static IP) |
+| **CNAME** | NOT ALLOWED | Allowed | Yes | Yes |
+| **Alias** | Allowed | Allowed | No (free) | Yes |
+| **A** | Allowed | Allowed | No | No (needs static IP) |
 
 **For Root Domain (`example.com`)**:
 - Must use Alias record (CNAME not allowed at apex)
@@ -253,10 +253,10 @@ D. Set up VPC peering between the two accounts
   "Resource": "arn:aws:sqs:region:111111:MyQueue"
 }
 ```
-- ✅ Simple and direct
-- ✅ No temporary credentials needed
-- ✅ Resource-based policy (attached to queue)
-- ✅ No AssumeRole overhead
+- Simple and direct
+- No temporary credentials needed
+- Resource-based policy (attached to queue)
+- No AssumeRole overhead
 
 **IAM Role (Option A - More Complex)**:
 - Requires AssumeRole in every request
@@ -338,11 +338,11 @@ D. Deploy EKS in AWS and connect via VPN
 **Explanation**:
 
 **Amazon EKS Anywhere**:
-- ✅ Fully supported EKS deployment on your infrastructure
-- ✅ Same tooling as cloud EKS
-- ✅ Managed control plane lifecycle
-- ✅ Automatic updates
-- ✅ Works with on-premises, edge, or bare metal
+- Fully supported EKS deployment on your infrastructure
+- Same tooling as cloud EKS
+- Managed control plane lifecycle
+- Automatic updates
+- Works with on-premises, edge, or bare metal
 
 **EKS Distro (Option C)**:
 - Open-source Kubernetes distribution
@@ -529,7 +529,7 @@ D. Default
 | **OldestInstance** | Longest-running instance | Rotate instances regularly |
 | **NewestInstance** | Most recently launched | Prefer mature instances |
 | **OldestLaunchConfiguration** | Instance from oldest launch config version | Phase out old configs |
-| **OldestLaunchTemplate** | Instance from oldest launch template version | **Phase out old AMIs** ✅ |
+| **OldestLaunchTemplate** | Instance from oldest launch template version | **Phase out old AMIs**  |
 | **ClosestToNextInstanceHour** | Instance closest to next billing hour | Cost optimization |
 | **AllocationStrategy** | For Spot instances only | Spot Fleet management |
 
@@ -662,10 +662,10 @@ Resources:
 ```
 
 **Why Mappings**:
-- ✅ Static, region-specific values
-- ✅ Easy to maintain
-- ✅ Built-in CloudFormation feature
-- ✅ No external dependencies
+- Static, region-specific values
+- Easy to maintain
+- Built-in CloudFormation feature
+- No external dependencies
 
 **Comparison**:
 
@@ -710,10 +710,10 @@ D. Create materialized views for frequently accessed data
 5. Reduces data transfer and CPU load
 
 **Benefits**:
-- ✅ No operational changes required
-- ✅ Automatic with compatible instances (ra3 nodes)
-- ✅ No additional cost (included with ra3)
-- ✅ Improves large scan performance
+- No operational changes required
+- Automatic with compatible instances (ra3 nodes)
+- No additional cost (included with ra3)
+- Improves large scan performance
 
 **Limitations**:
 - Only works with **RA3 instance types**
@@ -772,8 +772,8 @@ D. Manually document server specifications
 
 | Method | VMware Support | Installation Effort | Data Detail |
 |--------|----------------|---------------------|-------------|
-| **Agentless** | ✅ Yes (requires vCenter) | Low (1 OVA) | System-level |
-| **Agent-Based** | ✅ Yes | High (per-VM) | Application-level |
+| **Agentless** | Yes (requires vCenter) | Low (1 OVA) | System-level |
+| **Agent-Based** | Yes | High (per-VM) | Application-level |
 
 **Exam Tip**: "VMware" + "vCenter" + "many VMs" = Agentless Discovery
 
@@ -822,10 +822,10 @@ mount -t nfs4 -o nfsvers=4.1 fs-12345678.efs.eu-west-1.amazonaws.com:/ /mnt/efs
    - On-premises mounts EFS via VPC B IP routing
 
 **Key Points**:
-- ✅ All traffic stays on AWS network
-- ✅ No internet gateway needed
-- ✅ Low latency (AWS backbone)
-- ✅ Secure (private connection)
+- All traffic stays on AWS network
+- No internet gateway needed
+- Low latency (AWS backbone)
+- Secure (private connection)
 
 **Why Not Others**:
 - **A**: VPC peering alone doesn't specify inter-region (required here)
@@ -934,10 +934,10 @@ for label in response['CustomLabels']:
 ```
 
 **Why Custom Labels**:
-- ✅ Species-specific detection (not general "animal")
-- ✅ No ML expertise needed
-- ✅ Fast training with small datasets
-- ✅ Managed infrastructure
+- Species-specific detection (not general "animal")
+- No ML expertise needed
+- Fast training with small datasets
+- Managed infrastructure
 
 **Cost**:
 - Training: $1.00/hour
@@ -988,7 +988,7 @@ D. Use AWS Config rules to detect and delete newly created Internet Gateways
 - Set **maximum permissions** for member accounts
 - Act as guardrails (do NOT grant permissions)
 - Apply to IAM users and roles (not resources)
-- **DO NOT affect management account** ⚠️
+- **DO NOT affect management account**
 
 **How It Works**:
 1. Attach SCP to Organization/OU/Account
@@ -1001,10 +1001,10 @@ D. Use AWS Config rules to detect and delete newly created Internet Gateways
 - Effective: User CANNOT create IGW, but can do all other EC2 actions
 
 **Why This Works**:
-- ✅ Prevents new IGW creation
-- ✅ Existing IGWs unaffected (SCPs don't delete resources)
-- ✅ Centralized control
-- ✅ Cannot be overridden by member accounts
+- Prevents new IGW creation
+- Existing IGWs unaffected (SCPs don't delete resources)
+- Centralized control
+- Cannot be overridden by member accounts
 
 **Why B is Wrong**: SCPs do NOT apply to the management account!
 
@@ -1046,9 +1046,9 @@ D. Use EC2 Instance Store backed AMI
 
 | Feature | Hibernate | Stop/Start |
 |---------|-----------|------------|
-| RAM preserved | ✅ Yes | ❌ No |
+| RAM preserved | Yes | No |
 | Startup time | Fast (60s) | Slow (full boot) |
-| Application state | ✅ Preserved | ❌ Lost |
+| Application state | Preserved | Lost |
 | Use case | Long-running processes | Normal shutdowns |
 
 **Requirements**:
@@ -1158,9 +1158,9 @@ AZ-C: NAT Gateway + EC2 instances (Same-AZ, no data transfer charge)
 **Break-Even**: If you transfer > ~100 GB/month across AZs, multiple NAT Gateways are cheaper
 
 **Why This Saves Money**:
-- ✅ Eliminates cross-AZ data transfer charges ($0.01/GB)
-- ✅ Improved fault tolerance (AZ failure doesn't affect others)
-- ✅ Lower latency (traffic stays in same AZ)
+- Eliminates cross-AZ data transfer charges ($0.01/GB)
+- Improved fault tolerance (AZ failure doesn't affect others)
+- Lower latency (traffic stays in same AZ)
 
 **Why Not Others**:
 - **A (NAT Instance)**: Less reliable; requires management
@@ -1213,10 +1213,10 @@ kms.decrypt(
 ```
 
 **Benefits**:
-- ✅ Low-latency encryption/decryption (local API calls)
-- ✅ Data encrypted in one region can be decrypted in another
-- ✅ Disaster recovery (automatic failover)
-- ✅ Compliance (data residency maintained)
+- Low-latency encryption/decryption (local API calls)
+- Data encrypted in one region can be decrypted in another
+- Disaster recovery (automatic failover)
+- Compliance (data residency maintained)
 
 **Use Cases**:
 - Global applications
@@ -1322,9 +1322,9 @@ D. Asymmetric key for S3 encryption, symmetric key for digital signing
 - Fastest performance
 
 **Use Cases**:
-- ✅ Data at rest encryption (S3, EBS)
-- ✅ Database encryption (RDS, DynamoDB)
-- ✅ Secrets Manager, Parameter Store
+- Data at rest encryption (S3, EBS)
+- Database encryption (RDS, DynamoDB)
+- Secrets Manager, Parameter Store
 
 **API Operations**:
 ```python
@@ -1345,9 +1345,9 @@ response = kms.decrypt(
 - Different operations: Encrypt/decrypt, Sign/verify
 
 **Use Cases**:
-- ✅ Digital signatures (code signing, JWT tokens)
-- ✅ Public key encryption (offline encryption)
-- ✅ TLS certificate generation
+- Digital signatures (code signing, JWT tokens)
+- Public key encryption (offline encryption)
+- TLS certificate generation
 
 **API Operations**:
 ```python
@@ -1432,15 +1432,15 @@ aws ec2 run-instances \
 ```
 
 **Cost Savings**:
-- ❌ Before: 20 VPCs × $36.50/month (Transit Gateway attachment) = $730/month
-- ✅ After: 1 VPC + shared subnets = $36.50/month
+- No: Before: 20 VPCs × $36.50/month (Transit Gateway attachment) = $730/month
+- Yes: After: 1 VPC + shared subnets = $36.50/month
 - **Savings: ~$693/month (95% reduction)**
 
 **Benefits**:
-- ✅ Centralized network management
-- ✅ Consistent security policies
-- ✅ No resource duplication
-- ✅ Easier compliance
+- Centralized network management
+- Consistent security policies
+- No resource duplication
+- Easier compliance
 
 **Why Not Others**:
 - **A (VPC Peering)**: Doesn't reduce resource duplication
@@ -1498,9 +1498,9 @@ If the scenario showed:
 Then multiple NAT Gateways would be the answer.
 
 **For exam purposes**, the correct reasoning is:
-- ✅ Same-AZ NAT Gateway = No cross-AZ charges
-- ✅ Multiple NAT Gateways = Higher availability
-- ✅ Best for high-traffic workloads (10+ TB/month)
+- Same-AZ NAT Gateway = No cross-AZ charges
+- Multiple NAT Gateways = Higher availability
+- Best for high-traffic workloads (10+ TB/month)
 
 **Exam Tip**: Watch for traffic volume in the question. "High cross-AZ costs" implies significant traffic justifying multiple NAT Gateways.
 
@@ -1550,10 +1550,10 @@ aws ec2 create-tags \
 | 444444 | Production | Marketing | $67.30 |
 
 **Key Points**:
-- ✅ Tags applied in resource-owning account
-- ✅ Management account activates tags organization-wide
-- ✅ Only management account sees consolidated costs
-- ✅ Member accounts see only their own costs
+- Tags applied in resource-owning account
+- Management account activates tags organization-wide
+- Only management account sees consolidated costs
+- Member accounts see only their own costs
 
 **Why Not Others**:
 - **B**: Management account cannot tag resources in member accounts
@@ -1618,11 +1618,11 @@ On-Premises Servers --[Install Replication Agent]--> AWS Replication Server (Sta
 - Various Linux and Windows versions
 
 **Benefits**:
-- ✅ Automated server conversion
-- ✅ Continuous replication (no need for migration window)
-- ✅ Non-disruptive testing
-- ✅ Minimal downtime
-- ✅ No application changes required
+- Automated server conversion
+- Continuous replication (no need for migration window)
+- Non-disruptive testing
+- Minimal downtime
+- No application changes required
 
 **Why Not Others**:
 - **A (SMS)**: Deprecated; replaced by Application Migration Service
@@ -1637,7 +1637,7 @@ On-Premises Servers --[Install Replication Agent]--> AWS Replication Server (Sta
 
 ---
 
-## 🎯 Study Tips for These Questions
+## Study Tips for These Questions
 
 ### 1. **Active Recall**: After answering, explain the concept aloud
 ### 2. **Spaced Repetition**: Review questions on Day 1, 3, 7, 14
@@ -1647,7 +1647,7 @@ On-Premises Servers --[Install Replication Agent]--> AWS Replication Server (Sta
 
 ---
 
-## 📈 Progress Tracking
+## Progress Tracking
 
 - [ ] Complete all 31 practice questions
 - [ ] Score 80%+ on first attempt
