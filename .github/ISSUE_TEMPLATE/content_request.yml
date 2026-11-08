@@ -1,0 +1,46 @@
+name: Content request
+description: Suggest a missing topic, diagram or set of practice questions.
+labels: ["enhancement"]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      placeholder: Amazon EFS replication
+    validations:
+      required: true
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      options:
+        - 01 AWS Fundamentals
+        - 02 IAM
+        - 03 Compute
+        - 04 Storage
+        - 05 Database
+        - 06 Networking
+        - 07 Security
+        - 08 Application Integration
+        - 09 Monitoring
+        - 10 Migration
+        - 11 Analytics
+        - 12 Architecture Patterns
+        - 13 Cost Optimization
+        - 14 Practice
+        - Simulator or study site
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters for SAA-C03
+      description: Point to the exam guide task statement or a common exam scenario if you can.
+    validations:
+      required: true
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I would like to write this myself.

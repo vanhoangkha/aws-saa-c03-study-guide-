@@ -150,9 +150,9 @@ All contributions are reviewed for:
 If you discover content that violates these policies:
 
 1. **Open an issue** with details of the violation
-2. **Email maintainers** for urgent concerns
+2. **Report privately** through the [Security tab](SECURITY.md) if the content is copied exam material or otherwise harmful
 3. **Do not use** the violating content
-4. **Report immediately** so it can be removed
+4. Content confirmed as a violation is removed and the issue closed
 
 ---
 

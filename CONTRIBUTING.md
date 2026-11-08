@@ -4,9 +4,9 @@ Corrections, new questions, diagrams and clearer explanations are all welcome. E
 
 ## Reporting a problem
 
-Open an issue with the bug report template. Say which file and section is wrong, what it says now, what it should say, and link the AWS documentation that backs the correction.
+Open an issue with the "Content error" form. Say which file and section is wrong, what it says now, what it should say, and link the AWS documentation that backs the correction.
 
-For new topics or larger changes, use the feature request template first so the scope can be agreed before you write it.
+For new topics or larger changes, use the "Content request" form first so the scope can be agreed before you write it.
 
 ## Making a change
 

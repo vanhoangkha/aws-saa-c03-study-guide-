@@ -1,5 +1,9 @@
 # AWS Certified Solutions Architect – Associate (SAA-C03) Study Guide
 
+[![Checks](https://github.com/vanhoangkha/aws-saa-c03-study-guide-/actions/workflows/checks.yml/badge.svg)](https://github.com/vanhoangkha/aws-saa-c03-study-guide-/actions/workflows/checks.yml)
+[![Pages](https://github.com/vanhoangkha/aws-saa-c03-study-guide-/actions/workflows/pages.yml/badge.svg)](https://github.com/vanhoangkha/aws-saa-c03-study-guide-/actions/workflows/pages.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Free study notes, diagrams and practice questions for the SAA-C03 exam, organised in 14 modules. Each module comes in three lengths, so you can pick the one that fits the time you have.
 
 - [Exam simulator](https://vanhoangkha.github.io/aws-saa-c03-study-guide-/simulator/): a timed 65-question, 130-minute exam or a single-topic drill, drawn from 298 questions. Scores and history stay in your browser. There is no sign-up and no tracking.
@@ -161,13 +165,13 @@ Official sources worth reading alongside these notes: the [Well-Architected Fram
 
 ## Contributing
 
-Corrections and additions are welcome. Fork the repository, make your change on a branch, and open a pull request against `master`. [CONTRIBUTING.md](CONTRIBUTING.md) covers the content rules, and [CONTRIBUTORS.md](CONTRIBUTORS.md) lists the people who have helped. To ask a question or report an error, [open an issue](../../issues).
+Corrections and additions are welcome. Fork the repository, make your change on a branch, and open a pull request against `master`. [CONTRIBUTING.md](CONTRIBUTING.md) covers the content rules, and [CONTRIBUTORS.md](CONTRIBUTORS.md) lists the people who have helped. To report an error, [open an issue](../../issues/new/choose); security problems go through [SECURITY.md](SECURITY.md). [CHANGELOG.md](CHANGELOG.md) records what changed between releases.
 
 ## License and disclaimers
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE) and [NOTICE](NOTICE) for attribution of the original guide.
 
-This guide is written by the community and is not affiliated with Amazon Web Services. AWS and related marks belong to Amazon.com, Inc. or its affiliates.
+This guide is written by the community and is not affiliated with, endorsed by or sponsored by Amazon Web Services. AWS and related marks belong to Amazon.com, Inc. or its affiliates.
 
 The content is original or based on public AWS documentation. It contains no real exam questions and no material copied from paid courses or books, in line with the [AWS Certification Program Agreement](https://aws.amazon.com/certification/certification-agreement/). See [CONTENT-POLICY.md](CONTENT-POLICY.md).
 

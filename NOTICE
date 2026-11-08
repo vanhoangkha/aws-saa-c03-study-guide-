@@ -1,0 +1,16 @@
+AWS Certified Solutions Architect - Associate (SAA-C03) Study Guide
+Copyright (c) 2026 vanhoangkha
+
+This project is a derivative of "AWS Certified Solutions Architect -
+Associate (SAA-C03)" by ChathurangaVKD and contributors,
+https://github.com/ChathurangaVKD/AWS-Certified-Solutions-Architect-Associate-SAA-C03,
+used under the MIT License. The original copyright notice is kept in LICENSE.
+
+external/aws-saa-c02-study-guide is a git submodule pointing to
+https://github.com/rdurelli/AWS-SAA-C03-Study-Guide. That repository has no
+license; its content is not copied into this project and is not covered by
+this project's license.
+
+This project is not affiliated with, endorsed by, or sponsored by Amazon Web
+Services, Inc. Amazon Web Services, AWS and related marks are trademarks of
+Amazon.com, Inc. or its affiliates.

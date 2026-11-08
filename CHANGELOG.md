@@ -10,6 +10,7 @@ First release of this repository, based on the MIT-licensed study guide by Chath
 - `external/aws-saa-c02-study-guide`: the rdurelli study guide as a git submodule. It has no license, so it is linked rather than copied.
 - Original sections for topics only that guide covered: EC2 Hibernate and Amazon WorkSpaces (03), Data Lifecycle Manager (04), Amazon SWF (08), OpsWorks retirement (09), Elastic Transcoder end of support and MediaConvert (11).
 - `scripts/check_links.py` and a `Checks` workflow that verifies links, heading anchors and the simulator build on every push and pull request.
+- Repository standards: issue forms, pull request checklist, CODEOWNERS, Dependabot for GitHub Actions, `.editorconfig`, `.gitattributes` (LF line endings), and a NOTICE file with attribution and trademark notices.
 
 ### Changed
 - Removed emoji, icons and promotional or motivational filler from all pages, the study site and the simulator. Table cells that held only an icon now say Yes, No, Partial or Low/Medium/High.
@@ -26,6 +27,10 @@ First release of this repository, based on the MIT-licensed study guide by Chath
   - Answer keys that were wrong or ambiguous, and CLI commands, JSON policies and CloudFormation snippets that would not run.
   - Status notes for retired or closed services (Snow Family devices, Migration Hub, QLDB, App Mesh, S3 Select, CloudTrail Lake and others).
 - Broken Mermaid state diagram in `13-Cost-Optimization/DIAGRAMS.md` and two dead anchors in the flashcards table of contents.
+
+### Security
+- GitHub Actions are pinned to commit SHAs, checkouts do not keep credentials, and the Pages deploy token is scoped to the deploy job only.
+- SECURITY.md points to GitHub private vulnerability reporting.
 
 ## [1.x] - 2026-01-02
 

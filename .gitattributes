@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.jpg binary
+# Generated from the PRACTICE-QUESTIONS.md files by simulator/build_questions.py.
+simulator/questions.js linguist-generated=true
+external/** linguist-vendored=true

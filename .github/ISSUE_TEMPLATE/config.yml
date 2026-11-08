@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question about AWS or the exam
+    url: https://github.com/vanhoangkha/aws-saa-c03-study-guide-/discussions
+    about: Ask study questions in Discussions rather than in issues.
+  - name: Security issue
+    url: https://github.com/vanhoangkha/aws-saa-c03-study-guide-/security/advisories/new
+    about: Report security problems privately.
+  - name: Problem with an AWS service
+    url: https://repost.aws/
+    about: The guide cannot help with your AWS account; use AWS re:Post or AWS Support.
