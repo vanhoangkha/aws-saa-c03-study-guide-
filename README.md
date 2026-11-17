@@ -28,8 +28,8 @@ Free study notes, diagrams and practice questions for the SAA-C03 exam, organise
 | | |
 |---|---|
 | Code | SAA-C03 |
-| Length | 130 minutes, 65 questions (multiple choice and multiple response) |
-| Passing score | 720 out of 1000 |
+| Length | 130 minutes, 65 questions (multiple choice and multiple response); 50 are scored and 15 are unscored, unmarked trial questions |
+| Passing score | 720 on a scaled score of 100-1,000. Scoring is compensatory: you need to pass the exam overall, not each domain |
 | Cost | 150 USD |
 | Validity | 3 years |
 | Delivery | Online proctored or at a test centre |
