@@ -409,7 +409,7 @@ graph TB
         
         Rules["Config Rules<br/>Compliance Checks"]
         
-        Managed["AWS Managed Rules<br/>800+ pre-built rules"]
+        Managed["AWS Managed Rules<br/>Hundreds of pre-built rules"]
         Custom["Custom Rules<br/>Lambda functions"]
         
         Rules --> Managed

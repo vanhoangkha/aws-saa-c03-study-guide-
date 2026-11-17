@@ -368,7 +368,7 @@ AWS offers a range of database services for different use cases. This module cov
 - **Compute Nodes**: Execute queries, send results to leader
 - **Node Types**:
   - RA3: Managed storage, separate compute and storage (recommended)
-  - Dense Compute (dc2): Previous generation; deprecated in 2025, migrate to RA3 or Serverless
+  - Dense Compute (dc2): Previous generation; deprecation announced April 2025 ([AWS blog](https://aws.amazon.com/blogs/big-data/amazon-redshift-dc2-migration-approach-with-a-customer-case-study/)); migrate to RA3 or Serverless
   - Dense Storage (ds2): Previous generation
 
 ### Redshift Spectrum

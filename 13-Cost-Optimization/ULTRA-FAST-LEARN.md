@@ -159,7 +159,7 @@
 - **Tag resources** consistently
 
 ### AWS Compute Optimizer
-- **ML-based recommendations** for EC2, EBS, Lambda
+- **ML-based recommendations** for EC2, Auto Scaling groups, EBS, Lambda, ECS on Fargate, RDS/Aurora
 - **Right-sizing**: Identify over-provisioned resources
 - **Free** (requires opt-in; enhanced infrastructure metrics are paid)
 - **Supports**: EC2, Auto Scaling, EBS, Lambda
