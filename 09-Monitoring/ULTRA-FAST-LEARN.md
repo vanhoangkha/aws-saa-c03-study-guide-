@@ -19,7 +19,7 @@
 - **Log groups**: Collection of log streams
 - **Log streams**: Sequence of log events
 - **Retention**: 1 day to 10 years, or never expire (default)
-- **Subscription filters**: Stream to Lambda, Kinesis Data Streams, Amazon Data Firehose, OpenSearch Service
+- **Subscription filters**: Stream to Lambda, Kinesis Data Streams, Amazon Data Firehose (OpenSearch through Lambda or Firehose)
 - **Metric filters**: Extract metrics from logs
 - **CloudWatch Logs Insights**: Query language for logs
 

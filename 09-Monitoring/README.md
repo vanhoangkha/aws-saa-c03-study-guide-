@@ -98,7 +98,7 @@ Monitoring and management services help you track performance, detect issues, an
   - **Kinesis Data Streams**: Real-time processing
   - **Amazon Data Firehose** (formerly Kinesis Data Firehose): S3, Redshift, OpenSearch
   - **Lambda**: Custom processing
-  - **Amazon OpenSearch Service**: Search and analytics
+  - **Amazon OpenSearch Service**: not a direct destination; the console wires it up through a Lambda function
 - Cross-account subscriptions supported
 
 ### CloudWatch Agent
@@ -209,7 +209,7 @@ Monitoring and management services help you track performance, detect issues, an
 
 ### Config Rules
 
-**AWS Managed Rules** (800+)
+**AWS Managed Rules** (hundreds of pre-built rules)
 - Pre-built rules for common best practices
 - Examples:
   - `encrypted-volumes`: Check if EBS volumes are encrypted

@@ -111,7 +111,7 @@ VALIDATION:
 ### 4. AWS Config Rules
 ```
 TYPES:
-├── AWS Managed Rules (pre-built, 800+)
+├── AWS Managed Rules (pre-built, hundreds of rules)
 │   └── s3-bucket-public-read-prohibited
 │   └── required-tags
 │   └── encrypted-volumes
