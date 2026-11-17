@@ -216,7 +216,7 @@ sequenceDiagram
     STS->>Role: Validate Trust Policy
     Role->>STS: Trust Policy Valid
     STS->>EC2: Temporary Security Credentials<br/>(Access Key + Secret + Token)
-    Note over EC2: Credentials are temporary and rotated automatically
+    Note over EC2: Credentials rotated automatically before they expire
     EC2->>S3: Access S3 using temporary credentials
     S3->>Role: Check Permissions Policy
     Role->>S3: Allow/Deny
@@ -431,15 +431,15 @@ graph TB
     MFA[MFA Options]
     
     MFA --> Virtual[Virtual MFA Device]
-    MFA --> Hardware[Hardware MFA Device]
-    MFA --> U2F[U2F Security Key]
+    MFA --> Hardware[Hardware TOTP Token]
+    MFA --> U2F[Passkey / FIDO2 Security Key]
     
     Virtual --> GoogleAuth[Google Authenticator]
     Virtual --> Authy[Authy]
     Virtual --> Microsoft[Microsoft Authenticator]
     
-    Hardware --> Gemalto[Gemalto Token]
-    Hardware --> SurePass[SurePassID]
+    Hardware --> Gemalto[Thales Token]
+    Hardware --> SurePass[Hypersecu - GovCloud]
     
     U2F --> Yubikey[YubiKey]
     

@@ -4,7 +4,7 @@
 
 AWS Identity and Access Management (IAM) is a critical service for securely controlling access to AWS resources. This module covers IAM users, groups, roles, policies, and security best practices essential for the SAA-C03 exam.
 
-**Exam Weight**: ~15-20% (appears in Security domain and throughout the exam)
+**Exam Weight**: Not weighted separately. The SAA-C03 exam guide weights only its four domains (30/26/24/20%); IAM is central to Domain 1, Design Secure Architectures (30%), and appears throughout.
 
 ---
 
@@ -85,7 +85,7 @@ An IAM user represents a person or application that interacts with AWS.
 - Permanent credentials
 - Can have console access (password)
 - Can have programmatic access (access keys)
-- Maximum 5,000 users per AWS account
+- Maximum 5,000 users per AWS account (not adjustable)
 
 ### 2.2 Creating IAM Users
 
@@ -120,7 +120,7 @@ Default output format: json
 - Require administrator reset
 
 **Access Keys:**
-- Each user can have max 2 active access keys
+- Each user can have max 2 access keys (active or inactive)
 - Rotate regularly (security best practice)
 - Never embed in code or commit to version control
 - Use IAM roles instead when possible
@@ -382,19 +382,21 @@ Additional layer of security beyond password.
 - Authy
 - Most common and convenient
 
-**2. Hardware MFA Device:**
-- Gemalto token
-- YubiKey
+**2. Hardware TOTP Token:**
+- Six-digit time-based codes; must be bought from the AWS-designated vendor (Thales; Hypersecu for AWS GovCloud (US))
 - Physical device
 
-**3. U2F Security Key:**
-- YubiKey
-- Supports multiple root and IAM users
+**3. Passkeys and Security Keys (FIDO2, formerly "U2F security key"):**
+- Security keys such as YubiKey, or synced passkeys (for example Apple, Google, Microsoft, 1Password)
+- Phishing-resistant; AWS's recommended MFA type
+- One security key supports multiple root and IAM users
+
+**Notes:** Each root user or IAM user can register up to 8 MFA devices. SMS text-message MFA is no longer supported.
 
 ### 6.3 When to Use MFA
 
 **Required for:**
-- Root account (always!)
+- Root account (always; AWS now enforces root user MFA for all account types)
 - IAM users with administrative access
 - IAM users accessing sensitive data
 
@@ -410,7 +412,8 @@ aws sts get-session-token \
   --serial-number arn:aws:iam::123456789012:mfa/username \
   --token-code 123456
 
-# Returns temporary credentials valid for 12 hours
+# Returns temporary credentials: default 12 hours, range 15 minutes to 36 hours
+# (sessions created with root user credentials: max 1 hour)
 ```
 
 **Exam Tip**: Always enable MFA on root account. It's a critical security best practice.
@@ -463,7 +466,7 @@ aws sts get-session-token \
 | Policy Name | Description |
 |-------------|-------------|
 | **AdministratorAccess** | Full access to all AWS services |
-| **PowerUserAccess** | Admin access except IAM |
+| **PowerUserAccess** | Full access except management of IAM, Organizations and account settings (a few read/service-linked-role actions are allowed) |
 | **ReadOnlyAccess** | Read-only access to all services |
 | **IAMFullAccess** | Full access to IAM only |
 | **AmazonS3ReadOnlyAccess** | Read-only access to S3 |
@@ -519,7 +522,8 @@ Allows users to access AWS using credentials from external identity providers.
 User → Corporate Login → SAML Assertion → AWS STS → Temporary Credentials
 ```
 
-**2. Web Identity Federation:**
+**2. Web Identity Federation (OIDC):**
+- For app users who need sign-up, sign-in and profiles, AWS suggests Amazon Cognito as the identity broker
 - Login with Amazon
 - Login with Facebook
 - Login with Google
@@ -549,7 +553,7 @@ aws sts assume-role \
 # - AccessKeyId
 # - SecretAccessKey
 # - SessionToken
-# - Expiration (default 1 hour, max 12 hours)
+# - Expiration (default 1 hour; up to the role's maximum session duration, 1-12 hours)
 ```
 
 **Key STS APIs:**
@@ -754,3 +758,15 @@ D) Share the AWS account password
 
 [Back to Main README](../README.md) | [Next Module: Compute ](../03-Compute/README.md)
 
+## References
+
+Pages verified for the fact-check of this module (November 2026):
+- [IAM and AWS STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) and [IAM endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/iam-service.html)
+- [Multi-factor authentication in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) and [IAM MFA features (supported devices)](https://aws.amazon.com/iam/features/mfa/)
+- [GetSessionToken (STS API Reference)](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetSessionToken.html)
+- [Use an IAM role to grant permissions to applications running on EC2](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html)
+- [PowerUserAccess managed policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/PowerUserAccess.html)
+- [OIDC federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html)
+- [Refine permissions using last accessed information](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed.html)
+- [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html)
+- [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
