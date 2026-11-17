@@ -3,13 +3,13 @@
 ## RDS (Relational Database Service)
 
 ### Supported Engines
-- PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, **Aurora**
+- PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, Db2, **Aurora**
 
 ### Key Features
 - **Automated backups**: 1-35 days (default 7), PITR
 - **Manual snapshots**: Retained forever
 - **Multi-AZ**: Synchronous replication, **disaster recovery** (not read scaling)
-- **Read Replicas**: Asynchronous, **read scaling**, max **15**
+- **Read Replicas**: Asynchronous, **read scaling**, max **15** (Oracle 5, Db2 3)
 - **Storage Auto Scaling**: Auto-increase when low
 
 ### Multi-AZ vs Read Replicas
@@ -36,7 +36,7 @@
 - **6 copies** across 3 AZs (4/6 write quorum, 3/6 read quorum)
 - **Self-healing** (peer-to-peer replication)
 - **Auto-failover** <30 seconds
-- **15 read replicas** (RDS MySQL/MariaDB/PostgreSQL/SQL Server also 15; RDS Oracle 5)
+- **15 read replicas** (RDS MySQL/MariaDB/PostgreSQL/SQL Server also 15; RDS Oracle 5; RDS Db2 3)
 
 ### Aurora Endpoints
 - **Writer Endpoint**: Points to master (read/write)
@@ -69,7 +69,7 @@
 
 ### Read/Write Capacity
 - **Provisioned**: Set RCU/WCU (cheaper, predictable)
-- **On-Demand**: Pay per request (unpredictable workload)
+- **On-Demand**: Pay per request (unpredictable workload); default mode
 - **1 WCU** = 1 KB/sec write
 - **1 RCU** = 4 KB/sec strongly consistent (or 8 KB/sec eventually consistent)
 
@@ -78,7 +78,7 @@
 - **DynamoDB Streams**: Ordered stream of item changes (24 hr retention)
 - **TTL**: Auto-delete expired items
 - **DAX**: In-memory cache, microsecond latency
-- **Backup**: On-demand or PITR (35 days)
+- **Backup**: On-demand or PITR (recovery period 1-35 days)
 
 ### DynamoDB Indexes
 - **Local Secondary Index (LSI)**: Same partition key, different sort key, **max 5**, **must create with table**
@@ -87,6 +87,7 @@
 ## ElastiCache
 
 ### ElastiCache Engines
+- **Valkey**: Redis OSS-compatible fork; same feature set as Redis below
 - **Redis**: Persistence, backup/restore, multi-AZ, read replicas, pub/sub
 - **Memcached**: Simple, multi-threaded, no persistence
 
@@ -123,13 +124,13 @@
 - Knowledge graphs
 
 ## QLDB (Quantum Ledger Database)
-- **Status (November 2026)**: Amazon QLDB has been discontinued
+- **Status (November 2026)**: Amazon QLDB reached end of support on 31 July 2025; not in the SAA-C03 v1.1 in-scope service list
 - **Immutable** ledger
 - Cryptographically verifiable
 - Financial transactions, supply chain
 
 ## Timestream
-- **Status**: Timestream for LiveAnalytics closed to new customers (20 June 2025); AWS recommends Timestream for InfluxDB
+- **Status**: Timestream for LiveAnalytics closed to new customers (20 June 2025); AWS recommends Timestream for InfluxDB. Not in the SAA-C03 v1.1 in-scope service list
 - **Time-series** database
 - IoT, operational metrics
 
