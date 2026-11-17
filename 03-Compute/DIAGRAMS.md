@@ -385,7 +385,7 @@ sequenceDiagram
         EC2_3->>ELB: 200 OK (Healthy)
     end
     
-    Note over ELB,EC2_3: After 5 consecutive successes (ALB default, NLB default is 3)
+    Note over ELB,EC2_3: After 5 consecutive successes (ALB and NLB default)
     
     ELB->>TG: Mark EC2_3 as Healthy
     
