@@ -386,7 +386,7 @@ mindmap
             Lambda
             ECS/EKS
             Elastic Beanstalk
-            Lightsail (out of scope for SAA-C03)
+            Lightsail - out of scope for SAA-C03
         Storage
             S3
             EBS
@@ -415,7 +415,7 @@ mindmap
             Athena
             EMR
             Kinesis
-            Amazon Quick (formerly QuickSight)
+            QuickSight - now part of Amazon Quick Suite
             Glue
         Integration
             SQS

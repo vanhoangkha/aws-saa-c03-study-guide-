@@ -72,7 +72,7 @@
 - **Networking**: VPC, Route 53, CloudFront, Direct Connect
 - **Security**: IAM, KMS, WAF, Shield, GuardDuty
 - **Integration**: SQS, SNS, EventBridge, Step Functions
-- **Analytics**: Athena, Kinesis, EMR, Glue, Amazon Quick (formerly QuickSight)
+- **Analytics**: Athena, Kinesis, EMR, Glue, QuickSight (now part of Amazon Quick Suite)
 
 ## Quick Exam Tips
 - **Region** = multiple AZs (min 3)
