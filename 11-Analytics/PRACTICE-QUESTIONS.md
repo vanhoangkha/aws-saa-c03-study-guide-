@@ -236,7 +236,7 @@ D. Crawlers cannot be triggered automatically
 
 **Explanation:**
 - An EventBridge rule matching S3 PutObject events can target a Glue workflow whose EVENT trigger starts the crawler
-- (S3 data events reach EventBridge through a CloudTrail trail)
+- (Turn on Amazon EventBridge notifications on the bucket to get Object Created events; matching the PutObject API call itself needs a CloudTrail trail with data events)
 - Automated schema discovery when new data arrives
 - Manual running isn't automatic
 - Config tracks configuration, doesn't trigger workflows

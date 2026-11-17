@@ -426,7 +426,6 @@ D. Serverless architecture with Lambda and DynamoDB on-demand
 - Serverless scales automatically with no capacity planning
 - Lambda adds up to 1,000 execution environments every 10 seconds per function (up to the account concurrency limit)
 - DynamoDB on-demand instantly handles up to double the previous peak; for larger planned jumps, pre-warm (warm throughput)
-- No capacity planning required
 - Option A doesn't scale
 - Option B has lag time for scaling
 - Option C requires knowing when spikes will happen
