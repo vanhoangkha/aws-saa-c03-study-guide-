@@ -44,7 +44,7 @@ graph TB
     Results --> QuickSight
     Results --> JDBC
     
-    Features["Features:<br/>Serverless - no infrastructure<br/>Pay per query $5 per TB scanned<br/>Supports partitioning<br/>Columnar formats for cost savings<br/>Federated queries<br/>Use Parquet for 90% cost reduction"]
+    Features["Features:<br/>Serverless - no infrastructure<br/>Pay per query $5 per TB scanned<br/>Supports partitioning<br/>Columnar formats for cost savings<br/>Federated queries<br/>Compress, partition, columnar: 30-90% savings"]
     
     classDef style1 fill:#FF9900
     class Athena style1
@@ -97,7 +97,7 @@ graph TB
 ```mermaid
 graph TB
     subgraph EMR_Cluster_Group["EMR Cluster"]
-        Master["Master Node<br/>Manage cluster<br/>Coordinate jobs<br/>Track status"]
+        Master["Primary Node, formerly master<br/>Manage cluster<br/>Coordinate jobs<br/>Track status"]
         
         subgraph Core_Nodes_Group["Core Nodes"]
             Core1["Core Node 1<br/>Run tasks<br/>Store data in HDFS"]
