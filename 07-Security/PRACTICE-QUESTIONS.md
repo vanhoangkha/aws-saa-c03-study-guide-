@@ -62,7 +62,7 @@ D. Amazon S3 with encryption
 
 **Explanation:**
 - **AWS Secrets Manager** designed specifically for secrets with built-in rotation
-- Automatic rotation for RDS, DocumentDB, Redshift, Amazon Redshift
+- Automatic rotation for RDS, Aurora, DocumentDB, Redshift
 - Lambda-based custom rotation for other services
 - Versioning and immediate rotation
 
@@ -1243,7 +1243,7 @@ B. Deactivate and delete the exposed access keys immediately
 C. Review CloudTrail logs for unauthorized activity  
 D. Enable MFA on the account  
 E. Create new access keys before deleting old ones  
-F. Check AWS Personal Health Dashboard  
+F. Check AWS Health Dashboard  
 
 <details>
 <summary>Show Answer</summary>
@@ -1338,15 +1338,15 @@ ORDER BY eventTime DESC
 ```
 
 **GuardDuty Findings to Check**:
-- UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration
-- Persistence:IAMUser/UserPermissions
-- PrivilegeEscalation:IAMUser/AdministrativePermissions
-- Impact:IAMUser/MaliciousIPCaller
+- UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS
+- Persistence:IAMUser/AnomalousBehavior
+- PrivilegeEscalation:IAMUser/AnomalousBehavior
+- UnauthorizedAccess:IAMUser/MaliciousIPCaller
 
 **Why Other Options are Wrong**:
 - **A (Password)**: Access keys and passwords are separate
 - **D (MFA)**: Important but not immediate priority
-- **F (PHD)**: Doesn't relate to credential exposure
+- **F (AWS Health Dashboard)**: Doesn't relate to credential exposure
 
 **Prevention Strategies**:
 1. **Never commit credentials** to version control
@@ -1386,8 +1386,8 @@ D. AWS PrivateLink
 | Option | Encryption | Speed | Setup | Cost |
 |--------|-----------|-------|-------|------|
 | **Site-to-Site VPN** | Yes (IPsec) | Up to 1.25 Gbps per tunnel (5 Gbps with Large Bandwidth Tunnels on Transit Gateway/Cloud WAN) | Minutes | Low |
-| **Direct Connect** | No (but can add) | 1-400 Gbps | Weeks | High |
-| **DX + VPN** | Yes | 1-100 Gbps | Weeks | High |
+| **Direct Connect** | No (but can add, e.g. MACsec or VPN) | 1-400 Gbps (dedicated) | Weeks | High |
+| **DX + VPN** | Yes | VPN tunnel limits apply (1.25 or 5 Gbps per tunnel) | Weeks | High |
 | **Internet** | HTTPS only | Variable | Immediate | Very low |
 
 **Site-to-Site VPN Features**:
@@ -1686,8 +1686,8 @@ Automated Response:
     "severity": [7, 8, 9],
     "type": [
       "UnauthorizedAccess:IAMUser/MaliciousIPCaller",
-      "UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration",
-      "PrivilegeEscalation:IAMUser/AdministrativePermissions"
+      "UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS",
+      "PrivilegeEscalation:IAMUser/AnomalousBehavior"
     ]
   }
 }
@@ -1780,9 +1780,9 @@ def lambda_handler(event, context):
 | Finding Type | Description | Response |
 |--------------|-------------|----------|
 | **UnauthorizedAccess:IAMUser/MaliciousIPCaller** | API calls from malicious IP | Disable credentials |
-| **UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration** | Credentials used outside AWS | Rotate credentials |
-| **PrivilegeEscalation:IAMUser/AdministrativePermissions** | User gained admin permissions | Revoke permissions |
-| **Persistence:IAMUser/UserPermissions** | User created new access keys | Review and delete |
+| **UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS** | EC2 instance credentials used outside AWS | Rotate credentials |
+| **PrivilegeEscalation:IAMUser/AnomalousBehavior** | Anomalous API calls that change IAM permissions | Revoke permissions |
+| **Persistence:IAMUser/AnomalousBehavior** | Anomalous create/modify calls (e.g. CreateAccessKey) | Review and delete |
 | **Impact:IAMUser/AnomalousBehavior** | Unusual API activity | Investigate |
 
 **Complete Response Playbook**:

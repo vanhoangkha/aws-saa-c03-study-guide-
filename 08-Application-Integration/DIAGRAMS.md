@@ -17,7 +17,7 @@ graph TB
     subgraph FIFO_Queue_Group["FIFO Queue"]
         FIFO["SQS FIFO Queue<br/>name.fifo"]
         
-        FIFO_Features["Features:<br/>300 msg/sec standard<br/>3,000 msg/sec with batching<br/>Exactly-once processing<br/>Strict ordering<br/>Deduplication"]
+        FIFO_Features["Features:<br/>300 API calls/sec per action<br/>3,000 msg/sec with batching<br/>High throughput mode: much higher<br/>Exactly-once processing<br/>Strict ordering<br/>Deduplication"]
         
         FIFO_Use["Use Cases:<br/>• Banking transactions<br/>• Order processing<br/>• Strict ordering required<br/>• No duplicates allowed"]
     end
@@ -166,7 +166,7 @@ graph TB
         Email["Email<br/>alerts@example.com"]
         SMS["SMS<br/>+1-555-0100"]
         HTTP["HTTP/S Endpoint<br/>Webhook"]
-        Kinesis["Kinesis Firehose<br/>Data streaming"]
+        Kinesis["Amazon Data Firehose<br/>Data streaming"]
     end
     
     CloudWatch -->|Publish| Topic
@@ -182,7 +182,7 @@ graph TB
     Filter --> HTTP
     Filter --> Kinesis
     
-    Features["Features:<br/>Pub/Sub pattern<br/>Fan-out to multiple subscribers<br/>Message filtering<br/>100,000+ topics per account<br/>12.5M subscriptions per topic<br/>$0.50 per million requests"]
+    Features["Features:<br/>Pub/Sub pattern<br/>Fan-out to multiple subscribers<br/>Message filtering<br/>100,000 standard topics per account<br/>12.5M subscriptions per standard topic<br/>$0.50 per million requests"]
     
     classDef style1 fill:#FF9900
     class Topic style1
@@ -537,7 +537,7 @@ graph TB
     
     VsSQS["Amazon MQ vs SQS/SNS:<br/><br/>Use Amazon MQ when:<br/>• Migrating from on-premises<br/>• Need specific protocols<br/>• Need traditional message broker<br/><br/>Use SQS/SNS when:<br/>• New cloud-native applications<br/>• Serverless integration<br/>• Unlimited scalability needed<br/>• Lower cost"]
     
-    Features["Features:<br/>Managed service<br/>Multi-AZ for HA<br/>Automatic failover<br/>EFS storage for persistence<br/>Pay for instance hours"]
+    Features["Features:<br/>Managed service<br/>Multi-AZ for HA<br/>Automatic failover<br/>EFS (ActiveMQ active/standby) or EBS storage<br/>Pay for instance hours"]
     
     classDef style1 fill:#FF9900
     class MQ style1
@@ -572,7 +572,7 @@ graph TB
     subgraph DataSources_Group["Data Sources"]
         DynamoDB[(DynamoDB)]
         Lambda[Lambda Functions]
-        RDS[(RDS via Lambda)]
+        RDS[(RDS / Aurora Data API)]
         HTTP[HTTP Endpoints]
         ElasticSearch[(OpenSearch)]
     end

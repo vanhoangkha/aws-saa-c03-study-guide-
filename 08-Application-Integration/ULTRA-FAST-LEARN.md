@@ -29,11 +29,11 @@
 - **Pub/Sub** messaging
 - **1 topic** → **many subscribers**
 - **Push-based** (not pull)
-- **100K topics** per account
+- **100K standard topics** per account (1,000 FIFO topics)
 
 ### SNS Subscribers
 - SQS, Lambda, HTTP/HTTPS, Email, SMS, Mobile push
-- **Kinesis Data Firehose**
+- **Amazon Data Firehose**
 
 ### SNS Features
 - **Fan-out**: SNS → multiple SQS queues
@@ -114,7 +114,7 @@ Application → SNS Topic → [SQS Queue 1, SQS Queue 2, Lambda]
 - **Real-time** data streaming
 - **Shards**: 1 MB/s or 1K records/s write, 2 MB/s read
 - **Retention**: 1-365 days
-- **Consumers**: Lambda, Kinesis Data Analytics, EC2
+- **Consumers**: Lambda, Managed Service for Apache Flink, Amazon Data Firehose, EC2 (KCL)
 
 ### Amazon Data Firehose (formerly Kinesis Data Firehose)
 - **Load streaming data** to destinations
@@ -127,7 +127,7 @@ Application → SNS Topic → [SQS Queue 1, SQS Queue 2, Lambda]
 - Status (November 2026): the SQL version is discontinued (apps deleted from 27 Jan 2026). Use Amazon Managed Service for Apache Flink.
 - **Apache Flink** applications (or SQL in Flink Studio) on streaming data
 - Real-time analytics
-- **Input**: Kinesis Data Streams, Firehose
+- **Input**: Kinesis Data Streams, Amazon MSK
 - **Output**: S3, Redshift, OpenSearch, Streams
 
 ### Kinesis vs SQS
@@ -137,7 +137,7 @@ Application → SNS Topic → [SQS Queue 1, SQS Queue 2, Lambda]
 | Retention | 1-365 days | 1 min-14 days |
 | Consumers | Multiple (same data) | One per message |
 | Ordering | Per shard | FIFO queue |
-| Throughput | Shard-based | Unlimited |
+| Throughput | Shard-based | Unlimited (Standard queues) |
 
 ## Quick Exam Tips
 - **SQS**: Decouple, queue, 1 MiB max

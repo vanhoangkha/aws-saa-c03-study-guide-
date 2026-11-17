@@ -117,18 +117,18 @@ graph TB
 graph TB
     subgraph AWS_KMS_Group["AWS KMS"]
         KMS[KMS]
-        KMS_Features["• Multi-tenant<br/>• AWS manages hardware<br/>• FIPS 140-3 Level 3 (2025)<br/>• Automatic backups<br/>• Free tier available<br/>• Integrates with AWS services"]
+        KMS_Features["• Multi-tenant<br/>• AWS manages hardware<br/>• FIPS 140-3 Level 3<br/>• Automatic backups<br/>• Free tier available<br/>• Integrates with AWS services"]
     end
     
     subgraph AWS_CloudHSM_Group["AWS CloudHSM"]
         HSM[CloudHSM]
-        HSM_Features["• Single-tenant dedicated HSM<br/>• You manage keys<br/>• FIPS 140-3 Level 3<br/>• No free tier<br/>• Industry-standard APIs<br/>• PKCS#11, JCE, CNG"]
+        HSM_Features["• Single-tenant dedicated HSM<br/>• You manage keys<br/>• FIPS 140-2/140-3 Level 3<br/>• No free tier<br/>• Industry-standard APIs<br/>• PKCS#11, JCE, CNG"]
     end
     
     subgraph Use_Cases_Group["Use Cases"]
         KMS --> KMS_Use["• Most AWS workloads<br/>• S3, EBS encryption<br/>• Simple key management<br/>• Cost-effective"]
         
-        HSM --> HSM_Use["• Contractual requirements<br/>• Regulatory compliance (single-tenant)<br/>• FIPS 140-3 Level 3<br/>• Custom key store for KMS"]
+        HSM --> HSM_Use["• Contractual requirements<br/>• Regulatory compliance (single-tenant)<br/>• Exclusive key control<br/>• Custom key store for KMS"]
     end
     
     classDef style1 fill:#FF9900
@@ -194,7 +194,7 @@ sequenceDiagram
     Lambda->>RDS: Test new credentials
     RDS->>Lambda: Connection successful
     Lambda->>SM: FinishSecret (mark as current(
-    SM->>Lambda: DeleteSecret (old version after grace period(
+    SM->>SM: Previous version keeps AWSPREVIOUS label (not deleted(
     
     Note over App,RDS: Application automatically gets new credentials
     
@@ -335,7 +335,7 @@ graph TB
     EventBridge --> Lambda
     EventBridge --> SecurityHub
     
-    Features["Features:<br/>30-day free trial<br/>Continuous monitoring<br/>No agents required<br/>Low overhead<br/>Pay per million events analyzed"]
+    Features["Features:<br/>30-day free trial<br/>Continuous monitoring<br/>No agents required<br/>Low overhead<br/>Pay per events / GB analyzed"]
     
     classDef style1 fill:#FF9900
     class GD style1
@@ -386,7 +386,7 @@ graph TB
     end
     
     subgraph Features_Group["Key Features"]
-        Features["Continuous scanning<br/>Risk scoring<br/>Remediation guidance<br/>Integration with CI/CD<br/>Pay per resource scanned"]
+        Features["Continuous scanning<br/>Risk scoring<br/>Remediation guidance<br/>Integration with CI/CD<br/>Pay per instance, image or function scanned"]
     end
     
     EC2 --> Inspector
