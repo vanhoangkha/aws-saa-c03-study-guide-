@@ -366,7 +366,7 @@ DATA SOURCES:
 ├── DynamoDB
 ├── Lambda
 ├── HTTP endpoints
-├── RDS/Aurora (Data API)
+├── Aurora (Data API)
 └── Amazon OpenSearch Service
 ```
 

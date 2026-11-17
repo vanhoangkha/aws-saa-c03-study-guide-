@@ -355,7 +355,7 @@ Example Filter Policy:
 - Managed **GraphQL** API service
 - Real-time data synchronization
 - Offline capabilities for mobile apps
-- **Data sources**: DynamoDB, Lambda, HTTP, RDS/Aurora (Data API), Amazon OpenSearch Service
+- **Data sources**: DynamoDB, Lambda, HTTP, Aurora (Data API), Amazon OpenSearch Service
 
 ### AppSync Features
 - **GraphQL**: Single endpoint for flexible queries

@@ -1823,7 +1823,7 @@ D. An AWS Glue crawler
 
 ## Summary
 
-**Total Questions**: 16  
+**Total Questions**: 18  
 **Topics Covered**:
 - Amazon SNS (Pub/Sub, Fan-out)
 - Amazon SQS (Standard vs FIFO Queues)
