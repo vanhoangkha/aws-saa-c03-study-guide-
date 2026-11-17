@@ -1,6 +1,6 @@
 # Fast Learning - Compute Services
 
-> **Time to Complete**: 60-90 minutes | **Exam Weight**: ~20-25%
+> **Time to Complete**: 60-90 minutes | **Exam Weight**: the exam guide weights domains (30/26/24/20), not services
 
 ## Must-Know Concepts (5 Minutes)
 
@@ -35,9 +35,9 @@ NEED LOAD BALANCE? → ALB/NLB/GWLB
 |-------|----------|------------|----------|--------------|
 | **O**n-Demand | 0% | None | Short-term, unpredictable | No |
 | **S**pot | Up to 90% | None | Fault-tolerant | YES (2 min notice) |
-| **R**eserved | Up to 72% | 1-3 years | Steady state | No |
+| **R**eserved | Up to 72% (Standard), 66% (Convertible) | 1-3 years | Steady state | No |
 | **S**avings Plans | Up to 72% (EC2 Instance), 66% (Compute) | 1-3 years | Flexible | No |
-| **D**edicated | 0% | None/1-3 yr | Compliance, licensing | No |
+| **D**edicated Hosts | 0% On-Demand; up to 70% with a Host Reservation | None/1-3 yr | Compliance, licensing | No |
 
 ## Exam Hot Topics
 
@@ -47,7 +47,7 @@ NEED LOAD BALANCE? → ALB/NLB/GWLB
 | **ALB** | 7 | HTTP/HTTPS | Microservices, containers | Path/host routing, Lambda targets |
 | **NLB** | 4 | TCP/UDP/TLS | Extreme performance | Static IP, millions req/s |
 | **GWLB** | 3 | IP | Security appliances | Firewalls, IDS/IPS |
-| **CLB** | 4 & 7 | HTTP/TCP | Legacy (avoid) | Deprecated |
+| **CLB** | 4 & 7 | HTTP/TCP | Legacy (avoid) | Previous generation; AWS recommends migrating to ALB or NLB |
 
 **Memory Aid**: "ALN your Goals" = ALB (apps), NLB (network), GWLB (gateway)
 
@@ -72,9 +72,9 @@ NEED LOAD BALANCE? → ALB/NLB/GWLB
 ### 3. Placement Groups
 | Type | Placement | AZ | Use Case | Max Performance |
 |------|-----------|-----|----------|-----------------|
-| **Cluster** | Same rack | Single | HPC, low latency | 10 Gbps |
-| **Spread** | Different racks | Multi | Critical instances | 7/AZ max |
-| **Partition** | Different racks | Multi | Distributed apps (Hadoop) | Multiple partitions |
+| **Cluster** | Same high-bisection network segment (not one rack) | Single | HPC, low latency | Up to 10 Gbps single-flow |
+| **Spread** | Different racks | Multi | Critical instances | 7 running instances/AZ max |
+| **Partition** | Different racks | Multi | Distributed apps (Hadoop) | Up to 7 partitions/AZ |
 
 **Memory Aid**: "CSP" = Cluster (Speed), Spread (Safety), Partition (Parts)
 
@@ -83,8 +83,8 @@ NEED LOAD BALANCE? → ALB/NLB/GWLB
 MAX TIMEOUT: 15 minutes
 MAX MEMORY: 10,240 MB (10 GB)
 MAX /tmp STORAGE: 10 GB
-MAX DEPLOYMENT SIZE: 50 MB (zipped), 250 MB (unzipped)
-CONCURRENT EXECUTIONS: 1,000 (default, can increase)
+MAX DEPLOYMENT SIZE: 50 MB (zipped), 250 MB (unzipped, incl. layers), 10 GB container image
+CONCURRENT EXECUTIONS: 1,000 per Region (default, can increase)
 ```
 
 **Pricing**: Pay per request + duration (GB-seconds)
@@ -152,8 +152,8 @@ METADATA (Instance info)
 ## Rapid-Fire Facts
 
 ### Reserved Instance Types
-1. **Standard**: 72% discount, can't change instance family
-2. **Convertible**: 66% discount, can change instance family
+1. **Standard**: Up to 72% discount, can't change instance family, can be sold on the RI Marketplace
+2. **Convertible**: Up to 66% discount, can be exchanged for another instance family, can't be sold
 3. **Scheduled** (retired): No longer sold. Use On-Demand Capacity Reservations plus Savings Plans instead
 
 ### Savings Plans Types
@@ -237,7 +237,7 @@ METADATA (Instance info)
 INSTANCE STORE (Ephemeral)
 ├── Physically attached
 ├── Very fast
-├── Data lost on stop/terminate
+├── Data lost on stop/hibernate/terminate
 └── Use: Temporary data, cache
 
 EBS (Persistent)
@@ -250,7 +250,7 @@ EBS (Persistent)
 ### EBS Volume Types Quick Reference
 | Type | IOPS | Throughput | Use Case |
 |------|------|------------|----------|
-| gp3 / gp2 | 80,000 / 16,000 | 2,000 / 250 MiB/s | General purpose (boot) |
+| gp3 / gp2 | 80,000 / 16,000 | 2,000 / 250 MiB/s | General purpose (boot); gp3 up to 64 TiB, gp2 up to 16 TiB |
 | io2 / io1 | 256,000 / 64,000 | 4,000 / 1,000 MiB/s | Databases, critical |
 | st1 | 500 | 500 MB/s | Big data, logs |
 | sc1 | 250 | 250 MB/s | Cold data |
