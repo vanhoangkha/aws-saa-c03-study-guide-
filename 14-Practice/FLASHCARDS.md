@@ -122,7 +122,7 @@ A: S3 provides strong consistency; objects are immediately available after succe
 A: Amazon ElastiCache (Redis/Memcached for database query caching).
 
 **Q: How do you distribute traffic across AZs evenly?**
-A: Cross-zone load balancing (always on for ALB, off by default for NLB). EC2 Auto Scaling AZ rebalancing keeps instance counts balanced across AZs.
+A: Cross-zone load balancing (on by default for ALB and can be turned off per target group; off by default for NLB). EC2 Auto Scaling AZ rebalancing keeps instance counts balanced across AZs.
 
 ---
 
