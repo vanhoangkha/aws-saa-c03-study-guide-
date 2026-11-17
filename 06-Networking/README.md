@@ -432,7 +432,7 @@ Record 3: 10% traffic (weight 10)
 | **Triggers** | Viewer request/response | All 4 CloudFront events |
 | **Execution** | Edge location | Regional edge cache |
 | **Max duration** | < 1 ms | 30 seconds |
-| **Max memory** | 2 MB | Same as Lambda quotas (128 MB - 10 GB) |
+| **Max memory** | 2 MB | 128 MB for viewer triggers; up to 10 GB for origin triggers |
 | **Use case** | Lightweight, high-scale | CPU-intensive, network access |
 | **Pricing** | $0.10 per million | $0.60 per million + duration |
 

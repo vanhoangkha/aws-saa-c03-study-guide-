@@ -119,7 +119,7 @@
 
 ## CloudFront
 - **CDN** (Content Delivery Network)
-- **700+ edge locations**
+- **750+ points of presence**
 - Cache content closer to users
 - **Origins**: S3, ALB, EC2, custom HTTP
 - **TTL**: Default 24 hours
@@ -139,6 +139,6 @@
 - **VPN**: Encrypted over internet
 - **Direct Connect**: Dedicated private link
 - **Route 53**: DNS, 8 routing policies
-- **CloudFront**: CDN, 700+ edge locations
+- **CloudFront**: CDN, 750+ points of presence
 - **Endpoint**: Private connection to AWS services
 
